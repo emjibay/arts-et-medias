@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Country",
+    "help": "Two-letter country ISO code (e.g. CA, US) as described in the ISO 3166 international standard.",
+    "name": "country",
+    "type": "string",
+    "required": true
+  }
+]

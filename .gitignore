@@ -1,0 +1,120 @@
+### IGNORE FILES FROM GIT ###
+
+### SYSTEMS FILES ###
+.apdisk
+.AppleDB
+.AppleDesktop
+.AppleDouble
+.com.apple.timemachine.donotpresent
+.directory
+.DocumentRevisions-V100
+.fseventsd
+.fuse_hidden*
+.LSOverride
+.nfs*
+.Spotlight-V100
+.TemporaryItems
+.Trash-*
+.Trashes
+.VolumeIcon.icns
+*._*
+*.DS_STORE
+*~
+Icon
+Network Trash Folder
+tags
+Temporary Items
+Thumbs.db
+
+### IDE CONFIGS
+.c9/
+.cache
+.cache
+.classpath
+.idea_modules/
+.idea/
+.netrwhist
+.project
+.settings/
+.tmproj/
+.vscode/
+.vscode/
+*.launch
+*.sublime-workspace
+atlassian-ide-plugin.xml
+
+
+### COMMON PROJECT FILES ###
+
+## dump director-y-ies
+# this allows to create directories
+# at the root of the project directory
+# prefixed with an underscore (_)
+# without committing them
+/_*
+
+## design files
+**.ai
+**.indd
+**.psd
+**.sketch
+
+## logs
+**.log
+
+## compressed assets
+**.rar
+**.tgz
+**.zip
+
+## environment files
+# example file should be allowed
+# other patterns, such as .env.prod, should be disallowed
+.env*
+!.env.example
+
+## modules
+bower_components
+jspm_packages
+node_modules
+typings
+
+# yarn should be used instead
+package-lock.json
+
+# configs etc.
+.eslintcache
+.grunt
+.jshintrc
+.netlify
+.npm
+.yarn-integrity
+
+# output directories, etc.
+./bin
+./build
+./coverage
+./dist
+./out
+./temp
+./tmp
+
+
+### PROJECT-SPECIFIC FILES BELOW ###
+/data
+/public/uploads
+/public/apos-minified
+/data/temp/uploadfs
+
+# This folder is created on the fly and contains symlinks updated at startup (we'll come up with a Windows solution that actually copies things)
+/public/modules
+
+# We don't commit CSS, only LESS
+/public/css/*.css
+/public/css/*.map
+
+# Don't commit masters generated on the fly at startup, these import all the rest
+/public/css/master-*.less
+
+.jshintrc
+/public/js/_site-compiled.js

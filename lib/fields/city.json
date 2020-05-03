@@ -1,0 +1,9 @@
+[
+  {
+    "label": "City",
+    "help": "",
+    "name": "city",
+    "type": "string",
+    "required": true
+  }
+]

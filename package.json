@@ -1,0 +1,31 @@
+{
+  "name": "arts-et-medias",
+  "version": "0.0.1",
+  "description": "News and resources about contemporary and media art.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Mat Janson Blanchet",
+  "license": "MIT",
+  "dependencies": {
+    "apostrophe": "^2.103.1",
+    "apostrophe-db-mongo-3-driver": "^2.0.1",
+    "apostrophe-second-chance-login": "^2.0.0",
+    "apostrophe-workflow": "^2.34.0"
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "ignore": [
+      "lib/modules/*/public/js/*.js",
+      "locales/*.json",
+      "public/modules/**/*.less",
+      "public/modules/**/*.js",
+      "public/uploads",
+      "public/apos-minified/*.js",
+      "public/css/master-*.less",
+      "data"
+    ],
+    "ext": "json, js, html, less"
+  }
+}

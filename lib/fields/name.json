@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Name",
+    "help": "",
+    "name": "title",
+    "type": "string",
+    "required": true
+  }
+]

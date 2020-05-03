@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Description",
+    "help": "",
+    "name": "description",
+    "type": "string",
+    "textarea": true,
+    "required": true
+  }
+]

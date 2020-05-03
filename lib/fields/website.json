@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Website",
+    "help": "",
+    "name": "website",
+    "type": "string",
+    "required": false
+  }
+]

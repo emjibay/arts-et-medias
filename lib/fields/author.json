@@ -1,0 +1,18 @@
+[
+
+  {
+    "label": "Author",
+    "help": "",
+    "name": "_author",
+    "type": "joinByArray",
+    "withType": ["person"],
+    "filters": {
+      "permission": false,
+      "projection": {
+        "_url": 1,
+        "title": 1
+      }
+    },
+    "required": true
+  }
+]

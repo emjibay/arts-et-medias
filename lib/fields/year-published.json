@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Year Published",
+    "help": "",
+    "name": "yearPublished",
+    "type": "string",
+    "required": false
+  }
+]

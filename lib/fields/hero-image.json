@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Hero Image",
+    "help": "",
+    "name": "heroImage",
+    "type": "singleton",
+    "widgetType": "apostrophe-images",
+    "required": false
+  }
+]
