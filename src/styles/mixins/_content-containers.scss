@@ -1,0 +1,33 @@
+@import '../common/variables';
+
+
+@mixin contentContainer {
+  position: relative;
+  margin: 0 auto;
+  width: $phoneContent;
+
+  @media #{$mqTablet} {
+    width: $tabletContent;
+  }
+  @media #{$mqDesktop} {
+    width: $desktopContent;
+  }
+}
+
+@mixin customContentContainerWithSpanAt($numColSpan, $breakpoint) {
+  $nColWidth: getColumnsSpan($numColSpan, $breakpoint);
+  width: $nColWidth;
+}
+
+@mixin customContentContainerWithSpan($numColSpan) {
+  position: relative;
+  margin: 0 auto;
+  width: $phoneContent;
+
+  @media #{$mqTablet} {
+    width: $tabletContent;
+  }
+  @media #{$mqDesktop} {
+    @include customContentContainerWithSpanAt($numColSpan, $desktop);
+  }
+}

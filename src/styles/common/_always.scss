@@ -1,0 +1,24 @@
+@import 'variables';
+
+
+// dom elements
+body {
+  font-size: 0 !important;
+  overflow-x: hidden;
+}
+
+img {
+  line-height: 0;
+}
+
+
+// apostrophe
+[data-apos-widget="apostrophe-rich-text"] > [data-rich-text]:focus {
+  outline: $aposGreen dotted 2px;
+}
+
+
+// common
+.content {
+  @include contentContainer();
+}

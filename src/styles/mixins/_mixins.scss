@@ -1,0 +1,39 @@
+@import '../common/variables';
+
+@import 'content-containers';
+@import 'columns';
+@import 'margins';
+@import 'functions';
+
+@import 'apos-overrides';
+
+
+// visibility
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+}
+
+@mixin visible {
+  display: block;
+  visibility: visible;
+}
+
+@mixin visuallyHidden {
+  position: absolute !important;
+  border: 0 !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px !important;
+  overflow: hidden;
+  padding: 0 !important;
+  width: 1px !important;
+}
+
+
+// alignment
+@mixin leftAlignToContent() {
+  @media #{$mqDesktop} {
+    left: getSideWidth($desktop);
+  }
+}

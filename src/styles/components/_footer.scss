@@ -1,0 +1,53 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+
+.footer {
+  background-color: $black;
+  color: $white;
+  padding: 48px 0 64px;
+  margin-top: 64px;
+
+  .site-title {
+    @include headingBase();
+    font-size: 20pt;
+    line-height: 20pt;
+  }
+
+  .link-columns {
+    margin-top: 48px;
+
+    .column {
+      @include nColumnWidth(3);
+      display: inline-block;
+      vertical-align: top;
+
+      .column-title {
+        @include headingBase();
+        font-size: 16pt;
+        line-height: 16pt;
+      }
+
+      .list-item {
+        margin: 12px 0;
+      }
+
+      .footer-link {
+        color: $white;
+        font-family: $ffTextBody;
+        font-size: 10pt;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+        &:focus {
+          @include focusOutline();
+        }
+      }
+    }
+  }
+}

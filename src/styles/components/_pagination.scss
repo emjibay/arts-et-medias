@@ -1,0 +1,57 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+.apos-pager {
+  margin: 40px 0;
+
+  .apos-pager-number {
+    display: inline-block;
+    background-color: $black;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: $ffButtonLabel;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: normal;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    margin-left: 10px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:hover  {
+      background-color: $white;
+      border: 1px solid $black;
+
+      a {
+        color: $black;
+      }
+    }
+
+    &:focus-within {
+      @include focusOutline();
+
+      a {
+        outline: 0 !important;
+      }
+    }
+
+    &.apos-active {
+      background-color: $white;
+      border: 1px solid $black;
+    }
+
+    a {
+      display: block;
+      color: $white;
+      height: 40px;
+      text-decoration: none;
+      width: 40px;
+    }
+  }
+}

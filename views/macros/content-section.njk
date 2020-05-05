@@ -1,0 +1,35 @@
+{%-
+  from 'options/options.njk'
+  import movableControls, movableRichTextOptions
+-%}
+
+{%-
+  set defaultAreaOptions = {
+    widgets: {
+      'apostrophe-rich-text': movableRichTextOptions|merge({
+        addLabel: 'Text'
+      }),
+      'apostrophe-video': {}
+    },
+    contextual: true
+  }
+-%}
+
+{%-
+  macro contentSection(
+    dataContainer,
+    propName = 'bodyContent',
+    useSchema = false,
+    areaOptions = defaultAreaOptions
+  )
+-%}
+  <section>
+    <div class="rich-content">
+      {% if useSchema %}
+        {{ apos.area(dataContainer, propName) }}
+      {% else %}
+        {{ apos.area(dataContainer, propName, areaOptions) }}
+      {% endif %}
+    </div>
+  </section>
+{%- endmacro -%}

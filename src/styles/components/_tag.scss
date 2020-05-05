@@ -1,0 +1,29 @@
+@import '../common/variables';
+
+.tag-list {
+  margin: 20px 0;
+
+  li {
+    display: inline-block;
+    margin-left: 10px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+}
+
+.tag {
+  display: inline-block;
+  background-color: $halfGrey;
+  border: 1px solid transparent;
+  color: $white;
+  font-family: $ffButtonLabel;
+  font-size: 8pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+}

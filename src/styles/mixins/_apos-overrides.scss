@@ -1,0 +1,62 @@
+@import '../common/variables';
+@import '../common/ui';
+
+
+@mixin aposRichText {
+  h1 {
+    @include heading1();
+  }
+  h2 {
+    @include heading2();
+  }
+  h3 {
+    @include heading3();
+  }
+  h4 {
+    @include heading4();
+  }
+  h5 {
+    @include heading5();
+  }
+  h6 {
+    @include heading6();
+  }
+  p {
+    @include paragraph();
+  }
+  a {
+    @include anchor();
+  }
+  strong {
+    font-weight: bold;
+  }
+  em {
+    font-style: italic;
+  }
+  sup {
+    vertical-align: super;
+    font-size: 80%;
+  }
+  ul {
+    @include list();
+
+    li {
+      @include unorderedListItem();
+    }
+  }
+}
+
+@mixin aposControls {
+  .apos-area-widget > .apos-ui {
+    position: absolute;
+    left: -24px;
+
+    .apos-area-widget-controls {
+      opacity: .333;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

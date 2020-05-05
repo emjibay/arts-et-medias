@@ -1,0 +1,32 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+
+.rich-content {
+  // override apos
+  h2, h3, h3, h4 {
+    margin-top: 20px;
+  }
+
+  p, ul, ol {
+    margin-top: 10px;
+  }
+  // override apos end
+
+  .apos-rich-text {
+    @include aposRichText();
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .apos-video-player {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+
+    iframe {
+      vertical-align: top;
+    }
+  }
+}

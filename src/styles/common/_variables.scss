@@ -1,0 +1,29 @@
+@import 'breakpoints';
+@import 'colors';
+@import 'typography';
+
+
+// content width
+$phoneContent: 320px;
+$tabletContent: 704px;
+$desktopContent: 892px;
+$mediumDesktopContent: 1032px;
+$largeDesktopContent: 1230px;
+$highDefinitionContent: 1456px;
+
+// gutter width
+$gutterWidthSm: 16px; // mobile, tablet
+$gutterWidthMd: 20px; // desktop
+$gutterWidthLg: 24px; // medium desktop
+$gutterWidthXL: 30px; // large desktop
+$gutterWidthXXL: 32px; // high def
+
+// column width
+$columnWidthXs: 40px; // mobile
+$columnWidthSm: 44px; // tablet
+$columnWidthMd: 56px; // desktop
+$columnWidthLg: 64px; // medium desktop
+$columnWidthXL: 75px; // large desktop
+$columnWidthXXL: 92px; // high def
+
+$mainNavWidth: 60px;

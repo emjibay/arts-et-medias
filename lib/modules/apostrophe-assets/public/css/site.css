@@ -1,0 +1,1471 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+i {
+  font-style: italic;
+}
+
+b {
+  font-weight: bold;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before {
+  content: "";
+  display: block;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+body {
+  font-size: 0 !important;
+  overflow-x: hidden;
+}
+
+img {
+  line-height: 0;
+}
+
+[data-apos-widget=apostrophe-rich-text] > [data-rich-text]:focus {
+  outline: #00a77b dotted 2px;
+}
+
+.content {
+  position: relative;
+  margin: 0 auto;
+  width: 320px;
+}
+@media only screen and (min-width: 768px) {
+  .content {
+    width: 704px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .content {
+    width: 892px;
+  }
+}
+
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+.header {
+  padding: 32px 0 64px;
+}
+.header .site-title {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 48pt;
+  line-height: 48pt;
+  text-align: center;
+}
+.header .site-title strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.header .site-title a {
+  color: #000;
+  text-decoration: none;
+}
+.header .site-title a:hover {
+  color: #1276D3;
+}
+.header .site-title a:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 4px #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.header .site-title a:focus::-moz-focus-inner {
+  border: 0;
+}
+.header .nav {
+  margin-top: 16px;
+  padding: 12px 0;
+  border-top: 1px solid #757575;
+  border-bottom: 1px solid #757575;
+}
+.header .nav-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+.header .nav-list .nav-item .nav-link {
+  cursor: pointer;
+  color: #000;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 16pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 16pt;
+  text-decoration: none;
+}
+.header .nav-list .nav-item .nav-link:hover {
+  color: #1276D3;
+}
+.header .nav-list .nav-item .nav-link:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 4px #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.header .nav-list .nav-item .nav-link:focus::-moz-focus-inner {
+  border: 0;
+}
+
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 48px 0 64px;
+  margin-top: 64px;
+}
+.footer .site-title {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 20pt;
+  line-height: 20pt;
+}
+.footer .site-title strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.footer .link-columns {
+  margin-top: 48px;
+}
+.footer .link-columns .column {
+  width: calc( (40px * 3) + (16px * 2) );
+  display: inline-block;
+  vertical-align: top;
+}
+@media only screen and (min-width: 768px) {
+  .footer .link-columns .column {
+    width: calc( (44px * 3) + (16px * 2) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .footer .link-columns .column {
+    width: calc( (56px * 3) + (20px * 2) );
+  }
+}
+.footer .link-columns .column .column-title {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 16pt;
+  line-height: 16pt;
+}
+.footer .link-columns .column .column-title strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.footer .link-columns .column .list-item {
+  margin: 12px 0;
+}
+.footer .link-columns .column .footer-link {
+  color: #fff;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 10pt;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+}
+.footer .link-columns .column .footer-link:hover {
+  text-decoration: underline;
+}
+.footer .link-columns .column .footer-link:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 4px #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.footer .link-columns .column .footer-link:focus::-moz-focus-inner {
+  border: 0;
+}
+
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+.rich-content h2, .rich-content h3, .rich-content h3, .rich-content h4 {
+  margin-top: 20px;
+}
+.rich-content p, .rich-content ul, .rich-content ol {
+  margin-top: 10px;
+}
+.rich-content .apos-rich-text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.rich-content .apos-rich-text h1 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 60px;
+}
+.rich-content .apos-rich-text h1 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.rich-content .apos-rich-text h2 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 50px;
+}
+.rich-content .apos-rich-text h2 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.rich-content .apos-rich-text h3 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 40px;
+}
+.rich-content .apos-rich-text h3 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.rich-content .apos-rich-text h4 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 30px;
+}
+.rich-content .apos-rich-text h4 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.rich-content .apos-rich-text h5 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+}
+.rich-content .apos-rich-text h5 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.rich-content .apos-rich-text h6 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+}
+.rich-content .apos-rich-text h6 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.rich-content .apos-rich-text p {
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 22px;
+  text-align: left;
+  margin: 16px 0;
+}
+.rich-content .apos-rich-text a {
+  cursor: pointer;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+}
+.rich-content .apos-rich-text a:hover {
+  color: #1276D3;
+  text-decoration: none;
+}
+.rich-content .apos-rich-text a:active {
+  text-decoration: none;
+}
+.rich-content .apos-rich-text a:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 4px #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.rich-content .apos-rich-text a:focus::-moz-focus-inner {
+  border: 0;
+}
+.rich-content .apos-rich-text strong {
+  font-weight: bold;
+}
+.rich-content .apos-rich-text em {
+  font-style: italic;
+}
+.rich-content .apos-rich-text sup {
+  vertical-align: super;
+  font-size: 80%;
+}
+.rich-content .apos-rich-text ul {
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 22px;
+  text-align: left;
+  margin: 16px 0;
+}
+.rich-content .apos-rich-text ul li {
+  margin-bottom: 6px;
+}
+.rich-content .apos-rich-text ul li:last-of-type {
+  margin-bottom: 0;
+}
+.rich-content .apos-rich-text ul li:before {
+  margin-right: 11px;
+  content: "—";
+}
+.rich-content .apos-video-player {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.rich-content .apos-video-player iframe {
+  vertical-align: top;
+}
+
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+/**
+* Calculates the span taken by
+*   `n` number of columns and gutters
+*   at a given breakpoint.
+*
+* @param $numColumns The number of columns to consider to calculate the width.
+* @param $breakpoint The breakpoint at which the calculations should be made.
+*
+* @return The width of the span of `n` columns,
+*   including the necessary amount of gutters.
+*/
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Calculates the sum of the width of the margins
+  * between the content width
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+/**
+  * Calculates the width of one margin
+  * between the content block
+  * and the edge of the viewport.
+  * Note: Currently only handles desktop dimensions,
+  * since it takes the main nav with in consideration.
+  */
+.apos-pager {
+  margin: 40px 0;
+}
+.apos-pager .apos-pager-number {
+  display: inline-block;
+  background-color: #000;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  margin-left: 10px;
+}
+.apos-pager .apos-pager-number:first-of-type {
+  margin-left: 0;
+}
+.apos-pager .apos-pager-number:hover {
+  background-color: #fff;
+  border: 1px solid #000;
+}
+.apos-pager .apos-pager-number:hover a {
+  color: #000;
+}
+.apos-pager .apos-pager-number:focus-within {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 4px #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.apos-pager .apos-pager-number:focus-within::-moz-focus-inner {
+  border: 0;
+}
+.apos-pager .apos-pager-number:focus-within a {
+  outline: 0 !important;
+}
+.apos-pager .apos-pager-number.apos-active {
+  background-color: #fff;
+  border: 1px solid #000;
+}
+.apos-pager .apos-pager-number a {
+  display: block;
+  color: #fff;
+  height: 40px;
+  text-decoration: none;
+  width: 40px;
+}
+
+.tag-list {
+  margin: 20px 0;
+}
+.tag-list li {
+  display: inline-block;
+  margin-left: 10px;
+}
+.tag-list li:first-of-type {
+  margin-left: 0;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #757575;
+  border: 1px solid transparent;
+  color: #fff;
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-size: 8pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.page-home h1 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 60px;
+}
+.page-home h1 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.page-home p {
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 22px;
+  text-align: left;
+  margin: 16px 0;
+  text-align: justify;
+}
+@media only screen and (min-width: 1024px) {
+  .page-home p {
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+.content-template h1 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 60px;
+}
+.content-template h1 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.content-template p {
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 22px;
+  text-align: left;
+  margin: 16px 0;
+  text-align: justify;
+}
+@media only screen and (min-width: 1024px) {
+  .content-template p {
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+.page-person-details .column {
+  display: inline-block;
+  vertical-align: top;
+}
+.page-person-details .column.left {
+  width: calc( (40px * 6) + (16px * 5) );
+}
+@media only screen and (min-width: 768px) {
+  .page-person-details .column.left {
+    width: calc( (44px * 6) + (16px * 5) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-person-details .column.left {
+    width: calc( (56px * 6) + (20px * 5) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-person-details .column.left {
+    width: calc( (40px * 9) + (16px * 8) );
+  }
+}
+@media only screen and (min-width: 1024px) and (min-width: 768px) {
+  .page-person-details .column.left {
+    width: calc( (44px * 9) + (16px * 8) );
+  }
+}
+@media only screen and (min-width: 1024px) and (min-width: 1024px) {
+  .page-person-details .column.left {
+    width: calc( (56px * 9) + (20px * 8) );
+  }
+}
+.page-person-details .column.right {
+  margin-left: 16px;
+  width: calc( (40px * 6) + (16px * 5) );
+}
+@media only screen and (min-width: 1024px) {
+  .page-person-details .column.right {
+    margin-left: 20px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .page-person-details .column.right {
+    width: calc( (44px * 6) + (16px * 5) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-person-details .column.right {
+    width: calc( (56px * 6) + (20px * 5) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-person-details .column.right {
+    width: calc( (40px * 3) + (16px * 2) );
+  }
+}
+@media only screen and (min-width: 1024px) and (min-width: 768px) {
+  .page-person-details .column.right {
+    width: calc( (44px * 3) + (16px * 2) );
+  }
+}
+@media only screen and (min-width: 1024px) and (min-width: 1024px) {
+  .page-person-details .column.right {
+    width: calc( (56px * 3) + (20px * 2) );
+  }
+}
+.page-person-details h1 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 60px;
+}
+.page-person-details h1 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.page-person-details h2 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 50px;
+}
+.page-person-details h2 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.page-person-details .profile-pic {
+  object-fit: cover;
+  height: calc( (40px * 6) + (16px * 5) );
+  width: calc( (40px * 6) + (16px * 5) );
+  vertical-align: top;
+  filter: none;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+}
+@media only screen and (min-width: 1024px) {
+  .page-person-details .profile-pic {
+    width: calc( (56px * 3) + (20px * 2) );
+    height: calc( (56px * 3) + (20px * 2) );
+  }
+}
+.page-person-details .description {
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 22px;
+  text-align: left;
+  margin: 16px 0;
+  width: calc( (40px * 6) + (16px * 5) );
+}
+@media only screen and (min-width: 768px) {
+  .page-person-details .description {
+    width: calc( (44px * 6) + (16px * 5) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-person-details .description {
+    width: calc( (56px * 6) + (20px * 5) );
+  }
+}
+.page-person-details .website-cta {
+  display: inline-block;
+  background-color: #000;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-size: 12pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+}
+.page-person-details .website-cta:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+.page-person-details .website-cta:active {
+  text-decoration: none;
+}
+.page-person-details .website-cta:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 4px #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.page-person-details .website-cta:focus::-moz-focus-inner {
+  border: 0;
+}
+.page-person-details .website-cta:disabled, .page-person-details .website-cta[disabled] {
+  cursor: not-allowed;
+}
+
+.page-people-index h1 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 60px;
+}
+.page-people-index h1 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.page-people-index p {
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 22px;
+  text-align: left;
+  margin: 16px 0;
+}
+.page-people-index .people-list {
+  margin: 40px 0;
+}
+.page-people-index .people-list .list-item {
+  width: calc( (40px * 6) + (16px * 5) );
+  display: inline-block;
+  margin: 20px 0;
+  vertical-align: top;
+}
+@media only screen and (min-width: 768px) {
+  .page-people-index .people-list .list-item {
+    width: calc( (44px * 6) + (16px * 5) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-people-index .people-list .list-item {
+    width: calc( (56px * 6) + (20px * 5) );
+  }
+}
+.page-people-index .people-list .list-item:nth-child(even) {
+  margin-left: 16px;
+}
+@media only screen and (min-width: 1024px) {
+  .page-people-index .people-list .list-item:nth-child(even) {
+    margin-left: 20px;
+  }
+}
+.page-people-index .person-link {
+  text-decoration: none;
+  display: inline-block;
+}
+.page-people-index .person-link:hover h1 {
+  color: #1276D3;
+}
+.page-people-index .person-link:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 4px #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.page-people-index .person-link:focus::-moz-focus-inner {
+  border: 0;
+}
+.page-people-index .person-card {
+  color: #000;
+}
+.page-people-index .person-card h1 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: 30px;
+}
+.page-people-index .person-card h1 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+i {
+  font-style: italic;
+}
+
+b {
+  font-weight: bold;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before {
+  content: "";
+  display: block;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/*# sourceMappingURL=site.css.map*/

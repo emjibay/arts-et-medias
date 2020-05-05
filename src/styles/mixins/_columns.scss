@@ -1,0 +1,21 @@
+@import '../common/variables';
+@import 'functions';
+
+
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+@mixin nColumnWidth($numColSpan) {
+  width: getColumnsSpan($numColSpan, $phone);
+
+  @media #{$mqTablet} {
+    width: getColumnsSpan($numColSpan, $tablet);
+  }
+  @media #{$mqDesktop} {
+    width: getColumnsSpan($numColSpan, $desktop);
+  }
+}

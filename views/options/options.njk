@@ -1,0 +1,68 @@
+{# widget controls options #}
+{%
+  set fixedControls = {
+    movable: false,
+    removable: false
+  }
+%}
+{%
+  set movableControls = {
+    movable: true,
+    removable: true
+  }
+%}
+
+{# apos rich text options #}
+{%
+  set richTextToolbarOptions = [
+    'Styles',
+    'Bold',
+    'Italic',
+    'Underline',
+    'BulletedList',
+    'Link',
+    'Unlink'
+  ]
+%}
+{%
+  set richTextStyles = [
+    {
+      name: 'Paragraph',
+      element: 'p'
+    },
+    {
+      name: 'Heading 2',
+      element: 'h2'
+    },
+    {
+      name: 'Heading 3',
+      element: 'h3'
+    },
+    {
+      name: 'Heading 4',
+      element: 'h4'
+    }
+  ]
+%}
+{%
+  set movableRichTextOptions = {
+    editLabel: 'Edit text',
+    toolbar: richTextToolbarOptions,
+    styles: richTextStyles,
+    controls: movableControls
+  }
+%}
+{%
+  set fixedRichTextOptions = {
+    editLabel: 'Edit text',
+    toolbar: richTextToolbarOptions,
+    styles: richTextStyles,
+    controls: fixedControls
+  }
+%}
+{%
+  set movableOnlyTextOptions = {
+    editLabel: 'Edit text',
+    controls: movableControls
+  }
+%}

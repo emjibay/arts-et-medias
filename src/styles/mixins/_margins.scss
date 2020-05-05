@@ -1,0 +1,30 @@
+@import '../common/variables';
+@import 'functions';
+
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+@mixin columnsAsLeftMargin($numColSpan, $numGutters: 1) {
+  $colSpan: getColumnsSpan($numColSpan, $phone);
+  margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$gutterWidthSm}));
+
+  @media #{$mqTablet} {
+    $colSpan: getColumnsSpan($numColSpan, $tablet);
+    margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$gutterWidthSm}));
+  }
+  @media #{$mqDesktop} {
+    $colSpan: getColumnsSpan($numColSpan, $desktop);
+    margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$gutterWidthMd}));
+  }
+}
+
+@mixin gutterLeftMargin {
+  margin-left: $gutterWidthSm;
+
+  @media #{$mqDesktop} {
+    margin-left: $gutterWidthMd;
+  }
+}
