@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Page not found | Arts et Médias
+{% endblock %}
+
+
+{% block beforeMain %}
+  {% include "partials/header.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="page-home">
+    <main id="main" class="content">
+      <h1>Page not found</h1>
+      <p>We're sorry. We couldn't find the page you're looking for.</p>
+      {# TODO: offer suggestions #}
+    </main>
+  </div>
+{% endblock %}
+
+{% block afterMain %}
+  {% include "partials/footer.html" %}
+{% endblock %}
