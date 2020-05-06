@@ -40,9 +40,15 @@
           <li class="list-item">
             <a class="footer-link" href="/help">Help Us</a>
           </li>
+          {% if data.user %}
+          <li class="list-item">
+            <a class="footer-link" href="/logout">Log Out</a>
+          </li>
+          {% else %}
           <li class="list-item">
             <a class="footer-link" href="/login">Log In</a>
           </li>
+          {% endif %}
         </ul>
       </div>
       <div class="column">
