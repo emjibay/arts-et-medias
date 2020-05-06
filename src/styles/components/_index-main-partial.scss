@@ -2,8 +2,8 @@
 @import '../common/ui';
 @import '../mixins/mixins';
 
-.education-index {
-  .education-list {
+.index-main-partial {
+  .index-list {
     @include list();
 
     li {
