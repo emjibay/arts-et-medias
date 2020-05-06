@@ -1,0 +1,35 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+.nav {
+  margin-top: 15px;
+  padding: 10px 0;
+  border-top: 1px solid $halfGrey;
+  border-bottom: 1px solid $halfGrey;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-evenly;
+
+  li {
+    a {
+      color: $black;
+      cursor: pointer;
+      font-family: $ffTextBody;
+      font-size: 15pt;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      text-decoration: none;
+
+      &:hover {
+        color: $main;
+      }
+      &:focus {
+        @include focusOutline();
+      }
+    }
+  }
+}

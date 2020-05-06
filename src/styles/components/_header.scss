@@ -8,8 +8,8 @@
 
   .site-title {
     @include headingBase();
-    font-size: 48pt;
-    line-height: 48pt;
+    font-size: 50pt;
+    line-height: 1;
     text-align: center;
 
     a {
@@ -21,38 +21,6 @@
       }
       &:focus {
         @include focusOutline();
-      }
-    }
-  }
-
-  .nav {
-    margin-top: 16px;
-    padding: 12px 0;
-    border-top: 1px solid $halfGrey;
-    border-bottom: 1px solid $halfGrey;
-  }
-
-  .nav-list {
-    display: flex;
-    justify-content: space-evenly;
-
-    .nav-item {
-      .nav-link {
-        cursor: pointer;
-        color: $black;
-        font-family: $ffTextBody;
-        font-size: 16pt;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 16pt;
-        text-decoration: none;
-
-        &:hover {
-          color: $main;
-        }
-        &:focus {
-          @include focusOutline();
-        }
       }
     }
   }

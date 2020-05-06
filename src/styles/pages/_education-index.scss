@@ -1,0 +1,18 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+.education-index {
+  .education-list {
+    @include list();
+
+    li {
+      @include unorderedListItem();
+
+      a {
+        @include anchor();
+        color: $black;
+      }
+    }
+  }
+}

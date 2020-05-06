@@ -1,8 +1,9 @@
+// components
+@import 'nav-list';
+@import 'pagination';
+@import 'rich-content';
+@import 'tag';
+
 // page elements
 @import 'header';
 @import 'footer';
-
-// components
-@import 'rich-content';
-@import 'pagination';
-@import 'tag';
