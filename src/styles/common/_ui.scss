@@ -38,7 +38,7 @@
 @mixin subheading {
   font-family: $ffTextBody;
   font-size: 16px;
-  font-weight: $fwRegular !important;
+  font-weight: normal !important;
   line-height: 22px;
   text-align: left;
 
@@ -139,13 +139,13 @@
   background-position-y: 2px;
   background-repeat: no-repeat;
   background-size: 10px 20px;
-  border-bottom-color: $blackRoast;
+  border-bottom-color: $black;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-left: none;
   border-right: none;
   border-top: none;
-  color: $blackRoast;
+  color: $black;
   cursor: pointer;
   padding-bottom: 6px;
   padding-right: 20px;
@@ -165,7 +165,7 @@
 // forms
 @mixin fieldset {
   font-family: $ffTextBody;
-  font-weight: $fwRegular;
+  font-weight: normal;
 }
 @mixin fieldsetLegend {
   font-size: 0;
@@ -175,19 +175,15 @@
 }
 @mixin textInput {
   -webkit-appearance: none;
-  background-color: transparent;
-  border-bottom: 1px solid $blackRoast;
-  border-left: none;
+  background-color: $white;
+  border: 1px solid $black;
   border-radius: 0;
-  border-right: none;
-  border-top: none;
-  color: $blackRoast;
+  color: $black;
   font-family: $ffTextBody;
-  font-size: 16px;
-  font-weight: $fwRegular;
-  line-height: 28px;
-  padding-left: 0;
-  padding-right: 0;
+  font-size: 12pt;
+  font-weight: normal;
+  line-height: 30px;
+  padding: 5px;
 
   &:focus {
     @include focusOutline();
@@ -199,25 +195,18 @@
 }
 @mixin inputLabel {
   display: block;
-  color: $blackRoast;
-  font-family: $ffTextBody;
-  font-size: 12px;
-  font-weight: $fwRegular;
-  text-transform: capitalize;
-
-  @media #{$mqDesktop} {
-    font-size: 10px;
-    font-family: $ffSansSerifBold;
-    text-transform: uppercase;
-  }
+  color: $black;
+  font-family: $ffButtonLabel;
+  font-size: 10pt;
+  font-weight: normal;
 }
 @mixin radioButton {
   font-family: $ffTextBody;
-  font-weight: $fwRegular;
+  font-weight: normal;
 }
 @mixin checkboxButton {
   font-family: $ffTextBody;
-  font-weight: $fwRegular;
+  font-weight: normal;
 }
 
 // a11y
