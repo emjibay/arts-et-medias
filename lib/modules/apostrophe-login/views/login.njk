@@ -1,0 +1,74 @@
+{% extends "layouts/layout.njk" %}
+
+{% block title %}
+  {{ __ns('apostrophe', "Login") }} | Arts et Médias
+{% endblock %}
+
+{% block beforeMain %}
+  {% include "partials/header.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="page-login">
+    <main id="main" class="content">
+      <h1>{{ __ns('apostrophe', "Login") }}</h1>
+
+      <form
+        action="{% block action %}{{ apos.prefix }}/login{% endblock %}"
+        method="post"
+      >
+        {% if data.errors and data.errors[0] %}
+          <div class="apos-login-warning">
+            {{ data.errors | join(' ') }}
+          </div>
+
+        {% else %}
+          {% if data.message %}
+            <div class="apos-login-warning">
+              {{ __ns('apostrophe', data.message) }}
+            </div>
+          {% endif %}
+        {% endif %}
+
+        <fieldset>
+          <legend>Credentials</legend>
+
+          <div class="form-group">
+            <label for="username">
+              {{ __ns('apostrophe', 'Username or Email') }}
+            </label>
+            <input
+              id="username"
+              type="text"
+              name="username"
+              placeholder="Enter your username or email"
+              autofocus
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">
+              {{ __ns('apostrophe', 'Password') }}
+            </label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              id="password"
+            />
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">
+            {% block buttonLabel %}{{ __ns('apostrophe', 'Log In') }}{% endblock %}
+          </button>
+        </div>
+      </form>
+    </main>
+  </div>
+{% endblock %}
+
+{% block afterMain %}
+  {% include "partials/footer.html" %}
+{% endblock %}

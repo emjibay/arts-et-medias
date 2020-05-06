@@ -1,0 +1,46 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+.page-login {
+  h1 {
+    @include heading1();
+  }
+
+  .apos-login-warning {
+    @include paragraph();
+    background-color: lightgoldenrodyellow;
+    border: 1px solid yellow;
+    font-size: 10pt;
+    margin: 20px 0;
+    padding: 10px;
+
+    &::before {
+      content: '⚠️';
+      margin-right: 5px;
+    }
+  }
+
+  .form-group {
+    margin: 20px 0;
+  }
+
+  legend {
+    @include fieldsetLegend();
+  }
+
+  label {
+    @include inputLabel();
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    @include nColumnWidth(4);
+    @include textInput();
+  }
+
+  button[type="submit"] {
+    @include nColumnWidth(4);
+    @include button();
+  }
+}

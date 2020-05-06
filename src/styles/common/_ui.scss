@@ -62,13 +62,14 @@
   @include paragraph();
 }
 @mixin unorderedListItem {
-  margin-bottom: 6px;
+  margin-bottom: 5px;
+
   &:last-of-type {
     margin-bottom: 0;
   }
 
   &:before {
-    margin-right: 11px;
+    margin-right: 10px;
     content: "\2014";
   }
 }
@@ -84,11 +85,11 @@
   color: $white;
   cursor: pointer;
   font-family: $ffButtonLabel;
-  font-size: 12pt;
+  font-size: 10pt;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
-  padding: 12px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
 
@@ -180,10 +181,10 @@
   border-radius: 0;
   color: $black;
   font-family: $ffTextBody;
-  font-size: 12pt;
+  font-size: 10pt;
   font-weight: normal;
-  line-height: 30px;
-  padding: 5px;
+  line-height: 20px;
+  padding: 4px 5px 6px 5px;
 
   &:focus {
     @include focusOutline();
@@ -199,6 +200,7 @@
   font-family: $ffButtonLabel;
   font-size: 10pt;
   font-weight: normal;
+  margin-bottom: 5px;
 }
 @mixin radioButton {
   font-family: $ffTextBody;
