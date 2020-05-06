@@ -215,5 +215,13 @@
 	"Copy (Overrides the existing permissions)": "Copy (Overrides the existing permissions)",
 	"Append (Adds to the existing permissions)": "Append (Adds to the existing permissions)",
 	"Index Template": "Index Template",
-	"Incorrect login or password or account disabled": "Incorrect login or password or account disabled"
+	"Incorrect login or password or account disabled": "Incorrect login or password or account disabled",
+	"Save User": "Save User",
+	"Full Name": "Full Name",
+	"Username": "Username",
+	"Email": "Email",
+	"Permission Group": "Permission Group",
+	"guest": "guest",
+	"admin": "admin",
+	"Login Disabled": "Login Disabled"
 }
