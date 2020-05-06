@@ -1,0 +1,42 @@
+{% import 'apostrophe-pager:macros.html' as pager with context %}
+
+{% extends "layout.html" %}
+
+{% block title %}
+  {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block beforeMain %}
+  {% include "partials/header.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="page-index">
+    <main id="main" class="content">
+      <h1>{{ data.page.title }}</h1>
+
+      {% set idx = 10; %}
+      <ul class="pieces-list">
+        {% for piece in data.pieces %}
+          <li class="list-item">
+            <a
+              href="{{ piece._url }}"
+              class="piece-link"
+            >
+              <article class="piece-card">
+                <h1>{{ piece.title }}</h1>
+                <p>{{ piece.description | truncate(140, true, "...") }}</p>
+              </article>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+    </main>
+  </div>
+{% endblock %}
+
+{% block afterMain %}
+  {% include "partials/footer.html" %}
+{% endblock %}

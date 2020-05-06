@@ -1,0 +1,50 @@
+@import '../common/variables';
+@import '../common/ui';
+
+.page-index {
+  h1 {
+    @include heading1();
+  }
+
+  p {
+    @include paragraph();
+  }
+
+  .pieces-list {
+    margin: 40px 0;
+
+    .list-item {
+      @include nColumnWidth(6);
+      display: inline-block;
+      margin: 20px 0;
+      vertical-align: top;
+
+      &:nth-child(even) {
+        @include gutterLeftMargin();
+      }
+    }
+  }
+
+  .piece-link {
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      h1 {
+        color: $main;
+      }
+    }
+
+    &:focus {
+      @include focusOutline();
+    }
+  }
+
+  .piece-card {
+    color: $black;
+
+    h1 {
+      @include heading4();
+    }
+  }
+}
