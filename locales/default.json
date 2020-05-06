@@ -224,5 +224,7 @@
 	"guest": "guest",
 	"admin": "admin",
 	"Login Disabled": "Login Disabled",
-	"Education Index": "Education Index"
+	"Education Index": "Education Index",
+	"Article": "Article",
+	"aem-article-page": "aem-article-page"
 }

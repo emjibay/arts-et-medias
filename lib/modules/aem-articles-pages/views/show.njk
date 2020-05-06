@@ -1,0 +1,29 @@
+{% extends "layouts/layout.njk" %}
+
+{%
+  from 'macros/content-section.njk'
+  import contentSection
+%}
+
+{% block title %}
+  {{ data.piece.title }} | Arts et Médias
+{% endblock %}
+
+{% block beforeMain %}
+  {% include "partials/header.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="content-template">
+    <main id="main" class="content">
+      <article class="template-content">
+        <h1>{{ data.piece.title }}</h1>
+        {{ contentSection(data.piece) }}
+      </article>
+    </main>
+  </div>
+{% endblock %}
+
+{% block afterMain %}
+  {% include "partials/footer.html" %}
+{% endblock %}
