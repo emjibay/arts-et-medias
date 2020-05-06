@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block beforeMain %}
+  {% include "partials/header.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="page-person-details">
+    <main id="main" class="content">
+      <div class="column left">
+        <h1>{{ data.piece.title }}</h1>
+
+        {%- set institution = data.piece._institution[0] -%}
+        <p class="description">
+          {{ institution.title }}, {{ institution.city }}, {{ institution.country }}
+        </p>
+
+        <p class="description">
+          {{ data.piece.description }}
+        </p>
+
+        <a
+          class="website-cta"
+          href="{{data.piece.website}}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >View website</a>
+      </div>
+
+      <div class="column right">
+      </div>
+
+      <ul class="tag-list">
+        {% for tag in data.piece.tags %}
+          <li>
+            <div class="tag">{{ tag }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </main>
+  </div>
+{% endblock %}
+
+{% block afterMain %}
+  {% include "partials/footer.html" %}
+{% endblock %}
