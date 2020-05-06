@@ -15,15 +15,15 @@
 }
 @mixin heading1 {
   @include headingBase();
-  font-size: 60px;
+  font-size: 45px;
 }
 @mixin heading2 {
   @include headingBase();
-  font-size: 50px;
+  font-size: 40px;
 }
 @mixin heading3 {
   @include headingBase();
-  font-size: 40px;
+  font-size: 35px;
 }
 @mixin heading4 {
   @include headingBase();
@@ -31,9 +31,11 @@
 }
 @mixin heading5 {
   @include headingBase();
+  font-size: 25px;
 }
 @mixin heading6 {
   @include headingBase();
+  font-size: 20px;
 }
 @mixin subheading {
   font-family: $ffTextBody;
