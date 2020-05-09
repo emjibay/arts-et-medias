@@ -19,13 +19,18 @@
     margin-top: 48px;
 
     .column {
-      @include nColumnWidth(3);
+      @include gutterLeftMargin();
+      @include nColumnWidth(2);
       display: inline-block;
       vertical-align: top;
 
+      &:first-of-type {
+        margin-left: 0;
+      }
+
       .column-title {
         @include headingBase();
-        font-size: 16pt;
+        font-size: 12pt;
         line-height: 16pt;
       }
 
