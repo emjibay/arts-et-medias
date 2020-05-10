@@ -2,16 +2,16 @@
 
 
 /**
-* Calculates the span taken by
-*   `n` number of columns and gutters
-*   at a given breakpoint.
-*
-* @param $numColumns The number of columns to consider to calculate the width.
-* @param $breakpoint The breakpoint at which the calculations should be made.
-*
-* @return The width of the span of `n` columns,
-*   including the necessary amount of gutters.
-*/
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
 @function getColumnsSpan($numColumns, $breakpoint) {
   $gutterWidth: getGutterWidth($breakpoint);
   $columnWidth: getColumnWidth($breakpoint);
@@ -39,15 +39,6 @@
   @else if ($breakpoint == $desktop) {
     $columnWidth: $columnWidthMd;
   }
-  @else if ($breakpoint == $mediumDesktop) {
-    $columnWidth: $columnWidthLg;
-  }
-  @else if ($breakpoint == $largeDesktop) {
-    $columnWidth: $columnWidthXL;
-  }
-  @else if ($breakpoint == $highDefinition) {
-    $columnWidth: $columnWidthXXL;
-  }
 
   @return $columnWidth;
 }
@@ -57,19 +48,13 @@
   * a gutter at a given breakpoint.
   */
 @function getGutterWidth($breakpoint) {
-  $gutterWidth: $gutterWidthSm;
+  $gutterWidth: $gutterWidthXs;
 
-  @if ($breakpoint == $desktop) {
+  @if ($breakpoint == $tablet) {
+    $gutterWidth: $gutterWidthSm;
+  }
+  @else if ($breakpoint == $desktop) {
     $gutterWidth: $gutterWidthMd;
-  }
-  @else if ($breakpoint == $mediumDesktop) {
-    $gutterWidth: $gutterWidthLg;
-  }
-  @else if ($breakpoint == $largeDesktop) {
-    $gutterWidth: $gutterWidthXL;
-  }
-  @else if ($breakpoint == $highDefinition) {
-    $gutterWidth: $gutterWidthXXL;
   }
 
   @return $gutterWidth;
@@ -80,65 +65,14 @@
   * half a gutter at a given breakpoint.
   */
 @function getGutterHalfWidth($breakpoint) {
-  $gutterWidth: $gutterWidthSm / 2;
+  $gutterWidth: $gutterWidthXs / 2;
 
   @if ($breakpoint == $desktop) {
-    $gutterWidth: $gutterWidthMd / 2;
+    $gutterWidth: $gutterWidthSm / 2;
   }
   @else if ($breakpoint == $mediumDesktop) {
-    $gutterWidth: $gutterWidthLg / 2;
-  }
-  @else if ($breakpoint == $largeDesktop) {
-    $gutterWidth: $gutterWidthXL / 2;
-  }
-  @else if ($breakpoint == $highDefinition) {
-    $gutterWidth: $gutterWidthXXL / 2;
+    $gutterWidth: $gutterWidthMd / 2;
   }
 
   @return $gutterWidth;
-}
-
-/**
-  * Calculates the sum of the width of the margins
-  * between the content width
-  * and the edge of the viewport.
-  * Note: Currently only handles desktop dimensions,
-  * since it takes the main nav with in consideration.
-  */
-@function getSidesWidth($breakpoint) {
-  $contentWidth: $phoneContent;
-
-  @if ($breakpoint == $tablet) {
-    $contentWidth: $tabletContent;
-  }
-  @else if ($breakpoint == $desktop) {
-    $contentWidth: $desktopContent;
-  }
-  @else if ($breakpoint == $mediumDesktop) {
-    $contentWidth: $mediumDesktopContent;
-  }
-  @else if ($breakpoint == $largeDesktop) {
-    $contentWidth: $largeDesktopContent;
-  }
-  @else if ($breakpoint == $highDefinition) {
-    $contentWidth: $highDefinitionContent;
-  }
-
-  $vw: calc(100vw - #{$mainNavWidth});
-  $sidesWidth: calc(#{$vw} - #{$contentWidth});
-
-  @return $sidesWidth;
-}
-
-/**
-  * Calculates the width of one margin
-  * between the content block
-  * and the edge of the viewport.
-  * Note: Currently only handles desktop dimensions,
-  * since it takes the main nav with in consideration.
-  */
-@function getSideWidth($breakpoint) {
-  $sidesWidth: getSidesWidth($breakpoint);
-  $sideWidth: calc(#{$sidesWidth} / 2);
-  @return $sideWidth;
 }

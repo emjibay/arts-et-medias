@@ -9,7 +9,7 @@
 */
 @mixin columnsAsLeftMargin($numColSpan, $numGutters: 1) {
   $colSpan: getColumnsSpan($numColSpan, $phone);
-  margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$gutterWidthSm}));
+  margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$gutterWidthXs}));
 
   @media #{$mqTablet} {
     $colSpan: getColumnsSpan($numColSpan, $tablet);
@@ -17,13 +17,16 @@
   }
   @media #{$mqDesktop} {
     $colSpan: getColumnsSpan($numColSpan, $desktop);
-    margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$gutterWidthMd}));
+    margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$columnWidthMd}));
   }
 }
 
 @mixin gutterLeftMargin {
-  margin-left: $gutterWidthSm;
+  margin-left: $columnWidthXs;
 
+  @media #{$mqTablet} {
+    margin-left: $columnWidthSm;
+  }
   @media #{$mqDesktop} {
     margin-left: $gutterWidthMd;
   }

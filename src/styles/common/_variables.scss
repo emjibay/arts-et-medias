@@ -5,25 +5,15 @@
 
 // content width
 $phoneContent: 320px;
-$tabletContent: 704px;
-$desktopContent: 892px;
-$mediumDesktopContent: 1032px;
-$largeDesktopContent: 1230px;
-$highDefinitionContent: 1456px;
+$tabletContent: 760px;
+$desktopContent: 930px;
 
 // gutter width
-$gutterWidthSm: 16px; // mobile, tablet
-$gutterWidthMd: 20px; // desktop
-$gutterWidthLg: 24px; // medium desktop
-$gutterWidthXL: 30px; // large desktop
-$gutterWidthXXL: 32px; // high def
+$gutterWidthXs: 16px; // mobile
+$gutterWidthSm: 20px; // tablet
+$gutterWidthMd: 30px; // desktop
 
 // column width
 $columnWidthXs: 40px; // mobile
-$columnWidthSm: 44px; // tablet
-$columnWidthMd: 56px; // desktop
-$columnWidthLg: 64px; // medium desktop
-$columnWidthXL: 75px; // large desktop
-$columnWidthXXL: 92px; // high def
-
-$mainNavWidth: 60px;
+$columnWidthSm: 45px; // tablet
+$columnWidthMd: 50px; // desktop
