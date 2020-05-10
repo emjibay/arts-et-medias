@@ -1,5 +1,10 @@
 {% extends "layouts/layout.njk" %}
 
+{%-
+  from 'macros/tag-list.njk'
+  import tagList
+-%}
+
 {% block title %}
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
@@ -16,13 +21,7 @@
         <p class="description">
           {{data.piece.description}}
         </p>
-        <ul class="tag-list">
-          {% for tag in data.piece.tags %}
-            <li>
-              <div class="tag">{{ tag }}</div>
-            </li>
-          {% endfor %}
-        </ul>
+        {{ tagList(data.piece.tags) }}
         <a
           class="website-cta"
           href="{{data.piece.website}}"
