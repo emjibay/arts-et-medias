@@ -1,0 +1,15 @@
+[
+  {
+    "label": "Related People",
+    "help": "",
+    "name": "_relatedPeople",
+    "type": "joinByArray",
+    "withType": ["person"],
+    "filters": {
+      "projection": {
+        "_url": 1,
+        "title": 1
+      }
+    }
+  }
+]
