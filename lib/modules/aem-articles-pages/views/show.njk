@@ -5,6 +5,11 @@
   import contentSection
 %}
 
+{%-
+  from 'macros/tag-list.njk'
+  import tagList
+-%}
+
 {% block title %}
   {{ data.piece.title }} | Arts et Médias
 {% endblock %}
@@ -19,6 +24,7 @@
       <article class="template-content">
         <h1>{{ data.piece.title }}</h1>
         {{ contentSection(data.piece) }}
+        {{ tagList(data.piece.tags) }}
       </article>
     </main>
   </div>

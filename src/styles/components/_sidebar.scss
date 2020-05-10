@@ -1,0 +1,19 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+
+.sidebar {
+  @include gutterLeftMargin();
+  @include nColumnWidth(4);
+  display: inline-block;
+  vertical-align: top;
+
+  h1 {
+    @include heading4();
+  }
+  p {
+    @include paragraph();
+    font-size: 11pt;
+  }
+}

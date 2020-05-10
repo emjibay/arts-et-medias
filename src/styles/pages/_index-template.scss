@@ -14,7 +14,7 @@
     margin: 40px 0;
 
     .list-item {
-      @include nColumnWidth(6);
+      @include nColumnWidth(4);
       display: inline-block;
       margin: 20px 0;
       vertical-align: top;

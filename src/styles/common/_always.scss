@@ -22,3 +22,9 @@ img {
 .content {
   @include contentContainer();
 }
+
+.page-content {
+  @include nColumnWidth(8);
+  display: inline-block;
+  vertical-align: top;
+}

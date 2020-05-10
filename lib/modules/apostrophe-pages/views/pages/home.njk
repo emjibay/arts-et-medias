@@ -10,10 +10,13 @@
 
 {% block main %}
   <div class="page-home">
-    <main id="main" class="content">
-      <h1>Home</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum accumsan sem. Aenean placerat ipsum mauris, et tincidunt nulla rhoncus in. Pellentesque mauris elit, commodo vitae sapien vel, tempor rutrum dolor. Pellentesque mollis posuere neque, non vulputate velit commodo venenatis. Curabitur in laoreet nisi. Etiam dapibus tincidunt efficitur. Vestibulum in fringilla tellus, sed tristique lorem. Nam dignissim ex eu tincidunt placerat. Morbi consectetur venenatis finibus. Sed tempus, orci vitae tristique suscipit, leo dolor auctor lectus, quis porttitor felis neque vitae nunc. Sed auctor, massa sed facilisis porttitor, sapien ipsum iaculis ante, eget vehicula nulla nisi vel elit. Nunc eget sapien ut massa viverra pellentesque. </p>
-    </main>
+    <div class="content">
+      <main id="main" class="page-content">
+        <h1>Home</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum accumsan sem. Aenean placerat ipsum mauris, et tincidunt nulla rhoncus in. Pellentesque mauris elit, commodo vitae sapien vel, tempor rutrum dolor. Pellentesque mollis posuere neque, non vulputate velit commodo venenatis. Curabitur in laoreet nisi. Etiam dapibus tincidunt efficitur. Vestibulum in fringilla tellus, sed tristique lorem. Nam dignissim ex eu tincidunt placerat. Morbi consectetur venenatis finibus. Sed tempus, orci vitae tristique suscipit, leo dolor auctor lectus, quis porttitor felis neque vitae nunc. Sed auctor, massa sed facilisis porttitor, sapien ipsum iaculis ante, eget vehicula nulla nisi vel elit. Nunc eget sapien ut massa viverra pellentesque. </p>
+      </main>
+      {% include "partials/sidebar.njk" %}
+    </div>
   </div>
 {% endblock %}
 

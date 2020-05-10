@@ -1,0 +1,10 @@
+{%- macro tagList(tags) -%}
+  <ul class="tag-list">
+    {% for tag in tags.sort() %}
+      <li>
+        <div class="tag">{{ tag }}</div>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}
+
