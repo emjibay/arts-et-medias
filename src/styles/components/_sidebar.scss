@@ -22,4 +22,15 @@
     @include paragraph();
     font-size: 11.25pt;
   }
+  ul {
+    @include list();
+  }
+  li {
+    @include unorderedListItem();
+  }
+  a {
+    @include anchor();
+    font-size: 11.25pt;
+    color: $black;
+  }
 }

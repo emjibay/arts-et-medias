@@ -2,14 +2,6 @@
 @import '../common/ui';
 
 .page-people-index {
-  h1 {
-    @include heading1();
-  }
-
-  p {
-    @include paragraph();
-  }
-
   .people-list {
     margin: 40px 0;
 

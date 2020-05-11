@@ -1,1 +1,21 @@
-{% extends "layouts/indexLayout.njk" %}
+{% import 'apostrophe-pager:macros.html' as pager with context %}
+{% from 'macros/piece-index.njk' import pieceList %}
+
+{% extends 'layouts/indexLayout.njk' %}
+
+{% block main %}
+  <div class="page-index">
+    <div class="content">
+      <main id="main">
+        <article>
+          <h1>{{ data.page.title }}</h1>
+          <div class="page-content">
+            {{ pieceList(data.pieces) }}
+            {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+          </div>
+          {% include "partials/people/sidebar-en.njk" %}
+        </article>
+      </main>
+    </div>
+  </div>
+{% endblock %}

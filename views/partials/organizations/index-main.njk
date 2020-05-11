@@ -1,18 +1,11 @@
-<div class="content-template index-main-partial">
-  <main id="main" class="content">
-    <article class="template-content">
-      <h1>{{ data.page.title }}</h1>
-      <ul class="index-list">
-        <li>
-          <a href="/people">People</a>
-        </li>
-        <li>
-          <a href="/organizations/studios">Studios and Collectives</a>
-        </li>
-        <li>
-          <a href="/organizations/galleries">Galleries and Museums</a>
-        </li>
-      </ul>
-    </article>
-  </main>
+<div class="page-index">
+  <div class="content">
+    <main id="main">
+      <article>
+        <h1>{{ data.page.title }}</h1>
+        <div class="page-content"></div>
+        {% include "partials/organizations/sidebar-en.njk" %}
+      </article>
+    </main>
+  </div>
 </div>

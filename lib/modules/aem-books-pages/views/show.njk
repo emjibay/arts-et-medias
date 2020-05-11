@@ -15,23 +15,24 @@
 {% block main %}
   <div class="page-books">
     <div class="content">
-      <main id="main" class="page-content">
-        <article class="template-content">
+      <main id="main">
+        <article>
           <h1>{{ data.piece.title }}</h1>
+          <div class="page-content">
+            <h2 class="sr-only">Authors</h2>
+            {{ authorList(data.piece._author) }}
 
-          <h2 class="sr-only">Authors</h2>
-          {{ authorList(data.piece._author) }}
+            <h2 class="sr-only">Description</h2>
+            <p class="description">
+              {{ data.piece.description }}
+            </p>
 
-          <h2 class="sr-only">Description</h2>
-          <p class="description">
-            {{ data.piece.description }}
-          </p>
-
-          <h2 class="sr-only">Tags</h2>
-          {{ tagList(data.piece.tags) }}
+            <h2 class="sr-only">Tags</h2>
+            {{ tagList(data.piece.tags) }}
+          </div>
+          {% include "partials/books/sidebar-en.njk" %}
         </article>
       </main>
-      {% include "partials/books/sidebar-en.njk" %}
     </div>
   </div>
 {% endblock %}

@@ -1,9 +1,6 @@
 {% extends "layouts/layout.njk" %}
 
-{%-
-  from 'macros/tag-list.njk'
-  import tagList
--%}
+{% from 'macros/tag-list.njk' import tagList %}
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias

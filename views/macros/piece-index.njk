@@ -1,0 +1,27 @@
+{% import 'apostrophe-pager:macros.html' as pager with context %}
+
+{%- macro pieceList(pieces) -%}
+  <ul class="pieces-list">
+    {% for piece in pieces %}
+      <li class="list-item">
+        <a
+          href="{{ piece._url }}"
+          class="piece-link"
+        >
+          <article class="piece-card">
+            <h1>{{ piece.title }}</h1>
+            <p>{{ piece.description | truncate(140, true, "...") }}</p>
+          </article>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}
+
+{%- macro mainContent(data) -%}
+  <main id="main" class="page-content">
+    <h1>{{ data.page.title }}</h1>
+    {{ pieceList(data.pieces) }}
+    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  </main>
+{%- endmacro -%}

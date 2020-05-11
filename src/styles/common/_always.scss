@@ -21,12 +21,6 @@ img {
 // common
 .content {
   @include contentContainer();
-}
-
-.page-content {
-  @include nColumnWidth(8);
-  display: inline-block;
-  vertical-align: top;
 
   h1 {
     @include heading1();
@@ -48,6 +42,12 @@ img {
     @include paragraph();
     text-align: justify;
   }
+}
+
+.page-content {
+  @include nColumnWidth(8);
+  display: inline-block;
+  vertical-align: top;
 }
 
 .sr-only {

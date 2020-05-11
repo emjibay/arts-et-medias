@@ -1,15 +1,22 @@
 {% extends "layouts/layout.njk" %}
 
+{% from 'macros/piece-index.njk' import mainContent %}
+
 {% block title %}
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
 
 {% block beforeMain %}
-  {% include "partials/header.njk" %}
+  {% include "partials/header.html" %}
 {% endblock %}
 
 {% block main %}
-  {% include "partials/education/index-main.njk" %}
+  <div class="page-index">
+    <div class="content">
+      {{ mainContent(data) }}
+      {% include "partials/people/sidebar-en.njk" %}
+    </div>
+  </div>
 {% endblock %}
 
 {% block afterMain %}
