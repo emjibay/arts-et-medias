@@ -1,0 +1,18 @@
+{%- macro apaBib(book) -%}
+  <span class="bibliography apa">
+    {{ apos.aem.formatAuthorsAPA(book._author) }} ({{ book.yearPublished }}). <cite>{{ book.title }}</cite>. {{ book.publisherCity }}: {{ book.publisherName }}.
+  </span>
+{%- endmacro -%}
+
+{%- macro chicagoBib(book) -%}
+  <span class="bibliography chicago">
+    {{ apos.aem.formatAuthorsChicago(book._author) }}. <cite>{{ book.title }}</cite>. {{ book.publisherCity }}: {{ book.publisherName }}, {{ book.yearPublished }}.
+  </span>
+{%- endmacro -%}
+
+{%- macro mlaBib(book) -%}
+  <span class="bibliography mla">
+    {{ apos.aem.formatAuthorsMLA(book._author) }}. <cite>{{ book.title }}</cite>. {{ book.publisherName }}, {{ book.yearPublished }}.
+  </span>
+{%- endmacro -%}
+

@@ -1,0 +1,13 @@
+{%- macro authorList(authors) -%}
+  <ul class="author-list">
+    {% for author in authors %}
+      <li>
+        <a
+          class="author"
+          href="{{ author._url }}"
+        >{{ author.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}
+

@@ -1,0 +1,18 @@
+{%- macro apaFootnote(book) -%}
+  <span class="footnote chicago">
+    {{ apos.aem.formatAuthorsAPA(book._author) }} ({{ book.yearPublished }}). <cite>{{ book.title }}</cite>. {{ book.publisherCity }}: {{ book.publisherName }}. 1-100.
+  </span>
+{%- endmacro -%}
+
+{%- macro chicagoFootnote(book) -%}
+  <span class="footnote chicago">
+    {{ apos.aem.formatAuthorsChicago(book._author) }}, <cite>{{ book.title }}</cite> ({{ book.publisherCity }}: {{ book.publisherName }}, {{ book.yearPublished }}) 1-100.
+  </span>
+{%- endmacro -%}
+
+{%- macro mlaFootnote(book) -%}
+  <span class="footnote chicago">
+    {{ apos.aem.formatAuthorsMLA(book._author) }}. <cite>{{ book.title }}</cite>, pp. 1-100.
+  </span>
+{%- endmacro -%}
+

@@ -27,4 +27,29 @@ img {
   @include nColumnWidth(8);
   display: inline-block;
   vertical-align: top;
+
+  h1 {
+    @include heading1();
+  }
+
+  h2 {
+    @include heading2();
+  }
+
+  h3 {
+    @include heading3();
+  }
+
+  h4 {
+    @include heading4();
+  }
+
+  p {
+    @include paragraph();
+    text-align: justify;
+  }
+}
+
+.sr-only {
+  @include visuallyHidden();
 }

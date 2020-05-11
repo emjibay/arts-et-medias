@@ -1,5 +1,4 @@
 [
-
   {
     "label": "Author",
     "help": "",
@@ -10,7 +9,9 @@
       "permission": false,
       "projection": {
         "_url": 1,
-        "title": 1
+        "title": 1,
+        "firstName": 1,
+        "lastName": 1
       }
     },
     "required": true

@@ -1,0 +1,35 @@
+@import '../common/variables';
+
+.author-list {
+  display: block;
+  margin: 20px 0;
+
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    &::after {
+      color: $black;
+      content: ',';
+      font-family: $ffTextBody;
+      font-size: 12.5pt;
+      font-style: normal;
+      font-weight: normal;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+
+      &::after {
+        content: '';
+      }
+    }
+
+    .author {
+      @include anchor();
+      color: $black;
+      font-size: 12.5pt;
+    }
+  }
+}

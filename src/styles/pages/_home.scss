@@ -3,18 +3,4 @@
 
 
 .page-home {
-  .page-content {
-    h1 {
-      @include heading1();
-    }
-    p {
-      @include paragraph();
-      text-align: justify;
-
-      @media #{$mqDesktop} {
-        column-count: 2;
-        column-gap: getGutterWidth($desktop);
-      }
-    }
-  }
 }

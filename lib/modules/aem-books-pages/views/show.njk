@@ -1,0 +1,41 @@
+{% extends "layouts/layout.njk" %}
+
+{% from 'macros/author-list.njk' import authorList %}
+{% from 'macros/content-section.njk' import contentSection %}
+{% from 'macros/tag-list.njk' import tagList %}
+
+{% block title %}
+  {{ data.piece.title }} - Books | Arts et Médias
+{% endblock %}
+
+{% block beforeMain %}
+  {% include "partials/header.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="page-books">
+    <div class="content">
+      <main id="main" class="page-content">
+        <article class="template-content">
+          <h1>{{ data.piece.title }}</h1>
+
+          <h2 class="sr-only">Authors</h2>
+          {{ authorList(data.piece._author) }}
+
+          <h2 class="sr-only">Description</h2>
+          <p class="description">
+            {{ data.piece.description }}
+          </p>
+
+          <h2 class="sr-only">Tags</h2>
+          {{ tagList(data.piece.tags) }}
+        </article>
+      </main>
+      {% include "partials/books/sidebar-en.njk" %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterMain %}
+  {% include "partials/footer.html" %}
+{% endblock %}

@@ -12,6 +12,12 @@
   h1 {
     @include heading4();
   }
+  h2 {
+    @include heading5();
+  }
+  h3 {
+    @include heading6();
+  }
   p {
     @include paragraph();
     font-size: 11.25pt;
