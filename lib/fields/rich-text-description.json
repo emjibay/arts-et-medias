@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Description",
+    "help": "",
+    "name": "description",
+    "type": "area",
+    "options": {
+      "limit": 1,
+      "widgets": {
+        "apostrophe-rich-text": {
+          "toolbar": ["Bold", "Italic", "Link", "Unlink"],
+          "truncate": 140
+        }
+      }
+    },
+    "required": true
+  }
+]

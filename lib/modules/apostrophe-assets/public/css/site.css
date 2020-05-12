@@ -783,31 +783,37 @@ img {
   margin: 15px 0;
   text-align: left;
 }
-.rich-content .apos-rich-text a {
+.rich-content .apos-rich-text .anchor, .rich-content .apos-rich-text a {
   cursor: pointer;
   font-family: "QuebecLight", Verdana, sans-serif;
   font-style: normal;
   font-weight: normal;
   text-decoration: underline;
 }
-.rich-content .apos-rich-text a:hover {
+.rich-content .apos-rich-text .anchor:hover, .rich-content .apos-rich-text a:hover {
   color: #1276D3;
   text-decoration: none;
 }
-.rich-content .apos-rich-text a:active {
+.rich-content .apos-rich-text .anchor:active, .rich-content .apos-rich-text a:active {
   text-decoration: none;
 }
-.rich-content .apos-rich-text a:focus {
+.rich-content .apos-rich-text .anchor:focus, .rich-content .apos-rich-text a:focus {
   border-color: #1276D3 !important;
   box-shadow: 0 0 0 2.5pt #1276D3 !important;
   outline: 0 !important;
   transition: box-shadow 0s linear !important;
 }
-.rich-content .apos-rich-text a:focus::-moz-focus-inner {
+.rich-content .apos-rich-text .anchor:focus::-moz-focus-inner, .rich-content .apos-rich-text a:focus::-moz-focus-inner {
   border: 0;
 }
-.rich-content .apos-rich-text strong {
+.rich-content .apos-rich-text .underline, .rich-content .apos-rich-text u {
+  text-decoration: underline;
+}
+.rich-content .apos-rich-text .bold, .rich-content .apos-rich-text b, .rich-content .apos-rich-text strong {
   font-weight: bold;
+}
+.rich-content .apos-rich-text .italic, .rich-content .apos-rich-text i {
+  font-style: italic;
 }
 .rich-content .apos-rich-text em {
   font-style: italic;
