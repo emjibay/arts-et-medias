@@ -18,6 +18,7 @@
       <main id="main">
         <article>
           <h1>{{ data.piece.title }}</h1>
+
           <div class="page-content">
             <h2 class="sr-only">Authors</h2>
             {{ authorList(data.piece._author) }}
@@ -45,6 +46,7 @@
 
             {{ websiteCTA(data.piece) }}
           </div>
+
           {% include "partials/books/sidebar-en.njk" %}
         </article>
       </main>
