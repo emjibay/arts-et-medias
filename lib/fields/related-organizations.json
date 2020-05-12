@@ -1,0 +1,15 @@
+[
+  {
+    "label": "Related Organizations",
+    "help": "",
+    "name": "_relatedOrganizations",
+    "type": "joinByArray",
+    "withType": ["organization"],
+    "filters": {
+      "projection": {
+        "_url": 1,
+        "title": 1
+      }
+    }
+  }
+]
