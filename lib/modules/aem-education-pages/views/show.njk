@@ -1,9 +1,7 @@
 {% extends "layouts/layout.njk" %}
 
-{%-
-  from 'macros/tag-list.njk'
-  import tagList
--%}
+{%- from 'macros/tag-list.njk' import tagList -%}
+{% from 'macros/piece-details.njk' import websiteCTA %}
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias
@@ -14,33 +12,34 @@
 {% endblock %}
 
 {% block main %}
-  <div class="page-person-details">
-    <main id="main" class="content">
-      <div class="column left">
-        <h1>{{ data.piece.title }}</h1>
+  <div class="piece-details education-details">
+    <div class="content">
+      <main id="main">
+        <article>
+          <h1>{{ data.piece.title }}</h1>
 
-        {%- set institution = data.piece._institution[0] -%}
-        <p class="description">
-          {{ institution.title }}, {{ institution.city }}, {{ institution.country }}
-        </p>
+          <div class="page-content">
+            <h2 class="sr-only">Institution</h2>
+            {%- set institution = data.piece._institution[0] -%}
 
-        <p class="description">
-          {{ data.piece.description }}
-        </p>
+            <h2 class="sr-only">City</h2>
+            <p class="description">
+              {{ institution.title }}, {{ institution.city }}, {{ institution.country }}
+            </p>
 
-        <a
-          class="website-cta"
-          href="{{data.piece.website}}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >View website</a>
-      </div>
+            <h2 class="sr-only">Description</h2>
+            <p class="description">
+              {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+            </p>
 
-      <div class="column right">
-      </div>
+            <h2>Tags</h2>
+            {{ tagList(data.piece.tags) }}
 
-      {{ tagList(data.piece.tags) }}
-    </main>
+            {{ websiteCTA(data.piece) }}
+          </div>
+        </article>
+      </main>
+    </div>
   </div>
 {% endblock %}
 
