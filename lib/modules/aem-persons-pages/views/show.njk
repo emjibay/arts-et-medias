@@ -1,9 +1,7 @@
 {% extends "layouts/layout.njk" %}
 
-{%-
-  from 'macros/tag-list.njk'
-  import tagList
--%}
+{% from 'macros/piece-details.njk' import websiteCTA %}
+{% from 'macros/tag-list.njk' import tagList %}
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias
@@ -14,34 +12,40 @@
 {% endblock %}
 
 {% block main %}
-  <div class="page-person-details">
-    <main id="main" class="content">
-      <div class="column left">
-        <h1>{{data.piece.title}}</h1>
-        <p class="description">
-          {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
-        </p>
-        {{ tagList(data.piece.tags) }}
-        <a
-          class="website-cta"
-          href="{{data.piece.website}}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >View website</a>
-      </div>
+  <div class="piece-details person-details">
+    <div class="content">
+      <main id="main">
+        <article>
+          <h1>{{data.piece.title}}</h1>
 
-      <div class="column right">
-        {# image start #}
-        {%- set aposImageData = apos.images.first(data.piece.profilePic) -%}
-        {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-        <img
-          class="profile-pic"
-          src="{{ image.url }}"
-          alt="{{ image.alt }}"
-        />
-        {# image end #}
-      </div>
-    </main>
+          <div class="page-content">
+            <h2 class="sr-only">Description</h2>
+            <p class="description">
+              {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+            </p>
+
+            <h2>Tags</h2>
+            {{ tagList(data.piece.tags) }}
+
+            {{ websiteCTA(data.piece) }}
+          </div>
+
+          <aside class="column right">
+            {# image start #}
+            {%- set aposImageData = apos.images.first(data.piece.profilePic) -%}
+            {%- if aposImageData -%}
+              {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+              <img
+                class="profile-pic"
+                src="{{ image.url }}"
+                alt="{{ image.alt }}"
+              />
+            {%- endif -%}
+            {# image end #}
+          </aside>
+        </article>
+      </main>
+    </div>
   </div>
 {% endblock %}
 
