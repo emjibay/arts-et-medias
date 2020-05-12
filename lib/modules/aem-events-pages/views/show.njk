@@ -1,5 +1,6 @@
 {% extends "layouts/layout.njk" %}
 
+{% from 'macros/piece-details.njk' import websiteCTA %}
 {% from 'macros/tag-list.njk' import tagList %}
 
 {% block title %}
@@ -11,28 +12,31 @@
 {% endblock %}
 
 {% block main %}
-  <div class="page-person-details">
-    <main id="main" class="content">
-      <div class="column left">
-        <h1>{{ data.piece.title }}</h1>
-        <p class="description">
-          {{ data.piece.city }}, {{ data.piece.country }}
-        </p>
-        <p class="description">
-          {{ data.piece.description }}
-        </p>
-        {{ tagList(data.piece.tags) }}
-        <a
-          class="website-cta"
-          href="{{data.piece.website}}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >View website</a>
-      </div>
+  <div class="piece-details event-details">
+    <div class="content">
+      <main id="main">
+        <article>
+          <h1>{{ data.piece.title }}</h1>
 
-      <div class="column right">
-      </div>
-    </main>
+          <div class="page-content">
+            <h2 class="sr-only">City</h2>
+            <p class="description">
+              {{ data.piece.city }}, {{ data.piece.country }}
+            </p>
+
+            <h2 class="sr-only">Description</h2>
+            <p class="description">
+              {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+            </p>
+
+            <h2>Tags</h2>
+            {{ tagList(data.piece.tags) }}
+
+            {{ websiteCTA(data.piece) }}
+          </div>
+        </article>
+      </main>
+    </div>
   </div>
 {% endblock %}
 
