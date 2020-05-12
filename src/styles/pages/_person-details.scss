@@ -57,8 +57,4 @@
     @include paragraph();
     @include nColumnWidth(6);
   }
-
-  .website-cta {
-    @include button();
-  }
 }

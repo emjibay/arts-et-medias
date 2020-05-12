@@ -50,6 +50,12 @@ img {
   vertical-align: top;
 }
 
+.website-cta {
+  @include button();
+}
+
+
+// a11y
 .sr-only {
   @include visuallyHidden();
 }

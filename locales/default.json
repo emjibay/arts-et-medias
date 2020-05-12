@@ -258,5 +258,10 @@
 	"Projects Page": "Projects Page",
 	"Events Page": "Events Page",
 	"Media Page": "Media Page",
-	"Books Page": "Books Page"
+	"Books Page": "Books Page",
+	"Katja Kwastek": "Katja Kwastek",
+	"If this work is a translation, ensure to enter the original language. Two-letter language ISO code (e.g. EN, FR) as described in the ISO 639-1 international standard.": "If this work is a translation, ensure to enter the original language. Two-letter language ISO code (e.g. EN, FR) as described in the ISO 639-1 international standard.",
+	"The language of the publication. Two-letter language ISO code (e.g. EN, FR) as described in the ISO 639-1 international standard.": "The language of the publication. Two-letter language ISO code (e.g. EN, FR) as described in the ISO 639-1 international standard.",
+	"Is this work a translation?": "Is this work a translation?",
+	"No modifications to commit.": "No modifications to commit."
 }

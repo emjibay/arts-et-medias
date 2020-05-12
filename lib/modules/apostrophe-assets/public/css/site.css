@@ -197,7 +197,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 35pt;
+  font-size: 30pt;
 }
 .content h1 strong {
   font-weight: normal;
@@ -209,7 +209,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 30pt;
+  font-size: 22.5pt;
 }
 .content h2 strong {
   font-weight: normal;
@@ -221,7 +221,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 25pt;
+  font-size: 20pt;
 }
 .content h3 strong {
   font-weight: normal;
@@ -233,7 +233,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 20pt;
+  font-size: 17.5pt;
 }
 .content h4 strong {
   font-weight: normal;
@@ -264,6 +264,43 @@ img {
   .page-content {
     width: calc( (50px * 8) + (30px * 7) );
   }
+}
+
+.website-cta {
+  display: inline-block;
+  background-color: #000;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-size: 10pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+.website-cta:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+.website-cta:active {
+  text-decoration: none;
+}
+.website-cta:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 2.5pt #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.website-cta:focus::-moz-focus-inner {
+  border: 0;
+}
+.website-cta:disabled, .website-cta[disabled] {
+  cursor: not-allowed;
 }
 
 .sr-only {
@@ -680,7 +717,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 35pt;
+  font-size: 30pt;
 }
 .rich-content .apos-rich-text h1 strong {
   font-weight: normal;
@@ -692,7 +729,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 30pt;
+  font-size: 22.5pt;
 }
 .rich-content .apos-rich-text h2 strong {
   font-weight: normal;
@@ -704,7 +741,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 25pt;
+  font-size: 20pt;
 }
 .rich-content .apos-rich-text h3 strong {
   font-weight: normal;
@@ -716,7 +753,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 20pt;
+  font-size: 17.5pt;
 }
 .rich-content .apos-rich-text h4 strong {
   font-weight: normal;
@@ -922,7 +959,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 20pt;
+  font-size: 17.5pt;
 }
 .sidebar h1 strong {
   font-weight: normal;
@@ -1610,7 +1647,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 20pt;
+  font-size: 17.5pt;
   line-height: 1;
   margin-top: 0;
 }
@@ -1625,7 +1662,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 35pt;
+  font-size: 30pt;
 }
 .content-template h1 strong {
   font-weight: normal;
@@ -1725,7 +1762,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 35pt;
+  font-size: 30pt;
 }
 .page-person-details h1 strong {
   font-weight: normal;
@@ -1737,7 +1774,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 30pt;
+  font-size: 22.5pt;
 }
 .page-person-details h2 strong {
   font-weight: normal;
@@ -1779,42 +1816,6 @@ img {
   .page-person-details .description {
     width: calc( (50px * 6) + (30px * 5) );
   }
-}
-.page-person-details .website-cta {
-  display: inline-block;
-  background-color: #000;
-  border: 1px solid transparent;
-  color: #fff;
-  cursor: pointer;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
-  font-size: 10pt;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-}
-.page-person-details .website-cta:hover {
-  text-decoration: none;
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #000;
-}
-.page-person-details .website-cta:active {
-  text-decoration: none;
-}
-.page-person-details .website-cta:focus {
-  border-color: #1276D3 !important;
-  box-shadow: 0 0 0 2.5pt #1276D3 !important;
-  outline: 0 !important;
-  transition: box-shadow 0s linear !important;
-}
-.page-person-details .website-cta:focus::-moz-focus-inner {
-  border: 0;
-}
-.page-person-details .website-cta:disabled, .page-person-details .website-cta[disabled] {
-  cursor: not-allowed;
 }
 
 .page-people-index .people-list {
@@ -1874,9 +1875,23 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 20pt;
+  font-size: 17.5pt;
 }
 .page-people-index .person-card h1 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+
+.book-details h2 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  margin: 20px 0 15px 0;
+  font-size: 17.5pt;
+  margin-top: 30px;
+}
+.book-details h2 strong {
   font-weight: normal;
   font-style: normal;
 }
@@ -1969,7 +1984,7 @@ img {
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 35pt;
+  font-size: 30pt;
 }
 .page-login h1 strong {
   font-weight: normal;

@@ -1,3 +1,9 @@
-.page-book {
+@import '../common/variables';
+@import '../common/ui';
 
+.book-details {
+  h2 {
+    @include heading4();
+    margin-top: 30px;
+  }
 }

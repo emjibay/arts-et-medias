@@ -1,0 +1,10 @@
+{%- macro websiteCTA(piece) -%}
+  {%- if piece.website -%}
+    <a
+      class="website-cta"
+      href="{{ piece.website }}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >View website</a>
+  {%- endif -%}
+{%- endmacro -%}

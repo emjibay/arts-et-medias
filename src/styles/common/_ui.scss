@@ -16,19 +16,19 @@
 }
 @mixin heading1 {
   @include headingBase();
-  font-size: 35pt;
+  font-size: 30pt;
 }
 @mixin heading2 {
   @include headingBase();
-  font-size: 30pt;
+  font-size: 22.5pt;
 }
 @mixin heading3 {
   @include headingBase();
-  font-size: 25pt;
+  font-size: 20pt;
 }
 @mixin heading4 {
   @include headingBase();
-  font-size: 20pt;
+  font-size: 17.5pt;
 }
 @mixin heading5 {
   font-family: $ffTextBody;
