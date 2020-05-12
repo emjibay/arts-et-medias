@@ -263,5 +263,7 @@
 	"If this work is a translation, ensure to enter the original language. Two-letter language ISO code (e.g. EN, FR) as described in the ISO 639-1 international standard.": "If this work is a translation, ensure to enter the original language. Two-letter language ISO code (e.g. EN, FR) as described in the ISO 639-1 international standard.",
 	"The language of the publication. Two-letter language ISO code (e.g. EN, FR) as described in the ISO 639-1 international standard.": "The language of the publication. Two-letter language ISO code (e.g. EN, FR) as described in the ISO 639-1 international standard.",
 	"Is this work a translation?": "Is this work a translation?",
-	"No modifications to commit.": "No modifications to commit."
+	"No modifications to commit.": "No modifications to commit.",
+	"Add Rich Text": "Add Rich Text",
+	"Rich Text": "Rich Text"
 }

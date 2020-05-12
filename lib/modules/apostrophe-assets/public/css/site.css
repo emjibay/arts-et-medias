@@ -247,7 +247,6 @@ img {
   line-height: 1.5;
   margin: 15px 0;
   text-align: left;
-  text-align: justify;
 }
 
 .page-content {
@@ -1676,7 +1675,6 @@ img {
   line-height: 1.5;
   margin: 15px 0;
   text-align: left;
-  text-align: justify;
 }
 @media only screen and (min-width: 1024px) {
   .content-template p {

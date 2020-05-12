@@ -10,7 +10,13 @@
         >
           <article class="piece-card">
             <h1>{{ piece.title }}</h1>
-            <p>{{ piece.description | truncate(140, true, "...") }}</p>
+
+            {%- if piece.description.items -%}
+              {%- set descriptionText = piece.description.items[0].content | safe -%}
+            {%- else -%}
+              {%- set descriptionText = piece.description -%}
+            {%- endif -%}
+            <p>{{ descriptionText | truncate(140, true, "...") }}</p>
           </article>
         </a>
       </li>

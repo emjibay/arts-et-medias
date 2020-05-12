@@ -8,7 +8,6 @@
   }
   p {
     @include paragraph();
-    text-align: justify;
 
     @media #{$mqDesktop} {
       column-count: 2;
