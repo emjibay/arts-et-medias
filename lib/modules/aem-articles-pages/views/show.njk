@@ -14,10 +14,6 @@
   {{ data.piece.title }} | Arts et Médias
 {% endblock %}
 
-{% block beforeMain %}
-  {% include "partials/header.html" %}
-{% endblock %}
-
 {% block main %}
   <div class="content-template">
     <main id="main" class="content">
@@ -28,8 +24,4 @@
       </article>
     </main>
   </div>
-{% endblock %}
-
-{% block afterMain %}
-  {% include "partials/footer.html" %}
 {% endblock %}

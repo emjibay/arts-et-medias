@@ -4,10 +4,6 @@
   {{ __ns('apostrophe', "Login") }} | Arts et Médias
 {% endblock %}
 
-{% block beforeMain %}
-  {% include "partials/header.html" %}
-{% endblock %}
-
 {% block main %}
   <div class="page-login">
     <main id="main" class="content">
@@ -67,8 +63,4 @@
       </form>
     </main>
   </div>
-{% endblock %}
-
-{% block afterMain %}
-  {% include "partials/footer.html" %}
 {% endblock %}

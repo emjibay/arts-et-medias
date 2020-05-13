@@ -7,10 +7,6 @@
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
 
-{% block beforeMain %}
-  {% include "partials/header.html" %}
-{% endblock %}
-
 {% block main %}
   <div class="piece-details project-details">
     <div class="content">
@@ -33,8 +29,4 @@
       </main>
     </div>
   </div>
-{% endblock %}
-
-{% block afterMain %}
-  {% include "partials/footer.html" %}
 {% endblock %}

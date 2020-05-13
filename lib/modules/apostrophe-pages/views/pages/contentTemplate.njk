@@ -1,16 +1,9 @@
 {% extends "layouts/layout.njk" %}
 
-{%
-  from 'macros/content-section.njk'
-  import contentSection
-%}
+{% from 'macros/content-section.njk' import contentSection %}
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias
-{% endblock %}
-
-{% block beforeMain %}
-  {% include "partials/header.html" %}
 {% endblock %}
 
 {% block main %}
@@ -22,8 +15,4 @@
       </article>
     </main>
   </div>
-{% endblock %}
-
-{% block afterMain %}
-  {% include "partials/footer.html" %}
 {% endblock %}

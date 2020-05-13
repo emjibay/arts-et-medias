@@ -1,17 +1,9 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/indexLayout.njk" %}
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
 
-{% block beforeMain %}
-  {% include "partials/header.njk" %}
-{% endblock %}
-
-{% block main %}
-  {% include "partials/media/index-main.njk" %}
-{% endblock %}
-
-{% block afterMain %}
-  {% include "partials/footer.html" %}
+{% block sidebar %}
+  {% include "partials/media/sidebar-en.njk" %}
 {% endblock %}

@@ -4,14 +4,6 @@
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
 
-{% block beforeMain %}
-  {% include "partials/header.njk" %}
-{% endblock %}
-
-{% block main %}
-  {% include "partials/organizations/index-main.njk" %}
-{% endblock %}
-
-{% block afterMain %}
-  {% include "partials/footer.html" %}
+{% block sidebar %}
+  {% include "partials/organizations/sidebar-en.njk" %}
 {% endblock %}

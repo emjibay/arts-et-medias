@@ -25,9 +25,13 @@
 {%- endmacro -%}
 
 {%- macro mainContent(data) -%}
-  <main id="main" class="page-content">
-    <h1>{{ data.page.title }}</h1>
-    {{ pieceList(data.pieces) }}
-    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  <main id="main">
+    <article>
+      <h1>{{ data.page.title }}</h1>
+      <div class="page-content">
+        {{ pieceList(data.pieces) }}
+        {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+      </div>
+    </article>
   </main>
 {%- endmacro -%}
