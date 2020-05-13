@@ -1,4 +1,4 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/pieceDetailsLayout.njk" %}
 
 {% from 'macros/author-list.njk' import authorList %}
 {% from 'macros/piece-details.njk' import websiteCTA %}
@@ -8,44 +8,34 @@
   {{ data.piece.title }} - Books | Arts et Médias
 {% endblock %}
 
-{% block main %}
-  <div class="piece-details book-details">
-    <div class="content">
-      <main id="main">
-        <article>
-          <h1>{{ data.piece.title }}</h1>
+{% block pageContent %}
+  <h2 class="sr-only">Authors</h2>
+  {{ authorList(data.piece._author) }}
 
-          <div class="page-content">
-            <h2 class="sr-only">Authors</h2>
-            {{ authorList(data.piece._author) }}
+  <h2 class="sr-only">Description</h2>
+  <p class="description">
+    {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+  </p>
 
-            <h2 class="sr-only">Description</h2>
-            <p class="description">
-              {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
-            </p>
+  <h2>Language</h2>
+  {%- set lang = apos.aemLocalization.getLanguage(data.piece.lang) -%}
+  <p>{{ lang }}</p>
 
-            <h2>Language</h2>
-            {%- set lang = apos.aemLocalization.getLanguage(data.piece.lang) -%}
-            <p>{{ lang }}</p>
+  {%- if data.piece.isTranslation -%}
+    <h2>Original Language</h2>
+    {%- set originalLang = apos.aemLocalization.getLanguage(data.piece.originalLang) -%}
+    <p>{{ originalLang }}</p>
 
-            {%- if data.piece.isTranslation -%}
-              <h2>Original Language</h2>
-              {%- set originalLang = apos.aemLocalization.getLanguage(data.piece.originalLang) -%}
-              <p>{{ originalLang }}</p>
+    <h2>Translator</h2>
+    {{ authorList(data.piece._translator) }}
+  {%- endif -%}
 
-              <h2>Translator</h2>
-              {{ authorList(data.piece._translator) }}
-            {%- endif -%}
+  <h2>Tags</h2>
+  {{ tagList(data.piece.tags) }}
 
-            <h2>Tags</h2>
-            {{ tagList(data.piece.tags) }}
+  {{ websiteCTA(data.piece) }}
+{% endblock %}
 
-            {{ websiteCTA(data.piece) }}
-          </div>
-
-          {% include "partials/books/sidebar-en.njk" %}
-        </article>
-      </main>
-    </div>
-  </div>
+{% block sidebar %}
+  {% include "partials/books/sidebar-en.njk" %}
 {% endblock %}

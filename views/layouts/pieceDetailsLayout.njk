@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{% from 'macros/piece-details.njk' import websiteCTA %}
+{% from 'macros/tag-list.njk' import tagList %}
+
+{% block title %}
+  {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block main %}
+  <div class="piece-details project-details">
+    <div class="content">
+      <main id="main">
+        <article>
+          <h1>{{ data.piece.title }}</h1>
+
+          <div class="page-content">
+            {% block pageContent %}
+              <h2 class="sr-only">Description</h2>
+              <p class="description">
+                {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+              </p>
+
+              <h2>Tags</h2>
+              {{ tagList(data.piece.tags) }}
+
+              {{ websiteCTA(data.piece) }}
+            {% endblock %}
+          </div>
+
+          {% block sidebar %}
+
+          {% endblock %}
+        </article>
+      </main>
+    </div>
+  </div>
+{% endblock %}

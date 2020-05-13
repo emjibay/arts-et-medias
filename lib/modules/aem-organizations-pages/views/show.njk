@@ -1,36 +1,25 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/pieceDetailsLayout.njk" %}
 
 {% from 'macros/piece-details.njk' import websiteCTA %}
 {% from 'macros/tag-list.njk' import tagList %}
 
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ data.piece.title }} - Organizations | Arts et Médias
 {% endblock %}
 
 {% block main %}
-  <div class="piece-details organization-details">
-    <div class="content">
-      <main id="main">
-        <article>
-          <h1>{{ data.piece.title }}</h1>
-          <div class="page-content">
-            <h2 class="sr-only">City</h2>
-            <p class="description">
-              {{ data.piece.city }}, {{ data.piece.country }}
-            </p>
+  <h2 class="sr-only">City</h2>
+  <p class="description">
+    {{ data.piece.city }}, {{ data.piece.country }}
+  </p>
 
-            <h2 class="sr-only">Description</h2>
-            <p class="description">
-              {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
-            </p>
+  <h2 class="sr-only">Description</h2>
+  <p class="description">
+    {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+  </p>
 
-            <h2>Tags</h2>
-            {{ tagList(data.piece.tags) }}
+  <h2>Tags</h2>
+  {{ tagList(data.piece.tags) }}
 
-            {{ websiteCTA(data.piece) }}
-          </div>
-        </article>
-      </main>
-    </div>
-  </div>
+  {{ websiteCTA(data.piece) }}
 {% endblock %}

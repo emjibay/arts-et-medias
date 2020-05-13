@@ -1,46 +1,36 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/pieceDetailsLayout.njk" %}
 
 {% from 'macros/piece-details.njk' import websiteCTA %}
 {% from 'macros/tag-list.njk' import tagList %}
 
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ data.piece.title }} - People | Arts et Médias
 {% endblock %}
 
-{% block main %}
-  <div class="piece-details person-details">
-    <div class="content">
-      <main id="main">
-        <article>
-          <h1>{{data.piece.title}}</h1>
+{% block pageContent %}
+  <h2 class="sr-only">Description</h2>
+  <p class="description">
+    {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+  </p>
 
-          <div class="page-content">
-            <h2 class="sr-only">Description</h2>
-            <p class="description">
-              {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
-            </p>
+  <h2>Tags</h2>
+  {{ tagList(data.piece.tags) }}
 
-            <h2>Tags</h2>
-            {{ tagList(data.piece.tags) }}
+  {{ websiteCTA(data.piece) }}
+{% endblock %}
 
-            {{ websiteCTA(data.piece) }}
-          </div>
-
-          <aside class="column right">
-            {# image start #}
-            {%- set aposImageData = apos.images.first(data.piece.profilePic) -%}
-            {%- if aposImageData -%}
-              {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-              <img
-                class="profile-pic"
-                src="{{ image.url }}"
-                alt="{{ image.alt }}"
-              />
-            {%- endif -%}
-            {# image end #}
-          </aside>
-        </article>
-      </main>
-    </div>
-  </div>
+{% block sidebar %}
+  <aside class="sidebar">
+    {# image start #}
+    {%- set aposImageData = apos.images.first(data.piece.profilePic) -%}
+    {%- if aposImageData -%}
+      {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+      <img
+        class="profile-pic"
+        src="{{ image.url }}"
+        alt="{{ image.alt }}"
+      />
+    {%- endif -%}
+    {# image end #}
+  </aside>
 {% endblock %}
