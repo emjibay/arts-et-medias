@@ -51,6 +51,7 @@ img {
 
 .website-cta {
   @include button();
+  color: $white;
 }
 
 

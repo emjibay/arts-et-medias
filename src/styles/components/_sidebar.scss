@@ -33,4 +33,17 @@
     font-size: 11.25pt;
     color: $black;
   }
+
+  .separator {
+    border: none;
+    border-bottom: 1px solid $halfGrey;
+    margin: 30px auto;
+    width: 66%;
+  }
+
+  .cta {
+    @include button();
+    font-size: 11.25pt;
+    color: $white;
+  }
 }

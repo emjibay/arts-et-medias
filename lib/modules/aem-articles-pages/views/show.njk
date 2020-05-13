@@ -1,27 +1,14 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/pieceDetailsLayout.njk" %}
 
-{%
-  from 'macros/content-section.njk'
-  import contentSection
-%}
-
-{%-
-  from 'macros/tag-list.njk'
-  import tagList
--%}
+{% from 'macros/content-section.njk' import contentSection %}
+{%- from 'macros/tag-list.njk' import tagList -%}
 
 {% block title %}
-  {{ data.piece.title }} | Arts et Médias
+  {{ data.piece.title }} - News | Arts et Médias
 {% endblock %}
 
-{% block main %}
-  <div class="content-template">
-    <main id="main" class="content">
-      <article class="template-content">
-        <h1>{{ data.piece.title }}</h1>
-        {{ contentSection(data.piece) }}
-        {{ tagList(data.piece.tags) }}
-      </article>
-    </main>
-  </div>
+{% block pageContent %}
+  <h1>{{ data.piece.title }}</h1>
+  {{ contentSection(data.piece) }}
+  {{ tagList(data.piece.tags) }}
 {% endblock %}

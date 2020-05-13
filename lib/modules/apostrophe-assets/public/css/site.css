@@ -279,6 +279,7 @@ img {
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
+  color: #fff;
 }
 .website-cta:hover {
   text-decoration: none;
@@ -1039,6 +1040,50 @@ img {
 }
 .sidebar a:focus::-moz-focus-inner {
   border: 0;
+}
+.sidebar .separator {
+  border: none;
+  border-bottom: 1px solid #757575;
+  margin: 30px auto;
+  width: 66%;
+}
+.sidebar .cta {
+  display: inline-block;
+  background-color: #000;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-size: 10pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 11.25pt;
+  color: #fff;
+}
+.sidebar .cta:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+.sidebar .cta:active {
+  text-decoration: none;
+}
+.sidebar .cta:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 2.5pt #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.sidebar .cta:focus::-moz-focus-inner {
+  border: 0;
+}
+.sidebar .cta:disabled, .sidebar .cta[disabled] {
+  cursor: not-allowed;
 }
 
 /**
