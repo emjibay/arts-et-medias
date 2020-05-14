@@ -8,10 +8,21 @@
 
 {% block main %}
   <div class="content-template">
-    <main id="main" class="content">
-      <article class="template-content">
-        <h1>{{ data.page.title }}</h1>
-        {{ contentSection(data.page) }}
+    <div class="content">
+      <main id="main">
+        <article>
+          <h1>{{ data.page.title }}</h1>
+
+          <div class="page-content">
+            {{ contentSection(data.page) }}
+          </div>
+
+          {% block sidebar %}
+            {% include "partials/sidebar/sidebar.njk" %}
+          {% endblock %}
+        </article>
+      </main>
+    </div>
       </article>
     </main>
   </div>

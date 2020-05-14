@@ -1706,34 +1706,6 @@ img {
   font-style: normal;
 }
 
-.content-template h1 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  margin: 20px 0 15px 0;
-  font-size: 30pt;
-}
-.content-template h1 strong {
-  font-weight: normal;
-  font-style: normal;
-}
-.content-template p {
-  font-family: "QuebecLight", Verdana, sans-serif;
-  font-size: 12.5pt;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1.5;
-  margin: 15px 0;
-  text-align: left;
-}
-@media only screen and (min-width: 1024px) {
-  .content-template p {
-    column-count: 2;
-    column-gap: 30px;
-  }
-}
-
 .page-person-details .column {
   display: inline-block;
   vertical-align: top;
