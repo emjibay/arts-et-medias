@@ -619,6 +619,72 @@ img {
   width: 40px;
 }
 
+.piece-list {
+  margin: 40px 0;
+}
+.piece-list .list-item {
+  width: calc( (40px * 4) + (16px * 3) );
+  display: inline-block;
+  margin: 0 0 20px 0;
+  vertical-align: top;
+}
+@media only screen and (min-width: 768px) {
+  .piece-list .list-item {
+    width: calc( (45px * 4) + (20px * 3) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .piece-list .list-item {
+    width: calc( (50px * 4) + (30px * 3) );
+  }
+}
+.piece-list .list-item:nth-child(even) {
+  margin-left: 40px;
+}
+@media only screen and (min-width: 768px) {
+  .piece-list .list-item:nth-child(even) {
+    margin-left: 45px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .piece-list .list-item:nth-child(even) {
+    margin-left: 30px;
+  }
+}
+.piece-list .piece-link {
+  text-decoration: none;
+  display: inline-block;
+}
+.piece-list .piece-link:hover h1 {
+  color: #1276D3;
+}
+.piece-list .piece-link:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 2.5pt #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.piece-list .piece-link:focus::-moz-focus-inner {
+  border: 0;
+}
+.piece-list .piece-card {
+  color: #000;
+}
+.piece-list .piece-card h1 {
+  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  margin: 20px 0 15px 0;
+  font-size: 17.5pt;
+  line-height: 1;
+  margin-top: 0;
+}
+.piece-list .piece-card h1 strong {
+  font-weight: normal;
+  font-style: normal;
+}
+
 /**
   * Calculates the span taken by
   *   `n` number of columns and gutters
@@ -1640,72 +1706,6 @@ img {
   border: 0;
 }
 
-.page-index .pieces-list {
-  margin: 40px 0;
-}
-.page-index .pieces-list .list-item {
-  width: calc( (40px * 4) + (16px * 3) );
-  display: inline-block;
-  margin: 0 0 20px 0;
-  vertical-align: top;
-}
-@media only screen and (min-width: 768px) {
-  .page-index .pieces-list .list-item {
-    width: calc( (45px * 4) + (20px * 3) );
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .page-index .pieces-list .list-item {
-    width: calc( (50px * 4) + (30px * 3) );
-  }
-}
-.page-index .pieces-list .list-item:nth-child(even) {
-  margin-left: 40px;
-}
-@media only screen and (min-width: 768px) {
-  .page-index .pieces-list .list-item:nth-child(even) {
-    margin-left: 45px;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .page-index .pieces-list .list-item:nth-child(even) {
-    margin-left: 30px;
-  }
-}
-.page-index .piece-link {
-  text-decoration: none;
-  display: inline-block;
-}
-.page-index .piece-link:hover h1 {
-  color: #1276D3;
-}
-.page-index .piece-link:focus {
-  border-color: #1276D3 !important;
-  box-shadow: 0 0 0 2.5pt #1276D3 !important;
-  outline: 0 !important;
-  transition: box-shadow 0s linear !important;
-}
-.page-index .piece-link:focus::-moz-focus-inner {
-  border: 0;
-}
-.page-index .piece-card {
-  color: #000;
-}
-.page-index .piece-card h1 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  margin: 20px 0 15px 0;
-  font-size: 17.5pt;
-  line-height: 1;
-  margin-top: 0;
-}
-.page-index .piece-card h1 strong {
-  font-weight: normal;
-  font-style: normal;
-}
-
 .page-person-details .column {
   display: inline-block;
   vertical-align: top;
@@ -1849,72 +1849,6 @@ img {
   margin-top: 30px;
 }
 .book-details h2 strong {
-  font-weight: normal;
-  font-style: normal;
-}
-
-.page-search .pieces-list {
-  margin: 40px 0;
-}
-.page-search .pieces-list .list-item {
-  width: calc( (40px * 4) + (16px * 3) );
-  display: inline-block;
-  margin: 0 0 20px 0;
-  vertical-align: top;
-}
-@media only screen and (min-width: 768px) {
-  .page-search .pieces-list .list-item {
-    width: calc( (45px * 4) + (20px * 3) );
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .page-search .pieces-list .list-item {
-    width: calc( (50px * 4) + (30px * 3) );
-  }
-}
-.page-search .pieces-list .list-item:nth-child(even) {
-  margin-left: 40px;
-}
-@media only screen and (min-width: 768px) {
-  .page-search .pieces-list .list-item:nth-child(even) {
-    margin-left: 45px;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .page-search .pieces-list .list-item:nth-child(even) {
-    margin-left: 30px;
-  }
-}
-.page-search .piece-link {
-  text-decoration: none;
-  display: inline-block;
-}
-.page-search .piece-link:hover h1 {
-  color: #1276D3;
-}
-.page-search .piece-link:focus {
-  border-color: #1276D3 !important;
-  box-shadow: 0 0 0 2.5pt #1276D3 !important;
-  outline: 0 !important;
-  transition: box-shadow 0s linear !important;
-}
-.page-search .piece-link:focus::-moz-focus-inner {
-  border: 0;
-}
-.page-search .piece-card {
-  color: #000;
-}
-.page-search .piece-card h1 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  margin: 20px 0 15px 0;
-  font-size: 17.5pt;
-  line-height: 1;
-  margin-top: 0;
-}
-.page-search .piece-card h1 strong {
   font-weight: normal;
   font-style: normal;
 }

@@ -1,19 +1,17 @@
 @import '../common/variables';
 @import '../common/ui';
 
-.page-index {
-  .pieces-list {
-    margin: 40px 0;
+.piece-list {
+  margin: 40px 0;
 
-    .list-item {
-      @include nColumnWidth(4);
-      display: inline-block;
-      margin: 0 0 20px 0;
-      vertical-align: top;
+  .list-item {
+    @include nColumnWidth(4);
+    display: inline-block;
+    margin: 0 0 20px 0;
+    vertical-align: top;
 
-      &:nth-child(even) {
-        @include gutterLeftMargin();
-      }
+    &:nth-child(even) {
+      @include gutterLeftMargin();
     }
   }
 
