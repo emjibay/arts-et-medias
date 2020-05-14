@@ -1,0 +1,41 @@
+.page-search {
+  .pieces-list {
+    margin: 40px 0;
+
+    .list-item {
+      @include nColumnWidth(4);
+      display: inline-block;
+      margin: 0 0 20px 0;
+      vertical-align: top;
+
+      &:nth-child(even) {
+        @include gutterLeftMargin();
+      }
+    }
+  }
+
+  .piece-link {
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      h1 {
+        color: $main;
+      }
+    }
+
+    &:focus {
+      @include focusOutline();
+    }
+  }
+
+  .piece-card {
+    color: $black;
+
+    h1 {
+      @include heading4();
+      line-height: 1;
+      margin-top: 0;
+    }
+  }
+}
