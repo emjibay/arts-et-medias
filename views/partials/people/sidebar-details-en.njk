@@ -1,0 +1,19 @@
+<aside class="sidebar">
+  <article>
+    {# image start #}
+    {%- set aposImageData = apos.images.first(data.piece.profilePic) -%}
+    {%- if aposImageData -%}
+      {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+      <img
+        class="profile-pic"
+        src="{{ image.url }}"
+        alt="{{ image.alt }}"
+      />
+      <hr class="separator" />
+    {%- endif -%}
+    {# image end #}
+    {% include "partials/people/in-this-section-en.njk" %}
+    {% include "partials/people/search-en.njk" %}
+    {% include "partials/sidebar/help-cta.njk" %}
+  </article>
+</aside>

@@ -1,0 +1,41 @@
+{#
+  options = {
+    id,
+    label,
+    type,
+  }
+ #}
+{%- macro searchInput(options) -%}
+  <form
+    class="search-form"
+    method="GET"
+    action="/search"
+  >
+    <fieldset class="search-fieldset">
+      <legend class="ld-meta">
+        {{ __ns('apostrophe', 'New Search') }}
+      </legend>
+      <label
+        for="{{ options.id }}"
+      >{{ options.label }}</label>
+      <input
+        id="{{ options.id }}"
+        class="search-input"
+        type="search"
+        name="q"
+        placeholder="Enter your search"
+      />
+      <input
+        type="hidden"
+        name="type"
+        value="{{ options.type }}"
+      />
+      <input
+        class="search-button"
+        type="submit"
+        value="Search"
+      />
+    </fieldset>
+  </form>
+{%- endmacro -%}
+

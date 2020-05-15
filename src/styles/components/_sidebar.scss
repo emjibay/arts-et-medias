@@ -8,26 +8,33 @@
   @include nColumnWidth(4);
   display: inline-block;
   vertical-align: top;
+  margin-top: 20px;
 
-  h1 {
+  .h1 {
     @include heading4();
   }
-  h2 {
+
+  .h2 {
     @include heading5();
   }
-  h3 {
+
+  .h3 {
     @include heading6();
   }
+
   p {
     @include paragraph();
     font-size: 11.25pt;
   }
+
   ul {
     @include list();
   }
+
   li {
     @include unorderedListItem();
   }
+
   a {
     @include anchor();
     font-size: 11.25pt;
@@ -39,6 +46,23 @@
     border-bottom: 1px solid $halfGrey;
     margin: 30px auto;
     width: 66%;
+  }
+
+  label {
+    @include inputLabel();
+  }
+
+  .search-input {
+    @include textInput();
+    -webkit-appearance: textfield;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .search-button {
+    @include button();
+    float: right;
+    vertical-align: top;
   }
 
   .cta {

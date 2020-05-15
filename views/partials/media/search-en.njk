@@ -1,0 +1,12 @@
+{%- from 'macros/search.njk' import searchInput -%}
+
+<section>
+  <hr class="separator"/>
+  {{
+    searchInput({
+      id: 'mediaSearchInput',
+      type: 'aem-media',
+      label: 'Search Media'
+    })
+  }}
+</section>

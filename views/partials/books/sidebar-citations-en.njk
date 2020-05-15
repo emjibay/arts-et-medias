@@ -1,0 +1,22 @@
+{% from 'macros/bibliography.njk' import apaBib, chicagoBib, mlaBib %}
+{% from 'macros/footnote.njk' import apaFootnote, chicagoFootnote, mlaFootnote %}
+
+<section>
+  <h1>Cite this book</h1>
+
+  <h2>Footnote</h2>
+  <h3>APA</h3>
+  <p>{{ apaFootnote(data.piece) }}</p>
+  <h3>Chicago Style</h3>
+  <p>{{ chicagoFootnote(data.piece) }}</p>
+  <h3>MLA</h3>
+  <p>{{ mlaFootnote(data.piece) }}</p>
+
+  <h2>Bibliography Entry</h2>
+  <h3>APA</h3>
+  <p>{{ apaBib(data.piece) }}</p>
+  <h3>Chicago Style</h3>
+  <p>{{ chicagoBib(data.piece) }}</p>
+  <h3>MLA</h3>
+  <p>{{ mlaBib(data.piece) }}</p>
+</section>

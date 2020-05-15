@@ -1,0 +1,12 @@
+{%- from 'macros/search.njk' import searchInput -%}
+
+<section>
+  <hr class="separator"/>
+  {{
+    searchInput({
+      id: 'educationSearchInput',
+      type: 'aem-education',
+      label: 'Search Education'
+    })
+  }}
+</section>
