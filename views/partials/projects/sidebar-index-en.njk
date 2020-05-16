@@ -1,0 +1,14 @@
+<aside class="sidebar">
+  <article>
+    {{
+      apos.singleton(
+        data.global,
+        'featuredProject',
+        'aem-projects-featured',
+        {}
+      )
+    }}
+    {% include "partials/projects/search-en.njk" %}
+    {% include "partials/sidebar/help-cta.njk" %}
+  </article>
+</aside>

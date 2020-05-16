@@ -1,0 +1,24 @@
+@import '../common/variables';
+@import '../common/ui';
+
+.featured-project-widget {
+  .feature-type {
+    font-family: $ffTextBody;
+    font-size: $fsVerySmol;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  h1 {
+    @include heading4();
+    margin-top: 5px;
+  }
+
+  .hero-image {
+    $imgWidth: getColumnsSpan(4, $desktop);
+    $imgHeight: calc(#{$imgWidth} * 0.5625);
+    object-fit: cover;
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+}
