@@ -18,6 +18,20 @@
     {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
   </p>
 
+  {%- set isCollective = data.piece.tags.indexOf('collective') > -1 -%}
+  {%- set numRelatedPeople = data.piece._relatedPeople|length -%}
+  {%- if isCollective and numRelatedPeople > 0 -%}
+    <h2>Related People</h2>
+    <p>
+      {%- for person in apos.aem.sortByDisplayName(data.piece._relatedPeople) -%}
+        <a href="{{ person._url }}">{{ person.title }}</a>
+        {%- if not loop.last -%}
+        <span>, </span>
+        {%- endif -%}
+      {%- endfor -%}
+    </p>
+  {%- endif -%}
+
   <h2>Tags</h2>
   {{ tagList(data.piece.tags) }}
 

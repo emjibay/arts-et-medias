@@ -11,6 +11,11 @@ img {
   line-height: 0;
 }
 
+a {
+  @include anchor();
+  color: $black;
+}
+
 
 // apostrophe
 .apos-area-widget-controls {

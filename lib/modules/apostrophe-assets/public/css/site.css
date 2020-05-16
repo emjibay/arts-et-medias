@@ -183,6 +183,31 @@ img {
   line-height: 0;
 }
 
+a {
+  cursor: pointer;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+  color: #000;
+}
+a:hover {
+  color: #1276D3;
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+a:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 2.5pt #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+a:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .apos-area-widget-controls {
   opacity: 0.9;
 }
