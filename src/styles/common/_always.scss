@@ -17,8 +17,13 @@ img {
   opacity: 0.9;
 }
 
-[data-apos-widget="apostrophe-rich-text"],[data-apos-area-edit] {
-  outline: $aposGreen dashed 2px;
+
+body {
+  &.apos-workflow-draft-page {
+    [data-apos-widget="apostrophe-rich-text"],[data-apos-area-edit] {
+      outline: $aposGreen dashed 2px;
+    }
+  }
 }
 
 [data-apos-widget="apostrophe-rich-text"] > [data-rich-text]:focus {

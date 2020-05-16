@@ -3,12 +3,13 @@
 {% from 'macros/piece-details.njk' import websiteCTA %}
 {% from 'macros/tag-list.njk' import tagList %}
 
+
 {% block title %}
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
 
 {% block main %}
-  <div class="piece-details project-details">
+  <div class="piece-details project-details {% block mainAdditionalClasses %}{% endblock %}">
     <div class="content">
       <main id="main">
         <article>

@@ -1,0 +1,16 @@
+@import '../common/variables';
+@import '../common/ui';
+
+.project-details {
+  .main-hero-image {
+    $imgWidth: getColumnsSpan(8, $desktop);
+    $imgHeight: calc(#{$imgWidth} * 0.5625);
+    object-fit: cover;
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+}
+
+.sidebar-projects {
+  margin-top: 0;
+}

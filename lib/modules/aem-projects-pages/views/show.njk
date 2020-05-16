@@ -3,6 +3,35 @@
 {% from 'macros/piece-details.njk' import websiteCTA %}
 {% from 'macros/tag-list.njk' import tagList %}
 
+
 {% block title %}
   {{ data.piece.title }} - Projects | Arts et Médias
+{% endblock %}
+
+{% block mainAdditionalClasses %}project-details{% endblock %}
+
+{% block pageContent %}
+  {# image start #}
+  {%- set aposImageData = apos.images.first(data.piece.heroImage) -%}
+  {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+  <img
+    class="main-hero-image"
+    src="{{ image.url }}"
+    alt="{{ image.alt }}"
+  />
+  {# image end #}
+
+  <h2 class="sr-only">Description</h2>
+  <p class="description">
+    {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+  </p>
+
+  <h2>Tags</h2>
+  {{ tagList(data.piece.tags) }}
+
+  {{ websiteCTA(data.piece) }}
+{% endblock %}
+
+{% block sidebar %}
+  {% include "partials/projects/sidebar-en.njk" %}
 {% endblock %}
