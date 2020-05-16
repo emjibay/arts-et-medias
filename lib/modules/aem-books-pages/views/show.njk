@@ -21,6 +21,18 @@
 
           <div class="page-content">
             {% block pageContent %}
+              {# image start #}
+              {%- set aposImageData = apos.images.first(data.piece.heroImage) -%}
+              {%- if aposImageData -%}
+                {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+                <img
+                  class="book-cover"
+                  src="{{ image.url }}"
+                  alt="{{ image.alt }}"
+                />
+              {%- endif -%}
+              {# image end #}
+
               <h2 class="sr-only">Description</h2>
               <p class="description">
                 {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}

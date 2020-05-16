@@ -2295,6 +2295,14 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .book-details .authors .piece-link-list {
   margin-top: 5px;
 }
+.book-details .book-cover {
+  height: 240px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  top: 25px;
+  position: relative;
+}
 
 .sidebar-book-details {
   margin-top: 0;

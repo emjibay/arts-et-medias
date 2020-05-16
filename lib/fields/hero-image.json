@@ -5,6 +5,9 @@
     "name": "heroImage",
     "type": "singleton",
     "widgetType": "apostrophe-images",
-    "required": false
+    "required": false,
+    "options": {
+      "limit": 1
+    }
   }
 ]
