@@ -2,4 +2,8 @@
 @import '../common/ui';
 
 
-.home {}
+.home {
+  .sidebar {
+    margin-top: 0;
+  }
+}
