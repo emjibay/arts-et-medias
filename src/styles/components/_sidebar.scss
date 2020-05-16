@@ -57,6 +57,10 @@
     -webkit-appearance: textfield;
     display: inline-block;
     vertical-align: top;
+
+    &::placeholder {
+      color: $black;
+    }
   }
 
   .search-button {
