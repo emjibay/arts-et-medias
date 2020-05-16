@@ -1,0 +1,13 @@
+{%- macro sortedPieceLinkList(pieces) -%}
+  <ul class="piece-link-list">
+    {% for piece in apos.aem.sortByTitle(pieces) %}
+      <li>
+        <a
+          class="piece-link"
+          href="{{ piece._url }}"
+        >{{ piece.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}
+

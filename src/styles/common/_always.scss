@@ -67,9 +67,17 @@ body {
   vertical-align: top;
 }
 
+.cta,
 .website-cta {
   @include button();
   color: $white;
+}
+
+.separator {
+  border: none;
+  border-bottom: 1px solid $halfGrey;
+  margin: 30px auto;
+  width: 66%;
 }
 
 

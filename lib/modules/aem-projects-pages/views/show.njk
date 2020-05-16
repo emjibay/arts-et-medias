@@ -1,6 +1,8 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
+{% from 'macros/author-list.njk' import authorList %}
 {% from 'macros/piece-details.njk' import websiteCTA %}
+{% from 'macros/piece-link-list.njk' import sortedPieceLinkList %}
 {% from 'macros/tag-list.njk' import tagList %}
 
 
@@ -8,30 +10,58 @@
   {{ data.piece.title }} - Projects | Arts et Médias
 {% endblock %}
 
-{% block mainAdditionalClasses %}project-details{% endblock %}
+{% block main %}
+  <div class="piece-details project-details project-details">
+    <div class="content">
+      <main id="main">
+        <article>
+          <h1 class="project-title">{{ data.piece.title }}</h1>
+          <div class="creators">
+            <h2 class="sr-only">Creators</h2>
+            {{ sortedPieceLinkList(data.piece._author) }}
+          </div>
 
-{% block pageContent %}
-  {# image start #}
-  {%- set aposImageData = apos.images.first(data.piece.heroImage) -%}
-  {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-  <img
-    class="main-hero-image"
-    src="{{ image.url }}"
-    alt="{{ image.alt }}"
-  />
-  {# image end #}
+          <div class="page-content">
+            {% block pageContent %}
+              {# image start #}
+              {%- set aposImageData = apos.images.first(data.piece.heroImage) -%}
+              {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+              <img
+                class="main-hero-image"
+                src="{{ image.url }}"
+                alt="{{ image.alt }}"
+              />
+              {# image end #}
 
-  <h2 class="sr-only">Description</h2>
-  <p class="description">
-    {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
-  </p>
+              <h2 class="sr-only">Description</h2>
+              <p class="description">
+                {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+              </p>
 
-  <h2>Tags</h2>
-  {{ tagList(data.piece.tags) }}
+              {{ websiteCTA(data.piece) }}
 
-  {{ websiteCTA(data.piece) }}
-{% endblock %}
+              <hr class="separator"/>
 
-{% block sidebar %}
-  {% include "partials/projects/sidebar-en.njk" %}
+              {%- if data.piece._relatedPeople|length > 0 -%}
+                <h2>Related People</h2>
+                {{ sortedPieceLinkList(data.piece._relatedPeople) }}
+              {%- endif -%}
+
+              {%- if data.piece._relatedOrganizations|length > 0 -%}
+                <h2>Related Organizations</h2>
+                {{ sortedPieceLinkList(data.piece._relatedOrganizations) }}
+              {%- endif -%}
+
+              <h2>Tags</h2>
+              {{ tagList(data.piece.tags) }}
+            {% endblock %}
+          </div>
+
+          {% block sidebar %}
+            {% include "partials/projects/sidebar-en.njk" %}
+          {% endblock %}
+        </article>
+      </main>
+    </div>
+  </div>
 {% endblock %}
