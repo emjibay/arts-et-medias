@@ -1,0 +1,16 @@
+// serif
+@font-face {
+  font-family: 'YoungSerifRegular';
+  src: url('../../../fonts/youngserif/YoungSerif-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../../../fonts/youngserif/YoungSerif-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../../fonts/youngserif/YoungSerif-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../../fonts/youngserif/YoungSerif-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../../fonts/youngserif/YoungSerif-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../../../fonts/youngserif/YoungSerif-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+// sans serif
+@font-face {
+  font-family: 'QuebecLight';
+  src: url('../../../fonts/quebec/Quebec-Light.otf');
+}

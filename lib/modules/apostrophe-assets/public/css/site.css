@@ -81,6 +81,17 @@ b {
   clear: both;
 }
 
+@font-face {
+  font-family: "YoungSerifRegular";
+  src: url("../../../fonts/youngserif/YoungSerif-Regular.eot");
+  /* IE9 Compat Modes */
+  src: url("../../../fonts/youngserif/YoungSerif-Regular.eot?#iefix") format("embedded-opentype"), url("../../../fonts/youngserif/YoungSerif-Regular.woff2") format("woff2"), url("../../../fonts/youngserif/YoungSerif-Regular.woff") format("woff"), url("../../../fonts/youngserif/YoungSerif-Regular.ttf") format("truetype"), url("../../../fonts/youngserif/YoungSerif-Regular.svg#svgFontName") format("svg");
+  /* Legacy iOS */
+}
+@font-face {
+  font-family: "QuebecLight";
+  src: url("../../../fonts/quebec/Quebec-Light.otf");
+}
 /**
   * Calculates the span taken by
   *   `n` number of columns and gutters
@@ -192,7 +203,7 @@ img {
   }
 }
 .content h1 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -204,7 +215,7 @@ img {
   font-style: normal;
 }
 .content h2 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -216,7 +227,7 @@ img {
   font-style: normal;
 }
 .content h3 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -228,7 +239,7 @@ img {
   font-style: normal;
 }
 .content h4 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -271,7 +282,7 @@ img {
   border: 1px solid transparent;
   color: #fff;
   cursor: pointer;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-size: 10pt;
   font-style: normal;
   font-weight: normal;
@@ -576,7 +587,7 @@ img {
   background-color: #000;
   border: 1px solid transparent;
   cursor: pointer;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-size: 12.5pt;
   font-style: normal;
   font-weight: normal;
@@ -672,7 +683,7 @@ img {
   color: #000;
 }
 .piece-list .piece-card h1 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -779,7 +790,7 @@ img {
   margin-bottom: 20px;
 }
 .rich-content .apos-rich-text h1 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -791,7 +802,7 @@ img {
   font-style: normal;
 }
 .rich-content .apos-rich-text h2 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -803,7 +814,7 @@ img {
   font-style: normal;
 }
 .rich-content .apos-rich-text h3 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -815,7 +826,7 @@ img {
   font-style: normal;
 }
 .rich-content .apos-rich-text h4 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1028,7 +1039,7 @@ img {
   }
 }
 .sidebar .h1 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1118,7 +1129,7 @@ img {
 .sidebar label {
   display: block;
   color: #000;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-size: 10pt;
   font-weight: normal;
   margin-bottom: 5px;
@@ -1158,7 +1169,7 @@ img {
   border: 1px solid transparent;
   color: #fff;
   cursor: pointer;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-size: 10pt;
   font-style: normal;
   font-weight: normal;
@@ -1197,7 +1208,7 @@ img {
   border: 1px solid transparent;
   color: #fff;
   cursor: pointer;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-size: 10pt;
   font-style: normal;
   font-weight: normal;
@@ -1362,7 +1373,7 @@ img {
   background-color: #757575;
   border: 1px solid transparent;
   color: #fff;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-size: 8pt;
   font-style: normal;
   font-weight: normal;
@@ -1581,10 +1592,10 @@ img {
   * half a gutter at a given breakpoint.
   */
 .header {
-  padding: 30px 0 65px;
+  padding: 20px 0 65px;
 }
 .header .site-title {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1592,6 +1603,7 @@ img {
   font-size: 50pt;
   line-height: 1;
   text-align: center;
+  margin: 0 0 20px 0;
 }
 .header .site-title strong {
   font-weight: normal;
@@ -1703,7 +1715,7 @@ img {
   margin-top: 70px;
 }
 .footer .site-title {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1748,7 +1760,7 @@ img {
   margin-left: 0;
 }
 .footer .link-columns .column .column-title {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1783,6 +1795,10 @@ img {
 }
 .footer .link-columns .column .footer-link:focus::-moz-focus-inner {
   border: 0;
+}
+
+.home .sidebar {
+  margin-top: 0;
 }
 
 .page-person-details .column {
@@ -1857,7 +1873,7 @@ img {
   }
 }
 .page-person-details h1 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1869,7 +1885,7 @@ img {
   font-style: normal;
 }
 .page-person-details h2 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1919,7 +1935,7 @@ img {
 }
 
 .book-details h2 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -2006,7 +2022,7 @@ img {
   border: 1px solid transparent;
   color: #fff;
   cursor: pointer;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-size: 10pt;
   font-style: normal;
   font-weight: normal;
@@ -2063,7 +2079,7 @@ img {
   margin-top: 40px;
 }
 .page-search .search-results .title {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -2161,7 +2177,7 @@ img {
   * half a gutter at a given breakpoint.
   */
 .page-login h1 {
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -2202,7 +2218,7 @@ img {
 .page-login label {
   display: block;
   color: #000;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-size: 10pt;
   font-weight: normal;
   margin-bottom: 5px;
@@ -2257,7 +2273,7 @@ img {
   border: 1px solid transparent;
   color: #fff;
   cursor: pointer;
-  font-family: "YoungSerifRegular", Impact, Arial Black, sans-serif;
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-size: 10pt;
   font-style: normal;
   font-weight: normal;
