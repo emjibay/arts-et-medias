@@ -183,8 +183,16 @@ img {
   line-height: 0;
 }
 
+.apos-area-widget-controls {
+  opacity: 0.9;
+}
+
+[data-apos-widget=apostrophe-rich-text], [data-apos-area-edit] {
+  outline: #00a77b dashed 2px;
+}
+
 [data-apos-widget=apostrophe-rich-text] > [data-rich-text]:focus {
-  outline: #00a77b dotted 2px;
+  outline: #00a77b dashed 2px;
 }
 
 .content {
