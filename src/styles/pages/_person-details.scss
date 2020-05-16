@@ -2,44 +2,13 @@
 @import '../common/ui';
 
 
-.page-person-details {
-  .column {
-    display: inline-block;
-    vertical-align: top;
-
-    &.left {
-      @include nColumnWidth(6);
-
-      @media #{$mqDesktop} {
-        @include nColumnWidth(9);
-      }
-    }
-
-    &.right {
-      @include gutterLeftMargin();
-      @include nColumnWidth(6);
-
-      @media #{$mqDesktop} {
-        @include nColumnWidth(3);
-      }
-    }
-  }
-
-  h1 {
-    @include heading1();
-  }
-
-  h2 {
-    @include heading2();
-  }
-
+.sidebar-person-details {
   .profile-pic {
     $imageSize: getColumnsSpan(6, $phone);
 
     object-fit: cover;
     height: $imageSize;
     width: $imageSize;
-    vertical-align: top;
 
     filter: none;
     -webkit-filter: grayscale(100%);
@@ -48,13 +17,8 @@
     -o-filter:      grayscale(100%);
 
     @media #{$mqDesktop} {
-      width: getColumnsSpan(3, $desktop);
-      height: getColumnsSpan(3, $desktop);
+      width: getColumnsSpan(4, $desktop);
+      height: getColumnsSpan(4, $desktop);
     }
-  }
-
-  .description {
-    @include paragraph();
-    @include nColumnWidth(6);
   }
 }
