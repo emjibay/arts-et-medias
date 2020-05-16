@@ -40,7 +40,7 @@
 }
 @mixin heading6 {
   font-family: $ffTextBody;
-  font-size: 12.5pt;
+  font-size: $fsTextBody;
   font-style: normal;
   font-weight: bold;
   line-height: 1;
@@ -50,7 +50,7 @@
 // text blocks
 @mixin paragraph {
   font-family: $ffTextBody;
-  font-size: 12.5pt;
+  font-size: $fsTextBody;
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
@@ -80,11 +80,11 @@
 
   display: inline-block;
   background-color: $black;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   color: $white;
   cursor: pointer;
   font-family: $ffButtonLabel;
-  font-size: 10pt;
+  font-size: $fsVerySmol;
   font-style: normal;
   font-weight: normal;
   line-height: 35px;
@@ -96,8 +96,8 @@
   &:hover {
     text-decoration: none;
     background-color: $white;
-    color: $black;
-    border: 1px solid $black;
+    color: $main;
+    border: 2px solid $main;
   }
   &:active {
     text-decoration: none;
@@ -116,6 +116,8 @@
   font-style: normal;
   font-weight: normal;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: $main;
 
   &:hover {
     color: $main;

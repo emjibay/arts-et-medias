@@ -30,7 +30,7 @@
 
       .column-title {
         @include headingBase();
-        font-size: 12.5pt;
+        font-size: $fsTextBody;
         line-height: 1.5;
       }
 
@@ -41,7 +41,7 @@
       .footer-link {
         color: $white;
         font-family: $ffTextBody;
-        font-size: 10pt;
+        font-size: $fsVerySmol;
         font-style: normal;
         font-weight: normal;
         line-height: 1.25;
@@ -49,6 +49,7 @@
 
         &:hover {
           text-decoration: underline;
+          text-decoration-thickness: 1px;
         }
         &:focus {
           @include focusOutline();

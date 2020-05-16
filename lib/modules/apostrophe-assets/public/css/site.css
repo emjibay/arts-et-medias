@@ -189,6 +189,8 @@ a {
   font-style: normal;
   font-weight: normal;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1276D3;
   color: #000;
 }
 a:hover {
@@ -313,7 +315,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .website-cta {
   display: inline-block;
   background-color: #000;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   color: #fff;
   cursor: pointer;
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
@@ -331,8 +333,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .website-cta:hover {
   text-decoration: none;
   background-color: #fff;
-  color: #000;
-  border: 1px solid #000;
+  color: #1276D3;
+  border: 2px solid #1276D3;
 }
 .cta:active,
 .website-cta:active {
@@ -403,6 +405,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   font-weight: normal;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1276D3;
   color: #000;
   font-size: 12.5pt;
 }
@@ -773,6 +777,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   font-weight: normal;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1276D3;
   color: #000;
   font-size: 12.5pt;
 }
@@ -964,6 +970,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   font-weight: normal;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1276D3;
 }
 .rich-content .apos-rich-text .anchor:hover, .rich-content .apos-rich-text a:hover {
   color: #1276D3;
@@ -1197,6 +1205,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   font-weight: normal;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1276D3;
   font-size: 11.25pt;
   color: #000;
 }
@@ -1259,7 +1269,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .sidebar .search-button {
   display: inline-block;
   background-color: #000;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   color: #fff;
   cursor: pointer;
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
@@ -1277,8 +1287,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .sidebar .search-button:hover {
   text-decoration: none;
   background-color: #fff;
-  color: #000;
-  border: 1px solid #000;
+  color: #1276D3;
+  border: 2px solid #1276D3;
 }
 .sidebar .search-button:active {
   text-decoration: none;
@@ -1298,7 +1308,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .sidebar .cta {
   display: inline-block;
   background-color: #000;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   color: #fff;
   cursor: pointer;
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
@@ -1316,8 +1326,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .sidebar .cta:hover {
   text-decoration: none;
   background-color: #fff;
-  color: #000;
-  border: 1px solid #000;
+  color: #1276D3;
+  border: 2px solid #1276D3;
 }
 .sidebar .cta:active {
   text-decoration: none;
@@ -1608,6 +1618,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   font-weight: normal;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1276D3;
   color: #000;
 }
 .index-main-partial .index-list li a:hover {
@@ -1742,6 +1754,10 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 .header .site-title a:focus::-moz-focus-inner {
   border: 0;
+}
+.header .nav > .nav-list a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 /**
@@ -1904,6 +1920,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 .footer .link-columns .column .footer-link:hover {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 .footer .link-columns .column .footer-link:focus {
   border-color: #1276D3 !important;
@@ -1993,7 +2010,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin-left: 40px;
   display: inline-block;
   background-color: #000;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   color: #fff;
   cursor: pointer;
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
@@ -2031,8 +2048,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .page-search .search-button:hover {
   text-decoration: none;
   background-color: #fff;
-  color: #000;
-  border: 1px solid #000;
+  color: #1276D3;
+  border: 2px solid #1276D3;
 }
 .page-search .search-button:active {
   text-decoration: none;
@@ -2244,7 +2261,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   width: calc( (40px * 4) + (16px * 3) );
   display: inline-block;
   background-color: #000;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   color: #fff;
   cursor: pointer;
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
@@ -2270,8 +2287,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .page-login button[type=submit]:hover {
   text-decoration: none;
   background-color: #fff;
-  color: #000;
-  border: 1px solid #000;
+  color: #1276D3;
+  border: 2px solid #1276D3;
 }
 .page-login button[type=submit]:active {
   text-decoration: none;
