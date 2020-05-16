@@ -2,21 +2,21 @@
 {% from 'macros/footnote.njk' import apaFootnote, chicagoFootnote, mlaFootnote %}
 
 <section>
-  <h1>Cite this book</h1>
+  <h2 class="h1">Cite this book</h2>
 
-  <h2>Footnote</h2>
-  <h3>APA</h3>
+  <h3 class="h2">Footnote</h3>
+  <h4 class="h3">APA</h4>
   <p>{{ apaFootnote(data.piece) }}</p>
-  <h3>Chicago Style</h3>
+  <h4 class="h3">Chicago Style</h4>
   <p>{{ chicagoFootnote(data.piece) }}</p>
-  <h3>MLA</h3>
+  <h4 class="h3">MLA</h4>
   <p>{{ mlaFootnote(data.piece) }}</p>
 
-  <h2>Bibliography Entry</h2>
-  <h3>APA</h3>
+  <h3 class="h2">Bibliography Entry</h3>
+  <h4 class="h3">APA</h4>
   <p>{{ apaBib(data.piece) }}</p>
-  <h3>Chicago Style</h3>
+  <h4 class="h3">Chicago Style</h4>
   <p>{{ chicagoBib(data.piece) }}</p>
-  <h3>MLA</h3>
+  <h4 class="h3">MLA</h4>
   <p>{{ mlaBib(data.piece) }}</p>
 </section>
