@@ -2243,6 +2243,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   height: calc(calc( (50px * 8) + (30px * 7) ) * 0.5625);
   width: calc( (50px * 8) + (30px * 7) );
 }
+.project-details .page-content {
+  margin-top: 20px;
+}
 
 .sidebar-projects {
   margin-top: 0;
