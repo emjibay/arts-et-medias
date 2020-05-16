@@ -2289,6 +2289,17 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   cursor: not-allowed;
 }
 
+.book-details .book-title {
+  margin-bottom: 0;
+}
+.book-details .authors .piece-link-list {
+  margin-top: 5px;
+}
+
+.sidebar-book-details {
+  margin-top: 0;
+}
+
 .sidebar-person-details .profile-pic {
   object-fit: cover;
   height: calc( (40px * 6) + (16px * 5) );
@@ -2304,20 +2315,6 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
     width: calc( (50px * 4) + (30px * 3) );
     height: calc( (50px * 4) + (30px * 3) );
   }
-}
-
-.book-details h2 {
-  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  margin: 20px 0 15px 0;
-  font-size: 17.5pt;
-  margin-top: 30px;
-}
-.book-details h2 strong {
-  font-weight: normal;
-  font-style: normal;
 }
 
 .project-details .project-title {

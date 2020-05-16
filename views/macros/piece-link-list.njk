@@ -1,6 +1,6 @@
-{%- macro sortedPieceLinkList(pieces) -%}
+{%- macro pieceLinkList(pieces) -%}
   <ul class="piece-link-list">
-    {% for piece in apos.aem.sortByTitle(pieces) %}
+    {% for piece in pieces %}
       <li>
         <a
           class="piece-link"
@@ -9,5 +9,9 @@
       </li>
     {% endfor %}
   </ul>
+{%- endmacro -%}
+
+{%- macro sortedPieceLinkList(pieces) -%}
+  {{ pieceLinkList(apos.aem.sortByTitle(pieces)) }}
 {%- endmacro -%}
 

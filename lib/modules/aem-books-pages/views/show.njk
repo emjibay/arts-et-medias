@@ -1,41 +1,58 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{% from 'macros/author-list.njk' import authorList %}
 {% from 'macros/piece-details.njk' import websiteCTA %}
+{% from 'macros/piece-link-list.njk' import pieceLinkList %}
 {% from 'macros/tag-list.njk' import tagList %}
 
 {% block title %}
   {{ data.piece.title }} - Books | Arts et Médias
 {% endblock %}
 
-{% block pageContent %}
-  <h2 class="sr-only">Authors</h2>
-  {{ authorList(data.piece._author) }}
+{% block main %}
+  <div class="piece-details book-details">
+    <div class="content">
+      <main id="main">
+        <article>
+          <h1 class="book-title">{{ data.piece.title }}</h1>
+          <div class="authors">
+            <h2 class="sr-only">Authors</h2>
+            {{ pieceLinkList(data.piece._author) }}
+          </div>
 
-  <h2 class="sr-only">Description</h2>
-  <p class="description">
-    {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
-  </p>
+          <div class="page-content">
+            {% block pageContent %}
+              <h2 class="sr-only">Description</h2>
+              <p class="description">
+                {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+              </p>
 
-  <h2>Language</h2>
-  {%- set lang = apos.aemLocalization.getLanguage(data.piece.lang) -%}
-  <p>{{ lang }}</p>
+              {{ websiteCTA(data.piece) }}
 
-  {%- if data.piece.isTranslation -%}
-    <h2>Original Language</h2>
-    {%- set originalLang = apos.aemLocalization.getLanguage(data.piece.originalLang) -%}
-    <p>{{ originalLang }}</p>
+              <hr class="separator"/>
 
-    <h2>Translator</h2>
-    {{ authorList(data.piece._translator) }}
-  {%- endif -%}
+              <h2>Language</h2>
+              {%- set lang = apos.aemLocalization.getLanguage(data.piece.lang) -%}
+              <p>{{ lang }}</p>
 
-  <h2>Tags</h2>
-  {{ tagList(data.piece.tags) }}
+              {%- if data.piece.isTranslation -%}
+                <h2>Original Language</h2>
+                {%- set originalLang = apos.aemLocalization.getLanguage(data.piece.originalLang) -%}
+                <p>{{ originalLang }}</p>
 
-  {{ websiteCTA(data.piece) }}
-{% endblock %}
+                <h2>Translator</h2>
+                {{ pieceLinkList(data.piece._translator) }}
+              {%- endif -%}
 
-{% block sidebar %}
-  {% include "partials/books/sidebar-details-en.njk" %}
+              <h2>Tags</h2>
+              {{ tagList(data.piece.tags) }}
+            {% endblock %}
+          </div>
+
+          {% block sidebar %}
+            {% include "partials/books/sidebar-details-en.njk" %}
+          {% endblock %}
+        </article>
+      </main>
+    </div>
+  </div>
 {% endblock %}

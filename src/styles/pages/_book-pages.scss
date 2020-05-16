@@ -1,0 +1,18 @@
+@import '../common/variables';
+@import '../common/ui';
+
+.book-details {
+  .book-title {
+    margin-bottom: 0;
+  }
+
+  .authors {
+    .piece-link-list {
+      margin-top: 5px;
+    }
+  }
+}
+
+.sidebar-book-details {
+  margin-top: 0;
+}
