@@ -25,11 +25,13 @@
         name="q"
         placeholder="Enter your search"
       />
+      {%- if options.type -%}
       <input
         type="hidden"
         name="type"
         value="{{ options.type }}"
       />
+      {%- endif -%}
       <input
         class="search-button"
         type="submit"
