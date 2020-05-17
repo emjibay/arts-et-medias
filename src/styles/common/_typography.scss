@@ -1,7 +1,10 @@
 // font families
-$ffHeading: 'YoungSerifRegular', Georgia, 'Times New Roman', Times, serif;
-$ffTextBody: 'QuebecLight', Verdana, sans-serif;
-$ffButtonLabel: $ffHeading;
+$ffSerif: 'YoungSerifRegular', Georgia, 'Times New Roman', Times, serif;
+$ffSansSerif: 'QuebecLight', Verdana, sans-serif;
+
+$ffHeading: $ffSerif;
+$ffTextBody: $ffSansSerif;
+$ffButtonLabel: $ffSerif;
 
 // font sizes
 $fsTextBody: 12.5pt;
