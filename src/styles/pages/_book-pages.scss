@@ -13,14 +13,11 @@
   }
 
   .book-cover {
-    // object-fit: contain;
-    // height: getColumnsSpan(4, $desktop);
-    // width: getColumnsSpan(8, $desktop);
-    height: 240px;
-    float: left;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    top: 25px;
     position: relative;
+    float: left;
+    height: 240px;
+    margin-bottom: getGutterWidth($desktop);
+    margin-right: getGutterWidth($desktop);
+    top: 25px;
   }
 }

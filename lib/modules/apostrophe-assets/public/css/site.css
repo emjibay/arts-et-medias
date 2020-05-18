@@ -2423,12 +2423,12 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin-top: 5px;
 }
 .book-details .book-cover {
-  height: 240px;
-  float: left;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  top: 25px;
   position: relative;
+  float: left;
+  height: 240px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  top: 25px;
 }
 
 .sidebar-person-details .profile-pic {
