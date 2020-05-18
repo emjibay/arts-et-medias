@@ -1,5 +1,28 @@
 {% extends 'layouts/indexLayout.njk' %}
 
+
+{% block pageContent %}
+  {# pieces list #}
+  {%-
+    set piecesOnPage = apos.aem.getPiecesAtPage(
+      data.peopleByTitle,
+      data.currentPage
+    )
+  -%}
+  {{ pieceList(piecesOnPage) }}
+
+  {# pagination #}
+  {{
+    pager.render(
+      {
+        page: data.currentPage,
+        total: data.totalPages
+      },
+      data.url
+    )
+  }}
+{% endblock %}
+
 {% block sidebar %}
   {% include "partials/people/sidebar-index-en.njk" %}
 {% endblock %}

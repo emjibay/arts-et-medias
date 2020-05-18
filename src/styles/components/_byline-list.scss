@@ -1,0 +1,35 @@
+@mixin minorText {
+  color: $darkGrey;
+  font-family: $ffTextBody;
+  font-size: $fsSmol;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: left;
+}
+
+.byline-list {
+  margin: 5px 0;
+  list-style: none;
+
+  &::after {
+    @include minorText();
+    content: ',';
+    margin: 5px 0;
+  }
+
+  &:last-of-type {
+    &::after {
+      content: '';
+      margin: 0;
+      font-size: 0;
+    }
+  }
+
+  li {
+    p {
+      @include minorText();
+      margin: 0;
+    }
+  }
+}

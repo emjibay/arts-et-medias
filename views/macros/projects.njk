@@ -1,5 +1,7 @@
-{%- macro articleList(pieces) -%}
-  <ul class="piece-list article-list">
+{% from 'macros/piece-link-list.njk' import pieceLinkList %}
+
+{%- macro projectList(pieces) -%}
+  <ul class="piece-list project-list">
     {% for piece in pieces %}
       <li class="list-item">
         <a
@@ -10,20 +12,12 @@
             <p class="heading">{{ piece.title }}</p>
 
             <ul class="byline-list">
-              {% for author in piece._originalAuthor %}
+              {% for author in piece._author %}
                 <li>
                   <p>{{ author.title }}</p>
                 </li>
               {% endfor %}
             </ul>
-
-            {#
-              TODO: add filter to date
-              SEE:
-                - https://github.com/e-picas/nunjucks-date-filter
-                - https://stackoverflow.com/questions/53787009/how-to-add-nunjucks-date-filter
-            #}
-            <p class="publication-date">{{ piece.publicationDate }}</p>
 
             {%- if piece.description.items -%}
               {%- set descriptionText = piece.description.items[0].content | safe -%}

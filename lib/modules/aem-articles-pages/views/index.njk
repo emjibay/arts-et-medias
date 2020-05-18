@@ -2,9 +2,27 @@
 
 {% from 'macros/articles.njk' import articleList %}
 
+
 {% block mainAdditionalClasses %}articles-index{% endblock %}
 
 {% block pageContent %}
-  {{ articleList(data.articlesByMostRecent) }}
-  {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  {# pieces list #}
+  {%-
+    set piecesOnPage = apos.aem.getPiecesAtPage(
+      data.articlesByMostRecent,
+      data.currentPage
+    )
+  -%}
+  {{ articleList(piecesOnPage) }}
+
+  {# pagination #}
+  {{
+    pager.render(
+      {
+        page: data.currentPage,
+        total: data.totalPages
+      },
+      data.url
+    )
+  }}
 {% endblock %}

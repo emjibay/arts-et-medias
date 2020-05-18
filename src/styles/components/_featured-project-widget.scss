@@ -12,13 +12,29 @@
   h1 {
     @include heading4();
     margin-top: 5px;
+    margin-bottom: 0;
+  }
+
+  .byline-list {
+    margin: 5px 0;
+
+    li:before {
+      display: none;
+      content: '';
+      font-size: 0;
+      height: 0;
+      line-height: 0;
+      margin: 0;
+    }
   }
 
   .hero-image {
     $imgWidth: getColumnsSpan(4, $desktop);
     $imgHeight: calc(#{$imgWidth} * 0.5625);
-    object-fit: cover;
     height: $imgHeight;
     width: $imgWidth;
+
+    margin-top: 10px;
+    object-fit: cover;
   }
 }

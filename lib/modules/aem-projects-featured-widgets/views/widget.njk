@@ -8,6 +8,14 @@
 
   <h1>{{ piece.title }}</h1>
 
+  <ul class="byline-list">
+    {% for author in piece._author %}
+      <li>
+        <p>{{ author.title }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+
   {# image start #}
   {%- set aposImageData = apos.images.first(piece.heroImage) -%}
   {%- set image = apos.aem.getImageBasicData(aposImageData) -%}

@@ -433,6 +433,37 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: italic;
 }
 
+.byline-list {
+  margin: 5px 0;
+  list-style: none;
+}
+.byline-list::after {
+  color: #3b3b3b;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 11.25pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: left;
+  content: ",";
+  margin: 5px 0;
+}
+.byline-list:last-of-type::after {
+  content: "";
+  margin: 0;
+  font-size: 0;
+}
+.byline-list li p {
+  color: #3b3b3b;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 11.25pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: left;
+  margin: 0;
+}
+
 /**
   * Calculates the span taken by
   *   `n` number of columns and gutters
@@ -698,6 +729,57 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   padding: 0 10px;
 }
 
+.piece-link-list {
+  display: block;
+  margin: 20px 0;
+}
+.piece-link-list li {
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+.piece-link-list li::after {
+  color: #000;
+  content: ",";
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 12.5pt;
+  font-style: normal;
+  font-weight: normal;
+}
+.piece-link-list li:last-of-type {
+  margin-right: 0;
+}
+.piece-link-list li:last-of-type::after {
+  content: "";
+}
+.piece-link-list li .piece-link {
+  cursor: pointer;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1276D3;
+  color: #000;
+  font-size: 12.5pt;
+}
+.piece-link-list li .piece-link:hover {
+  color: #1276D3;
+  text-decoration: none;
+}
+.piece-link-list li .piece-link:active {
+  text-decoration: none;
+}
+.piece-link-list li .piece-link:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 2.5pt #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.piece-link-list li .piece-link:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .piece-list {
   margin: 40px 0;
 }
@@ -762,57 +844,6 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .piece-list .piece-card h1 strong {
   font-weight: normal;
   font-style: normal;
-}
-
-.piece-link-list {
-  display: block;
-  margin: 20px 0;
-}
-.piece-link-list li {
-  display: inline-block;
-  margin-right: 5px;
-  margin-bottom: 10px;
-}
-.piece-link-list li::after {
-  color: #000;
-  content: ",";
-  font-family: "QuebecLight", Verdana, sans-serif;
-  font-size: 12.5pt;
-  font-style: normal;
-  font-weight: normal;
-}
-.piece-link-list li:last-of-type {
-  margin-right: 0;
-}
-.piece-link-list li:last-of-type::after {
-  content: "";
-}
-.piece-link-list li .piece-link {
-  cursor: pointer;
-  font-family: "QuebecLight", Verdana, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-decoration-color: #1276D3;
-  color: #000;
-  font-size: 12.5pt;
-}
-.piece-link-list li .piece-link:hover {
-  color: #1276D3;
-  text-decoration: none;
-}
-.piece-link-list li .piece-link:active {
-  text-decoration: none;
-}
-.piece-link-list li .piece-link:focus {
-  border-color: #1276D3 !important;
-  box-shadow: 0 0 0 2.5pt #1276D3 !important;
-  outline: 0 !important;
-  transition: box-shadow 0s linear !important;
-}
-.piece-link-list li .piece-link:focus::-moz-focus-inner {
-  border: 0;
 }
 
 /**
@@ -1519,15 +1550,28 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin: 20px 0 15px 0;
   font-size: 17.5pt;
   margin-top: 5px;
+  margin-bottom: 0;
 }
 .featured-project-widget h1 strong {
   font-weight: normal;
   font-style: normal;
 }
+.featured-project-widget .byline-list {
+  margin: 5px 0;
+}
+.featured-project-widget .byline-list li:before {
+  display: none;
+  content: "";
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  margin: 0;
+}
 .featured-project-widget .hero-image {
-  object-fit: cover;
   height: calc(calc( (50px * 4) + (30px * 3) ) * 0.5625);
   width: calc( (50px * 4) + (30px * 3) );
+  margin-top: 10px;
+  object-fit: cover;
 }
 
 /**
@@ -2345,37 +2389,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-weight: normal;
   line-height: 1;
   text-align: left;
+  font-size: 10pt;
   margin: 5px 0 0 0;
 }
-.articles-index .piece-card .byline-list {
-  margin: 5px 0 0 0;
-}
-.articles-index .piece-card .byline-list::after {
-  color: #3b3b3b;
-  font-family: "QuebecLight", Verdana, sans-serif;
-  font-size: 11.25pt;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  text-align: left;
-  content: ",";
-  margin: 0 5px 0 0;
-}
-.articles-index .piece-card .byline-list:last-of-type::after {
-  content: "";
-  margin: 0;
-}
-.articles-index .piece-card .byline-list p {
-  color: #3b3b3b;
-  font-family: "QuebecLight", Verdana, sans-serif;
-  font-size: 11.25pt;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  text-align: left;
-  margin: 0;
-}
-
 .book-details .book-title {
   margin-bottom: 0;
 }
@@ -2408,6 +2424,19 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   }
 }
 
+.projects-index .piece-card .heading {
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  margin: 20px 0 15px 0;
+  font-size: 17.5pt;
+  margin: 0;
+}
+.projects-index .piece-card .heading strong {
+  font-weight: normal;
+  font-style: normal;
+}
 .project-details .project-title {
   margin-bottom: 0;
 }

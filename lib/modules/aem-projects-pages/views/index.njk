@@ -1,5 +1,32 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{% from 'macros/projects.njk' import projectList %}
+
+
+{% block mainAdditionalClasses %}projects-index{% endblock %}
+
+{% block pageContent %}
+  {# pieces list #}
+  {%-
+    set piecesOnPage = apos.aem.getPiecesAtPage(
+      data.projectsByTitle,
+      data.currentPage
+    )
+  -%}
+  {{ projectList(piecesOnPage) }}
+
+  {# pagination #}
+  {{
+    pager.render(
+      {
+        page: data.currentPage,
+        total: data.totalPages
+      },
+      data.url
+    )
+  }}
+{% endblock %}
+
 {% block sidebar %}
   {% include "partials/projects/sidebar-en.njk" %}
 {% endblock %}
