@@ -1,6 +1,6 @@
 {% import 'apostrophe-pager:macros.html' as pager with context %}
 
-{%- macro pieceList(pieces) -%}
+{%- macro pieceList(pieces, hasByline = false) -%}
   <ul class="piece-list">
     {% for piece in pieces %}
       <li class="list-item">
@@ -9,7 +9,17 @@
           class="piece-link"
         >
           <article class="piece-card">
-            <h1>{{ piece.title }}</h1>
+            <p class="heading">{{ piece.title }}</p>
+
+            {% if hasByline %}
+              <ul class="byline-list">
+                {% for author in piece._author %}
+                  <li>
+                    <p>{{ author.title }}</p>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
 
             {%- if piece.description.items -%}
               {%- set descriptionText = piece.description.items[0].content | safe -%}

@@ -1,17 +1,7 @@
 @import '../common/variables';
 @import '../common/ui';
 
-.projects-index {
-  .piece-card {
-    .heading {
-      @include heading4();
-      margin: 0;
-    }
-
-    .byline-list {
-    }
-  }
-}
+.projects-index {}
 
 .project-details {
   .project-title {

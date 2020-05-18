@@ -453,6 +453,30 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin: 0;
   font-size: 0;
 }
+.byline-list li {
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+}
+.byline-list li::after {
+  color: #3b3b3b;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 11.25pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: left;
+  content: ",";
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+}
+.byline-list li:last-of-type {
+  margin-right: 0;
+}
+.byline-list li:last-of-type::after {
+  content: "";
+}
 .byline-list li p {
   color: #3b3b3b;
   font-family: "QuebecLight", Verdana, sans-serif;
@@ -816,7 +840,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   text-decoration: none;
   display: inline-block;
 }
-.piece-list .piece-link:hover h1 {
+.piece-list .piece-link:hover .heading {
   color: #1276D3;
 }
 .piece-list .piece-link:focus {
@@ -831,7 +855,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .piece-list .piece-card {
   color: #000;
 }
-.piece-list .piece-card h1 {
+.piece-list .piece-card .heading {
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
   font-style: normal;
@@ -839,9 +863,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin: 20px 0 15px 0;
   font-size: 17.5pt;
   line-height: 1;
-  margin-top: 0;
+  margin: 0;
 }
-.piece-list .piece-card h1 strong {
+.piece-list .piece-card .heading strong {
   font-weight: normal;
   font-style: normal;
 }
@@ -2424,19 +2448,6 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   }
 }
 
-.projects-index .piece-card .heading {
-  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  margin: 20px 0 15px 0;
-  font-size: 17.5pt;
-  margin: 0;
-}
-.projects-index .piece-card .heading strong {
-  font-weight: normal;
-  font-style: normal;
-}
 .project-details .project-title {
   margin-bottom: 0;
 }

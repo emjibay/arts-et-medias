@@ -20,7 +20,7 @@
     display: inline-block;
 
     &:hover {
-      h1 {
+      .heading {
         color: $main;
       }
     }
@@ -33,10 +33,10 @@
   .piece-card {
     color: $black;
 
-    h1 {
+    .heading {
       @include heading4();
       line-height: 1;
-      margin-top: 0;
+      margin: 0;
     }
   }
 }

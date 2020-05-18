@@ -27,6 +27,26 @@
   }
 
   li {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+
+    &::after {
+      @include minorText();
+      content: ',';
+      position: absolute;
+      bottom: 0;
+      right: -5px;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+
+      &::after {
+        content: '';
+      }
+    }
+
     p {
       @include minorText();
       margin: 0;

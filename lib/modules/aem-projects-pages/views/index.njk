@@ -1,7 +1,5 @@
 {% extends "layouts/indexLayout.njk" %}
 
-{% from 'macros/projects.njk' import projectList %}
-
 
 {% block mainAdditionalClasses %}projects-index{% endblock %}
 
@@ -13,7 +11,7 @@
       data.currentPage
     )
   -%}
-  {{ projectList(piecesOnPage) }}
+  {{ pieceList(piecesOnPage, true) }}
 
   {# pagination #}
   {{
