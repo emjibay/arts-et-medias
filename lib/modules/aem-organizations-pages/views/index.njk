@@ -1,5 +1,36 @@
 {% extends "layouts/indexLayout.njk" %}
 
+
+{% block mainAdditionalClasses %}organizations-index{% endblock %}
+
+{% block pageContent %}
+  {# pieces list #}
+  {%-
+    set filteredPieces = apos.aem.getPiecesWithTags(
+      data.organizationsByTitle,
+      data.page.withTags
+    )
+  -%}
+  {%-
+    set piecesOnPage = apos.aem.getPiecesAtPage(
+      filteredPieces,
+      data.currentPage
+    )
+  -%}
+  {{ pieceList(piecesOnPage) }}
+
+  {# pagination #}
+  {{
+    pager.render(
+      {
+        page: data.currentPage,
+        total: data.totalPages
+      },
+      data.url
+    )
+  }}
+{% endblock %}
+
 {% block sidebar %}
   {% include "partials/organizations/sidebar-en.njk" %}
 {% endblock %}
