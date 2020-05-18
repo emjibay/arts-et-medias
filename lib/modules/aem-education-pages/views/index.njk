@@ -1,6 +1,6 @@
 {% extends "layouts/indexLayout.njk" %}
 
-{% from 'macros/piece-index.njk' import organizationList %}
+{% from 'macros/piece-index.njk' import educationList %}
 
 {% block mainAdditionalClasses %}education-index{% endblock %}
 
@@ -18,7 +18,7 @@
       data.currentPage
     )
   -%}
-  {{ organizationList(piecesOnPage) }}
+  {{ educationList(piecesOnPage) }}
 
   {# pagination #}
   {{

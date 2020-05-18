@@ -1,13 +1,3 @@
-@mixin minorText {
-  color: $darkGrey;
-  font-family: $ffTextBody;
-  font-size: $fsSmol;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  text-align: left;
-}
-
 .byline-list {
   margin: 5px 0;
   list-style: none;

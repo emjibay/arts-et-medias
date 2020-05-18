@@ -46,6 +46,15 @@
   line-height: 1;
   margin: 20px 0 15px 0;
 }
+@mixin minorText {
+  color: $darkGrey;
+  font-family: $ffTextBody;
+  font-size: $fsSmol;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: left;
+}
 
 // text blocks
 @mixin paragraph {

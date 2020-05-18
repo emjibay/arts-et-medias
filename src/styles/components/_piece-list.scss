@@ -38,5 +38,10 @@
       line-height: 1;
       margin: 0;
     }
+
+    .org-location {
+      @include minorText();
+      margin: 5px 0;
+    }
   }
 }

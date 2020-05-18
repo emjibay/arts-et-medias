@@ -1,5 +1,7 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{% from 'macros/piece-index.njk' import organizationList %}
+
 
 {% block mainAdditionalClasses %}organizations-index{% endblock %}
 
@@ -17,7 +19,8 @@
       data.currentPage
     )
   -%}
-  {{ pieceList(piecesOnPage) }}
+  {%- set isCollective = data.page.withTags|length and data.page.withTags.indexOf('collective') > -1 -%}
+  {{ organizationList(piecesOnPage, not isCollective) }}
 
   {# pagination #}
   {{
