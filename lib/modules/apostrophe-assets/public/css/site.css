@@ -1570,12 +1570,16 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   text-decoration: none;
 }
 
+.featured-widget .feature-type,
+.featured-article-widget .feature-type,
 .featured-project-widget .feature-type {
   font-family: "QuebecLight", Verdana, sans-serif;
   font-size: 10pt;
   font-weight: bold;
   margin-bottom: 0;
 }
+.featured-widget h1,
+.featured-article-widget h1,
 .featured-project-widget h1 {
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
@@ -1586,13 +1590,19 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin-top: 5px;
   margin-bottom: 0;
 }
+.featured-widget h1 strong,
+.featured-article-widget h1 strong,
 .featured-project-widget h1 strong {
   font-weight: normal;
   font-style: normal;
 }
+.featured-widget .byline-list,
+.featured-article-widget .byline-list,
 .featured-project-widget .byline-list {
   margin: 5px 0;
 }
+.featured-widget .byline-list li:before,
+.featured-article-widget .byline-list li:before,
 .featured-project-widget .byline-list li:before {
   display: none;
   content: "";
@@ -1601,6 +1611,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   line-height: 0;
   margin: 0;
 }
+.featured-widget .hero-image,
+.featured-article-widget .hero-image,
 .featured-project-widget .hero-image {
   height: calc(calc( (50px * 4) + (30px * 3) ) * 0.5625);
   width: calc( (50px * 4) + (30px * 3) );

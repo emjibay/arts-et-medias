@@ -1,6 +1,8 @@
 @import '../common/variables';
 @import '../common/ui';
 
+.featured-widget,
+.featured-article-widget,
 .featured-project-widget {
   .feature-type {
     font-family: $ffTextBody;
