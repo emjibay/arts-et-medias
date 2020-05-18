@@ -1,16 +1,15 @@
 <aside class="sidebar">
   <article>
-    <section>
-      <h2 class="h1">In This Section</h2>
-      <ul>
-        <li>
-          <a href="/education/workshops">Workshops</a>
-        </li>
-        <li>
-          <a href="/education/programs">Academic Programs</a>
-        </li>
-      </ul>
-    </section>
+    {{
+      apos.singleton(
+        data.global,
+        'featuredEducation',
+        'aem-education-featured',
+        {}
+      )
+    }}
+    <hr class="separator" />
+    {% include "partials/education/in-this-section-en.njk" %}
     {% include "partials/education/related-en.njk" %}
     {% include "partials/education/search-en.njk" %}
     {% include "partials/sidebar/help-cta.njk" %}

@@ -44,6 +44,11 @@
     @include inputLabel();
   }
 
+  .byline {
+    @include minorText();
+    margin: 5px 0;
+  }
+
   .search-input {
     @include textInput();
     -webkit-appearance: textfield;
