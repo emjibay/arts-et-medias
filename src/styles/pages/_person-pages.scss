@@ -10,12 +10,6 @@
     height: $imageSize;
     width: $imageSize;
 
-    filter: none;
-    -webkit-filter: grayscale(100%);
-    -moz-filter:    grayscale(100%);
-    -ms-filter:     grayscale(100%);
-    -o-filter:      grayscale(100%);
-
     @media #{$mqDesktop} {
       width: getColumnsSpan(4, $desktop);
       height: getColumnsSpan(4, $desktop);

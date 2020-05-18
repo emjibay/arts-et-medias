@@ -2435,11 +2435,6 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   object-fit: cover;
   height: calc( (40px * 6) + (16px * 5) );
   width: calc( (40px * 6) + (16px * 5) );
-  filter: none;
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
 }
 @media only screen and (min-width: 1024px) {
   .sidebar-person-details .profile-pic {
