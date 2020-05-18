@@ -1,9 +1,7 @@
 @import '../common/variables';
 @import '../common/ui';
 
-.featured-widget,
-.featured-article-widget,
-.featured-project-widget {
+.featured-piece-widget {
   .feature-type {
     font-family: $ffTextBody;
     font-size: $fsVerySmol;
@@ -30,13 +28,24 @@
     }
   }
 
+  $sidebarWidth: getColumnsSpan(4, $desktop);
+
   .hero-image {
-    $imgWidth: getColumnsSpan(4, $desktop);
-    $imgHeight: calc(#{$imgWidth} * 0.5625);
+    $imgWidth: $sidebarWidth;
+    $imgHeight: calc(#{$sidebarWidth} * 0.5625);
     height: $imgHeight;
     width: $imgWidth;
 
     margin-top: 10px;
     object-fit: cover;
+  }
+
+  &.featured-book-widget {
+    .hero-image {
+      height: $sidebarWidth;
+      margin-top: 10px;
+      object-fit: contain;
+      width: $sidebarWidth;
+    }
   }
 }

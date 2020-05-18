@@ -2,10 +2,14 @@
 {% set hasProject = data.widget._pieces.length > 0 %}
 
 {%- if hasProject -%}
-<article class="featured-project-widget">
-  <p class="feature-type">Featured Project</p>
-  {%- set piece = data.widget._pieces[0] -%}
+<article class="featured-piece-widget featured-project-widget">
+  {%- if data.widget.isSponsored -%}
+    <p class="feature-type">Sponsored Project</p>
+  {%- else -%}
+    <p class="feature-type">Featured Project</p>
+  {%- endif -%}
 
+  {%- set piece = data.widget._pieces[0] -%}
   <h1>{{ piece.title }}</h1>
 
   <ul class="byline-list">

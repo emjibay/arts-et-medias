@@ -1,5 +1,14 @@
 <aside class="sidebar">
   <article>
+    {{
+      apos.singleton(
+        data.global,
+        'featuredBook',
+        'aem-books-featured',
+        {}
+      )
+    }}
+    <hr class="separator"/>
     {% include "partials/media/in-this-section-en.njk" %}
     {% include "partials/books/related-en.njk" %}
     {% include "partials/books/search-en.njk" %}

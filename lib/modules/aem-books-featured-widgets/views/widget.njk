@@ -2,18 +2,18 @@
 {% set hasProject = data.widget._pieces.length > 0 %}
 
 {%- if hasProject -%}
-<article class="featured-piece-widget featured-article-widget">
+<article class="featured-piece-widget featured-book-widget">
   {%- if data.widget.isSponsored -%}
-    <p class="feature-type">Sponsored Article</p>
+    <p class="feature-type">Sponsored Book</p>
   {%- else -%}
-    <p class="feature-type">Featured Article</p>
+    <p class="feature-type">Featured Book</p>
   {%- endif -%}
 
   {%- set piece = data.widget._pieces[0] -%}
   <h1>{{ piece.title }}</h1>
 
   <ul class="byline-list">
-    {% for author in piece._originalAuthor %}
+    {% for author in piece._author %}
       <li>
         <p>{{ author.title }}</p>
       </li>
@@ -37,6 +37,6 @@
   {%- endif -%}
   <p>{{ descriptionText | truncate(140, true, "...") }}</p>
 
-  <a class="cta" href="{{ piece._url }}">Read Article</a>
+  <a class="cta" href="{{ piece._url }}">View Details</a>
 </article>
 {%- endif -%}
