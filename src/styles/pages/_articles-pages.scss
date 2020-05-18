@@ -1,0 +1,49 @@
+@import '../common/variables';
+@import '../common/ui';
+
+@mixin minorText {
+  color: $darkGrey;
+  font-family: $ffTextBody;
+  font-size: $fsSmol;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: left;
+}
+
+.articles-index {
+  .piece-card {
+
+    .heading {
+      @include heading4();
+      margin: 0;
+    }
+
+    .publication-date {
+      @include minorText();
+      margin: 5px 0 0 0;
+    }
+
+    .byline-list {
+      margin: 5px 0 0 0;
+
+      &::after {
+        @include minorText();
+        content: ',';
+        margin: 0 5px 0 0;
+      }
+
+      &:last-of-type {
+        &::after {
+          content: '';
+          margin: 0;
+        }
+      }
+
+      p {
+        @include minorText();
+        margin: 0;
+      }
+    }
+  }
+}

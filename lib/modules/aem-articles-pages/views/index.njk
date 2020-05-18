@@ -1,1 +1,10 @@
 {% extends "layouts/indexLayout.njk" %}
+
+{% from 'macros/articles.njk' import articleList %}
+
+{% block mainAdditionalClasses %}articles-index{% endblock %}
+
+{% block pageContent %}
+  {{ articleList(data.articlesByMostRecent) }}
+  {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+{% endblock %}
