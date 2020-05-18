@@ -1820,7 +1820,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   * half a gutter at a given breakpoint.
   */
 .header {
-  padding: 20px 0 65px;
+  padding: 20px 0 40px;
 }
 .header .site-title {
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
