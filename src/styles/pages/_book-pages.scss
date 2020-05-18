@@ -15,9 +15,9 @@
   .book-cover {
     position: relative;
     float: left;
-    height: 240px;
     margin-bottom: getGutterWidth($desktop);
     margin-right: getGutterWidth($desktop);
     top: 25px;
+    width: getColumnsSpan(4, $desktop);
   }
 }

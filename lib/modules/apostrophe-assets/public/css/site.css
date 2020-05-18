@@ -2451,10 +2451,10 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .book-details .book-cover {
   position: relative;
   float: left;
-  height: 240px;
   margin-bottom: 30px;
   margin-right: 30px;
   top: 25px;
+  width: calc( (50px * 4) + (30px * 3) );
 }
 
 .sidebar-person-details .profile-pic {
