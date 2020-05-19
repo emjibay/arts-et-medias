@@ -54,8 +54,10 @@
                 {{ sortedPieceLinkList(data.piece._relatedOrganizations) }}
               {%- endif -%}
 
-              <h2>Tags</h2>
-              {{ tagList(data.piece.tags) }}
+              {%- if data.piece.tags.length -%}
+                <h2>Tags</h2>
+                {{ tagList(data.piece.tags) }}
+              {%- endif -%}
             {% endblock %}
           </div>
 

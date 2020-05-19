@@ -18,8 +18,10 @@
     {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
   </p>
 
-  <h2>Tags</h2>
-  {{ tagList(data.piece.tags) }}
+  {%- if data.piece.tags.length -%}
+    <h2>Tags</h2>
+    {{ tagList(data.piece.tags) }}
+  {%- endif -%}
 
   {{ websiteCTA(data.piece) }}
 {% endblock %}
