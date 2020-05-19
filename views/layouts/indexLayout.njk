@@ -4,6 +4,7 @@
 
 {% from 'macros/piece-index.njk' import pieceList %}
 
+
 {% block title %}
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
@@ -13,6 +14,10 @@
     <div class="content">
       <main id="main">
         <article>
+          {% block breadcrumbs %}
+            {% include "partials/components/breadcrumbs.njk" %}
+          {% endblock %}
+
           <h1>{{ data.page.title }}</h1>
 
           <div class="page-content">

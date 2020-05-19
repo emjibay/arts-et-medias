@@ -13,6 +13,8 @@
     <div class="content">
       <main id="main">
         <article>
+          {% include "partials/components/breadcrumbs.njk" %}
+
           <h1 class="book-title">{{ data.piece.title }}</h1>
           <div class="authors">
             <h2 class="sr-only">Authors</h2>

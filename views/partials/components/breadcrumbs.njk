@@ -1,0 +1,19 @@
+<nav
+  aria-label="Breadcrumbs"
+  class="breadcrumbs"
+>
+  <ol class="breadcrumbs-list">
+    {% if data.page %}
+      {% for ancestor in data.page._ancestors %}
+        <li>
+          <a href="{{ ancestor._url }}">{{ ancestor.title }}</a>
+        </li>
+        {%- if loop.last and data.piece -%}
+          <li>
+            <a href="{{ data.page._url }}">{{ data.page.title }}</a>
+          </li>
+        {%- endif -%}
+      {% endfor %}
+    {% endif %}
+  </ol>
+</nav>
