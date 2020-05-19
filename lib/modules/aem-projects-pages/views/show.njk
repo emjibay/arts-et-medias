@@ -14,7 +14,10 @@
     <div class="content">
       <main id="main">
         <article>
+          {% include "partials/components/breadcrumbs.njk" %}
+
           <h1 class="project-title">{{ data.piece.title }}</h1>
+
           <div class="creators">
             <h2 class="sr-only">Creators</h2>
             {{ sortedPieceLinkList(data.piece._author) }}
