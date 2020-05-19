@@ -9,5 +9,11 @@
 
 {% block pageContent %}
   {{ contentSection(data.piece) }}
-  {{ tagList(data.piece.tags) }}
+
+  {%- if data.piece.tags.length -%}
+    <hr class="separator" />
+
+    <h2>Tags</h2>
+    {{ tagList(data.piece.tags) }}
+  {%- endif -%}
 {% endblock %}

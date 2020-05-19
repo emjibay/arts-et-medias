@@ -26,13 +26,14 @@
     <h2>Related People</h2>
     {{ sortedPieceLinkList(data.piece._relatedPeople) }}
   {%- endif -%}
+  {{ websiteCTA(data.piece) }}
 
   {%- if data.piece.tags.length -%}
+    <hr class="separator" />
+
     <h2>Tags</h2>
     {{ tagList(data.piece.tags) }}
   {%- endif -%}
-
-  {{ websiteCTA(data.piece) }}
 {% endblock %}
 
 {% block sidebar %}

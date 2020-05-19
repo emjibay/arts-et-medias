@@ -12,13 +12,14 @@
   <p class="description">
     {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
   </p>
+  {{ websiteCTA(data.piece) }}
 
   {%- if data.piece.tags.length -%}
+    <hr class="separator" />
+
     <h2>Tags</h2>
     {{ tagList(data.piece.tags) }}
   {%- endif -%}
-
-  {{ websiteCTA(data.piece) }}
 {% endblock %}
 
 {% block sidebar %}
