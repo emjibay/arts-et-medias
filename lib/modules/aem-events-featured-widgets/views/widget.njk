@@ -30,12 +30,7 @@
   {# image end #}
 
   <div class="text-container">
-    {%- if piece.description.items -%}
-      {%- set descriptionText = piece.description.items[0].content | safe -%}
-    {%- else -%}
-      {%- set descriptionText = piece.description -%}
-    {%- endif -%}
-    <p>{{ descriptionText | truncate(140, true, "...") }}</p>
+    {{ truncatedDescription(piece) }}
 
     <a class="cta" href="{{ piece._url }}">View Details</a>
   </div>

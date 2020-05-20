@@ -1,3 +1,6 @@
+{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+
+
 {# FIXME: figure out better way to get widget data #}
 {% set hasProject = data.widget._pieces.length > 0 %}
 
@@ -30,12 +33,7 @@
   />
   {# image end #}
 
-  {%- if piece.description.items -%}
-    {%- set descriptionText = piece.description.items[0].content | safe -%}
-  {%- else -%}
-    {%- set descriptionText = piece.description -%}
-  {%- endif -%}
-  <p>{{ descriptionText | truncate(140, true, "...") }}</p>
+  {{ truncatedDescription(piece) }}
 
   <a class="cta" href="{{ piece._url }}">View Details</a>
 </article>

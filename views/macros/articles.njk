@@ -1,3 +1,6 @@
+{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+
+
 {%- macro articleList(pieces) -%}
   <ul class="piece-list article-list">
     {% for piece in pieces %}
@@ -25,12 +28,7 @@
             #}
             <p class="publication-date">{{ piece.publicationDate }}</p>
 
-            {%- if piece.description.items -%}
-              {%- set descriptionText = piece.description.items[0].content | safe -%}
-            {%- else -%}
-              {%- set descriptionText = piece.description -%}
-            {%- endif -%}
-            <p>{{ descriptionText | truncate(140, true, "...") }}</p>
+            {{ truncatedDescription(piece) }}
           </article>
         </a>
       </li>
