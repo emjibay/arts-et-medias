@@ -1,3 +1,6 @@
+{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+
+
 {# FIXME: figure out better way to get widget data #}
 {% set hasProject = data.widget._pieces.length > 0 %}
 
@@ -12,7 +15,9 @@
   {%- set piece = data.widget._pieces[0] -%}
   <h1>{{ piece.title }}</h1>
 
-  <p class="byline">{{ piece.city }}, {{ piece.country }}</p>
+  <p class="byline">
+    {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ piece.country }}
+  </p>
 
   {# image start #}
   {%- set aposImageData = apos.images.first(piece.heroImage) -%}
