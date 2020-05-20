@@ -3,9 +3,16 @@
 {% from 'macros/articles.njk' import articleList %}
 
 
+{%- set isFirstPage = (data.currentPage === 1) -%}
+
 {% block mainAdditionalClasses %}articles-index{% endblock %}
 
 {% block pageContent %}
+  {%- if isFirstPage -%}
+    {% include "partials/articles/featured.njk" %}
+    <hr class="separator" />
+  {%- endif -%}
+
   {# pieces list #}
   {%-
     set filteredPieces = apos.aem.getPiecesWithTags(
@@ -34,5 +41,9 @@
 {% endblock %}
 
 {% block sidebar %}
-  {% include "partials/articles/sidebar-en.njk" %}
+  {%- if isFirstPage -%}
+    {% include "partials/articles/sidebar-no-feature-en.njk" %}
+  {%- else -%}
+    {% include "partials/articles/sidebar-en.njk" %}
+  {%- endif -%}
 {% endblock %}

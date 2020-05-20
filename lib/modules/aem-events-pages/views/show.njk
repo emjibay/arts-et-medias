@@ -27,3 +27,7 @@
     {{ tagList(data.piece.tags) }}
   {%- endif -%}
 {% endblock %}
+
+{% block sidebar %}
+  {% include "partials/events/sidebar-no-feature-en.njk" %}
+{% endblock %}

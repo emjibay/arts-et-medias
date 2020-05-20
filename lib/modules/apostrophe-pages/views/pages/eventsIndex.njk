@@ -4,6 +4,18 @@
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
 
+{% block pageContent %}
+  {{
+    apos.singleton(
+      data.global,
+      'featuredEvent',
+      'aem-events-featured',
+      {}
+    )
+  }}
+  <hr class="separator" />
+{% endblock %}
+
 {% block sidebar %}
-  {% include "partials/events/sidebar-en.njk" %}
+  {% include "partials/events/sidebar-no-feature-en.njk" %}
 {% endblock %}

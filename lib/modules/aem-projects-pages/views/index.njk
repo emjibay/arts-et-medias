@@ -1,9 +1,16 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
+{%- set isFirstPage = (data.currentPage === 1) -%}
+
 {% block mainAdditionalClasses %}projects-index{% endblock %}
 
 {% block pageContent %}
+  {%- if isFirstPage -%}
+    {% include "partials/projects/featured.njk" %}
+    <hr class="separator" />
+  {%- endif -%}
+
   {# pieces list #}
   {%-
     set filteredPieces = apos.aem.getPiecesWithTags(
@@ -32,5 +39,9 @@
 {% endblock %}
 
 {% block sidebar %}
-  {% include "partials/projects/sidebar-en.njk" %}
+  {%- if isFirstPage -%}
+    {% include "partials/projects/sidebar-no-feature-en.njk" %}
+  {%- else -%}
+    {% include "partials/projects/sidebar-en.njk" %}
+  {%- endif -%}
 {% endblock %}

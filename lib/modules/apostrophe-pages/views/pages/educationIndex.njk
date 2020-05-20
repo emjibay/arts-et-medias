@@ -4,6 +4,11 @@
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
 
+{% block pageContent %}
+  {% include "partials/education/featured.njk" %}
+  <hr class="separator" />
+{% endblock %}
+
 {% block sidebar %}
-  {% include "partials/education/sidebar-en.njk" %}
+  {% include "partials/education/sidebar-no-feature-en.njk" %}
 {% endblock %}

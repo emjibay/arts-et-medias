@@ -15,7 +15,8 @@
     "apostrophe-db-mongo-3-driver": "^2.0.1",
     "apostrophe-second-chance-login": "^2.0.0",
     "apostrophe-workflow": "^2.34.0",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "moment": "^2.25.3"
   },
   "devDependencies": {
     "@cloudraker/sass-brunch": "^3.0.1",
