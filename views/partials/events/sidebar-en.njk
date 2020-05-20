@@ -1,13 +1,6 @@
 <aside class="sidebar">
   <article>
-    {{
-      apos.singleton(
-        data.global,
-        'featuredEvent',
-        'aem-events-featured',
-        {}
-      )
-    }}
+    {% include "partials/events/featured.njk" %}
     <hr class="separator" />
     {% include "partials/events/in-this-section-en.njk" %}
     {% include "partials/events/search-en.njk" %}

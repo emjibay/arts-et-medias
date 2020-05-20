@@ -1,5 +1,52 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{% from 'macros/piece-index.njk' import eventList %}
+
+
+{%- set isFirstPage = (data.currentPage === 1) -%}
+{%- set hasTags = (data.page.withTags|length > 0) -%}
+
+{% block mainAdditionalClasses %}events-index{% endblock %}
+
+{% block pageContent %}
+  {%- if isFirstPage and not hasTags -%}
+    {% include "partials/events/featured.njk" %}
+    <hr class="separator" />
+  {%- endif -%}
+
+  {# pieces list #}
+  {%-
+    set filteredPieces = apos.aem.getPiecesWithTags(
+      data.orderedEvents,
+      data.page.withTags
+    )
+  -%}
+  {%-
+    set piecesOnPage = apos.aem.getPiecesAtPage(
+      filteredPieces,
+      data.currentPage
+    )
+  -%}
+  {{ eventList(piecesOnPage, true) }}
+
+  {# pagination #}
+  {{
+    pager.render(
+      {
+        page: data.currentPage,
+        total: data.totalPages
+      },
+      data.url
+    )
+  }}
+{% endblock %}
+
 {% block sidebar %}
-  {% include "partials/events/sidebar-en.njk" %}
+  {%- if hasTags -%}
+    {% include "partials/events/sidebar-en.njk" %}
+  {%- elseif isFirstPage -%}
+    {% include "partials/events/sidebar-no-feature-en.njk" %}
+  {%- else -%}
+    {% include "partials/events/sidebar-en.njk" %}
+  {%- endif -%}
 {% endblock %}

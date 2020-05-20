@@ -1,5 +1,7 @@
 {% import 'apostrophe-pager:macros.html' as pager with context %}
 
+{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+
 {%- macro pieceList(pieces, hasByline = false) -%}
   <ul class="piece-list">
     {% for piece in pieces %}
@@ -21,12 +23,7 @@
               </ul>
             {% endif %}
 
-            {%- if piece.description.items -%}
-              {%- set descriptionText = piece.description.items[0].content | safe -%}
-            {%- else -%}
-              {%- set descriptionText = piece.description -%}
-            {%- endif -%}
-            <p>{{ descriptionText | truncate(140, true, "...") }}</p>
+            {{ truncatedDescription(piece) }}
           </article>
         </a>
       </li>
@@ -53,12 +50,30 @@
               {% endfor %}
             </ul>
 
-            {%- if piece.description.items -%}
-              {%- set descriptionText = piece.description.items[0].content | safe -%}
-            {%- else -%}
-              {%- set descriptionText = piece.description -%}
-            {%- endif -%}
-            <p>{{ descriptionText | truncate(140, true, "...") }}</p>
+            {{ truncatedDescription(piece) }}
+          </article>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}
+
+{%- macro eventList(pieces) -%}
+  <ul class="piece-list">
+    {% for piece in pieces %}
+      <li class="list-item">
+        <a
+          href="{{ piece._url }}"
+          class="piece-link"
+        >
+          <article class="piece-card">
+            <p class="heading">{{ piece.title }}</p>
+
+            <p class="org-location">
+              {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ piece.country }}
+            </p>
+
+            {{ truncatedDescription(piece) }}
           </article>
         </a>
       </li>
@@ -81,12 +96,7 @@
               <p class="org-location">{{ piece.city }}, {{ piece.country }}</p>
             {%- endif -%}
 
-            {%- if piece.description.items -%}
-              {%- set descriptionText = piece.description.items[0].content | safe -%}
-            {%- else -%}
-              {%- set descriptionText = piece.description -%}
-            {%- endif -%}
-            <p>{{ descriptionText | truncate(140, true, "...") }}</p>
+            {{ truncatedDescription(piece) }}
           </article>
         </a>
       </li>
