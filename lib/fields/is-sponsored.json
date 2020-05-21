@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Is this feature sponsored?",
+    "help": "Sponsored content is paid for, otherwise it is simply featured content",
+    "name": "isSponsored",
+    "type": "boolean",
+    "required": true
+  }
+]

@@ -1,0 +1,9 @@
+{%- from 'macros/featured-piece.njk' import featuredArticle -%}
+
+<aside class="sidebar">
+  {%- set latestArticle = data.articlesByMostRecent[0] -%}
+  {{ featuredArticle(latestArticle, 'Latest Article') }}
+
+  {% include "partials/sidebar/search-en.njk" %}
+  {% include "partials/sidebar/help-cta.njk" %}
+</aside>

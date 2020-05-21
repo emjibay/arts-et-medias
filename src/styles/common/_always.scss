@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'ui';
 
 
 // dom elements
@@ -65,6 +66,15 @@ body {
   @include nColumnWidth(8);
   display: inline-block;
   vertical-align: top;
+
+  .column {
+    // width: getColumnsSpan(4, $desktop);
+    display: inline-block;
+
+    &.right {
+      margin-left: getGutterWidth($desktop);
+    }
+  }
 }
 
 .cta,

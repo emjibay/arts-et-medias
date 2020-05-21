@@ -54,22 +54,33 @@
   // }
 }
 
+.column,
 .sidebar {
   .featured-piece-widget {
-    $sidebarWidth: getColumnsSpan(4, $desktop);
+    $fourColWidth: getColumnsSpan(4, $desktop);
+    width: $fourColWidth;
+
+    .byline-list {
+      margin: 0;
+
+      &::after {
+        margin: 0;
+      }
+    }
+
     .hero-image {
-      $imgWidth: $sidebarWidth;
-      $imgHeight: calc(#{$sidebarWidth} * 0.5625);
+      $imgWidth: $fourColWidth;
+      $imgHeight: calc(#{$fourColWidth} * 0.5625);
       height: $imgHeight;
       width: $imgWidth;
     }
 
     &.featured-book-widget {
       .hero-image {
-        height: $sidebarWidth;
+        height: $fourColWidth;
         margin-top: 10px;
         object-fit: contain;
-        width: $sidebarWidth;
+        width: $fourColWidth;
       }
     }
   }

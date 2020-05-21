@@ -311,6 +311,12 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
     width: calc( (50px * 8) + (30px * 7) );
   }
 }
+.page-content .column {
+  display: inline-block;
+}
+.page-content .column.right {
+  margin-left: 30px;
+}
 
 .cta,
 .website-cta {
@@ -1644,10 +1650,24 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   object-fit: cover;
 }
 
+.column .featured-piece-widget,
+.sidebar .featured-piece-widget {
+  width: calc( (50px * 4) + (30px * 3) );
+}
+.column .featured-piece-widget .byline-list,
+.sidebar .featured-piece-widget .byline-list {
+  margin: 0;
+}
+.column .featured-piece-widget .byline-list::after,
+.sidebar .featured-piece-widget .byline-list::after {
+  margin: 0;
+}
+.column .featured-piece-widget .hero-image,
 .sidebar .featured-piece-widget .hero-image {
   height: calc(calc( (50px * 4) + (30px * 3) ) * 0.5625);
   width: calc( (50px * 4) + (30px * 3) );
 }
+.column .featured-piece-widget.featured-book-widget .hero-image,
 .sidebar .featured-piece-widget.featured-book-widget .hero-image {
   height: calc( (50px * 4) + (30px * 3) );
   margin-top: 10px;

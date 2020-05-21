@@ -1,40 +1,17 @@
-{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+{%- from 'macros/featured-piece.njk' import featuredArticle -%}
 
 
 {# FIXME: figure out better way to get widget data #}
 {% set hasProject = data.widget._pieces.length > 0 %}
 
 {%- if hasProject -%}
-<article class="featured-piece-widget featured-article-widget">
   {%- if data.widget.isSponsored -%}
-    <p class="feature-type">Sponsored Article</p>
+    {# TODO: mention sponsor #}
+    {%- set label = 'Sponsored Article' -%}
   {%- else -%}
-    <p class="feature-type">Featured Article</p>
+    {%- set label = 'Featured Article' -%}
   {%- endif -%}
 
   {%- set piece = data.widget._pieces[0] -%}
-  <h1>{{ piece.title }}</h1>
-
-  <ul class="byline-list">
-    {% for author in piece._originalAuthor %}
-      <li>
-        <p>{{ author.title }}</p>
-      </li>
-    {% endfor %}
-  </ul>
-
-  {# image start #}
-  {%- set aposImageData = apos.images.first(piece.heroImage) -%}
-  {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-  <img
-    class="hero-image"
-    src="{{ image.url }}"
-    alt="{{ image.alt }}"
-  />
-  {# image end #}
-
-  {{ truncatedDescription(piece) }}
-
-  <a class="cta" href="{{ piece._url }}">Read Article</a>
-</article>
+  {{ featuredArticle(piece, label) }}
 {%- endif -%}

@@ -1,0 +1,32 @@
+{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+
+
+{%- macro featuredArticle(piece, label) -%}
+  <article class="featured-piece-widget featured-article-widget">
+    <p class="feature-type">{{ label }}</p>
+
+    <h1>{{ piece.title }}</h1>
+
+    <ul class="byline-list">
+      {% for author in piece._originalAuthor %}
+        <li>
+          <p>{{ author.title }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {# image start #}
+    {%- set aposImageData = apos.images.first(piece.heroImage) -%}
+    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+    <img
+      class="hero-image"
+      src="{{ image.url }}"
+      alt="{{ image.alt }}"
+    />
+    {# image end #}
+
+    {{ truncatedDescription(piece) }}
+
+    <a class="cta" href="{{ piece._url }}">Read Article</a>
+  </article>
+{%- endmacro -%}
