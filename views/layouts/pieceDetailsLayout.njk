@@ -17,7 +17,9 @@
             {% include "partials/components/breadcrumbs.njk" %}
           {% endblock %}
 
-          <h1>{{ data.piece.title }}</h1>
+          <h1 class="h1">{{ data.piece.title }}</h1>
+
+          {% block subheading %}{% endblock %}
 
           <div class="page-content">
             {% block pageContent %}

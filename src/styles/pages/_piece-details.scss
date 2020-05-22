@@ -1,0 +1,41 @@
+@import '../common/variables';
+@import '../common/ui';
+
+
+.piece-details {
+  .h1 {
+    margin-bottom: 0;
+  }
+
+  .subheading {
+    height: 45px;
+    font-size: $fsTextBody;
+    font-family: $ffTextBody;
+
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      line-height: 25px;
+      height: 25px;
+      background-color: lightsalmon;
+    }
+
+    .piece-link-list {
+      height: 25px;
+      margin: 5px 0 20px 0;
+    }
+  }
+
+  .page-content {
+    margin-top: 25px;
+  }
+
+  .hero-image {
+    $width: getColumnsSpan(8, $desktop);
+    $imgWidth: $width;
+    $imgHeight: calc(#{$width} * 0.5);
+    height: $imgHeight;
+    width: $imgWidth;
+    object-fit: cover;
+  }
+}

@@ -2,18 +2,47 @@
 
 {% from 'macros/content-section.njk' import contentSection %}
 {%- from 'macros/tag-list.njk' import tagList -%}
+{% from 'macros/piece-link-list.njk' import pieceLinkList %}
+
+
+{%- set piece = data.piece -%}
 
 {% block title %}
-  {{ data.piece.title }} - News | Arts et Médias
+  {{ piece.title }} - Articles | Arts et Médias
+{% endblock %}
+
+{% block mainAdditionalClasses %}article-details{% endblock %}
+
+{% block subheading %}
+  <div class="subheading">
+    <h2 class="sr-only">Authors</h2>
+    {{ pieceLinkList(piece._originalAuthor) }}
+  </div>
 {% endblock %}
 
 {% block pageContent %}
-  {{ contentSection(data.piece) }}
+  {# image start #}
+  {%- set aposImageData = apos.images.first(piece.heroImage) -%}
+  {%- if aposImageData -%}
+    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+    <img
+      class="hero-image"
+      src="{{ image.url }}"
+      alt="{{ image.alt }}"
+    />
+  {%- endif -%}
+  {# image end #}
 
-  {%- if data.piece.tags.length -%}
+  {{ contentSection(piece) }}
+
+  {%- if piece.tags.length -%}
     <hr class="separator" />
 
     <h2>Tags</h2>
-    {{ tagList(data.piece.tags) }}
+    {{ tagList(piece.tags) }}
   {%- endif -%}
+{% endblock %}
+
+{% block sidebar %}
+  {% include "partials/articles/sidebar-en.njk" %}
 {% endblock %}

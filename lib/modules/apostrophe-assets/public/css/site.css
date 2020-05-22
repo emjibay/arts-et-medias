@@ -377,6 +377,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   clip: rect(1px 1px 1px 1px);
   /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
+  font-size: 0;
   height: 1px !important;
   overflow: hidden;
   padding: 0 !important;
@@ -2469,6 +2470,34 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   cursor: not-allowed;
 }
 
+.piece-details .h1 {
+  margin-bottom: 0;
+}
+.piece-details .subheading {
+  height: 45px;
+  font-size: 12.5pt;
+  font-family: "QuebecLight", Verdana, sans-serif;
+}
+.piece-details .subheading p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 25px;
+  height: 25px;
+  background-color: lightsalmon;
+}
+.piece-details .subheading .piece-link-list {
+  height: 25px;
+  margin: 5px 0 20px 0;
+}
+.piece-details .page-content {
+  margin-top: 25px;
+}
+.piece-details .hero-image {
+  height: calc(calc( (50px * 8) + (30px * 7) ) * 0.5);
+  width: calc( (50px * 8) + (30px * 7) );
+  object-fit: cover;
+}
+
 .articles-index .piece-card .heading {
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
@@ -2493,11 +2522,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-size: 10pt;
   margin: 5px 0 0 0;
 }
-.book-details .book-title {
-  margin-bottom: 0;
-}
-.book-details .authors .piece-link-list {
-  margin-top: 5px;
+.book-details .page-content {
+  margin-top: 0;
 }
 .book-details .book-cover {
   position: relative;
@@ -2520,19 +2546,10 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   }
 }
 
-.project-details .project-title {
-  margin-bottom: 0;
-}
-.project-details .creators .piece-link-list {
-  margin-top: 5px;
-}
 .project-details .main-hero-image {
   object-fit: cover;
   height: calc(calc( (50px * 8) + (30px * 7) ) * 0.5625);
   width: calc( (50px * 8) + (30px * 7) );
-}
-.project-details .page-content {
-  margin-top: 20px;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/

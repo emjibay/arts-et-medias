@@ -2,6 +2,10 @@
 @import 'search';
 @import 'login';
 
+// generic
+@import 'piece-details';
+
+// explicit
 @import 'articles-pages';
 @import 'book-pages';
 @import 'person-pages';

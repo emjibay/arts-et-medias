@@ -1,28 +1,15 @@
 @import '../common/variables';
 @import '../common/ui';
 
+
 .projects-index {}
 
 .project-details {
-  .project-title {
-    margin-bottom: 0;
-  }
-
-  .creators {
-    .piece-link-list {
-      margin-top: 5px;
-    }
-  }
-
   .main-hero-image {
     $imgWidth: getColumnsSpan(8, $desktop);
     $imgHeight: calc(#{$imgWidth} * 0.5625);
     object-fit: cover;
     height: $imgHeight;
     width: $imgWidth;
-  }
-
-  .page-content {
-    margin-top: 20px;
   }
 }

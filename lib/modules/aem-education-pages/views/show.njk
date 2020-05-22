@@ -3,18 +3,42 @@
 {%- from 'macros/tag-list.njk' import tagList -%}
 {% from 'macros/piece-details.njk' import websiteCTA %}
 
+
+{%- set piece = data.piece -%}
+
 {% block title %}
-  {{ data.piece.title }} - Education | Arts et Médias
+  {{ piece.title }} - Education | Arts et Médias
+{% endblock %}
+
+{% block mainAdditionalClasses %}education-details{% endblock %}
+
+{% block subheading %}
+  <div class="subheading">
+    {%- set institution = piece._institution[0] -%}
+    <h2 class="sr-only">Institution</h2>
+    <ul class="piece-link-list">
+      <li>
+        <a
+          class="piece-link"
+          href="{{ institution._url }}"
+        >{{ institution.title }}</a>, {{ institution.city }}, {{ institution.country }}
+      </li>
+    </ul>
+  </div>
 {% endblock %}
 
 {% block pageContent %}
-  <h2 class="sr-only">Institution</h2>
-  {%- set institution = data.piece._institution[0] -%}
-
-  <h2 class="sr-only">City</h2>
-  <p class="description">
-    <a href="{{ institution._url }}">{{ institution.title }}</a>, {{ institution.city }}, {{ institution.country }}
-  </p>
+  {# image start #}
+  {%- set aposImageData = apos.images.first(piece.heroImage) -%}
+  {%- if aposImageData -%}
+    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+    <img
+      class="hero-image"
+      src="{{ image.url }}"
+      alt="{{ image.alt }}"
+    />
+  {%- endif -%}
+  {# image end #}
 
   <h2 class="sr-only">Description</h2>
   <p class="description">
@@ -22,10 +46,17 @@
   </p>
   {{ websiteCTA(data.piece) }}
 
-  {%- if data.piece.tags.length -%}
+  {%- if piece.tags.length -%}
     <hr class="separator" />
 
     <h2>Tags</h2>
-    {{ tagList(data.piece.tags) }}
+    {{ tagList(piece.tags) }}
   {%- endif -%}
 {% endblock %}
+
+{% block sidebar %}
+  {% include "partials/education/sidebar-en.njk" %}
+{% endblock %}
+
+
+

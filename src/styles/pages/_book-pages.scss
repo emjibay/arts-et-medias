@@ -1,15 +1,10 @@
 @import '../common/variables';
 @import '../common/ui';
 
-.book-details {
-  .book-title {
-    margin-bottom: 0;
-  }
 
-  .authors {
-    .piece-link-list {
-      margin-top: 5px;
-    }
+.book-details {
+  .page-content {
+    margin-top: 0;
   }
 
   .book-cover {

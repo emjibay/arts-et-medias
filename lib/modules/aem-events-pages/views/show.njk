@@ -1,24 +1,58 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {% from 'macros/piece-details.njk' import websiteCTA %}
+{% from 'macros/piece-link-list.njk' import sortedPieceLinkList %}
 {% from 'macros/tag-list.njk' import tagList %}
+
 
 {% block title %}
   {{ data.piece.title }} - Events | Arts et Médias
 {% endblock %}
 
+{% block mainAdditionalClasses %}event-details{% endblock %}
+
 {% block pageContent %}
   <h2 class="sr-only">City</h2>
+
+  {%- if not data.piece.endDate or (data.piece.startDate === data.piece.endDate) -%}
+    {%- set displayDate = apos.aem.formatDate(data.piece.startDate) -%}
+  {%- else -%}
+    {%- set displayDate = apos.aem.formatDate(data.piece.startDate) + '—' + apos.aem.formatDate(data.piece.endDate) -%}
+  {%- endif -%}
+
+  {# image start #}
+  {%- set aposImageData = apos.images.first(data.piece.heroImage) -%}
+  {%- if aposImageData -%}
+    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+    <img
+      class="hero-image"
+      src="{{ image.url }}"
+      alt="{{ image.alt }}"
+    />
+  {%- endif -%}
+  {# image end #}
+
   <p class="description">
+    {{ displayDate }},<br>
     {{ data.piece.city }}, {{ data.piece.country }}
   </p>
 
   <h2 class="sr-only">Description</h2>
-  <p class="description">
+  <div class="description">
     {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
-  </p>
+  </div>
 
   {{ websiteCTA(data.piece) }}
+
+  {%- if data.piece._relatedPeople|length > 0 -%}
+    <h2>Related People</h2>
+    {{ sortedPieceLinkList(data.piece._relatedPeople) }}
+  {%- endif -%}
+
+  {%- if data.piece._relatedOrganizations|length > 0 -%}
+    <h2>Related Organizations</h2>
+    {{ sortedPieceLinkList(data.piece._relatedOrganizations) }}
+  {%- endif -%}
 
   {%- if data.piece.tags.length -%}
     <hr class="separator" />

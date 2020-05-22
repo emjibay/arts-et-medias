@@ -4,6 +4,7 @@
 {% from 'macros/piece-link-list.njk' import pieceLinkList %}
 {% from 'macros/tag-list.njk' import tagList %}
 
+
 {% block title %}
   {{ data.piece.title }} - Books | Arts et Médias
 {% endblock %}
@@ -15,8 +16,9 @@
         <article>
           {% include "partials/components/breadcrumbs.njk" %}
 
-          <h1 class="book-title">{{ data.piece.title }}</h1>
-          <div class="authors">
+          <h1 class="h1">{{ data.piece.title }}</h1>
+
+          <div class="subheading">
             <h2 class="sr-only">Authors</h2>
             {{ pieceLinkList(data.piece._author) }}
           </div>
@@ -36,9 +38,9 @@
               {# image end #}
 
               <h2 class="sr-only">Description</h2>
-              <p class="description">
+              <div class="description">
                 {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
-              </p>
+              </div>
 
               {{ websiteCTA(data.piece) }}
 
