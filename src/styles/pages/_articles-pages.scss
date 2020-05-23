@@ -18,3 +18,10 @@
     }
   }
 }
+
+.article-details {
+  .mention-notes {
+    @include minorText();
+    font-size: $fsSmol;
+  }
+}

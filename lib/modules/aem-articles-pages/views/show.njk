@@ -17,7 +17,7 @@
 {% block subheading %}
   <div class="subheading">
     <h2 class="sr-only">Authors</h2>
-    {{ pieceLinkList(piece._originalAuthor) }}
+    {{ pieceLinkList(piece._originalAuthor) }}, {{ apos.aem.formatDate(piece.publicationDate) }}
   </div>
 {% endblock %}
 
@@ -25,6 +25,17 @@
   {{ heroImage(piece) }}
 
   {{ contentSection(piece) }}
+
+  {%- set isMention = piece.articleType === 'mention' -%}
+  {%- if isMention -%}
+    <a
+      class="website-cta"
+      href="{{ piece.externalLink }}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Read complete article</a>
+    <p class="mention-notes">This article was not originally published on this site.</p>
+  {%- endif -%}
 
   {{ relatedContent(piece) }}
 
