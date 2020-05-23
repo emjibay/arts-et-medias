@@ -1,5 +1,6 @@
 {% import 'apostrophe-pager:macros.html' as pager with context %}
 
+{%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
 
 
@@ -96,6 +97,35 @@
             {%- if hasLocation -%}
               <p class="org-location">{{ piece.city }}, {{ piece.country }}</p>
             {%- endif -%}
+
+            {{ truncatedDescription(piece) }}
+          </article>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}
+
+{%- macro projectList(pieces) -%}
+  <ul class="piece-list">
+    {% for piece in pieces %}
+      <li class="list-item">
+        <a
+          href="{{ piece._url }}"
+          class="piece-link"
+        >
+          <article class="piece-card">
+            <p class="heading">{{ piece.title }}</p>
+
+            <ul class="byline-list">
+              {% for author in piece._author %}
+                <li>
+                  <p>{{ author.title }}</p>
+                </li>
+              {% endfor %}
+            </ul>
+
+            {{ heroImage(piece) }}
 
             {{ truncatedDescription(piece) }}
           </article>

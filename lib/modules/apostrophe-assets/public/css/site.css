@@ -912,6 +912,12 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   text-align: left;
   margin: 5px 0;
 }
+.piece-list .piece-card .hero-image {
+  height: calc(calc( (50px * 4) + (30px * 3) ) * 0.2);
+  width: calc( (50px * 4) + (30px * 3) );
+  margin-top: 10px;
+  object-fit: cover;
+}
 
 /**
   * Calculates the span taken by

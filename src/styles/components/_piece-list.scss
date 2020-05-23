@@ -43,5 +43,15 @@
       @include minorText();
       margin: 5px 0;
     }
+
+    .hero-image {
+      $width: getColumnsSpan(4, $desktop);
+      $imgWidth: $width;
+      $imgHeight: calc(#{$width} * 0.2);
+      height: $imgHeight;
+      width: $imgWidth;
+      margin-top: 10px;
+      object-fit: cover;
+    }
   }
 }
