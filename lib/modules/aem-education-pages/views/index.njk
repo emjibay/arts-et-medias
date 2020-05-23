@@ -3,9 +3,17 @@
 {% from 'macros/piece-index.njk' import educationList %}
 
 
+{%- set isFirstPage = (data.currentPage === 1) -%}
+{%- set hasTags = (data.page.withTags|length > 0) -%}
+
 {% block mainAdditionalClasses %}education-index{% endblock %}
 
 {% block pageContent %}
+  {%- if isFirstPage and not hasTags -%}
+    {% include "partials/education/featured.njk" %}
+    <hr class="separator" />
+  {%- endif -%}
+
   {# pieces list #}
   {%-
     set filteredPieces = apos.aem.getPiecesWithTags(
@@ -34,5 +42,11 @@
 {% endblock %}
 
 {% block sidebar %}
-  {% include "partials/education/sidebar-en.njk" %}
+  {%- if hasTags -%}
+    {% include "partials/education/sidebar-en.njk" %}
+  {%- elseif isFirstPage -%}
+    {% include "partials/education/sidebar-no-feature-en.njk" %}
+  {%- else -%}
+    {% include "partials/education/sidebar-en.njk" %}
+  {%- endif -%}
 {% endblock %}
