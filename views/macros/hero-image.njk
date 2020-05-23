@@ -1,0 +1,11 @@
+{% macro heroImage(piece) %}
+  {%- set aposImageData = apos.images.first(piece.heroImage) -%}
+  {%- if aposImageData -%}
+    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+    <img
+      class="hero-image"
+      src="{{ image.url }}"
+      alt="{{ image.alt }}"
+    />
+  {%- endif -%}
+{% endmacro %}

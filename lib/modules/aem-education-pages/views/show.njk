@@ -1,7 +1,8 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
+{%- from 'macros/hero-image.njk' import heroImage -%}
+{%- from 'macros/piece-details.njk' import websiteCTA -%}
 {%- from 'macros/tag-list.njk' import tagList -%}
-{% from 'macros/piece-details.njk' import websiteCTA %}
 
 
 {%- set piece = data.piece -%}
@@ -28,17 +29,7 @@
 {% endblock %}
 
 {% block pageContent %}
-  {# image start #}
-  {%- set aposImageData = apos.images.first(piece.heroImage) -%}
-  {%- if aposImageData -%}
-    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-    <img
-      class="hero-image"
-      src="{{ image.url }}"
-      alt="{{ image.alt }}"
-    />
-  {%- endif -%}
-  {# image end #}
+  {{ heroImage(data.piece) }}
 
   <h2 class="sr-only">Description</h2>
   <p class="description">

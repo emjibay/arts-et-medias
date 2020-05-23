@@ -1,3 +1,4 @@
+{%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
 
 
@@ -17,15 +18,7 @@
 
   <p class="byline">{{ piece._institution[0].title }}</p>
 
-  {# image start #}
-  {%- set aposImageData = apos.images.first(piece.heroImage) -%}
-  {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-  <img
-    class="hero-image"
-    src="{{ image.url }}"
-    alt="{{ image.alt }}"
-  />
-  {# image end #}
+  {{ heroImage(data.piece) }}
 
   {{ truncatedDescription(piece) }}
 

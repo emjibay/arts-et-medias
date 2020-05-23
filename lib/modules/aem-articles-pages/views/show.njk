@@ -1,8 +1,9 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{% from 'macros/content-section.njk' import contentSection %}
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/hero-image.njk' import heroImage -%}
+{%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 {%- from 'macros/tag-list.njk' import tagList -%}
-{% from 'macros/piece-link-list.njk' import pieceLinkList %}
 
 
 {%- set piece = data.piece -%}
@@ -21,17 +22,7 @@
 {% endblock %}
 
 {% block pageContent %}
-  {# image start #}
-  {%- set aposImageData = apos.images.first(piece.heroImage) -%}
-  {%- if aposImageData -%}
-    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-    <img
-      class="hero-image"
-      src="{{ image.url }}"
-      alt="{{ image.alt }}"
-    />
-  {%- endif -%}
-  {# image end #}
+  {{ heroImage(data.piece) }}
 
   {{ contentSection(piece) }}
 

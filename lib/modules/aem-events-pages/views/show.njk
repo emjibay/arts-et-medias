@@ -1,8 +1,9 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{% from 'macros/piece-details.njk' import websiteCTA %}
-{% from 'macros/piece-link-list.njk' import sortedPieceLinkList %}
-{% from 'macros/tag-list.njk' import tagList %}
+{%- from 'macros/hero-image.njk' import heroImage -%}
+{%- from 'macros/piece-details.njk' import websiteCTA -%}
+{%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
+{%- from 'macros/tag-list.njk' import tagList -%}
 
 
 {% block title %}
@@ -20,17 +21,7 @@
     {%- set displayDate = apos.aem.formatDate(data.piece.startDate) + '—' + apos.aem.formatDate(data.piece.endDate) -%}
   {%- endif -%}
 
-  {# image start #}
-  {%- set aposImageData = apos.images.first(data.piece.heroImage) -%}
-  {%- if aposImageData -%}
-    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-    <img
-      class="hero-image"
-      src="{{ image.url }}"
-      alt="{{ image.alt }}"
-    />
-  {%- endif -%}
-  {# image end #}
+  {{ heroImage(data.piece) }}
 
   <p class="description">
     {{ displayDate }},<br>
