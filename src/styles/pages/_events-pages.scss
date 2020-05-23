@@ -1,0 +1,12 @@
+@import '../common/variables';
+@import '../common/ui';
+
+
+.event-index {}
+
+.event-details {
+  .relative-date {
+    @include minorText();
+    font-size: $fsSmol;
+  }
+}
