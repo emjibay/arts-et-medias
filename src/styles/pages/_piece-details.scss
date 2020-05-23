@@ -17,7 +17,6 @@
       margin-bottom: 10px;
       line-height: 25px;
       height: 25px;
-      background-color: lightsalmon;
     }
 
     .piece-link-list {
@@ -28,6 +27,17 @@
 
   .page-content {
     margin-top: 25px;
+
+    // TODO
+    // .description {
+    //   &.without-hero {
+    //     p {
+    //       &:first-of-type {
+    //         margin-top: -10px;
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   .hero-image {

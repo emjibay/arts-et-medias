@@ -1,24 +1,41 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{% from 'macros/piece-details.njk' import websiteCTA %}
-{% from 'macros/piece-link-list.njk' import sortedPieceLinkList %}
-{% from 'macros/tag-list.njk' import tagList %}
+{%- from 'macros/hero-image.njk' import heroImage -%}
+{%- from 'macros/piece-details.njk' import websiteCTA -%}
+{%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
+{%- from 'macros/tag-list.njk' import tagList -%}
 
 
 {% block title %}
   {{ data.piece.title }} - Organizations | Arts et Médias
 {% endblock %}
 
-{% block pageContent %}
-  <h2 class="sr-only">City</h2>
-  <p class="description">
-    {{ data.piece.city }}, {{ data.piece.country }}
-  </p>
+{% block mainAdditionalClasses %}organization-details{% endblock %}
 
+{% block subheading %}
+  <div class="subheading">
+    <h2 class="sr-only">City</h2>
+    <ul class="piece-link-list">
+      <li>
+        {{ data.piece.city }}, {{ data.piece.country }}
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+
+{% block pageContent %}
+  {{ heroImage(data.piece) }}
+
+  {%- set hasHeroImage = data.piece.heroImage.items|length > 0 -%}
+  {%- if hasHeroImage -%}
+    {%- set descriptionClassList = 'description with-hero' -%}
+  {%- else -%}
+    {%- set descriptionClassList = 'description without-hero' -%}
+  {%- endif -%}
   <h2 class="sr-only">Description</h2>
-  <p class="description">
+  <div class="{{ descriptionClassList }}">
     {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
-  </p>
+  </div>
 
   {%- set isCollective = data.piece.tags.indexOf('collective') > -1 -%}
   {%- set numRelatedPeople = data.piece._relatedPeople|length -%}
