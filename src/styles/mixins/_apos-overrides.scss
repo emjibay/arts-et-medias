@@ -24,6 +24,16 @@
   p {
     @include paragraph();
   }
+  blockquote {
+    background-color: $lightestGrey;
+    padding: 15px 30px;
+    margin: 20px 0;
+
+    * {
+      font-size: $fsSmol;
+      line-height: 1.75;
+    }
+  }
 
   .anchor, a {
     @include anchor();
@@ -46,7 +56,11 @@
   }
   sup {
     vertical-align: super;
-    font-size: 80%;
+    font-size: 75%;
+  }
+  sub {
+    vertical-align: sub;
+    font-size: 75%;
   }
   ul {
     @include list();

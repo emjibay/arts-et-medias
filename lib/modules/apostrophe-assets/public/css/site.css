@@ -1085,6 +1085,15 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   text-align: left;
   word-wrap: break-word;
 }
+.rich-content .apos-rich-text blockquote {
+  background-color: #eee;
+  padding: 15px 30px;
+  margin: 20px 0;
+}
+.rich-content .apos-rich-text blockquote * {
+  font-size: 11.25pt;
+  line-height: 1.75;
+}
 .rich-content .apos-rich-text .anchor, .rich-content .apos-rich-text a {
   cursor: pointer;
   font-family: "QuebecLight", Verdana, sans-serif;
@@ -1124,7 +1133,11 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 .rich-content .apos-rich-text sup {
   vertical-align: super;
-  font-size: 80%;
+  font-size: 75%;
+}
+.rich-content .apos-rich-text sub {
+  vertical-align: sub;
+  font-size: 75%;
 }
 .rich-content .apos-rich-text ul {
   font-family: "QuebecLight", Verdana, sans-serif;
