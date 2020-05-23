@@ -1,0 +1,15 @@
+[
+  {
+    "label": "Related Media",
+    "help": "",
+    "name": "_relatedMedia",
+    "type": "joinByArray",
+    "withType": ["media"],
+    "filters": {
+      "projection": {
+        "_url": 1,
+        "title": 1
+      }
+    }
+  }
+]

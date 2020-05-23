@@ -1,3 +1,7 @@
+{%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
+{%- from 'macros/tag-list.njk' import tagList -%}
+
+
 {%- macro truncatedDescription(piece) -%}
   {%- if piece.description.items -%}
     {%- set descriptionText = piece.description.items[0].content | safe -%}
@@ -17,3 +21,43 @@
     >View website</a>
   {%- endif -%}
 {%- endmacro -%}
+
+{% macro relatedContent(piece, showSeparator = true) %}
+  {%- set hasRelatedPeople = piece._relatedPeople|length > 0-%}
+  {%- set hasRelatedOrgs = piece._relatedOrganizations|length > 0-%}
+  {%- set hasRelatedMedia = piece._relatedMedia|length > 0-%}
+
+  {%- if showSeparator -%}
+    {%- if hasRelatedPeople or hasRelatedOrgs or hasRelatedMedia -%}
+      <hr class="separator"/>
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if hasRelatedPeople -%}
+    <h2>Related People</h2>
+    {{ sortedPieceLinkList(piece._relatedPeople) }}
+  {%- endif -%}
+
+  {%- if hasRelatedOrgs -%}
+    <h2>Related Organizations</h2>
+    {{ sortedPieceLinkList(piece._relatedOrganizations) }}
+  {%- endif -%}
+
+  {%- if hasRelatedMedia -%}
+    <h2>Related Media</h2>
+    {{ sortedPieceLinkList(piece._relatedMedia) }}
+  {%- endif -%}
+{% endmacro %}
+
+{% macro tags(piece, showSeparator = true) %}
+  {%- set hasTags = piece.tags|length > 0 -%}
+
+  {%- if hasTags -%}
+    {%- if showSeparator -%}
+      <hr class="separator"/>
+    {%- endif -%}
+
+    <h2>Tags</h2>
+    {{ tagList(piece.tags) }}
+  {%- endif -%}
+{% endmacro %}

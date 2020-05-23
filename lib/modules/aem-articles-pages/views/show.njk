@@ -2,8 +2,8 @@
 
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
+{%- from 'macros/piece-details.njk' import relatedContent, tags -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
-{%- from 'macros/tag-list.njk' import tagList -%}
 
 
 {%- set piece = data.piece -%}
@@ -26,12 +26,9 @@
 
   {{ contentSection(piece) }}
 
-  {%- if piece.tags.length -%}
-    <hr class="separator" />
+  {{ relatedContent(piece) }}
 
-    <h2>Tags</h2>
-    {{ tagList(piece.tags) }}
-  {%- endif -%}
+  {{ tags(piece) }}
 {% endblock %}
 
 {% block sidebar %}

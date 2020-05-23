@@ -1,77 +1,64 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/piece-details.njk' import websiteCTA -%}
+{%- from 'macros/piece-details.njk' import websiteCTA, relatedContent -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
 {%- from 'macros/tag-list.njk' import tagList -%}
 
 
+{%- set piece = data.piece -%}
+
 {% block title %}
-  {{ data.piece.title }} - Events | Arts et Médias
+  {{ piece.title }} - Events | Arts et Médias
 {% endblock %}
 
 {% block mainAdditionalClasses %}event-details{% endblock %}
 
 {% block pageContent %}
-  {{ heroImage(data.piece) }}
+  {{ heroImage(piece) }}
 
-  {%- if data.piece.endDate -%}
-    {%- if apos.aem.isTodayBetween(data.piece.startDate, data.piece.endDate) -%}
+  {%- if piece.endDate -%}
+    {%- if apos.aem.isTodayBetween(piece.startDate, piece.endDate) -%}
       {%- set additionalInfo = 'now' -%}
-    {%- elseif apos.aem.isPassed(data.piece.startDate) -%}
+    {%- elseif apos.aem.isPassed(piece.startDate) -%}
       {%- set additionalInfo = 'passed' -%}
     {%- endif -%}
   {%- else -%}
-    {%- if apos.aem.isToday(data.piece.startDate) -%}
+    {%- if apos.aem.isToday(piece.startDate) -%}
       {%- set additionalInfo = 'today' -%}
-    {%- elseif apos.aem.isPassed(data.piece.startDate) -%}
+    {%- elseif apos.aem.isPassed(piece.startDate) -%}
       {%- set additionalInfo = 'passed' -%}
     {%- endif -%}
   {%- endif -%}
 
-  {%- set formattedStartDate = apos.aem.formatDate(data.piece.startDate) -%}
-  {%- if not data.piece.endDate or (data.piece.startDate === data.piece.endDate) -%}
+  {%- set formattedStartDate = apos.aem.formatDate(piece.startDate) -%}
+  {%- if not piece.endDate or (piece.startDate === piece.endDate) -%}
     {%- set displayDate = formattedStartDate -%}
   {%- else -%}
-    {%- set formattedEndDate = apos.aem.formatDate(data.piece.endDate) -%}
+    {%- set formattedEndDate = apos.aem.formatDate(piece.endDate) -%}
     {%- set displayDate = formattedStartDate + '—' + formattedEndDate -%}
   {%- endif -%}
 
   <h2 class="sr-only">Date and location</h2>
   <p class="description">
     {{ displayDate }}{%- if additionalInfo -%}<span class="relative-date"> ({{ additionalInfo }})</span>{%- endif -%},<br>
-    {{ data.piece.city }}, {{ data.piece.country }}
+    {{ piece.city }}, {{ piece.country }}
   </p>
 
   <h2 class="sr-only">Description</h2>
   <div class="description">
-    {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+    {{ apos.singleton(piece, 'description', 'apostrophe-rich-text') }}
   </div>
 
-  {{ websiteCTA(data.piece) }}
+  {{ websiteCTA(piece) }}
 
-  {%- set hasRelatedPeople = data.piece._relatedPeople|length > 0-%}
-  {%- set hasRelatedOrgs = data.piece._relatedOrganizations|length > 0-%}
+  {{ relatedContent(piece) }}
 
-  {%- if hasRelatedPeople or hasRelatedOrgs -%}
-    <hr class="separator"/>
-  {%- endif -%}
-
-  {%- if hasRelatedPeople -%}
-    <h2>Related People</h2>
-    {{ sortedPieceLinkList(data.piece._relatedPeople) }}
-  {%- endif -%}
-
-  {%- if hasRelatedOrgs -%}
-    <h2>Related Organizations</h2>
-    {{ sortedPieceLinkList(data.piece._relatedOrganizations) }}
-  {%- endif -%}
-
-  {%- if data.piece.tags.length -%}
+  {%- if piece.tags.length -%}
     <hr class="separator" />
 
     <h2>Tags</h2>
-    {{ tagList(data.piece.tags) }}
+    {{ tagList(piece.tags) }}
   {%- endif -%}
 {% endblock %}
 

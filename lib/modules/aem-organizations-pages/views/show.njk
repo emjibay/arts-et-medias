@@ -1,13 +1,13 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/piece-details.njk' import websiteCTA -%}
-{%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
-{%- from 'macros/tag-list.njk' import tagList -%}
+{%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
 
+
+{%- set piece = data.piece -%}
 
 {% block title %}
-  {{ data.piece.title }} - Organizations | Arts et Médias
+  {{ piece.title }} - Organizations | Arts et Médias
 {% endblock %}
 
 {% block mainAdditionalClasses %}organization-details{% endblock %}
@@ -17,16 +17,16 @@
     <h2 class="sr-only">City</h2>
     <ul class="piece-link-list">
       <li>
-        {{ data.piece.city }}, {{ data.piece.country }}
+        {{ piece.city }}, {{ piece.country }}
       </li>
     </ul>
   </div>
 {% endblock %}
 
 {% block pageContent %}
-  {{ heroImage(data.piece) }}
+  {{ heroImage(piece) }}
 
-  {%- set hasHeroImage = data.piece.heroImage.items|length > 0 -%}
+  {%- set hasHeroImage = piece.heroImage.items|length > 0 -%}
   {%- if hasHeroImage -%}
     {%- set descriptionClassList = 'description with-hero' -%}
   {%- else -%}
@@ -34,23 +34,14 @@
   {%- endif -%}
   <h2 class="sr-only">Description</h2>
   <div class="{{ descriptionClassList }}">
-    {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+    {{ apos.singleton(piece, 'description', 'apostrophe-rich-text') }}
   </div>
 
-  {%- set isCollective = data.piece.tags.indexOf('collective') > -1 -%}
-  {%- set numRelatedPeople = data.piece._relatedPeople|length -%}
-  {%- if isCollective and numRelatedPeople > 0 -%}
-    <h2>Related People</h2>
-    {{ sortedPieceLinkList(data.piece._relatedPeople) }}
-  {%- endif -%}
-  {{ websiteCTA(data.piece) }}
+  {{ relatedContent(piece) }}
 
-  {%- if data.piece.tags.length -%}
-    <hr class="separator" />
+  {{ websiteCTA(piece) }}
 
-    <h2>Tags</h2>
-    {{ tagList(data.piece.tags) }}
-  {%- endif -%}
+  {{ tags(piece) }}
 {% endblock %}
 
 {% block sidebar %}

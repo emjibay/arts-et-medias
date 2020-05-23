@@ -1,11 +1,12 @@
 {% extends "layouts/layout.njk" %}
 
-{% from 'macros/piece-details.njk' import websiteCTA %}
-{% from 'macros/tag-list.njk' import tagList %}
+{%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
 
+
+{%- set piece = data.piece -%}
 
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ piece.title }} | Arts et Médias
 {% endblock %}
 
 {% block main %}
@@ -17,7 +18,7 @@
             {% include "partials/components/breadcrumbs.njk" %}
           {% endblock %}
 
-          <h1 class="h1">{{ data.piece.title }}</h1>
+          <h1 class="h1">{{ piece.title }}</h1>
 
           {% block subheading %}{% endblock %}
 
@@ -25,16 +26,14 @@
             {% block pageContent %}
               <h2 class="sr-only">Description</h2>
               <p class="description">
-                {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+                {{ apos.singleton(piece, 'description', 'apostrophe-rich-text') }}
               </p>
-              {{ websiteCTA(data.piece) }}
 
-              {%- if data.piece.tags.length -%}
-                <hr class="separator" />
+              {{ websiteCTA(piece) }}
 
-                <h2>Tags</h2>
-                {{ tagList(data.piece.tags) }}
-              {%- endif -%}
+              {{ relatedContent(piece, false) }}
+
+              {{ tags(piece) }}
             {% endblock %}
           </div>
 

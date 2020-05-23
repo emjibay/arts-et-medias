@@ -1,12 +1,13 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{% from 'macros/piece-details.njk' import websiteCTA %}
+{% from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA %}
 {% from 'macros/piece-link-list.njk' import pieceLinkList %}
-{% from 'macros/tag-list.njk' import tagList %}
 
+
+{%- set piece = data.piece -%}
 
 {% block title %}
-  {{ data.piece.title }} - Books | Arts et Médias
+  {{ piece.title }} - Books | Arts et Médias
 {% endblock %}
 
 {% block main %}
@@ -16,17 +17,17 @@
         <article>
           {% include "partials/components/breadcrumbs.njk" %}
 
-          <h1 class="h1">{{ data.piece.title }}</h1>
+          <h1 class="h1">{{ piece.title }}</h1>
 
           <div class="subheading">
             <h2 class="sr-only">Authors</h2>
-            {{ pieceLinkList(data.piece._author) }}
+            {{ pieceLinkList(piece._author) }}
           </div>
 
           <div class="page-content">
             {% block pageContent %}
               {# image start #}
-              {%- set aposImageData = apos.images.first(data.piece.heroImage) -%}
+              {%- set aposImageData = apos.images.first(piece.heroImage) -%}
               {%- if aposImageData -%}
                 {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
                 <img
@@ -39,30 +40,32 @@
 
               <h2 class="sr-only">Description</h2>
               <div class="description">
-                {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+                {{ apos.singleton(piece, 'description', 'apostrophe-rich-text') }}
               </div>
 
-              {{ websiteCTA(data.piece) }}
+              {{ websiteCTA(piece) }}
 
               <hr class="separator"/>
 
+              <h2>Year</h2>
+              <p>{{ piece.yearPublished }}</p>
+
               <h2>Language</h2>
-              {%- set lang = apos.aemLocalization.getLanguage(data.piece.lang) -%}
+              {%- set lang = apos.aemLocalization.getLanguage(piece.lang) -%}
               <p>{{ lang }}</p>
 
-              {%- if data.piece.isTranslation -%}
+              {%- if piece.isTranslation -%}
                 <h2>Original Language</h2>
-                {%- set originalLang = apos.aemLocalization.getLanguage(data.piece.originalLang) -%}
+                {%- set originalLang = apos.aemLocalization.getLanguage(piece.originalLang) -%}
                 <p>{{ originalLang }}</p>
 
                 <h2>Translator</h2>
-                {{ pieceLinkList(data.piece._translator) }}
+                {{ pieceLinkList(piece._translator) }}
               {%- endif -%}
 
-              {%- if data.piece.tags.length -%}
-                <h2>Tags</h2>
-                {{ tagList(data.piece.tags) }}
-              {%- endif -%}
+              {{ relatedContent(piece, false) }}
+
+              {{ tags(piece) }}
             {% endblock %}
           </div>
 

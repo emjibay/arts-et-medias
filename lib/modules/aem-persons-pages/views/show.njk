@@ -1,25 +1,25 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{% from 'macros/piece-details.njk' import websiteCTA %}
-{% from 'macros/tag-list.njk' import tagList %}
+{%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
+
+
+{%- set piece = data.piece -%}
 
 {% block title %}
-  {{ data.piece.title }} - People | Arts et Médias
+  {{ piece.title }} - People | Arts et Médias
 {% endblock %}
 
 {% block pageContent %}
   <h2 class="sr-only">Description</h2>
   <p class="description">
-    {{ apos.singleton(data.piece, 'description', 'apostrophe-rich-text') }}
+    {{ apos.singleton(piece, 'description', 'apostrophe-rich-text') }}
   </p>
-  {{ websiteCTA(data.piece) }}
 
-  {%- if data.piece.tags.length -%}
-    <hr class="separator" />
+  {{ websiteCTA(piece) }}
 
-    <h2>Tags</h2>
-    {{ tagList(data.piece.tags) }}
-  {%- endif -%}
+  {{ relatedContent(piece) }}
+
+  {{ tags(piece) }}
 {% endblock %}
 
 {% block sidebar %}
