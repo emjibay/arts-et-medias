@@ -33,6 +33,43 @@
   </ul>
 {%- endmacro -%}
 
+{%- macro articleList(pieces) -%}
+  <ul class="piece-list article-list">
+    {% for piece in pieces %}
+      <li class="list-item">
+        <a
+          href="{{ piece._url }}"
+          class="piece-link"
+        >
+          <article class="piece-card">
+            <p class="heading">{{ piece.title }}</p>
+
+            <ul class="byline-list">
+              {% for author in piece._originalAuthor %}
+                <li>
+                  <p>{{ author.title }}</p>
+                </li>
+              {% endfor %}
+            </ul>
+
+            {#
+              TODO: add filter to date
+              SEE:
+                - https://github.com/e-picas/nunjucks-date-filter
+                - https://stackoverflow.com/questions/53787009/how-to-add-nunjucks-date-filter
+            #}
+            <p class="publication-date">{{ piece.publicationDate }}</p>
+
+            {{ heroImage(piece) }}
+
+            <p>{{ piece.shortDescription }}</p>
+          </article>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}
+
 {%- macro educationList(pieces) -%}
   <ul class="piece-list">
     {% for piece in pieces %}

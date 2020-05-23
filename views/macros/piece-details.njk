@@ -3,12 +3,19 @@
 
 
 {%- macro truncatedDescription(piece) -%}
-  {%- if piece.description.items -%}
+  {%- if piece.shortDescription -%}
+    {%- set descriptionText = piece.shortDescription -%}
+
+  {%- elseif piece.description.items -%}
     {%- set descriptionText = piece.description.items[0].content | safe -%}
+    {%- set descriptionText = descriptionText | truncate(140, true, "...") -%}
+
   {%- else -%}
     {%- set descriptionText = piece.description -%}
+    {%- set descriptionText = descriptionText | truncate(140, true, "...") -%}
   {%- endif -%}
-  <p>{{ descriptionText | truncate(140, true, "...") }}</p>
+
+  <p>{{ descriptionText }}</p>
 {%- endmacro -%}
 
 {%- macro websiteCTA(piece) -%}
