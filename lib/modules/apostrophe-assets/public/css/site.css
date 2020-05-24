@@ -2141,6 +2141,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   border: 0;
 }
 
+.home .page-content section {
+  margin-bottom: 60px;
+}
 .home .latest-pieces-heading {
   border-bottom: 1px solid #bababa;
   color: #757575;

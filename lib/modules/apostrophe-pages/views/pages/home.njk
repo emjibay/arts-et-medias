@@ -1,6 +1,6 @@
 {% extends "layouts/layout.njk" %}
 
-{%- from 'macros/piece-index.njk' import articleList, projectList -%}
+{%- from 'macros/piece-index.njk' import articleList, eventList, projectList -%}
 
 
 {% block title %}
@@ -15,6 +15,28 @@
           <h1 class="sr-only">Home</h1>
 
           <div class="page-content">
+            <section>
+              <h2 class="sr-only">Events</h2>
+              {% include "partials/events/featured.njk" %}
+
+              <h3 class="latest-pieces-heading">Next Events</h3>
+              {%-
+                set nextEvents = [
+                  data.orderedEvents[0],
+                  data.orderedEvents[1]
+                ]
+              -%}
+              {{ eventList(nextEvents) }}
+
+              {{
+                apos.singleton(
+                  data.page,
+                  'seeAllEventsCTA',
+                  'aem-link'
+                )
+              }}
+              <hr class="separator"/>
+            </section>
 
             <section>
               <h2 class="sr-only">Articles</h2>
