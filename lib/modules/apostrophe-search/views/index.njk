@@ -2,6 +2,7 @@
 
 {% from 'macros/piece-index.njk' import pieceList %}
 
+
 {% block title %}
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
@@ -15,7 +16,7 @@
 
           <form
             data-apos-search-page-form
-            class="search-form"
+            class="main-search-form"
             method="GET"
             action="{{ data.url | e }}"
           >

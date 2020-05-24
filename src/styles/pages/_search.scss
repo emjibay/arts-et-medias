@@ -1,9 +1,28 @@
 @import "../common/variables";
 @import "../common/ui";
 
-.page-search {
-  .search-form {
 
+.page-search {
+  .main-search-form {
+    .search-input {
+      @include nColumnWidth(6);
+      @include textInput();
+      display: inline-block;
+      vertical-align: top;
+      -webkit-appearance: textfield;
+
+      &::placeholder {
+        color: $black;
+      }
+    }
+
+    .search-button {
+      @include nColumnWidth(2);
+      @include gutterLeftMargin();
+      @include button();
+      display: inline-block;
+      vertical-align: top;
+    }
   }
 
   // filters
@@ -27,27 +46,6 @@
       font-size: $fsSmol;
       margin: 0 0 0 10px;
     }
-  }
-
-  // search input
-  .search-input {
-    @include nColumnWidth(6);
-    @include textInput();
-    display: inline-block;
-    vertical-align: top;
-    -webkit-appearance: textfield;
-
-    &::placeholder {
-      color: $black;
-    }
-  }
-
-  .search-button {
-    @include nColumnWidth(2);
-    @include gutterLeftMargin();
-    @include button();
-    display: inline-block;
-    vertical-align: top;
   }
 
   // results
