@@ -4,11 +4,12 @@
 
 
 {%- set isFirstPage = (data.currentPage === 1) -%}
+{%- set hasTags = data.page.withTags|length > 0 -%}
 
 {% block mainAdditionalClasses %}articles-index{% endblock %}
 
 {% block pageContent %}
-  {%- if isFirstPage -%}
+  {%- if isFirstPage and not hasTags -%}
     {% include "partials/articles/featured.njk" %}
     <hr class="separator" />
   {%- endif -%}
