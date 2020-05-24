@@ -902,6 +902,20 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-weight: normal;
   font-style: normal;
 }
+.piece-list .piece-card .byline-list {
+  display: inline-block;
+}
+.piece-list .piece-card .publication-date {
+  color: #3b3b3b;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 11.25pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: left;
+  font-size: 11.25pt;
+  margin: 5px 0 0 0;
+}
 .piece-list .piece-card .org-location {
   color: #3b3b3b;
   font-family: "QuebecLight", Verdana, sans-serif;
@@ -1654,6 +1668,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 .featured-piece-widget .byline-list {
   margin: 5px 0;
+  display: inline-block;
 }
 .featured-piece-widget .byline-list li:before {
   display: none;
@@ -1662,6 +1677,15 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   height: 0;
   line-height: 0;
   margin: 0;
+}
+.featured-piece-widget .publication-date {
+  color: #3b3b3b;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 11.25pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: left;
 }
 .featured-piece-widget .hero-image {
   height: calc(calc( (50px * 8) + (30px * 7) ) * 0.5);
@@ -2117,6 +2141,24 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   border: 0;
 }
 
+.home .latest-pieces-heading {
+  border-bottom: 1px solid #bababa;
+  color: #757575;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 40px;
+  padding-bottom: 10px;
+}
+.home .piece-list {
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.home .piece-list .list-item {
+  margin-bottom: 0;
+}
+
 .page-search .filter-legend {
   font-family: "QuebecLight", Verdana, sans-serif;
   font-size: 12.5pt;
@@ -2530,17 +2572,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-weight: normal;
   font-style: normal;
 }
-.articles-index .piece-card .publication-date {
-  color: #3b3b3b;
-  font-family: "QuebecLight", Verdana, sans-serif;
-  font-size: 11.25pt;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  text-align: left;
-  font-size: 10pt;
-  margin: 5px 0 0 0;
-}
+
 .article-details .mention-notes {
   color: #3b3b3b;
   font-family: "QuebecLight", Verdana, sans-serif;

@@ -39,6 +39,16 @@
       margin: 0;
     }
 
+    .byline-list {
+      display: inline-block;
+    }
+
+    .publication-date {
+      @include minorText();
+      font-size: $fsSmol;
+      margin: 5px 0 0 0;
+    }
+
     .org-location {
       @include minorText();
       margin: 5px 0;

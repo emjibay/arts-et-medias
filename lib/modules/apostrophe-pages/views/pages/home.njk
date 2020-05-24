@@ -1,27 +1,50 @@
 {% extends "layouts/layout.njk" %}
 
+{%- from 'macros/piece-index.njk' import articleList, projectList -%}
+
+
 {% block title %}
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
-
-
 
 {% block main %}
   <div class="page home">
     <div class="content">
       <main id="main">
         <article>
-          <h1>Home</h1>
-          <div class="page-content">
-            {% include "partials/projects/featured.njk" %}
-            <hr class="separator"/>
+          <h1 class="sr-only">Home</h1>
 
-            <div class="column left">
+          <div class="page-content">
+
+            <section>
+              <h2 class="sr-only">Articles</h2>
               {% include "partials/articles/featured.njk" %}
-            </div>
-            <div class="column right">
-              {% include "partials/education/featured.njk" %}
-            </div>
+
+              <h3 class="latest-pieces-heading">Latest Articles</h3>
+              {%-
+                set recentArticles = [
+                  data.articlesByMostRecent[0],
+                  data.articlesByMostRecent[1]
+                ]
+              -%}
+              {{ articleList(recentArticles) }}
+              <hr class="separator"/>
+            </section>
+
+            <section>
+              <h2 class="sr-only">Projects</h2>
+              {% include "partials/projects/featured.njk" %}
+
+              <h3 class="latest-pieces-heading">Recently Added Projects</h3>
+              {%-
+                set recentProjects = [
+                  data.projectsByMostRecent[0],
+                  data.projectsByMostRecent[1]
+                ]
+              -%}
+              {{ projectList(recentProjects) }}
+              <hr class="separator"/>
+            </section>
           </div>
           {% include "partials/home/sidebar-en.njk" %}
         </article>

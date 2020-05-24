@@ -1,20 +1,12 @@
 @import '../common/variables';
 @import '../common/ui';
 
+
 .articles-index {
   .piece-card {
     .heading {
       @include heading4();
       margin: 0;
-    }
-
-    .publication-date {
-      @include minorText();
-      font-size: $fsVerySmol;
-      margin: 5px 0 0 0;
-    }
-
-    .byline-list {
     }
   }
 }

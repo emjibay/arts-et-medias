@@ -41,24 +41,20 @@
           href="{{ piece._url }}"
           class="piece-link"
         >
-          <article class="piece-card">
+          <article class="piece-card article-card">
             <p class="heading">{{ piece.title }}</p>
 
-            <ul class="byline-list">
-              {% for author in piece._originalAuthor %}
-                <li>
-                  <p>{{ author.title }}</p>
-                </li>
-              {% endfor %}
-            </ul>
-
-            {#
-              TODO: add filter to date
-              SEE:
-                - https://github.com/e-picas/nunjucks-date-filter
-                - https://stackoverflow.com/questions/53787009/how-to-add-nunjucks-date-filter
-            #}
-            <p class="publication-date">{{ piece.publicationDate }}</p>
+            {%- set publicationDate = apos.aem.formatDate(piece.publicationDate) -%}
+            <div>
+              <ul class="byline-list">
+                {% for author in piece._originalAuthor %}
+                  <li>
+                    <p>{{ author.title }}</p>
+                  </li>
+                {% endfor %}
+              </ul>
+              <span class="publication-date">, {{ publicationDate }}</span>
+            </div>
 
             {{ heroImage(piece) }}
 
