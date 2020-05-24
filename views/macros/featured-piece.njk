@@ -1,5 +1,6 @@
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
+{%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 
 
 {%- macro featuredArticle(piece, label) -%}
@@ -8,13 +9,17 @@
 
     <h1>{{ piece.title }}</h1>
 
-    <ul class="byline-list">
-      {% for author in piece._originalAuthor %}
-        <li>
-          <p>{{ author.title }}</p>
-        </li>
-      {% endfor %}
-    </ul>
+    {%- set publicationDate = apos.aem.formatDate(piece.publicationDate) -%}
+    <div>
+      <ul class="byline-list">
+        {% for author in piece._originalAuthor %}
+          <li>
+            <p>{{ author.title }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+      <span class="publication-date">, {{ publicationDate }}</span>
+    </div>
 
     {{ heroImage(piece) }}
 

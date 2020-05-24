@@ -22,6 +22,7 @@
 
   .byline-list {
     margin: 5px 0;
+    display: inline-block;
 
     li:before {
       display: none;
@@ -31,6 +32,10 @@
       line-height: 0;
       margin: 0;
     }
+  }
+
+  .publication-date {
+    @include minorText();
   }
 
   .hero-image {
