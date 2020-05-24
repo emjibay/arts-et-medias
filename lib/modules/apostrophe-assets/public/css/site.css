@@ -843,7 +843,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .piece-list .list-item {
   width: calc( (40px * 4) + (16px * 3) );
   display: inline-block;
-  margin: 0 0 20px 0;
+  margin: 0 0 60px 0;
   vertical-align: top;
 }
 @media only screen and (min-width: 768px) {
@@ -872,9 +872,6 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .piece-list .piece-link {
   text-decoration: none;
   display: inline-block;
-}
-.piece-list .piece-link:hover .heading {
-  color: #1276D3;
 }
 .piece-list .piece-link:focus {
   border-color: #1276D3 !important;

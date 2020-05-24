@@ -7,7 +7,7 @@
   .list-item {
     @include nColumnWidth(4);
     display: inline-block;
-    margin: 0 0 20px 0;
+    margin: 0 0 60px 0;
     vertical-align: top;
 
     &:nth-child(even) {
@@ -18,12 +18,6 @@
   .piece-link {
     text-decoration: none;
     display: inline-block;
-
-    &:hover {
-      .heading {
-        color: $main;
-      }
-    }
 
     &:focus {
       @include focusOutline();
