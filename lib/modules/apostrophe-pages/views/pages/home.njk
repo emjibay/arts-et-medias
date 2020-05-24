@@ -28,6 +28,14 @@
                 ]
               -%}
               {{ articleList(recentArticles) }}
+
+              {{
+                apos.singleton(
+                  data.page,
+                  'seeAllArticlesCTA',
+                  'aem-link'
+                )
+              }}
               <hr class="separator"/>
             </section>
 
@@ -43,6 +51,14 @@
                 ]
               -%}
               {{ projectList(recentProjects) }}
+
+              {{
+                apos.singleton(
+                  data.page,
+                  'seeAllProjectsCTA',
+                  'aem-link'
+                )
+              }}
               <hr class="separator"/>
             </section>
           </div>

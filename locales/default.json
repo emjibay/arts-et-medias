@@ -17,6 +17,7 @@
 	"Add Gallery": "Add Gallery",
 	"Add Image": "Add Image",
 	"Add Image(s)": "Add Image(s)",
+	"Add Link": "Add Link",
 	"Add Medium": "Add Medium",
 	"Add Organization": "Add Organization",
 	"Add Person": "Add Person",
@@ -113,6 +114,7 @@
 	"Edit %s": "Edit %s",
 	"Edit Breadcrumbs": "Edit Breadcrumbs",
 	"Edit Image": "Edit Image",
+	"Edit Link": "Edit Link",
 	"Edit undefined": "Edit undefined",
 	"Edit": "Edit",
 	"Education Index": "Education Index",
@@ -172,6 +174,7 @@
 	"Last Updated": "Last Updated",
 	"Limit Reached!": "Limit Reached!",
 	"Limit Reached": "Limit Reached",
+	"Link": "Link",
 	"Log In": "Log In",
 	"Log Out": "Log Out",
 	"Login Disabled": "Login Disabled",
@@ -251,6 +254,7 @@
 	"Save Featured Article": "Save Featured Article",
 	"Save Featured Program or Workshop": "Save Featured Program or Workshop",
 	"Save Featured Project": "Save Featured Project",
+	"Save Link": "Save Link",
 	"Save User": "Save User",
 	"Save Video": "Save Video",
 	"Save": "Save",
@@ -332,6 +336,5 @@
 	"Yes": "Yes",
 	"[%s of %s] Committing %s": "[%s of %s] Committing %s",
 	"admin": "admin",
-	"guest": "guest",
-	"—": "—"
+	"guest": "guest"
 }
