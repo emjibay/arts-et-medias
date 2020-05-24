@@ -19,14 +19,35 @@
               <h2 class="sr-only">Events</h2>
               {% include "partials/events/featured.njk" %}
 
-              <h3 class="latest-pieces-heading">Next Events</h3>
+              <h3 class="latest-pieces-heading">Next Workshops</h3>
               {%-
-                set nextEvents = [
-                  data.orderedEvents[0],
-                  data.orderedEvents[1]
+                set workshops = apos.aem.getPiecesWithTags(
+                  data.orderedEvents,
+                  ['workshop']
+                )
+              -%}
+              {%-
+                set nextWorkshop = [
+                  workshops[0],
+                  workshops[1]
                 ]
               -%}
-              {{ eventList(nextEvents) }}
+              {{ eventList(nextWorkshop) }}
+
+              <h3 class="latest-pieces-heading">Next Festivals</h3>
+              {%-
+                set festivals = apos.aem.getPiecesWithTags(
+                  data.orderedEvents,
+                  ['festival']
+                )
+              -%}
+              {%-
+                set nextFestivals = [
+                  festivals[0],
+                  festivals[1]
+                ]
+              -%}
+              {{ eventList(nextFestivals) }}
 
               {{
                 apos.singleton(
