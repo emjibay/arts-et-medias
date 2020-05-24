@@ -2148,7 +2148,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-size: 10pt;
   font-weight: bold;
   margin-bottom: 0;
-  margin-top: 40px;
+  margin-top: 60px;
   padding-bottom: 10px;
 }
 .home .piece-list {
@@ -2157,6 +2157,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 .home .piece-list .list-item {
   margin-bottom: 0;
+}
+.home .see-all-cta {
+  margin-top: 60px;
 }
 
 .page-search .main-search-form .search-input {

@@ -15,7 +15,7 @@
           <h1 class="sr-only">Home</h1>
 
           <div class="page-content">
-            <section>
+            <section class="events-section">
               <h2 class="sr-only">Events</h2>
               {% include "partials/events/featured.njk" %}
 
@@ -49,17 +49,20 @@
               -%}
               {{ eventList(nextFestivals) }}
 
-              {{
-                apos.singleton(
-                  data.page,
-                  'seeAllEventsCTA',
-                  'aem-link'
-                )
-              }}
+              <div class="see-all-cta">
+                {{
+                  apos.singleton(
+                    data.page,
+                    'seeAllEventsCTA',
+                    'aem-link'
+                  )
+                }}
+              </div>
+
               <hr class="separator"/>
             </section>
 
-            <section>
+            <section class="articles-section">
               <h2 class="sr-only">Articles</h2>
               {% include "partials/articles/featured.njk" %}
 
@@ -72,17 +75,20 @@
               -%}
               {{ articleList(recentArticles) }}
 
-              {{
-                apos.singleton(
-                  data.page,
-                  'seeAllArticlesCTA',
-                  'aem-link'
-                )
-              }}
+              <div class="see-all-cta">
+                {{
+                  apos.singleton(
+                    data.page,
+                    'seeAllArticlesCTA',
+                    'aem-link'
+                  )
+                }}
+              </div>
+
               <hr class="separator"/>
             </section>
 
-            <section>
+            <section class="projects-section">
               <h2 class="sr-only">Projects</h2>
               {% include "partials/projects/featured.njk" %}
 
@@ -95,16 +101,20 @@
               -%}
               {{ projectList(recentProjects) }}
 
-              {{
-                apos.singleton(
-                  data.page,
-                  'seeAllProjectsCTA',
-                  'aem-link'
-                )
-              }}
+              <div class="see-all-cta">
+                {{
+                  apos.singleton(
+                    data.page,
+                    'seeAllProjectsCTA',
+                    'aem-link'
+                  )
+                }}
+              </div>
+
               <hr class="separator"/>
             </section>
           </div>
+
           {% include "partials/home/sidebar-en.njk" %}
         </article>
       </main>
