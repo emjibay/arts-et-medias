@@ -1,0 +1,9 @@
+@import '../common/variables';
+@import '../common/ui';
+
+
+.media-index {
+  .content-type-heading {
+    @include contentTypeHeading();
+  }
+}

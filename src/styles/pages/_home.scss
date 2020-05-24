@@ -10,14 +10,8 @@
   }
 
   .latest-pieces-heading {
-    border-bottom: 1px solid $lightGrey;
-    color: $halfGrey;
-    font-family: $ffTextBody;
-    font-size: $fsVerySmol;
-    font-weight: bold;
-    margin-bottom: 0;
+    @include contentTypeHeading();
     margin-top: 60px;
-    padding-bottom: 10px;
   }
 
   .piece-list {

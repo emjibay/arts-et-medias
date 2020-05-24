@@ -46,6 +46,15 @@
   line-height: 1;
   margin: 20px 0 15px 0;
 }
+@mixin contentTypeHeading {
+  border-bottom: 1px solid $lightGrey;
+  color: $halfGrey;
+  font-family: $ffTextBody;
+  font-size: $fsVerySmol;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
 @mixin minorText {
   color: $darkGrey;
   font-family: $ffTextBody;
