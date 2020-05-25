@@ -4,6 +4,7 @@
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
 
 
+{# piece lists #}
 {%- macro pieceList(pieces, hasByline = false) -%}
   <ul class="piece-list">
     {% for piece in pieces %}
@@ -191,3 +192,45 @@
     </article>
   </main>
 {%- endmacro -%}
+
+
+{# other #}
+{% macro recentlyAdded(label, pieces, tags) %}
+  <h2 class="content-type-heading">{{ label }}</h2>
+  {%-
+    set filtered = apos.aem.getPiecesWithTags(pieces, tags)
+  -%}
+
+  {%- if filtered[1] -%}
+    {%-
+      set recentlyAdded = [
+        filtered[0],
+        filtered[1]
+      ]
+    -%}
+  {%- else -%}
+    {%- set recentlyAdded = [filtered[0]] -%}
+  {%- endif -%}
+
+  {{ pieceList(recentlyAdded) }}
+{% endmacro %}
+
+{% macro recentlyAddedOrgs(label, pieces, tags) %}
+  <h2 class="content-type-heading">{{ label }}</h2>
+  {%-
+    set filtered = apos.aem.getPiecesWithTags(pieces, tags)
+  -%}
+
+  {%- if filtered[1] -%}
+    {%-
+      set recentlyAdded = [
+        filtered[0],
+        filtered[1]
+      ]
+    -%}
+  {%- else -%}
+    {%- set recentlyAdded = [filtered[0]] -%}
+  {%- endif -%}
+
+  {{ organizationList(recentlyAdded, true) }}
+{% endmacro %}

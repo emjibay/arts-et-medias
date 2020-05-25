@@ -1,7 +1,46 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{%- from 'macros/piece-index.njk' import recentlyAddedOrgs -%}
+
+
 {% block title %}
   {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block mainAdditionalClasses %}organization-index{% endblock %}
+
+{% block pageContent %}
+  {{
+    recentlyAddedOrgs(
+      'Recently Added Galleries and Museums',
+      data.organizationsByMostRecent,
+      ['gallery', 'museum']
+    )
+  }}
+
+  {{
+    recentlyAddedOrgs(
+      'Recently Added Art Centers',
+      data.organizationsByMostRecent,
+      ['art center']
+    )
+  }}
+
+  {{
+    recentlyAddedOrgs(
+      'Recently Added Maker Spaces',
+      data.organizationsByMostRecent,
+      ['maker space']
+    )
+  }}
+
+  {{
+    recentlyAddedOrgs(
+      'Recently Added Media Labs and Research Centers',
+      data.organizationsByMostRecent,
+      ['media lab', 'research center', 'art research']
+    )
+  }}
 {% endblock %}
 
 {% block sidebar %}
