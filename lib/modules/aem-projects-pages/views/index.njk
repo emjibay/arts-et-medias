@@ -1,6 +1,6 @@
 {% extends "layouts/indexLayout.njk" %}
 
-{%- from 'macros/piece-index.njk' import projectList -%}
+{%- from 'macros/piece-index.njk' import projectList, recentlyAddedProjects -%}
 
 
 {%- set isFirstPage = (data.currentPage === 1) -%}
@@ -10,7 +10,16 @@
 {% block pageContent %}
   {%- if isFirstPage -%}
     {% include "partials/projects/featured.njk" %}
-    <hr class="separator" />
+
+    {{
+      recentlyAddedProjects(
+        'Recently Added',
+        data.projectsByMostRecent,
+        []
+      )
+    }}
+
+    <h2 class="content-type-heading">All</h2>
   {%- endif -%}
 
   {# pieces list #}

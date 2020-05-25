@@ -2,7 +2,15 @@
 @import '../common/ui';
 
 
-.projects-index {}
+.projects-index {
+  .content-type-heading {
+    margin-top: 60px;
+
+    + .piece-list {
+      margin-top: 20px;
+    }
+  }
+}
 
 .project-details {
   .main-hero-image {

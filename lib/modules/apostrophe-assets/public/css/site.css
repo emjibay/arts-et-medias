@@ -2644,6 +2644,13 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   }
 }
 
+.projects-index .content-type-heading {
+  margin-top: 60px;
+}
+.projects-index .content-type-heading + .piece-list {
+  margin-top: 20px;
+}
+
 .project-details .main-hero-image {
   object-fit: cover;
   height: calc(calc( (50px * 8) + (30px * 7) ) * 0.5625);
