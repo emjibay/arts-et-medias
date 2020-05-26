@@ -1,0 +1,103 @@
+{% extends "layouts/indexLayout.njk" %}
+
+{%- from 'macros/piece-index.njk' import recentlyAddedArticles -%}
+
+
+{% block title %}
+  {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block mainAdditionalClasses %}articles-index{% endblock %}
+
+{% block pageContent %}
+  {% include "partials/articles/featured.njk" %}
+
+  {{
+    recentlyAddedArticles(
+      'Recently Added News',
+      data.articlesByMostRecent,
+      ['news']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllNewsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+
+  {{
+    recentlyAddedArticles(
+      'Recently Added Editorials',
+      data.articlesByMostRecent,
+      ['editorial']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllEditorialsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+
+  {{
+    recentlyAddedArticles(
+      'Recently Added Reviews and Critiques',
+      data.articlesByMostRecent,
+      ['review', 'critique']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllReviewsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+
+  {{
+    recentlyAddedArticles(
+      'Recently Added Interviews',
+      data.articlesByMostRecent,
+      ['interview']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllInterviewsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+
+  {{
+    recentlyAddedArticles(
+      'Recently Added Academic Papers',
+      data.articlesByMostRecent,
+      ['academic paper', 'academia']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllAcademicPapersCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+{% endblock %}
+
+{% block sidebar %}
+  {% include "partials/organizations/sidebar-en.njk" %}
+{% endblock %}

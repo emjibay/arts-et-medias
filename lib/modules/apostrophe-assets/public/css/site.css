@@ -2556,21 +2556,29 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   padding-bottom: 10px;
 }
 .page-index .recently-added-pieces,
+.page-index .recently-added-articles,
+.page-index .recently-added-events,
 .page-index .recently-added-orgs,
 .page-index .recently-added-projects {
   margin-top: 60px;
 }
 .page-index .recently-added-pieces:first-of-type,
+.page-index .recently-added-articles:first-of-type,
+.page-index .recently-added-events:first-of-type,
 .page-index .recently-added-orgs:first-of-type,
 .page-index .recently-added-projects:first-of-type {
   margin-top: 0;
 }
 .page-index .recently-added-pieces .piece-list,
+.page-index .recently-added-articles .piece-list,
+.page-index .recently-added-events .piece-list,
 .page-index .recently-added-orgs .piece-list,
 .page-index .recently-added-projects .piece-list {
   margin: 20px 0;
 }
 .page-index .recently-added-pieces .piece-list .list-item,
+.page-index .recently-added-articles .piece-list .list-item,
+.page-index .recently-added-events .piece-list .list-item,
 .page-index .recently-added-orgs .piece-list .list-item,
 .page-index .recently-added-projects .piece-list .list-item {
   margin-bottom: 0;

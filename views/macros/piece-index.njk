@@ -217,6 +217,28 @@
   </div>
 {% endmacro %}
 
+{% macro recentlyAddedArticles(label, pieces, tags) %}
+  <div class="recently-added-articles">
+    <h2 class="content-type-heading">{{ label }}</h2>
+    {%-
+      set filtered = apos.aem.getPiecesWithTags(pieces, tags)
+    -%}
+
+    {%- if filtered[1] -%}
+      {%-
+        set recentlyAdded = [
+          filtered[0],
+          filtered[1]
+        ]
+      -%}
+    {%- else -%}
+      {%- set recentlyAdded = [filtered[0]] -%}
+    {%- endif -%}
+
+    {{ articleList(recentlyAdded) }}
+  </div>
+{% endmacro %}
+
 {% macro recentlyAddedOrgs(label, pieces, tags) %}
   <div class="recently-added-orgs">
     <h2 class="content-type-heading">{{ label }}</h2>
