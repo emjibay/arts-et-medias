@@ -199,7 +199,7 @@
   <div class="recently-added-pieces">
     <h2 class="content-type-heading">{{ label }}</h2>
     {%-
-      set filtered = apos.aem.getPiecesWithTags(pieces, tags)
+      set filtered = apos.aemPieces.getWithTags(pieces, tags)
     -%}
 
     {%- if filtered[1] -%}
@@ -221,20 +221,11 @@
   <div class="recently-added-articles">
     <h2 class="content-type-heading">{{ label }}</h2>
     {%-
-      set filtered = apos.aem.getPiecesWithTags(pieces, tags)
+      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+        pieces,
+        tags
+      )
     -%}
-
-    {%- if filtered[1] -%}
-      {%-
-        set recentlyAdded = [
-          filtered[0],
-          filtered[1]
-        ]
-      -%}
-    {%- else -%}
-      {%- set recentlyAdded = [filtered[0]] -%}
-    {%- endif -%}
-
     {{ articleList(recentlyAdded) }}
   </div>
 {% endmacro %}
@@ -243,20 +234,11 @@
   <div class="recently-added-orgs">
     <h2 class="content-type-heading">{{ label }}</h2>
     {%-
-      set filtered = apos.aem.getPiecesWithTags(pieces, tags)
+      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+        pieces,
+        tags
+      )
     -%}
-
-    {%- if filtered[1] -%}
-      {%-
-        set recentlyAdded = [
-          filtered[0],
-          filtered[1]
-        ]
-      -%}
-    {%- else -%}
-      {%- set recentlyAdded = [filtered[0]] -%}
-    {%- endif -%}
-
     {{ organizationList(recentlyAdded, true) }}
   </div>
 {% endmacro %}
@@ -265,20 +247,11 @@
   <div class="recently-added-projects">
     <h2 class="content-type-heading">{{ label }}</h2>
     {%-
-      set filtered = apos.aem.getPiecesWithTags(pieces, tags)
+      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+        pieces,
+        tags
+      )
     -%}
-
-    {%- if filtered[1] -%}
-      {%-
-        set recentlyAdded = [
-          filtered[0],
-          filtered[1]
-        ]
-      -%}
-    {%- else -%}
-      {%- set recentlyAdded = [filtered[0]] -%}
-    {%- endif -%}
-
     {{ projectList(recentlyAdded) }}
   </div>
 {% endmacro %}

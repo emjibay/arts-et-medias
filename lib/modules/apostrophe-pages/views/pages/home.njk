@@ -21,7 +21,7 @@
 
               <h3 class="latest-pieces-heading">Next Workshops</h3>
               {%-
-                set workshops = apos.aem.getPiecesWithTags(
+                set workshops = apos.aemPieces.getWithTags(
                   data.orderedEvents,
                   ['workshop']
                 )
@@ -36,7 +36,7 @@
 
               <h3 class="latest-pieces-heading">Next Festivals</h3>
               {%-
-                set festivals = apos.aem.getPiecesWithTags(
+                set festivals = apos.aemPieces.getWithTags(
                   data.orderedEvents,
                   ['festival']
                 )

@@ -6,13 +6,13 @@
 {% block pageContent %}
   {# pieces list #}
   {%-
-    set filteredPieces = apos.aem.getPiecesWithTags(
+    set filteredPieces = apos.aemPieces.getWithTags(
       data.peopleByTitle,
       data.page.withTags
     )
   -%}
   {%-
-    set piecesOnPage = apos.aem.getPiecesAtPage(
+    set piecesOnPage = apos.aemPieces.getAtPage(
       filteredPieces,
       data.currentPage
     )

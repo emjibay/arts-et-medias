@@ -6,7 +6,7 @@
 {% block pageContent %}
   {# pieces list #}
   {%-
-    set piecesOnPage = apos.aem.getPiecesAtPage(
+    set piecesOnPage = apos.aemPieces.getAtPage(
       data.booksByTitle,
       data.currentPage
     )
