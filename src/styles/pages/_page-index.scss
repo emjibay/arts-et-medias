@@ -6,4 +6,26 @@
   .content-type-heading {
     @include contentTypeHeading();
   }
+
+  .recently-added-pieces,
+  .recently-added-orgs,
+  .recently-added-projects {
+    margin-top: 60px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    .piece-list {
+      margin: 20px 0;
+
+      .list-item {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .see-all-cta {
+    margin-top: 0;
+  }
 }

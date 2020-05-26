@@ -17,6 +17,15 @@
       ['gallery', 'museum']
     )
   }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllGalleriesCTA',
+        'aem-link'
+      )
+    }}
+  </div>
 
   {{
     recentlyAddedOrgs(
@@ -25,6 +34,15 @@
       ['art center']
     )
   }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllArtCentersCTA',
+        'aem-link'
+      )
+    }}
+  </div>
 
   {{
     recentlyAddedOrgs(
@@ -33,6 +51,15 @@
       ['maker space']
     )
   }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllMakerSpacesCTA',
+        'aem-link'
+      )
+    }}
+  </div>
 
   {{
     recentlyAddedOrgs(
@@ -41,6 +68,15 @@
       ['media lab', 'research center', 'art research']
     )
   }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllMediaLabsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
 {% endblock %}
 
 {% block sidebar %}
