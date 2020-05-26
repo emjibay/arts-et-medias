@@ -338,5 +338,13 @@
 	"admin": "admin",
 	"guest": "guest",
 	"": "",
-	"—": "—"
+	"—": "—",
+	"Articles Index": "Articles Index",
+	"Label": "Label",
+	"Label displayed on the button": "Label displayed on the button",
+	"Page, article, etc.": "Page, article, etc.",
+	"Content to which the button leads": "Content to which the button leads",
+	"Festivals": "Festivals",
+	"Workshops": "Workshops",
+	"Conferences": "Conferences"
 }

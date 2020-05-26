@@ -1,0 +1,69 @@
+{% extends "layouts/indexLayout.njk" %}
+
+{%- from 'macros/piece-index.njk' import recentlyAddedEvents -%}
+
+
+{% block title %}
+  {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block mainAdditionalClasses %}event-index{% endblock %}
+
+{% block pageContent %}
+  {% include "partials/events/featured.njk" %}
+
+  {{
+    recentlyAddedEvents(
+      'Recently Added Workshop',
+      data.orderedEvents,
+      ['workshop']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllWorkshopsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+
+  {{
+    recentlyAddedEvents(
+      'Recently Festivals',
+      data.orderedEvents,
+      ['festival']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllFestivalCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+
+  {{
+    recentlyAddedEvents(
+      'Recently Conferences',
+      data.orderedEvents,
+      ['conference']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllConferencesCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+{% endblock %}
+
+{% block sidebar %}
+  {% include "partials/events/sidebar-no-feature-en.njk" %}
+{% endblock %}
