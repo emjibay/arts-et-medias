@@ -1,24 +1,6 @@
 {% extends "layouts/indexLayout.njk" %}
 
-{%- from 'macros/piece-index.njk' import pieceList -%}
-
-
-{% macro recentlyAdded(label, tags) %}
-  <h2 class="content-type-heading">{{ label }}</h2>
-  {%-
-    set filtered = apos.aemPieces.getWithTags(
-      data.mediaByMostRecent,
-      tags
-    )
-  -%}
-  {%-
-    set recentlyAdded = [
-      filtered[0],
-      filtered[1]
-    ]
-  -%}
-  {{ pieceList(recentlyAdded) }}
-{% endmacro %}
+{%- from 'macros/piece-index.njk' import recentlyAdded -%}
 
 
 {% block title %}
@@ -31,32 +13,70 @@
   {{
     recentlyAdded(
       'Recently Added Blogs',
+      data.mediaByMostRecent,
       ['blog']
     )
   }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllBlogsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
 
   {{
     recentlyAdded(
       'Recently Added Websites',
+      data.mediaByMostRecent,
       ['website']
     )
   }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllWebsitesTA',
+        'aem-link'
+      )
+    }}
+  </div>
 
   {{
     recentlyAdded(
       'Recently Added Magazines',
+      data.mediaByMostRecent,
       ['magazine']
     )
   }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllMagazinesCTA',
+        'aem-link'
+      )
+    }}
+  </div>
 
-  <h2 class="content-type-heading">Recently Added Books</h2>
-  {%-
-    set recentlyAddedBooks = [
-      data.booksByMostRecent[0],
-      data.booksByMostRecent[1]
-    ]
-  -%}
-  {{ pieceList(recentlyAddedBooks) }}
+  {{
+    recentlyAdded(
+      'Recently Added Books',
+      data.booksByMostRecent,
+      []
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllBooksCTA',
+        'aem-link'
+      )
+    }}
+  </div>
 {% endblock %}
 
 {% block sidebar %}
