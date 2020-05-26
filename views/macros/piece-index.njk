@@ -4,6 +4,19 @@
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
 
 
+{%- macro mainContent(data) -%}
+  <main id="main">
+    <article>
+      <h1>{{ data.page.title }}</h1>
+      <div class="page-content">
+        {{ pieceList(data.pieces) }}
+        {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+      </div>
+    </article>
+  </main>
+{%- endmacro -%}
+
+
 {# piece lists #}
 {%- macro pieceList(pieces, hasByline = false) -%}
   <ul class="piece-list">
@@ -28,7 +41,7 @@
 
             {{ truncatedDescription(piece) }}
 
-            <div class="website-cta">View Details</div>
+            <div class="piece-cta">View Details</div>
           </article>
         </a>
       </li>
@@ -63,7 +76,7 @@
 
             <p>{{ piece.shortDescription }}</p>
 
-            <div class="website-cta">Read Article</div>
+            <div class="piece-cta">Read Article</div>
           </article>
         </a>
       </li>
@@ -92,7 +105,7 @@
 
             {{ truncatedDescription(piece) }}
 
-            <div class="website-cta">View Details</div>
+            <div class="piece-cta">View Details</div>
           </article>
         </a>
       </li>
@@ -117,7 +130,7 @@
 
             {{ truncatedDescription(piece) }}
 
-            <div class="website-cta">View Details</div>
+            <div class="piece-cta">View Details</div>
           </article>
         </a>
       </li>
@@ -142,7 +155,7 @@
 
             {{ truncatedDescription(piece) }}
 
-            <div class="website-cta">View Details</div>
+            <div class="piece-cta">View Details</div>
           </article>
         </a>
       </li>
@@ -173,7 +186,7 @@
 
             {{ truncatedDescription(piece) }}
 
-            <div class="website-cta">View Project Details</div>
+            <div class="piece-cta">View Project Details</div>
           </article>
         </a>
       </li>
@@ -181,20 +194,8 @@
   </ul>
 {%- endmacro -%}
 
-{%- macro mainContent(data) -%}
-  <main id="main">
-    <article>
-      <h1>{{ data.page.title }}</h1>
-      <div class="page-content">
-        {{ pieceList(data.pieces) }}
-        {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
-      </div>
-    </article>
-  </main>
-{%- endmacro -%}
 
-
-{# other #}
+{# recently added #}
 {% macro recentlyAdded(label, pieces, tags) %}
   <div class="recently-added-pieces">
     <h2 class="content-type-heading">{{ label }}</h2>

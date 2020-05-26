@@ -941,6 +941,33 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin-top: 10px;
   object-fit: cover;
 }
+.piece-list .piece-card .piece-cta {
+  cursor: pointer;
+  font-family: "QuebecLight", Verdana, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #1276D3;
+  font-size: 12.5pt;
+  margin-top: 20px;
+}
+.piece-list .piece-card .piece-cta:hover {
+  color: #1276D3;
+  text-decoration: none;
+}
+.piece-list .piece-card .piece-cta:active {
+  text-decoration: none;
+}
+.piece-list .piece-card .piece-cta:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 2.5pt #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.piece-list .piece-card .piece-cta:focus::-moz-focus-inner {
+  border: 0;
+}
 
 /**
   * Calculates the span taken by
@@ -2584,7 +2611,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin-bottom: 0;
 }
 .page-index .see-all-cta {
-  margin-top: 0;
+  margin-top: 40px;
 }
 
 .piece-details .h1 {

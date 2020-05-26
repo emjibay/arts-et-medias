@@ -57,5 +57,11 @@
       margin-top: 10px;
       object-fit: cover;
     }
+
+    .piece-cta {
+      @include anchor();
+      font-size: $fsTextBody;
+      margin-top: 20px;
+    }
   }
 }
