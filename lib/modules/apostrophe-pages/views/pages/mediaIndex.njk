@@ -1,15 +1,37 @@
 {% extends "layouts/indexLayout.njk" %}
 
-{%- from 'macros/piece-index.njk' import recentlyAdded -%}
+{%- from 'macros/piece-index.njk' import recentlyAdded, recentlyAddedProjects -%}
+
+
+{%- set pageTitle = 'Projects & Media' -%}
 
 
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ pageTitle }} | Arts et Médias
 {% endblock %}
 
 {% block mainAdditionalClasses %}media-index{% endblock %}
 
+{% block pageTitle %}{{ pageTitle }}{% endblock %}
+
 {% block pageContent %}
+  {{
+    recentlyAddedProjects(
+      'Recently Added Projects',
+      data.projectsByMostRecent,
+      []
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllProjectsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+
   {{
     recentlyAdded(
       'Recently Added Blogs',
