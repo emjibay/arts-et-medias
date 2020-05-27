@@ -1,12 +1,51 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{%- from 'macros/piece-index.njk' import recentlyAddedEducation -%}
+
+
 {% block title %}
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
 
+{% block mainAdditionalClasses %}education-index{% endblock %}
+
 {% block pageContent %}
   {% include "partials/education/featured.njk" %}
-  <hr class="separator" />
+
+  {{
+    recentlyAddedEducation(
+      'Recently Added Undergrad Programs',
+      data.educationByMostRecent,
+      ['bfa', "bachelor's", 'bachelor of fine arts', 'undergraduate program']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllUndergradCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+
+
+  {{
+    recentlyAddedEducation(
+      'Recently Added Graduate Programs',
+      data.educationByMostRecent,
+      ['mfa', "masters's", 'master of fine arts', 'graduate program']
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllGradCTA',
+        'aem-link'
+      )
+    }}
+  </div>
 {% endblock %}
 
 {% block sidebar %}

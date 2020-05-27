@@ -231,7 +231,20 @@
   </div>
 {% endmacro %}
 
-{% macro recentlyAddedEvents(label, pieces, tags) %}
+{% macro recentlyAddedEducation(label, pieces, tags = []) %}
+  <div class="recently-added-education">
+    <h2 class="content-type-heading">{{ label }}</h2>
+    {%-
+      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+        pieces,
+        tags
+      )
+    -%}
+    {{ educationList(recentlyAdded) }}
+  </div>
+{% endmacro %}
+
+{% macro recentlyAddedEvents(label, pieces, tags = []) %}
   <div class="recently-added-articles">
     <h2 class="content-type-heading">{{ label }}</h2>
     {%-
