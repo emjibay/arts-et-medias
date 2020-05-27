@@ -196,7 +196,7 @@
 
 
 {# recently added #}
-{% macro recentlyAdded(label, pieces, tags) %}
+{% macro recentlyAdded(label, pieces, tags = []) %}
   <div class="recently-added-pieces">
     <h2 class="content-type-heading">{{ label }}</h2>
     {%-
@@ -218,7 +218,7 @@
   </div>
 {% endmacro %}
 
-{% macro recentlyAddedArticles(label, pieces, tags) %}
+{% macro recentlyAddedArticles(label, pieces, tags = []) %}
   <div class="recently-added-articles">
     <h2 class="content-type-heading">{{ label }}</h2>
     {%-
@@ -257,7 +257,7 @@
   </div>
 {% endmacro %}
 
-{% macro recentlyAddedOrgs(label, pieces, tags) %}
+{% macro recentlyAddedOrgs(label, pieces, tags = []) %}
   <div class="recently-added-orgs">
     <h2 class="content-type-heading">{{ label }}</h2>
     {%-
@@ -270,7 +270,7 @@
   </div>
 {% endmacro %}
 
-{% macro recentlyAddedProjects(label, pieces, tags) %}
+{% macro recentlyAddedProjects(label, pieces, tags = []) %}
   <div class="recently-added-projects">
     <h2 class="content-type-heading">{{ label }}</h2>
     {%-

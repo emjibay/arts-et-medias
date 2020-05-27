@@ -32,11 +32,16 @@
     }}
   </div>
 
+  {%-
+    set blogs = apos.aemPieces.getMediaWithType(
+      data.mediaByMostRecent,
+      'blog'
+    )
+  -%}
   {{
     recentlyAdded(
       'Recently Added Blogs',
-      data.mediaByMostRecent,
-      ['blog']
+      blogs
     )
   }}
   <div class="see-all-cta">
@@ -49,11 +54,16 @@
     }}
   </div>
 
+  {%-
+    set websites = apos.aemPieces.getMediaWithType(
+      data.mediaByMostRecent,
+      'website'
+    )
+  -%}
   {{
     recentlyAdded(
       'Recently Added Websites',
-      data.mediaByMostRecent,
-      ['website']
+      websites
     )
   }}
   <div class="see-all-cta">
@@ -66,11 +76,16 @@
     }}
   </div>
 
+  {%-
+    set magazines = apos.aemPieces.getMediaWithType(
+      data.mediaByMostRecent,
+      'magazine'
+    )
+  -%}
   {{
     recentlyAdded(
       'Recently Added Magazines',
-      data.mediaByMostRecent,
-      ['magazine']
+      magazines
     )
   }}
   <div class="see-all-cta">
@@ -86,8 +101,7 @@
   {{
     recentlyAdded(
       'Recently Added Books',
-      data.booksByMostRecent,
-      []
+      data.booksByMostRecent
     )
   }}
   <div class="see-all-cta">
