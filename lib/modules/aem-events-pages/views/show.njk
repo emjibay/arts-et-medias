@@ -15,7 +15,7 @@
 {% block mainAdditionalClasses %}event-details{% endblock %}
 
 {% block pageContent %}
-  {{ heroImage(piece) }}
+  {{ heroImage(piece, true) }}
 
   {%- if piece.endDate -%}
     {%- if apos.aem.isTodayBetween(piece.startDate, piece.endDate) -%}

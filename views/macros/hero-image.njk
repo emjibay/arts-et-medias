@@ -1,11 +1,16 @@
-{% macro heroImage(piece) %}
+{% macro heroImage(piece, hasCaption = false) %}
   {%- set aposImageData = apos.images.first(piece.heroImage) -%}
   {%- if aposImageData -%}
     {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-    <img
-      class="hero-image"
-      src="{{ image.url }}"
-      alt="{{ image.alt }}"
-    />
+    <figure>
+      <img
+        class="hero-image"
+        src="{{ image.url }}"
+        alt="{{ image.alt }}"
+      />
+      {%- if hasCaption and image.caption -%}
+        <figcaption>{{ image.caption }}</figcaption>
+      {%- endif -%}
+    </figure>
   {%- endif -%}
 {% endmacro %}

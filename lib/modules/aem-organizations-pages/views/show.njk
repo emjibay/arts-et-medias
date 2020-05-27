@@ -24,7 +24,7 @@
 {% endblock %}
 
 {% block pageContent %}
-  {{ heroImage(piece) }}
+  {{ heroImage(piece, true) }}
 
   {%- set hasHeroImage = piece.heroImage.items|length > 0 -%}
   {%- if hasHeroImage -%}
