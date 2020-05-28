@@ -19,5 +19,10 @@
     <li>
       <a href="/people/translators">Translators</a>
     </li>
+    {%- if apos.aemUsers.isUserAdmin(data.user) -%}
+      <li>
+        <a href="/people/missing-description">People Missing Description</a>
+      </li>
+    {%- endif -%}
   </ul>
 </section>
