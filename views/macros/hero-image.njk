@@ -9,7 +9,13 @@
         alt="{{ image.alt }}"
       />
       {%- if hasCaption and image.caption -%}
-        <figcaption>{{ image.caption }}</figcaption>
+        {%- if image.credit -%}
+          {%- set captionText = image.caption + '. Credit: ' + image.credit -%}
+        {%- else -%}
+          {%- set captionText = image.caption -%}
+        {%- endif -%}
+
+        <figcaption>{{ captionText }}</figcaption>
       {%- endif -%}
     </figure>
   {%- endif -%}

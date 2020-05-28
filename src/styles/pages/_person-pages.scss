@@ -3,16 +3,27 @@
 
 
 .sidebar-person-details {
-  .profile-pic {
-    $imageSize: getColumnsSpan(6, $phone);
+  .fig-profile {
+    .fig-headshot {
+      $imageSize: getColumnsSpan(6, $phone);
 
-    object-fit: cover;
-    height: $imageSize;
-    width: $imageSize;
+      object-fit: cover;
+      height: $imageSize;
+      width: $imageSize;
 
-    @media #{$mqDesktop} {
-      width: getColumnsSpan(4, $desktop);
-      height: getColumnsSpan(4, $desktop);
+      @media #{$mqDesktop} {
+        width: getColumnsSpan(4, $desktop);
+        height: getColumnsSpan(4, $desktop);
+      }
+    }
+
+    .fig-credits{
+      color: $darkGrey;
+      font-family: $ffSerif;
+      font-size: $fsVerySmol;
+      font-style: italic;
+      margin: 15px 0 30px 0;
+      text-align: right;
     }
   }
 }
