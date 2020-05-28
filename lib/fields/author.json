@@ -4,7 +4,10 @@
     "help": "",
     "name": "_author",
     "type": "joinByArray",
-    "withType": ["person"],
+    "withType": [
+      "person",
+      "organization"
+    ],
     "filters": {
       "permission": false,
       "projection": {
