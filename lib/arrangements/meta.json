@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Meta",
+    "name": "meta",
+    "fields": [
+      "heroImage",
+      "shortDescription",
+      "tags",
+      "slug",
+      "published",
+      "trash"
+    ]
+  }
+]

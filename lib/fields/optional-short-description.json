@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Short Description",
+    "help": "Tweet-sized short text (~250 characters max) that appears when content is showcased on the site or shared on social media.",
+    "name": "shortDescription",
+    "type": "string",
+    "textarea": true,
+    "required": false
+  }
+]

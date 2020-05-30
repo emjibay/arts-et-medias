@@ -1,0 +1,13 @@
+[
+  {
+    "label": "Meta",
+    "name": "meta",
+    "fields": [
+      "shortDescription",
+      "tags",
+      "slug",
+      "published",
+      "trash"
+    ]
+  }
+]
