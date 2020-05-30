@@ -44,29 +44,32 @@
               </div>
 
               {{ websiteCTA(piece) }}
-
+            {% endblock %}
+            <div class="page-content">
               <hr class="separator"/>
 
-              <h2>Year</h2>
-              <p>{{ piece.yearPublished }}</p>
+              <dl class="piece-props-list">
+                <dt>Year</dt>
+                <dd>{{ piece.yearPublished }}</dd>
 
-              <h2>Language</h2>
-              {%- set lang = apos.aemLocalization.getLanguage(piece.lang) -%}
-              <p>{{ lang }}</p>
+                {%- set lang = apos.aemLocalization.getLanguage(piece.lang) -%}
+                <dt>Language</dt>
+                <dd>{{ lang }}</dd>
 
-              {%- if piece.isTranslation -%}
-                <h2>Original Language</h2>
-                {%- set originalLang = apos.aemLocalization.getLanguage(piece.originalLang) -%}
-                <p>{{ originalLang }}</p>
+                {%- if piece.isTranslation -%}
+                  <dt>Original Language</dt>
+                  {%- set originalLang = apos.aemLocalization.getLanguage(piece.originalLang) -%}
+                  <dd>{{ originalLang }}</dd>
 
-                <h2>Translator</h2>
-                {{ pieceLinkList(piece._translator) }}
-              {%- endif -%}
+                  <dt>Translator</dt>
+                  <dd>{{ pieceLinkList(piece._translator) }}</dd>
+                {%- endif -%}
+              </dl>
 
               {{ relatedContent(piece, false) }}
 
               {{ tags(piece) }}
-            {% endblock %}
+            </div>
           </div>
 
           {% block sidebar %}

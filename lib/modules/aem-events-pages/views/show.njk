@@ -1,9 +1,8 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/piece-details.njk' import websiteCTA, relatedContent -%}
+{%- from 'macros/piece-details.njk' import websiteCTA, relatedContent, tags -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
-{%- from 'macros/tag-list.njk' import tagList -%}
 
 
 {%- set piece = data.piece -%}
@@ -54,12 +53,7 @@
 
   {{ relatedContent(piece) }}
 
-  {%- if piece.tags.length -%}
-    <hr class="separator" />
-
-    <h2>Tags</h2>
-    {{ tagList(piece.tags) }}
-  {%- endif -%}
+  {{ tags(piece, true) }}
 {% endblock %}
 
 {% block sidebar %}

@@ -33,6 +33,7 @@
   {%- set hasRelatedPeople = piece._relatedPeople|length > 0-%}
   {%- set hasRelatedOrgs = piece._relatedOrganizations|length > 0-%}
   {%- set hasRelatedMedia = piece._relatedMedia|length > 0-%}
+  {%- set hasAnyRelatedContent = hasRelatedPeople or hasRelatedOrgs or hasRelatedMedia -%}
 
   {%- if showSeparator -%}
     {%- if hasRelatedPeople or hasRelatedOrgs or hasRelatedMedia -%}
@@ -40,23 +41,27 @@
     {%- endif -%}
   {%- endif -%}
 
-  {%- if hasRelatedPeople -%}
-    <h2>Related People</h2>
-    {{ sortedPieceLinkList(piece._relatedPeople) }}
-  {%- endif -%}
+  {%- if hasAnyRelatedContent -%}
+    <dl class="piece-props-list">
+      {%- if hasRelatedPeople -%}
+        <dt>Related People</dt>
+        <dd>{{ sortedPieceLinkList(piece._relatedPeople) }}</dd>
+      {%- endif -%}
 
-  {%- if hasRelatedOrgs -%}
-    <h2>Related Organizations</h2>
-    {{ sortedPieceLinkList(piece._relatedOrganizations) }}
-  {%- endif -%}
+      {%- if hasRelatedOrgs -%}
+        <dt>Related Organizations</dt>
+        <dd>{{ sortedPieceLinkList(piece._relatedOrganizations) }}</dd>
+      {%- endif -%}
 
-  {%- if hasRelatedMedia -%}
-    <h2>Related Media</h2>
-    {{ sortedPieceLinkList(piece._relatedMedia) }}
+      {%- if hasRelatedMedia -%}
+        <dt>Related Media</dt>
+        <dd>{{ sortedPieceLinkList(piece._relatedMedia) }}</dd>
+      {%- endif -%}
+    </dl>
   {%- endif -%}
 {% endmacro %}
 
-{% macro tags(piece, showSeparator = true) %}
+{% macro tags(piece, showSeparator = false) %}
   {%- set hasTags = piece.tags|length > 0 -%}
 
   {%- if hasTags -%}
@@ -64,7 +69,9 @@
       <hr class="separator"/>
     {%- endif -%}
 
-    <h2>Tags</h2>
-    {{ tagList(piece.tags) }}
+    <dl class="piece-props-list">
+      <dt>Tags</dt>
+      <dd>{{ tagList(piece.tags) }}</dd>
+    </dl>
   {%- endif -%}
 {% endmacro %}

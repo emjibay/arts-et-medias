@@ -32,8 +32,10 @@
 
   <hr class="separator"/>
 
-  <h2>Year</h2>
-  <p>{{ piece.yearPublished }}</p>
+  <dl class="piece-props-list">
+    <dt>Year</dt>
+    <dd>{{ piece.yearPublished }}</dd>
+  </dl>
 
   {{ relatedContent(piece, false) }}
 
