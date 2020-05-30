@@ -57,4 +57,20 @@
       }
     }
   }
+
+  .footer-separator {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid $white;
+    margin: 50px 0;
+  }
+
+  .copyright {
+    font-family: $ffHeading;
+    font-size: $fsVerySmol;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+  }
 }

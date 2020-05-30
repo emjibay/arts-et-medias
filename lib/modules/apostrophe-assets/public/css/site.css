@@ -2176,6 +2176,20 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .footer .link-columns .column .footer-link:focus::-moz-focus-inner {
   border: 0;
 }
+.footer .footer-separator {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #fff;
+  margin: 50px 0;
+}
+.footer .copyright {
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
+  font-size: 10pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
 
 .home .page-content section {
   margin-bottom: 60px;
