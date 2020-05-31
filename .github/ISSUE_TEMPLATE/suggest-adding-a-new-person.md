@@ -1,18 +1,18 @@
 ---
 name: Suggest adding a new person
-about: 
+about: Suggest a new artist, curator, educator, writer or translator
 title: ''
-labels: ''
+labels: 'feat: people'
 assignees: ''
 
 ---
 
 Please answer the following questions. You can replace the example text.
 
-Ensure that the person you suggest is a media artist or installation artist whose work relate to what is presented on _Arts et Médias_. We reserve the right to not add the artist if their work is not in relation to our content.
+Ensure that the person you suggest is a media artist or installation artist whose work relate to what is presented on *Arts et Médias*. We reserve the right to not add the artist if their work is not in relation to our content.
 
 ## Name
-Provide the full name (e.g. Jane Doe) or nickname (e.g.J4N3D03) of the artist.
+Provide the full name (e.g. Jane Doe) or nickname (e.g. J4N3D03) of the artist.
 
 ## Description
 Provide a description of the artist, this usually can be the artist statement.
