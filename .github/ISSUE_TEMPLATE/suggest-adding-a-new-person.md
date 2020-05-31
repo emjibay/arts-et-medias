@@ -29,7 +29,8 @@ Provide a tweet-sized short text (~250 characters max) that appears when content
 Provide the full URL to the person's website.
 
 ## Profile picture (optional)
-Provide a portrait of the person, ideally a minimum of 720px x 720px.
+- Provide a portrait of the person, ideally a minimum of 720px x 720px.
+- Ensure to provide the name of the photographer/illustrator/etc. of the portrait.
 
 ## Tags (optional)
 A list of subjects (e.g. "media art", "video installation", "electronics", "curator", etc) that can be helpful to define the work of the person. This will also be quite helpful when people search the site for those subjects.
