@@ -9,6 +9,8 @@ assignees: ''
 
 Please answer the following questions. You can replace the example text.
 
+All information is mandatory unless marked otherwise. Incomplete information prevent us from adding new content, ensure to help us out.
+
 Ensure that the person you suggest is related to the world of media art which presented on *Arts et Médias*. We reserve the right to not add the people if their work is not in relation to our content.
 
 ## Name
