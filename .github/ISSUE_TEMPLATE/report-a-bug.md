@@ -11,6 +11,7 @@ Please answer the following questions. You can replace the example text.
 
 Without this information, we would be unable to investigate the situation you are facing, and the report will not be addressed.
 
+
 ## Current situation
 Provide a clear and concise description of the issue you are facing.
 
@@ -21,11 +22,11 @@ Provide a step-by-step explanation of how to reproduce the behavior, e.g.:
 3. Scroll down to '....'
 4. See error
 
-## Expected behavior
+## Expected Behavior
 Describe clearly what you expected to happen.
 
 ## Screenshots
 If applicable, add screenshots to help explain your problem.
 
-## Additional context
+## Additional Context
 Add any other context about the problem here.

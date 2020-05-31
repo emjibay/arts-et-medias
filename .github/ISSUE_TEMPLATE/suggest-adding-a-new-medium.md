@@ -34,7 +34,7 @@ Provide a tweet-sized short text (~250 characters max) that appears when content
 Provide the full URL to the person's website.
 
 ## Image (optional)
-- Provide an image, ideally a 1280px x 720px.
+- Provide an image to illustrate the medium, ideally 1280px x 720px, cropped properly.
 - Ensure to provide the name of the photographer/illustrator/etc. of the image.
 
 ## Tags (optional)

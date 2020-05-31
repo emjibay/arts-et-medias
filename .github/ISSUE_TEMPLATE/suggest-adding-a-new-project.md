@@ -11,30 +11,30 @@ Please answer the following questions. You can replace the example text.
 
 All information is mandatory unless marked otherwise. Incomplete information prevent us from adding new content, ensure to help us out.
 
+Ensure that the artwork you suggest is related to the world of media art which presented on *Arts et Médias*. We reserve the right to not add the project it is not in relation to our content.
+
 
 # Project/Artwork
 
-Ensure that the artwork you suggest is related to the world of media art which presented on *Arts et Médias*. We reserve the right to not add the project it is not in relation to our content.
-
-## Name of the artwork
-- Please enter the name of the artwork.
+## Name
+- Please enter the name of the artwork;
 - The name does not need to be translated if it is in another language. The translation should be in the description if needed/desired.
 
-## Description of the artwork
-- Provide a description of the artwork (formal, artistic intent, relation to other artworks, art movements, or subjects).
-- Optional: Provide who wrote this description (you, a curator, the artist, etc.)
+## Description
+- Provide a description of the artwork (formal, artistic intent, relation to other artworks, art movements, or subjects);
+- Optional: Provide who wrote this description (you, a curator, the artist, etc.).
 
-## Short description of the artwork
+## Short Description
 Provide a tweet-sized short text (~250 characters max) that appears when content is showcased on the site or shared on social media.
 
-## Year published
+## Year Published
 The year when the artwork was published or created.
 
-## Website of the artwork (optional)
+## Website (optional)
 Provide the full URL to the artwork.
 
-## Picture of the artwork (optional)
-- Provide an image of the artwork, ideally a minimum of 1280px x 720px.
+## Picture (optional)
+- Provide an image of the artwork, ideally 1280px x 720px, cropped properly.
 - Ensure to provide the name of the photographer of the work.
 
 ## Tags (optional)

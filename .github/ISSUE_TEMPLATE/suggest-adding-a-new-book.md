@@ -53,9 +53,9 @@ The country in which the publisher is located.
 The year when the work was published.
 
 ## Website (optional)
-Provide the full URL to the person's website.
+Provide the full URL to the book's website.
 
-## Image (optional)
+## Book Cover (optional)
 Provide an image, ideally a minimum of 720px x 720px, cropped properly.
 
 ## Tags (optional)

@@ -20,23 +20,23 @@ Please enter the name of the program.
 ## Description
 - Provide a description of the program.
 - Ensure to mention if this is a college program, an undergraduate program, or a graduate program.
-- Hyperlinks are accepted.
+- Hyperlinks are accepted in the text, but the link to the program's site should be provided further below.
 
-## Short description
+## Short Description
 Provide a tweet-sized short text (~250 characters max) that appears when content is showcased on the site or shared on social media.
 
 ## Language
 Enter in which language this program is offered
 
-## Academic institution or organization
+## Academic Institution or Organization
 - If the organization is already listed in our content, please provide the link to their profile page(s) on our site;
 - If the organization *is not* already listed, ensure to [suggest the addition of that organization to our content](https://github.com/jansensan/arts-et-medias/issues/new?labels=feat%3A+organization&template=suggest-adding-a-new-organization.md). Note that programs *will not* be added without information about their organization.
 
-## Website of the organization (optional)
-Provide the full URL to the artwork.
+## Website of the Organization (optional)
+Provide the full URL to the organization's website.
 
 ## Image (optional)
-- Provide an image to illustrate the program, ideally a minimum of 1280px x 720px.
+- Provide an image to illustrate the program, ideally 1280px x 720px, cropped properly.
 - Ensure to provide the name of the photographer.
 
 ## Tags (optional)
