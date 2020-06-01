@@ -11,6 +11,14 @@
       vertical-align: top;
       -webkit-appearance: textfield;
 
+      @media #{$mqTablet} {
+        @include nColumnWidth(8);
+      }
+
+      @media #{$mqDesktop} {
+        @include nColumnWidth(6);
+      }
+
       &::placeholder {
         color: $black;
       }
@@ -22,6 +30,14 @@
       @include button();
       display: inline-block;
       vertical-align: top;
+
+      @media #{$mqTablet} {
+        @include nColumnWidth(4);
+      }
+
+      @media #{$mqDesktop} {
+        @include nColumnWidth(2);
+      }
     }
   }
 

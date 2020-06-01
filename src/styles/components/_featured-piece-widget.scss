@@ -39,7 +39,7 @@
   }
 
   .hero-image {
-    $width: getColumnsSpan(8, $desktop);
+    $width: getColumnsSpan(8, $phone);
     $imgWidth: $width;
     $imgHeight: calc(#{$width} * 0.5);
     height: $imgHeight;
@@ -47,6 +47,22 @@
 
     margin-top: 10px;
     object-fit: cover;
+
+    @media #{$mqTablet} {
+      $width: getColumnsSpan(8, $tablet);
+      $imgWidth: $width;
+      $imgHeight: calc(#{$width} * 0.5);
+      height: $imgHeight;
+      width: $imgWidth;
+    }
+
+    @media #{$mqDesktop} {
+      $width: getColumnsSpan(8, $desktop);
+      $imgWidth: $width;
+      $imgHeight: calc(#{$width} * 0.5);
+      height: $imgHeight;
+      width: $imgWidth;
+    }
   }
 
   // &.featured-book-widget {
@@ -65,6 +81,16 @@
     $fourColWidth: getColumnsSpan(4, $desktop);
     width: $fourColWidth;
 
+    @media #{$mqTablet} {
+      $fourColWidth: getColumnsSpan(4, $tablet);
+      width: $fourColWidth;
+    }
+
+    @media #{$mqDesktop} {
+      $fourColWidth: getColumnsSpan(4, $desktop);
+      width: $fourColWidth;
+    }
+
     .byline-list {
       margin: 0;
 
@@ -74,18 +100,39 @@
     }
 
     .hero-image {
-      $imgWidth: $fourColWidth;
-      $imgHeight: calc(#{$fourColWidth} * 0.5625);
-      height: $imgHeight;
-      width: $imgWidth;
+      @media #{$mqTablet} {
+        $fourColWidth: getColumnsSpan(4, $tablet);
+        $imgWidth: $fourColWidth;
+        $imgHeight: calc(#{$fourColWidth} * 0.5625);
+        height: $imgHeight;
+        width: $imgWidth;
+      }
+
+      @media #{$mqDesktop} {
+        $fourColWidth: getColumnsSpan(4, $desktop);
+        $imgWidth: $fourColWidth;
+        $imgHeight: calc(#{$fourColWidth} * 0.5625);
+        height: $imgHeight;
+        width: $imgWidth;
+      }
     }
 
     &.featured-book-widget {
       .hero-image {
-        height: $fourColWidth;
         margin-top: 10px;
         object-fit: contain;
-        width: $fourColWidth;
+
+        @media #{$mqTablet} {
+          $fourColWidth: getColumnsSpan(4, $tablet);
+          height: $fourColWidth;
+          width: $fourColWidth;
+        }
+
+        @media #{$mqDesktop} {
+          $fourColWidth: getColumnsSpan(4, $desktop);
+          height: $fourColWidth;
+          width: $fourColWidth;
+        }
       }
     }
   }

@@ -17,16 +17,21 @@
         color: $black;
         cursor: pointer;
         font-family: $ffTextBody;
-        font-size: 15pt;
+        font-size: 12pt;
         font-style: normal;
         font-weight: normal;
         line-height: 1;
         text-decoration: none;
 
+        @media #{$mqDesktop} {
+          font-size: 15pt;
+        }
+
         &:hover {
           color: $main;
           text-decoration: underline;
         }
+
         &:focus {
           @include focusOutline();
         }

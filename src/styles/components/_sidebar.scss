@@ -46,9 +46,14 @@
 
   .search-input {
     @include textInput();
-    -webkit-appearance: textfield;
     display: inline-block;
+    -webkit-appearance: textfield;
     vertical-align: top;
+    width: 170px;
+
+    @media #{$mqDesktop} {
+      width: unset;
+    }
 
     &::placeholder {
       color: $black;
@@ -57,8 +62,34 @@
 
   .search-button {
     @include button();
+    color: $white;
     float: right;
+    padding: 0 10px;
     vertical-align: top;
+
+    @media #{$mqDesktop} {
+      padding: 0 20px;
+    }
+
+    .icon {
+      display: inline-block;
+      position: relative;
+      height: 15px;
+      top: 2px;
+      width: 15px;
+
+      @media #{$mqDesktop} {
+        display: none;
+      }
+    }
+
+    .label {
+      @include visuallyHidden();
+
+      @media #{$mqDesktop} {
+        @include cancelVisuallyHidden();
+      }
+    }
   }
 
   .cta {

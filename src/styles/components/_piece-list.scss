@@ -10,6 +10,12 @@
     margin: 0 0 60px 0;
     vertical-align: top;
 
+    @media #{$mqTablet} {
+    }
+
+    @media #{$mqDesktop} {
+    }
+
     &:nth-child(even) {
       @include gutterLeftMargin();
     }
@@ -49,13 +55,24 @@
     }
 
     .hero-image {
-      $width: getColumnsSpan(4, $desktop);
-      $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.2);
-      height: $imgHeight;
-      width: $imgWidth;
       margin-top: 10px;
       object-fit: cover;
+
+      @media #{$mqTablet} {
+        $width: getColumnsSpan(4, $tablet);
+        $imgWidth: $width;
+        $imgHeight: calc(#{$width} * 0.2);
+        height: $imgHeight;
+        width: $imgWidth;
+      }
+
+      @media #{$mqDesktop} {
+        $width: getColumnsSpan(4, $desktop);
+        $imgWidth: $width;
+        $imgHeight: calc(#{$width} * 0.2);
+        height: $imgHeight;
+        width: $imgWidth;
+      }
     }
 
     .piece-cta {

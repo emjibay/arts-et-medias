@@ -32,6 +32,27 @@
         @include headingBase();
         font-size: $fsTextBody;
         line-height: 1.5;
+
+        @media #{$mqTablet} {
+          font-size: $fsVerySmol;
+          min-height: 40px;
+        }
+
+        @media #{$mqDesktop} {
+          font-size: $fsTextBody;
+          min-height: 50px;
+        }
+      }
+
+      ul {
+
+        @media #{$mqTablet} {
+          margin-top: 20px;
+        }
+
+        @media #{$mqDesktop} {
+          margin-top: 30px;
+        }
       }
 
       .list-item {

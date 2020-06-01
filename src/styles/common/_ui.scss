@@ -14,22 +14,27 @@
     font-style: normal;
   }
 }
+
 @mixin heading1 {
   @include headingBase();
   font-size: 30pt;
 }
+
 @mixin heading2 {
   @include headingBase();
   font-size: 22.5pt;
 }
+
 @mixin heading3 {
   @include headingBase();
   font-size: 20pt;
 }
+
 @mixin heading4 {
   @include headingBase();
   font-size: 17.5pt;
 }
+
 @mixin heading5 {
   font-family: $ffTextBody;
   font-size: 15pt;
@@ -38,6 +43,7 @@
   line-height: 1;
   margin: 20px 0 15px 0;
 }
+
 @mixin heading6 {
   font-family: $ffTextBody;
   font-size: $fsTextBody;
@@ -46,6 +52,7 @@
   line-height: 1;
   margin: 20px 0 15px 0;
 }
+
 @mixin contentTypeHeading {
   border-bottom: 1px solid $lightGrey;
   color: $halfGrey;
@@ -55,6 +62,7 @@
   margin-bottom: 0;
   padding-bottom: 10px;
 }
+
 @mixin minorText {
   color: $darkGrey;
   font-family: $ffTextBody;
@@ -76,10 +84,15 @@
   text-align: left;
   word-wrap: break-word;
 }
+
 @mixin list {
   @include paragraph();
+  position: relative;
+  padding-left: 25px;
 }
+
 @mixin unorderedListItem {
+  position: relative;
   margin-bottom: 5px;
 
   &:last-of-type {
@@ -87,8 +100,10 @@
   }
 
   &:before {
-    margin-right: 5px;
+    position: absolute;
     content: "\2014";
+    left: -25px;
+    margin-right: 5px;
   }
 }
 
@@ -129,6 +144,7 @@
     cursor: not-allowed;
   }
 }
+
 @mixin anchor {
   cursor: pointer;
   font-family: $ffTextBody;
@@ -149,6 +165,7 @@
     @include focusOutline();
   }
 }
+
 @mixin select {
   @include paragraph();
   -moz-appearance: none;
@@ -189,12 +206,14 @@
   font-family: $ffTextBody;
   font-weight: normal;
 }
+
 @mixin fieldsetLegend {
   font-size: 0;
   height: 0;
   visibility: hidden;
   width: 0;
 }
+
 @mixin textInput {
   display: inline-block;
   -webkit-appearance: none;
@@ -217,6 +236,7 @@
     color: $halfGrey;
   }
 }
+
 @mixin inputLabel {
   display: block;
   color: $black;
@@ -225,10 +245,12 @@
   font-weight: normal;
   margin-bottom: 5px;
 }
+
 @mixin radioButton {
   font-family: $ffTextBody;
   font-weight: normal;
 }
+
 @mixin checkboxButton {
   font-family: $ffTextBody;
   font-weight: normal;

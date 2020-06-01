@@ -10,9 +10,21 @@
   .book-cover {
     position: relative;
     float: left;
-    margin-bottom: getGutterWidth($desktop);
-    margin-right: getGutterWidth($desktop);
+    margin-bottom: getGutterWidth($phone);
+    margin-right: getGutterWidth($phone);
     top: 25px;
-    width: getColumnsSpan(4, $desktop);
+    width: getColumnsSpan(4, $phone);
+
+    @media #{$mqTablet} {
+      margin-bottom: getGutterWidth($tablet);
+      margin-right: getGutterWidth($tablet);
+      width: getColumnsSpan(4, $tablet);
+    }
+
+    @media #{$mqDesktop} {
+      margin-bottom: getGutterWidth($desktop);
+      margin-right: getGutterWidth($desktop);
+      width: getColumnsSpan(4, $desktop);
+    }
   }
 }

@@ -20,15 +20,26 @@
 }
 
 @mixin visuallyHidden {
-  position: absolute !important;
-  border: 0 !important;
+  position: absolute;
+  border: 0;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
   font-size: 0;;
-  height: 1px !important;
+  height: 1px;
   overflow: hidden;
-  padding: 0 !important;
-  width: 1px !important;
+  padding: 0;
+  width: 1px;
+}
+
+@mixin cancelVisuallyHidden {
+  position: unset;
+  border: unset;
+  clip: unset;
+  font-size: unset;
+  height: unset;
+  overflow: unset;
+  padding: unset;
+  width: unset;
 }
 
 

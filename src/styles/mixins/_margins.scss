@@ -22,10 +22,10 @@
 }
 
 @mixin gutterLeftMargin {
-  margin-left: $columnWidthXs;
+  margin-left: $gutterWidthXs;
 
   @media #{$mqTablet} {
-    margin-left: $columnWidthSm;
+    margin-left: $gutterWidthSm;
   }
   @media #{$mqDesktop} {
     margin-left: $gutterWidthMd;
