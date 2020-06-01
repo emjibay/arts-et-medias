@@ -1,6 +1,7 @@
 @import '../common/variables';
 @import '../common/ui';
 
+
 .featured-piece-widget {
   $width: getColumnsSpan(6, $phone);
   width: $width;
@@ -10,7 +11,7 @@
     width: $width;
   }
 
-  @media #{$mqTablet} {
+  @media #{$mqDesktop} {
     $width: getColumnsSpan(8, $desktop);
     width: $width;
   }

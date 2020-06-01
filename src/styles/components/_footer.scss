@@ -6,7 +6,7 @@
 .footer {
   background-color: $black;
   color: $white;
-  padding: 50px 0 70px;
+  padding: 50px 0 30px;
   margin-top: 70px;
 
   .site-title {
@@ -16,7 +16,7 @@
   }
 
   .link-columns {
-    margin-top: 50px;
+    margin-top: 30px;
 
     .column {
       @include gutterLeftMargin();
@@ -24,20 +24,32 @@
       display: inline-block;
       vertical-align: top;
 
-      @media #{$mqTablet} {
-        @include nColumnWidth(2);
+      &:nth-child(odd) {
+        margin-left: 0;
       }
 
       &:nth-child(n+3) {
         margin-top: 20px;
       }
 
-      &:nth-child(odd) {
+      &:first-of-type {
         margin-left: 0;
       }
 
-      &:first-of-type {
-        margin-left: 0;
+      @media #{$mqTablet} {
+        @include nColumnWidth(2);
+
+        &:nth-child(odd) {
+          @include gutterLeftMargin();
+        }
+
+        &:nth-child(n+3) {
+          margin-top: 0;
+        }
+
+        &:first-of-type {
+          margin-left: 0;
+        }
       }
 
       .column-title {
@@ -45,6 +57,7 @@
         font-size: $fsTextBody;
         line-height: 1.5;
         min-height: 50px;
+        margin-top: 40px;
 
         @media #{$mqTablet} {
           font-size: $fsVerySmol;

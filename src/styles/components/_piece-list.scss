@@ -1,6 +1,7 @@
 @import '../common/variables';
 @import '../common/ui';
 
+
 .piece-list {
   margin: 40px 0;
 
@@ -17,12 +18,13 @@
       @include nColumnWidth(4);
       margin: 0 0 60px 0;
 
+      &:not(:first-of-type) {
+        margin: 0 0 60px 0;
+      }
+
       &:nth-child(even) {
         @include gutterLeftMargin();
       }
-    }
-
-    @media #{$mqDesktop} {
     }
   }
 
