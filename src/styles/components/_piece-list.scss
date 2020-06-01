@@ -5,19 +5,24 @@
   margin: 40px 0;
 
   .list-item {
-    @include nColumnWidth(4);
+    @include nColumnWidth(6);
     display: inline-block;
-    margin: 0 0 60px 0;
     vertical-align: top;
 
+    &:not(:first-of-type) {
+      margin: 40px 0 0 0;
+    }
+
     @media #{$mqTablet} {
+      @include nColumnWidth(4);
+      margin: 0 0 60px 0;
+
+      &:nth-child(even) {
+        @include gutterLeftMargin();
+      }
     }
 
     @media #{$mqDesktop} {
-    }
-
-    &:nth-child(even) {
-      @include gutterLeftMargin();
     }
   }
 
@@ -55,6 +60,11 @@
     }
 
     .hero-image {
+      $width: getColumnsSpan(6, $phone);
+      $imgWidth: $width;
+      $imgHeight: calc(#{$width} * 0.2);
+      height: $imgHeight;
+      width: $imgWidth;
       margin-top: 10px;
       object-fit: cover;
 

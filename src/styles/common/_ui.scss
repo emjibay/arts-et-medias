@@ -17,7 +17,11 @@
 
 @mixin heading1 {
   @include headingBase();
-  font-size: 30pt;
+  font-size: 25pt;
+
+  @media #{$mqTablet} {
+    font-size: 30pt;
+  }
 }
 
 @mixin heading2 {

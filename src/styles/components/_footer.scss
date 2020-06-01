@@ -20,9 +20,21 @@
 
     .column {
       @include gutterLeftMargin();
-      @include nColumnWidth(2);
+      @include nColumnWidth(3);
       display: inline-block;
       vertical-align: top;
+
+      @media #{$mqTablet} {
+        @include nColumnWidth(2);
+      }
+
+      &:nth-child(n+3) {
+        margin-top: 20px;
+      }
+
+      &:nth-child(odd) {
+        margin-left: 0;
+      }
 
       &:first-of-type {
         margin-left: 0;
@@ -32,6 +44,7 @@
         @include headingBase();
         font-size: $fsTextBody;
         line-height: 1.5;
+        min-height: 50px;
 
         @media #{$mqTablet} {
           font-size: $fsVerySmol;
@@ -45,7 +58,6 @@
       }
 
       ul {
-
         @media #{$mqTablet} {
           margin-top: 20px;
         }

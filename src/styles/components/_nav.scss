@@ -3,13 +3,19 @@
 @import '../mixins/mixins';
 
 .nav {
+  display: none;
+  border-bottom: 1px solid $halfGrey;
+  border-top: 1px solid $halfGrey;
   margin-top: 15px;
   padding: 7px 0 13px 0;
-  border-top: 1px solid $halfGrey;
-  border-bottom: 1px solid $halfGrey;
+
+  @media #{$mqTablet} {
+    display: block;
+  }
 
   .nav-list {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
 
     li {
@@ -30,6 +36,7 @@
         &:hover {
           color: $main;
           text-decoration: underline;
+          text-decoration-thickness: 2px;
         }
 
         &:focus {

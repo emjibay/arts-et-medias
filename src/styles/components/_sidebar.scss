@@ -6,8 +6,12 @@
 .sidebar {
   @include gutterLeftMargin();
   @include nColumnWidth(4);
-  display: inline-block;
+  display: none;
   vertical-align: top;
+
+  @media #{$mqTablet} {
+    display: inline-block;
+  }
 
   .h1 {
     @include heading4();

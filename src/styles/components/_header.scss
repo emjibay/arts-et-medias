@@ -4,14 +4,26 @@
 
 
 .header {
-  padding: 20px 0 40px;
+  border-bottom: 1px solid $black;
+  margin-bottom: 20px;
+  padding: 20px 0 0 0;
+  position: relative;
+
+  @media #{$mqTablet} {
+    border-bottom: none;
+    padding: 20px 0 40px 0;
+  }
 
   .site-title {
     @include headingBase();
-    font-size: 50pt;
+    font-size: 20pt;
     line-height: 1;
     margin: 0 0 20px 0;
     text-align: center;
+
+    @media #{$mqTablet} {
+      font-size: 50pt;
+    }
 
     a {
       color: $black;
@@ -26,10 +38,31 @@
     }
   }
 
-  .nav > .nav-list {
-    a:hover {
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
+  .mobile-container {
+    @include nColumnWidth(6);
+    margin: 0 auto;
+
+    .mobile-menu-button {
+      display: inline-block;
+    }
+    .site-title {
+      display: inline-block;
+      width: calc(100% - 70px);
+    }
+    .mobile-search-button {
+      display: inline-block;
+    }
+
+    @media #{$mqTablet} {
+      display: none;
+    }
+  }
+
+  .desktop-container {
+    display: none;
+
+    @media #{$mqTablet} {
+      display: block;
     }
   }
 }

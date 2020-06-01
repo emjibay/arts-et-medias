@@ -64,12 +64,15 @@ body {
 }
 
 .page-content {
-  @include nColumnWidth(8);
+  @include nColumnWidth(6);
   display: inline-block;
   vertical-align: top;
 
+  @media #{$mqTablet} {
+    @include nColumnWidth(8);
+  }
+
   .column {
-    // width: getColumnsSpan(4, $desktop);
     display: inline-block;
 
     &.right {

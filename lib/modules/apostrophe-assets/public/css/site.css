@@ -244,11 +244,16 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 30pt;
+  font-size: 25pt;
 }
 .content h1 strong {
   font-weight: normal;
   font-style: normal;
+}
+@media only screen and (min-width: 768px) {
+  .content h1 {
+    font-size: 30pt;
+  }
 }
 .content h2 {
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
@@ -298,16 +303,31 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 
 .page-content {
-  width: calc( (40px * 8) + (16px * 7) );
+  width: calc( (40px * 6) + (16px * 5) );
   display: inline-block;
   vertical-align: top;
 }
 @media only screen and (min-width: 768px) {
   .page-content {
-    width: calc( (35px * 8) + (25px * 7) );
+    width: calc( (35px * 6) + (25px * 5) );
   }
 }
 @media only screen and (min-width: 1024px) {
+  .page-content {
+    width: calc( (50px * 6) + (30px * 5) );
+  }
+}
+@media only screen and (min-width: 768px) {
+  .page-content {
+    width: calc( (40px * 8) + (16px * 7) );
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 768px) {
+  .page-content {
+    width: calc( (35px * 8) + (25px * 7) );
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 1024px) {
   .page-content {
     width: calc( (50px * 8) + (30px * 7) );
   }
@@ -615,14 +635,232 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   * Provides the span taken by
   * half a gutter at a given breakpoint.
   */
+.mobile-menu-button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px 10px 0;
+}
+.mobile-menu-button .icon {
+  width: 15px;
+  height: 15px;
+}
+.mobile-menu-button .label {
+  position: absolute;
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  font-size: 0;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+}
+
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+.mobile-search-button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  padding: 10px 0 10px 20px;
+}
+.mobile-search-button .icon {
+  width: 15px;
+  height: 15px;
+}
+.mobile-search-button .label {
+  position: absolute;
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  font-size: 0;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+}
+
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
 .nav {
+  display: none;
+  border-bottom: 1px solid #757575;
+  border-top: 1px solid #757575;
   margin-top: 15px;
   padding: 7px 0 13px 0;
-  border-top: 1px solid #757575;
-  border-bottom: 1px solid #757575;
+}
+@media only screen and (min-width: 768px) {
+  .nav {
+    display: block;
+  }
 }
 .nav .nav-list {
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
 }
 .nav .nav-list li a {
@@ -643,6 +881,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .nav .nav-list li a:hover {
   color: #1276D3;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 .nav .nav-list li a:focus {
   border-color: #1276D3 !important;
@@ -858,30 +1097,50 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin: 40px 0;
 }
 .piece-list .list-item {
-  width: calc( (40px * 4) + (16px * 3) );
+  width: calc( (40px * 6) + (16px * 5) );
   display: inline-block;
-  margin: 0 0 60px 0;
   vertical-align: top;
 }
 @media only screen and (min-width: 768px) {
   .piece-list .list-item {
-    width: calc( (35px * 4) + (25px * 3) );
+    width: calc( (35px * 6) + (25px * 5) );
   }
 }
 @media only screen and (min-width: 1024px) {
   .piece-list .list-item {
+    width: calc( (50px * 6) + (30px * 5) );
+  }
+}
+.piece-list .list-item:not(:first-of-type) {
+  margin: 40px 0 0 0;
+}
+@media only screen and (min-width: 768px) {
+  .piece-list .list-item {
+    width: calc( (40px * 4) + (16px * 3) );
+    margin: 0 0 60px 0;
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 768px) {
+  .piece-list .list-item {
+    width: calc( (35px * 4) + (25px * 3) );
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 1024px) {
+  .piece-list .list-item {
     width: calc( (50px * 4) + (30px * 3) );
   }
 }
-.piece-list .list-item:nth-child(even) {
-  margin-left: 16px;
-}
 @media only screen and (min-width: 768px) {
+  .piece-list .list-item:nth-child(even) {
+    margin-left: 16px;
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 768px) {
   .piece-list .list-item:nth-child(even) {
     margin-left: 25px;
   }
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 768px) and (min-width: 1024px) {
   .piece-list .list-item:nth-child(even) {
     margin-left: 30px;
   }
@@ -941,6 +1200,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin: 5px 0;
 }
 .piece-list .piece-card .hero-image {
+  height: calc(calc( (40px * 6) + (16px * 5) ) * 0.2);
+  width: calc( (40px * 6) + (16px * 5) );
   margin-top: 10px;
   object-fit: cover;
 }
@@ -1082,11 +1343,16 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 30pt;
+  font-size: 25pt;
 }
 .rich-content .apos-rich-text h1 strong {
   font-weight: normal;
   font-style: normal;
+}
+@media only screen and (min-width: 768px) {
+  .rich-content .apos-rich-text h1 {
+    font-size: 30pt;
+  }
 }
 .rich-content .apos-rich-text h2 {
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
@@ -1323,7 +1589,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .sidebar {
   margin-left: 16px;
   width: calc( (40px * 4) + (16px * 3) );
-  display: inline-block;
+  display: none;
   vertical-align: top;
 }
 @media only screen and (min-width: 768px) {
@@ -1344,6 +1610,11 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 @media only screen and (min-width: 1024px) {
   .sidebar {
     width: calc( (50px * 4) + (30px * 3) );
+  }
+}
+@media only screen and (min-width: 768px) {
+  .sidebar {
+    display: inline-block;
   }
 }
 .sidebar .h1 {
@@ -1746,6 +2017,19 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   text-decoration: none;
 }
 
+.featured-piece-widget {
+  width: calc( (40px * 6) + (16px * 5) );
+}
+@media only screen and (min-width: 768px) {
+  .featured-piece-widget {
+    width: calc( (35px * 8) + (25px * 7) );
+  }
+}
+@media only screen and (min-width: 768px) {
+  .featured-piece-widget {
+    width: calc( (50px * 8) + (30px * 7) );
+  }
+}
 .featured-piece-widget .feature-type {
   font-family: "QuebecLight", Verdana, sans-serif;
   font-size: 10pt;
@@ -1798,8 +2082,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   text-align: left;
 }
 .featured-piece-widget .hero-image {
-  height: calc(calc( (40px * 8) + (16px * 7) ) * 0.5);
-  width: calc( (40px * 8) + (16px * 7) );
+  height: calc(calc( (40px * 6) + (16px * 5) ) * 0.5);
+  width: calc( (40px * 6) + (16px * 5) );
   margin-top: 10px;
   object-fit: cover;
 }
@@ -1818,7 +2102,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 
 .column .featured-piece-widget,
 .sidebar .featured-piece-widget {
-  width: calc( (50px * 4) + (30px * 3) );
+  width: calc( (50px * 6) + (30px * 5) );
 }
 @media only screen and (min-width: 768px) {
   .column .featured-piece-widget,
@@ -1839,6 +2123,11 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .column .featured-piece-widget .byline-list::after,
 .sidebar .featured-piece-widget .byline-list::after {
   margin: 0;
+}
+.column .featured-piece-widget .hero-image,
+.sidebar .featured-piece-widget .hero-image {
+  height: calc(calc( (35px * 6) + (25px * 5) ) * 0.5625);
+  width: calc( (35px * 6) + (25px * 5) );
 }
 @media only screen and (min-width: 768px) {
   .column .featured-piece-widget .hero-image,
@@ -2091,7 +2380,16 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   * half a gutter at a given breakpoint.
   */
 .header {
-  padding: 20px 0 40px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 20px;
+  padding: 20px 0 0 0;
+  position: relative;
+}
+@media only screen and (min-width: 768px) {
+  .header {
+    border-bottom: none;
+    padding: 20px 0 40px 0;
+  }
 }
 .header .site-title {
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
@@ -2099,7 +2397,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 50pt;
+  font-size: 20pt;
   line-height: 1;
   margin: 0 0 20px 0;
   text-align: center;
@@ -2107,6 +2405,11 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .header .site-title strong {
   font-weight: normal;
   font-style: normal;
+}
+@media only screen and (min-width: 768px) {
+  .header .site-title {
+    font-size: 50pt;
+  }
 }
 .header .site-title a {
   color: #000;
@@ -2124,9 +2427,42 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .header .site-title a:focus::-moz-focus-inner {
   border: 0;
 }
-.header .nav > .nav-list a:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
+.header .mobile-container {
+  width: calc( (40px * 6) + (16px * 5) );
+  margin: 0 auto;
+}
+@media only screen and (min-width: 768px) {
+  .header .mobile-container {
+    width: calc( (35px * 6) + (25px * 5) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .header .mobile-container {
+    width: calc( (50px * 6) + (30px * 5) );
+  }
+}
+.header .mobile-container .mobile-menu-button {
+  display: inline-block;
+}
+.header .mobile-container .site-title {
+  display: inline-block;
+  width: calc(100% - 70px);
+}
+.header .mobile-container .mobile-search-button {
+  display: inline-block;
+}
+@media only screen and (min-width: 768px) {
+  .header .mobile-container {
+    display: none;
+  }
+}
+.header .desktop-container {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .header .desktop-container {
+    display: block;
+  }
 }
 
 /**
@@ -2235,7 +2571,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 .footer .link-columns .column {
   margin-left: 16px;
-  width: calc( (40px * 2) + (16px * 1) );
+  width: calc( (40px * 3) + (16px * 2) );
   display: inline-block;
   vertical-align: top;
 }
@@ -2251,13 +2587,34 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 @media only screen and (min-width: 768px) {
   .footer .link-columns .column {
-    width: calc( (35px * 2) + (25px * 1) );
+    width: calc( (35px * 3) + (25px * 2) );
   }
 }
 @media only screen and (min-width: 1024px) {
   .footer .link-columns .column {
+    width: calc( (50px * 3) + (30px * 2) );
+  }
+}
+@media only screen and (min-width: 768px) {
+  .footer .link-columns .column {
+    width: calc( (40px * 2) + (16px * 1) );
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 768px) {
+  .footer .link-columns .column {
+    width: calc( (35px * 2) + (25px * 1) );
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 1024px) {
+  .footer .link-columns .column {
     width: calc( (50px * 2) + (30px * 1) );
   }
+}
+.footer .link-columns .column:nth-child(n+3) {
+  margin-top: 20px;
+}
+.footer .link-columns .column:nth-child(odd) {
+  margin-left: 0;
 }
 .footer .link-columns .column:first-of-type {
   margin-left: 0;
@@ -2270,6 +2627,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin: 20px 0 15px 0;
   font-size: 12.5pt;
   line-height: 1.5;
+  min-height: 50px;
 }
 .footer .link-columns .column .column-title strong {
   font-weight: normal;
@@ -2561,11 +2919,16 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 30pt;
+  font-size: 25pt;
 }
 .page-search .search-results .title strong {
   font-weight: normal;
   font-style: normal;
+}
+@media only screen and (min-width: 768px) {
+  .page-search .search-results .title {
+    font-size: 30pt;
+  }
 }
 .page-search .sidebar {
   margin-top: 100px;
@@ -2659,11 +3022,16 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-style: normal;
   line-height: 1;
   margin: 20px 0 15px 0;
-  font-size: 30pt;
+  font-size: 25pt;
 }
 .page-login h1 strong {
   font-weight: normal;
   font-style: normal;
+}
+@media only screen and (min-width: 768px) {
+  .page-login h1 {
+    font-size: 30pt;
+  }
 }
 .page-login .apos-login-warning {
   font-family: "QuebecLight", Verdana, sans-serif;
@@ -2861,6 +3229,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   margin-top: 25px;
 }
 .piece-details .hero-image {
+  height: calc(calc( (40px * 6) + (16px * 5) ) * 0.5);
+  width: calc( (40px * 6) + (16px * 5) );
   object-fit: cover;
 }
 @media only screen and (min-width: 768px) {

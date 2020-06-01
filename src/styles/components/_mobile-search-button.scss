@@ -1,0 +1,18 @@
+@import '../mixins/mixins';
+
+
+.mobile-search-button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  padding: 10px 0 10px 20px;
+
+  .icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .label {
+    @include visuallyHidden();
+  }
+}

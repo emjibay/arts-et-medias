@@ -31,6 +31,11 @@
   }
 
   .hero-image {
+    $width: getColumnsSpan(6, $phone);
+    $imgWidth: $width;
+    $imgHeight: calc(#{$width} * 0.5);
+    height: $imgHeight;
+    width: $imgWidth;
     object-fit: cover;
 
     @media #{$mqTablet} {

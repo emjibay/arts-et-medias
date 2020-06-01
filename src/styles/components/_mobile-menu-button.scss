@@ -1,0 +1,19 @@
+@import '../mixins/mixins';
+
+
+.mobile-menu-button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px 10px 0;
+
+  .icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .label {
+    @include visuallyHidden();
+  }
+}
