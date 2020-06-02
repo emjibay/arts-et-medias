@@ -2,32 +2,55 @@
 @import '../common/ui';
 @import '../mixins/mixins';
 
+
 .nav {
-  display: none;
+  background-color: $black;
   border-bottom: 1px solid $halfGrey;
   border-top: 1px solid $halfGrey;
-  margin-top: 15px;
-  padding: 7px 0 13px 0;
+  padding: 15px 0 25px;
+  margin-top: 0;
 
   @media #{$mqTablet} {
     display: block;
+    background-color: transparent;
+    margin-top: 15px;
+    padding: 7px 0 13px 0;
   }
 
   .nav-list {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    display: block;
+
+    @media #{$mqTablet} {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
 
     li {
+      text-align: center;
+
+      @media #{$mqTablet} {
+        text-align: unset;
+      }
+
       a {
-        color: $black;
+        display: block;
+        color: $white;
         cursor: pointer;
         font-family: $ffTextBody;
-        font-size: 12pt;
+        font-size: 15pt;
         font-style: normal;
         font-weight: normal;
         line-height: 1;
+        padding: 15px 0;
         text-decoration: none;
+
+        @media #{$mqTablet} {
+          display: unset;
+          color: $black;
+          font-size: 12pt;
+          padding: unset;
+        }
 
         @media #{$mqDesktop} {
           font-size: 15pt;

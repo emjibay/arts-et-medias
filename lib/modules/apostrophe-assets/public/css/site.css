@@ -635,6 +635,192 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   * Provides the span taken by
   * half a gutter at a given breakpoint.
   */
+.mobile-menu {
+  position: fixed;
+  color: #fff;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  transition: transform 150ms ease-in-out;
+  will-change: transform;
+}
+.mobile-menu.visible {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  transition: transform 300ms ease-in-out;
+  will-change: transform;
+}
+@media only screen and (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+.mobile-menu .site-title {
+  padding: 20px 0;
+  text-align: center;
+  background-color: #000;
+}
+.mobile-menu .site-title a {
+  font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  margin: 20px 0 15px 0;
+  color: #fff;
+  font-size: 20pt;
+  line-height: 1;
+  text-decoration: none;
+}
+.mobile-menu .site-title a strong {
+  font-weight: normal;
+  font-style: normal;
+}
+.mobile-menu .site-title a:hover {
+  color: #1276D3;
+}
+.mobile-menu .site-title a:focus {
+  border-color: #1276D3 !important;
+  box-shadow: 0 0 0 2.5pt #1276D3 !important;
+  outline: 0 !important;
+  transition: box-shadow 0s linear !important;
+}
+.mobile-menu .site-title a:focus::-moz-focus-inner {
+  border: 0;
+}
+.mobile-menu .close-mobile-menu-button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  top: 15px;
+  right: 15px;
+}
+.mobile-menu .close-mobile-menu-button .icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}
+.mobile-menu .close-mobile-menu-button .label {
+  position: absolute;
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  font-size: 0;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+}
+
+.overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: visibility 150ms, opacity 150ms linear;
+  transition: visibility 150ms, opacity 150ms linear;
+}
+.overlay.visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: visibility 0ms, opacity 300ms linear;
+  transition: visibility 0ms, opacity 300ms linear;
+}
+
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
 .mobile-menu-button {
   display: inline-block;
   background-color: transparent;
@@ -847,31 +1033,57 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   * half a gutter at a given breakpoint.
   */
 .nav {
-  display: none;
+  background-color: #000;
   border-bottom: 1px solid #757575;
   border-top: 1px solid #757575;
-  margin-top: 15px;
-  padding: 7px 0 13px 0;
+  padding: 15px 0 25px;
+  margin-top: 0;
 }
 @media only screen and (min-width: 768px) {
   .nav {
     display: block;
+    background-color: transparent;
+    margin-top: 15px;
+    padding: 7px 0 13px 0;
   }
 }
 .nav .nav-list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  display: block;
+}
+@media only screen and (min-width: 768px) {
+  .nav .nav-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+.nav .nav-list li {
+  text-align: center;
+}
+@media only screen and (min-width: 768px) {
+  .nav .nav-list li {
+    text-align: unset;
+  }
 }
 .nav .nav-list li a {
-  color: #000;
+  display: block;
+  color: #fff;
   cursor: pointer;
   font-family: "QuebecLight", Verdana, sans-serif;
-  font-size: 12pt;
+  font-size: 15pt;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
+  padding: 15px 0;
   text-decoration: none;
+}
+@media only screen and (min-width: 768px) {
+  .nav .nav-list li a {
+    display: unset;
+    color: #000;
+    font-size: 12pt;
+    padding: unset;
+  }
 }
 @media only screen and (min-width: 1024px) {
   .nav .nav-list li a {

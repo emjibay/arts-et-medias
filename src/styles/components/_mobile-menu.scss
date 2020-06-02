@@ -1,0 +1,119 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+
+// vars
+$hideDuration: 150ms;
+$showDuration: 300ms;
+
+
+// mixins
+@mixin transform($transformation, $duration) {
+  -webkit-transform: $transformation;
+  transform: $transformation;
+  transition:
+    transform
+    $duration
+    ease-in-out;
+  will-change: transform;
+}
+
+
+// components
+.mobile-menu {
+  position: fixed;
+  color: $white;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  @include transform(translateX(-100%), $hideDuration);
+
+  &.visible {
+    @include transform(translateX(0), $showDuration);
+  }
+
+  @media #{$mqTablet} {
+    display: none;
+    // TODO: hide menu in js if breakpoint changes
+  }
+
+  .site-title {
+    padding: 20px 0;
+    text-align: center;
+    background-color: $black;
+
+    a {
+      @include headingBase();
+      color: $white;
+      font-size: 20pt;
+      line-height: 1;
+      text-decoration: none;
+
+      &:hover {
+        color: $main;
+      }
+
+      &:focus {
+        @include focusOutline();
+      }
+    }
+  }
+
+  .close-mobile-menu-button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    top: 15px;
+    right: 15px;
+
+    .icon {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+    }
+    .label {
+      @include visuallyHidden();
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  background-color: rgba($black, 0.75);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  $blurSize: 10px;
+  -webkit-backdrop-filter: blur($blurSize);
+  backdrop-filter: blur($blurSize);
+
+  opacity: 0;
+  visibility: hidden;
+
+  -webkit-transition:
+    visibility $hideDuration,
+    opacity $hideDuration linear;
+  transition:
+    visibility $hideDuration,
+    opacity $hideDuration linear;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+
+    -webkit-transition:
+      visibility 0ms,
+      opacity $showDuration linear;
+    transition:
+      visibility 0ms,
+      opacity $showDuration linear;
+  }
+}

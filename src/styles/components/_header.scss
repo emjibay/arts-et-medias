@@ -32,6 +32,7 @@
       &:hover {
         color: $main;
       }
+
       &:focus {
         @include focusOutline();
       }
