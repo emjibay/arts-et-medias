@@ -64,7 +64,7 @@
     .hero-image {
       $width: getColumnsSpan(6, $phone);
       $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.2);
+      $imgHeight: calc(#{$width} * 0.25);
       height: $imgHeight;
       width: $imgWidth;
       margin-top: 10px;
@@ -73,7 +73,7 @@
       @media #{$mqTablet} {
         $width: getColumnsSpan(4, $tablet);
         $imgWidth: $width;
-        $imgHeight: calc(#{$width} * 0.2);
+        $imgHeight: calc(#{$width} * 0.25);
         height: $imgHeight;
         width: $imgWidth;
       }
@@ -81,7 +81,7 @@
       @media #{$mqDesktop} {
         $width: getColumnsSpan(4, $desktop);
         $imgWidth: $width;
-        $imgHeight: calc(#{$width} * 0.2);
+        $imgHeight: calc(#{$width} * 0.25);
         height: $imgHeight;
         width: $imgWidth;
       }

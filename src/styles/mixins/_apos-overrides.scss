@@ -8,12 +8,19 @@
   }
   h2 {
     @include heading2();
+    margin-top: 50px;
   }
   h3 {
     @include heading3();
+    margin-top: 20px;
   }
   h4 {
-    @include heading4();
+    font-family: $ffTextBody;
+    font-size: 17.5pt;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1;
+    margin: 10px 0 15px 0;
   }
   h5 {
     @include heading5();
