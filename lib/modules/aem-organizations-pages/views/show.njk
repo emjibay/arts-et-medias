@@ -26,14 +26,8 @@
 {% block pageContent %}
   {{ heroImage(piece, true) }}
 
-  {%- set hasHeroImage = piece.heroImage.items|length > 0 -%}
-  {%- if hasHeroImage -%}
-    {%- set descriptionClassList = 'description with-hero' -%}
-  {%- else -%}
-    {%- set descriptionClassList = 'description without-hero' -%}
-  {%- endif -%}
   <h2 class="sr-only">Description</h2>
-  <div class="{{ descriptionClassList }}">
+  <div class="description">
     {{ apos.singleton(piece, 'description', 'apostrophe-rich-text') }}
   </div>
 

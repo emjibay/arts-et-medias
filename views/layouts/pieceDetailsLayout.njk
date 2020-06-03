@@ -4,6 +4,7 @@
 
 
 {%- set piece = data.piece -%}
+{%- set hasHeroImage = piece.heroImage.items|length > 0 -%}
 
 {% block title %}
   {{ piece.title }} | Arts et Médias
@@ -22,7 +23,13 @@
 
           {% block subheading %}{% endblock %}
 
-          <div class="page-content">
+
+          {%- if hasHeroImage -%}
+            {%- set pageContentClassList = 'page-content with-hero' -%}
+          {%- else -%}
+            {%- set pageContentClassList = 'page-content without-hero' -%}
+          {%- endif -%}
+          <div class="{{ pageContentClassList }}">
             {% block pageContent %}
               <h2 class="sr-only">Description</h2>
               <p class="description">

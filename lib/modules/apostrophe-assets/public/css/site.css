@@ -3491,6 +3491,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .piece-details .page-content {
   margin-top: 25px;
 }
+.piece-details .page-content.without-hero {
+  margin-top: 0;
+}
 .piece-details .hero-image {
   height: calc(calc( (40px * 6) + (16px * 5) ) * 0.5);
   width: calc( (40px * 6) + (16px * 5) );

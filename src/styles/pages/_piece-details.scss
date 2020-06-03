@@ -28,6 +28,10 @@
 
   .page-content {
     margin-top: 25px;
+
+    &.without-hero {
+      margin-top: 0;
+    }
   }
 
   .hero-image {
