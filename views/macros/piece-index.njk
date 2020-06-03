@@ -61,14 +61,10 @@
             <p class="heading">{{ piece.title }}</p>
 
             {%- set publicationDate = apos.aem.formatDate(piece.publicationDate) -%}
-            <div>
-              <ul class="byline-list">
-                {% for author in piece._originalAuthor %}
-                  <li>
-                    <p>{{ author.title }}</p>
-                  </li>
-                {% endfor %}
-              </ul>
+            <div class="byline-and-date">
+              {% for author in piece._originalAuthor %}
+                <span>{{ author.title }}</span>
+              {% endfor %}
               <span class="publication-date">, {{ publicationDate }}</span>
             </div>
 

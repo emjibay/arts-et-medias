@@ -35,8 +35,9 @@
   }
 
   .byline-list {
-    margin: 5px 0;
     display: inline-block;
+    margin: 5px 0;
+    padding-left: 0;
 
     li:before {
       display: none;
@@ -107,6 +108,7 @@
 
     .byline-list {
       margin: 0;
+      padding-left: 0;
 
       &::after {
         margin: 0;

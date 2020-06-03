@@ -48,6 +48,18 @@
 
     .byline-list {
       display: inline-block;
+      padding-left: 0;
+    }
+
+    .byline-and-date {
+      margin: 5px 0;
+
+      span {
+        @include minorText();
+        font-size: $fsSmol;
+        margin: 5px 0 0 0;
+        line-height: 1.25;
+      }
     }
 
     .publication-date {
