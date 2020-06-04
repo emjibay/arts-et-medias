@@ -5,11 +5,10 @@
 .page-search {
   .main-search-form {
     .search-input {
-      @include nColumnWidth(6);
       @include textInput();
       display: inline-block;
       vertical-align: top;
-      -webkit-appearance: textfield;
+      width: calc(100% - 55px);
 
       @media #{$mqTablet} {
         @include nColumnWidth(8);
@@ -25,18 +24,39 @@
     }
 
     .search-button {
-      @include nColumnWidth(2);
       @include gutterLeftMargin();
       @include button();
       display: inline-block;
       vertical-align: top;
+      padding: 0 10px;
 
       @media #{$mqTablet} {
         @include nColumnWidth(4);
+        padding: 0 20px;
       }
 
       @media #{$mqDesktop} {
         @include nColumnWidth(2);
+      }
+
+      .icon {
+        display: inline-block;
+        position: relative;
+        height: 15px;
+        top: 2px;
+        width: 15px;
+
+        @media #{$mqTablet} {
+          display: none;
+        }
+      }
+
+      .label {
+        @include visuallyHidden();
+
+        @media #{$mqTablet} {
+          @include cancelVisuallyHidden();
+        }
       }
     }
   }
