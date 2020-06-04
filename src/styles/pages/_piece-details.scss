@@ -29,6 +29,10 @@
   .page-content {
     margin-top: 25px;
 
+    &.with-hero {
+      margin-top: 40px;
+    }
+
     &.without-hero {
       margin-top: 0;
     }
@@ -83,6 +87,12 @@
       .tag-list {
         margin-top: 0;
       }
+    }
+  }
+
+  .description {
+    &.rich-description {
+      margin: 40px 0;
     }
   }
 }

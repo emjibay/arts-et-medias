@@ -2110,6 +2110,12 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .sidebar .cta:disabled, .sidebar .cta[disabled] {
   cursor: not-allowed;
 }
+.sidebar .in-this-section {
+  margin-top: 40px;
+}
+.sidebar .related-to-this-section {
+  margin-top: 40px;
+}
 
 /**
   * Calculates the span taken by
@@ -3631,7 +3637,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .page-index .recently-added-education:first-of-type,
 .page-index .recently-added-orgs:first-of-type,
 .page-index .recently-added-projects:first-of-type {
-  margin-top: 0;
+  margin-top: 35px;
 }
 .page-index .recently-added-pieces .piece-list,
 .page-index .recently-added-articles .piece-list,
@@ -3674,6 +3680,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 .piece-details .page-content {
   margin-top: 25px;
+}
+.piece-details .page-content.with-hero {
+  margin-top: 40px;
 }
 .piece-details .page-content.without-hero {
   margin-top: 0;
@@ -3728,6 +3737,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .piece-details .piece-props-list dd .tag-list {
   margin-top: 0;
 }
+.piece-details .description.rich-description {
+  margin: 40px 0;
+}
 
 .articles-index .piece-card .heading {
   font-family: "YoungSerifRegular", Georgia, "Times New Roman", Times, serif;
@@ -3760,21 +3772,21 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 .book-details .book-cover {
   position: relative;
   float: left;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   margin-right: 16px;
-  top: 25px;
+  margin-top: 45px;
   width: calc( (40px * 4) + (16px * 3) );
 }
 @media only screen and (min-width: 768px) {
   .book-details .book-cover {
-    margin-bottom: 25px;
+    margin-bottom: 0;
     margin-right: 25px;
     width: calc( (35px * 4) + (25px * 3) );
   }
 }
 @media only screen and (min-width: 1024px) {
   .book-details .book-cover {
-    margin-bottom: 30px;
+    margin-bottom: 0;
     margin-right: 30px;
     width: calc( (50px * 4) + (30px * 3) );
   }
@@ -3791,6 +3803,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   font-size: 11.25pt;
 }
 
+.sidebar-person-details .fig-profile {
+  margin-top: 45px;
+}
 .sidebar-person-details .fig-profile .fig-headshot {
   object-fit: cover;
   height: calc( (40px * 6) + (16px * 5) );

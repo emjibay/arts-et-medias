@@ -24,7 +24,9 @@
 {% block pageContent %}
   {{ heroImage(piece, true) }}
 
-  {{ contentSection(piece) }}
+  <div class="description rich-description">
+    {{ contentSection(piece) }}
+  </div>
 
   {%- set isMention = piece.articleType === 'mention' -%}
   {%- if isMention -%}
