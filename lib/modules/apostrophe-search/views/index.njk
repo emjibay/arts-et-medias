@@ -3,6 +3,9 @@
 {% from 'macros/piece-index.njk' import pieceList %}
 
 
+{%- set hasQuery = data.query !== null and data.query.q !== '' and data.query.q !== undefined -%}
+{%- set numResults = data.docs|length -%}
+
 {% block title %}
   {{ data.page.title }} | Arts et Médias
 {% endblock %}
@@ -44,6 +47,7 @@
                 <span class="label">Search</span>
               </button>
             </fieldset>
+
             {#
               TODO: filters should sort results
 
@@ -77,9 +81,16 @@
           <div class="page-content">
             <section class="search-results">
               <h2 class="title">Search Results</h2>
-              {{ pieceList(data.docs) }}
-
-              {% include "pager.html" %}
+              {%- if numResults -%}
+                {%- if hasQuery -%}
+                  <p>Showing results for "{{ data.query.q }}"</p>
+                {%- endif -%}
+                {{ pieceList(data.docs) }}
+                {% include "pager.html" %}
+              {%- else -%}
+                <p>There are no results for "{{ data.query.q }}".</p>
+                <p>Try checking your spelling or use more general terms.</p>
+              {%- endif -%}
             </section>
           </div>
 
