@@ -1,0 +1,14 @@
+{%- from 'macros/search.njk' import searchInput -%}
+
+<aside class="sidebar">
+  <section>
+    <h2 class="h1 sr-only">Search</h2>
+    {{
+      searchInput({
+        id: 'sidebarSearchInput',
+        label: 'Search'
+      })
+    }}
+  </section>
+  {% include "partials/sidebar/help-cta.njk" %}
+</aside>

@@ -1,0 +1,45 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+
+.page-not-found {
+  .column {
+    @include nColumnWidth(6);
+
+    &:not(:first-of-type) {
+      margin-top: 50px;
+    }
+
+    @media #{$mqTablet} {
+      @include nColumnWidth(4);
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 0;
+
+      &:not(:first-of-type) {
+        margin-left: getGutterWidth($tablet);
+      }
+    }
+
+    @media #{$mqDesktop} {
+      &:not(:first-of-type) {
+        margin-left: getGutterWidth($desktop);
+      }
+    }
+  }
+
+  .suggested-content {
+    @include nColumnWidth(6);
+    display: inline-block;
+    margin: 25px 0;
+
+    @media #{$mqTablet} {
+      @include nColumnWidth(12);
+    }
+
+    @media #{$mqDesktop} {
+      margin: 50px 0;
+    }
+  }
+}

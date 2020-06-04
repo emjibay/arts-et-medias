@@ -2344,7 +2344,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 
 .column .featured-piece-widget,
 .sidebar .featured-piece-widget {
-  width: calc( (50px * 6) + (30px * 5) );
+  width: calc( (40px * 6) + (16px * 5) );
 }
 @media only screen and (min-width: 768px) {
   .column .featured-piece-widget,
@@ -2369,8 +2369,8 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 .column .featured-piece-widget .hero-image,
 .sidebar .featured-piece-widget .hero-image {
-  height: calc(calc( (35px * 6) + (25px * 5) ) * 0.5625);
-  width: calc( (35px * 6) + (25px * 5) );
+  height: calc(calc( (40px * 6) + (16px * 5) ) * 0.5625);
+  width: calc( (40px * 6) + (16px * 5) );
 }
 @media only screen and (min-width: 768px) {
   .column .featured-piece-widget .hero-image,
@@ -3428,6 +3428,168 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 }
 .page-login button[type=submit]:disabled, .page-login button[type=submit][disabled] {
   cursor: not-allowed;
+}
+
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+  * Sets `width` to the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColSpan The number of columns to consider to calculate the width.
+*/
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+/**
+* Sets `margin-left` for the specified column span.
+*
+* @param $numColSpan The number of columns to consider to calculate the width.
+* @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
+*/
+/**
+  * Calculates the span taken by
+  *   `n` number of columns and gutters
+  *   at a given breakpoint.
+  *
+  * @param $numColumns The number of columns to consider to calculate the width.
+  * @param $breakpoint The breakpoint at which the calculations should be made.
+  *
+  * @return The width of the span of `n` columns,
+  *   including the necessary amount of gutters.
+  */
+/**
+  * Provides the span taken by
+  * a column at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * a gutter at a given breakpoint.
+  */
+/**
+  * Provides the span taken by
+  * half a gutter at a given breakpoint.
+  */
+.page-not-found .column {
+  width: calc( (40px * 6) + (16px * 5) );
+}
+@media only screen and (min-width: 768px) {
+  .page-not-found .column {
+    width: calc( (35px * 6) + (25px * 5) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-not-found .column {
+    width: calc( (50px * 6) + (30px * 5) );
+  }
+}
+.page-not-found .column:not(:first-of-type) {
+  margin-top: 50px;
+}
+@media only screen and (min-width: 768px) {
+  .page-not-found .column {
+    width: calc( (40px * 4) + (16px * 3) );
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0;
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 768px) {
+  .page-not-found .column {
+    width: calc( (35px * 4) + (25px * 3) );
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 1024px) {
+  .page-not-found .column {
+    width: calc( (50px * 4) + (30px * 3) );
+  }
+}
+@media only screen and (min-width: 768px) {
+  .page-not-found .column:not(:first-of-type) {
+    margin-left: 25px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-not-found .column:not(:first-of-type) {
+    margin-left: 30px;
+  }
+}
+.page-not-found .suggested-content {
+  width: calc( (40px * 6) + (16px * 5) );
+  display: inline-block;
+  margin: 25px 0;
+}
+@media only screen and (min-width: 768px) {
+  .page-not-found .suggested-content {
+    width: calc( (35px * 6) + (25px * 5) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-not-found .suggested-content {
+    width: calc( (50px * 6) + (30px * 5) );
+  }
+}
+@media only screen and (min-width: 768px) {
+  .page-not-found .suggested-content {
+    width: calc( (40px * 12) + (16px * 11) );
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 768px) {
+  .page-not-found .suggested-content {
+    width: calc( (35px * 12) + (25px * 11) );
+  }
+}
+@media only screen and (min-width: 768px) and (min-width: 1024px) {
+  .page-not-found .suggested-content {
+    width: calc( (50px * 12) + (30px * 11) );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-not-found .suggested-content {
+    margin: 50px 0;
+  }
 }
 
 .page-index .content-type-heading {

@@ -100,7 +100,7 @@
 .column,
 .sidebar {
   .featured-piece-widget {
-    $widgetWidth: getColumnsSpan(6, $desktop);
+    $widgetWidth: getColumnsSpan(6, $phone);
     width: $widgetWidth;
 
     @media #{$mqTablet} {
@@ -123,7 +123,7 @@
     }
 
     .hero-image {
-      $widgetWidth: getColumnsSpan(6, $tablet);
+      $widgetWidth: getColumnsSpan(6, $phone);
       $imgWidth: $widgetWidth;
       $imgHeight: calc(#{$widgetWidth} * 0.5625);
       height: $imgHeight;

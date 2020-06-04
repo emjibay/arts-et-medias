@@ -1,15 +1,40 @@
 {% extends "layouts/layout.njk" %}
 
+{%- from 'macros/search.njk' import searchInput -%}
+{%- from 'macros/featured-piece.njk' import featuredArticle -%}
+
+
 {% block title %}
   Page not found | Arts et Médias
 {% endblock %}
 
 {% block main %}
-  <div class="page-home">
+  <div class="page-not-found">
     <main id="main" class="content">
       <h1>Page not found</h1>
-      <p>We're sorry. We couldn't find the page you're looking for.</p>
-      {# TODO: offer suggestions #}
+      <div class="subheading">
+        <p>We're sorry. We couldn't find the page you're looking for.</p>
+        <p>We do have a few suggestions for you below.</p>
+      </div>
+
+      <section class="suggested-content">
+        <div class="column">
+          {% include "partials/articles/featured.njk" %}
+        </div>
+
+        <div class="column">
+          {% include "partials/events/featured.njk" %}
+        </div>
+
+        <div class="column">
+          {% include "partials/projects/featured.njk" %}
+        </div>
+      </section>
+
+      <section class="suggested-content">
+        <h2>Still unable to find what you are looking for?</h2>
+        <p>Consider contributing to <a href="/help">help us</a> maintain this site up to date.</p>
+      </section>
     </main>
   </div>
 {% endblock %}
