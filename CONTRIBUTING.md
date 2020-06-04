@@ -1,5 +1,6 @@
 # Contributing
 
+
 This project has been built with the Apostrophe Boilerplate v2.x
 
 > Apostrophe Boilerplate is a minimal starting point for [Apostrophe 2](https://github.com/punkave/apostrophe) projects.

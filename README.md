@@ -3,9 +3,9 @@
 News and resources about contemporary and media art.
 
 
-## Deployment Status
+## Suggesting Content and Reporting Issues
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1cd5137e-f7a0-40ea-8d83-6154ee63c2cb/deploy-status)](https://app.netlify.com/sites/arts-et-medias/deploys)
+Please [submit an issue](https://github.com/jansensan/arts-et-medias/issues/new/choose) via GitHub.
 
 
 ## Contributing
