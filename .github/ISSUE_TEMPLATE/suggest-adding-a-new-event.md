@@ -2,7 +2,7 @@
 name: Suggest adding a new event
 about: Suggest a workshop, festival, or conference
 title: ''
-labels: 'feat: organization'
+labels: 'content, feat: event'
 assignees: ''
 
 ---

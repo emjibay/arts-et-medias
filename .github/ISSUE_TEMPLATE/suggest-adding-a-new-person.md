@@ -2,7 +2,7 @@
 name: Suggest adding a new person
 about: Suggest a new artist, curator, educator, writer or translator
 title: ''
-labels: 'feat: people'
+labels: 'content, feat: people'
 assignees: ''
 
 ---

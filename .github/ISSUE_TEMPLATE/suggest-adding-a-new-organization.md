@@ -2,7 +2,7 @@
 name: Suggest adding a new organization
 about: Suggest a new gallery, art center, maker space, media lab, or academic institution
 title: ''
-labels: 'feat: organization'
+labels: 'content, feat: organization'
 assignees: ''
 
 ---

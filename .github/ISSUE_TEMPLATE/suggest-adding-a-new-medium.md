@@ -2,7 +2,7 @@
 name: Suggest adding a new medium
 about: Suggest a new blog, website, or magazine
 title: ''
-labels: 'feat: media'
+labels: 'content, feat: media'
 assignees: ''
 
 ---

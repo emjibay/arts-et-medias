@@ -2,7 +2,7 @@
 name: Suggest adding a new academic program
 about: Suggest an academic program (college, undergrad, graduate)
 title: ''
-labels: 'feat: education'
+labels: 'feat: education, content'
 assignees: ''
 
 ---

@@ -2,7 +2,7 @@
 name: Suggest adding a new book
 about: Suggest a new book
 title: ''
-labels: 'feat: book'
+labels: 'content, feat: book'
 assignees: ''
 
 ---

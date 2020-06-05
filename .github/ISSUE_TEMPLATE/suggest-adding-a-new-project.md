@@ -2,7 +2,7 @@
 name: Suggest adding a new project
 about: Suggest an artwork or a project
 title: ''
-labels: 'feat: project'
+labels: 'content, feat: project'
 assignees: ''
 
 ---

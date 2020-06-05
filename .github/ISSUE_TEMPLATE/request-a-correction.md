@@ -2,7 +2,7 @@
 name: Request a correction
 about: Report a factual error (text, date, image, credits, etc.) or request an update
 title: ''
-labels: 'content'
+labels: content
 assignees: ''
 
 ---
