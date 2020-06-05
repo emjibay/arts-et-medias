@@ -2637,6 +2637,7 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
 @media only screen and (min-width: 768px) {
   .header {
     border-bottom: none;
+    margin-bottom: 0;
     padding: 20px 0 40px 0;
   }
 }
@@ -2970,6 +2971,9 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   line-height: 1;
 }
 
+.home {
+  padding-top: 20px;
+}
 .home .page-content section {
   margin-bottom: 60px;
 }
