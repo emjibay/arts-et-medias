@@ -5,6 +5,16 @@
 .event-index {}
 
 .event-details {
+  main > article {
+    > .h1 {
+      margin-bottom: 20px;
+    }
+    .without-hero {
+      margin-top: 25px !important;
+    }
+    .with-hero {}
+  }
+
   .relative-date {
     @include minorText();
     font-size: $fsSmol;

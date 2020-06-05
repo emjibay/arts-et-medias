@@ -3792,6 +3792,12 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   }
 }
 
+.event-details main > article > .h1 {
+  margin-bottom: 20px;
+}
+.event-details main > article .without-hero {
+  margin-top: 25px !important;
+}
 .event-details .relative-date {
   color: #3b3b3b;
   font-family: "QuebecLight", Verdana, sans-serif;
@@ -3801,6 +3807,10 @@ body.apos-workflow-draft-page [data-apos-widget=apostrophe-rich-text], body.apos
   line-height: 1;
   text-align: left;
   font-size: 11.25pt;
+}
+
+.medium-details main > article > .h1 {
+  margin-bottom: 20px;
 }
 
 .sidebar-person-details .fig-profile {
