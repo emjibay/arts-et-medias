@@ -2,45 +2,94 @@
 @import '../common/ui';
 @import '../mixins/mixins';
 
+
 .page-login {
-  h1 {
+  .h1 {
     @include heading1();
+    margin-bottom: 0;
   }
 
-  .apos-login-warning {
-    @include paragraph();
-    background-color: lightgoldenrodyellow;
-    border: 1px solid yellow;
-    font-size: 10pt;
-    margin: 20px 0;
-    padding: 10px;
+  .subheading {
+    margin-top: 5px;
+  }
 
-    &::before {
-      content: '⚠️';
-      margin-right: 5px;
+  .columns-container {
+    padding: 25px 0;
+  }
+
+  .login-form-column {
+    @include nColumnWidth(6);
+    display: inline-block;
+    vertical-align: top;
+
+    .apos-login-warning {
+      @include paragraph();
+      background-color: lightgoldenrodyellow;
+      border: 1px solid yellow;
+      font-size: 10pt;
+      margin: 20px 0;
+      padding: 10px;
+
+      &::before {
+        content: '⚠️';
+        margin-right: 5px;
+      }
+    }
+
+    .form-group {
+      margin: 20px 0;
+    }
+
+    legend {
+      @include fieldsetLegend();
+    }
+
+    label {
+      @include inputLabel();
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      @include nColumnWidth(6);
+      @include textInput();
+
+      @media #{$mqDesktop} {
+        @include nColumnWidth(4);
+      }
+    }
+
+    button[type="submit"] {
+      @include nColumnWidth(6);
+      @include button();
+
+      @media #{$mqDesktop} {
+        @include nColumnWidth(4);
+      }
     }
   }
 
-  .form-group {
-    margin: 20px 0;
-  }
+  .help-us-column {
+    @include nColumnWidth(6);
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 45px;
 
-  legend {
-    @include fieldsetLegend();
-  }
+    @media #{$mqTablet} {
+      @include gutterLeftMargin();
+      margin-top: 15px;
+    }
 
-  label {
-    @include inputLabel();
-  }
+    .h2 {
+      @include heading3();
+    }
 
-  input[type="text"],
-  input[type="password"] {
-    @include nColumnWidth(4);
-    @include textInput();
-  }
+    .h3 {
+      @include heading3();
+      font-size: $fsTextBody;
+    }
 
-  button[type="submit"] {
-    @include nColumnWidth(4);
-    @include button();
+    p {
+      font-size: $fsSmol;
+    }
   }
 }
