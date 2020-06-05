@@ -92,6 +92,7 @@
 
   .description {
     &.rich-description {
+      @include aposRichText();
       margin: 40px 0;
     }
   }
