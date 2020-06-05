@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Written by Antoine Beauvais-Lacasse
+# Originally created by Antoine Beauvais-Lacasse
 
 usage() {
     echo "Usage: $0 -d <Backup File> [-f]" 1>&2;
