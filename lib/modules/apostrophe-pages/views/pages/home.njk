@@ -19,12 +19,11 @@
               <h2 class="sr-only">Articles</h2>
               {% include "partials/articles/featured.njk" %}
 
-              <h3 class="latest-pieces-heading">Latest Articles</h3>
+              <h3 class="latest-pieces-heading">Recently Added Articles</h3>
               {%-
-                set recentArticles = [
-                  data.articlesByMostRecent[0],
-                  data.articlesByMostRecent[1]
-                ]
+                set recentArticles = apos.aemPieces.getFirstTwo(
+                  data.articlesByMostRecent
+                )
               -%}
               {{ articleList(recentArticles) }}
 
@@ -90,10 +89,9 @@
 
               <h3 class="latest-pieces-heading">Recently Added Projects</h3>
               {%-
-                set recentProjects = [
-                  data.projectsByMostRecent[0],
-                  data.projectsByMostRecent[1]
-                ]
+                set recentProjects = apos.aemPieces.getFirstTwo(
+                  data.projectsByMostRecent
+                )
               -%}
               {{ projectList(recentProjects) }}
 
