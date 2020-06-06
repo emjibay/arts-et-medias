@@ -15,6 +15,30 @@
           <h1 class="sr-only">Home</h1>
 
           <div class="page-content">
+            <section class="articles-section">
+              <h2 class="sr-only">Articles</h2>
+              {% include "partials/articles/featured.njk" %}
+
+              <h3 class="latest-pieces-heading">Latest Articles</h3>
+              {%-
+                set recentArticles = [
+                  data.articlesByMostRecent[0],
+                  data.articlesByMostRecent[1]
+                ]
+              -%}
+              {{ articleList(recentArticles) }}
+
+              <div class="see-all-cta">
+                {{
+                  apos.singleton(
+                    data.page,
+                    'seeAllArticlesCTA',
+                    'aem-link'
+                  )
+                }}
+              </div>
+            </section>
+
             <section class="events-section">
               <h2 class="sr-only">Events</h2>
               {% include "partials/events/featured.njk" %}
@@ -54,30 +78,6 @@
                   apos.singleton(
                     data.page,
                     'seeAllEventsCTA',
-                    'aem-link'
-                  )
-                }}
-              </div>
-            </section>
-
-            <section class="articles-section">
-              <h2 class="sr-only">Articles</h2>
-              {% include "partials/articles/featured.njk" %}
-
-              <h3 class="latest-pieces-heading">Latest Articles</h3>
-              {%-
-                set recentArticles = [
-                  data.articlesByMostRecent[0],
-                  data.articlesByMostRecent[1]
-                ]
-              -%}
-              {{ articleList(recentArticles) }}
-
-              <div class="see-all-cta">
-                {{
-                  apos.singleton(
-                    data.page,
-                    'seeAllArticlesCTA',
                     'aem-link'
                   )
                 }}
