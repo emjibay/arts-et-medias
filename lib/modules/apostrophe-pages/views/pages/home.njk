@@ -44,31 +44,19 @@
 
               <h3 class="latest-pieces-heading">Next Workshops</h3>
               {%-
-                set workshops = apos.aemPieces.getWithTags(
+                set nextWorkshops = apos.aemPieces.getFirstTwoWithTags(
                   data.orderedEvents,
                   ['workshop']
                 )
               -%}
-              {%-
-                set nextWorkshop = [
-                  workshops[0],
-                  workshops[1]
-                ]
-              -%}
-              {{ eventList(nextWorkshop) }}
+              {{ eventList(nextWorkshops) }}
 
               <h3 class="latest-pieces-heading">Next Festivals</h3>
               {%-
-                set festivals = apos.aemPieces.getWithTags(
+                set nextFestivals = apos.aemPieces.getFirstTwoWithTags(
                   data.orderedEvents,
                   ['festival']
                 )
-              -%}
-              {%-
-                set nextFestivals = [
-                  festivals[0],
-                  festivals[1]
-                ]
               -%}
               {{ eventList(nextFestivals) }}
 
