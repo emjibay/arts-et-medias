@@ -190,6 +190,29 @@
   </ul>
 {%- endmacro -%}
 
+{%- macro pieceListWithType(pieces) -%}
+  <ul class="piece-list">
+    {% for piece in pieces %}
+      <li class="list-item">
+        <a
+          href="{{ piece._url }}"
+          class="piece-link"
+        >
+          <article class="piece-card">
+            <p class="heading">{{ piece.title }}</p>
+
+            {{ truncatedDescription(piece) }}
+
+            <div class="piece-cta">View Details</div>
+
+            <div class="tag">{{ apos.aemPieces.getSanitizedType(piece) }}</div>
+          </article>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}
+
 
 {# recently added #}
 {% macro recentlyAdded(label, pieces, tags = []) %}

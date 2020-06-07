@@ -23,14 +23,19 @@
   font-size: 8pt;
   font-style: normal;
   font-weight: normal;
+  letter-spacing: 0.25pt;
   line-height: 1;
   padding: 5px 10px;
   text-align: center;
   text-decoration: none;
+}
 
-  &:hover {
-    background-color: $white;
-    color: $main;
-    border: 1px solid $main;
+a {
+  &.tag {
+    &:hover {
+      background-color: $white;
+      color: $main;
+      border: 1px solid $main;
+    }
   }
 }

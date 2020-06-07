@@ -1,7 +1,7 @@
 {% extends "layouts/layout.njk" %}
 
 {%- from 'macros/metadata.njk' import minimalMetaData -%}
-{%- from 'macros/piece-index.njk' import pieceList -%}
+{%- from 'macros/piece-index.njk' import pieceListWithType -%}
 
 
 {%- set hasQuery = data.query !== null and data.query.q !== '' and data.query.q !== undefined -%}
@@ -96,7 +96,7 @@
                 {%- if hasQuery -%}
                   <p>Showing results for "{{ data.query.q }}"</p>
                 {%- endif -%}
-                {{ pieceList(data.docs) }}
+                {{ pieceListWithType(data.docs) }}
                 {% include "pager.html" %}
               {%- else -%}
                 <p>There are no results for "{{ data.query.q }}".</p>
