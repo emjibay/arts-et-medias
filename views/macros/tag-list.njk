@@ -2,7 +2,7 @@
   <ul class="tag-list">
     {% for tag in tags.sort() %}
       <li>
-        <div class="tag">{{ tag }}</div>
+        <a class="tag" href="/search?q={{ tag }}">{{ tag }}</a>
       </li>
     {% endfor %}
   </ul>

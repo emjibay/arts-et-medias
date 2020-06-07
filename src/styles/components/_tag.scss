@@ -27,4 +27,10 @@
   padding: 5px 10px;
   text-align: center;
   text-decoration: none;
+
+  &:hover {
+    background-color: $white;
+    color: $main;
+    border: 1px solid $main;
+  }
 }
