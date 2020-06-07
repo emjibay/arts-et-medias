@@ -7,6 +7,7 @@
 
 
 {%- set piece = data.piece -%}
+{%- set isWorkshop = piece.tags.indexOf('workshop') > -1 -%}
 
 {% block title %}
   {{ piece.title }} - Events | Arts et Médias
@@ -40,10 +41,11 @@
   {%- endif -%}
 
   <h2 class="sr-only">Date and location</h2>
-  <p class="description">
+  <div class="description event-info">
     {{ displayDate }}{%- if additionalInfo -%}<span class="relative-date"> ({{ additionalInfo }})</span>{%- endif -%},<br>
-    {{ piece.city }}, {{ piece.country }}
-  </p>
+    {%- if isWorkshop -%}{{ sortedPieceLinkList(piece._relatedOrganizations) }},<br/>{%- endif -%}
+    <span>{{ piece.city }}, {{ piece.country }}</span>
+  </div>
 
   <h2 class="sr-only">Description</h2>
   <div class="description rich-description">
