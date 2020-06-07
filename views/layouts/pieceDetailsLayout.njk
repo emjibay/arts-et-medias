@@ -59,9 +59,11 @@
 
               {{ websiteCTA(piece) }}
 
-              {{ relatedContent(piece, false) }}
+              <hr class="separator"/>
 
-              {{ tags(piece, true) }}
+              {{ relatedContent(piece) }}
+
+              {{ tags(piece) }}
             {% endblock %}
           </div>
 

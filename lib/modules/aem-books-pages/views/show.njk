@@ -66,6 +66,7 @@
 
               {{ websiteCTA(piece) }}
             {% endblock %}
+
             <div class="page-content">
               <hr class="separator"/>
 
@@ -87,7 +88,7 @@
                 {%- endif -%}
               </dl>
 
-              {{ relatedContent(piece, false) }}
+              {{ relatedContent(piece) }}
 
               {{ tags(piece) }}
             </div>

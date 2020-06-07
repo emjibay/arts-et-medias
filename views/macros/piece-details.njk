@@ -29,17 +29,11 @@
   {%- endif -%}
 {%- endmacro -%}
 
-{% macro relatedContent(piece, showSeparator = true) %}
+{% macro relatedContent(piece) %}
   {%- set hasRelatedPeople = piece._relatedPeople|length > 0-%}
   {%- set hasRelatedOrgs = piece._relatedOrganizations|length > 0-%}
   {%- set hasRelatedMedia = piece._relatedMedia|length > 0-%}
   {%- set hasAnyRelatedContent = hasRelatedPeople or hasRelatedOrgs or hasRelatedMedia -%}
-
-  {%- if showSeparator -%}
-    {%- if hasRelatedPeople or hasRelatedOrgs or hasRelatedMedia -%}
-      <hr class="separator"/>
-    {%- endif -%}
-  {%- endif -%}
 
   {%- if hasAnyRelatedContent -%}
     <dl class="piece-props-list">
@@ -61,14 +55,9 @@
   {%- endif -%}
 {% endmacro %}
 
-{% macro tags(piece, showSeparator = false) %}
+{% macro tags(piece) %}
   {%- set hasTags = piece.tags|length > 0 -%}
-
   {%- if hasTags -%}
-    {%- if showSeparator -%}
-      <hr class="separator"/>
-    {%- endif -%}
-
     <dl class="piece-props-list">
       <dt>Tags</dt>
       <dd>{{ tagList(piece.tags) }}</dd>
