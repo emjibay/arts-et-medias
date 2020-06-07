@@ -2,11 +2,22 @@
 
 {% import 'apostrophe-pager:macros.html' as pager with context %}
 
-{% from 'macros/piece-index.njk' import pieceList %}
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
+{%- from 'macros/piece-index.njk' import pieceList -%}
 
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block metadata %}
+  {{
+    minimalMetaData({
+      title: data.page.title,
+      url: piece._url,
+      baseUrl: data.baseUrl
+    })
+  }}
 {% endblock %}
 
 {% block main %}

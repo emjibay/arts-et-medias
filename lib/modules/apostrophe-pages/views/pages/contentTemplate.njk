@@ -1,9 +1,20 @@
 {% extends "layouts/layout.njk" %}
 
-{% from 'macros/content-section.njk' import contentSection %}
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block metadata %}
+  {{
+    minimalMetaData({
+      title: data.page.title,
+      url: data.page._url,
+      baseUrl: data.baseUrl
+    })
+  }}
 {% endblock %}
 
 {% block main %}

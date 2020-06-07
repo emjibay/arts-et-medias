@@ -1,10 +1,21 @@
 {% extends "layouts/layout.njk" %}
 
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
 {%- from 'macros/piece-index.njk' import articleList, eventList, projectList -%}
 
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block metadata %}
+  {{
+    minimalMetaData({
+      title: 'Arts et Médias',
+      url: data.page._url,
+      baseUrl: data.baseUrl
+    })
+  }}
 {% endblock %}
 
 {% block main %}

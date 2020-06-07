@@ -1,0 +1,39 @@
+{# approx tweet-size #}
+{%- set maxDescriptionLength = 250 -%}
+
+
+{%- macro minimalMetaData(options) -%}
+  {%- set descriptionText = 'A hub for content and resources about contemporary and media art, with a bias towards media and installation arts.' -%}
+
+  <meta property="og:title" content="{{ options.title }}" />
+  <meta property="og:description" content="{{ descriptionText }}" />
+  <meta property="og:image" content="/img/opengraph.jpg" />
+  <meta property="og:url" content="{{ options.baseUrl }}{{ options.url }}" />
+
+  <meta property="og:site_name" content="Arts et Médias" />
+  <meta property="website" content="{{ options.baseUrl }}" />
+{%- endmacro -%}
+
+
+{%- macro descriptiveMetaData(options) -%}
+  {# get hero image #}
+  {%- if options.heroImage -%}
+    {%- set aposImageData = apos.images.first(options.heroImage) -%}
+    {%- if aposImageData -%}
+      {%- set imageData = apos.aem.getImageBasicData(aposImageData) -%}
+      {%- set image = imageData.url -%}
+    {%- else -%}
+      {%- set image = '/img/opengraph.jpg' -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- set image = '/img/opengraph.jpg' -%}
+  {%- endif -%}
+
+  <meta property="og:title" content="{{ options.title }}" />
+  <meta property="og:description" content="{{ options.description }}" />
+  <meta property="og:image" content="{{ options.baseUrl }}{{ image }}" />
+  <meta property="og:url" content="{{ options.baseUrl }}{{ options.url }}" />
+
+  <meta property="og:site_name" content="Arts et Médias" />
+  <meta property="website" content="{{ options.baseUrl }}" />
+{%- endmacro -%}

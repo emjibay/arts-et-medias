@@ -1,6 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/hero-image.njk' import heroImage -%}
+{%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
@@ -11,6 +12,18 @@
 {% block title %}
   {{ piece.title }} - Projects | Arts et Médias
 {% endblock %}
+
+{% block metadata %}
+    {{
+      descriptiveMetaData({
+        title: piece.title + ', by ' + apos.aemAuthors.getListFromPiece(piece),
+        description: piece.shortDescription,
+        heroImage: piece.heroImage,
+        url: piece._url,
+        baseUrl: data.baseUrl
+      })
+    }}
+  {% endblock %}
 
 {% block mainAdditionalClasses %}project-details{% endblock %}
 

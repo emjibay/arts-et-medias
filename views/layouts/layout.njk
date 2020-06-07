@@ -1,49 +1,41 @@
-{# Automatically extends the right outer layout and also handles AJAX siutations #}
 {% extends data.outerLayout %}
+
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
+
+
+{% if data.piece %}
+  {%- set pageTitle = data.piece.title -%}
+  {%- set pageUrl = data.piece._url -%}
+{% elseif data.page %}
+  {%- set pageTitle = data.page.title -%}
+  {%- set pageUrl = data.page._url -%}
+{% else %}
+  {{ apos.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.') }}
+{% endif %}
 
 
 {% block title %}
-  {# Create a useful, SEO-friendly title tag based on what we have #}
-  {% if data.piece %}
-    {{ data.piece.title }}
-  {% elseif data.page %}
-    {{ data.page.title }}
-  {% else %}
-    {{ apos.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.') }}
-  {% endif %}
+  {{ pageTitle }}
 {% endblock %}
 
 
 {% block extraHead %}
-  {#
-    This block outputs its contents in the HTML document's <head>.
-    It is a good place to put extra <script> <link> and <meta> tags.
-  #}
+  {{ super() }}
+
+  {# prevent iOS from rendering numbers as phone number links #}
+  <meta name="format-detection" content="telephone=no">
+
+  {% block metadata %}{% endblock %}
 {% endblock %}
 
 
 {% block beforeMain %}
-  {#
-    We recommend you use the beforeMain block for global page components
-    like headers or navigation.
-  #}
   {% include "partials/header.html" %}
   {% include "partials/components/mobile-menu.njk" %}
 {% endblock %}
 
-
-{% block main %}
-  {#
-    Usually, your page templates in the apostrophe-pages module will override
-    this block. It is safe to assume this is where your page-specific content
-    should go.
-  #}
-{% endblock %}
-
+{% block main %}{% endblock %}
 
 {% block afterMain %}
-  {#
-    This would be a great place to put a global footer.
-  #}
   {% include "partials/footer.html" %}
 {% endblock %}

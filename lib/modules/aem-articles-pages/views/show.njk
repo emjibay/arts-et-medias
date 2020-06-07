@@ -2,6 +2,7 @@
 
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
+{%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, tags -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 
@@ -10,6 +11,18 @@
 
 {% block title %}
   {{ piece.title }} - Articles | Arts et Médias
+{% endblock %}
+
+{% block metadata %}
+  {{
+    descriptiveMetaData({
+      title: piece.title + ', by ' + apos.aemAuthors.getListFromArticle(piece),
+      description: piece.shortDescription,
+      heroImage: piece.heroImage,
+      url: piece._url,
+      baseUrl: data.baseUrl
+    })
+  }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}article-details{% endblock %}

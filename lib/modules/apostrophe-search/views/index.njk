@@ -1,6 +1,7 @@
 {% extends "layouts/layout.njk" %}
 
-{% from 'macros/piece-index.njk' import pieceList %}
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
+{%- from 'macros/piece-index.njk' import pieceList -%}
 
 
 {%- set hasQuery = data.query !== null and data.query.q !== '' and data.query.q !== undefined -%}
@@ -8,6 +9,16 @@
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias
+{% endblock %}
+
+{% block metadata %}
+  {{
+    minimalMetaData({
+      title: data.page.title,
+      url: data.page._url,
+      baseUrl: data.baseUrl
+    })
+  }}
 {% endblock %}
 
 {% block main %}

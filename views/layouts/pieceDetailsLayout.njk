@@ -1,5 +1,6 @@
 {% extends "layouts/layout.njk" %}
 
+{%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
@@ -9,6 +10,18 @@
 
 {% block title %}
   {{ piece.title }} | Arts et Médias
+{% endblock %}
+
+{% block metadata %}
+  {{
+    descriptiveMetaData({
+      title: piece.title,
+      description: piece.shortDescription,
+      heroImage: piece.heroImage,
+      url: piece._url,
+      baseUrl: data.baseUrl
+    })
+  }}
 {% endblock %}
 
 {% block main %}

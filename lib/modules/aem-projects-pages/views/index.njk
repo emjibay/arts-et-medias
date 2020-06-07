@@ -1,9 +1,20 @@
 {% extends "layouts/indexLayout.njk" %}
 
 {%- from 'macros/piece-index.njk' import projectList, recentlyAddedProjects -%}
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
 
 
 {%- set isFirstPage = (data.currentPage === 1) -%}
+
+{% block metadata %}
+  {{
+    minimalMetaData({
+      title: data.page.title,
+      url: piece._url,
+      baseUrl: data.baseUrl
+    })
+  }}
+{% endblock %}
 
 {% block mainAdditionalClasses %}projects-index{% endblock %}
 
