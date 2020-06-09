@@ -1,0 +1,19 @@
+<figure>
+  {%- set imageData = apos.images.first(data.widget) -%}
+  {%- set image = apos.aem.getImageBasicData(imageData) -%}
+
+  <a href="{{ image.url }}" class="image-link">
+    <img
+      src="{{ image.url }}"
+      alt="{{ image.alt }}"
+    />
+  </a>
+
+  {%- if image.credit -%}
+    {%- set captionText = image.caption + '. Credit: ' + image.credit -%}
+  {%- else -%}
+    {%- set captionText = image.caption -%}
+  {%- endif -%}
+
+  <figcaption>{{ captionText }}</figcaption>
+</figure>
