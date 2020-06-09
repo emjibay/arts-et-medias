@@ -22,6 +22,7 @@ export function init() {
 function addEventListeners() {
   openMenuButton.addEventListener('click', showMenu);
   closeMenuButton.addEventListener('click', hideMenu);
+  overlay.addEventListener('click', hideMenu);
 
   window.addEventListener('resize', onWindowResized);
 }

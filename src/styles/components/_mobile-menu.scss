@@ -22,9 +22,9 @@ $showDuration: 300ms;
 
 // components
 .mobile-menu {
+  display: inline-block;
   position: fixed;
   color: $white;
-  height: 100%;
   top: 0;
   width: 100%;
   z-index: 2;
