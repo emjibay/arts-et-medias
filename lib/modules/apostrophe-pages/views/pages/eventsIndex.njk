@@ -14,8 +14,15 @@
 
   {{
     recentlyAddedEvents(
-      'Recently Added Workshop',
+      'Next Workshops',
       data.orderedEvents,
+      ['workshop']
+    )
+  }}
+  {{
+    recentlyAddedEvents(
+      'Recently Added Workshops',
+      data.eventsByMostRecent,
       ['workshop']
     )
   }}
@@ -31,8 +38,15 @@
 
   {{
     recentlyAddedEvents(
-      'Recently Added Festivals',
+      'Next Festivals',
       data.orderedEvents,
+      ['festival']
+    )
+  }}
+  {{
+    recentlyAddedEvents(
+      'Recently Added Festivals',
+      data.eventsByMostRecent,
       ['festival']
     )
   }}
@@ -48,8 +62,15 @@
 
   {{
     recentlyAddedEvents(
-      'Recently Conferences',
+      'Next Conferences',
       data.orderedEvents,
+      ['conference']
+    )
+  }}
+  {{
+    recentlyAddedEvents(
+      'Recently Added Conferences',
+      data.eventsByMostRecent,
       ['conference']
     )
   }}
