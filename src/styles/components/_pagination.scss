@@ -51,9 +51,10 @@
     }
 
     a {
-      display: inline;
+      display: inline-block;
       color: $white;
       text-decoration: none;
+      width: 100%;
 
       &:focus {
         box-shadow: none !important;
