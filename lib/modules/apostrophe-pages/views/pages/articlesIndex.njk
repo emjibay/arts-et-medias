@@ -2,6 +2,18 @@
 
 {%- from 'macros/piece-index.njk' import recentlyAddedArticles -%}
 
+{%- macro seeAllCTA(propName) -%}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        propName,
+        'aem-link'
+      )
+    }}
+  </div>
+{%- endmacro -%}
+
 
 {% block title %}
   {{ data.page.title }} | Arts et Médias
@@ -12,6 +24,7 @@
 {% block pageContent %}
   {% include "partials/articles/featured.njk" %}
 
+  {# recently added news #}
   {{
     recentlyAddedArticles(
       'Recently Added News',
@@ -19,16 +32,9 @@
       ['news']
     )
   }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllNewsCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ seeAllCTA('seeAllNewsCTA') }}
 
+  {# recently added editorials #}
   {{
     recentlyAddedArticles(
       'Recently Added Editorials',
@@ -36,16 +42,9 @@
       ['editorial']
     )
   }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllEditorialsCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ seeAllCTA('seeAllEditorialsCTA') }}
 
+  {# recently added reviews #}
   {{
     recentlyAddedArticles(
       'Recently Added Reviews and Critiques',
@@ -53,16 +52,9 @@
       ['review', 'critique']
     )
   }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllReviewsCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ seeAllCTA('seeAllReviewsCTA') }}
 
+  {# recently added interviews #}
   {{
     recentlyAddedArticles(
       'Recently Added Interviews',
@@ -70,16 +62,9 @@
       ['interview']
     )
   }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllInterviewsCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ seeAllCTA('seeAllInterviewsCTA') }}
 
+  {# recently added academic papers #}
   {{
     recentlyAddedArticles(
       'Recently Added Academic Papers',
@@ -87,15 +72,17 @@
       ['academic paper', 'academia']
     )
   }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllAcademicPapersCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ seeAllCTA('seeAllAcademicPapersCTA') }}
+
+  {# recently added conference procedings #}
+  {{
+    recentlyAddedArticles(
+      'Recently Added Conference Proceedings',
+      data.articlesByMostRecent,
+      ['conference', 'conference proceedings', 'conference paper', 'conference presentation']
+    )
+  }}
+  {{ seeAllCTA('seeAllConferencePapersCTA') }}
 {% endblock %}
 
 {% block sidebar %}
