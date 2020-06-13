@@ -96,6 +96,11 @@ body {
 .website-cta {
   @include button();
   color: $white;
+  font-size: 11pt;
+
+  @media #{$mqDesktop} {
+    font-size: 10pt;
+  }
 }
 
 .separator {
