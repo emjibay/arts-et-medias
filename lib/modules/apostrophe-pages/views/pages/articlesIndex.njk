@@ -34,12 +34,12 @@
   }}
   {{ seeAllCTA('seeAllNewsCTA') }}
 
-  {# recently added editorials #}
+  {# recently added essays #}
   {{
     recentlyAddedArticles(
-      'Recently Added Editorials',
+      'Recently Added Essays',
       data.articlesByMostRecent,
-      ['editorial']
+      ['editorial', 'essay']
     )
   }}
   {{ seeAllCTA('seeAllEditorialsCTA') }}
