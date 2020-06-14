@@ -1,0 +1,14 @@
+{%- set aposImageData = apos.images.first(data.piece.profilePic) -%}
+{%- if aposImageData -%}
+  {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+  <figure class="fig-profile">
+    <img
+      class="fig-headshot"
+      src="{{ image.url }}"
+      alt="{{ image.alt }}"
+    />
+    {%- if image.credit -%}
+    <figcaption class="fig-credits">Credit: {{ image.credit }}</figcaption>
+    {%- endif -%}
+  </figure>
+{%- endif -%}

@@ -6,6 +6,7 @@
 
 
 {%- set piece = data.piece -%}
+{%- set hasProfilePic = piece.profilePic.items|length > 0 -%}
 
 {% block title %}
   {{ piece.title }} - People | Arts et Médias
@@ -23,8 +24,17 @@
   }}
 {% endblock %}
 
+{% block mainAdditionalClasses %}person-details{% endblock %}
+
 {% block pageContent %}
   <h2 class="sr-only">Description</h2>
+
+  {%- if hasProfilePic -%}
+    <div class="profile-pic-container">
+      {% include "partials/people/profile-pic-en.njk" %}
+    </div>
+  {%- endif -%}
+
   <div class="description rich-description">
     {{
       apos.singleton(

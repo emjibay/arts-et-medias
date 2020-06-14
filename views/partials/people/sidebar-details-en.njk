@@ -1,22 +1,6 @@
 <aside class="sidebar sidebar-person-details">
   <article>
-    {# image start #}
-    {%- set aposImageData = apos.images.first(data.piece.profilePic) -%}
-    {%- if aposImageData -%}
-      {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
-      <figure class="fig-profile">
-        <img
-          class="fig-headshot"
-          src="{{ image.url }}"
-          alt="{{ image.alt }}"
-        />
-        {%- if image.credit -%}
-        <figcaption class="fig-credits">Credit: {{ image.credit }}</figcaption>
-        {%- endif -%}
-      </figure>
-      <hr class="separator" />
-    {%- endif -%}
-    {# image end #}
+    {% include "partials/people/profile-pic-en.njk" %}
     {% include "partials/people/in-this-section-en.njk" %}
     {% include "partials/people/related-en.njk" %}
     {% include "partials/people/search-en.njk" %}

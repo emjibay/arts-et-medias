@@ -2,6 +2,28 @@
 @import '../common/ui';
 
 
+.people-index {
+
+}
+
+.person-details {
+  .profile-pic-container {
+    margin: 40px 0;
+    width: 100%;
+
+    @media #{$mqTablet} {
+      display: none;
+    }
+
+    .fig-headshot {
+      $imageSize: getColumnsSpan(6, $phone);
+      object-fit: cover;
+      height: $imageSize;
+      width: $imageSize;
+    }
+  }
+}
+
 .sidebar-person-details {
   .fig-profile {
     margin-top: 45px;
@@ -12,6 +34,11 @@
       object-fit: cover;
       height: $imageSize;
       width: $imageSize;
+
+      @media #{$mqTablet} {
+        width: getColumnsSpan(4, $tablet);
+        height: getColumnsSpan(4, $tablet);
+      }
 
       @media #{$mqDesktop} {
         width: getColumnsSpan(4, $desktop);
