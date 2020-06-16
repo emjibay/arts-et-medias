@@ -59,6 +59,18 @@
         font-size: $fsSmol;
         margin: 5px 0 0 0;
         line-height: 1.25;
+
+        &:not(:last-of-type) {
+          margin-right: 5px;
+
+          &::after {
+            @include minorText();
+            position: relative;
+            content: ',';
+            font-size: $fsSmol;
+            line-height: 1.25;
+          }
+        }
       }
     }
 
