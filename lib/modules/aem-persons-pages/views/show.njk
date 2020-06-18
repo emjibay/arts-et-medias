@@ -2,6 +2,7 @@
 
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
+{%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
@@ -50,7 +51,69 @@
 
   <hr class="separator"/>
 
-  {{ relatedContent(piece) }}
+  {%- if piece._originalAuthor|length -%}
+    <dl class="piece-props-list">
+      <dt>Author of the Following Articles</dt>
+      <dd>{{ sortedPieceLinkList(piece._originalAuthor) }}</dd>
+    </dl>
+  {%- endif -%}
+
+  {%- if piece._author|length -%}
+    <dl class="piece-props-list">
+      <dt>Author of the Following Books</dt>
+      <dd>{{ sortedPieceLinkList(piece._author) }}</dd>
+    </dl>
+  {%- endif -%}
+
+  {%- if piece._relatedPeople -%}
+    {%-
+      set collectives = apos.aemPieces.getWithTags(
+        piece._relatedPeople,
+        ['collective']
+      )
+    -%}
+    {%- if collectives|length -%}
+      <dl class="piece-props-list">
+        <dt>Related Collectives</dt>
+        <dd>{{ sortedPieceLinkList(collectives) }}</dd>
+      </dl>
+    {%- endif -%}
+
+    {%-
+      set academicInstitutions = apos.aemPieces.getWithTags(
+        piece._relatedPeople,
+        [
+          'academic institution',
+          'higher education',
+          'university'
+        ]
+      )
+    -%}
+    {%- if academicInstitutions|length -%}
+      <dl class="piece-props-list">
+        <dt>Related Academic Institutions</dt>
+        <dd>{{ sortedPieceLinkList(academicInstitutions) }}</dd>
+      </dl>
+    {%- endif -%}
+
+    {%-
+      set otherOrgs = apos.aemPieces.getWithoutTags(
+        piece._relatedPeople,
+        [
+          'academic institution',
+          'higher education',
+          'university',
+          'collective'
+        ]
+      )
+    -%}
+    {%- if otherOrgs|length -%}
+      <dl class="piece-props-list">
+        <dt>Related Organizations</dt>
+        <dd>{{ sortedPieceLinkList(otherOrgs) }}</dd>
+      </dl>
+    {%- endif -%}
+  {%- endif -%}
 
   {{ tags(piece) }}
 {% endblock %}
