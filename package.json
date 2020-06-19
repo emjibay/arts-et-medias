@@ -12,18 +12,18 @@
   "author": "Mat Janson Blanchet",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^2.103.1",
+    "apostrophe": "^2.108.0",
     "apostrophe-db-mongo-3-driver": "^2.0.1",
     "apostrophe-second-chance-login": "^2.0.0",
-    "apostrophe-workflow": "^2.34.0",
+    "apostrophe-workflow": "^2.36.0",
     "lodash": "^4.17.15",
-    "moment": "^2.25.3"
+    "moment": "^2.27.0"
   },
   "devDependencies": {
     "@cloudraker/sass-brunch": "^3.0.1",
-    "apostrophe-monitor": "^2.0.5",
+    "apostrophe-monitor": "^2.1.0",
     "babel-brunch": "^7.0.1",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.5.0",
     "brunch": "^2.10.17",
     "core-js": "3",
     "globby": "^10.0.2",

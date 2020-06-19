@@ -1347,10 +1347,10 @@ apostrophe-db-mongo-3-driver@^2.0.1:
     mongodb "^3.1.1"
     qs "^6.5.2"
 
-apostrophe-monitor@^2.0.5:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/apostrophe-monitor/-/apostrophe-monitor-2.0.6.tgz#1676185dd3ac32063dbea715fd31465d7ae054a1"
-  integrity sha512-SniIn2XuonrWenkRmri+yRh/Xe5t7hf8ojhUEN82mYI8l1ba2Ag5IK311AfVxJUzVNKPsLAgEGu5hLnGpUZmSg==
+apostrophe-monitor@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/apostrophe-monitor/-/apostrophe-monitor-2.1.0.tgz#880777443f5f9e366a843df46d54b9a3462ac153"
+  integrity sha512-D/HrP3IGVRvc6gpAdh7WwaOtp0s+OnAWIt8zKQaqW0h1I6hp0TTnbqmajXV4dWpsaty1D2F8F0xoQ70WPwrIzw==
   dependencies:
     anymatch "^2.0.0"
     chokidar "^2.0.4"
@@ -1358,16 +1358,17 @@ apostrophe-monitor@^2.0.5:
     intercept-require "^1.1.0"
     node-hook "^1.0.0"
     regexp-quote "0.0.0"
+    stoppable "^1.1.0"
 
 apostrophe-second-chance-login@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/apostrophe-second-chance-login/-/apostrophe-second-chance-login-2.0.0.tgz#398d9113e8560e88508b4e4e873612be0c08e77b"
   integrity sha512-mIpv++b6eWQzYYuTeRUAwpcJhk6lSnn2kylbuP6CpDYT6h0bvE9He/TX3kkyf50GpVMmlslccTBVGL/YkLjg8g==
 
-apostrophe-workflow@^2.34.0:
-  version "2.34.0"
-  resolved "https://registry.yarnpkg.com/apostrophe-workflow/-/apostrophe-workflow-2.34.0.tgz#5fed3c2da1e373bf9c39e9c94c4b84b44975b25b"
-  integrity sha512-zwxFz4iQLoOVTm0by+ajcWw4om7zPRdQzLFrcsSvmB7jJDPL+OzZOUlBO9ZHtPJ459C3wMzeuScHInGDOs2bxQ==
+apostrophe-workflow@^2.36.0:
+  version "2.36.0"
+  resolved "https://registry.yarnpkg.com/apostrophe-workflow/-/apostrophe-workflow-2.36.0.tgz#e1cf7f19849367e13bce6483d4f1b19966f3890b"
+  integrity sha512-oFPHEmLi6KXp7g1jGS6PkRbZ5Ag1puOMOiMpSeIt+7zEH6Yso2GkapqN05k9oeEEusEhbQn7fmHu0AXCL89EQw==
   dependencies:
     "@sailshq/lodash" "^3.10.3"
     async "^1.5.2"
@@ -1381,10 +1382,10 @@ apostrophe-workflow@^2.34.0:
     qs "^6.9.1"
     request-promise "^4.2.5"
 
-apostrophe@^2.103.1:
-  version "2.106.2"
-  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.106.2.tgz#2df0089d70bdd0da765fea0342b523cd44ec5c43"
-  integrity sha512-8juv+sIEoE29U24DzeK/3j0w07uURdm+VwnRizkdHbcGd+NOy0Turpv85uX1GzzXJ/5QptjH6BIxBGfoovTlIw==
+apostrophe@^2.108.0:
+  version "2.108.0"
+  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.108.0.tgz#95ccc221dbd81512fb54b7ac36213d7dd0b06582"
+  integrity sha512-CEvbCwMzHHhnnIdrHruTt4gefaR2enUPmGYN3byBQ5QywTQjtNL5Hta3dBAXt5myWADLXLb6jLT6Enr6+87gQg==
   dependencies:
     "@apostrophecms/nunjucks" "^2.5.4"
     "@sailshq/lodash" "^3.10.4"
@@ -1728,10 +1729,10 @@ boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap@^4.3.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.4.1.tgz#8582960eea0c5cd2bede84d8b0baf3789c3e8b01"
-  integrity sha512-tbx5cHubwE6e2ZG7nqM3g/FZ5PQEDMWmMGNrCUBVRPHXTJaH7CBDdsLeu3eCh3B1tzAxTnAbtmrzvWEvT2NNEA==
+bootstrap@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.5.0.tgz#97d9dbcb5a8972f8722c9962483543b907d9b9ec"
+  integrity sha512-Z93QoXvodoVslA+PWNdk23Hze4RBYIkpb5h8I2HY2Tu2h7A0LpAgLcyrhrSUyo2/Oxm2l1fRZPs1e5hnxnliXA==
 
 bower-config@^1.4.0:
   version "1.4.3"
@@ -5010,10 +5011,10 @@ moment@^2.22.1, moment@^2.23.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
-moment@^2.25.3:
-  version "2.25.3"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.25.3.tgz#252ff41319cf41e47761a1a88cab30edfe9808c0"
-  integrity sha512-PuYv0PHxZvzc15Sp8ybUCoQ+xpyPWvjOuK72a5ovzp2LI32rJXOiIfyoFoYvG3s6EwwrdkMyWuRiEHSZRLJNdg==
+moment@^2.27.0:
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.27.0.tgz#8bff4e3e26a236220dfe3e36de756b6ebaa0105d"
+  integrity sha512-al0MUK7cpIcglMv3YF13qSgdAIqxHTO7brRtaz3DlSULbqfazqkc5kEjNrLDOM7fsjshoFIihnU8snrP7zUvhQ==
 
 mongodb@^3.1.1:
   version "3.5.7"
@@ -6567,6 +6568,11 @@ stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+
+stoppable@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/stoppable/-/stoppable-1.1.0.tgz#32da568e83ea488b08e4d7ea2c3bcc9d75015d5b"
+  integrity sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw==
 
 stream-browserify@~2.0.1:
   version "2.0.2"
