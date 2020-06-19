@@ -20,7 +20,7 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         CONFIG_FILE: `${ deployPath }/.env`,
-        HOST: 'localhost',
+        HOST: '127.0.0.1',
         PORT: '9696'
       }
     }
@@ -28,7 +28,7 @@ module.exports = {
   deploy: {
     staging: {
       user: 'jansensan',
-      host: 'demo.raker.cloud',
+      host: 'arts-et-medias.net',
       ref: 'origin/master',
       repo: `/jansensan/${ projectName }.git`,
       path: deployPath,
@@ -37,7 +37,7 @@ module.exports = {
     },
     production: {
       user: 'jansensan',
-      host: 'demo.raker.cloud',
+      host: 'arts-et-medias.net',
       ref: 'origin/master',
       repo: `/jansensan/${ projectName }.git`,
       path: deployPath,
