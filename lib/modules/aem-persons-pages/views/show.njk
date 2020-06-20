@@ -59,6 +59,7 @@
   {%- endif -%}
 
   {%- if piece._author|length -%}
+    {# books #}
     <dl class="piece-props-list">
       <dt>Author of the Following Books</dt>
       <dd>{{ sortedPieceLinkList(piece._author) }}</dd>
@@ -66,12 +67,17 @@
   {%- endif -%}
 
   {%- if piece._relatedPeople -%}
-    {%-
-      set collectives = apos.aemPieces.getWithTags(
-        piece._relatedPeople,
-        ['collective']
-      )
-    -%}
+    {# workshops #}
+    {%- set workshops = apos.aemPieces.getRelatedWorkshops(piece) -%}
+    {%- if workshops|length -%}
+      <dl class="piece-props-list">
+        <dt>Related Workshops</dt>
+        <dd>{{ sortedPieceLinkList(workshops) }}</dd>
+      </dl>
+    {%- endif -%}
+
+    {# collectives #}
+    {%- set collectives = apos.aemPieces.getRelatedCollectives(piece)-%}
     {%- if collectives|length -%}
       <dl class="piece-props-list">
         <dt>Related Collectives</dt>
@@ -79,6 +85,25 @@
       </dl>
     {%- endif -%}
 
+    {# galleries #}
+    {%- set galleries = apos.aemPieces.getRelatedGalleries(piece)-%}
+    {%- if galleries|length -%}
+      <dl class="piece-props-list">
+        <dt>Related Galleries</dt>
+        <dd>{{ sortedPieceLinkList(galleries) }}</dd>
+      </dl>
+    {%- endif -%}
+
+    {# artCenters #}
+    {%- set artCenters = apos.aemPieces.getRelatedArtCenters(piece)-%}
+    {%- if artCenters|length -%}
+      <dl class="piece-props-list">
+        <dt>Related Art Centers</dt>
+        <dd>{{ sortedPieceLinkList(artCenters) }}</dd>
+      </dl>
+    {%- endif -%}
+
+    {# academic institutions #}
     {%-
       set academicInstitutions = apos.aemPieces.getWithTags(
         piece._relatedPeople,
@@ -96,21 +121,12 @@
       </dl>
     {%- endif -%}
 
-    {%-
-      set otherOrgs = apos.aemPieces.getWithoutTags(
-        piece._relatedPeople,
-        [
-          'academic institution',
-          'higher education',
-          'university',
-          'collective'
-        ]
-      )
-    -%}
-    {%- if otherOrgs|length -%}
+    {# media labs #}
+    {%- set labs = apos.aemPieces.getRelatedMediaLabs(piece)-%}
+    {%- if labs|length -%}
       <dl class="piece-props-list">
-        <dt>Related Organizations</dt>
-        <dd>{{ sortedPieceLinkList(otherOrgs) }}</dd>
+        <dt>Related Media Labs and Research Centers</dt>
+        <dd>{{ sortedPieceLinkList(labs) }}</dd>
       </dl>
     {%- endif -%}
   {%- endif -%}
