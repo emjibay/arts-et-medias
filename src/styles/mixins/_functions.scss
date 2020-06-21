@@ -67,10 +67,10 @@
 @function getGutterHalfWidth($breakpoint) {
   $gutterWidth: $gutterWidthXs / 2;
 
-  @if ($breakpoint == $desktop) {
+  @if ($breakpoint == $tablet) {
     $gutterWidth: $gutterWidthSm / 2;
   }
-  @else if ($breakpoint == $mediumDesktop) {
+  @else if ($breakpoint == $desktop) {
     $gutterWidth: $gutterWidthMd / 2;
   }
 
