@@ -29,6 +29,15 @@
   {%- endif -%}
 {%- endmacro -%}
 
+{% macro relatedPieces(label, pieces) %}
+  {%- if pieces|length -%}
+    <dl class="piece-props-list">
+      <dt>{{ label }}</dt>
+      <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+    </dl>
+  {%- endif -%}
+{% endmacro %}
+
 {% macro relatedContent(piece) %}
   {%- set hasRelatedPeople = piece._relatedPeople|length > 0-%}
   {%- set hasRelatedOrgs = piece._relatedOrganizations|length > 0-%}
