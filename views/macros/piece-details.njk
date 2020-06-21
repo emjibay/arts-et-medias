@@ -64,6 +64,16 @@
   {%- endif -%}
 {% endmacro %}
 
+{% macro relatedTaggedPieces(label, pieces, tags) %}
+  {%-
+    set filteredPieces = apos.aemPieces.getWithTags(
+      pieces,
+      tags
+    )
+  -%}
+  {{ relatedPieces(label, filteredPieces) }}
+{% endmacro %}
+
 {% macro tags(piece) %}
   {%- set hasTags = piece.tags|length > 0 -%}
   {%- if hasTags -%}

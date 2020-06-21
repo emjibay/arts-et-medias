@@ -1,7 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedPieces, relatedTaggedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
@@ -51,85 +51,111 @@
 
   <hr class="separator"/>
 
-  {%- if piece._originalAuthor|length -%}
-    <dl class="piece-props-list">
-      <dt>Author of the Following Articles</dt>
-      <dd>{{ sortedPieceLinkList(piece._originalAuthor) }}</dd>
-    </dl>
-  {%- endif -%}
+  {# projects #}
+  {{
+    relatedPieces(
+      'Creator of the Following Projects',
+      piece._projects
+    )
+  }}
 
-  {%- if piece._author|length -%}
-    {# books #}
-    <dl class="piece-props-list">
-      <dt>Author of the Following Books</dt>
-      <dd>{{ sortedPieceLinkList(piece._author) }}</dd>
-    </dl>
-  {%- endif -%}
+  {# articles #}
+  {{
+    relatedPieces(
+      'Author of the Following Articles',
+      piece._articles
+    )
+  }}
 
-  {%- if piece._relatedPeople -%}
-    {# workshops #}
-    {%- set workshops = apos.aemPieces.getRelatedWorkshops(piece) -%}
-    {%- if workshops|length -%}
-      <dl class="piece-props-list">
-        <dt>Related Workshops</dt>
-        <dd>{{ sortedPieceLinkList(workshops) }}</dd>
-      </dl>
-    {%- endif -%}
+  {# books #}
+  {{
+    relatedPieces(
+      'Author of the Following Books',
+      piece._books
+    )
+  }}
 
-    {# collectives #}
-    {%- set collectives = apos.aemPieces.getRelatedCollectives(piece)-%}
-    {%- if collectives|length -%}
-      <dl class="piece-props-list">
-        <dt>Related Collectives</dt>
-        <dd>{{ sortedPieceLinkList(collectives) }}</dd>
-      </dl>
-    {%- endif -%}
+  {# collectives #}
+  {{
+    relatedTaggedPieces(
+      'Related Collectives',
+      piece._organizations,
+      ['collective']
+    )
+  }}
 
-    {# galleries #}
-    {%- set galleries = apos.aemPieces.getRelatedGalleries(piece)-%}
-    {%- if galleries|length -%}
-      <dl class="piece-props-list">
-        <dt>Related Galleries</dt>
-        <dd>{{ sortedPieceLinkList(galleries) }}</dd>
-      </dl>
-    {%- endif -%}
+  {# galleries #}
+  {{
+    relatedTaggedPieces(
+      'Related Galleries',
+      piece._organizations,
+      ['gallery', 'museum']
+    )
+  }}
 
-    {# artCenters #}
-    {%- set artCenters = apos.aemPieces.getRelatedArtCenters(piece)-%}
-    {%- if artCenters|length -%}
-      <dl class="piece-props-list">
-        <dt>Related Art Centers</dt>
-        <dd>{{ sortedPieceLinkList(artCenters) }}</dd>
-      </dl>
-    {%- endif -%}
+  {# art centers #}
+  {{
+    relatedTaggedPieces(
+      'Related Art Centers',
+      piece._organizations,
+      ['art center']
+    )
+  }}
 
-    {# academic institutions #}
-    {%-
-      set academicInstitutions = apos.aemPieces.getWithTags(
-        piece._relatedPeople,
-        [
-          'academic institution',
-          'higher education',
-          'university'
-        ]
-      )
-    -%}
-    {%- if academicInstitutions|length -%}
-      <dl class="piece-props-list">
-        <dt>Related Academic Institutions</dt>
-        <dd>{{ sortedPieceLinkList(academicInstitutions) }}</dd>
-      </dl>
-    {%- endif -%}
+  {# academic institutions #}
+  {{
+    relatedTaggedPieces(
+      'Related Academic Institutions',
+      piece._organizations,
+      [
+        'academic institution',
+        'higher education',
+        'university'
+      ]
+    )
+  }}
 
-    {# media labs #}
-    {%- set labs = apos.aemPieces.getRelatedMediaLabs(piece)-%}
-    {%- if labs|length -%}
-      <dl class="piece-props-list">
-        <dt>Related Media Labs and Research Centers</dt>
-        <dd>{{ sortedPieceLinkList(labs) }}</dd>
-      </dl>
-    {%- endif -%}
-  {%- endif -%}
+  {# media labs #}
+  {{
+    relatedTaggedPieces(
+      'Related Media Labs and Research Centers',
+      piece._organizations,
+      [
+        'media lab',
+        'archives',
+        'art research',
+        'research',
+        'research-creation'
+      ]
+    )
+  }}
+
+  {# festivals #}
+  {{
+    relatedTaggedPieces(
+      'Related Festivals',
+      piece._events,
+      ['festival']
+    )
+  }}
+
+  {# conferences #}
+  {{
+    relatedTaggedPieces(
+      'Related Conferences',
+      piece._events,
+      ['conference']
+    )
+  }}
+
+  {# workshops #}
+  {{
+    relatedTaggedPieces(
+      'Related Workshops',
+      piece._events,
+      ['workshop']
+    )
+  }}
 
   {{ tags(piece) }}
 {% endblock %}
