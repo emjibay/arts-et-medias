@@ -74,9 +74,24 @@
                 <dt>Year</dt>
                 <dd>{{ piece.yearPublished }}</dd>
 
-                {%- set lang = apos.aemLocalization.getLanguage(piece.lang) -%}
-                <dt>Language</dt>
-                <dd>{{ lang }}</dd>
+                {%- set langs = apos.aemLocalization.getLanguagesFrom(piece.lang) -%}
+                {%- set numLangs = langs|length -%}
+                {%- if langs|length > 1 -%}
+                  <dt>Languages</dt>
+                  <dd>
+                    <p>
+                      {% for lang in langs %}
+                        <span>{{ lang }}</span>
+                        {%- if not loop.last -%}
+                          <span>, </span>
+                        {%- endif -%}
+                      {% endfor %}
+                    </p>
+                  </dd>
+                {%- else -%}
+                  <dt>Language</dt>
+                  <dd>{{ langs[0] }}</dd>
+                {%- endif -%}
 
                 {%- if piece.isTranslation -%}
                   <dt>Original Language</dt>
