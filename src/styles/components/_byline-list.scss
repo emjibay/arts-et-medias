@@ -24,9 +24,10 @@
 
     &::after {
       @include minorText();
-      content: ',';
       position: absolute;
       bottom: 0;
+      content: ',';
+      line-height: 1.5;
       right: -5px;
     }
 
@@ -40,6 +41,7 @@
 
     p {
       @include minorText();
+      line-height: 1.5;
       margin: 0;
     }
   }
