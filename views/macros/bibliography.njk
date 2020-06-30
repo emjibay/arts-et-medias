@@ -1,18 +1,18 @@
 {%- macro apaBib(book) -%}
   <span class="bibliography apa">
-    {{ apos.aemAuthors.formatAPA(book._author) }} ({{ book.yearPublished }}). <cite>{{ book.title }}</cite>. {{ book.publisherCity }}: {{ book.publisherName }}.
+    {{ apos.aemAuthors.formatAPA(book._author, { isEditor: book.isEditor }) }} ({{ book.yearPublished }}). <cite>{{ book.title }}</cite>. {{ book.publisherCity }}: {{ book.publisherName }}.
   </span>
 {%- endmacro -%}
 
 {%- macro chicagoBib(book) -%}
   <span class="bibliography chicago">
-    {{ apos.aemAuthors.formatChicago(book._author) }}. <cite>{{ book.title }}</cite>. {{ book.publisherCity }}: {{ book.publisherName }}, {{ book.yearPublished }}.
+    {{ apos.aemAuthors.formatChicago(book._author, { isEditor: book.isEditor }) }}{%- if not book.isEditor -%}.{%- endif -%}<cite> {{ book.title }}</cite>. {{ book.publisherCity }}: {{ book.publisherName }}, {{ book.yearPublished }}.
   </span>
 {%- endmacro -%}
 
 {%- macro mlaBib(book) -%}
   <span class="bibliography mla">
-    {{ apos.aemAuthors.formatMLA(book._author) }}. <cite>{{ book.title }}</cite>. {{ book.publisherName }}, {{ book.yearPublished }}.
+    {{ apos.aemAuthors.formatMLA(book._author, { isEditor: book.isEditor }) }}{%- if not book.isEditor -%}.{%- endif -%}<cite> {{ book.title }}</cite>. {{ book.publisherName }}, {{ book.yearPublished }}.
   </span>
 {%- endmacro -%}
 
