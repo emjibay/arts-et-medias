@@ -10,6 +10,7 @@
   .book-cover {
     position: relative;
     float: left;
+    filter: drop-shadow(0 1px 1px #eeeeee);
     margin-bottom: getGutterHalfWidth($phone);
     margin-right: getGutterWidth($phone);
     margin-top: 45px;
