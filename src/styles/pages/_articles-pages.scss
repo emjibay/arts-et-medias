@@ -12,8 +12,33 @@
 }
 
 .article-details {
-  .mention-notes {
+  .translation {
     @include minorText();
     font-size: $fsSmol;
+    margin: 20px 0;
+
+    .piece-link-list {
+      display: inline-block;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      .piece-link {
+        @include minorText();
+        font-size: $fsSmol;
+
+        &:hover {
+          color: $main;
+        }
+      }
+    }
+  }
+
+  .mention {
+    margin-top: 40px;
+
+    .mention-notes {
+      @include minorText();
+      font-size: $fsSmol;
+    }
   }
 }

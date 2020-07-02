@@ -41,15 +41,24 @@
     {{ contentSection(piece) }}
   </div>
 
+  {%- if piece.isTranslation -%}
+    {%- set originalLang = apos.aemLocalization.getLanguagesFrom(piece.originalLang) -%}
+    <div class="translation">
+      Translated from {{ originalLang }} by {{ pieceLinkList(piece._translator) }}.
+    </div>
+  {%- endif -%}
+
   {%- set isMention = piece.articleType === 'mention' -%}
   {%- if isMention -%}
-    <a
-      class="website-cta"
-      href="{{ piece.externalLink }}"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Read complete article</a>
-    <p class="mention-notes">This article was not originally published on this site.</p>
+    <div class="mention">
+      <p class="mention-notes">This article was not originally published on this site.</p>
+      <a
+        class="website-cta"
+        href="{{ piece.externalLink }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Read complete article</a>
+    </div>
   {%- endif -%}
 
   <hr class="separator"/>
