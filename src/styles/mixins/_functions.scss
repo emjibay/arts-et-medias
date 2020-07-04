@@ -39,6 +39,12 @@
   @else if ($breakpoint == $desktop) {
     $columnWidth: $columnWidthMd;
   }
+  @else if ($breakpoint == $xl) {
+    $columnWidth: $columnWidthXL;
+  }
+  @else if ($breakpoint == $xxl) {
+    $columnWidth: $columnWidthXXL;
+  }
 
   @return $columnWidth;
 }
@@ -56,6 +62,12 @@
   @else if ($breakpoint == $desktop) {
     $gutterWidth: $gutterWidthMd;
   }
+  @else if ($breakpoint == $xl) {
+    $gutterWidth: $gutterWidthXL;
+  }
+  @else if ($breakpoint == $xxl) {
+    $gutterWidth: $gutterWidthXXL;
+  }
 
   @return $gutterWidth;
 }
@@ -72,6 +84,12 @@
   }
   @else if ($breakpoint == $desktop) {
     $gutterWidth: $gutterWidthMd / 2;
+  }
+  @else if ($breakpoint == $xl) {
+    $gutterWidth: $gutterWidthXL / 2;
+  }
+  @else if ($breakpoint == $xxl) {
+    $gutterWidth: $gutterWidthXXL / 2;
   }
 
   @return $gutterWidth;

@@ -44,6 +44,16 @@
         width: getColumnsSpan(4, $desktop);
         height: getColumnsSpan(4, $desktop);
       }
+
+      @media #{$mqXL} {
+        width: getColumnsSpan(4, $xl);
+        height: getColumnsSpan(4, $xl);
+      }
+
+      @media #{$mqXXL} {
+        width: getColumnsSpan(4, $xxl);
+        height: getColumnsSpan(4, $xxl);
+      }
     }
 
     .fig-credits{

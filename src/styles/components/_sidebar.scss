@@ -51,12 +51,19 @@
   .search-input {
     @include textInput();
     display: inline-block;
-    -webkit-appearance: textfield;
     vertical-align: top;
     width: 170px;
 
     @media #{$mqDesktop} {
-      width: unset;
+      width: 190px;
+    }
+
+    @media #{$mqXL} {
+      width: 240px;
+    }
+
+    @media #{$mqXXL} {
+      width: 300px;
     }
 
     &::placeholder {

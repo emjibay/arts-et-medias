@@ -7,13 +7,22 @@
 $phoneContent: 320px;
 $tabletContent: 695px;
 $desktopContent: 930px;
+$xlContent: 1105px;
+$xxlContent: 1280px;
+$hdContent: 1510px;
 
 // gutter width
 $gutterWidthXs: 16px; // mobile
 $gutterWidthSm: 25px; // tablet
 $gutterWidthMd: 30px; // desktop
+$gutterWidthXL: 35px;
+$gutterWidthXXL: 40px;
+$gutterWidthHD: 50px;
 
 // column width
 $columnWidthXs: 40px; // mobile
 $columnWidthSm: 35px; // tablet
 $columnWidthMd: 50px; // desktop
+$columnWidthXL: 60px;
+$columnWidthXXL: 70px;
+$columnWidthHD: 80px;

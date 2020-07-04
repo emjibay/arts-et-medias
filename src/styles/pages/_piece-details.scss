@@ -61,6 +61,22 @@
       height: $imgHeight;
       width: $imgWidth;
     }
+
+    @media #{$mqXL} {
+      $width: getColumnsSpan(8, $xl);
+      $imgWidth: $width;
+      $imgHeight: calc(#{$width} * 0.5);
+      height: $imgHeight;
+      width: $imgWidth;
+    }
+
+    @media #{$mqXXL} {
+      $width: getColumnsSpan(8, $xxl);
+      $imgWidth: $width;
+      $imgHeight: calc(#{$width} * 0.5);
+      height: $imgHeight;
+      width: $imgWidth;
+    }
   }
 
   figcaption {

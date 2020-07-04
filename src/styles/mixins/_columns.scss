@@ -18,4 +18,10 @@
   @media #{$mqDesktop} {
     width: getColumnsSpan($numColSpan, $desktop);
   }
+  @media #{$mqXL} {
+    width: getColumnsSpan($numColSpan, $xl);
+  }
+  @media #{$mqXXL} {
+    width: getColumnsSpan($numColSpan, $xxl);
+  }
 }

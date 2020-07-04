@@ -16,6 +16,16 @@
     width: $width;
   }
 
+  @media #{$mqXL} {
+    $width: getColumnsSpan(8, $xl);
+    width: $width;
+  }
+
+  @media #{$mqXXL} {
+    $width: getColumnsSpan(8, $xxl);
+    width: $width;
+  }
+
   .feature-type {
     font-family: $ffTextBody;
     font-size: $fsVerySmol;
@@ -23,6 +33,7 @@
     margin-bottom: 0;
   }
 
+  // TODO: rename to .heading
   h1 {
     @include heading4();
     margin-top: 5px;
@@ -85,16 +96,23 @@
       height: $imgHeight;
       width: $imgWidth;
     }
-  }
 
-  // &.featured-book-widget {
-  //   .hero-image {
-  //     height: $sidebarWidth;
-  //     margin-top: 10px;
-  //     object-fit: contain;
-  //     width: $sidebarWidth;
-  //   }
-  // }
+    @media #{$mqXL} {
+      $width: getColumnsSpan(8, $xl);
+      $imgWidth: $width;
+      $imgHeight: calc(#{$width} * 0.333);
+      height: $imgHeight;
+      width: $imgWidth;
+    }
+
+    @media #{$mqXXL} {
+      $width: getColumnsSpan(8, $xxl);
+      $imgWidth: $width;
+      $imgHeight: calc(#{$width} * 0.25);
+      height: $imgHeight;
+      width: $imgWidth;
+    }
+  }
 }
 
 .column,
@@ -110,6 +128,16 @@
 
     @media #{$mqDesktop} {
       $widgetWidth: getColumnsSpan(4, $desktop);
+      width: $widgetWidth;
+    }
+
+    @media #{$mqXL} {
+      $widgetWidth: getColumnsSpan(4, $xl);
+      width: $widgetWidth;
+    }
+
+    @media #{$mqXXL} {
+      $widgetWidth: getColumnsSpan(4, $xxl);
       width: $widgetWidth;
     }
 
@@ -144,6 +172,22 @@
         height: $imgHeight;
         width: $imgWidth;
       }
+
+      @media #{$mqXL} {
+        $widgetWidth: getColumnsSpan(4, $xl);
+        $imgWidth: $widgetWidth;
+        $imgHeight: calc(#{$widgetWidth} * 0.5625);
+        height: $imgHeight;
+        width: $imgWidth;
+      }
+
+      @media #{$mqXXL} {
+        $widgetWidth: getColumnsSpan(4, $xxl);
+        $imgWidth: $widgetWidth;
+        $imgHeight: calc(#{$widgetWidth} * 0.5625);
+        height: $imgHeight;
+        width: $imgWidth;
+      }
     }
 
     &.featured-book-widget {
@@ -159,6 +203,18 @@
 
         @media #{$mqDesktop} {
           $widgetWidth: getColumnsSpan(4, $desktop);
+          height: $widgetWidth;
+          width: $widgetWidth;
+        }
+
+        @media #{$mqXL} {
+          $widgetWidth: getColumnsSpan(4, $xl);
+          height: $widgetWidth;
+          width: $widgetWidth;
+        }
+
+        @media #{$mqXXL} {
+          $widgetWidth: getColumnsSpan(4, $xxl);
           height: $widgetWidth;
           width: $widgetWidth;
         }

@@ -12,6 +12,12 @@
   @media #{$mqDesktop} {
     width: $desktopContent;
   }
+  @media #{$mqXL} {
+    width: $xlContent;
+  }
+  @media #{$mqXXL} {
+    width: $xxlContent;
+  }
 }
 
 @mixin customContentContainerWithSpanAt($numColSpan, $breakpoint) {
@@ -29,5 +35,11 @@
   }
   @media #{$mqDesktop} {
     @include customContentContainerWithSpanAt($numColSpan, $desktop);
+  }
+  @media #{$mqXL} {
+    @include customContentContainerWithSpanAt($numColSpan, $xl);
+  }
+  @media #{$mqXXL} {
+    @include customContentContainerWithSpanAt($numColSpan, $xxl);
   }
 }

@@ -71,14 +71,6 @@ body {
   @media #{$mqTablet} {
     @include nColumnWidth(8);
   }
-
-  .column {
-    display: inline-block;
-
-    &.right {
-      margin-left: getGutterWidth($desktop);
-    }
-  }
 }
 
 .latest-pieces-heading {

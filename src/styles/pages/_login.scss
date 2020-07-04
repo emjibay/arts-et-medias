@@ -79,6 +79,10 @@
       margin-top: 15px;
     }
 
+    @media #{$mqDesktop} {
+      @include nColumnWidth(4);
+    }
+
     .h2 {
       @include heading3();
     }

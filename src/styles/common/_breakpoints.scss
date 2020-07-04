@@ -1,7 +1,13 @@
 $phone: 375px;
 $tablet: 768px;
 $desktop: 1024px;
+$xl: 1280px;
+$xxl: 1440px;
+$hd: 1920px;
 
-$mqPhone: 'only screen and (min-width: #{$phone})';
-$mqTablet: 'only screen and (min-width: #{$tablet})';
-$mqDesktop: 'only screen and (min-width: #{$desktop})';
+$mqPhone: 'only screen and (min-width: #{ $phone })';
+$mqTablet: 'only screen and (min-width: #{ $tablet })';
+$mqDesktop: 'only screen and (min-width: #{ $desktop })';
+$mqXL: 'only screen and (min-width: #{ $xl })';
+$mqXXL: 'only screen and (min-width: #{ $xxl })';
+$mqHD: 'only screen and (min-width: #{ $hd })';

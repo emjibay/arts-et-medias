@@ -27,5 +27,17 @@
       margin-right: getGutterWidth($desktop);
       width: getColumnsSpan(4, $desktop);
     }
+
+    @media #{$mqXL} {
+      margin-bottom: getGutterHalfWidth($xl);
+      margin-right: getGutterWidth($xl);
+      width: getColumnsSpan(4, $xl);
+    }
+
+    @media #{$mqXXL} {
+      margin-bottom: getGutterHalfWidth($xxl);
+      margin-right: getGutterWidth($xxl);
+      width: getColumnsSpan(4, $xxl);
+    }
   }
 }

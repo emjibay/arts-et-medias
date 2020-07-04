@@ -109,6 +109,22 @@
         height: $imgHeight;
         width: $imgWidth;
       }
+
+      @media #{$mqXL} {
+        $width: getColumnsSpan(4, $xl);
+        $imgWidth: $width;
+        $imgHeight: calc(#{$width} * 0.25);
+        height: $imgHeight;
+        width: $imgWidth;
+      }
+
+      @media #{$mqXXL} {
+        $width: getColumnsSpan(4, $xxl);
+        $imgWidth: $width;
+        $imgHeight: calc(#{$width} * 0.25);
+        height: $imgHeight;
+        width: $imgWidth;
+      }
     }
 
     .piece-cta {
