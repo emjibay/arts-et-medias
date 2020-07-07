@@ -13,12 +13,18 @@
   </div>
 {% endmacro %}
 
-{%- macro mediaList(heading, pieces, tags, ctaPropName) -%}
-  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
-  {%- set list = apos.aemArrays.truncate(list, 4) -%}
+{#
+  @param options (object)
+    - heading (string)
+    - pieces (array)
+    - numPieces (number)
+    - ctaPropName (string)
+ #}
+{%- macro mediaList(options) -%}
+  {%- set list = apos.aemArrays.truncate(options.pieces, options.numPieces) -%}
 
   <div class="list-container">
-    <div class="list-heading">{{ heading }}</div>
+    <div class="list-heading">{{ options.heading }}</div>
     <ul class="list">
       {% for listItem in list %}
         {%- set numAuthors = listItem._author|length -%}
@@ -47,7 +53,7 @@
         </li>
       {% endfor %}
     </ul>
-    {{ seeAllCTA(ctaPropName) }}
+    {{ seeAllCTA(options.ctaPropName) }}
   </div>
 {%- endmacro -%}
 
@@ -66,23 +72,23 @@
 
   <div class="mm-col">
     {{
-      mediaList(
-        'Recently Added Projects',
-        data.projectsByMostRecent,
-        [],
-        'seeAllProjectsCTA'
-      )
+      mediaList({
+        heading: 'Recently Added Projects',
+        pieces: data.projectsByMostRecent,
+        numPieces: 4,
+        ctaPropName: 'seeAllProjectsCTA'
+      })
     }}
   </div>
 
   <div class="mm-col">
     {{
-      mediaList(
-        'Recently Added Books',
-        data.booksByMostRecent,
-        [],
-        'seeAllBooksCTA'
-      )
+      mediaList({
+        heading: 'Recently Added Books',
+        pieces: data.booksByMostRecent,
+        numPieces: 3,
+        ctaPropName: 'seeAllBooksCTA'
+      })
     }}
   </div>
 
