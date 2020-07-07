@@ -61,7 +61,7 @@
     {%- set nextEvents = apos.aemArrays.splice(data.orderedEvents, 0) -%}
     {{
       eventList(
-        'Next Festivals and Conferences',
+        'Next Festivals',
         nextEvents,
         ['festival', 'conference'],
         'seeAllFestivalsCTA'
@@ -70,7 +70,7 @@
 
     {{
       eventList(
-        'Recently Added Festivals and Conferences',
+        'Recently Added Festivals',
         data.eventsByMostRecent,
         ['festival', 'conference'],
         'seeAllFestivalsCTA'
