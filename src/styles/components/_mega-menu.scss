@@ -1,0 +1,333 @@
+@import '../common/variables';
+@import '../common/ui';
+
+
+// vars
+$showDuration: 550ms;
+$hideDuration: 325ms;
+
+
+// mixins
+@mixin transform($transformation, $duration) {
+  -webkit-transform: $transformation;
+  transform: $transformation;
+  transition:
+    transform
+    $duration
+    ease-in-out;
+  will-change: transform;
+}
+
+@mixin heading() {
+  font-family: $ffHeading;
+  font-size: $fsTextBody;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  margin: 20px 0 10px 0;
+}
+
+
+// definitions
+.mega-menu {
+  position: absolute;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  width: 100%;
+  z-index: 1;
+
+  section {
+    display: none;
+
+    &.visible {
+      display: block;
+    }
+  }
+
+  .menu-panel {
+    @include transform(translateY(-650px), $hideDuration);
+    position: absolute;
+    background-color: $white;
+    border-bottom: 1px solid $black;
+    filter: drop-shadow(0 5px 5px rgba(black, 0.125));
+    padding: 25px 0 35px;
+    pointer-events: all;
+    width: 100%;
+
+    &.visible {
+      @media #{$mqDesktop} {
+        @include transform(translateY(0), $showDuration);
+      }
+    }
+  }
+
+  .mm-col {
+    @include nColumnWidth(3);
+    display: inline-block;
+    vertical-align: top;
+
+    &:not(:first-of-type) {
+      @include gutterLeftMargin();
+    }
+  }
+
+  .mm-col-3 {
+    @include nColumnWidth(4);
+    display: inline-block;
+    vertical-align: top;
+
+    &:not(:first-of-type) {
+      @include gutterLeftMargin();
+    }
+  }
+
+  .mm-search-col {
+    @include nColumnWidth(6);
+    margin: 0 auto;
+    padding-bottom: 25px;
+    padding-top: 25px;
+
+    .search-input {
+      @include textInput();
+      @include nColumnWidth(4);
+      display: inline-block;
+      vertical-align: top;
+
+      &::placeholder {
+        color: $black;
+      }
+    }
+
+    .search-button {
+      @include gutterLeftMargin();
+      @include button();
+      @include nColumnWidth(2);
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 20px;
+
+      .icon {
+        display: none;
+      }
+    }
+  }
+
+  .featured-piece-widget {
+    @include nColumnWidth(3);
+
+    h1 {
+      font-size: $fsTextBody;
+    }
+
+    .hero-image {
+      @media #{$mqDesktop} {
+        $imgWidth: getColumnsSpan(3, $desktop);
+        $imgHeight: calc(#{$imgWidth} * 0.2);
+        width: $imgWidth;
+        height: $imgHeight;
+      }
+      @media #{$mqXL} {
+        $imgWidth: getColumnsSpan(3, $xl);
+        $imgHeight: calc(#{$imgWidth} * 0.2);
+        width: $imgWidth;
+        height: $imgHeight;
+      }
+      @media #{$mqXXL} {
+        $imgWidth: getColumnsSpan(3, $xxl);
+        $imgHeight: calc(#{$imgWidth} * 0.2);
+        width: $imgWidth;
+        height: $imgHeight;
+      }
+    }
+
+    .byline,
+    .byline-list,
+    .byline-and-date {
+      * {
+        font-size: $fsVerySmol;
+      }
+    }
+
+    p {
+      font-size: $fsSmol;
+      line-height: 1.5;
+    }
+  }
+
+  .heading {
+    @include heading();
+  }
+
+  .list-container {
+    &:not(:first-of-type) {
+      margin-top: 40px;
+    }
+
+    .list-heading {
+      @include heading();
+    }
+
+    .list {
+      @include list();
+      line-height: 1;
+
+      li {
+        @include unorderedListItem();
+        line-height: 1;
+        margin: 10px 0;
+      }
+
+      .list-item {
+        @include anchor();
+        display: inline-block;
+        text-decoration: none;
+        font-size: $fsVerySmol;
+        line-height: 1.75;
+        margin-top: -3px;
+
+        .piece-title {
+          font-family: $ffHeading;
+          font-size: $fsSmol;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 1;
+        }
+      }
+    }
+
+    .people-list {
+      @include list();
+      padding: 0;
+
+      li {
+        @media #{$mqDesktop} {
+          margin-top: getGutterHalfWidth($desktop);
+        }
+
+        @media #{$mqXL} {
+          margin-top: getGutterHalfWidth($xl);
+        }
+
+        @media #{$mqXXL} {
+          margin-top: getGutterHalfWidth($xxl);
+        }
+      }
+
+      .list-item {
+        text-decoration: none;
+
+        .profile-pic-container {
+          display: inline-block;
+          vertical-align: top;
+
+          .fig-headshot {
+            object-fit: cover;
+
+            @media #{$mqDesktop} {
+              $imgWidth: getColumnsSpan(1, $desktop);
+              width: $imgWidth;
+              height: $imgWidth;
+            }
+            @media #{$mqXL} {
+              $imgWidth: getColumnsSpan(1, $xl);
+              width: $imgWidth;
+              height: $imgWidth;
+            }
+            @media #{$mqXXL} {
+              $imgWidth: getColumnsSpan(1, $xxl);
+              width: $imgWidth;
+              height: $imgWidth;
+            }
+          }
+        }
+
+        .person-details {
+          @include nColumnWidth(3);
+          display: inline-block;
+          vertical-align: top;
+
+          @media #{$mqDesktop} {
+            margin-left: getGutterHalfWidth($desktop);
+          }
+
+          @media #{$mqXL} {
+            margin-left: getGutterHalfWidth($xl);
+          }
+
+          @media #{$mqXXL} {
+            margin-left: getGutterHalfWidth($xxl);
+          }
+
+          .person-name {
+            font-family: $ffHeading;
+            font-size: $fsTextBody;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+          }
+
+          .person-description {
+            :first-child {
+              margin-top: 10px;
+            }
+
+            * {
+              font-size: $fsVerySmol;
+            }
+          }
+        }
+      }
+    }
+
+    [data-apos-widget="aem-link"] .website-cta {
+      @include anchor();
+      background-color: transparent;
+      border: none;
+      color: $black;
+      padding: 0;
+
+      &:hover {
+        background-color: transparent;
+        border: none;
+        color: $main;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .mm-footer {
+    display: block;
+    margin-top: 35px;
+    text-align: center;
+
+    .mm-footer-col {
+      @include nColumnWidth(6);
+      display: inline-block;
+      vertical-align: top;
+
+      // &.left {}
+
+      &.right {
+        @include gutterLeftMargin();
+        text-align: right;
+      }
+    }
+
+    .hide-mega-menu-button {
+      @include anchor();
+      display: inline-block;
+      background-color: transparent;
+      border: none;
+      font-size: $fsVerySmol;
+      line-height: 1.75;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .see-all-cta {
+      display: inline-block;
+      margin-left: 20px;
+    }
+  }
+}

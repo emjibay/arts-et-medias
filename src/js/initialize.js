@@ -2,6 +2,7 @@ const modulesList = [
   // models
   'models/breakpoints-model',
   // components
+  'components/mega-menu',
   'components/mobile-menu',
 ];
 

@@ -148,10 +148,10 @@
   text-decoration: none;
 
   &:hover {
-    text-decoration: none;
     background-color: $white;
-    color: $main;
     border: 2px solid $main;
+    color: $main;
+    text-decoration: none;
   }
   &:active {
     text-decoration: none;

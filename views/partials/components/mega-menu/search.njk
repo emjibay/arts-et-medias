@@ -1,0 +1,24 @@
+{%- from 'macros/search.njk' import searchInput -%}
+
+
+<section
+  id="mmSearch"
+  class="search-section"
+>
+  <div class="mm-search-col">
+    {{
+      searchInput({
+        id: 'mmSearchInput',
+        label: 'Search'
+      })
+    }}
+  </div>
+
+  <div class="mm-footer">
+    <hr class="separator" />
+
+    <button
+      class="hide-mega-menu-button"
+    >Hide menu</button>
+  </div>
+</section>

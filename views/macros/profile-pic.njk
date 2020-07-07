@@ -1,0 +1,37 @@
+
+{#
+  @param piece: Piece of type 'person'
+  @param options: Options object with the following properties:
+    - showCredits <boolean>
+    - showIfMissing <boolean>
+#}
+{% macro profilePic(piece, options) %}
+  {%- set aposImageData = apos.images.first(piece.profilePic) -%}
+
+  {%- if options.showIfMissing -%}
+    {%- set shouldRenderImage = true -%}
+  {%- else -%}
+    {%- set shouldRenderImage = aposImageData -%}
+  {%- endif -%}
+
+  {%- if shouldRenderImage -%}
+    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+    <figure class="fig-profile">
+      <img
+        class="fig-headshot"
+        src="{{ image.url }}"
+        alt="{{ image.alt }}"
+      />
+
+      {%- if not options.showCredits -%}
+        {%- set shouldRenderCredits = false -%}
+      {%- else -%}
+        {%- set shouldRenderCredits = image.credit -%}
+      {%- endif -%}
+
+      {%- if shouldRenderCredits -%}
+        <figcaption class="fig-credits">Credit: {{ image.credit }}</figcaption>
+      {%- endif -%}
+    </figure>
+  {%- endif -%}
+{% endmacro %}

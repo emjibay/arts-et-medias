@@ -2,17 +2,27 @@
 {%- from 'macros/tag-list.njk' import tagList -%}
 
 
-{%- macro truncatedDescription(piece) -%}
+{%- macro truncatedDescription(piece, options) -%}
+  {%- if options.length -%}
+    {%- set truncLength = options.length -%}
+  {%- else -%}
+    {%- set truncLength = 140 -%}
+  {%- endif -%}
+
+
   {%- if piece.shortDescription -%}
     {%- set descriptionText = piece.shortDescription -%}
+    {%- if options.alwaysTruncate -%}
+      {%- set descriptionText = descriptionText | truncate(truncLength, true, "...") -%}
+    {%- endif -%}
 
   {%- elseif piece.description.items -%}
     {%- set descriptionText = piece.description.items[0].content | safe -%}
-    {%- set descriptionText = descriptionText | truncate(140, true, "...") -%}
+    {%- set descriptionText = descriptionText | truncate(truncLength, true, "...") -%}
 
   {%- else -%}
     {%- set descriptionText = piece.description -%}
-    {%- set descriptionText = descriptionText | truncate(140, true, "...") -%}
+    {%- set descriptionText = descriptionText | truncate(truncLength, true, "...") -%}
   {%- endif -%}
 
   <p>{{ descriptionText }}</p>

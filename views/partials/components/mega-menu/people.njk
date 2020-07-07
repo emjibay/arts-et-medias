@@ -1,0 +1,108 @@
+{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+{%- from 'macros/profile-pic.njk' import profilePic -%}
+
+
+{% macro seeAllCTA(propName) %}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.global,
+        propName,
+        'aem-link'
+      )
+    }}
+  </div>
+{% endmacro %}
+
+{% macro peopleList(heading, pieces, tags) %}
+  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
+  {%- set list = apos.aemArrays.truncate(list, 3) -%}
+
+  <div class="list-container">
+    <div class="list-heading">{{ heading }}</div>
+    <ul class="people-list">
+      {% for listItem in list %}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >
+            <div class="profile-pic-container">
+              {{
+                profilePic(
+                  listItem,
+                  {
+                    showCredits: false,
+                    showIfMissing: true
+                  }
+                )
+              }}
+            </div>
+            <div class="person-details">
+              <div class="person-name">
+                {{ listItem.title }}
+              </div>
+              <div class="person-description">
+                {{
+                  truncatedDescription(
+                    listItem,
+                    {
+                      alwaysTruncate: true,
+                      length: 75
+                    }
+                  )
+                }}
+              </div>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endmacro %}
+
+
+<section
+  id="mmPeople"
+  class="people-section"
+>
+  <div class="mm-col-3">
+    {{
+      peopleList(
+        'Recently Added Artists and Creators',
+        data.peopleByMostRecent,
+        ['artist', 'creator']
+      )
+    }}
+  </div>
+
+  <div class="mm-col-3">
+    {{
+      peopleList(
+        'Recently Added Authors and Writers',
+        data.peopleByMostRecent,
+        ['author', 'writer']
+      )
+    }}
+  </div>
+
+  <div class="mm-col-3">
+    {{
+      peopleList(
+        'Recently Added Educators',
+        data.peopleByMostRecent,
+        ['educator']
+      )
+    }}
+  </div>
+
+  <div class="mm-footer">
+    <hr class="separator" />
+
+    <button
+      class="hide-mega-menu-button"
+    >Hide menu</button>
+
+    {{ seeAllCTA('seeAllPeopleCTA') }}
+  </div>
+</section>

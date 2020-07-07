@@ -24,3 +24,23 @@
     <a class="cta" href="{{ piece._url }}">Read Article</a>
   </article>
 {%- endmacro -%}
+
+{% macro featuredEvent(piece, label) %}
+  <article class="featured-piece-widget featured-event-widget">
+    <p class="feature-type">{{ label }}</p>
+
+    <h1>{{ piece.title }}</h1>
+
+    <p class="byline">
+      {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ piece.country }}
+    </p>
+
+    {{ heroImage(piece) }}
+
+    <div class="text-container">
+      {{ truncatedDescription(piece) }}
+
+      <a class="cta" href="{{ piece._url }}">View Details</a>
+    </div>
+  </article>
+{% endmacro %}

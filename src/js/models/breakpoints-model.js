@@ -32,6 +32,14 @@ export function getCurrentColumnWidth() {
     case Breakpoint.DESKTOP:
       width = ColumnWidth.MD;
       break;
+
+    case Breakpoint.XL:
+      width = ColumnWidth.XL;
+      break;
+
+    case Breakpoint.XXL:
+      width = ColumnWidth.XXL;
+      break;
   }
   return width;
 }
@@ -50,12 +58,24 @@ export function getCurrentGutterWidth() {
     case Breakpoint.DESKTOP:
       width = GutterWidth.MD;
       break;
+
+    case Breakpoint.XL:
+      width = GutterWidth.XL;
+      break;
+
+    case Breakpoint.XXL:
+      width = GutterWidth.XXL;
+      break;
   }
   return width;
 }
 
 export function isMobile() {
   return currentBreakpoint === Breakpoint.PHONE;
+}
+
+export function isMobileOrTablet() {
+  return currentBreakpoint === Breakpoint.PHONE || currentBreakpoint === Breakpoint.TABLET;
 }
 
 
@@ -68,6 +88,12 @@ function detectBreakpoint() {
 
   } else if (currentWidth >= Breakpoint.TABLET) {
     currentBreakpoint = Breakpoint.TABLET;
+
+  } else if (currentWidth >= Breakpoint.XL) {
+    currentBreakpoint = Breakpoint.XL;
+
+  } else if (currentWidth >= Breakpoint.XXL) {
+    currentBreakpoint = Breakpoint.XXL;
 
   } else {
     currentBreakpoint = Breakpoint.PHONE;

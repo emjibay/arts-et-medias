@@ -1,0 +1,31 @@
+{% macro seeAllCTA(propName) %}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.global,
+        propName,
+        'aem-link'
+      )
+    }}
+  </div>
+{% endmacro %}
+
+{%- macro articleList(heading, pieces, tags, ctaPropName) -%}
+  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
+  {%- set list = apos.aemArrays.truncate(list, 2) -%}
+
+  <div class="list-container">
+    <div class="list-heading">{{ heading }}</div>
+    <ul class="list">
+      {% for listItem in list %}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >{{ listItem.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{ seeAllCTA(ctaPropName) }}
+  </div>
+{%- endmacro -%}

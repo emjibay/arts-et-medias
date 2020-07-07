@@ -30,4 +30,10 @@
   @media #{$mqDesktop} {
     margin-left: $gutterWidthMd;
   }
+  @media #{$mqXL} {
+    margin-left: $gutterWidthXL;
+  }
+  @media #{$mqXXL} {
+    margin-left: $gutterWidthXXL;
+  }
 }

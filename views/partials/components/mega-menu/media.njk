@@ -1,0 +1,98 @@
+{%- from 'macros/featured-piece.njk' import featuredArticle -%}
+
+
+{% macro seeAllCTA(propName) %}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.global,
+        propName,
+        'aem-link'
+      )
+    }}
+  </div>
+{% endmacro %}
+
+{%- macro mediaList(heading, pieces, tags, ctaPropName) -%}
+  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
+  {%- set list = apos.aemArrays.truncate(list, 4) -%}
+
+  <div class="list-container">
+    <div class="list-heading">{{ heading }}</div>
+    <ul class="list">
+      {% for listItem in list %}
+        {%- set numAuthors = listItem._author|length -%}
+        {%- if numAuthors == 1 -%}
+          {%- set authorList = listItem._author[0].title -%}
+        {%- else -%}
+          {% for author in listItem._author %}
+            {%- if loop.first -%}
+              {%- set authorList = author.title -%}
+            {%- elseif loop.last -%}
+              {%- set authorList = authorList + ', and ' + author.title -%}
+            {%- else -%}
+              {%- set authorList = authorList + ', ' + author.title -%}
+            {%- endif -%}
+          {% endfor %}
+        {%- endif -%}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >
+            <cite class="piece-title">{{ listItem.title }}</cite>
+            <br>
+            <span>by {{ authorList }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{ seeAllCTA(ctaPropName) }}
+  </div>
+{%- endmacro -%}
+
+
+<section
+  id="mmMedia"
+  class="media-section"
+>
+  <div class="mm-col">
+    {% include "partials/projects/featured.njk" %}
+  </div>
+
+  <div class="mm-col">
+    {% include "partials/books/featured.njk" %}
+  </div>
+
+  <div class="mm-col">
+    {{
+      mediaList(
+        'Recently Added Projects',
+        data.projectsByMostRecent,
+        [],
+        'seeAllProjectsCTA'
+      )
+    }}
+  </div>
+
+  <div class="mm-col">
+    {{
+      mediaList(
+        'Recently Added Books',
+        data.booksByMostRecent,
+        [],
+        'seeAllBooksCTA'
+      )
+    }}
+  </div>
+
+  <div class="mm-footer">
+    <hr class="separator" />
+
+    <button
+      class="hide-mega-menu-button"
+    >Hide menu</button>
+
+    {{ seeAllCTA('seeAllProjectsMediaCTA') }}
+  </div>
+</section>

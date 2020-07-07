@@ -1,31 +1,17 @@
-{%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+{%- from 'macros/featured-piece.njk' import featuredEvent -%}
 
 
 {# FIXME: figure out better way to get widget data #}
 {% set hasProject = data.widget._pieces.length > 0 %}
 
 {%- if hasProject -%}
-<article class="featured-piece-widget featured-event-widget">
+  {%- set piece = data.widget._pieces[0] -%}
+
   {%- if data.widget.isSponsored -%}
-    <p class="feature-type">Sponsored Event</p>
+    {%- set label = 'Sponsored Event' -%}
   {%- else -%}
-    <p class="feature-type">Featured Event</p>
+    {%- set label = 'Featured Event' -%}
   {%- endif -%}
 
-  {%- set piece = data.widget._pieces[0] -%}
-  <h1>{{ piece.title }}</h1>
-
-  <p class="byline">
-    {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ piece.country }}
-  </p>
-
-  {{ heroImage(piece) }}
-
-  <div class="text-container">
-    {{ truncatedDescription(piece) }}
-
-    <a class="cta" href="{{ piece._url }}">View Details</a>
-  </div>
-</article>
+  {{ featuredEvent(piece, label) }}
 {%- endif -%}

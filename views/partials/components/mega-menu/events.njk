@@ -1,0 +1,110 @@
+{%- from 'macros/featured-piece.njk' import featuredEvent -%}
+
+
+{% macro seeAllCTA(propName) %}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.global,
+        propName,
+        'aem-link'
+      )
+    }}
+  </div>
+{% endmacro %}
+
+
+{%- macro eventList(heading, pieces, tags, ctaPropName) -%}
+  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
+  {%- set list = apos.aemArrays.truncate(list, 2) -%}
+
+  <div class="list-container">
+    <div class="list-heading">{{ heading }}</div>
+    <ul class="list">
+      {% for listItem in list %}
+        {%- if listItem.endDate -%}
+          {%- set displayDate = apos.aem.formatDate(listItem.startDate) + ' — ' + apos.aem.formatDate(listItem.endDate) -%}
+        {%- else -%}
+          {%- set displayDate = apos.aem.formatDate(listItem.startDate) -%}
+        {%- endif -%}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >
+            <span class="piece-title">{{ listItem.title }}</span>
+            <br>
+            <span>{{ listItem.city }}, {{ listItem.country }}, {{ displayDate }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{ seeAllCTA(ctaPropName) }}
+  </div>
+{%- endmacro -%}
+
+
+<section
+  id="mmEvents"
+  class="events-section"
+>
+  <div class="mm-col">
+    {% include "partials/events/featured.njk" %}
+  </div>
+
+  <div class="mm-col">
+    {%- set nextEvent = data.orderedEvents[0] -%}
+    {{ featuredEvent(nextEvent, 'Next Event') }}
+  </div>
+
+  <div class="mm-col">
+    {%- set nextEvents = apos.aemArrays.splice(data.orderedEvents, 0) -%}
+    {{
+      eventList(
+        'Next Festivals and Conferences',
+        nextEvents,
+        ['festival', 'conference'],
+        'seeAllFestivalsCTA'
+      )
+    }}
+
+    {{
+      eventList(
+        'Recently Added Festivals and Conferences',
+        data.eventsByMostRecent,
+        ['festival', 'conference'],
+        'seeAllFestivalsCTA'
+      )
+    }}
+  </div>
+
+  <div class="mm-col">
+    {{
+      eventList(
+        'Next Workshops',
+        data.orderedEvents,
+        ['workshop'],
+        'seeAllWorkshopsCTA'
+      )
+    }}
+
+    {{
+      eventList(
+        'Recenty Added Workshops',
+        data.eventsByMostRecent,
+        ['workshop'],
+        'seeAllWorkshopsCTA'
+      )
+    }}
+  </div>
+
+  <div class="mm-footer">
+    <hr class="separator" />
+
+    <button
+      class="hide-mega-menu-button"
+    >Hide menu</button>
+
+    {{ seeAllCTA('seeAllEventsCTA') }}
+  </div>
+</section>
