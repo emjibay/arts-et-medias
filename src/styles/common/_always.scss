@@ -88,16 +88,16 @@ body {
 .website-cta {
   @include button();
   color: $white;
-  font-size: 11pt;
+  font-size: $fsSmol;
 
   @media #{$mqDesktop} {
-    font-size: 10pt;
+    font-size: $fsVerySmol;
   }
 }
 
 .separator {
   border: none;
-  border-bottom: 1px solid $halfGrey;
+  border-bottom: 1px solid $lightGrey;
   margin: 30px auto;
   width: 66%;
 }

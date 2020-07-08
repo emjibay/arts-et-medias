@@ -46,12 +46,12 @@ $hideDuration: 325ms;
   }
 
   .menu-panel {
-    @include transform(translateY(-650px), $hideDuration);
+    @include transform(translateY(-1000px), $hideDuration);
     position: absolute;
     background-color: $white;
     border-bottom: 1px solid $black;
     filter: drop-shadow(0 5px 5px rgba(black, 0.125));
-    padding: 25px 0 35px;
+    padding: 20px 0 30px;
     pointer-events: all;
     width: 100%;
 
@@ -161,7 +161,7 @@ $hideDuration: 325ms;
 
   .list-container {
     &:not(:first-of-type) {
-      margin-top: 40px;
+      margin-top: 20px;
     }
 
     .list-heading {
@@ -183,8 +183,7 @@ $hideDuration: 325ms;
         display: inline-block;
         text-decoration: none;
         font-size: $fsVerySmol;
-        line-height: 1.75;
-        margin-top: -3px;
+        line-height: 1.5;
 
         .piece-title {
           font-family: $ffHeading;
@@ -201,6 +200,8 @@ $hideDuration: 325ms;
       padding: 0;
 
       li {
+        margin: 5px 0;
+
         @media #{$mqDesktop} {
           margin-top: getGutterHalfWidth($desktop);
         }
@@ -285,6 +286,7 @@ $hideDuration: 325ms;
       background-color: transparent;
       border: none;
       color: $black;
+      line-height: 1;
       padding: 0;
 
       &:hover {
@@ -296,23 +298,13 @@ $hideDuration: 325ms;
     }
   }
 
+  .separator {
+    margin: 25px auto;
+  }
+
   .mm-footer {
     display: block;
-    margin-top: 35px;
     text-align: center;
-
-    .mm-footer-col {
-      @include nColumnWidth(6);
-      display: inline-block;
-      vertical-align: top;
-
-      // &.left {}
-
-      &.right {
-        @include gutterLeftMargin();
-        text-align: right;
-      }
-    }
 
     .hide-mega-menu-button {
       @include anchor();
