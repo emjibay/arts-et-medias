@@ -27,20 +27,7 @@
     <div class="list-heading">{{ options.heading }}</div>
     <ul class="list">
       {% for listItem in list %}
-        {%- set numAuthors = listItem._author|length -%}
-        {%- if numAuthors == 1 -%}
-          {%- set authorList = listItem._author[0].title -%}
-        {%- else -%}
-          {% for author in listItem._author %}
-            {%- if loop.first -%}
-              {%- set authorList = author.title -%}
-            {%- elseif loop.last -%}
-              {%- set authorList = authorList + ', and ' + author.title -%}
-            {%- else -%}
-              {%- set authorList = authorList + ', ' + author.title -%}
-            {%- endif -%}
-          {% endfor %}
-        {%- endif -%}
+        {%- set authorList = apos.aemPieces.getAuthorList(listItem) -%}
         <li>
           <a
             class="list-item"
