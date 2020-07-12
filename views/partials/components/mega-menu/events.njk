@@ -16,7 +16,7 @@
 
 {%- macro eventList(heading, pieces, tags, ctaPropName) -%}
   {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
-  {%- set list = apos.aemArrays.truncate(list, 2) -%}
+  {%- set list = apos.aemArrays.truncate(list, 3) -%}
 
   <div class="list-container">
     <div class="list-heading">{{ heading }}</div>
@@ -67,7 +67,9 @@
         'seeAllFestivalsCTA'
       )
     }}
+  </div>
 
+  <div class="mm-col">
     {{
       eventList(
         'Recently Added Festivals',
@@ -76,9 +78,8 @@
         'seeAllFestivalsCTA'
       )
     }}
-  </div>
-
-  <div class="mm-col">
+    {#
+    TODO: bring back workshops when there are more
     {{
       eventList(
         'Next Workshops',
@@ -96,6 +97,7 @@
         'seeAllWorkshopsCTA'
       )
     }}
+    #}
   </div>
 
   <div class="mm-footer">

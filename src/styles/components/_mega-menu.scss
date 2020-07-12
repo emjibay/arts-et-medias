@@ -24,7 +24,7 @@ $hideDuration: 325ms;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
-  margin: 20px 0 10px 0;
+  margin: 10px 0;
 }
 
 
@@ -51,7 +51,7 @@ $hideDuration: 325ms;
     background-color: $white;
     border-bottom: 1px solid $black;
     filter: drop-shadow(0 5px 5px rgba(black, 0.125));
-    padding: 20px 0 30px;
+    padding: 20px 0;
     pointer-events: all;
     width: 100%;
 
@@ -116,6 +116,10 @@ $hideDuration: 325ms;
   .featured-piece-widget {
     @include nColumnWidth(3);
 
+    .feature-type {
+      margin-top: 7.5px;
+    }
+
     h1 {
       font-size: $fsTextBody;
     }
@@ -146,12 +150,13 @@ $hideDuration: 325ms;
     .byline-and-date {
       * {
         font-size: $fsVerySmol;
+        line-height: 1.375
       }
     }
 
     p {
-      font-size: $fsSmol;
-      line-height: 1.5;
+      font-size: $fsVerySmol;
+      line-height: 1.375;
     }
   }
 
@@ -160,10 +165,6 @@ $hideDuration: 325ms;
   }
 
   .list-container {
-    &:not(:first-of-type) {
-      margin-top: 20px;
-    }
-
     .list-heading {
       @include heading();
     }
@@ -175,7 +176,7 @@ $hideDuration: 325ms;
       li {
         @include unorderedListItem();
         line-height: 1;
-        margin: 10px 0;
+        margin: 7.5px 0;
       }
 
       .list-item {
@@ -183,7 +184,7 @@ $hideDuration: 325ms;
         display: inline-block;
         text-decoration: none;
         font-size: $fsVerySmol;
-        line-height: 1.5;
+        line-height: 1.25;
 
         .piece-title {
           font-family: $ffHeading;
@@ -203,15 +204,7 @@ $hideDuration: 325ms;
         margin: 5px 0;
 
         @media #{$mqDesktop} {
-          margin-top: getGutterHalfWidth($desktop);
-        }
-
-        @media #{$mqXL} {
-          margin-top: getGutterHalfWidth($xl);
-        }
-
-        @media #{$mqXXL} {
-          margin-top: getGutterHalfWidth($xxl);
+          margin-top: 15px;
         }
       }
 
@@ -220,6 +213,8 @@ $hideDuration: 325ms;
 
         .profile-pic-container {
           display: inline-block;
+          font-size: 0;
+          line-height: 0;
           vertical-align: top;
 
           .fig-headshot {
@@ -270,11 +265,13 @@ $hideDuration: 325ms;
 
           .person-description {
             :first-child {
-              margin-top: 10px;
+              margin-top: 5px;
             }
 
             * {
               font-size: $fsVerySmol;
+              line-height: 1.5;
+              margin: 0;
             }
           }
         }
@@ -286,6 +283,7 @@ $hideDuration: 325ms;
       background-color: transparent;
       border: none;
       color: $black;
+      height: 25px;
       line-height: 1;
       padding: 0;
 
@@ -299,7 +297,7 @@ $hideDuration: 325ms;
   }
 
   .separator {
-    margin: 25px auto;
+    margin: 20px auto;
   }
 
   .mm-footer {
