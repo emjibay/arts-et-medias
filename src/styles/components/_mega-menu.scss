@@ -117,7 +117,9 @@ $hideDuration: 325ms;
     @include nColumnWidth(3);
 
     .feature-type {
+      margin-bottom: 7.5px;
       margin-top: 7.5px;
+      padding-bottom: 7.5px;
     }
 
     h1 {
