@@ -26,7 +26,9 @@
 
   {{ heroImage(piece) }}
 
-  {{ truncatedDescription(piece) }}
+  <div class="short-description">
+    {{ truncatedDescription(piece) }}
+  </div>
 
   <a class="cta" href="{{ piece._url }}">View Project</a>
 </article>

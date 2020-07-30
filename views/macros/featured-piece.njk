@@ -19,7 +19,9 @@
 
     {{ heroImage(piece) }}
 
-    {{ truncatedDescription(piece) }}
+    <div class="short-description">
+      {{ truncatedDescription(piece) }}
+    </div>
 
     <a class="cta" href="{{ piece._url }}">Read Article</a>
   </article>
@@ -38,7 +40,9 @@
     {{ heroImage(piece) }}
 
     <div class="text-container">
-      {{ truncatedDescription(piece) }}
+      <div class="short-description">
+        {{ truncatedDescription(piece) }}
+      </div>
 
       <a class="cta" href="{{ piece._url }}">View Details</a>
     </div>
