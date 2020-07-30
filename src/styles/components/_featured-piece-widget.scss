@@ -27,10 +27,7 @@
   }
 
   .feature-type {
-    font-family: $ffTextBody;
-    font-size: $fsVerySmol;
-    font-weight: bold;
-    margin-bottom: 0;
+    @include contentTypeHeading();
   }
 
   // TODO: rename to .heading

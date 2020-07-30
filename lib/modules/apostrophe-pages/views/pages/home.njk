@@ -1,7 +1,55 @@
 {% extends "layouts/layout.njk" %}
 
 {%- from 'macros/metadata.njk' import minimalMetaData -%}
-{%- from 'macros/piece-index.njk' import articleList, eventList, projectList -%}
+{%- from 'macros/piece-index.njk' import articleList, eventList, bookList, projectList -%}
+
+{% macro seeAllArticlesCTA() %}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllArticlesCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+{% endmacro %}
+
+{% macro seeAllEventsCTA() %}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllEventsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+{% endmacro %}
+
+{% macro seeAllProjectsCTA() %}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllProjectsCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+{% endmacro %}
+
+{% macro seeAllBooksCTA() %}
+  <div class="see-all-cta">
+    {{
+      apos.singleton(
+        data.page,
+        'seeAllBooksCTA',
+        'aem-link'
+      )
+    }}
+  </div>
+{% endmacro %}
 
 
 {% block title %}
@@ -27,86 +75,102 @@
 
           <div class="page-content">
             <section class="articles-section">
-              <h2 class="sr-only">Articles</h2>
-              {% include "partials/articles/featured.njk" %}
-
-              <h3 class="latest-pieces-heading">Recently Added Articles</h3>
-              {%-
-                set recentArticles = apos.aemPieces.getFirstTwo(
-                  data.articlesByMostRecent
-                )
-              -%}
-              {{ articleList(recentArticles) }}
-
-              <div class="see-all-cta">
-                {{
-                  apos.singleton(
-                    data.page,
-                    'seeAllArticlesCTA',
-                    'aem-link'
-                  )
-                }}
+              <div class="section-heading">
+                <h2 class="h2">Articles & News</h2>
+                {{ seeAllArticlesCTA() }}
               </div>
+
+              <div class="featured-article">
+                {% include "partials/articles/featured.njk" %}
+              </div>
+
+              <div class="recently-added-articles">
+                <h3 class="latest-pieces-heading">Recently Added Articles</h3>
+                {%-
+                  set recentArticles = apos.aemPieces.getFirstN(
+                    data.articlesByMostRecent,
+                    3
+                  )
+                -%}
+                {{ articleList(recentArticles) }}
+              </div>
+
+              {% include "partials/home/sidebar-en.njk" %}
+
+              {{ seeAllArticlesCTA() }}
             </section>
 
             <section class="events-section">
-              <h2 class="sr-only">Events</h2>
-              {% include "partials/events/featured.njk" %}
-
-              <h3 class="latest-pieces-heading">Next Workshops</h3>
-              {%-
-                set nextWorkshops = apos.aemPieces.getFirstTwoWithTags(
-                  data.orderedEvents,
-                  ['workshop']
-                )
-              -%}
-              {{ eventList(nextWorkshops) }}
-
-              <h3 class="latest-pieces-heading">Next Festivals</h3>
-              {%-
-                set nextFestivals = apos.aemPieces.getFirstTwoWithTags(
-                  data.orderedEvents,
-                  ['festival']
-                )
-              -%}
-              {{ eventList(nextFestivals) }}
-
-              <div class="see-all-cta">
-                {{
-                  apos.singleton(
-                    data.page,
-                    'seeAllEventsCTA',
-                    'aem-link'
-                  )
-                }}
+              <div class="section-heading">
+                <h2 class="h2">Events</h2>
+                {{ seeAllEventsCTA() }}
               </div>
+
+              <div class="featured-piece">
+                {% include "partials/events/featured.njk" %}
+              </div>
+
+              <div class="latest-pieces">
+                <h3 class="latest-pieces-heading">Next Festivals</h3>
+                {%-
+                  set nextFestivals = apos.aemPieces.getFirstTwoWithTags(
+                    data.orderedEvents,
+                    ['festival']
+                  )
+                -%}
+                {{ eventList(nextFestivals) }}
+              </div>
+
+              {{ seeAllEventsCTA() }}
             </section>
 
             <section class="projects-section">
-              <h2 class="sr-only">Projects</h2>
-              {% include "partials/projects/featured.njk" %}
-
-              <h3 class="latest-pieces-heading">Recently Added Projects</h3>
-              {%-
-                set recentProjects = apos.aemPieces.getFirstTwo(
-                  data.projectsByMostRecent
-                )
-              -%}
-              {{ projectList(recentProjects) }}
-
-              <div class="see-all-cta">
-                {{
-                  apos.singleton(
-                    data.page,
-                    'seeAllProjectsCTA',
-                    'aem-link'
-                  )
-                }}
+              <div class="section-heading">
+                <h2 class="h2">Projects</h2>
+                {{ seeAllProjectsCTA() }}
               </div>
+
+              <div class="featured-piece">
+                {% include "partials/projects/featured.njk" %}
+              </div>
+
+              <div class="latest-pieces">
+                <h3 class="latest-pieces-heading">Recently Added Projects</h3>
+                {%-
+                  set recentProjects = apos.aemPieces.getFirstTwo(
+                    data.projectsByMostRecent
+                  )
+                -%}
+                {{ projectList(recentProjects) }}
+              </div>
+
+              {{ seeAllProjectsCTA() }}
+            </section>
+
+            <section class="books-section">
+              <div class="section-heading">
+                <h2 class="h2">Books</h2>
+                {{ seeAllBooksCTA() }}
+              </div>
+
+              <div class="featured-piece">
+                {% include "partials/books/featured.njk" %}
+              </div>
+
+              <div class="latest-pieces">
+                <h3 class="latest-pieces-heading">Recently Added Books</h3>
+                {%-
+                  set recentBooks = apos.aemPieces.getFirstTwo(
+                    data.booksByMostRecent
+                  )
+                -%}
+                {{ bookList(recentBooks) }}
+              </div>
+
+              {{ seeAllBooksCTA() }}
             </section>
           </div>
 
-          {% include "partials/home/sidebar-en.njk" %}
         </article>
       </main>
     </div>

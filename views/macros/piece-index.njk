@@ -39,7 +39,9 @@
               </ul>
             {% endif %}
 
-            {{ truncatedDescription(piece) }}
+            <div class="short-description">
+              {{ truncatedDescription(piece) }}
+            </div>
 
             <div class="piece-cta">View Details</div>
           </article>
@@ -70,9 +72,50 @@
 
             {{ heroImage(piece) }}
 
-            <p>{{ piece.shortDescription }}</p>
+            <p class="short-description">
+              {{ piece.shortDescription }}
+            </p>
 
             <div class="piece-cta">Read Article</div>
+          </article>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}
+
+{%- macro bookList(pieces) -%}
+  <ul class="piece-list book-list">
+    {% for piece in pieces %}
+      <li class="list-item">
+        <a
+          href="{{ piece._url }}"
+          class="piece-link"
+        >
+          <article class="piece-card">
+            <p class="heading">{{ piece.title }}</p>
+
+            <ul class="byline-list">
+              {% for author in piece._author %}
+                <li>
+                  <p>{{ author.title }}</p>
+                </li>
+              {% endfor %}
+            </ul>
+
+            <div>
+              <div class="image-content">
+                {{ heroImage(piece) }}
+              </div>
+
+              <div class="text-content">
+                <div class="short-description">
+                  {{ truncatedDescription(piece) }}
+                </div>
+
+                <div class="piece-cta">View Details</div>
+              </div>
+            </div>
           </article>
         </a>
       </li>
@@ -99,7 +142,9 @@
               {% endfor %}
             </ul>
 
-            {{ truncatedDescription(piece) }}
+            <div class="short-description">
+              {{ truncatedDescription(piece) }}
+            </div>
 
             <div class="piece-cta">View Details</div>
           </article>
@@ -124,7 +169,9 @@
               {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ piece.country }}
             </p>
 
-            {{ truncatedDescription(piece) }}
+            <div class="short-description">
+              {{ truncatedDescription(piece) }}
+            </div>
 
             <div class="piece-cta">View Details</div>
           </article>
@@ -149,7 +196,9 @@
               <p class="org-location">{{ piece.city }}, {{ piece.country }}</p>
             {%- endif -%}
 
-            {{ truncatedDescription(piece) }}
+            <div class="short-description">
+              {{ truncatedDescription(piece) }}
+            </div>
 
             <div class="piece-cta">View Details</div>
           </article>
@@ -180,9 +229,11 @@
 
             {{ heroImage(piece) }}
 
-            {{ truncatedDescription(piece) }}
+            <div class="short-description">
+              {{ truncatedDescription(piece) }}
+            </div>
 
-            <div class="piece-cta">View Project Details</div>
+            <div class="piece-cta">View Project</div>
           </article>
         </a>
       </li>
@@ -201,7 +252,9 @@
           <article class="piece-card">
             <p class="heading">{{ piece.title }}</p>
 
-            {{ truncatedDescription(piece) }}
+            <div class="short-description">
+              {{ truncatedDescription(piece) }}
+            </div>
 
             <div class="piece-cta">View Details</div>
 

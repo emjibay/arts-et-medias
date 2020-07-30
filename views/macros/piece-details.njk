@@ -15,17 +15,18 @@
     {%- if options.alwaysTruncate -%}
       {%- set descriptionText = descriptionText | truncate(truncLength, true, "...") -%}
     {%- endif -%}
+    <p>{{ descriptionText }}</p>
 
   {%- elseif piece.description.items -%}
     {%- set descriptionText = piece.description.items[0].content | safe -%}
     {%- set descriptionText = descriptionText | truncate(truncLength, true, "...") -%}
+    {{ descriptionText }}
 
   {%- else -%}
     {%- set descriptionText = piece.description -%}
     {%- set descriptionText = descriptionText | truncate(truncLength, true, "...") -%}
+    {{ descriptionText }}
   {%- endif -%}
-
-  <p>{{ descriptionText }}</p>
 {%- endmacro -%}
 
 {%- macro websiteCTA(piece) -%}

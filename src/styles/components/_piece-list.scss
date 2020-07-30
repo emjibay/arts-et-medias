@@ -41,9 +41,14 @@
     color: $black;
 
     .heading {
-      @include heading4();
+      @include heading5();
+      @include headingBase();
       line-height: 1;
       margin: 0;
+
+      @media #{$mqDesktop} {
+        @include heading4();
+      }
     }
 
     .byline-list {

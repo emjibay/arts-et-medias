@@ -63,8 +63,11 @@
   font-family: $ffTextBody;
   font-size: $fsVerySmol;
   font-weight: bold;
-  margin-bottom: 0;
+  line-height: 1;
+  margin-bottom: 20px;
+  margin-top: 20px;
   padding-bottom: 10px;
+  vertical-align: top;
 }
 
 @mixin minorText {
@@ -166,13 +169,20 @@
 }
 
 @mixin anchor {
+  background-color: transparent;
+  border: none;
+  color: $black;
   cursor: pointer;
   font-family: $ffTextBody;
   font-style: normal;
   font-weight: normal;
+  height: inherit;
+  line-height: inherit;
+  padding: 0;
+  text-align: inherit;
   text-decoration: underline;
-  text-decoration-thickness: 2px;
   text-decoration-color: $main;
+  text-decoration-thickness: 2px;
 
   &:hover {
     color: $main;

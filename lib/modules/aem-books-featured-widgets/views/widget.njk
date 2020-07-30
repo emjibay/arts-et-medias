@@ -24,10 +24,18 @@
     {% endfor %}
   </ul>
 
-  {{ heroImage(piece) }}
+  <div>
+    <div class="image-content">
+      {{ heroImage(piece) }}
+    </div>
 
-  {{ truncatedDescription(piece) }}
+    <div class="text-content">
+      <div class="short-description">
+        {{ truncatedDescription(piece) }}
+      </div>
 
-  <a class="cta" href="{{ piece._url }}">View Details</a>
+      <a class="cta" href="{{ piece._url }}">View Details</a>
+    </div>
+  </div>
 </article>
 {%- endif -%}

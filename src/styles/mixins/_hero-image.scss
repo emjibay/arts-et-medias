@@ -1,0 +1,100 @@
+@import 'functions';
+
+
+@mixin heroImageDimensions($colSpan, $heightRatio) {
+  $width: getColumnsSpan($colSpan, $phone);
+  $imgWidth: $width;
+  $imgHeight: calc(#{ $width } * #{ $heightRatio });
+  height: $imgHeight;
+  width: $imgWidth;
+  object-fit: cover;
+
+  @media #{$mqTablet} {
+    $width: getColumnsSpan($colSpan, $tablet);
+    $imgWidth: $width;
+    $imgHeight: calc(#{ $width } * #{ $heightRatio });
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+
+  @media #{$mqDesktop} {
+    $width: getColumnsSpan($colSpan, $desktop);
+    $imgWidth: $width;
+    $imgHeight: calc(#{ $width } * #{ $heightRatio });
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+
+  @media #{$mqXL} {
+    $width: getColumnsSpan($colSpan, $xl);
+    $imgWidth: $width;
+    $imgHeight: calc(#{ $width } * #{ $heightRatio });
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+
+  @media #{$mqXXL} {
+    $width: getColumnsSpan($colSpan, $xxl);
+    $imgWidth: $width;
+    $imgHeight: calc(#{ $width } * #{ $heightRatio });
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+}
+
+@mixin heroImageFullHeight($colSpan) {
+  width: getColumnsSpan($colSpan, $phone);
+  height: auto;
+  object-fit: cover;
+
+  @media #{$mqTablet} {
+    width: getColumnsSpan($colSpan, $tablet);
+    height: auto;
+  }
+
+  @media #{$mqDesktop} {
+    width: getColumnsSpan($colSpan, $desktop);
+    height: auto;
+  }
+
+  @media #{$mqXL} {
+    width: getColumnsSpan($colSpan, $xl);
+    height: auto;
+  }
+
+  @media #{$mqXXL} {
+    width: getColumnsSpan($colSpan, $xxl);
+    height: auto;
+  }
+}
+
+@mixin heroImageContainedInSquare($colSpan) {
+  $imgSize: getColumnsSpan($colSpan, $phone);
+  height: $imgSize;
+  width: $imgSize;
+  object-fit: contain;
+
+  @media #{$mqTablet} {
+    $imgSize: getColumnsSpan($colSpan, $tablet);
+    height: $imgSize;
+    width: $imgSize;
+  }
+
+  @media #{$mqDesktop} {
+    $imgSize: getColumnsSpan($colSpan, $desktop);
+    height: $imgSize;
+    width: $imgSize;
+  }
+
+  @media #{$mqXL} {
+    $imgSize: getColumnsSpan($colSpan, $xl);
+    height: $imgSize;
+    width: $imgSize;
+  }
+
+  @media #{$mqXXL} {
+    $imgSize: getColumnsSpan($colSpan, $xxl);
+    height: $imgSize;
+    width: $imgSize;
+  }
+}

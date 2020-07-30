@@ -1,31 +1,324 @@
 @import '../common/variables';
 @import '../common/ui';
 
+@mixin sectionHeadingCTA {
+  .section-heading {
+    .see-all-cta {
+      display: none;
+
+      @media #{$mqTablet} {
+        display: block;
+        top: -50px;
+      }
+    }
+  }
+}
+
+@mixin endOfSectionCTA {
+  .see-all-cta {
+    display: block;
+    margin-top: 50px;
+
+    .website-cta {
+      display: block;
+    }
+
+    @media #{$mqTablet} {
+      display: none;
+    }
+  }
+}
 
 .home {
   padding-top: 20px;
 
   .page-content {
-    section {
-      margin-bottom: 60px;
-    }
+    width: 100%;
+  }
+
+  section {
+    display: inline-block;
+    width: 100%;
   }
 
   .latest-pieces-heading {
     @include contentTypeHeading();
-    margin-top: 60px;
+  }
+
+  .section-heading {
+    position: relative;
+    border-bottom: 2px solid $lightGrey;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+
+    .h2 {
+      margin-top: 0;
+    }
+
+    .see-all-cta {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .articles-section {
+    @include sectionHeadingCTA();
+
+    .featured-article {
+      @include nColumnWidth(6);
+
+      .featured-article-widget {
+        width: 100%;
+      }
+
+      .hero-image {
+        @include heroImageDimensions(6, 9/16);
+      }
+
+      @media #{$mqTablet} {
+        @include nColumnWidth(12);
+
+        .hero-image {
+          @include heroImageDimensions(12, 0.25);
+        }
+      }
+
+      @media #{$mqDesktop} {
+        @include nColumnWidth(9);
+
+        .hero-image {
+          @include heroImageDimensions(9, 0.25);
+        }
+      }
+    }
+
+    .recently-added-articles {
+      @include nColumnWidth(6);
+
+      @media #{$mqTablet} {
+        @include nColumnWidth(12);
+      }
+
+      @media #{$mqDesktop} {
+        @include nColumnWidth(9);
+      }
+
+      .latest-pieces-heading {
+        margin-top: 50px;
+      }
+
+      .list-item,
+      .article-card {
+        @include nColumnWidth(6);
+
+        @media #{$mqTablet} {
+          @include nColumnWidth(4);
+        }
+
+        @media #{$mqDesktop} {
+          @include nColumnWidth(3);
+        }
+      }
+
+      .list-item {
+        &:not(:first-of-type) {
+          @media #{$mqTablet} {
+            @include gutterLeftMargin();
+          }
+        }
+      }
+
+      .article-card {
+        .hero-image {
+          @include heroImageDimensions(6, 0.375);
+
+          @media #{$mqTablet} {
+            @include heroImageDimensions(4, 0.5);
+          }
+
+          @media #{$mqDesktop} {
+            @include heroImageDimensions(3, 0.5);
+          }
+        }
+        .short-description {
+          font-size: $fsSmol;
+        }
+      }
+    }
+
+    .home-sidebar {
+      @include nColumnWidth(3);
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 52px;
+
+      @media #{$mqDesktop} {
+        display: block;
+      }
+
+      .tweets-heading {
+        @include contentTypeHeading();
+        margin-bottom: 20px;
+      }
+
+      .search-input {
+        @media #{$mqDesktop} {
+          width: 110px;
+        }
+
+        @media #{$mqXL} {
+          width: 150px;
+        }
+
+        @media #{$mqXXL} {
+          width: 190px;
+        }
+      }
+    }
+
+    @include endOfSectionCTA();
+  }
+
+  .events-section,
+  .projects-section,
+  .books-section {
+    margin-top: 50px;
+
+    @media #{$mqDesktop} {
+      margin-top: 75px;
+    }
+
+    @include sectionHeadingCTA();
+
+    .featured-piece {
+      @include nColumnWidth(6);
+      display: inline-block;
+      vertical-align: top;
+
+      .featured-piece-widget {
+        @include nColumnWidth(6);
+        display: inline-block;
+      }
+
+      .hero-image {
+        @include heroImageDimensions(6, 9/16);
+
+        @media #{$mqDesktop} {
+          @include heroImageDimensions(6, 0.5);
+        }
+      }
+
+      .cta {
+        @include anchor();
+        display: block;
+        margin-top: 10px;
+        font-size: $fsTextBody;
+      }
+    }
+
+    .latest-pieces {
+      @include nColumnWidth(6);
+      display: inline-block;
+      margin-top: 20px;
+      vertical-align: top;
+
+      @media #{$mqTablet} {
+        @include gutterLeftMargin();
+        margin-top: 0;
+      }
+
+      .list-item,
+      .article-card {
+        @include nColumnWidth(3);
+      }
+
+      .list-item {
+        &:not(:first-of-type) {
+          @include gutterLeftMargin();
+          margin-top: 0;
+        }
+      }
+
+      .piece-card {
+        .hero-image {
+          @include heroImageDimensions(3, 0.5);
+
+          @media #{$mqDesktop} {
+            @include heroImageDimensions(3, 0.5);
+          }
+        }
+        .short-description * {
+          font-size: $fsSmol;
+        }
+      }
+    }
+
+    @include endOfSectionCTA();
+  }
+
+  .books-section {
+    .featured-piece {
+      .image-content {
+        @media #{$mqDesktop} {
+          @include nColumnWidth(3);
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+
+      .hero-image {
+        @include heroImageContainedInSquare(6);
+
+        @media #{$mqTablet} {
+          @include heroImageFullHeight(6);
+        }
+
+        @media #{$mqDesktop} {
+          @include heroImageFullHeight(3);
+        }
+      }
+
+      .text-content {
+        @media #{$mqDesktop} {
+          @include gutterLeftMargin();
+          @include nColumnWidth(3);
+          display: inline-block;
+          vertical-align: top;
+
+          .short-description{
+            :first-child {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .latest-pieces {
+      .piece-card {
+        .hero-image {
+          @include heroImageFullHeight(3);
+
+          @media #{$mqDesktop} {
+            @include heroImageContainedInSquare(3);
+          }
+        }
+      }
+    }
   }
 
   .piece-list {
     margin-bottom: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
 
     .list-item {
       margin-bottom: 0;
-    }
-  }
 
-  .see-all-cta {
-    margin-top: 60px;
+      .piece-link {
+        width: 100%;
+      }
+    }
   }
 }
