@@ -127,24 +127,7 @@ $hideDuration: 325ms;
     }
 
     .hero-image {
-      @media #{$mqDesktop} {
-        $imgWidth: getColumnsSpan(3, $desktop);
-        $imgHeight: calc(#{$imgWidth} * 0.2);
-        width: $imgWidth;
-        height: $imgHeight;
-      }
-      @media #{$mqXL} {
-        $imgWidth: getColumnsSpan(3, $xl);
-        $imgHeight: calc(#{$imgWidth} * 0.2);
-        width: $imgWidth;
-        height: $imgHeight;
-      }
-      @media #{$mqXXL} {
-        $imgWidth: getColumnsSpan(3, $xxl);
-        $imgHeight: calc(#{$imgWidth} * 0.2);
-        width: $imgWidth;
-        height: $imgHeight;
-      }
+      @include heroImageDimensions(3, 0.25);
     }
 
     .byline,
