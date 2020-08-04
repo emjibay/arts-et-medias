@@ -49,32 +49,6 @@
   {%- endif -%}
 {% endmacro %}
 
-{% macro relatedContent(piece) %}
-  {%- set hasRelatedPeople = piece._relatedPeople|length > 0-%}
-  {%- set hasRelatedOrgs = piece._relatedOrganizations|length > 0-%}
-  {%- set hasRelatedMedia = piece._relatedMedia|length > 0-%}
-  {%- set hasAnyRelatedContent = hasRelatedPeople or hasRelatedOrgs or hasRelatedMedia -%}
-
-  {%- if hasAnyRelatedContent -%}
-    <dl class="piece-props-list">
-      {%- if hasRelatedPeople -%}
-        <dt>Related People</dt>
-        <dd>{{ sortedPieceLinkList(piece._relatedPeople) }}</dd>
-      {%- endif -%}
-
-      {%- if hasRelatedOrgs -%}
-        <dt>Related Organizations</dt>
-        <dd>{{ sortedPieceLinkList(piece._relatedOrganizations) }}</dd>
-      {%- endif -%}
-
-      {%- if hasRelatedMedia -%}
-        <dt>Related Media</dt>
-        <dd>{{ sortedPieceLinkList(piece._relatedMedia) }}</dd>
-      {%- endif -%}
-    </dl>
-  {%- endif -%}
-{% endmacro %}
-
 {% macro relatedOrganizations(organizations) %}
   {# collectives #}
   {{
@@ -153,6 +127,18 @@
     )
   -%}
   {{ relatedPieces('Related Organizations', otherOrgs) }}
+{% endmacro %}
+
+{% macro relatedContent(piece) %}
+  {{ relatedPieces('Related Articles', piece._relatedArticles) }}
+
+  {{ relatedPieces('Related Books', piece._relatedBooks) }}
+
+  {{ relatedPieces('Related People', piece._relatedPeople) }}
+
+  {{ relatedOrganizations(piece._relatedOrganizations) }}
+
+  {{ relatedPieces('Related Media', piece._relatedMedia) }}
 {% endmacro %}
 
 {% macro relatedTaggedPieces(label, pieces, tags) %}
