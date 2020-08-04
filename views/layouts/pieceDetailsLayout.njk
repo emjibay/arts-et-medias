@@ -61,7 +61,9 @@
 
               <hr class="separator"/>
 
-              {{ relatedContent(piece) }}
+              {% block relatedContent %}
+                {{ relatedContent(piece) }}
+              {% endblock %}
 
               {{ tags(piece) }}
             {% endblock %}
