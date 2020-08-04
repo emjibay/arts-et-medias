@@ -1413,10 +1413,10 @@ apostrophe-workflow@^2.36.0:
     qs "^6.9.1"
     request-promise "^4.2.5"
 
-apostrophe@^2.108.0:
-  version "2.109.0"
-  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.109.0.tgz#f7428d87de17170a22ebc0686e8a8af7b4d14a59"
-  integrity sha512-u6mWRIrVuLF09lUfEiNBY8zzVFD0Ds4d9iB5iBqJkoC6DXe7a2axYIptwqzrEh9J6sHMPUZg/bY3i2+wiJzaYw==
+apostrophe@^2.110.0:
+  version "2.110.0"
+  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.110.0.tgz#20849ade927d348830fd3a9f8bd5ed6f8307117f"
+  integrity sha512-xrg+7lI66nZA/31iFwgMi5zVC7KkdaLFcCXtLkxILwamCs/B1dIGvyvPJwICTv+a8xLkgz1RCGXOfXvcRfiXzA==
   dependencies:
     "@apostrophecms/nunjucks" "^2.5.4"
     "@sailshq/lodash" "^3.10.4"
