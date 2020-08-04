@@ -1,7 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedContent, relatedOrganizations, relatedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
@@ -103,7 +103,14 @@
                 {%- endif -%}
               </dl>
 
-              {{ relatedContent(piece) }}
+              {# FIXME: related articles should work #}
+              {# {{ relatedPieces('Related Articles', piece._books) }} #}
+
+              {{ relatedPieces('Related Media', piece._relatedMedia) }}
+
+              {{ relatedPieces('Related People', piece._relatedPeople) }}
+
+              {{ relatedOrganizations(piece._relatedOrganizations) }}
 
               {{ tags(piece) }}
             </div>

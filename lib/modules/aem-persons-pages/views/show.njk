@@ -1,7 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedPieces, relatedTaggedPieces, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedOrganizations, relatedPieces, relatedTaggedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
@@ -89,60 +89,8 @@
     )
   }}
 
-  {# collectives #}
-  {{
-    relatedTaggedPieces(
-      'Related Collectives',
-      piece._organizations,
-      ['collective']
-    )
-  }}
-
-  {# galleries #}
-  {{
-    relatedTaggedPieces(
-      'Related Galleries',
-      piece._organizations,
-      ['gallery', 'museum']
-    )
-  }}
-
-  {# art centers #}
-  {{
-    relatedTaggedPieces(
-      'Related Art Centers',
-      piece._organizations,
-      ['art center']
-    )
-  }}
-
-  {# academic institutions #}
-  {{
-    relatedTaggedPieces(
-      'Related Academic Institutions',
-      piece._organizations,
-      [
-        'academic institution',
-        'higher education',
-        'university'
-      ]
-    )
-  }}
-
-  {# media labs #}
-  {{
-    relatedTaggedPieces(
-      'Related Media Labs and Research Centers',
-      piece._organizations,
-      [
-        'media lab',
-        'archives',
-        'art research',
-        'research',
-        'research-creation'
-      ]
-    )
-  }}
+  {# organizations #}
+  {{ relatedOrganizations(piece._organizations) }}
 
   {# festivals #}
   {{
