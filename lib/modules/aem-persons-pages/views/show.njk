@@ -72,6 +72,12 @@
       piece._articlesTranslated
     )
   }}
+  {{
+    relatedPieces(
+      'Related Articles',
+      piece._articlesMentioned
+    )
+  }}
 
   {# books #}
   {{
@@ -84,6 +90,12 @@
     relatedPieces(
       'Contributed to the Following Books',
       piece._booksContributed
+    )
+  }}
+  {{
+    relatedPieces(
+      'Related Books',
+      piece._booksMentioned
     )
   }}
 
