@@ -71,6 +71,11 @@
               <hr class="separator"/>
 
               <dl class="piece-props-list">
+                {%- if piece._contributor|length > 0 -%}
+                  <dt>Contributors</dt>
+                  <dd>{{ pieceLinkList(piece._contributor) }}</dd>
+                {%- endif -%}
+
                 <dt>Year</dt>
                 <dd>{{ piece.yearPublished }}</dd>
 
