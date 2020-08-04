@@ -1,11 +1,21 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
+{%- from 'macros/piece-details.njk' import relatedPieces -%}
+
 
 {% block title %}
   {{ data.piece.title }} - Media | Arts et Médias
 {% endblock %}
 
 {% block mainAdditionalClasses %}medium-details{% endblock %}
+
+{% block relatedContent %}
+  {{ relatedPieces('Related Articles', piece._relatedArticles) }}
+
+  {{ relatedPieces('Related Books', piece._relatedBooks) }}
+
+  {{ relatedPieces('Related People', piece._relatedPeople) }}
+{% endblock %}
 
 {% block sidebar %}
   {% include "partials/media/sidebar-en.njk" %}
