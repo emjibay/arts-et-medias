@@ -2,7 +2,7 @@
 
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/metadata.njk' import descriptiveMetaData -%}
+{%- from 'macros/metadata.njk' import articleMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedOrganizations, relatedPieces, tags -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 
@@ -14,11 +14,15 @@
 {% endblock %}
 
 {% block metadata %}
+  {%- set author = apos.aemAuthors.getListFromArticle(piece) -%}
   {{
-    descriptiveMetaData({
-      title: piece.title + ', by ' + apos.aemAuthors.getListFromArticle(piece),
+    articleMetaData({
+      title: piece.title + ', by ' + author,
+      author: author,
+      publicationDate: apos.aemPieces.getISODate(piece),
       description: piece.shortDescription,
       heroImage: piece.heroImage,
+      section: apos.aemPieces.getArticleSection(piece),
       url: piece._url,
       baseUrl: data.baseUrl
     })

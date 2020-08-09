@@ -37,3 +37,43 @@
   <meta property="og:site_name" content="Arts et Médias" />
   <meta property="website" content="{{ options.baseUrl }}" />
 {%- endmacro -%}
+
+{%- macro articleMetaData(options) -%}
+  {# get hero image #}
+  {%- if options.heroImage -%}
+    {%- set aposImageData = apos.images.first(options.heroImage) -%}
+    {%- if aposImageData -%}
+      {%- set imageData = apos.aem.getImageBasicData(aposImageData) -%}
+      {%- set image = imageData.url -%}
+    {%- else -%}
+      {%- set image = '/img/opengraph.jpg' -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- set image = '/img/opengraph.jpg' -%}
+  {%- endif -%}
+
+  {#- og -#}
+  <meta property="og:title" content="{{ options.title }}" />
+  <meta property="og:description" content="{{ options.description }}" />
+  <meta property="og:image" content="{{ options.baseUrl }}{{ image }}" />
+  <meta property="og:url" content="{{ options.baseUrl }}{{ options.url }}" />
+  <meta property="og:site_name" content="Arts et Médias" />
+  {#- TODO: add locale -#}
+  {#- <meta property="og:locale" content="fr_CA" /> -#}
+  {#- og end -#}
+
+  {#- twitter -#}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@arts_et_medias" />
+  <meta name="twitter:title" content="{{ options.title }}" />
+  <meta name="twitter:text:title" content="{{ options.title }}" />
+  <meta name="twitter:description" content="{{ options.description }}" />
+  <meta name="twitter:image:src" content="{{ options.baseUrl }}{{ options.url }}" />
+  {#- twitter end -#}
+
+  {#- other -#}
+  <meta name="author" content="{{ options.author }}" />
+  <meta property="article:section" content="{{ options.section }}" />
+  <meta property="article:published_time" content="{{ options.publicationDate }}"/>
+  <meta property="website" content="{{ options.baseUrl }}" />
+{%- endmacro -%}
