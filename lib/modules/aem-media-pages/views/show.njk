@@ -10,7 +10,14 @@
 {% block mainAdditionalClasses %}medium-details{% endblock %}
 
 {% block relatedContent %}
-  {{ relatedPieces('Related Articles', piece._relatedArticles) }}
+  {%-
+    set relatedArticles = apos.aemArrays.merge(
+      piece._articlesWritten,
+      piece._relatedArticles
+    )
+  -%}
+
+  {{ relatedPieces('Related Articles', relatedArticles) }}
 
   {{ relatedPieces('Related Books', piece._relatedBooks) }}
 
