@@ -1,5 +1,6 @@
 @import '../common/variables';
 @import '../common/ui';
+@import '../mixins/mixins';
 
 
 .featured-piece-widget {
@@ -69,45 +70,19 @@
   }
 
   .hero-image {
-    $width: getColumnsSpan(6, $phone);
-    $imgWidth: $width;
-    $imgHeight: calc(#{$width} * 0.5);
-    height: $imgHeight;
-    width: $imgWidth;
-
+    @include heroImageDimensions(6, 0.5);
     margin-top: 10px;
-    object-fit: cover;
 
     @media #{$mqTablet} {
-      $width: getColumnsSpan(8, $tablet);
-      $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.5);
-      height: $imgHeight;
-      width: $imgWidth;
-    }
-
-    @media #{$mqDesktop} {
-      $width: getColumnsSpan(8, $desktop);
-      $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.5);
-      height: $imgHeight;
-      width: $imgWidth;
+      @include heroImageDimensions(8, 0.5);
     }
 
     @media #{$mqXL} {
-      $width: getColumnsSpan(8, $xl);
-      $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.333);
-      height: $imgHeight;
-      width: $imgWidth;
+      @include heroImageDimensions(8, 0.333);
     }
 
     @media #{$mqXXL} {
-      $width: getColumnsSpan(8, $xxl);
-      $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.25);
-      height: $imgHeight;
-      width: $imgWidth;
+      @include heroImageDimensions(8, 0.25);
     }
   }
 }
@@ -148,72 +123,21 @@
     }
 
     .hero-image {
-      $widgetWidth: getColumnsSpan(6, $phone);
-      $imgWidth: $widgetWidth;
-      $imgHeight: calc(#{$widgetWidth} * 0.5625);
-      height: $imgHeight;
-      width: $imgWidth;
+      $ratio: 0.5625;
+      @include heroImageDimensions(6, $ratio);
 
       @media #{$mqTablet} {
-        $widgetWidth: getColumnsSpan(4, $tablet);
-        $imgWidth: $widgetWidth;
-        $imgHeight: calc(#{$widgetWidth} * 0.5625);
-        height: $imgHeight;
-        width: $imgWidth;
-      }
-
-      @media #{$mqDesktop} {
-        $widgetWidth: getColumnsSpan(4, $desktop);
-        $imgWidth: $widgetWidth;
-        $imgHeight: calc(#{$widgetWidth} * 0.5625);
-        height: $imgHeight;
-        width: $imgWidth;
-      }
-
-      @media #{$mqXL} {
-        $widgetWidth: getColumnsSpan(4, $xl);
-        $imgWidth: $widgetWidth;
-        $imgHeight: calc(#{$widgetWidth} * 0.5625);
-        height: $imgHeight;
-        width: $imgWidth;
-      }
-
-      @media #{$mqXXL} {
-        $widgetWidth: getColumnsSpan(4, $xxl);
-        $imgWidth: $widgetWidth;
-        $imgHeight: calc(#{$widgetWidth} * 0.5625);
-        height: $imgHeight;
-        width: $imgWidth;
+        @include heroImageDimensions(4, $ratio);
       }
     }
 
     &.featured-book-widget {
       .hero-image {
+        @include heroImageContainedInSquare(6);
         margin-top: 10px;
-        object-fit: contain;
 
         @media #{$mqTablet} {
-          $widgetWidth: getColumnsSpan(4, $tablet);
-          height: $widgetWidth;
-          width: $widgetWidth;
-        }
-
-        @media #{$mqDesktop} {
-          $widgetWidth: getColumnsSpan(4, $desktop);
-          height: $widgetWidth;
-          width: $widgetWidth;
-        }
-
-        @media #{$mqXL} {
-          $widgetWidth: getColumnsSpan(4, $xl);
-          height: $widgetWidth;
-          width: $widgetWidth;
-        }
-
-        @media #{$mqXXL} {
-          $widgetWidth: getColumnsSpan(4, $xxl);
-          height: $widgetWidth;
-          width: $widgetWidth;
+          @include heroImageContainedInSquare(4);
         }
       }
     }

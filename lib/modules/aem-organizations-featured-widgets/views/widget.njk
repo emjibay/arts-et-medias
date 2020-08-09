@@ -1,4 +1,4 @@
-{%- from 'macros/featured-piece.njk' import featuredArticle -%}
+{%- from 'macros/featured-piece.njk' import featuredOrganization -%}
 
 
 {# FIXME: figure out better way to get widget data #}
@@ -6,11 +6,11 @@
 
 {%- if hasWidget -%}
   {%- if data.widget.isSponsored -%}
-    {%- set label = 'Sponsored Article' -%}
+    {%- set label = 'Sponsored Organization' -%}
   {%- else -%}
-    {%- set label = 'Featured Article' -%}
+    {%- set label = 'Featured Organization' -%}
   {%- endif -%}
 
   {%- set piece = data.widget._pieces[0] -%}
-  {{ featuredArticle(piece, label) }}
+  {{ featuredOrganization(piece, label) }}
 {%- endif -%}

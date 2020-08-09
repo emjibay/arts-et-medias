@@ -1,5 +1,7 @@
 @import '../common/variables';
 @import '../common/ui';
+@import '../mixins/mixins';
+
 
 @mixin sectionHeadingCTA {
   .section-heading {
@@ -158,23 +160,24 @@
         display: block;
       }
 
-      .tweets-heading {
-        @include contentTypeHeading();
-        margin-bottom: 20px;
+      .featured-piece-widget {
+        @include nColumnWidth(3);
+        display: block;
+        margin-bottom: 40px;
+
+        .hero-image {
+          @include heroImageDimensions(3, 9/16);
+        }
+
+        &.featured-book-widget {
+          .hero-image {
+            @include heroImageContainedInSquare(3);
+          }
+        }
       }
 
-      .search-input {
-        @media #{$mqDesktop} {
-          width: 110px;
-        }
-
-        @media #{$mqXL} {
-          width: 150px;
-        }
-
-        @media #{$mqXXL} {
-          width: 190px;
-        }
+      .tweets-heading {
+        @include contentTypeHeading();
       }
     }
 

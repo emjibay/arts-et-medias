@@ -1,9 +1,20 @@
 <aside class="sidebar home-sidebar">
+  {{
+    apos.area(
+      data.global,
+      'featuredPiece',
+      {
+        'aem-articles-featured': {},
+        'aem-books-featured': {},
+        contextual: true
+      }
+    )
+  }}
+
   <div class="tweets">
     <h3 class="tweets-heading">Tweets</h3>
     {% include "partials/sidebar/twitter-timeline-en.njk" %}
   </div>
 
-  {% include "partials/sidebar/search-en.njk" %}
   {% include "partials/sidebar/help-cta.njk" %}
 </aside>

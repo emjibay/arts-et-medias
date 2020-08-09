@@ -2,16 +2,15 @@
 
 
 {# FIXME: figure out better way to get widget data #}
-{% set hasProject = data.widget._pieces.length > 0 %}
+{% set hasWidget = data.widget._pieces.length > 0 %}
 
-{%- if hasProject -%}
-  {%- set piece = data.widget._pieces[0] -%}
-
+{%- if hasWidget -%}
   {%- if data.widget.isSponsored -%}
     {%- set label = 'Sponsored Event' -%}
   {%- else -%}
     {%- set label = 'Featured Event' -%}
   {%- endif -%}
 
+  {%- set piece = data.widget._pieces[0] -%}
   {{ featuredEvent(piece, label) }}
 {%- endif -%}

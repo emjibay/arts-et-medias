@@ -1,29 +1,16 @@
-{%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+{%- from 'macros/featured-piece.njk' import featuredEducation -%}
 
 
 {# FIXME: figure out better way to get widget data #}
-{% set hasProject = data.widget._pieces.length > 0 %}
+{% set hasWidget = data.widget._pieces.length > 0 %}
 
-{%- if hasProject -%}
-<article class="featured-piece-widget featured-education-widget">
+{%- if hasWidget -%}
   {%- if data.widget.isSponsored -%}
-    <p class="feature-type">Sponsored Program</p>
+    {%- set label = 'Sponsored Academic Program' -%}
   {%- else -%}
-    <p class="feature-type">Featured Program</p>
+    {%- set label = 'Featured Academic Program' -%}
   {%- endif -%}
 
   {%- set piece = data.widget._pieces[0] -%}
-  <h1>{{ piece.title }}</h1>
-
-  <p class="byline">{{ piece._institution[0].title }}</p>
-
-  {{ heroImage(piece) }}
-
-  <div class="short-description">
-    {{ truncatedDescription(piece) }}
-  </div>
-
-  <a class="cta" href="{{ piece._url }}">View Details</a>
-</article>
+  {{ featuredEducation(piece, label) }}
 {%- endif -%}

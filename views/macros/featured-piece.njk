@@ -3,6 +3,23 @@
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 
 
+{% macro contentDetails(piece, ctaLabel) %}
+  <div>
+    <div class="image-content">
+      {{ heroImage(piece) }}
+    </div>
+
+    <div class="text-content">
+      <div class="short-description">
+        {{ truncatedDescription(piece) }}
+      </div>
+
+      <a class="cta" href="{{ piece._url }}">{{ ctaLabel }}</a>
+    </div>
+  </div>
+{% endmacro %}
+
+
 {%- macro featuredArticle(piece, label) -%}
   <article class="featured-piece-widget featured-article-widget">
     <p class="feature-type">{{ label }}</p>
@@ -17,15 +34,41 @@
       <span class="publication-date">, {{ publicationDate }}</span>
     </div>
 
-    {{ heroImage(piece) }}
-
-    <div class="short-description">
-      {{ truncatedDescription(piece) }}
-    </div>
-
-    <a class="cta" href="{{ piece._url }}">Read Article</a>
+    {{ contentDetails(piece, 'Read Article') }}
   </article>
 {%- endmacro -%}
+
+{% macro featuredBook(piece, label) %}
+  <article class="featured-piece-widget featured-book-widget">
+    <p class="feature-type">{{ label }}</p>
+
+    <h1>{{ piece.title }}</h1>
+
+    <ul class="byline-list">
+      {% for author in piece._author %}
+        <li>
+          <p>{{ author.title }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {{ contentDetails(piece, 'View Details') }}
+  </article>
+{% endmacro %}
+
+{% macro featuredEducation(piece, label) %}
+  <article class="featured-piece-widget featured-education-widget">
+    <p class="feature-type">{{ label }}</p>
+
+    <h1>{{ piece.title }}</h1>
+
+    {# FIXME: does not work, get it via institutionIds instead? #}
+    {%- set institution = piece._institution[0] -%}
+    <p class="byline">{{ institution.title }}</p>
+
+    {{ contentDetails(piece, 'View Details') }}
+  </article>
+{% endmacro %}
 
 {% macro featuredEvent(piece, label) %}
   <article class="featured-piece-widget featured-event-widget">
@@ -37,14 +80,36 @@
       {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ piece.country }}
     </p>
 
-    {{ heroImage(piece) }}
+    {{ contentDetails(piece, 'View Details') }}
+  </article>
+{% endmacro %}
 
-    <div class="text-container">
-      <div class="short-description">
-        {{ truncatedDescription(piece) }}
-      </div>
+{% macro featuredOrganization(piece, label) %}
+  <article class="featured-piece-widget featured-organization-widget">
+    <p class="feature-type">{{ label }}</p>
 
-      <a class="cta" href="{{ piece._url }}">View Details</a>
-    </div>
+    <h1>{{ piece.title }}</h1>
+
+    <p class="byline">{{ piece.city }}, {{ piece.country }}</p>
+
+    {{ contentDetails(piece, 'View Details') }}
+  </article>
+{% endmacro %}
+
+{% macro featuredProject(piece, label) %}
+  <article class="featured-piece-widget featured-project-widget">
+    <p class="feature-type">{{ label }}</p>
+
+    <h1>{{ piece.title }}</h1>
+
+    <ul class="byline-list">
+      {% for author in piece._author %}
+        <li>
+          <p>{{ author.title }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {{ contentDetails(piece, 'View Project') }}
   </article>
 {% endmacro %}
