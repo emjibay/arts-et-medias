@@ -1,0 +1,37 @@
+{%-
+  from 'macros/featured-piece.njk'
+  import featuredArticle, featuredBook, featuredEducation, featuredEvent, featuredOrganization, featuredProject
+-%}
+
+{%- set piece = data.widget._piece -%}
+
+{%- if piece -%}
+  {%- if piece.type === 'article' -%}
+    {%- set label = 'Featured Article' -%}
+    {{ featuredArticle(piece, label) }}
+
+  {%- elseif piece.type === 'book' -%}
+    {%- set label = 'Featured Book' -%}
+    {{ featuredBook(piece, label) }}
+
+  {%- elseif piece.type === 'education' -%}
+    {%- set label = 'Featured Academic Program' -%}
+    {{ featuredEducation(piece, label) }}
+
+  {%- elseif piece.type === 'event' -%}
+    {%- set label = 'Featured Event' -%}
+    {{ featuredEvent(piece, label) }}
+
+  {%- elseif piece.type === 'organization' -%}
+    {%- set label = 'Featured Organization' -%}
+    {{ featuredOrganization(piece, label) }}
+
+  {%- elseif piece.type === 'project' -%}
+    {%- set label = 'Featured Project' -%}
+    {{ featuredProject(piece, label) }}
+
+  {%- else -%}
+    {# unhandled type #}
+  {%- endif -%}
+{%- endif -%}
+
