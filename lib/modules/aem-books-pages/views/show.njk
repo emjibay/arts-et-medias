@@ -110,6 +110,9 @@
 
               {{ relatedPieces('Related Articles', piece._relatedArticles) }}
 
+              {%- set relatedBooks = apos.aemArrays.merge(piece._relatedBooks, piece._booksMentioned) -%}
+              {{ relatedPieces('Related Books', relatedBooks) }}
+
               {{ relatedPieces('Related Media', piece._relatedMedia) }}
 
               {{ relatedPieces('Related People', piece._relatedPeople) }}
