@@ -33,8 +33,12 @@
     )
   -%}
 
-  {# TODO: use locale's tags #}
-  {%- set isCollective = data.page.withTags|length and data.page.withTags.indexOf('collective') > -1 -%}
+  {%-
+    set isCollective = apos.aemArrays.intersect(
+      data.page.withTags
+      __('organizations|categories|collectives|tags')
+    )
+  -%}
   {{
     organizationList(
       piecesOnPage,
