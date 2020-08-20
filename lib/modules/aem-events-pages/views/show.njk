@@ -54,7 +54,7 @@
   <div class="description event-info">
     {{ displayDate }}{%- if additionalInfo -%}<span class="relative-date"> ({{ additionalInfo }})</span>{%- endif -%},<br>
     {%- if isWorkshop -%}{{ sortedPieceLinkList(piece._relatedOrganizations) }},<br/>{%- endif -%}
-    {%- set localizedCountry = apos.aemI18n.getCountry(institution.country, locale) -%}
+    {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
     <span>{{ piece.city }}, {{ localizedCountry }}</span>
   </div>
 
