@@ -3,6 +3,9 @@
 {% from 'macros/piece-index.njk' import organizationList %}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 {% block title %}
   {{
     apos.aemSeo.buildCategoryIndex(
@@ -29,8 +32,18 @@
       data.currentPage
     )
   -%}
+
+  {# TODO: use locale's tags #}
   {%- set isCollective = data.page.withTags|length and data.page.withTags.indexOf('collective') > -1 -%}
-  {{ organizationList(piecesOnPage, not isCollective) }}
+  {{
+    organizationList(
+      piecesOnPage,
+      {
+        hasLocation: not isCollective,
+        locale: locale
+      }
+    )
+  }}
 
   {# pagination #}
   {{

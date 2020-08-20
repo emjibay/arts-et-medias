@@ -3,6 +3,9 @@
 {%- from 'macros/piece-index.njk' import recentlyAddedOrgs -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 {% macro orgList(category) %}
   {%- set cat = 'organizations|categories|' + category + '|' -%}
 
@@ -10,7 +13,8 @@
     recentlyAddedOrgs(
       __(cat + 'recentlyAdded'),
       data.organizationsByMostRecent,
-      __(cat + 'tags')
+      __(cat + 'tags'),
+      locale
     )
   }}
 

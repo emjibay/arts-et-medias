@@ -3,8 +3,12 @@
   import featuredArticle, featuredBook, featuredEducation, featuredEvent, featuredOrganization, featuredProject
 -%}
 
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.widget._piece -%}
 
+
+{# TODO: use __() to set localized labels #}
 {%- if piece -%}
   {%- if piece.type === 'article' -%}
     {%- set label = 'Featured Article' -%}
@@ -20,11 +24,11 @@
 
   {%- elseif piece.type === 'event' -%}
     {%- set label = 'Featured Event' -%}
-    {{ featuredEvent(piece, label) }}
+    {{ featuredEvent(piece, label, locale) }}
 
   {%- elseif piece.type === 'organization' -%}
     {%- set label = 'Featured Organization' -%}
-    {{ featuredOrganization(piece, label) }}
+    {{ featuredOrganization(piece, label, locale) }}
 
   {%- elseif piece.type === 'project' -%}
     {%- set label = 'Featured Project' -%}

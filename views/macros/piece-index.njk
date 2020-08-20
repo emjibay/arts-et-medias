@@ -123,7 +123,7 @@
   </ul>
 {%- endmacro -%}
 
-{%- macro educationList(pieces) -%}
+{%- macro educationList(pieces, locale) -%}
   <ul class="piece-list">
     {% for piece in pieces %}
       <li class="list-item">
@@ -137,7 +137,8 @@
             <ul class="byline-list">
               {% for org in piece._institution %}
                 <li>
-                  <p>{{ org.title }}, {{ org.city }}, {{ org.country }}</p>
+                  {%- set localizedCountry = apos.aemI18n.getCountry(org.country, locale) -%}
+                  <p>{{ org.title }}, {{ org.city }}, {{ localizedCountry }}</p>
                 </li>
               {% endfor %}
             </ul>
@@ -154,7 +155,7 @@
   </ul>
 {%- endmacro -%}
 
-{%- macro eventList(pieces) -%}
+{%- macro eventList(pieces, locale) -%}
   <ul class="piece-list">
     {% for piece in pieces %}
       <li class="list-item">
@@ -166,7 +167,8 @@
             <p class="heading">{{ piece.title }}</p>
 
             <p class="org-location">
-              {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ piece.country }}
+              {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
+              {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ localizedCountry }}
             </p>
 
             <div class="short-description">
@@ -181,7 +183,13 @@
   </ul>
 {%- endmacro -%}
 
-{%- macro organizationList(pieces, hasLocation = false) -%}
+{#
+  pieces: <array>
+  options: <object>
+    - hasLocation: <boolean>
+    - locale: <string>
+#}
+{%- macro organizationList(pieces, options) -%}
   <ul class="piece-list">
     {% for piece in pieces %}
       <li class="list-item">
@@ -192,8 +200,9 @@
           <article class="piece-card">
             <p class="heading">{{ piece.title }}</p>
 
-            {%- if hasLocation -%}
-              <p class="org-location">{{ piece.city }}, {{ piece.country }}</p>
+            {%- if options.hasLocation -%}
+              {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, options.locale) -%}
+              <p class="org-location">{{ piece.city }}, {{ localizedCountry }}</p>
             {%- endif -%}
 
             <div class="short-description">
@@ -272,88 +281,94 @@
 
 {# recently added #}
 {% macro recentlyAdded(label, pieces, tags = []) %}
-  <div class="recently-added-pieces">
-    <h2 class="content-type-heading">{{ label }}</h2>
-    {%-
-      set filtered = apos.aemPieces.getWithTags(pieces, tags)
-    -%}
-
-    {%- if filtered[1] -%}
-      {%-
-        set recentlyAdded = [
-          filtered[0],
-          filtered[1]
-        ]
-      -%}
-    {%- else -%}
-      {%- set recentlyAdded = [filtered[0]] -%}
-    {%- endif -%}
-
-    {{ pieceList(recentlyAdded) }}
-  </div>
+  {%-
+    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+      pieces,
+      tags
+    )
+  -%}
+  {%- if recentlyAdded|length -%}
+    <div class="recently-added-pieces">
+      <h2 class="content-type-heading">{{ label }}</h2>
+      {{ pieceList(recentlyAdded) }}
+    </div>
+  {%- endif -%}
 {% endmacro %}
 
 {% macro recentlyAddedArticles(label, pieces, tags = []) %}
-  <div class="recently-added-articles">
-    <h2 class="content-type-heading">{{ label }}</h2>
-    {%-
-      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
-        pieces,
-        tags
-      )
-    -%}
-    {{ articleList(recentlyAdded) }}
-  </div>
+  {%-
+    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+      pieces,
+      tags
+    )
+  -%}
+  {%- if recentlyAdded|length -%}
+    <div class="recently-added-articles">
+      <h2 class="content-type-heading">{{ label }}</h2>
+      {{ articleList(recentlyAdded) }}
+    </div>
+  {%- endif -%}
 {% endmacro %}
 
 {% macro recentlyAddedEducation(label, pieces, tags = []) %}
-  <div class="recently-added-education">
-    <h2 class="content-type-heading">{{ label }}</h2>
-    {%-
-      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
-        pieces,
-        tags
-      )
-    -%}
-    {{ educationList(recentlyAdded) }}
-  </div>
+  {%-
+    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+      pieces,
+      tags
+    )
+  -%}
+  {%- if recentlyAdded|length -%}
+    <div class="recently-added-education">
+      <h2 class="content-type-heading">{{ label }}</h2>
+      {{ educationList(recentlyAdded) }}
+    </div>
+  {%- endif -%}
 {% endmacro %}
 
-{% macro recentlyAddedEvents(label, pieces, tags = []) %}
-  <div class="recently-added-articles">
-    <h2 class="content-type-heading">{{ label }}</h2>
-    {%-
-      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
-        pieces,
-        tags
-      )
-    -%}
-    {{ eventList(recentlyAdded) }}
-  </div>
+{% macro recentlyAddedEvents(label, pieces, tags, locale) %}
+  {%-
+    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+      pieces,
+      tags
+    )
+  -%}
+  {%- if recentlyAdded|length -%}
+    <div class="recently-added-articles">
+      <h2 class="content-type-heading">{{ label }}</h2>
+      {{ eventList(recentlyAdded, locale) }}
+    </div>
+  {%- endif -%}
 {% endmacro %}
 
-{% macro recentlyAddedOrgs(label, pieces, tags = []) %}
-  <div class="recently-added-orgs">
-    <h2 class="content-type-heading">{{ label }}</h2>
-    {%-
-      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
-        pieces,
-        tags
-      )
-    -%}
-    {{ organizationList(recentlyAdded, true) }}
-  </div>
+{% macro recentlyAddedOrgs(label, pieces, tags, locale) %}
+  {{ apos.log('--- recentlyAddedOrgs ---') }}
+  {{ apos.log('label:', label) }}
+  {{ apos.log('locale:', locale) }}
+  {%-
+    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+      pieces,
+      tags
+    )
+  -%}
+  {%- if recentlyAdded|length -%}
+    <div class="recently-added-orgs">
+      <h2 class="content-type-heading">{{ label }}</h2>
+      {{ organizationList(recentlyAdded, { hasLocation: true, locale: locale }) }}
+    </div>
+  {%- endif -%}
 {% endmacro %}
 
 {% macro recentlyAddedProjects(label, pieces, tags = []) %}
-  <div class="recently-added-projects">
-    <h2 class="content-type-heading">{{ label }}</h2>
-    {%-
-      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
-        pieces,
-        tags
-      )
-    -%}
-    {{ projectList(recentlyAdded) }}
-  </div>
+  {%-
+    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+      pieces,
+      tags
+    )
+  -%}
+  {%- if recentlyAdded|length -%}
+    <div class="recently-added-projects">
+      <h2 class="content-type-heading">{{ label }}</h2>
+      {{ projectList(recentlyAdded) }}
+    </div>
+  {%- endif -%}
 {% endmacro %}

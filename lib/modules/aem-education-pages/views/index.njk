@@ -3,6 +3,7 @@
 {% from 'macros/piece-index.njk' import educationList %}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set isFirstPage = (data.currentPage === 1) -%}
 {%- set hasTags = (data.page.withTags|length > 0) -%}
 
@@ -38,7 +39,7 @@
       data.currentPage
     )
   -%}
-  {{ educationList(piecesOnPage) }}
+  {{ educationList(piecesOnPage, locale) }}
 
   {# pagination #}
   {{

@@ -2,6 +2,9 @@
 {%- from 'macros/mega-menu.njk' import hideMegaMenuButton, seeAllCTA -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 {%- macro eventList(pieces, category, heading) -%}
   {%- set cat = 'events|categories|' + category + '|' -%}
   {%- set tags = __(cat + 'tags') -%}
@@ -25,7 +28,8 @@
           >
             <span class="piece-title">{{ listItem.title }}</span>
             <br>
-            <span>{{ listItem.city }}, {{ listItem.country }}, {{ displayDate }}</span>
+            {%- set localizedCountry = apos.aemI18n.getCountry(listItem.country, locale) -%}
+            <span>{{ listItem.city }}, {{ localizedCountry }}, {{ displayDate }}</span>
           </a>
         </li>
       {% endfor %}
@@ -53,7 +57,8 @@
     {{
       featuredEvent(
         nextEvent,
-        __('events|next')
+        __('events|next'),
+        locale
       )
     }}
   </div>

@@ -3,6 +3,9 @@
 {%- from 'macros/piece-index.njk' import recentlyAddedEvents -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 {% macro seeAllCTA(label, url) %}
   <div class="see-all-cta">
     <a
@@ -19,14 +22,16 @@
     recentlyAddedEvents(
       __(cat + 'next'),
       data.orderedEvents,
-      __(cat + 'tags')
+      __(cat + 'tags'),
+      locale
     )
   }}
   {{
     recentlyAddedEvents(
       __(cat + 'recentlyAdded'),
       data.eventsByMostRecent,
-      __(cat + 'tags')
+      __(cat + 'tags'),
+      locale
     )
   }}
   <div class="see-all-cta">

@@ -1,6 +1,9 @@
 {%- from 'macros/mega-menu.njk' import orgList, hideMegaMenuButton, seeAllCTA -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 {%- macro programList(category) -%}
   {%- set cat = 'education|categories|' + category + '|' -%}
   {%- set tags = __(cat + 'tags') -%}
@@ -21,7 +24,8 @@
             {%- set institution = listItem._institution[0] -%}
             <span>{{ institution.title }}</span>
             <br>
-            <span>{{ institution.city }}, {{ institution.country }}</span>
+            {%- set localizedCountry = apos.aemI18n.getCountry(institution.country, locale) -%}
+            <span>{{ institution.city }}, {{ localizedCountry }}</span>
           </a>
         </li>
       {% endfor %}

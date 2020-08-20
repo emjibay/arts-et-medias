@@ -1,4 +1,4 @@
-{%- macro orgList(category) -%}
+{%- macro orgList(category, locale) -%}
   {%- set cat = 'organizations|categories|' + category + '|' -%}
   {%- set tags = __(cat + 'tags') -%}
   {%- set list = apos.aemPieces.getWithTags(data.organizationsByMostRecent, tags) -%}
@@ -15,7 +15,8 @@
           >
             <span class="piece-title">{{ listItem.title }}</span>
             <br>
-            <span>{{ listItem.city }}, {{ listItem.country }}</span>
+            {%- set localizedCountry = apos.aemI18n.getCountry(listItem.country, locale) -%}
+            <span>{{ listItem.city }}, {{ localizedCountry }}</span>
           </a>
         </li>
       {% endfor %}

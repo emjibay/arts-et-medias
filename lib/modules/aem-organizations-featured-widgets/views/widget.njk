@@ -1,8 +1,10 @@
 {%- from 'macros/featured-piece.njk' import featuredOrganization -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {# FIXME: figure out better way to get widget data #}
 {% set hasWidget = data.widget._pieces.length > 0 %}
+
 
 {%- if hasWidget -%}
   {%- if data.widget.isSponsored -%}
@@ -12,5 +14,5 @@
   {%- endif -%}
 
   {%- set piece = data.widget._pieces[0] -%}
-  {{ featuredOrganization(piece, label) }}
+  {{ featuredOrganization(piece, label, locale) }}
 {%- endif -%}

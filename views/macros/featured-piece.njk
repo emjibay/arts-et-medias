@@ -3,6 +3,7 @@
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 
 
+{# private macros #}
 {% macro contentDetails(piece, ctaLabel) %}
   <div>
     <div class="image-content">
@@ -20,6 +21,7 @@
 {% endmacro %}
 
 
+{# public macros #}
 {%- macro featuredArticle(piece, label) -%}
   <article class="featured-piece-widget featured-article-widget">
     <p class="feature-type">{{ label }}</p>
@@ -70,27 +72,29 @@
   </article>
 {% endmacro %}
 
-{% macro featuredEvent(piece, label) %}
+{% macro featuredEvent(piece, label, locale) %}
   <article class="featured-piece-widget featured-event-widget">
     <p class="feature-type">{{ label }}</p>
 
     <h1>{{ piece.title }}</h1>
 
     <p class="byline">
-      {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ piece.country }}
+      {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
+      {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ localizedCountry }}
     </p>
 
     {{ contentDetails(piece, __('events|seeMoreCTA')) }}
   </article>
 {% endmacro %}
 
-{% macro featuredOrganization(piece, label) %}
+{% macro featuredOrganization(piece, label, locale) %}
   <article class="featured-piece-widget featured-organization-widget">
     <p class="feature-type">{{ label }}</p>
 
     <h1>{{ piece.title }}</h1>
 
-    <p class="byline">{{ piece.city }}, {{ piece.country }}</p>
+    {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
+    <p class="byline">{{ piece.city }}, {{ localizedCountry }}</p>
 
     {{ contentDetails(piece, __('organizations|seeMoreCTA')) }}
   </article>

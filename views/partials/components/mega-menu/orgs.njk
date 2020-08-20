@@ -2,24 +2,27 @@
 {%- from 'macros/mega-menu.njk' import orgList, hideMegaMenuButton, seeAllCTA -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 <section
   id="mmOrgs"
   class="orgs-section"
 >
   <div class="mm-col">
-    {{ orgList('galleries') }}
+    {{ orgList('galleries', locale) }}
   </div>
 
   <div class="mm-col">
-    {{ orgList('artCenters') }}
+    {{ orgList('artCenters', locale) }}
   </div>
 
   <div class="mm-col">
-    {{ orgList('makerSpaces') }}
+    {{ orgList('makerSpaces', locale) }}
   </div>
 
   <div class="mm-col">
-    {{ orgList('mediaLabs') }}
+    {{ orgList('mediaLabs', locale) }}
   </div>
 
   <div class="mm-footer">

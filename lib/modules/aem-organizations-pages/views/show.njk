@@ -5,7 +5,9 @@
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
+
 
 {% block title %}
   {{
@@ -25,7 +27,8 @@
     <h2 class="sr-only">{{ __('pieceDetails|locationLabel') }}</h2>
     <ul class="piece-link-list">
       <li>
-        {{ piece.city }}, {{ piece.country }}
+        {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
+        {{ piece.city }}, {{ localizedCountry }}
       </li>
     </ul>
   </div>

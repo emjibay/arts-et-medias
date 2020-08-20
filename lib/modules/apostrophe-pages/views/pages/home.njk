@@ -118,8 +118,9 @@
               <div class="latest-pieces">
                 <h3 class="latest-pieces-heading">{{ __('projects|recentlyAdded') }}</h3>
                 {%-
-                  set recentProjects = apos.aemPieces.getFirstTwo(
-                    data.projectsByMostRecent
+                  set recentProjects = apos.aemPieces.getFirstN(
+                    data.projectsByMostRecent,
+                    2
                   )
                 -%}
                 {{ projectList(recentProjects) }}
@@ -141,8 +142,9 @@
               <div class="latest-pieces">
                 <h3 class="latest-pieces-heading">{{ __('books|recentlyAdded') }}</h3>
                 {%-
-                  set recentBooks = apos.aemPieces.getFirstTwo(
-                    data.booksByMostRecent
+                  set recentBooks = apos.aemPieces.getFirstN(
+                    data.booksByMostRecent,
+                    2
                   )
                 -%}
                 {{ bookList(recentBooks) }}
