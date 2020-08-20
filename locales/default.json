@@ -347,5 +347,9 @@
 	"admin": "admin",
 	"guest": "guest",
 	"—": "—",
-	"": ""
+	"": "",
+	"Edit Featured Piece": "Edit Featured Piece",
+	"Add File": "Add File",
+	"Search Files...": "Search Files...",
+	"manualTest": "manualTest"
 }

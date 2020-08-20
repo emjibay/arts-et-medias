@@ -1,65 +1,44 @@
 {% extends "layouts/layout.njk" %}
 
-{%- from 'macros/metadata.njk' import minimalMetaData -%}
+{%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-index.njk' import articleList, eventList, bookList, projectList -%}
 
-{% macro seeAllArticlesCTA() %}
+
+{% macro seeAllCTA(type) %}
   <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllArticlesCTA',
-        'aem-link'
-      )
-    }}
+    <a
+      class="website-cta"
+      href="{{ __(type + '|url') }}"
+    >{{ __(type + '|seeAllCTA') }}</a>
   </div>
+{% endmacro %}
+
+{% macro seeAllArticlesCTA() %}
+  {{ seeAllCTA('articles') }}
 {% endmacro %}
 
 {% macro seeAllEventsCTA() %}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllEventsCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ seeAllCTA('events') }}
 {% endmacro %}
 
 {% macro seeAllProjectsCTA() %}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllProjectsCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ seeAllCTA('projects') }}
 {% endmacro %}
 
 {% macro seeAllBooksCTA() %}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllBooksCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ seeAllCTA('books') }}
 {% endmacro %}
 
 
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ __('global|shortDescription') }} | {{ __('global|title') }}
 {% endblock %}
 
 {% block metadata %}
   {{
-    minimalMetaData({
-      title: 'Arts et Médias',
+    descriptiveMetaData({
+      title: __('global|title'),
+      description: __('global|description'),
       url: data.page._url,
       baseUrl: data.baseUrl
     })
@@ -71,12 +50,12 @@
     <div class="content">
       <main id="main">
         <article>
-          <h1 class="sr-only">Home</h1>
+          <h1 class="sr-only">{{ __('pages|home|title') }}</h1>
 
           <div class="page-content">
             <section class="articles-section">
               <div class="section-heading">
-                <h2 class="h2">Articles & News</h2>
+                <h2 class="h2">{{ __('home|newsHeading') }}</h2>
                 {{ seeAllArticlesCTA() }}
               </div>
 
@@ -85,7 +64,9 @@
               </div>
 
               <div class="recently-added-articles">
-                <h3 class="latest-pieces-heading">Recently Added Articles</h3>
+                <h3 class="latest-pieces-heading">
+                  {{ __('articles|recentlyAdded') }}
+                </h3>
                 {%-
                   set recentArticles = apos.aemPieces.getFirstN(
                     data.articlesByMostRecent,
@@ -102,7 +83,7 @@
 
             <section class="events-section">
               <div class="section-heading">
-                <h2 class="h2">Events</h2>
+                <h2 class="h2">{{ __('events|heading') }}</h2>
                 {{ seeAllEventsCTA() }}
               </div>
 
@@ -111,7 +92,7 @@
               </div>
 
               <div class="latest-pieces">
-                <h3 class="latest-pieces-heading">Next Festivals</h3>
+                <h3 class="latest-pieces-heading">{{ __('events|categories|festivals|next') }}</h3>
                 {%-
                   set nextFestivals = apos.aemPieces.getFirstTwoWithTags(
                     data.orderedEvents,
@@ -126,7 +107,7 @@
 
             <section class="projects-section">
               <div class="section-heading">
-                <h2 class="h2">Projects</h2>
+                <h2 class="h2">{{ __('projects|heading') }}</h2>
                 {{ seeAllProjectsCTA() }}
               </div>
 
@@ -135,7 +116,7 @@
               </div>
 
               <div class="latest-pieces">
-                <h3 class="latest-pieces-heading">Recently Added Projects</h3>
+                <h3 class="latest-pieces-heading">{{ __('projects|recentlyAdded') }}</h3>
                 {%-
                   set recentProjects = apos.aemPieces.getFirstTwo(
                     data.projectsByMostRecent
@@ -149,7 +130,7 @@
 
             <section class="books-section">
               <div class="section-heading">
-                <h2 class="h2">Books</h2>
+                <h2 class="h2">{{ __('books|heading') }}</h2>
                 {{ seeAllBooksCTA() }}
               </div>
 
@@ -158,7 +139,7 @@
               </div>
 
               <div class="latest-pieces">
-                <h3 class="latest-pieces-heading">Recently Added Books</h3>
+                <h3 class="latest-pieces-heading">{{ __('books|recentlyAdded') }}</h3>
                 {%-
                   set recentBooks = apos.aemPieces.getFirstTwo(
                     data.booksByMostRecent

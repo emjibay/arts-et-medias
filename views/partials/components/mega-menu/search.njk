@@ -1,4 +1,5 @@
 {%- from 'macros/search.njk' import searchInput -%}
+{%- from 'macros/mega-menu.njk' import hideMegaMenuButton -%}
 
 
 <section
@@ -9,7 +10,7 @@
     {{
       searchInput({
         id: 'mmSearchInput',
-        label: 'Search'
+        label: __('search|buttonLabel')
       })
     }}
   </div>
@@ -17,8 +18,6 @@
   <div class="mm-footer">
     <hr class="separator" />
 
-    <button
-      class="hide-mega-menu-button"
-    >Hide menu</button>
+    {{ hideMegaMenuButton() }}
   </div>
 </section>

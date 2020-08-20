@@ -3,21 +3,30 @@
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/metadata.njk' import articleMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedOrganizations, relatedPieces, tags -%}
+{%- from 'macros/piece-details.njk' import relatedMedia, relatedOrganizations, relatedPieces, tags -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
 
+
 {% block title %}
-  {{ piece.title }} - Articles | Arts et Médias
+  {{
+    apos.aemSeo.buildPieceWithCategory(
+      __,
+      piece.title,
+      __('articles|plural'),
+      data.page.title
+    )
+  }}
 {% endblock %}
 
 {% block metadata %}
   {%- set author = apos.aemAuthors.getListFromArticle(piece) -%}
   {{
     articleMetaData({
-      title: piece.title + ', by ' + author,
+      title: apos.aemSeo.buildWrittenBy(piece.title, author, locale),
       author: author,
       publicationDate: apos.aemPieces.getISODate(piece),
       description: piece.shortDescription,
@@ -33,7 +42,7 @@
 
 {% block subheading %}
   <div class="subheading">
-    <h2 class="sr-only">Authors</h2>
+    <h2 class="sr-only">{{ __('pieceDetails|authorsLabel') }}</h2>
     {{ pieceLinkList(piece._originalAuthor) }}, {{ apos.aem.formatDate(piece.publicationDate) }}
   </div>
 {% endblock %}
@@ -46,37 +55,39 @@
   </div>
 
   {%- if piece.isTranslation -%}
-    {%- set originalLang = apos.aemLocalization.getLanguagesFrom(piece.originalLang) -%}
-    <div class="translation">
-      Translated from {{ originalLang }} by {{ pieceLinkList(piece._translator) }}.
-    </div>
+    <dl class="piece-props-list">
+      <dt>{{ __('pieceDetails|translatorLabel') }}</dt>
+      <dd>{{ pieceLinkList(piece._translator) }}</dd>
+
+      <dt>{{ __('pieceDetails|originalLanguageLabel') }}</dt>
+      {%- set originalLang = apos.aemI18n.getLanguagesFrom(piece.originalLang, locale) -%}
+      <dd>{{ originalLang }}</dd>
+    </dl>
   {%- endif -%}
 
   {%- set isMention = piece.articleType === 'mention' -%}
   {%- if isMention -%}
     <div class="mention">
-      <p class="mention-notes">This article was not originally published on this site.</p>
+      <p class="mention-notes">{{ __('articles|notOriginallyPublishedHere') }}</p>
       <a
         class="website-cta"
         href="{{ piece.externalLink }}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Read complete article</a>
+      >{{ __('articles|seeMoreCTA') }}</a>
     </div>
   {%- endif -%}
 
   <hr class="separator"/>
 
   {%- set relatedArticles = apos.aemArrays.merge(piece._relatedArticles, piece._articles) -%}
-  {{ relatedPieces('Related Articles', relatedArticles) }}
+  {{ relatedPieces(__('articles|related'), relatedArticles) }}
 
-  {{ relatedPieces('Related Books', piece._relatedBooks) }}
+  {{ relatedPieces(__('books|related'), piece._relatedBooks) }}
 
-  {{ relatedPieces('Related Media', piece._relatedMedia) }}
-
-  {{ relatedPieces('Related People', piece._relatedPeople) }}
+  {{ relatedMedia(piece._relatedMedia) }}
 
   {{ relatedOrganizations(piece._relatedOrganizations) }}
+
+  {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 
   {{ tags(piece) }}
 {% endblock %}

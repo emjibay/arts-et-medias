@@ -3,80 +3,40 @@
 {%- from 'macros/piece-index.njk' import recentlyAddedOrgs -%}
 
 
+{% macro orgList(category) %}
+  {%- set cat = 'organizations|categories|' + category + '|' -%}
+
+  {{
+    recentlyAddedOrgs(
+      __(cat + 'recentlyAdded'),
+      data.organizationsByMostRecent,
+      __(cat + 'tags')
+    )
+  }}
+
+  <div class="see-all-cta">
+    <a
+      class="website-cta"
+      href="{{ __(cat + 'url') }}"
+    >{{ __(cat + 'seeAllCTA') }}</a>
+  </div>
+{% endmacro %}
+
+
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}organization-index{% endblock %}
 
 {% block pageContent %}
-  {{
-    recentlyAddedOrgs(
-      'Recently Added Galleries and Museums',
-      data.organizationsByMostRecent,
-      ['gallery', 'museum']
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllGalleriesCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ orgList('galleries') }}
 
-  {{
-    recentlyAddedOrgs(
-      'Recently Added Art Centers',
-      data.organizationsByMostRecent,
-      ['art center']
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllArtCentersCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ orgList('artCenters') }}
 
-  {{
-    recentlyAddedOrgs(
-      'Recently Added Maker Spaces',
-      data.organizationsByMostRecent,
-      ['maker space']
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllMakerSpacesCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ orgList('mediaLabs') }}
 
-  {{
-    recentlyAddedOrgs(
-      'Recently Added Media Labs and Research Centers',
-      data.organizationsByMostRecent,
-      ['media lab', 'research center', 'art research']
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllMediaLabsCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ orgList('makerSpaces') }}
 {% endblock %}
 
 {% block sidebar %}

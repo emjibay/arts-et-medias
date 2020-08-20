@@ -1,41 +1,5 @@
 {%- from 'macros/search.njk' import searchInput -%}
-
-
-{% macro seeAllCTA(propName) %}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.global,
-        propName,
-        'aem-link'
-      )
-    }}
-  </div>
-{% endmacro %}
-
-{%- macro orgList(heading, pieces, tags, ctaPropName) -%}
-  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
-  {%- set list = apos.aemArrays.truncate(list, 4) -%}
-
-  <div class="list-container">
-    <div class="list-heading">{{ heading }}</div>
-    <ul class="list">
-      {% for listItem in list %}
-        <li>
-          <a
-            class="list-item"
-            href="{{ listItem._url }}"
-          >
-            <span class="piece-title">{{ listItem.title }}</span>
-            <br>
-            <span>{{ listItem.city }}, {{ listItem.country }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-    {{ seeAllCTA(ctaPropName) }}
-  </div>
-{%- endmacro -%}
+{%- from 'macros/mega-menu.njk' import orgList, hideMegaMenuButton, seeAllCTA -%}
 
 
 <section
@@ -43,56 +7,31 @@
   class="orgs-section"
 >
   <div class="mm-col">
-    {{
-      orgList(
-        'Recently Added Galleries',
-        data.organizationsByMostRecent,
-        ['gallery'],
-        'seeAllGalleriesCTA'
-      )
-    }}
+    {{ orgList('galleries') }}
   </div>
 
   <div class="mm-col">
-    {{
-      orgList(
-        'Recently Added Art Centers',
-        data.organizationsByMostRecent,
-        ['art center'],
-        'seeAllArtCentersCTA'
-      )
-    }}
+    {{ orgList('artCenters') }}
   </div>
 
   <div class="mm-col">
-    {{
-      orgList(
-        'Recently Added Maker Spaces',
-        data.organizationsByMostRecent,
-        ['maker space'],
-        'seeAllMakerSpacesCTA'
-      )
-    }}
+    {{ orgList('makerSpaces') }}
   </div>
 
   <div class="mm-col">
-    {{
-      orgList(
-        'Recently Added Media Labs',
-        data.organizationsByMostRecent,
-        ['media lab'],
-        'seeAllMediaLabsCTA'
-      )
-    }}
+    {{ orgList('mediaLabs') }}
   </div>
 
   <div class="mm-footer">
     <hr class="separator" />
 
-    <button
-      class="hide-mega-menu-button"
-    >Hide menu</button>
+    {{ hideMegaMenuButton() }}
 
-    {{ seeAllCTA('seeAllOrgsCTA') }}
+    {{
+      seeAllCTA(
+        __('organizations|seeAllCTA'),
+        __('organizations|url')
+      )
+    }}
   </div>
 </section>

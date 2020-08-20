@@ -1,21 +1,28 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/piece-details.njk' import relatedPieces, relatedTaggedPieces, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedPieces, relatedOrganizations, relatedTaggedPieces, tags, websiteCTA -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
 {%- set piece = data.piece -%}
 
 {% block title %}
-  {{ piece.title }} - Organizations | Arts et Médias
+  {{
+    apos.aemSeo.buildPieceWithCategory(
+      __,
+      piece.title,
+      __('organizations|plural'),
+      data.page.title
+    )
+  }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}organization-details{% endblock %}
 
 {% block subheading %}
   <div class="subheading">
-    <h2 class="sr-only">City</h2>
+    <h2 class="sr-only">{{ __('pieceDetails|locationLabel') }}</h2>
     <ul class="piece-link-list">
       <li>
         {{ piece.city }}, {{ piece.country }}
@@ -27,7 +34,7 @@
 {% block pageContent %}
   {{ heroImage(piece, true) }}
 
-  <h2 class="sr-only">Description</h2>
+  <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
   <div class="description rich-description">
     {{
       apos.singleton(
@@ -43,7 +50,7 @@
 
   <hr class="separator"/>
 
-  {{ relatedPieces('Related People', piece._relatedPeople) }}
+  {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 
   {%-
     set relatedOrgs = apos.aemArrays.merge(
@@ -51,63 +58,9 @@
       piece._organizations
     )
   -%}
+  {{ relatedOrganizations(piece.relatedOrgs) }}
 
-  {# collectives #}
-  {{
-    relatedTaggedPieces(
-      'Related Collectives',
-      relatedOrgs,
-      ['collective']
-    )
-  }}
-
-  {# galleries #}
-  {{
-    relatedTaggedPieces(
-      'Related Galleries',
-      relatedOrgs,
-      ['gallery', 'museum']
-    )
-  }}
-
-  {# art centers #}
-  {{
-    relatedTaggedPieces(
-      'Related Art Centers',
-      relatedOrgs,
-      ['art center']
-    )
-  }}
-
-  {# academic institutions #}
-  {{
-    relatedTaggedPieces(
-      'Related Academic Institutions',
-      relatedOrgs,
-      [
-        'academic institution',
-        'higher education',
-        'university'
-      ]
-    )
-  }}
-
-  {# media labs #}
-  {{
-    relatedTaggedPieces(
-      'Related Media Labs and Research Centers',
-      relatedOrgs,
-      [
-        'media lab',
-        'archives',
-        'art research',
-        'research',
-        'research-creation'
-      ]
-    )
-  }}
-
-  {{ relatedPieces('Related Articles', piece._articles) }}
+  {{ relatedPieces(__('articles|related'), piece._relatedArticles) }}
 
   {{ tags(piece) }}
 {% endblock %}

@@ -1,11 +1,12 @@
 <section class="related-to-this-section">
-  <h2 class="h1">Related to This Section</h2>
+  <h2 class="h1">{{ __('sidebar|relatedToThisSectionHeading') }}</h2>
   <ul>
+    {%- set people = 'people|categories|' -%}
     <li>
-      <a href="/people/authors">Authors and Writers</a>
+      <a href="{{ __(people + 'authors|url') }}">{{ __(people + 'authors|title') }}</a>
     </li>
     <li>
-      <a href="/people/translators">Translators</a>
+      <a href="{{ __(people + 'translators|url') }}">{{ __(people + 'translators|title') }}</a>
     </li>
   </ul>
 </section>

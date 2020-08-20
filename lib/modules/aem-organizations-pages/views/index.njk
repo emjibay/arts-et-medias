@@ -3,6 +3,16 @@
 {% from 'macros/piece-index.njk' import organizationList %}
 
 
+{% block title %}
+  {{
+    apos.aemSeo.buildCategoryIndex(
+      __,
+      __('organizations|plural'),
+      data.page.title
+    )
+  }}
+{% endblock %}
+
 {% block mainAdditionalClasses %}organizations-index{% endblock %}
 
 {% block pageContent %}

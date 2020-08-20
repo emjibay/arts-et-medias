@@ -4,7 +4,14 @@
 
 
 {% block title %}
-  {{ data.piece.title }} - Media | Arts et Médias
+  {{
+    apos.aemSeo.buildPieceWithCategory(
+      __,
+      data.piece.title,
+      __('media|plural'),
+      data.page.title
+    )
+  }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}medium-details{% endblock %}
@@ -16,12 +23,11 @@
       piece._relatedArticles
     )
   -%}
+  {{ relatedPieces(__('articles|related'), relatedArticles) }}
 
-  {{ relatedPieces('Related Articles', relatedArticles) }}
+  {{ relatedPieces(__('books|related'), piece._relatedBooks) }}
 
-  {{ relatedPieces('Related Books', piece._relatedBooks) }}
-
-  {{ relatedPieces('Related People', piece._relatedPeople) }}
+  {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 {% endblock %}
 
 {% block sidebar %}

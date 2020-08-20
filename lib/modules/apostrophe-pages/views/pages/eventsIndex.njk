@@ -3,8 +3,45 @@
 {%- from 'macros/piece-index.njk' import recentlyAddedEvents -%}
 
 
+{% macro seeAllCTA(label, url) %}
+  <div class="see-all-cta">
+    <a
+      class="website-cta"
+      href="{{ ur }}"
+    >{{ label }}</a>
+  </div>
+{% endmacro %}
+
+{% macro eventList(category) %}
+  {%- set cat = 'events|categories|' + category + '|' -%}
+
+  {{
+    recentlyAddedEvents(
+      __(cat + 'next'),
+      data.orderedEvents,
+      __(cat + 'tags')
+    )
+  }}
+  {{
+    recentlyAddedEvents(
+      __(cat + 'recentlyAdded'),
+      data.eventsByMostRecent,
+      __(cat + 'tags')
+    )
+  }}
+  <div class="see-all-cta">
+    {{
+      seeAllCTA(
+        __(cat + 'seeAllCTA'),
+        __(cat + 'url')
+      )
+    }}
+  </div>
+{% endmacro %}
+
+
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}event-index{% endblock %}
@@ -12,77 +49,11 @@
 {% block pageContent %}
   {% include "partials/events/featured.njk" %}
 
-  {{
-    recentlyAddedEvents(
-      'Next Workshops',
-      data.orderedEvents,
-      ['workshop']
-    )
-  }}
-  {{
-    recentlyAddedEvents(
-      'Recently Added Workshops',
-      data.eventsByMostRecent,
-      ['workshop']
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllWorkshopsCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ eventList('festivals') }}
 
-  {{
-    recentlyAddedEvents(
-      'Next Festivals',
-      data.orderedEvents,
-      ['festival']
-    )
-  }}
-  {{
-    recentlyAddedEvents(
-      'Recently Added Festivals',
-      data.eventsByMostRecent,
-      ['festival']
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllFestivalCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ eventList('conferences') }}
 
-  {{
-    recentlyAddedEvents(
-      'Next Conferences',
-      data.orderedEvents,
-      ['conference']
-    )
-  }}
-  {{
-    recentlyAddedEvents(
-      'Recently Added Conferences',
-      data.eventsByMostRecent,
-      ['conference']
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllConferencesCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ eventList('workshops') }}
 {% endblock %}
 
 {% block sidebar %}

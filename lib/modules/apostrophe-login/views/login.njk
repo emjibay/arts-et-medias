@@ -63,16 +63,18 @@
 
             <div>
               <button type="submit">
-                {% block buttonLabel %}{{ __ns('apostrophe', 'Log In') }}{% endblock %}
+                {% block buttonLabel %}
+                  {{ __ns('apostrophe', 'Log In') }}
+                {% endblock %}
               </button>
             </div>
           </form>
         </div>
 
         <div class="help-us-column">
-          <h2 class="h3">Do you wish to contribute?</h2>
-          <p>Arts et Médias has the lofty goal of being a reference for all things related media arts and installation art. However this is not possible without help.</p>
-          <p>Please <a href="/help">consider helping us</a>.</p>
+          <h2 class="h3">{{ __('login|heading') }}</h2>
+          <p>{{ __('login|contributionParagraph') }}</p>
+          <p><a href="{{ __('pages|help|url') }}">{{ __('login|contributionCTA') }}</a></p>
         </div>
       </div>
     </main>

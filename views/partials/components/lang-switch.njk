@@ -1,0 +1,22 @@
+<form class="lang-switch-form">
+  <label for="langSwitch" class="sr-only">
+    {{ __('langSwitch|selectLabel') }}
+  </label>
+
+  <select
+    class="lang-switch-select"
+    name="langSwitch"
+  >
+    <option value="en">EN</option>
+    <option value="fr">FR</option>
+  </select>
+
+  <button class="change-lang-button" type="submit">
+    <span class="icon">
+      {% include "/svg/icon-refresh.svg" %}
+    </span>
+    <span class="label sr-only">
+      {{ __('langSwitch|buttonLabel') }}
+    </span>
+  </button>
+</form>

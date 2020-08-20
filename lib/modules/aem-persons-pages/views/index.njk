@@ -1,6 +1,10 @@
 {% extends 'layouts/indexLayout.njk' %}
 
 
+{% block title %}
+  {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
+{% endblock %}
+
 {% block mainAdditionalClasses %}people-index{% endblock %}
 
 {% block pageContent %}

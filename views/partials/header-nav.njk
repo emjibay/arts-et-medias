@@ -1,52 +1,52 @@
+{% macro pieceIndexLink(type, anchorId) %}
+  <a
+    id="{{ anchorId }}"
+    href="{{ __(type + '|url') }}"
+  >{{ __(type + '|heading') }}</a>
+{% endmacro %}
+
 <nav class="nav header-nav">
   <ul class="content nav-list">
-    <li>
-      <a
-        id="headerArticlesNavItem"
-        href="/articles"
-      >Articles</a>
+    <li class="nav-item">
+      {{ pieceIndexLink('articles', 'headerArticlesNavItem') }}
     </li>
-    <li>
-      <a
-        id="headerEventsNavItem"
-        href="/events"
-      >Events</a>
+    <li class="nav-item">
+      {{ pieceIndexLink('events', 'headerEventsNavItem') }}
     </li>
-    <li>
-      <a
-        id="headerMediaNavItem"
-        href="/media"
-      >Projects & Media</a>
+    <li class="nav-item">
+      {{ pieceIndexLink('media', 'headerMediaNavItem') }}
     </li>
-    <li>
-      <a
-        id="headerPeopleNavItem"
-        href="/people"
-      >People</a>
+    <li class="nav-item">
+      {{ pieceIndexLink('people', 'headerPeopleNavItem') }}
     </li>
-    <li>
-      <a
-        id="headerOrgsNavItem"
-        href="/organizations"
-      >Organizations</a>
+    <li class="nav-item">
+      {{ pieceIndexLink('organizations', 'headerOrgsNavItem') }}
     </li>
-    <li>
-      <a
-        id="headerEducationNavItem"
-        href="/academia"
-      >Academia</a>
+    <li class="nav-item">
+      {{ pieceIndexLink('education', 'headerEducationNavItem') }}
     </li>
-    <li>
-      <a
-        id="headerSearchNavItem"
-        href="/search"
-      >Search</a>
-    </li>
-    <li>
+    <li class="nav-item">
       <a
         class="sans-menu"
-        href="/about"
-      >About</a>
+        href="{{ __('pages|about|url') }}"
+      >{{ __('pages|about|title') }}</a>
+    </li>
+    <li class="nav-item search">
+      <a
+        id="headerSearchNavItem"
+        href="{{ __('pages|search|url') }}"
+        class="search-button"
+      >
+        <span class="icon">
+          {% include "/svg/icon-search.svg" %}
+        </span>
+        <span class="label">
+          {{ __('pages|search|title') }}
+        </span>
+      </a>
+    </li>
+    <li class="nav-item lang-switch">
+      {% include "partials/components/lang-switch.njk" %}
     </li>
   </ul>
 </nav>

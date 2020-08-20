@@ -1,24 +1,15 @@
 {%- from 'macros/featured-piece.njk' import featuredArticle -%}
+{%- from 'macros/mega-menu.njk' import hideMegaMenuButton, seeAllCTA -%}
 
 
-{% macro seeAllCTA(propName) %}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.global,
-        propName,
-        'aem-link'
-      )
-    }}
-  </div>
-{% endmacro %}
-
-{%- macro articleList(heading, pieces, tags, ctaPropName) -%}
-  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
+{% macro recentlyAddedArticles(category) %}
+  {%- set cat = 'articles|categories|' + category + '|' -%}
+  {%- set tags = __(cat + 'tags') -%}
+  {%- set list = apos.aemPieces.getWithTags(data.articlesByMostRecent, tags) -%}
   {%- set list = apos.aemArrays.truncate(list, 2) -%}
 
   <div class="list-container">
-    <div class="list-heading">{{ heading }}</div>
+    <div class="list-heading">{{ __(cat + 'recentlyAdded') }}</div>
     <ul class="list">
       {% for listItem in list %}
         <li>
@@ -29,9 +20,14 @@
         </li>
       {% endfor %}
     </ul>
-    {{ seeAllCTA(ctaPropName) }}
+    {{
+      seeAllCTA(
+        __(cat + 'seeAllCTA'),
+        __(cat + 'url')
+      )
+    }}
   </div>
-{%- endmacro -%}
+{% endmacro %}
 
 
 <section
@@ -44,56 +40,29 @@
 
   <div class="mm-col">
     {%- set latestArticle = data.articlesByMostRecent[0] -%}
-    {{ featuredArticle(latestArticle, 'Latest Article Added') }}
+    {{ featuredArticle(latestArticle, __('articles|latest'))}}
   </div>
 
   <div class="mm-col">
-    {{
-      articleList(
-        'Recently Added News',
-        data.articlesByMostRecent,
-        ['news'],
-        'seeAllNewsCTA'
-      )
-    }}
-
-    {{
-      articleList(
-        'Recently Added Reviews',
-        data.articlesByMostRecent,
-        ['review'],
-        'seeAllReviewsCTA'
-      )
-    }}
+    {{ recentlyAddedArticles('news') }}
+    {{ recentlyAddedArticles('reviews') }}
   </div>
 
   <div class="mm-col">
-    {{
-      articleList(
-        'Recently Added Essays',
-        data.articlesByMostRecent,
-        ['essay', 'editorial'],
-        'seeAllEssaysCTA'
-      )
-    }}
-
-    {{
-      articleList(
-        'Recently Added Interviews',
-        data.articlesByMostRecent,
-        ['interview'],
-        'seeAllInterviewsCTA'
-      )
-    }}
+    {{ recentlyAddedArticles('essays') }}
+    {{ recentlyAddedArticles('interviews') }}
   </div>
 
   <div class="mm-footer">
     <hr class="separator" />
 
-    <button
-      class="hide-mega-menu-button"
-    >Hide menu</button>
+    {{ hideMegaMenuButton() }}
 
-    {{ seeAllCTA('seeAllArticlesCTA') }}
+    {{
+      seeAllCTA(
+        __('articles|seeAllCTA'),
+        __('articles|url')
+      )
+    }}
   </div>
 </section>

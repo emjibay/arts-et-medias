@@ -6,7 +6,13 @@
     {% if data.page %}
       {% for ancestor in data.page._ancestors %}
         <li>
-          <a href="{{ ancestor._url }}">{{ ancestor.title }}</a>
+          <a href="{{ ancestor._url }}">
+            {%- if loop.first -%}
+              {{ __('home|heading') }}
+            {%- else -%}
+              {{ ancestor.title }}
+            {%- endif -%}
+          </a>
         </li>
         {%- if loop.last and data.piece -%}
           <li>

@@ -27,6 +27,7 @@
     }
 
     li {
+      display: flex;
       text-align: center;
 
       @media #{$mqTablet} {
@@ -35,6 +36,7 @@
 
       a {
         display: block;
+        margin: auto;
         color: $white;
         cursor: pointer;
         font-family: $ffTextBody;
@@ -48,11 +50,15 @@
         @media #{$mqTablet} {
           display: unset;
           color: $black;
-          font-size: 12pt;
+          font-size: $fsVerySmol;
           padding: unset;
         }
 
         @media #{$mqDesktop} {
+          font-size: $fsTextBody;
+        }
+
+        @media #{$mqXL} {
           font-size: 15pt;
         }
 

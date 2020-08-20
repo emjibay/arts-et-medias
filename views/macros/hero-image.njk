@@ -10,7 +10,7 @@
       />
       {%- if hasCaption and image.caption -%}
         {%- if image.credit -%}
-          {%- set captionText = image.caption + '. Credit: ' + image.credit -%}
+          {%- set captionText = image.caption + '. ' + __('global|imageCreditLabel') + ': ' + image.credit -%}
         {%- else -%}
           {%- set captionText = image.caption -%}
         {%- endif -%}

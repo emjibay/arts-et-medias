@@ -1,14 +1,23 @@
+{% macro sidebarLink(category) %}
+  <a href="{{ __('education|categories|' + category + '|url') }}">
+    {{ __('education|categories|' + category + '|title') }}
+  </a>
+{% endmacro %}
+
+
 <section class="in-this-section">
-  <h2 class="h1">In This Section</h2>
+  <h2 class="h1">{{ __('sidebar|inThisSectionHeading') }}</h2>
   <ul>
     <li>
-      <a href="/academia/undergrad-programs">Undergrad Programs</a>
+      {{ sidebarLink('undergrad') }}
     </li>
     <li>
-      <a href="/academia/graduate-programs">Graduate Programs</a>
+      {{ sidebarLink('masters') }}
     </li>
     <li>
-      <a href="/academia/academic-institutions">Academic Institutions</a>
+      <a href="{{ __('organizations|categories|academicInstitutions|url') }}">
+        {{ __('organizations|categories|academicInstitutions|title') }}
+      </a>
     </li>
   </ul>
 </section>

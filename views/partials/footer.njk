@@ -1,0 +1,157 @@
+{% macro footerLink(linkLabel, linkUrl) %}
+  <a class="footer-link" href="{{ __(linkUrl) }}">{{ __(linkLabel) }}</a>
+{% endmacro %}
+
+
+<footer class="footer">
+  <article class="content">
+    <h1 class="site-title">{{ __('global|title') }}</h1>
+
+    <section class="link-columns">
+
+      <!-- content -->
+      <div class="column">
+        <h2 class="column-title">{{ __('footer|contentHeading') }}</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            <a
+              class="footer-link"
+              href="{{ data.home._url }}"
+            >{{ __('pages|home|title') }}</a>
+          </li>
+          <li class="list-item">
+            {{ footerLink('articles|heading', 'articles|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('events|heading', 'events|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('pages|about|title', 'pages|about|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('pages|search|title', 'pages|search|url') }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- projects and media -->
+      <div class="column">
+        <h2 class="column-title">{{ __('footer|projectsHeading') }}</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            {{ footerLink('projects|heading', 'projects|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('books|heading', 'books|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('media|categories|magazines|title', 'media|categories|magazines|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('media|categories|blogs|title', 'media|categories|blogs|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('media|categories|websites|title', 'media|categories|websites|url') }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- people and orgs -->
+      <div class="column">
+        <h2 class="column-title">{{ __('footer|peopleHeading') }}</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            {{ footerLink('people|heading', 'people|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('organizations|categories|collectives|title', 'organizations|categories|collectives|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('organizations|categories|galleries|title', 'organizations|categories|galleries|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('organizations|categories|artCenters|title', 'organizations|categories|artCenters|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('organizations|categories|mediaLabs|title', 'organizations|categories|mediaLabs|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('organizations|categories|makerSpaces|title', 'organizations|categories|makerSpaces|url') }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- academia -->
+      <div class="column">
+        <h2 class="column-title">{{ __('footer|academiaHeading') }}</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            {{ footerLink('education|categories|undergrad|title', 'education|categories|undergrad|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('education|categories|masters|title', 'education|categories|masters|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('organizations|categories|academicInstitutions|title', 'organizations|categories|academicInstitutions|url') }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- connect -->
+      <div class="column">
+        <h2 class="column-title">{{ __('footer|connectHeading') }}</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            <a
+              class="footer-link"
+              href="{{ __('global|twitterURL') }}"
+              rel="no referrer noopener"
+              target="_blank"
+            >{{ __('global|twitterLabel') }}</a>
+          </li>
+          <li class="list-item">
+            <a
+              class="footer-link"
+              href="{{ __('global|githubURL') }}"
+              rel="no referrer noopener"
+              target="_blank"
+            >{{ __('global|githubLabel') }}</a>
+          </li>
+          <li class="list-item">
+            <a
+              class="footer-link"
+              href="mailto:{{ __('global|emailValue') }}"
+            >{{ __('footer|emailLabel') }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- admin -->
+      <div class="column">
+        <h2 class="column-title">{{ __('footer|adminHeading') }}</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            {{ footerLink('pages|faq|title', 'pages|faq|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('pages|a11y|title', 'pages|a11y|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('pages|help|title', 'pages|help|url') }}
+          </li>
+          <li class="list-item">
+            {% if data.user %}
+              {{ footerLink('pages|logOut|title', 'pages|logOut|url') }}
+            {% else %}
+              {{ footerLink('pages|logIn|title', 'pages|logIn|url') }}
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="footer-separator" />
+
+    <p class="copyright">{{ __('footer|copyrightLabel') }}</p>
+  </article>
+</footer>

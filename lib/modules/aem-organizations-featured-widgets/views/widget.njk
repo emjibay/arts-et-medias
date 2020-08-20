@@ -6,9 +6,9 @@
 
 {%- if hasWidget -%}
   {%- if data.widget.isSponsored -%}
-    {%- set label = 'Sponsored Organization' -%}
+    {%- set label = __('organizations|sponsored') -%}
   {%- else -%}
-    {%- set label = 'Featured Organization' -%}
+    {%- set label = __('organizations|featured') -%}
   {%- endif -%}
 
   {%- set piece = data.widget._pieces[0] -%}

@@ -1,7 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedContent, relatedOrganizations, relatedPieces, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedContent, relatedMedia, relatedOrganizations, relatedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
@@ -34,7 +34,7 @@
           <h1 class="h1">{{ piece.title }}</h1>
 
           <div class="subheading">
-            <h2 class="sr-only">Authors</h2>
+            <h2 class="sr-only">{{ __('pieceDetails|authorsLabel') }}</h2>
             {{ pieceLinkList(piece._author) }}
           </div>
 
@@ -52,7 +52,7 @@
               {%- endif -%}
               {# image end #}
 
-              <h2 class="sr-only">Description</h2>
+              <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
               <div class="description rich-description">
                 {{
                   apos.singleton(
@@ -72,17 +72,18 @@
 
               <dl class="piece-props-list">
                 {%- if piece._contributor|length > 0 -%}
-                  <dt>Contributors</dt>
+                  <dt>{{ __('pieceDetails|contributorsLabel') }}</dt>
                   <dd>{{ pieceLinkList(piece._contributor) }}</dd>
                 {%- endif -%}
 
-                <dt>Year</dt>
+                <dt>{{ __('pieceDetails|yearPublishedLabel') }}</dt>
                 <dd>{{ piece.yearPublished }}</dd>
 
-                {%- set langs = apos.aemLocalization.getLanguagesFrom(piece.lang) -%}
+                {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+                {%- set langs = apos.aemI18n.getLanguagesFrom(piece.lang, locale) -%}
                 {%- set numLangs = langs|length -%}
                 {%- if langs|length > 1 -%}
-                  <dt>Languages</dt>
+                  <dt>{{ __('pieceDetails|languagesLabel') }}</dt>
                   <dd>
                     <p>
                       {% for lang in langs %}
@@ -94,30 +95,30 @@
                     </p>
                   </dd>
                 {%- else -%}
-                  <dt>Language</dt>
+                  <dt>{{ __('pieceDetails|languageLabel') }}</dt>
                   <dd>{{ langs[0] }}</dd>
                 {%- endif -%}
 
                 {%- if piece.isTranslation -%}
-                  <dt>Original Language</dt>
-                  {%- set originalLang = apos.aemLocalization.getLanguage(piece.originalLang) -%}
+                  <dt>{{ __('pieceDetails|originalLanguageLabel') }}</dt>
+                  {%- set originalLang = apos.aemI18n.getLanguage(piece.originalLang, locale) -%}
                   <dd>{{ originalLang }}</dd>
 
-                  <dt>Translator</dt>
+                  <dt>{{ __('pieceDetails|translatorLabel') }}</dt>
                   <dd>{{ pieceLinkList(piece._translator) }}</dd>
                 {%- endif -%}
               </dl>
 
-              {{ relatedPieces('Related Articles', piece._relatedArticles) }}
+              {{ relatedPieces(__('articles|related'), piece._relatedArticles) }}
 
               {%- set relatedBooks = apos.aemArrays.merge(piece._relatedBooks, piece._booksMentioned) -%}
-              {{ relatedPieces('Related Books', relatedBooks) }}
+              {{ relatedPieces(__('books|related'), relatedBooks) }}
 
-              {{ relatedPieces('Related Media', piece._relatedMedia) }}
-
-              {{ relatedPieces('Related People', piece._relatedPeople) }}
+              {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 
               {{ relatedOrganizations(piece._relatedOrganizations) }}
+
+              {{ relatedMedia(piece._relatedMedia) }}
 
               {{ tags(piece) }}
             </div>

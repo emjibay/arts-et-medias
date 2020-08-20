@@ -7,29 +7,39 @@
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
+{%- set author = apos.aemAuthors.getListFromPiece(piece) -%}
+{%- set pieceTitleWithCredits = apos.aemSeo.buildWrittenBy(piece.title, author, locale) -%}
+
 
 {% block title %}
-  {{ piece.title }} - Projects | Arts et Médias
+  {{
+    apos.aemSeo.buildPieceWithType(
+      __,
+      pieceTitleWithCredits,
+      __('projects|plural')
+    )
+  }}
 {% endblock %}
 
 {% block metadata %}
-    {{
-      descriptiveMetaData({
-        title: piece.title + ', by ' + apos.aemAuthors.getListFromPiece(piece),
-        description: piece.shortDescription,
-        heroImage: piece.heroImage,
-        url: piece._url,
-        baseUrl: data.baseUrl
-      })
-    }}
-  {% endblock %}
+  {{
+    descriptiveMetaData({
+      title: pieceTitleWithCredits,
+      description: piece.shortDescription,
+      heroImage: piece.heroImage,
+      url: piece._url,
+      baseUrl: data.baseUrl
+    })
+  }}
+{% endblock %}
 
 {% block mainAdditionalClasses %}project-details{% endblock %}
 
 {% block subheading %}
   <div class="subheading">
-    <h2 class="sr-only">Creators</h2>
+    <h2 class="sr-only">{{ __('pieceDetails|creatorsLabel') }}</h2>
     {{ sortedPieceLinkList(piece._author) }}
   </div>
 {% endblock %}
@@ -37,7 +47,7 @@
 {% block pageContent %}
   {{ heroImage(piece, true) }}
 
-  <h2 class="sr-only">Description</h2>
+  <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
   <div class="description rich-description">
     {{
       apos.singleton(
@@ -54,7 +64,7 @@
   <hr class="separator"/>
 
   <dl class="piece-props-list">
-    <dt>Year</dt>
+    <dt><h2 class="sr-only">{{ __('pieceDetails|yearPublishedLabel') }}</h2></dt>
     <dd>{{ piece.yearPublished }}</dd>
   </dl>
 

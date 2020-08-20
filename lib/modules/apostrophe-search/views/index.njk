@@ -8,13 +8,13 @@
 {%- set numResults = data.docs|length -%}
 
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
 {% endblock %}
 
 {% block metadata %}
   {{
     minimalMetaData({
-      title: data.page.title,
+      title: __('search|heading'),
       url: data.page._url,
       baseUrl: data.baseUrl
     })
@@ -26,7 +26,7 @@
     <div class="content">
       <main id="main">
         <article>
-          <h1 class="sr-only">{{ data.page.title }}</h1>
+          <h1 class="sr-only">{{ __('search|heading') }}</h1>
 
           <form
             data-apos-search-page-form
@@ -35,15 +35,12 @@
             action="{{ data.url | e }}"
           >
             <fieldset class="search-fieldset">
-              <legend class="ld-meta">
-                {{ __ns('apostrophe', 'New Search') }}
-              </legend>
               <input
                 data-apos-search-field
                 class="search-input"
                 type="search"
                 value="{{ data.query.q | e }}"
-                placeholder="Enter your search"
+                placeholder="{{ __('search|placeholder') }}"
                 name="q"
               />
               <button
@@ -55,7 +52,9 @@
                   src="/img/icon-search.svg"
                   alt=""
                 />
-                <span class="label">Search</span>
+                <span class="label">
+                  {{ __('search|buttonLabel') }}
+                </span>
               </button>
             </fieldset>
 
@@ -86,21 +85,41 @@
                   </ul>
                 </fieldset>
               {% endif %}
-              #}
+            #}
           </form>
 
           <div class="page-content">
             <section class="search-results">
-              <h2 class="title">Search Results</h2>
               {%- if numResults -%}
                 {%- if hasQuery -%}
-                  <p>Showing results for "{{ data.query.q }}"</p>
+                  <h2 class="title">{{ __('search|resultsLabel') }}</h2>
+                  {%- if data.query.q -%}
+                    <p>
+                      {{
+                        apos.aemI18n.replace(
+                          __('search|resultsDetails'),
+                          [{ pattern: '%s', str: data.query.q }]
+                        )
+                      }}
+                    </p>
+                  {%- endif -%}
+                {%- else -%}
+                  <h2 class="title">{{ __('search|heading') }}</h2>
                 {%- endif -%}
                 {{ pieceListWithType(data.docs) }}
                 {% include "pager.html" %}
               {%- else -%}
-                <p>There are no results for "{{ data.query.q }}".</p>
-                <p>Try checking your spelling or use more general terms.</p>
+                {%- if data.query.q -%}
+                  <p>
+                    {{
+                      apos.aemI18n.replace(
+                        __('search|noResultsLabel'),
+                        [{ pattern: '%s', str: data.query.q }]
+                      )
+                    }}
+                  </p>
+                {%- endif -%}
+                <p>{{ __('search|noResultsSuggestion') }}</p>
               {%- endif -%}
             </section>
           </div>

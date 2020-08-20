@@ -3,8 +3,28 @@
 {%- from 'macros/piece-index.njk' import recentlyAddedEducation -%}
 
 
+{% macro programsList(category) %}
+  {%- set cat = 'education|categories|' + category + '|' -%}
+
+  {{
+    recentlyAddedEducation(
+      __(cat + 'recentlyAdded'),
+      data.educationByMostRecent,
+      __(cat + 'tags')
+    )
+  }}
+
+  <div class="see-all-cta">
+    <a
+      class="website-cta"
+      href="{{ __(cat + 'url') }}"
+    >{{ __(cat + 'seeAllCTA') }}</a>
+  </div>
+{% endmacro %}
+
+
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}education-index{% endblock %}
@@ -12,40 +32,9 @@
 {% block pageContent %}
   {% include "partials/education/featured.njk" %}
 
-  {{
-    recentlyAddedEducation(
-      'Recently Added Undergrad Programs',
-      data.educationByMostRecent,
-      ['bfa', "bachelor's", 'bachelor of fine arts', 'undergraduate program']
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllUndergradCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ programsList('undergrad') }}
 
-
-  {{
-    recentlyAddedEducation(
-      'Recently Added Graduate Programs',
-      data.educationByMostRecent,
-      ['mfa', "masters's", 'master of fine arts', 'graduate program']
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllGradCTA',
-        'aem-link'
-      )
-    }}
-  </div>
+  {{ programsList('masters') }}
 {% endblock %}
 
 {% block sidebar %}

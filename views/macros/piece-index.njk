@@ -43,7 +43,7 @@
               {{ truncatedDescription(piece) }}
             </div>
 
-            <div class="piece-cta">View Details</div>
+            <div class="piece-cta">{{ __('pieceIndex|seeMoreCTA') }}</div>
           </article>
         </a>
       </li>
@@ -76,7 +76,7 @@
               {{ piece.shortDescription }}
             </p>
 
-            <div class="piece-cta">Read Article</div>
+            <div class="piece-cta">{{ __('articles|seeMoreCTA') }}</div>
           </article>
         </a>
       </li>
@@ -113,7 +113,7 @@
                   {{ truncatedDescription(piece) }}
                 </div>
 
-                <div class="piece-cta">View Details</div>
+                <div class="piece-cta">{{ __('books|seeMoreCTA') }}</div>
               </div>
             </div>
           </article>
@@ -146,7 +146,7 @@
               {{ truncatedDescription(piece) }}
             </div>
 
-            <div class="piece-cta">View Details</div>
+            <div class="piece-cta">{{ __('education|seeMoreCTA') }}</div>
           </article>
         </a>
       </li>
@@ -173,7 +173,7 @@
               {{ truncatedDescription(piece) }}
             </div>
 
-            <div class="piece-cta">View Details</div>
+            <div class="piece-cta">{{ __('events|seeMoreCTA') }}</div>
           </article>
         </a>
       </li>
@@ -200,7 +200,7 @@
               {{ truncatedDescription(piece) }}
             </div>
 
-            <div class="piece-cta">View Details</div>
+            <div class="piece-cta">{{ __('organizations|seeMoreCTA') }}</div>
           </article>
         </a>
       </li>
@@ -233,7 +233,7 @@
               {{ truncatedDescription(piece) }}
             </div>
 
-            <div class="piece-cta">View Project</div>
+            <div class="piece-cta">{{ __('projects|seeMoreCTA') }}</div>
           </article>
         </a>
       </li>
@@ -256,9 +256,12 @@
               {{ truncatedDescription(piece) }}
             </div>
 
-            <div class="piece-cta">View Details</div>
+            <div class="piece-cta">{{ __('global|seeMoreCTA') }}</div>
 
-            <div class="tag">{{ apos.aemPieces.getSanitizedType(piece) }}</div>
+            {%- set pieceType = apos.aemPieces.getSanitizedType(piece) -%}
+            <div class="tag">
+              {{ __('pieceDetails|types|' + pieceType) }}
+            </div>
           </article>
         </a>
       </li>

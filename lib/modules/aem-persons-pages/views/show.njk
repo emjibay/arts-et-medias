@@ -1,7 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedOrganizations, relatedPieces, relatedTaggedPieces, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedEvents, relatedMedia, relatedOrganizations, relatedPieces, relatedTaggedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
@@ -9,8 +9,15 @@
 {%- set piece = data.piece -%}
 {%- set hasProfilePic = piece.profilePic.items|length > 0 -%}
 
+
 {% block title %}
-  {{ piece.title }} - People | Arts et Médias
+  {{
+    apos.aemSeo.buildPieceWithType(
+      __,
+      piece.title,
+      __('people|plural')
+    )
+  }}
 {% endblock %}
 
 {% block metadata %}
@@ -28,7 +35,7 @@
 {% block mainAdditionalClasses %}person-details{% endblock %}
 
 {% block pageContent %}
-  <h2 class="sr-only">Description</h2>
+  <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
 
   {%- if hasProfilePic -%}
     <div class="profile-pic-container">
@@ -62,19 +69,19 @@
   {# articles #}
   {{
     relatedPieces(
-      'Author of the Following Articles',
+      __('pieceDetails|articlesAuthorLabel'),
       piece._articles
     )
   }}
   {{
     relatedPieces(
-      'Translated the Following Articles',
+      __('pieceDetails|articlesTranslatorLabel'),
       piece._articlesTranslated
     )
   }}
   {{
     relatedPieces(
-      'Related Articles',
+      __('articles|related'),
       piece._articlesMentioned
     )
   }}
@@ -82,71 +89,42 @@
   {# books #}
   {{
     relatedPieces(
-      'Author of the Following Books',
+      __('pieceDetails|booksAuthorLabel'),
       piece._books
     )
   }}
   {{
     relatedPieces(
-      'Contributed to the Following Books',
+      __('pieceDetails|booksContributorLabel'),
       piece._booksContributed
     )
   }}
   {{
     relatedPieces(
-      'Translated the Following Books',
+      __('pieceDetails|booksTranslatorLabel'),
       piece._booksTranslated
     )
   }}
   {{
     relatedPieces(
-      'Related Books',
+      __('books|related'),
       piece._booksMentioned
     )
   }}
 
-  {# medias #}
-  {{
-    relatedPieces(
-      'Related Medias',
-      piece._medias
-    )
-  }}
+  {# media #}
+  {{ relatedMedia(piece._medias) }}
 
   {# organizations #}
   {{ relatedOrganizations(piece._organizations) }}
 
-  {# festivals #}
-  {{
-    relatedTaggedPieces(
-      'Related Festivals',
-      piece._events,
-      ['festival']
-    )
-  }}
-
-  {# conferences #}
-  {{
-    relatedTaggedPieces(
-      'Related Conferences',
-      piece._events,
-      ['conference']
-    )
-  }}
-
-  {# workshops #}
-  {{
-    relatedTaggedPieces(
-      'Related Workshops',
-      piece._events,
-      ['workshop']
-    )
-  }}
+  {# events #}
+  {{ relatedEvents(piece._events) }}
 
   {# academic programs #}
   {{
     relatedPieces(
-      'Related to the Following Academic Program',
+      __('education|related'),
       piece._educations
     )
   }}

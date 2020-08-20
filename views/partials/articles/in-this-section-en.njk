@@ -1,23 +1,30 @@
+{% macro sidebarLink(category) %}
+  <a href="{{ __('articles|categories|' + category + '|url') }}">
+    {{ __('articles|categories|' + category + '|title') }}
+  </a>
+{% endmacro %}
+
+
 <section class="in-this-section">
-  <h2 class="h1">In This Section</h2>
+  <h2 class="h1">{{ __('sidebar|inThisSectionHeading') }}</h2>
   <ul>
     <li>
-      <a href="/articles/news">News</a>
+      {{ sidebarLink('news') }}
     </li>
     <li>
-      <a href="/articles/essays">Essays and Other Texts</a>
+      {{ sidebarLink('essays') }}
     </li>
     <li>
-      <a href="/articles/reviews">Reviews and Critiques</a>
+      {{ sidebarLink('reviews') }}
     </li>
     <li>
-      <a href="/articles/interviews">Interviews</a>
+      {{ sidebarLink('interviews') }}
     </li>
     <li>
-      <a href="/articles/academic-papers">Academic Papers</a>
+      {{ sidebarLink('academicPapers') }}
     </li>
     <li>
-      <a href="/articles/conference-proceedings">Conference Proceedings</a>
+      {{ sidebarLink('conferenceProceedings') }}
     </li>
   </ul>
 </section>

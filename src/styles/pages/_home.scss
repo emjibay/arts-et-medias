@@ -172,6 +172,7 @@
         &.featured-book-widget {
           .hero-image {
             @include heroImageContainedInSquare(3);
+            filter: drop-shadow(0 1px 1px #eeeeee);
           }
         }
       }

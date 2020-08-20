@@ -34,7 +34,7 @@
       <span class="publication-date">, {{ publicationDate }}</span>
     </div>
 
-    {{ contentDetails(piece, 'Read Article') }}
+    {{ contentDetails(piece, __('articles|seeMoreCTA')) }}
   </article>
 {%- endmacro -%}
 
@@ -52,7 +52,7 @@
       {% endfor %}
     </ul>
 
-    {{ contentDetails(piece, 'View Details') }}
+    {{ contentDetails(piece, __('books|seeMoreCTA')) }}
   </article>
 {% endmacro %}
 
@@ -66,7 +66,7 @@
     {%- set institution = piece._institution[0] -%}
     <p class="byline">{{ institution.title }}</p>
 
-    {{ contentDetails(piece, 'View Details') }}
+    {{ contentDetails(piece, __('education|seeMoreCTA')) }}
   </article>
 {% endmacro %}
 
@@ -80,7 +80,7 @@
       {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ piece.country }}
     </p>
 
-    {{ contentDetails(piece, 'View Details') }}
+    {{ contentDetails(piece, __('events|seeMoreCTA')) }}
   </article>
 {% endmacro %}
 
@@ -92,7 +92,7 @@
 
     <p class="byline">{{ piece.city }}, {{ piece.country }}</p>
 
-    {{ contentDetails(piece, 'View Details') }}
+    {{ contentDetails(piece, __('organizations|seeMoreCTA')) }}
   </article>
 {% endmacro %}
 
@@ -110,6 +110,6 @@
       {% endfor %}
     </ul>
 
-    {{ contentDetails(piece, 'View Project') }}
+    {{ contentDetails(piece, __('projects|seeMoreCTA')) }}
   </article>
 {% endmacro %}

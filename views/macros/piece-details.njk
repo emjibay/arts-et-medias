@@ -34,9 +34,7 @@
     <a
       class="website-cta"
       href="{{ piece.website }}"
-      target="_blank"
-      rel="noopener noreferrer"
-    >View website</a>
+    >{{ __('global|viewWebsiteLabel') }}</a>
   {%- endif -%}
 {%- endmacro -%}
 
@@ -49,96 +47,170 @@
   {%- endif -%}
 {% endmacro %}
 
-{% macro relatedOrganizations(organizations) %}
-  {# collectives #}
+{% macro relatedEvents(events) %}
+  {%- set eventsCats = 'events|categories|' -%}
+
+  {# festivals #}
+  {%- set festivalsCat = orgsCats + 'festivals|' -%}
   {{
     relatedTaggedPieces(
-      'Related Collectives and Studios',
+      __(festivalsCat + 'related'),
+      events,
+      __(festivalsCat + 'tags')
+    )
+  }}
+
+  {# exhibits #}
+  {%- set exhibitsCat = orgsCats + 'exhibits|' -%}
+  {{
+    relatedTaggedPieces(
+      __(exhibitsCat + 'related'),
+      events,
+      __(exhibitsCat + 'tags')
+    )
+  }}
+
+  {# conferences #}
+  {%- set conferencesCat = orgsCats + 'conferences|' -%}
+  {{
+    relatedTaggedPieces(
+      __(conferencesCat + 'related'),
+      events,
+      __(conferencesCat + 'tags')
+    )
+  }}
+
+  {# workshops #}
+  {%- set workshopsCat = orgsCats + 'workshops|' -%}
+  {{
+    relatedTaggedPieces(
+      __(workshopsCat + 'related'),
+      events,
+      __(workshopsCat + 'tags')
+    )
+  }}
+{% endmacro %}
+
+{% macro relatedMedia(media) %}
+  {%- set mediaCats = 'media|categories|' -%}
+
+  {# magazines #}
+  {%- set magazinesCat = orgsCats + 'magazines|' -%}
+  {{
+    relatedTaggedPieces(
+      __(magazinesCat + 'related'),
+      events,
+      __(magazinesCat + 'tags')
+    )
+  }}
+
+  {# blogs #}
+  {%- set blogsCat = orgsCats + 'blogs|' -%}
+  {{
+    relatedTaggedPieces(
+      __(blogsCat + 'related'),
+      events,
+      __(blogsCat + 'tags')
+    )
+  }}
+
+  {# websites #}
+  {%- set websitesCat = orgsCats + 'websites|' -%}
+  {{
+    relatedTaggedPieces(
+      __(websitesCat + 'related'),
+      events,
+      __(websitesCat + 'tags')
+    )
+  }}
+{% endmacro %}
+
+{% macro relatedOrganizations(organizations) %}
+  {%- set orgsCats = 'organizations|categories|' -%}
+
+  {# collectives #}
+  {%- set collectivesCat = orgsCats + 'collectives|' -%}
+  {{
+    relatedTaggedPieces(
+      __(collectivesCat + 'related'),
       organizations,
-      ['collective','studio']
+      __(collectivesCat + 'tags')
     )
   }}
 
   {# galleries #}
+  {%- set galleriesCat = orgsCats + 'galleries|' -%}
   {{
     relatedTaggedPieces(
-      'Related Galleries',
+      __(galleriesCat + 'related'),
       organizations,
-      ['gallery', 'museum']
+      __(galleriesCat + 'tags')
     )
   }}
 
   {# art centers #}
+  {%- set artCentersCat = orgsCats + 'artCenters|' -%}
   {{
     relatedTaggedPieces(
-      'Related Art Centers',
+      __(artCentersCat + 'related'),
       organizations,
-      ['art center']
+      __(artCentersCat + 'tags')
     )
   }}
 
   {# academic institutions #}
+  {%- set academiaCat = orgsCats + 'academicInstitutions|' -%}
   {{
     relatedTaggedPieces(
-      'Related Academic Institutions',
+      __(academiaCat + 'related'),
       organizations,
-      [
-        'academic institution',
-        'higher education',
-        'university'
-      ]
+      __(academiaCat + 'tags')
     )
   }}
 
   {# media labs #}
+  {%- set mediaLabsCat = orgsCats + 'mediaLabs|' -%}
   {{
     relatedTaggedPieces(
-      'Related Media Labs and Research Centers',
+      __(mediaLabsCat + 'related'),
       organizations,
-      [
-        'media lab',
-        'archives',
-        'art research',
-        'research',
-        'research-creation'
-      ]
+      __(mediaLabsCat + 'tags')
     )
   }}
 
-  {# other #}
+  {# other orgs #}
+  {%-
+    set alreadyUsedTags = apos.aemArrays.flatten([
+      __(collectivesCat + 'tags'),
+      __(artCentersCat + 'tags'),
+      __(academiaCat + 'tags'),
+      __(mediaLabsCat + 'tags')
+    ])
+  -%}
   {%-
     set otherOrgs = apos.aemPieces.getWithoutTags(
       organizations,
-      [
-        'collective',
-        'studio',
-        'gallery',
-        'museum',
-        'art center',
-        'academic institution',
-        'higher education',
-        'university',
-        'media lab',
-        'archives',
-        'art research',
-        'research',
-        'research-creation'
-      ]
+      alreadyUsedTags
     )
   -%}
-  {{ relatedPieces('Related Organizations', otherOrgs) }}
+  {{
+    relatedPieces(
+      __('organizations|related'),
+      otherOrgs
+    )
+  }}
 {% endmacro %}
 
 {% macro relatedContent(piece) %}
-  {{ relatedPieces('Related Articles', piece._relatedArticles) }}
+  {{ relatedPieces(__('articles|related'), piece._relatedArticles) }}
 
-  {{ relatedPieces('Related Books', piece._relatedBooks) }}
+  {{ relatedPieces(__('books|related'), piece._relatedBooks) }}
 
-  {{ relatedPieces('Related People', piece._relatedPeople) }}
+  {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 
   {{ relatedOrganizations(piece._relatedOrganizations) }}
 
-  {{ relatedPieces('Related Media', piece._relatedMedia) }}
+  {{ relatedPieces(__('media|related'), piece._relatedMedia) }}
 {% endmacro %}
 
 {% macro relatedTaggedPieces(label, pieces, tags) %}
@@ -155,7 +227,7 @@
   {%- set hasTags = piece.tags|length > 0 -%}
   {%- if hasTags -%}
     <dl class="piece-props-list">
-      <dt>Topics</dt>
+      <dt>{{ __('pieceDetails|tagsLabel') }}</dt>
       <dd>{{ tagList(piece.tags) }}</dd>
     </dl>
   {%- endif -%}

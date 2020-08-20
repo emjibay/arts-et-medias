@@ -1,14 +1,21 @@
+{% macro sidebarLink(category) %}
+  <a href="{{ __('events|categories|' + category + '|url') }}">
+    {{ __('events|categories|' + category + '|title') }}
+  </a>
+{% endmacro %}
+
+
 <section class="in-this-section">
-  <h2 class="h1">In This Section</h2>
+  <h2 class="h1">{{ __('sidebar|inThisSectionHeading') }}</h2>
   <ul>
     <li>
-      <a href="/events/workshops">Workshops</a>
+      {{ sidebarLink('festivals') }}
     </li>
     <li>
-      <a href="/events/festivals">Festivals</a>
+      {{ sidebarLink('conferences') }}
     </li>
     <li>
-      <a href="/events/conferences">Conferences</a>
+      {{ sidebarLink('workshops') }}
     </li>
   </ul>
 </section>

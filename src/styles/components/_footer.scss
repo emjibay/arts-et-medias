@@ -70,7 +70,7 @@
         }
       }
 
-      ul {
+      .footer-link-list {
         @media #{$mqTablet} {
           margin-top: 20px;
         }
@@ -78,10 +78,21 @@
         @media #{$mqDesktop} {
           margin-top: 30px;
         }
-      }
 
-      .list-item {
-        margin: 15px 0;
+        .list-item {
+          margin: 15px 0;
+        }
+
+        .apos-area-widget-wrapper {
+          margin: 15px 0;
+
+          .apos-area-widget-controls {
+            opacity: 0;
+            visibility: hidden;
+            left: 50px;
+            top: -10px;
+          }
+        }
       }
 
       .footer-link {

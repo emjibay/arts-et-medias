@@ -3,116 +3,89 @@
 {%- from 'macros/piece-index.njk' import recentlyAdded, recentlyAddedProjects -%}
 
 
-{%- set pageTitle = 'Projects & Media' -%}
+{% macro seeAllCTA(label, url) %}
+  <div class="see-all-cta">
+    <a
+      class="website-cta"
+      href="{{ ur }}"
+    >{{ label }}</a>
+  </div>
+{% endmacro %}
+
+{% macro recentlyAddedMedia(type, category) %}
+  {%-
+    set mediaItems = apos.aemPieces.getMediaWithType(
+      data.mediaByMostRecent,
+      type
+    )
+  -%}
+  {%- set cat = 'media|categories|' + category + '|' -%}
+  {{
+    recentlyAdded(
+      __(cat + 'recentlyAdded'),
+      mediaItems
+    )
+  }}
+  {{
+    seeAllCTA(
+      __(cat + 'seeAllCTA'),
+      __(cat + 'url')
+    )
+  }}
+{% endmacro %}
 
 
 {% block title %}
-  {{ pageTitle }} | Arts et Médias
+  {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}media-index{% endblock %}
 
-{% block pageTitle %}{{ pageTitle }}{% endblock %}
+{% block pageTitle %}{{ data.page.title }}{% endblock %}
 
 {% block pageContent %}
+  {#- projects -#}
   {{
     recentlyAddedProjects(
-      'Recently Added Projects',
+      __('projects|recentlyAdded'),
       data.projectsByMostRecent,
       []
     )
   }}
   <div class="see-all-cta">
     {{
-      apos.singleton(
-        data.page,
-        'seeAllProjectsCTA',
-        'aem-link'
+      seeAllCTA(
+        __('projects|seeAllCTA'),
+        __('projects|url')
       )
     }}
   </div>
+  {#- projects end -#}
 
-  {%-
-    set blogs = apos.aemPieces.getMediaWithType(
-      data.mediaByMostRecent,
-      'blog'
-    )
-  -%}
+  {#- books -#}
   {{
     recentlyAdded(
-      'Recently Added Blogs',
-      blogs
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllBlogsCTA',
-        'aem-link'
-      )
-    }}
-  </div>
-
-  {%-
-    set websites = apos.aemPieces.getMediaWithType(
-      data.mediaByMostRecent,
-      'website'
-    )
-  -%}
-  {{
-    recentlyAdded(
-      'Recently Added Websites',
-      websites
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllWebsitesTA',
-        'aem-link'
-      )
-    }}
-  </div>
-
-  {%-
-    set magazines = apos.aemPieces.getMediaWithType(
-      data.mediaByMostRecent,
-      'magazine'
-    )
-  -%}
-  {{
-    recentlyAdded(
-      'Recently Added Magazines',
-      magazines
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        'seeAllMagazinesCTA',
-        'aem-link'
-      )
-    }}
-  </div>
-
-  {{
-    recentlyAdded(
-      'Recently Added Books',
+      __('books|recentlyAdded'),
       data.booksByMostRecent
     )
   }}
   <div class="see-all-cta">
     {{
-      apos.singleton(
-        data.page,
-        'seeAllBooksCTA',
-        'aem-link'
+      seeAllCTA(
+        __('books|seeAllCTA'),
+        __('books|url')
       )
     }}
   </div>
+  {#- books end -#}
+
+  {#- media types -#}
+  {{ recentlyAddedMedia('magazine', 'magazines') }}
+
+  {{ recentlyAddedMedia('blog', 'blogs') }}
+
+  {{ recentlyAddedMedia('website', 'websites') }}
+  {#- media types end -#}
 {% endblock %}
 
 {% block sidebar %}

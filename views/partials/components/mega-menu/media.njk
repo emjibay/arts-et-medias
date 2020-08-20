@@ -1,24 +1,14 @@
 {%- from 'macros/featured-piece.njk' import featuredArticle -%}
+{%- from 'macros/mega-menu.njk' import hideMegaMenuButton, seeAllCTA -%}
 
-
-{% macro seeAllCTA(propName) %}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.global,
-        propName,
-        'aem-link'
-      )
-    }}
-  </div>
-{% endmacro %}
 
 {#
   @param options (object)
     - heading (string)
     - pieces (array)
     - numPieces (number)
-    - ctaPropName (string)
+    - ctaLabel (string)
+    - ctaUrl (string)
  #}
 {%- macro mediaList(options) -%}
   {%- set list = apos.aemArrays.truncate(options.pieces, options.numPieces) -%}
@@ -40,7 +30,7 @@
         </li>
       {% endfor %}
     </ul>
-    {{ seeAllCTA(options.ctaPropName) }}
+    {{ seeAllCTA(options.ctaLabel, options.ctaUrl) }}
   </div>
 {%- endmacro -%}
 
@@ -60,10 +50,11 @@
   <div class="mm-col">
     {{
       mediaList({
-        heading: 'Recently Added Projects',
+        heading: __('projects|recentlyAdded'),
         pieces: data.projectsByMostRecent,
         numPieces: 4,
-        ctaPropName: 'seeAllProjectsCTA'
+        ctaLabel: __('projects|seeAllCTA'),
+        ctaUrl: __('projects|url')
       })
     }}
   </div>
@@ -71,10 +62,11 @@
   <div class="mm-col">
     {{
       mediaList({
-        heading: 'Recently Added Books',
+        heading: __('books|recentlyAdded'),
         pieces: data.booksByMostRecent,
         numPieces: 3,
-        ctaPropName: 'seeAllBooksCTA'
+        ctaLabel: __('books|seeAllCTA'),
+        ctaUrl: __('books|url')
       })
     }}
   </div>
@@ -82,10 +74,13 @@
   <div class="mm-footer">
     <hr class="separator" />
 
-    <button
-      class="hide-mega-menu-button"
-    >Hide menu</button>
+    {{ hideMegaMenuButton() }}
 
-    {{ seeAllCTA('seeAllProjectsMediaCTA') }}
+    {{
+      seeAllCTA(
+        __('media|seeAllCTA'),
+        __('media|url')
+      )
+    }}
   </div>
 </section>

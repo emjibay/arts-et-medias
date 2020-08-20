@@ -1,27 +1,36 @@
+{% macro sidebarLink(category) %}
+  <a href="{{ __('people|categories|' + category + '|url') }}">
+    {{ __('people|categories|' + category + '|title') }}
+  </a>
+{% endmacro %}
+
+
 <section class="in-this-section">
-  <h2 class="h1">In This Section</h2>
+  <h2 class="h1">{{ __('sidebar|inThisSectionHeading') }}</h2>
   <ul>
     <li>
-      <a href="/people/creators">Creators</a>
+      {{ sidebarLink('creators') }}
     </li>
     <li>
-      <a href="/people/collectives">Collectives</a>
+      <a href="{{ __('organizations|categories|collectives|url') }}">
+        {{ __('organizations|categories|collectives|title') }}
+      </a>
     </li>
     <li>
-      <a href="/people/curators">Curators</a>
+      {{ sidebarLink('curators') }}
     </li>
     <li>
-      <a href="/people/educators">Educators</a>
+      {{ sidebarLink('educators') }}
     </li>
     <li>
-      <a href="/people/authors">Authors and Writers</a>
+      {{ sidebarLink('authors') }}
     </li>
     <li>
-      <a href="/people/translators">Translators</a>
+      {{ sidebarLink('translators') }}
     </li>
     {%- if apos.aemUsers.isUserAdmin(data.user) -%}
       <li>
-        <a href="/people/missing-description">People Missing Description</a>
+        {{ sidebarLink('missingDescription') }}
       </li>
     {%- endif -%}
   </ul>

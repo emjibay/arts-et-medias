@@ -110,6 +110,10 @@ $hideDuration: 325ms;
       .icon {
         display: none;
       }
+
+      .label {
+        @include cancelVisuallyHidden();
+      }
     }
   }
 
@@ -263,7 +267,7 @@ $hideDuration: 325ms;
       }
     }
 
-    [data-apos-widget="aem-link"] .website-cta {
+    .website-cta {
       @include anchor();
       background-color: transparent;
       border: none;

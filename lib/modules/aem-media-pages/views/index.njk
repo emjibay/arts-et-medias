@@ -1,6 +1,16 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
+{% block title %}
+  {{
+    apos.aemSeo.buildCategoryIndex(
+      __,
+      __('media|plural'),
+      data.page.title
+    )
+  }}
+{% endblock %}
+
 {% block mainAdditionalClasses %}media-index{% endblock %}
 
 {% block pageContent %}

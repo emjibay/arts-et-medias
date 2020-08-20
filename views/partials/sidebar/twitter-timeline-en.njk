@@ -1,7 +1,7 @@
 <div class="twitter-timeline-container">
   <a
     class="twitter-timeline"
-    href="https://twitter.com/arts_et_medias"
+    href="{{ __('global|twitterURL') }}"
     data-dnt="true"
     data-lang="en"
     data-link-color="#1276D3"
@@ -11,5 +11,8 @@
 
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-  <a class="cta twitter-cta" href="https://twitter.com/arts_et_medias">Read more tweets</a>
+  <a
+    class="cta twitter-cta"
+    href="{{ __('global|twitterURL') }}"
+  >{{ __('global|twitterReadMoreCTA') }}</a>
 </div>

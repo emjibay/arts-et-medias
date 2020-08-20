@@ -1,21 +1,14 @@
-{% macro seeAllCTA(propName) %}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.global,
-        propName,
-        'aem-link'
-      )
-    }}
-  </div>
-{% endmacro %}
+{%- from 'macros/mega-menu.njk' import orgList, hideMegaMenuButton, seeAllCTA -%}
 
-{%- macro programList(heading, pieces, tags, ctaPropName) -%}
-  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
+
+{%- macro programList(category) -%}
+  {%- set cat = 'education|categories|' + category + '|' -%}
+  {%- set tags = __(cat + 'tags') -%}
+  {%- set list = apos.aemPieces.getWithTags(data.educationByMostRecent, tags) -%}
   {%- set list = apos.aemArrays.truncate(list, 3) -%}
 
   <div class="list-container">
-    <div class="list-heading">{{ heading }}</div>
+    <div class="list-heading">{{ __(cat + 'recentlyAdded') }}</div>
     <ul class="list">
       {% for listItem in list %}
         <li>
@@ -33,31 +26,12 @@
         </li>
       {% endfor %}
     </ul>
-    {{ seeAllCTA(ctaPropName) }}
-  </div>
-{%- endmacro -%}
-
-{%- macro orgList(heading, pieces, tags, ctaPropName) -%}
-  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
-  {%- set list = apos.aemArrays.truncate(list, 4) -%}
-
-  <div class="list-container">
-    <div class="list-heading">{{ heading }}</div>
-    <ul class="list">
-      {% for listItem in list %}
-        <li>
-          <a
-            class="list-item"
-            href="{{ listItem._url }}"
-          >
-            <span class="piece-title">{{ listItem.title }}</span>
-            <br>
-            <span>{{ listItem.city }}, {{ listItem.country }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-    {{ seeAllCTA(ctaPropName) }}
+    {{
+      seeAllCTA(
+        __(cat + 'seeAllCTA'),
+        __(cat + 'url')
+      )
+    }}
   </div>
 {%- endmacro -%}
 
@@ -71,45 +45,27 @@
   </div>
 
   <div class="mm-col">
-    {{
-      programList(
-        'Recently Added Undergrad Programs',
-        data.educationByMostRecent,
-        ['undergrad', 'bfa', "bachelor's"],
-        'seeAllUndergradCTA'
-      )
-    }}
+    {{ programList('undergrad') }}
   </div>
 
   <div class="mm-col">
-    {{
-      programList(
-        'Recently Added Graduate Programs',
-        data.educationByMostRecent,
-        ['graduate', 'mfa'],
-        'seeAllGradCTA'
-      )
-    }}
+    {{ programList('masters') }}
   </div>
 
   <div class="mm-col">
-    {{
-      orgList(
-        'Recently Added Academic Institutions',
-        data.organizationsByMostRecent,
-        ['university', 'academia'],
-        'seeAllUniversitiesCTA'
-      )
-    }}
+    {{ orgList('academicInstitutions') }}
   </div>
 
   <div class="mm-footer">
     <hr class="separator" />
 
-    <button
-      class="hide-mega-menu-button"
-    >Hide menu</button>
+    {{ hideMegaMenuButton() }}
 
-    {{ seeAllCTA('seeAllEducationCTA') }}
+    {{
+      seeAllCTA(
+        __('education|seeAllCTA'),
+        __('education|url')
+      )
+    }}
   </div>
 </section>

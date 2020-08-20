@@ -1,17 +1,24 @@
+{% macro sidebarLink(category) %}
+  <a href="{{ __('organizations|categories|' + category + '|url') }}">
+    {{ __('organizations|categories|' + category + '|title') }}
+  </a>
+{% endmacro %}
+
+
 <section class="in-this-section">
-  <h2 class="h1">In This Section</h2>
+  <h2 class="h1">{{ __('sidebar|inThisSectionHeading') }}</h2>
   <ul>
     <li>
-      <a href="/organizations/galleries">Galleries and Museums</a>
+      {{ sidebarLink('galleries') }}
     </li>
     <li>
-      <a href="/organizations/art-centers">Art Centers</a>
+      {{ sidebarLink('artCenters') }}
     </li>
     <li>
-      <a href="/organizations/maker-spaces">Maker Spaces</a>
+      {{ sidebarLink('mediaLabs') }}
     </li>
     <li>
-      <a href="/organizations/media-labs">Media Labs and Research Centers</a>
+      {{ sidebarLink('makerSpaces') }}
     </li>
   </ul>
 </section>

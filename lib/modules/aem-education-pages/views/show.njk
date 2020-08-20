@@ -7,8 +7,15 @@
 
 {%- set piece = data.piece -%}
 
+
 {% block title %}
-  {{ piece.title }} - Education | Arts et Médias
+  {{
+    apos.aemSeo.buildPieceWithType(
+      __,
+      piece.title,
+      __('education|heading')
+    )
+  }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}education-details{% endblock %}
@@ -16,7 +23,9 @@
 {% block subheading %}
   <div class="subheading">
     {%- set institution = piece._institution[0] -%}
-    <h2 class="sr-only">Institution</h2>
+    <h2 class="sr-only">
+      {{ __('organizations|categories|academicInstitutions|singular') }}
+    </h2>
     <ul class="piece-link-list">
       <li>
         <a
@@ -31,7 +40,7 @@
 {% block pageContent %}
   {{ heroImage(piece, true) }}
 
-  <h2 class="sr-only">Description</h2>
+  <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
   <div class="description rich-description">
     {{
       apos.singleton(

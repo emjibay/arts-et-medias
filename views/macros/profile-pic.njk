@@ -30,7 +30,7 @@
       {%- endif -%}
 
       {%- if shouldRenderCredits -%}
-        <figcaption class="fig-credits">Credit: {{ image.credit }}</figcaption>
+        <figcaption class="fig-credits">{{ __('global|imageCreditLabel') }}: {{ image.credit }}</figcaption>
       {%- endif -%}
     </figure>
   {%- endif -%}

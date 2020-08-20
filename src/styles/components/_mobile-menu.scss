@@ -1,6 +1,7 @@
 @import '../common/variables';
 @import '../common/ui';
 @import '../mixins/mixins';
+@import '../mixins/header-nav';
 
 
 // vars
@@ -79,6 +80,8 @@ $showDuration: 300ms;
       @include visuallyHidden();
     }
   }
+
+  @include searchAndLangSwitch();
 }
 
 .overlay {

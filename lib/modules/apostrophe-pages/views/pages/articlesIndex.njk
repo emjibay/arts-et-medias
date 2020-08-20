@@ -2,21 +2,29 @@
 
 {%- from 'macros/piece-index.njk' import recentlyAddedArticles -%}
 
-{%- macro seeAllCTA(propName) -%}
+
+{% macro articleList(category) %}
+  {%- set cat = 'articles|categories|' + category + '|' -%}
+
+  {{
+    recentlyAddedArticles(
+      __(cat + 'recentlyAdded'),
+      data.articlesByMostRecent,
+      __(cat + 'tags')
+    )
+  }}
+
   <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.page,
-        propName,
-        'aem-link'
-      )
-    }}
+    <a
+      class="website-cta"
+      href="{{ __(cat + 'url') }}"
+    >{{ __(cat + 'seeAllCTA') }}</a>
   </div>
-{%- endmacro -%}
+{% endmacro %}
 
 
 {% block title %}
-  {{ data.page.title }} | Arts et Médias
+  {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}articles-index{% endblock %}
@@ -24,65 +32,17 @@
 {% block pageContent %}
   {% include "partials/articles/featured.njk" %}
 
-  {# recently added news #}
-  {{
-    recentlyAddedArticles(
-      'Recently Added News',
-      data.articlesByMostRecent,
-      ['news']
-    )
-  }}
-  {{ seeAllCTA('seeAllNewsCTA') }}
+  {{ articleList('news') }}
 
-  {# recently added essays #}
-  {{
-    recentlyAddedArticles(
-      'Recently Added Essays',
-      data.articlesByMostRecent,
-      ['editorial', 'essay']
-    )
-  }}
-  {{ seeAllCTA('seeAllEditorialsCTA') }}
+  {{ articleList('essays') }}
 
-  {# recently added reviews #}
-  {{
-    recentlyAddedArticles(
-      'Recently Added Reviews and Critiques',
-      data.articlesByMostRecent,
-      ['review', 'critique']
-    )
-  }}
-  {{ seeAllCTA('seeAllReviewsCTA') }}
+  {{ articleList('reviews') }}
 
-  {# recently added interviews #}
-  {{
-    recentlyAddedArticles(
-      'Recently Added Interviews',
-      data.articlesByMostRecent,
-      ['interview']
-    )
-  }}
-  {{ seeAllCTA('seeAllInterviewsCTA') }}
+  {{ articleList('interviews') }}
 
-  {# recently added academic papers #}
-  {{
-    recentlyAddedArticles(
-      'Recently Added Academic Papers',
-      data.articlesByMostRecent,
-      ['academic paper', 'academia']
-    )
-  }}
-  {{ seeAllCTA('seeAllAcademicPapersCTA') }}
+  {{ articleList('academicPapers') }}
 
-  {# recently added conference procedings #}
-  {{
-    recentlyAddedArticles(
-      'Recently Added Conference Proceedings',
-      data.articlesByMostRecent,
-      ['conference', 'conference proceedings', 'conference paper', 'conference presentation']
-    )
-  }}
-  {{ seeAllCTA('seeAllConferencePapersCTA') }}
+  {{ articleList('conferenceProceedings') }}
 {% endblock %}
 
 {% block sidebar %}

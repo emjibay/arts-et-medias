@@ -1,20 +1,11 @@
 {%- from 'macros/featured-piece.njk' import featuredEvent -%}
+{%- from 'macros/mega-menu.njk' import hideMegaMenuButton, seeAllCTA -%}
 
 
-{% macro seeAllCTA(propName) %}
-  <div class="see-all-cta">
-    {{
-      apos.singleton(
-        data.global,
-        propName,
-        'aem-link'
-      )
-    }}
-  </div>
-{% endmacro %}
+{%- macro eventList(pieces, category, heading) -%}
+  {%- set cat = 'events|categories|' + category + '|' -%}
+  {%- set tags = __(cat + 'tags') -%}
 
-
-{%- macro eventList(heading, pieces, tags, ctaPropName) -%}
   {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
   {%- set list = apos.aemArrays.truncate(list, 3) -%}
 
@@ -39,7 +30,12 @@
         </li>
       {% endfor %}
     </ul>
-    {{ seeAllCTA(ctaPropName) }}
+    {{
+      seeAllCTA(
+        __(cat + 'seeAllCTA'),
+        __(cat + 'url')
+      )
+    }}
   </div>
 {%- endmacro -%}
 
@@ -54,17 +50,21 @@
 
   <div class="mm-col">
     {%- set nextEvent = data.orderedEvents[0] -%}
-    {{ featuredEvent(nextEvent, 'Next Event') }}
+    {{
+      featuredEvent(
+        nextEvent,
+        __('events|next')
+      )
+    }}
   </div>
 
   <div class="mm-col">
     {%- set nextEvents = apos.aemArrays.splice(data.orderedEvents, 0) -%}
     {{
       eventList(
-        'Next Festivals',
         nextEvents,
-        ['festival', 'conference'],
-        'seeAllFestivalsCTA'
+        'festivals',
+        __('events|categories|festivals|next')
       )
     }}
   </div>
@@ -72,41 +72,23 @@
   <div class="mm-col">
     {{
       eventList(
-        'Recently Added Festivals',
         data.eventsByMostRecent,
-        ['festival', 'conference'],
-        'seeAllFestivalsCTA'
+        'festivals',
+        __('events|categories|festivals|recentlyAdded')
       )
     }}
-    {#
-    TODO: bring back workshops when there are more
-    {{
-      eventList(
-        'Next Workshops',
-        data.orderedEvents,
-        ['workshop'],
-        'seeAllWorkshopsCTA'
-      )
-    }}
-
-    {{
-      eventList(
-        'Recenty Added Workshops',
-        data.eventsByMostRecent,
-        ['workshop'],
-        'seeAllWorkshopsCTA'
-      )
-    }}
-    #}
   </div>
 
   <div class="mm-footer">
     <hr class="separator" />
 
-    <button
-      class="hide-mega-menu-button"
-    >Hide menu</button>
+    {{ hideMegaMenuButton() }}
 
-    {{ seeAllCTA('seeAllEventsCTA') }}
+    {{
+      seeAllCTA(
+        __('events|seeAllCTA'),
+        __('events|url')
+      )
+    }}
   </div>
 </section>

@@ -5,16 +5,16 @@
 
 
 {% block title %}
-  Page not found | Arts et Médias
+  {{ __('notFound|heading') }} | {{ __('global|title') }}
 {% endblock %}
 
 {% block main %}
   <div class="page-not-found">
     <main id="main" class="content">
-      <h1>Page not found</h1>
+      <h1>{{ __('notFound|heading') }}</h1>
       <div class="subheading">
-        <p>We're sorry. We couldn't find the page you're looking for.</p>
-        <p>We do have a few suggestions for you below.</p>
+        <p>{{ __('notFound|paragraph1') }}</p>
+        <p>{{ __('notFound|paragraph2') }}</p>
       </div>
 
       <section class="suggested-content">
@@ -32,8 +32,12 @@
       </section>
 
       <section class="suggested-content">
-        <h2>Still unable to find what you are looking for?</h2>
-        <p>Consider contributing to <a href="/help">help us</a> maintain this site up to date.</p>
+        <h2>{{ __('notFound|stillNotSatistfied') }}</h2>
+        <p>{{ __('notFound|helpUsCTA') }}</p>
+        <a
+          class="website-cta"
+          href="{{ __('pages|help|url') }}"
+        >{{ __('pages|help|title') }}</a>
       </section>
     </main>
   </div>

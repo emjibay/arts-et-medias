@@ -1,8 +1,8 @@
 {#
   options = {
-    id,
-    label,
-    type,
+    id: string
+    label: string
+    type: string
   }
  #}
 {%- macro searchInput(options) -%}
@@ -12,9 +12,6 @@
     action="/search"
   >
     <fieldset class="search-fieldset">
-      <legend class="ld-meta">
-        {{ __ns('apostrophe', 'New Search') }}
-      </legend>
       <label
         for="{{ options.id }}"
       >{{ options.label }}</label>
@@ -23,7 +20,7 @@
         class="search-input"
         type="search"
         name="q"
-        placeholder="Enter your search"
+        placeholder="{{ __('search|placeholder') }}"
       />
       {%- if options.type -%}
         <input
@@ -36,12 +33,12 @@
         type="submit"
         class="search-button"
       >
-        <img
-          class="icon"
-          src="/img/icon-search.svg"
-          alt=""
-        />
-        <span class="label">Search</span>
+        <span class="icon">
+          {% include "/svg/icon-search.svg" %}
+        </span>
+        <span class="label sr-only">
+          {{ options.label }}
+        </span>
       </button>
     </fieldset>
   </form>

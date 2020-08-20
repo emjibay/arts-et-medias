@@ -6,6 +6,17 @@
 
 {%- set isFirstPage = (data.currentPage === 1) -%}
 
+
+{% block title %}
+  {{
+    apos.aemSeo.buildCategoryIndex(
+      __,
+      __('projects|plural'),
+      data.page.title
+    )
+  }}
+{% endblock %}
+
 {% block metadata %}
   {{
     minimalMetaData({
@@ -24,13 +35,15 @@
 
     {{
       recentlyAddedProjects(
-        'Recently Added',
+        __('projects|recentlyAdded'),
         data.projectsByMostRecent,
         []
       )
     }}
 
-    <h2 class="content-type-heading">All</h2>
+    <h2 class="content-type-heading">
+      {{ __('projects|allHeading') }}
+    </h2>
   {%- endif -%}
 
   {# pieces list #}

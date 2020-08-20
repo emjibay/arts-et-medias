@@ -1,14 +1,25 @@
+{% macro sidebarLink(path, useHeading) %}
+  <a href="{{ __(path + '|url') }}">
+    {%- if useHeading -%}
+      {{ __(path + '|heading') }}
+    {%- else -%}
+      {{ __(path + '|title') }}
+    {%- endif -%}
+  </a>
+{% endmacro %}
+
+
 <section class="related-to-this-section">
-  <h2 class="h1">Related to This Section</h2>
+  <h2 class="h1">{{ __('sidebar|relatedToThisSectionHeading') }}</h2>
   <ul>
     <li>
-      <a href="/people/creators">Creators</a>
+      {{ sidebarLink('people|categories|creators') }}
     </li>
     <li>
-      <a href="/people/collectives">Collectives</a>
+      {{ sidebarLink('organizations|categories|collectives') }}
     </li>
     <li>
-      <a href="/people">People</a>
+      {{ sidebarLink('people', true) }}
     </li>
   </ul>
 </section>

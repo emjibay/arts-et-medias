@@ -197,31 +197,29 @@
 }
 
 @mixin select {
-  @include paragraph();
   -moz-appearance: none;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
-  appearance: none;
-  background-color: transparent;
-  background-image: url(/svg/icon-caret-down.min.svg);
-  background-position-x: 100%;
-  background-position-y: 2px;
+  background-color: $black;
+  background-image: url(/img/icon-white-caret-down.svg);
+  background-position-x: 80%;
+  background-position-y: 10px;
   background-repeat: no-repeat;
-  background-size: 10px 20px;
-  border-bottom-color: $black;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  color: $black;
+  background-size: 15px 20px;
+  border: none;
+  color: $white;
   cursor: pointer;
-  padding-bottom: 6px;
-  padding-right: 20px;
-  position: relative;
+  font-family: $ffButtonLabel;
+  font-size: $fsVerySmol;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 40px;
+  padding-left: 10px;
+  padding-right: 30px;
 
   &:focus {
     @include focusOutline();
+    color: $white !important;
   }
 
   // fix for firefox removes dotted outline on selection option

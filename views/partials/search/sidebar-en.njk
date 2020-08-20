@@ -3,7 +3,7 @@
 
 <aside class="sidebar">
   {%- set latestArticle = data.articlesByMostRecent[0] -%}
-  {{ featuredArticle(latestArticle, 'Latest Article Added') }}
+  {{ featuredArticle(latestArticle, __('articles|latest')) }}
 
   {% include "partials/sidebar/help-cta.njk" %}
 </aside>

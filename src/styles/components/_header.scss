@@ -1,6 +1,7 @@
 @import '../common/variables';
 @import '../common/ui';
 @import '../mixins/mixins';
+@import '../mixins/header-nav';
 
 
 .header {
@@ -47,10 +48,12 @@
     .mobile-menu-button {
       display: inline-block;
     }
+
     .site-title {
       display: inline-block;
       width: calc(100% - 70px);
     }
+
     .mobile-search-button {
       display: inline-block;
     }
@@ -66,5 +69,7 @@
     @media #{$mqTablet} {
       display: block;
     }
+
+    @include searchAndLangSwitch();
   }
 }

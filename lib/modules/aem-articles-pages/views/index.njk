@@ -6,6 +6,17 @@
 {%- set isFirstPage = (data.currentPage === 1) -%}
 {%- set hasTags = data.page.withTags|length > 0 -%}
 
+
+{% block title %}
+  {{
+    apos.aemSeo.buildCategoryIndex(
+      __,
+      __('articles|plural'),
+      data.page.title
+    )
+  }}
+{% endblock %}
+
 {% block mainAdditionalClasses %}articles-index{% endblock %}
 
 {% block pageContent %}

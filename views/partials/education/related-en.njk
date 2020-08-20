@@ -1,8 +1,10 @@
 <section class="related-to-this-section">
-  <h2 class="h1">Related to This Section</h2>
+  <h2 class="h1">{{ __('sidebar|relatedToThisSectionHeading') }}</h2>
   <ul>
     <li>
-      <a href="/people/educators">Educators</a>
+      <a href="{{ __('people|categories|educators|url') }}">
+        {{ __('people|categories|educators|title') }}
+      </a>
     </li>
   </ul>
 </section>

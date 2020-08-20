@@ -6,9 +6,9 @@
 
 {%- if hasWidget -%}
   {%- if data.widget.isSponsored -%}
-    {%- set label = 'Sponsored Academic Program' -%}
+    {%- set label = __('education|sponsored') -%}
   {%- else -%}
-    {%- set label = 'Featured Academic Program' -%}
+    {%- set label = __('education|featured') -%}
   {%- endif -%}
 
   {%- set piece = data.widget._pieces[0] -%}
