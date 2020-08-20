@@ -341,9 +341,6 @@
 {% endmacro %}
 
 {% macro recentlyAddedOrgs(label, pieces, tags, locale) %}
-  {{ apos.log('--- recentlyAddedOrgs ---') }}
-  {{ apos.log('label:', label) }}
-  {{ apos.log('locale:', locale) }}
   {%-
     set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
       pieces,
