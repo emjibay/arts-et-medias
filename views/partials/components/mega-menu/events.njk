@@ -16,11 +16,13 @@
     <div class="list-heading">{{ heading }}</div>
     <ul class="list">
       {% for listItem in list %}
-        {%- if listItem.endDate -%}
-          {%- set displayDate = apos.aem.formatDate(listItem.startDate) + ' — ' + apos.aem.formatDate(listItem.endDate) -%}
-        {%- else -%}
-          {%- set displayDate = apos.aem.formatDate(listItem.startDate) -%}
-        {%- endif -%}
+        {%-
+          set displayDate = apos.aemDates.buildDisplayDate(
+            listItem.startDate,
+            listItem.endDate,
+            locale
+          )
+        -%}
         <li>
           <a
             class="list-item"

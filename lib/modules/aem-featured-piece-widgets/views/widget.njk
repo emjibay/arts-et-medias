@@ -11,7 +11,7 @@
 {%- if piece -%}
   {%- if piece.type === 'article' -%}
     {%- set label = __('articles|featured') -%}
-    {{ featuredArticle(piece, label) }}
+    {{ featuredArticle(piece, label, locale) }}
 
   {%- elseif piece.type === 'book' -%}
     {%- set label = __('books|featured') -%}

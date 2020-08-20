@@ -27,28 +27,21 @@
 {% block pageContent %}
   {{ heroImage(piece, true) }}
 
-  {#- TODO: move to a util? -#}
-  {%- if piece.endDate -%}
-    {%- if apos.aem.isTodayBetween(piece.startDate, piece.endDate) -%}
-      {%- set additionalInfo = __('events|additionalInfo|now') -%}
-    {%- elseif apos.aem.isPassed(piece.startDate) -%}
-      {%- set additionalInfo = __('events|additionalInfo|passed') -%}
-    {%- endif -%}
-  {%- else -%}
-    {%- if apos.aem.isToday(piece.startDate) -%}
-      {%- set additionalInfo = __('events|additionalInfo|today') -%}
-    {%- elseif apos.aem.isPassed(piece.startDate) -%}
-      {%- set additionalInfo = __('events|additionalInfo|passed') -%}
-    {%- endif -%}
-  {%- endif -%}
-
-  {%- set formattedStartDate = apos.aem.formatDate(piece.startDate) -%}
-  {%- if not piece.endDate or (piece.startDate === piece.endDate) -%}
-    {%- set displayDate = formattedStartDate -%}
-  {%- else -%}
-    {%- set formattedEndDate = apos.aem.formatDate(piece.endDate) -%}
-    {%- set displayDate = formattedStartDate + '—' + formattedEndDate -%}
-  {%- endif -%}
+  {%-
+    set displayDate = apos.aemDates.buildDisplayDate(
+      piece.startDate,
+      piece.endDate,
+      locale
+    )
+  -%}
+  {%-
+    set additionalInfo = apos.aemDates.buildAdditionalInfo({
+      i18n: __,
+      prefix: 'events|additionalInfo|',
+      startDate: piece.startDate,
+      endDate: piece.endDate
+    })
+  -%}
 
   <h2 class="sr-only">{{ __('pieceDetails|dateAndLocationLabel') }}</h2>
   <div class="description event-info">

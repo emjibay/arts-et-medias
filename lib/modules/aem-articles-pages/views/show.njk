@@ -43,7 +43,7 @@
 {% block subheading %}
   <div class="subheading">
     <h2 class="sr-only">{{ __('pieceDetails|authorsLabel') }}</h2>
-    {{ pieceLinkList(piece._originalAuthor) }}, {{ apos.aem.formatDate(piece.publicationDate) }}
+    {{ pieceLinkList(piece._originalAuthor) }}, {{ apos.aemDates.format(piece.publicationDate, locale) }}
   </div>
 {% endblock %}
 

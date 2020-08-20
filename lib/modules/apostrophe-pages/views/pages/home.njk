@@ -4,6 +4,9 @@
 {%- from 'macros/piece-index.njk' import articleList, eventList, bookList, projectList -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 {% macro seeAllCTA(type) %}
   <div class="see-all-cta">
     <a
@@ -73,7 +76,7 @@
                     3
                   )
                 -%}
-                {{ articleList(recentArticles) }}
+                {{ articleList(recentArticles, locale) }}
               </div>
 
               {% include "partials/home/sidebar-en.njk" %}

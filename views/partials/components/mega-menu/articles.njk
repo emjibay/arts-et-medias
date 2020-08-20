@@ -2,6 +2,9 @@
 {%- from 'macros/mega-menu.njk' import hideMegaMenuButton, seeAllCTA -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 {% macro recentlyAddedArticles(category) %}
   {%- set cat = 'articles|categories|' + category + '|' -%}
   {%- set tags = __(cat + 'tags') -%}
@@ -40,7 +43,7 @@
 
   <div class="mm-col">
     {%- set latestArticle = data.articlesByMostRecent[0] -%}
-    {{ featuredArticle(latestArticle, __('articles|latest'))}}
+    {{ featuredArticle(latestArticle, __('articles|latest'), locale) }}
   </div>
 
   <div class="mm-col">

@@ -22,13 +22,13 @@
 
 
 {# public macros #}
-{%- macro featuredArticle(piece, label) -%}
+{%- macro featuredArticle(piece, label, locale) -%}
   <article class="featured-piece-widget featured-article-widget">
     <p class="feature-type">{{ label }}</p>
 
     <h1>{{ piece.title }}</h1>
 
-    {%- set publicationDate = apos.aem.formatDate(piece.publicationDate) -%}
+    {%- set publicationDate = apos.aemDates.format(piece.publicationDate, locale) -%}
     <div class="byline-and-date">
       {% for author in piece._originalAuthor %}
         <span>{{ author.title }}</span>
@@ -80,7 +80,7 @@
 
     <p class="byline">
       {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
-      {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ localizedCountry }}
+      {{ apos.aemDates.format(piece.startDate, locale) }}, {{ piece.city }}, {{ localizedCountry }}
     </p>
 
     {{ contentDetails(piece, __('events|seeMoreCTA')) }}

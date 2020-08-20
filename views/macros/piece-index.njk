@@ -51,7 +51,7 @@
   </ul>
 {%- endmacro -%}
 
-{%- macro articleList(pieces) -%}
+{%- macro articleList(pieces, locale) -%}
   <ul class="piece-list article-list">
     {% for piece in pieces %}
       <li class="list-item">
@@ -62,7 +62,7 @@
           <article class="piece-card article-card">
             <p class="heading">{{ piece.title }}</p>
 
-            {%- set publicationDate = apos.aem.formatDate(piece.publicationDate) -%}
+            {%- set publicationDate = apos.aemDates.format(piece.publicationDate, locale) -%}
             <div class="byline-and-date">
               {% for author in piece._originalAuthor %}
                 <span>{{ author.title }}</span>
@@ -168,7 +168,7 @@
 
             <p class="org-location">
               {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
-              {{ apos.aem.formatDate(piece.startDate) }}, {{ piece.city }}, {{ localizedCountry }}
+              {{ apos.aemDates.format(piece.startDate, locale) }}, {{ piece.city }}, {{ localizedCountry }}
             </p>
 
             <div class="short-description">
@@ -295,7 +295,7 @@
   {%- endif -%}
 {% endmacro %}
 
-{% macro recentlyAddedArticles(label, pieces, tags = []) %}
+{% macro recentlyAddedArticles(label, pieces, tags, locale) %}
   {%-
     set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
       pieces,
@@ -305,7 +305,7 @@
   {%- if recentlyAdded|length -%}
     <div class="recently-added-articles">
       <h2 class="content-type-heading">{{ label }}</h2>
-      {{ articleList(recentlyAdded) }}
+      {{ articleList(recentlyAdded, locale) }}
     </div>
   {%- endif -%}
 {% endmacro %}

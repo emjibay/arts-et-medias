@@ -1,9 +1,18 @@
 {%- from 'macros/featured-piece.njk' import featuredArticle -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 <aside class="sidebar">
   {%- set latestArticle = data.articlesByMostRecent[0] -%}
-  {{ featuredArticle(latestArticle, __('articles|latest')) }}
+  {{
+    featuredArticle(
+      latestArticle,
+      __('articles|latest'),
+      locale
+    )
+  }}
 
   {% include "partials/sidebar/help-cta.njk" %}
 </aside>
