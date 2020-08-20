@@ -8,30 +8,29 @@
 {%- set piece = data.widget._piece -%}
 
 
-{# TODO: use __() to set localized labels #}
 {%- if piece -%}
   {%- if piece.type === 'article' -%}
-    {%- set label = 'Featured Article' -%}
+    {%- set label = __('articles|featured') -%}
     {{ featuredArticle(piece, label) }}
 
   {%- elseif piece.type === 'book' -%}
-    {%- set label = 'Featured Book' -%}
+    {%- set label = __('books|featured') -%}
     {{ featuredBook(piece, label) }}
 
   {%- elseif piece.type === 'education' -%}
-    {%- set label = 'Featured Academic Program' -%}
+    {%- set label = __('education|featured') -%}
     {{ featuredEducation(piece, label) }}
 
   {%- elseif piece.type === 'event' -%}
-    {%- set label = 'Featured Event' -%}
+    {%- set label = __('events|featured') -%}
     {{ featuredEvent(piece, label, locale) }}
 
   {%- elseif piece.type === 'organization' -%}
-    {%- set label = 'Featured Organization' -%}
+    {%- set label = __('organizations|featured') -%}
     {{ featuredOrganization(piece, label, locale) }}
 
   {%- elseif piece.type === 'project' -%}
-    {%- set label = 'Featured Project' -%}
+    {%- set label = __('projects|featured') -%}
     {{ featuredProject(piece, label) }}
 
   {%- else -%}
