@@ -142,5 +142,11 @@
       display: inline-block;
       margin-top: 30px;
     }
+
+    &.book {
+      .hero-image {
+        @include heroImageShadow();
+      }
+    }
   }
 }

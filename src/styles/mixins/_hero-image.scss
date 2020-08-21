@@ -1,6 +1,7 @@
 @import 'functions';
 
 
+// dimensions
 @mixin heroImageDimensions($colSpan, $heightRatio) {
   $width: getColumnsSpan($colSpan, $phone);
   $imgWidth: $width;
@@ -97,4 +98,9 @@
     height: $imgSize;
     width: $imgSize;
   }
+}
+
+// decoration
+@mixin heroImageShadow {
+  filter: drop-shadow(0 1px 1px #eeeeee);
 }

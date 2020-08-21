@@ -274,6 +274,7 @@
 
       .hero-image {
         @include heroImageContainedInSquare(6);
+        @include heroImageShadow();
 
         @media #{$mqTablet} {
           @include heroImageFullHeight(6);
