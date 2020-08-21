@@ -39,7 +39,6 @@
 {%- endmacro -%}
 
 {% macro relatedPieces(label, pieces) %}
-  {{ apos.log('--- piece-details.njk > relatedPieces ---') }}
   {%- if (pieces and pieces|length > 0) -%}
     <dl class="piece-props-list">
       <dt>{{ label }}</dt>
@@ -225,7 +224,6 @@
 {% endmacro %}
 
 {% macro tags(piece) %}
-  {{ apos.log('--- piece-details.njk > tags ---') }}
   {%- if (piece.tags and piece.tags|length > 0) -%}
     <dl class="piece-props-list">
       <dt>{{ __('pieceDetails|tagsLabel') }}</dt>
