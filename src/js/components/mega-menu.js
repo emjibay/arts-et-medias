@@ -34,6 +34,19 @@ export function init() {
 
 // event handlers
 function addEventListeners() {
+  addBodyClickListener();
+  addWindowResizeListener();
+  addNavItemListeners();
+  addMenuPanelListeners();
+  addHideButtonListener();
+}
+
+function addBodyClickListener() {
+  if (!document || !document.body) {
+    console.warn('Unable to handle clicks on <body>');
+    return;
+  }
+
   document.body.addEventListener(
     'click',
     (event) => {
@@ -45,10 +58,54 @@ function addEventListeners() {
       }
     }
   );
+}
 
-  window.addEventListener('resize', onWindowResized);
+function addHideButtonListener() {
+  if (!hideButtons || !hideButtons.length) {
+    console.warn('Unable to handle hide buttons\' click');
+    return;
+  }
 
-  // nav items mouse over
+  for (let i = 0; i < hideButtons.length; i++) {
+    const button = hideButtons[i];
+    button.addEventListener(
+      'click',
+      () => {
+        clearTimer();
+        hideMenu();
+      }
+    );
+  }
+}
+
+function addMenuPanelListeners() {
+  if (!menuPanel) {
+    console.warn('Unable to handle menu panel mouse events');
+    return;
+  }
+
+  menuPanel.addEventListener(
+    'mouseover',
+    () => clearTimer()
+  );
+  menuPanel.addEventListener(
+    'mouseout',
+    (event) => {
+      // TODO: make more solid?
+      const yThreshold = 200;
+      if (event.pageY > yThreshold) {
+        startTimer();
+      }
+    }
+  );
+}
+
+function addNavItemListeners() {
+  if (!navItems || !navItems.length) {
+    console.warn('Unable to handle nav items mouse events');
+    return;
+  }
+
   for (let i = 0; i < navItems.length; i++) {
     const navItem = navItems[i];
     navItem.addEventListener(
@@ -64,34 +121,14 @@ function addEventListeners() {
       }
     )
   }
+}
 
-  // panel mouse over and out
-  menuPanel.addEventListener(
-    'mouseover',
-    () => clearTimer()
-  );
-  menuPanel.addEventListener(
-    'mouseout',
-    (event) => {
-      // TODO: make more solid?
-      const yThreshold = 200;
-      if (event.pageY > yThreshold) {
-        startTimer();
-      }
-    }
-  );
-
-  // hide menu buttons click
-  for (let i = 0; i < hideButtons.length; i++) {
-    const button = hideButtons[i];
-    button.addEventListener(
-      'click',
-      () => {
-        clearTimer();
-        hideMenu();
-      }
-    );
+function addWindowResizeListener() {
+  if (!window) {
+    console.warn('Unable to handle window resize');
+    return;
   }
+  window.addEventListener('resize', onWindowResized);
 }
 
 function onWindowResized(event) {

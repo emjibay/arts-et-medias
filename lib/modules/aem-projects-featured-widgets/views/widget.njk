@@ -1,10 +1,7 @@
 {%- from 'macros/featured-piece.njk' import featuredProject -%}
 
 
-{# FIXME: figure out better way to get widget data #}
-{% set hasWidget = data.widget._pieces.length > 0 %}
-
-{%- if hasWidget -%}
+{%- if data.widget._pieces -%}
   {%- if data.widget.isSponsored -%}
     {%- set label = __('projects|sponsored') -%}
   {%- else -%}

@@ -7,7 +7,7 @@
 
 
 {%- set piece = data.piece -%}
-{%- set hasProfilePic = piece.profilePic.items|length > 0 -%}
+{%- set hasProfilePic = apos.aemPieces.hasProfilePic(piece) -%}
 
 
 {% block title %}

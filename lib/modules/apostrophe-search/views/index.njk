@@ -7,6 +7,7 @@
 {%- set hasQuery = data.query !== null and data.query.q !== '' and data.query.q !== undefined -%}
 {%- set numResults = data.docs|length -%}
 
+
 {% block title %}
   {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
 {% endblock %}

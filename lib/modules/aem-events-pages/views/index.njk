@@ -4,7 +4,8 @@
 
 
 {%- set isFirstPage = (data.currentPage === 1) -%}
-{%- set hasTags = (data.page.withTags|length > 0) -%}
+{%- set hasTags = apos.aemPieces.hasTags(data.page) -%}
+
 
 {% block title %}
   {{

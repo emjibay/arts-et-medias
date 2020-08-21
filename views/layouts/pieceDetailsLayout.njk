@@ -6,7 +6,8 @@
 
 
 {%- set piece = data.piece -%}
-{%- set hasHeroImage = piece.heroImage.items|length > 0 -%}
+{%- set hasHeroImage = apos.aemPieces.hasHeroImage(piece) -%}
+{{ apos.log('hasHeroImage:', hasHeroImage) }}
 
 {% block title %}
   {{ piece.title }} | Arts et Médias

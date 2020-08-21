@@ -19,17 +19,87 @@
 
 {# piece lists #}
 {%- macro pieceList(pieces, hasByline = false) -%}
-  <ul class="piece-list">
-    {% for piece in pieces %}
-      <li class="list-item">
-        <a
-          href="{{ piece._url }}"
-          class="piece-link"
-        >
-          <article class="piece-card">
-            <p class="heading">{{ piece.title }}</p>
+  {%- if pieces -%}
+    <ul class="piece-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
 
-            {% if hasByline %}
+              {% if hasByline %}
+                <ul class="byline-list">
+                  {% for author in piece._author %}
+                    <li>
+                      <p>{{ author.title }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+              <div class="short-description">
+                {{ truncatedDescription(piece) }}
+              </div>
+
+              <div class="piece-cta">{{ __('pieceIndex|seeMoreCTA') }}</div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro articleList(pieces, locale) -%}
+  {%- if pieces -%}
+    <ul class="piece-list article-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card article-card">
+              <p class="heading">{{ piece.title }}</p>
+
+              {%- set publicationDate = apos.aemDates.format(piece.publicationDate, locale) -%}
+              <div class="byline-and-date">
+                {% for author in piece._originalAuthor %}
+                  <span>{{ author.title }}</span>
+                {% endfor %}
+                <span class="publication-date">{{ publicationDate }}</span>
+              </div>
+
+              {{ heroImage(piece) }}
+
+              <p class="short-description">
+                {{ piece.shortDescription }}
+              </p>
+
+              <div class="piece-cta">{{ __('articles|seeMoreCTA') }}</div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro bookList(pieces) -%}
+  {%- if pieces -%}
+    <ul class="piece-list book-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
+
               <ul class="byline-list">
                 {% for author in piece._author %}
                   <li>
@@ -37,150 +107,90 @@
                   </li>
                 {% endfor %}
               </ul>
-            {% endif %}
 
-            <div class="short-description">
-              {{ truncatedDescription(piece) }}
-            </div>
-
-            <div class="piece-cta">{{ __('pieceIndex|seeMoreCTA') }}</div>
-          </article>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-{%- endmacro -%}
-
-{%- macro articleList(pieces, locale) -%}
-  <ul class="piece-list article-list">
-    {% for piece in pieces %}
-      <li class="list-item">
-        <a
-          href="{{ piece._url }}"
-          class="piece-link"
-        >
-          <article class="piece-card article-card">
-            <p class="heading">{{ piece.title }}</p>
-
-            {%- set publicationDate = apos.aemDates.format(piece.publicationDate, locale) -%}
-            <div class="byline-and-date">
-              {% for author in piece._originalAuthor %}
-                <span>{{ author.title }}</span>
-              {% endfor %}
-              <span class="publication-date">{{ publicationDate }}</span>
-            </div>
-
-            {{ heroImage(piece) }}
-
-            <p class="short-description">
-              {{ piece.shortDescription }}
-            </p>
-
-            <div class="piece-cta">{{ __('articles|seeMoreCTA') }}</div>
-          </article>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-{%- endmacro -%}
-
-{%- macro bookList(pieces) -%}
-  <ul class="piece-list book-list">
-    {% for piece in pieces %}
-      <li class="list-item">
-        <a
-          href="{{ piece._url }}"
-          class="piece-link"
-        >
-          <article class="piece-card">
-            <p class="heading">{{ piece.title }}</p>
-
-            <ul class="byline-list">
-              {% for author in piece._author %}
-                <li>
-                  <p>{{ author.title }}</p>
-                </li>
-              {% endfor %}
-            </ul>
-
-            <div>
-              <div class="image-content">
-                {{ heroImage(piece) }}
-              </div>
-
-              <div class="text-content">
-                <div class="short-description">
-                  {{ truncatedDescription(piece) }}
+              <div>
+                <div class="image-content">
+                  {{ heroImage(piece) }}
                 </div>
 
-                <div class="piece-cta">{{ __('books|seeMoreCTA') }}</div>
+                <div class="text-content">
+                  <div class="short-description">
+                    {{ truncatedDescription(piece) }}
+                  </div>
+
+                  <div class="piece-cta">{{ __('books|seeMoreCTA') }}</div>
+                </div>
               </div>
-            </div>
-          </article>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
 {%- endmacro -%}
 
 {%- macro educationList(pieces, locale) -%}
-  <ul class="piece-list">
-    {% for piece in pieces %}
-      <li class="list-item">
-        <a
-          href="{{ piece._url }}"
-          class="piece-link"
-        >
-          <article class="piece-card">
-            <p class="heading">{{ piece.title }}</p>
+  {%- if pieces -%}
+    <ul class="piece-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
 
-            <ul class="byline-list">
-              {% for org in piece._institution %}
-                <li>
-                  {%- set localizedCountry = apos.aemI18n.getCountry(org.country, locale) -%}
-                  <p>{{ org.title }}, {{ org.city }}, {{ localizedCountry }}</p>
-                </li>
-              {% endfor %}
-            </ul>
+              <ul class="byline-list">
+                {% for org in piece._institution %}
+                  <li>
+                    {%- set localizedCountry = apos.aemI18n.getCountry(org.country, locale) -%}
+                    <p>{{ org.title }}, {{ org.city }}, {{ localizedCountry }}</p>
+                  </li>
+                {% endfor %}
+              </ul>
 
-            <div class="short-description">
-              {{ truncatedDescription(piece) }}
-            </div>
+              <div class="short-description">
+                {{ truncatedDescription(piece) }}
+              </div>
 
-            <div class="piece-cta">{{ __('education|seeMoreCTA') }}</div>
-          </article>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+              <div class="piece-cta">{{ __('education|seeMoreCTA') }}</div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
 {%- endmacro -%}
 
 {%- macro eventList(pieces, locale) -%}
-  <ul class="piece-list">
-    {% for piece in pieces %}
-      <li class="list-item">
-        <a
-          href="{{ piece._url }}"
-          class="piece-link"
-        >
-          <article class="piece-card">
-            <p class="heading">{{ piece.title }}</p>
+  {%- if pieces -%}
+    <ul class="piece-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
 
-            <p class="org-location">
-              {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
-              {{ apos.aemDates.format(piece.startDate, locale) }}, {{ piece.city }}, {{ localizedCountry }}
-            </p>
+              <p class="org-location">
+                {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
+                {{ apos.aemDates.format(piece.startDate, locale) }}, {{ piece.city }}, {{ localizedCountry }}
+              </p>
 
-            <div class="short-description">
-              {{ truncatedDescription(piece) }}
-            </div>
+              <div class="short-description">
+                {{ truncatedDescription(piece) }}
+              </div>
 
-            <div class="piece-cta">{{ __('events|seeMoreCTA') }}</div>
-          </article>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+              <div class="piece-cta">{{ __('events|seeMoreCTA') }}</div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
 {%- endmacro -%}
 
 {#
@@ -190,92 +200,98 @@
     - locale: <string>
 #}
 {%- macro organizationList(pieces, options) -%}
-  <ul class="piece-list">
-    {% for piece in pieces %}
-      <li class="list-item">
-        <a
-          href="{{ piece._url }}"
-          class="piece-link"
-        >
-          <article class="piece-card">
-            <p class="heading">{{ piece.title }}</p>
+  {%- if pieces -%}
+    <ul class="piece-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
 
-            {%- if options.hasLocation -%}
-              {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, options.locale) -%}
-              <p class="org-location">{{ piece.city }}, {{ localizedCountry }}</p>
-            {%- endif -%}
+              {%- if options.hasLocation -%}
+                {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, options.locale) -%}
+                <p class="org-location">{{ piece.city }}, {{ localizedCountry }}</p>
+              {%- endif -%}
 
-            <div class="short-description">
-              {{ truncatedDescription(piece) }}
-            </div>
+              <div class="short-description">
+                {{ truncatedDescription(piece) }}
+              </div>
 
-            <div class="piece-cta">{{ __('organizations|seeMoreCTA') }}</div>
-          </article>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+              <div class="piece-cta">{{ __('organizations|seeMoreCTA') }}</div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
 {%- endmacro -%}
 
 {%- macro projectList(pieces) -%}
-  <ul class="piece-list">
-    {% for piece in pieces %}
-      <li class="list-item">
-        <a
-          href="{{ piece._url }}"
-          class="piece-link"
-        >
-          <article class="piece-card">
-            <p class="heading">{{ piece.title }}</p>
+  {%- if pieces -%}
+    <ul class="piece-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
 
-            <ul class="byline-list">
-              {% for author in piece._author %}
-                <li>
-                  <p>{{ author.title }}</p>
-                </li>
-              {% endfor %}
-            </ul>
+              <ul class="byline-list">
+                {% for author in piece._author %}
+                  <li>
+                    <p>{{ author.title }}</p>
+                  </li>
+                {% endfor %}
+              </ul>
 
-            {{ heroImage(piece) }}
+              {{ heroImage(piece) }}
 
-            <div class="short-description">
-              {{ truncatedDescription(piece) }}
-            </div>
+              <div class="short-description">
+                {{ truncatedDescription(piece) }}
+              </div>
 
-            <div class="piece-cta">{{ __('projects|seeMoreCTA') }}</div>
-          </article>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+              <div class="piece-cta">{{ __('projects|seeMoreCTA') }}</div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
 {%- endmacro -%}
 
 {%- macro pieceListWithType(pieces) -%}
-  <ul class="piece-list">
-    {% for piece in pieces %}
-      <li class="list-item">
-        <a
-          href="{{ piece._url }}"
-          class="piece-link"
-        >
-          <article class="piece-card">
-            <p class="heading">{{ piece.title }}</p>
+  {%- if pieces -%}
+    <ul class="piece-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
 
-            <div class="short-description">
-              {{ truncatedDescription(piece) }}
-            </div>
+              <div class="short-description">
+                {{ truncatedDescription(piece) }}
+              </div>
 
-            <div class="piece-cta">{{ __('global|seeMoreCTA') }}</div>
+              <div class="piece-cta">{{ __('global|seeMoreCTA') }}</div>
 
-            {%- set pieceType = apos.aemPieces.getSanitizedType(piece) -%}
-            <div class="tag">
-              {{ __('pieceDetails|types|' + pieceType) }}
-            </div>
-          </article>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+              {%- set pieceType = apos.aemPieces.getSanitizedType(piece) -%}
+              <div class="tag">
+                {{ __('pieceDetails|types|' + pieceType) }}
+              </div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
 {%- endmacro -%}
 
 
@@ -287,12 +303,10 @@
       tags
     )
   -%}
-  {%- if recentlyAdded|length -%}
-    <div class="recently-added-pieces">
-      <h2 class="content-type-heading">{{ label }}</h2>
-      {{ pieceList(recentlyAdded) }}
-    </div>
-  {%- endif -%}
+  <div class="recently-added-pieces">
+    <h2 class="content-type-heading">{{ label }}</h2>
+    {{ pieceList(recentlyAdded) }}
+  </div>
 {% endmacro %}
 
 {% macro recentlyAddedArticles(label, pieces, tags, locale) %}
@@ -302,12 +316,10 @@
       tags
     )
   -%}
-  {%- if recentlyAdded|length -%}
-    <div class="recently-added-articles">
-      <h2 class="content-type-heading">{{ label }}</h2>
-      {{ articleList(recentlyAdded, locale) }}
-    </div>
-  {%- endif -%}
+  <div class="recently-added-articles">
+    <h2 class="content-type-heading">{{ label }}</h2>
+    {{ articleList(recentlyAdded, locale) }}
+  </div>
 {% endmacro %}
 
 {% macro recentlyAddedEducation(label, pieces, tags = []) %}
@@ -317,12 +329,10 @@
       tags
     )
   -%}
-  {%- if recentlyAdded|length -%}
-    <div class="recently-added-education">
-      <h2 class="content-type-heading">{{ label }}</h2>
-      {{ educationList(recentlyAdded) }}
-    </div>
-  {%- endif -%}
+  <div class="recently-added-education">
+    <h2 class="content-type-heading">{{ label }}</h2>
+    {{ educationList(recentlyAdded) }}
+  </div>
 {% endmacro %}
 
 {% macro recentlyAddedEvents(label, pieces, tags, locale) %}
@@ -332,12 +342,10 @@
       tags
     )
   -%}
-  {%- if recentlyAdded|length -%}
-    <div class="recently-added-articles">
-      <h2 class="content-type-heading">{{ label }}</h2>
-      {{ eventList(recentlyAdded, locale) }}
-    </div>
-  {%- endif -%}
+  <div class="recently-added-articles">
+    <h2 class="content-type-heading">{{ label }}</h2>
+    {{ eventList(recentlyAdded, locale) }}
+  </div>
 {% endmacro %}
 
 {% macro recentlyAddedOrgs(label, pieces, tags, locale) %}
@@ -347,12 +355,10 @@
       tags
     )
   -%}
-  {%- if recentlyAdded|length -%}
-    <div class="recently-added-orgs">
-      <h2 class="content-type-heading">{{ label }}</h2>
-      {{ organizationList(recentlyAdded, { hasLocation: true, locale: locale }) }}
-    </div>
-  {%- endif -%}
+  <div class="recently-added-orgs">
+    <h2 class="content-type-heading">{{ label }}</h2>
+    {{ organizationList(recentlyAdded, { hasLocation: true, locale: locale }) }}
+  </div>
 {% endmacro %}
 
 {% macro recentlyAddedProjects(label, pieces, tags = []) %}
@@ -362,10 +368,8 @@
       tags
     )
   -%}
-  {%- if recentlyAdded|length -%}
-    <div class="recently-added-projects">
-      <h2 class="content-type-heading">{{ label }}</h2>
-      {{ projectList(recentlyAdded) }}
-    </div>
-  {%- endif -%}
+  <div class="recently-added-projects">
+    <h2 class="content-type-heading">{{ label }}</h2>
+    {{ projectList(recentlyAdded) }}
+  </div>
 {% endmacro %}

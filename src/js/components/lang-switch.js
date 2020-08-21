@@ -16,6 +16,11 @@ export function init() {
 
 // methods
 function addEventListeners() {
+  if (!forms || !forms.length) {
+    console.warn('Unable to handle lang switch form submissions');
+    return;
+  }
+
   for (let i = 0; i < forms.length; i++) {
     const form = forms[i];
     form.addEventListener(
