@@ -51,6 +51,7 @@
     "booksAuthorLabel": "Auteur des livres suivants",
     "booksContributorLabel": "Collaborateur aux livres suivants",
     "booksTranslatorLabel": "Traducteur des livres suivants",
+    "byline": "par %s",
     "contributorsLabel": "Collaborateurs",
     "creatorsLabel": "Créateurs",
     "dateAndLocationLabel": "Date et emplacement",
