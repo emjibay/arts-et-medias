@@ -1,0 +1,41 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+
+.error-template {
+  .page-content {
+    margin: 0 auto;
+  }
+
+  .h1 {
+    @include heading1();
+  }
+
+  .p {
+    @include paragraph();
+  }
+
+  .tech-details {
+    margin-top: 100px;
+
+    .heading {
+      @include heading5();
+      cursor: pointer;
+    }
+
+    dl {
+      dt {
+        @include paragraph();
+        font-weight: bold;
+      }
+
+      dd {
+        @include paragraph();
+        font-family: $ffMonospace;
+        background-color: $lightestGrey;
+        padding: 5px;
+      }
+    }
+  }
+}

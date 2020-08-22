@@ -490,6 +490,19 @@
     "stillNotSatistfied": "Vous ne trouvez toujours pas ce que vous cherchez ?",
     "helpUsCTA": "Peut-être avez-vous quelque chose à contribuer ? Veuillez considérer nous aider afin de maintenir le contenu du site à jour."
   },
+  "error": {
+    "heading": "Une erreur est survenue",
+    "paragraph": "Une erreur s'est produite lors du chargement de la page en cours. Nous vous prions de bien vouloir nous excuser pour ce désagrément.",
+    "techDetailsLabel": "Détails techniques",
+    "localeLabel": "Langue",
+    "pageTitleLabel": "Titre de la page",
+    "pageTypeLabel": "Type du gabarit",
+    "slugLabel": "URL",
+    "timestampLabel": "Horodatage",
+    "bugReportCTA": "Nous vous invitons à copier les détails techniques ci-dessus et à les soumettre dans un rapport d'erreur pour nous aider à améliorer le site.",
+    "bugReportLabel": "Rapporter l'erreur",
+    "bugReportUrl": "https://github.com/jansensan/arts-et-medias/issues/new?assignees=jansensan&labels=bug&template=report-a-bug.md&title=Error%20occurred%20while%20navigating%20on%20website"
+  },
 
 	"%s Selected": "%s Selected",
 	"%s was committed successfully.": "\"%s\" was committed successfully.",

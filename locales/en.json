@@ -490,6 +490,19 @@
     "stillNotSatistfied": "Still unable to find what you are looking for?",
     "helpUsCTA": "Consider contributing to help us maintain this site up to date."
   },
+  "error": {
+    "heading": "An error occured",
+    "paragraph": "An error occured while loading the current page. We apologize for the inconvenience.",
+    "techDetailsLabel": "Détails technique",
+    "localeLabel": "Locale",
+    "pageTitleLabel": "Page Title",
+    "pageTypeLabel": "Template Type",
+    "slugLabel": "URL",
+    "timestampLabel": "Timestamp",
+    "bugReportCTA": "We invite you to copy the technical details above and report this bug to help us improve the site.",
+    "bugReportLabel": "Report Bug",
+    "bugReportUrl": "https://github.com/jansensan/arts-et-medias/issues/new?assignees=jansensan&labels=bug&template=report-a-bug.md&title=Error%20occurred%20while%20navigating%20on%20website"
+  },
 
 	"%s Selected": "%s Selected",
 	"%s was committed successfully.": "\"%s\" was committed successfully.",
