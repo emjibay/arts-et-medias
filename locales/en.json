@@ -269,7 +269,7 @@
         "recentlyAdded": "Recently Added Magazines",
         "related": "Related Magazines",
         "seeAllCTA": "See All Magazines",
-        "tags": ["magazine"]
+        "tags": ["magazine", "journal", "periodical"]
       },
       "websites": {
         "title": "Websites",
