@@ -7,7 +7,9 @@
     "start": "node app.js",
     "dev": "brunch watch --server",
     "build": "brunch build --production",
-    "bundle": "APOS_BUNDLE=1 node app apostrophe:generation"
+    "bundle": "APOS_BUNDLE=1 node app apostrophe:generation",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "author": "Mat Janson Blanchet",
   "license": "MIT",
@@ -28,6 +30,7 @@
     "bootstrap": "^4.5.0",
     "brunch": "^2.10.17",
     "core-js": "3",
+    "eslint": "^7.7.0",
     "globby": "^10.0.2",
     "terser-brunch": "^3.0.0"
   },
