@@ -4,7 +4,7 @@ module.exports = isDraftMode;
 function isDraftMode() {
   let response = false;
 
-  const { classList, } = document.body;
+  const { classList } = document.body;
 
   if (!classList) {
     return response;

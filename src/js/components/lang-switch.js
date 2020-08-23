@@ -27,7 +27,7 @@ function addEventListeners() {
       'submit',
       (event) => {
         event.preventDefault();
-        const { langSwitch, } = form;
+        const { langSwitch } = form;
         currentLocale = langSwitch.value.toLowerCase();
         window.location = `/${ currentLocale }/`;
       }
