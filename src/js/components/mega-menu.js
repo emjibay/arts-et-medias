@@ -111,7 +111,7 @@ function addNavItemListeners() {
     navItem.addEventListener(
       'mouseover',
       (event) => {
-        const element = event.target
+        const element = event.target;
         if (element.classList.contains('sans-menu')) {
           hideMenu();
         } else {
@@ -119,7 +119,7 @@ function addNavItemListeners() {
           showMenu(element.id);
         }
       }
-    )
+    );
   }
 }
 
@@ -131,7 +131,7 @@ function addWindowResizeListener() {
   window.addEventListener('resize', onWindowResized);
 }
 
-function onWindowResized(event) {
+function onWindowResized() {
   if (breakpointModel.isMobileOrTablet()) {
     hideMenu();
   }

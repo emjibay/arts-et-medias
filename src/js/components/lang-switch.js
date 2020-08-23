@@ -27,7 +27,7 @@ function addEventListeners() {
       'submit',
       (event) => {
         event.preventDefault();
-        const { langSwitch } = form;
+        const { langSwitch, } = form;
         currentLocale = langSwitch.value.toLowerCase();
         window.location = `/${ currentLocale }/`;
       }
@@ -46,7 +46,7 @@ function getDOMElements() {
 
 function updateSelect() {
   // create callback
-  const isCurrentLocale = (option) => option.value.toUpperCase() === currentLocale.toUpperCase();
+  const isCurrentLocale = (option) => option.value.toUpperCase() === currentLocale.toUpperCase();
 
   // loop through all selects on page
   for (let i = 0; i < selects.length; i++) {

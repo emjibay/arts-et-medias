@@ -11,9 +11,9 @@ const modulesList = [
 // methods definitions
 function initAll() {
   // import all *.js files and `init()` them
-  modulesList.forEach(function (m) {
+  modulesList.forEach((m) => {
     // require module
-    let loadedModule = require(`./${ m }`);
+    const loadedModule = require(`./${ m }`);
 
     // init() if method exists
     if ((typeof loadedModule.init) === 'function') {
