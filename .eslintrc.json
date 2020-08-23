@@ -1,6 +1,5 @@
 {
   "env": {
-    "amd": true,
     "browser": true,
     "commonjs": true,
     "es2020": true,
@@ -9,6 +8,7 @@
   },
   "extends": "eslint:recommended",
   "parserOptions": {
+    "sourceType": "module",
     "ecmaVersion": 12
   },
   "rules": {
