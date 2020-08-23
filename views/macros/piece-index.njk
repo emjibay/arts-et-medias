@@ -309,16 +309,10 @@
   </div>
 {% endmacro %}
 
-{% macro recentlyAddedArticles(label, pieces, tags, locale) %}
-  {%-
-    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
-      pieces,
-      tags
-    )
-  -%}
+{% macro recentlyAddedArticles(label, pieces, locale) %}
   <div class="recently-added-articles">
     <h2 class="content-type-heading">{{ label }}</h2>
-    {{ articleList(recentlyAdded, locale) }}
+    {{ articleList(pieces, locale) }}
   </div>
 {% endmacro %}
 

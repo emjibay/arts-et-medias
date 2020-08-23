@@ -9,21 +9,29 @@
 {% macro articleList(category) %}
   {%- set cat = 'articles|categories|' + category + '|' -%}
 
-  {{
-    recentlyAddedArticles(
-      __(cat + 'recentlyAdded'),
+  {%-
+    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
       data.articlesByMostRecent,
-      __(cat + 'tags'),
-      locale
+      __(cat + 'tags')
     )
-  }}
+  -%}
 
-  <div class="see-all-cta">
-    <a
-      class="website-cta"
-      href="{{ __(cat + 'url') }}"
-    >{{ __(cat + 'seeAllCTA') }}</a>
-  </div>
+  {%- if (recentlyAdded and recentlyAdded|length > 0) -%}
+    {{
+      recentlyAddedArticles(
+        __(cat + 'recentlyAdded'),
+        recentlyAdded,
+        locale
+      )
+    }}
+
+    <div class="see-all-cta">
+      <a
+        class="website-cta"
+        href="{{ __(cat + 'url') }}"
+      >{{ __(cat + 'seeAllCTA') }}</a>
+    </div>
+  {%- endif -%}
 {% endmacro %}
 
 
