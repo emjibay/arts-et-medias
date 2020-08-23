@@ -1,23 +1,17 @@
-{% macro sidebarLink(category) %}
-  <a href="{{ __('education|categories|' + category + '|url') }}">
-    {{ __('education|categories|' + category + '|title') }}
-  </a>
-{% endmacro %}
+{%- from 'macros/sidebar.njk' import educationLink, orgsLink -%}
 
 
 <section class="in-this-section">
   <h2 class="h1">{{ __('sidebar|inThisSectionHeading') }}</h2>
   <ul>
     <li>
-      {{ sidebarLink('undergrad') }}
+      {{ educationLink('undergrad') }}
     </li>
     <li>
-      {{ sidebarLink('masters') }}
+      {{ educationLink('masters') }}
     </li>
     <li>
-      <a href="{{ __('organizations|categories|academicInstitutions|url') }}">
-        {{ __('organizations|categories|academicInstitutions|title') }}
-      </a>
+      {{ orgsLink('academicInstitutions') }}
     </li>
   </ul>
 </section>

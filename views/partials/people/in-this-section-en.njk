@@ -1,36 +1,30 @@
-{% macro sidebarLink(category) %}
-  <a href="{{ __('people|categories|' + category + '|url') }}">
-    {{ __('people|categories|' + category + '|title') }}
-  </a>
-{% endmacro %}
+{%- from 'macros/sidebar.njk' import orgsLink, peopleLink -%}
 
 
 <section class="in-this-section">
   <h2 class="h1">{{ __('sidebar|inThisSectionHeading') }}</h2>
   <ul>
     <li>
-      {{ sidebarLink('creators') }}
+      {{ peopleLink('creators') }}
     </li>
     <li>
-      <a href="{{ __('organizations|categories|collectives|url') }}">
-        {{ __('organizations|categories|collectives|title') }}
-      </a>
+      {{ orgsLink('collectives') }}
     </li>
     <li>
-      {{ sidebarLink('curators') }}
+      {{ peopleLink('curators') }}
     </li>
     <li>
-      {{ sidebarLink('educators') }}
+      {{ peopleLink('educators') }}
     </li>
     <li>
-      {{ sidebarLink('authors') }}
+      {{ peopleLink('authors') }}
     </li>
     <li>
-      {{ sidebarLink('translators') }}
+      {{ peopleLink('translators') }}
     </li>
     {%- if apos.aemUsers.isUserAdmin(data.user) -%}
       <li>
-        {{ sidebarLink('missingDescription') }}
+        {{ peopleLink('missingDescription') }}
       </li>
     {%- endif -%}
   </ul>

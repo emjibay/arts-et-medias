@@ -1,10 +1,11 @@
+{%- from 'macros/sidebar.njk' import sidebarPageLink -%}
+
+
 <section class="related-to-this-section">
   <h2 class="h1">{{ __('sidebar|relatedToThisSectionHeading') }}</h2>
   <ul>
     <li>
-      <a href="{{ __('organizations|url') }}">
-        {{ __('organizations|heading') }}
-      </a>
+      {{ sidebarPageLink('organizations') }}
     </li>
   </ul>
 </section>

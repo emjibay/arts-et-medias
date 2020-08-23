@@ -1,0 +1,44 @@
+{#- private macros -#}
+{% macro sidebarPageLink(type) %}
+  <a href="{{ __(type + '|url') }}">
+    {{ __(type + '|heading') }}
+  </a>
+{% endmacro %}
+
+{% macro sidebarLink(type, category) %}
+  <a href="{{ __(type + '|categories|' + category + '|url') }}">
+    {{ __(type + '|categories|' + category + '|title') }}
+  </a>
+{% endmacro %}
+
+
+{#- public macros -#}
+{% macro articlesLink(category) %}
+  {{ sidebarLink('articles', category) }}
+{% endmacro %}
+
+{% macro educationLink(category) %}
+  {{ sidebarLink('education', category) }}
+{% endmacro %}
+
+{% macro eventsLink(category) %}
+  {{ sidebarLink('events', category) }}
+{% endmacro %}
+
+{% macro mediaLink(category) %}
+  {{ sidebarLink('media', category) }}
+{% endmacro %}
+
+{% macro orgsLink(category) %}
+  {{ sidebarLink('organizations', category) }}
+{% endmacro %}
+
+{% macro peopleLink(category) %}
+  {{ sidebarLink('people', category) }}
+{% endmacro %}
+
+{% macro projectsLink() %}
+  <a href="{{ __('projects|url') }}">
+    {{ __('projects|heading') }}
+  </a>
+{% endmacro %}

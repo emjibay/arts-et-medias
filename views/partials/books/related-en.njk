@@ -1,12 +1,15 @@
+{%- from 'macros/sidebar.njk' import peopleLink -%}
+
+
 <section class="related-to-this-section">
   <h2 class="h1">{{ __('sidebar|relatedToThisSectionHeading') }}</h2>
   <ul>
     {%- set people = 'people|categories|' -%}
     <li>
-      <a href="{{ __(people + 'authors|url') }}">{{ __(people + 'authors|title') }}</a>
+      {{ peopleLink('authors') }}
     </li>
     <li>
-      <a href="{{ __(people + 'translators|url') }}">{{ __(people + 'translators|title') }}</a>
+      {{ peopleLink('translators') }}
     </li>
   </ul>
 </section>

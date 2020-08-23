@@ -1,21 +1,17 @@
-{% macro sidebarLink(category) %}
-  <a href="{{ __('events|categories|' + category + '|url') }}">
-    {{ __('events|categories|' + category + '|title') }}
-  </a>
-{% endmacro %}
+{%- from 'macros/sidebar.njk' import eventsLink -%}
 
 
 <section class="in-this-section">
   <h2 class="h1">{{ __('sidebar|inThisSectionHeading') }}</h2>
   <ul>
     <li>
-      {{ sidebarLink('festivals') }}
+      {{ eventsLink('festivals') }}
     </li>
     <li>
-      {{ sidebarLink('conferences') }}
+      {{ eventsLink('conferences') }}
     </li>
     <li>
-      {{ sidebarLink('workshops') }}
+      {{ eventsLink('workshops') }}
     </li>
   </ul>
 </section>
