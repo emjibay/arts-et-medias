@@ -2,6 +2,35 @@
 {%- set pageTitle = __('error|heading') -%}
 
 
+{% macro techDetails(piece, slug) %}
+  <details class="tech-details">
+    <summary class="heading">{{ __('error|techDetailsLabel') }}</summary>
+    <dl>
+      <dt>{{ __('error|localeLabel') }}</dt>
+      <dd>{{ locale }}</dd>
+
+      <dt>{{ __('error|pageTitleLabel') }}</dt>
+      <dd>{{ piece.title }}</dd>
+
+      <dt>{{ __('error|pageTypeLabel') }}</dt>
+      <dd>{{ piece.type }}</dd>
+
+      <dt>{{ __('error|slugLabel') }}</dt>
+      <dd>{{ slug }}</dd>
+
+      <dt>{{ __('error|timestampLabel') }}</dt>
+      <dd>{{ apos.aemDates.toISOString() }}</dd>
+    </dl>
+
+    <p class="p">{{ __('error|bugReportCTA') }}</p>
+    <a
+      class="website-cta"
+      href="{{ __('error|bugReportUrl') }}"
+    >{{ __('error|bugReportLabel') }}</a>
+  </details>
+{% endmacro %}
+
+
 <!DOCTYPE html>
 <html lang="{% block locale %}en{% endblock %}">
   <head>
@@ -24,31 +53,11 @@
           <div class="page-content">
             <p class="p">{{ __('error|paragraph') }}</p>
 
-            <details class="tech-details">
-              <summary class="heading">{{ __('error|techDetailsLabel') }}</summary>
-              <dl>
-                <dt>{{ __('error|localeLabel') }}</dt>
-                <dd>{{ locale }}</dd>
-
-                <dt>{{ __('error|pageTitleLabel') }}</dt>
-                <dd>{{ data.page.title }}</dd>
-
-                <dt>{{ __('error|pageTypeLabel') }}</dt>
-                <dd>{{ data.page.type }}</dd>
-
-                <dt>{{ __('error|slugLabel') }}</dt>
-                <dd>{{ data.page.slug }}</dd>
-
-                <dt>{{ __('error|timestampLabel') }}</dt>
-                <dd>{{ apos.aemDates.toISOString() }}</dd>
-              </dl>
-
-              <p class="p">{{ __('error|bugReportCTA') }}</p>
-              <a
-                class="website-cta"
-                href="{{ __('error|bugReportUrl') }}"
-              >{{ __('error|bugReportLabel') }}</a>
-            </details>
+            {%- if data.piece -%}
+              {{ techDetails(data.piece, data.page.slug + '/' + data.piece.slug) }}
+            {%- else -%}
+              {{ techDetails(data.page, data.page.slug) }}
+            {%- endif -%}
           </div>
         <article>
       </main>
