@@ -8,7 +8,7 @@
     "dev": "brunch watch --server",
     "build": "brunch build --production",
     "bundle": "APOS_BUNDLE=1 node app apostrophe:generation",
-    "lint": "eslint",
+    "lint": "eslint .",
     "lint:fix": "eslint --fix"
   },
   "author": "Mat Janson Blanchet",
