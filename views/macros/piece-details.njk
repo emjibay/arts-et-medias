@@ -51,7 +51,7 @@
   {%- set eventsCats = 'events|categories|' -%}
 
   {# festivals #}
-  {%- set festivalsCat = orgsCats + 'festivals|' -%}
+  {%- set festivalsCat = eventsCats + 'festivals|' -%}
   {{
     relatedTaggedPieces(
       __(festivalsCat + 'related'),
@@ -61,7 +61,7 @@
   }}
 
   {# exhibits #}
-  {%- set exhibitsCat = orgsCats + 'exhibits|' -%}
+  {%- set exhibitsCat = eventsCats + 'exhibits|' -%}
   {{
     relatedTaggedPieces(
       __(exhibitsCat + 'related'),
@@ -71,7 +71,7 @@
   }}
 
   {# conferences #}
-  {%- set conferencesCat = orgsCats + 'conferences|' -%}
+  {%- set conferencesCat = eventsCats + 'conferences|' -%}
   {{
     relatedTaggedPieces(
       __(conferencesCat + 'related'),
@@ -81,7 +81,7 @@
   }}
 
   {# workshops #}
-  {%- set workshopsCat = orgsCats + 'workshops|' -%}
+  {%- set workshopsCat = eventsCats + 'workshops|' -%}
   {{
     relatedTaggedPieces(
       __(workshopsCat + 'related'),
