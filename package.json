@@ -1,6 +1,6 @@
 {
   "name": "arts-et-medias",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "News and resources about contemporary and media art.",
   "main": "app.js",
   "scripts": {
