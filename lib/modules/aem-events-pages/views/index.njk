@@ -3,6 +3,7 @@
 {% from 'macros/piece-index.njk' import eventList %}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set isFirstPage = (data.currentPage === 1) -%}
 {%- set hasTags = apos.aemPieces.hasTags(data.page) -%}
 
@@ -38,7 +39,7 @@
       data.currentPage
     )
   -%}
-  {{ eventList(piecesOnPage, true) }}
+  {{ eventList(piecesOnPage, locale) }}
 
   {# pagination #}
   {{

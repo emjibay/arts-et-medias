@@ -10,7 +10,7 @@
   <div class="see-all-cta">
     <a
       class="website-cta"
-      href="{{ ur }}"
+      href="{{ url }}"
     >{{ label }}</a>
   </div>
 {% endmacro %}
@@ -18,30 +18,52 @@
 {% macro eventList(category) %}
   {%- set cat = 'events|categories|' + category + '|' -%}
 
-  {{
-    recentlyAddedEvents(
-      __(cat + 'next'),
+  {#- next events -#}
+  {%-
+    set next = apos.aemPieces.getFirstTwoWithTags(
       data.orderedEvents,
-      __(cat + 'tags'),
-      locale
+      __(cat + 'tags')
     )
-  }}
-  {{
-    recentlyAddedEvents(
-      __(cat + 'recentlyAdded'),
-      data.eventsByMostRecent,
-      __(cat + 'tags'),
-      locale
-    )
-  }}
-  <div class="see-all-cta">
+  -%}
+  {%- set hasNextEvents = (next and next|length > 0) -%}
+  {%- if hasNextEvents -%}
     {{
-      seeAllCTA(
-        __(cat + 'seeAllCTA'),
-        __(cat + 'url')
+      recentlyAddedEvents(
+        __(cat + 'next'),
+        next,
+        locale
       )
     }}
-  </div>
+  {%- endif -%}
+
+  {#- recently added events -#}
+  {%-
+    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+      data.eventsByMostRecent,
+      __(cat + 'tags')
+    )
+  -%}
+  {%- set hasRecentlyAddedEvents = (recentlyAdded and recentlyAdded|length > 0) -%}
+  {%- if hasRecentlyAddedEvents -%}
+    {{
+      recentlyAddedEvents(
+        __(cat + 'recentlyAdded'),
+        recentlyAdded,
+        locale
+      )
+    }}
+  {%- endif -%}
+
+  {%- if hasNextEvents or hasRecentlyAddedEvents -%}
+    <div class="see-all-cta">
+      {{
+        seeAllCTA(
+          __(cat + 'seeAllCTA'),
+          __(cat + 'url')
+        )
+      }}
+    </div>
+  {%- endif -%}
 {% endmacro %}
 
 
@@ -53,6 +75,8 @@
 
 {% block pageContent %}
   {% include "partials/events/featured.njk" %}
+
+  {#- TODO: add exhibits -#}
 
   {{ eventList('festivals') }}
 

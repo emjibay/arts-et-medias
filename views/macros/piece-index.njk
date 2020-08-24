@@ -329,16 +329,10 @@
   </div>
 {% endmacro %}
 
-{% macro recentlyAddedEvents(label, pieces, tags, locale) %}
-  {%-
-    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
-      pieces,
-      tags
-    )
-  -%}
+{% macro recentlyAddedEvents(label, pieces, locale) %}
   <div class="recently-added-articles">
     <h2 class="content-type-heading">{{ label }}</h2>
-    {{ eventList(recentlyAdded, locale) }}
+    {{ eventList(pieces, locale) }}
   </div>
 {% endmacro %}
 
