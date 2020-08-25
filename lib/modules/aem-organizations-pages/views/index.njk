@@ -32,33 +32,39 @@
       data.currentPage
     )
   -%}
-
   {%-
     set isCollective = apos.aemArrays.intersect(
       data.page.withTags,
       __('organizations|categories|collectives|tags')
     )
   -%}
-  {{
-    organizationList(
-      piecesOnPage,
-      {
-        hasLocation: not isCollective,
-        locale: locale
-      }
-    )
-  }}
 
-  {# pagination #}
-  {{
-    pager.render(
-      {
-        page: data.currentPage,
-        total: data.totalPages
-      },
-      data.url
-    )
-  }}
+  {%- if piecesOnPage|length -%}
+    {{
+      organizationList(
+        piecesOnPage,
+        {
+          hasLocation: not isCollective,
+          locale: locale
+        }
+      )
+    }}
+
+    {# pagination #}
+    {{
+      pager.render(
+        {
+          page: data.currentPage,
+          total: data.totalPages
+        },
+        data.url
+      )
+    }}
+  {%- else -%}
+    <div class="no-pieces">
+      {{ __('organizations|noPiecesLabel') }}
+    </div>
+  {%- endif -%}
 {% endblock %}
 
 {% block sidebar %}

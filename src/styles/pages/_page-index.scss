@@ -28,6 +28,15 @@
     }
   }
 
+  .no-pieces {
+    @include paragraph();
+    margin-top: 37.5px;
+
+    @media #{$mqXXL} {
+      margin-top: 35px;
+    }
+  }
+
   .see-all-cta {
     margin-top: 40px;
   }

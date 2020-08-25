@@ -40,6 +40,7 @@
     "adminHeading": "Admin",
     "copyrightLabel": "Tous les droits d'auteurs appartiennent à leurs propriétaires respectifs."
   },
+
   "pieceIndex": {
     "seeMoreCTA": "Voir les détails"
   },
@@ -75,6 +76,7 @@
       "page": "page"
     }
   },
+
   "articles": {
     "heading": "Articles",
     "url": "/fr/articles",
@@ -90,6 +92,7 @@
     "seeMoreCTA": "Lire l'article",
     "seeAllCTA": "Voir tous les articles",
     "searchLabel": "Chercher parmi les articles",
+    "noPiecesLabel": "Aucun article trouvé",
     "categories": {
       "news": {
         "title": "Nouvelles",
@@ -152,7 +155,8 @@
     "recentlyAdded": "Livres ajoutés récemment",
     "seeMoreCTA": "Voir les détails du livre",
     "seeAllCTA": "Voir tous les livres",
-    "searchLabel": "Chercher parmi les livres"
+    "searchLabel": "Chercher parmi les livres",
+    "noPiecesLabel": "Aucun livre trouvé"
   },
   "education": {
     "heading": "Academia",
@@ -166,6 +170,7 @@
     "seeMoreCTA": "Voir les détails du programme",
     "seeAllCTA": "Voir la section académique",
     "searchLabel": "Chercher dans la section académique",
+    "noPiecesLabel": "Aucun contenu trouvé",
     "categories": {
       "undergrad": {
         "title": "Programmes de premier cycle",
@@ -198,6 +203,7 @@
     "seeMoreCTA": "Voir les détails de l'événement",
     "seeAllCTA": "Voir tous les événements",
     "searchLabel": "Chercher parmi les événements",
+    "noPiecesLabel": "Aucun événement trouvé",
     "additionalInfo": {
       "today": "aujourd'hui",
       "now": "en cours",
@@ -254,6 +260,7 @@
     "seeMoreCTA": "Voir les détails",
     "seeAllCTA": "Voir tous les projets et médias",
     "searchLabel": "Chercher parmi projets et médias",
+    "noPiecesLabel": "Aucun média trouvé",
     "categories": {
       "blogs": {
         "title": "Blogs",
@@ -293,6 +300,7 @@
     "seeMoreCTA": "Voir les détails",
     "seeAllCTA": "Voir toutes les organisations",
     "searchLabel": "Chercher parmi les organisations",
+    "noPiecesLabel": "Aucune organisation trouvée",
     "categories": {
       "academicInstitutions": {
         "title": "Institutions académiques",
@@ -357,6 +365,7 @@
     "seeMoreCTA": "Voir les détails",
     "seeAllCTA": "Voir toutes les personnes",
     "searchLabel": "Chercher parmi les personnes",
+    "noPiecesLabel": "Aucune personne trouvée",
     "categories": {
       "creators": {
         "title": "Artistes et créateurs",
@@ -420,8 +429,10 @@
     "seeMoreCTA": "Voir le projet",
     "seeAllCTA": "Voir tous les projets",
     "allHeading": "Tous les projets",
-    "searchLabel": "Chercher parmi les projets"
+    "searchLabel": "Chercher parmi les projets",
+    "noPiecesLabel": "Aucun projet trouvé"
   },
+
   "pages": {
     "home": {
       "title": "Accueil",

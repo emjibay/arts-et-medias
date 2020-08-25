@@ -40,6 +40,7 @@
     "adminHeading": "Admin",
     "copyrightLabel": "All copyrights belong to their respective owners."
   },
+
   "pieceIndex": {
     "seeMoreCTA": "View Details"
   },
@@ -75,6 +76,7 @@
       "page": "page"
     }
   },
+
   "articles": {
     "heading": "Articles",
     "url": "/articles",
@@ -90,6 +92,7 @@
     "seeMoreCTA": "Read Article",
     "seeAllCTA": "See All Articles",
     "searchLabel": "Search Articles",
+    "noPiecesLabel": "No Articles Found",
     "categories": {
       "news": {
         "title": "News",
@@ -152,7 +155,8 @@
     "recentlyAdded": "Recently Added Books",
     "seeMoreCTA": "View Details",
     "seeAllCTA": "See All Books",
-    "searchLabel": "Search Books"
+    "searchLabel": "Search Books",
+    "noPiecesLabel": "No Books Found"
   },
   "education": {
     "heading": "Academia",
@@ -166,6 +170,7 @@
     "seeMoreCTA": "View Details",
     "seeAllCTA": "See Academia Section",
     "searchLabel": "Search Academia",
+    "noPiecesLabel": "No Content Found",
     "categories": {
       "undergrad": {
         "title": "Undergrad Programs",
@@ -198,6 +203,7 @@
     "seeMoreCTA": "View Details",
     "seeAllCTA": "See All Events",
     "searchLabel": "Search Events",
+    "noPiecesLabel": "No Events Found",
     "additionalInfo": {
       "today": "today",
       "now": "now",
@@ -254,6 +260,7 @@
     "seeMoreCTA": "View Details",
     "seeAllCTA": "See All Projects and Media",
     "searchLabel": "Search Projects and Media",
+    "noPiecesLabel": "No Media Found",
     "categories": {
       "blogs": {
         "title": "Blogs",
@@ -293,6 +300,7 @@
     "seeMoreCTA": "View Details",
     "seeAllCTA": "See All Organizations",
     "searchLabel": "Search Organizations",
+    "noPiecesLabel": "No Organizations Found",
     "categories": {
       "academicInstitutions": {
         "title": "Academic Institutions",
@@ -357,6 +365,7 @@
     "seeMoreCTA": "View Details",
     "seeAllCTA": "See All People",
     "searchLabel": "Search People",
+    "noPiecesLabel": "No People Found",
     "categories": {
       "creators": {
         "title": "Artists and Creators",
@@ -420,8 +429,10 @@
     "seeMoreCTA": "View Project",
     "seeAllCTA": "See All Projects",
     "allHeading": "All Projects",
-    "searchLabel": "Search Projects"
+    "searchLabel": "Search Projects",
+    "noPiecesLabel": "No Projects Found"
   },
+
   "pages": {
     "home": {
       "title": "Home",

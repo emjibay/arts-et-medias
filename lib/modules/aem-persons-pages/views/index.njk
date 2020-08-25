@@ -21,18 +21,25 @@
       data.currentPage
     )
   -%}
-  {{ pieceList(piecesOnPage) }}
 
-  {# pagination #}
-  {{
-    pager.render(
-      {
-        page: data.currentPage,
-        total: data.totalPages
-      },
-      data.url
-    )
-  }}
+  {%- if piecesOnPage|length -%}
+    {{ pieceList(piecesOnPage) }}
+
+    {# pagination #}
+    {{
+      pager.render(
+        {
+          page: data.currentPage,
+          total: data.totalPages
+        },
+        data.url
+      )
+    }}
+  {%- else -%}
+    <div class="no-pieces">
+      {{ __('people|noPiecesLabel') }}
+    </div>
+  {%- endif -%}
 {% endblock %}
 
 {% block sidebar %}

@@ -39,18 +39,25 @@
       data.currentPage
     )
   -%}
-  {{ eventList(piecesOnPage, locale) }}
 
-  {# pagination #}
-  {{
-    pager.render(
-      {
-        page: data.currentPage,
-        total: data.totalPages
-      },
-      data.url
-    )
-  }}
+  {%- if piecesOnPage|length -%}
+    {{ eventList(piecesOnPage, locale) }}
+
+    {# pagination #}
+    {{
+      pager.render(
+        {
+          page: data.currentPage,
+          total: data.totalPages
+        },
+        data.url
+      )
+    }}
+  {%- else -%}
+    <div class="no-pieces">
+      {{ __('events|noPiecesLabel') }}
+    </div>
+  {%- endif -%}
 {% endblock %}
 
 {% block sidebar %}

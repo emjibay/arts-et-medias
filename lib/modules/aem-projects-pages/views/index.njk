@@ -59,18 +59,25 @@
       data.currentPage
     )
   -%}
-  {{ projectList(piecesOnPage, true) }}
 
-  {# pagination #}
-  {{
-    pager.render(
-      {
-        page: data.currentPage,
-        total: data.totalPages
-      },
-      data.url
-    )
-  }}
+  {%- if piecesOnPage|length -%}
+    {{ projectList(piecesOnPage, true) }}
+
+    {# pagination #}
+    {{
+      pager.render(
+        {
+          page: data.currentPage,
+          total: data.totalPages
+        },
+        data.url
+      )
+    }}
+  {%- else -%}
+    <div class="no-pieces">
+      {{ __('projects|noPiecesLabel') }}
+    </div>
+  {%- endif -%}
 {% endblock %}
 
 {% block sidebar %}
