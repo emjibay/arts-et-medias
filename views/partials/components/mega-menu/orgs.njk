@@ -10,19 +10,43 @@
   class="orgs-section"
 >
   <div class="mm-col">
-    {{ orgList('galleries', locale) }}
+    {{
+      orgList(
+        data.organizationsByMostRecent,
+        'galleries',
+        locale
+      )
+    }}
   </div>
 
   <div class="mm-col">
-    {{ orgList('artCenters', locale) }}
+    {{
+      orgList(
+        data.organizationsByMostRecent,
+        'artCenters',
+        locale
+      )
+    }}
   </div>
 
   <div class="mm-col">
-    {{ orgList('makerSpaces', locale) }}
+    {{
+      orgList(
+        data.organizationsByMostRecent,
+        'makerSpaces',
+        locale
+      )
+    }}
   </div>
 
   <div class="mm-col">
-    {{ orgList('mediaLabs', locale) }}
+    {{
+      orgList(
+        data.organizationsByMostRecent,
+        'mediaLabs',
+        locale
+      )
+    }}
   </div>
 
   <div class="mm-footer">

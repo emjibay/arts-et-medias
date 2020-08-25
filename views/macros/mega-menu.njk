@@ -1,33 +1,35 @@
-{%- macro orgList(category, locale) -%}
-  {%- set cat = 'organizations|categories|' + category + '|' -%}
-  {%- set tags = __(cat + 'tags') -%}
-  {%- set list = apos.aemPieces.getWithTags(data.organizationsByMostRecent, tags) -%}
-  {%- set list = apos.aemArrays.truncate(list, 4) -%}
+{%- macro orgList(pieces, category, locale) -%}
+  {%- if (pieces and pieces.length > 0) -%}
+    {%- set cat = 'organizations|categories|' + category + '|' -%}
+    {%- set tags = __(cat + 'tags') -%}
+    {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
+    {%- set list = apos.aemArrays.truncate(list, 4) -%}
 
-  <div class="list-container">
-    <div class="list-heading">{{ __(cat + 'recentlyAdded') }}</div>
-    <ul class="list">
-      {% for listItem in list %}
-        <li>
-          <a
-            class="list-item"
-            href="{{ listItem._url }}"
-          >
-            <span class="piece-title">{{ listItem.title }}</span>
-            <br>
-            {%- set localizedCountry = apos.aemI18n.getCountry(listItem.country, locale) -%}
-            <span>{{ listItem.city }}, {{ localizedCountry }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-    {{
-      seeAllCTA(
-        __(cat + 'seeAllCTA'),
-        __(cat + 'url')
-      )
-    }}
-  </div>
+    <div class="list-container">
+      <div class="list-heading">{{ __(cat + 'recentlyAdded') }}</div>
+      <ul class="list">
+        {% for listItem in list %}
+          <li>
+            <a
+              class="list-item"
+              href="{{ listItem._url }}"
+            >
+              <span class="piece-title">{{ listItem.title }}</span>
+              <br>
+              {%- set localizedCountry = apos.aemI18n.getCountry(listItem.country, locale) -%}
+              <span>{{ listItem.city }}, {{ localizedCountry }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      {{
+        seeAllCTA(
+          __(cat + 'seeAllCTA'),
+          __(cat + 'url')
+        )
+      }}
+    </div>
+  {%- endif -%}
 {%- endmacro -%}
 
 {% macro hideMegaMenuButton() %}
