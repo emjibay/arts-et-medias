@@ -259,7 +259,7 @@
     "recentlyAdded": "Médias ajoutés récemment",
     "seeMoreCTA": "Voir les détails",
     "seeAllCTA": "Voir tous les projets et médias",
-    "searchLabel": "Chercher parmi projets et médias",
+    "searchLabel": "Chercher parmi les médias",
     "noPiecesLabel": "Aucun média trouvé",
     "categories": {
       "blogs": {
@@ -454,10 +454,6 @@
       "title": "Aidez-nous",
       "url": "/fr/aidez-nous"
     },
-    "search": {
-      "title": "Recherche",
-      "url": "/fr/search"
-    },
     "logIn": {
       "title": "Connexion",
       "url": "/login"
@@ -474,11 +470,12 @@
   },
   "search": {
     "heading": "Recherche",
+    "url": "/fr/recherche",
     "buttonLabel": "Chercher",
     "placeholder": "Inscrivez votre recherche ici",
     "resultsLabel": "Résultats des recherches",
-    "resultsDetails": "Résultats pour \"%s\"",
-    "noResultsLabel": "Aucun résultat pour \"%s\".",
+    "resultsDetails": "Résultats pour « %s »",
+    "noResultsLabel": "Aucun résultat pour « %s ».",
     "noResultsSuggestion": "Assurez-vous de vérifier votre orthographe ou utilisez des termes plus généraux."
   },
   "login": {

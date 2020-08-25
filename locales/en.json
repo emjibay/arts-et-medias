@@ -259,7 +259,7 @@
     "recentlyAdded": "Recently Added Media",
     "seeMoreCTA": "View Details",
     "seeAllCTA": "See All Projects and Media",
-    "searchLabel": "Search Projects and Media",
+    "searchLabel": "Search Media",
     "noPiecesLabel": "No Media Found",
     "categories": {
       "blogs": {
@@ -454,10 +454,6 @@
       "title": "Help Us",
       "url": "/help-us"
     },
-    "search": {
-      "title": "Search",
-      "url": "/search"
-    },
     "logIn": {
       "title": "Log In",
       "url": "/login"
@@ -474,6 +470,7 @@
   },
   "search": {
     "heading": "Search",
+    "url": "/en/search",
     "buttonLabel": "Search",
     "placeholder": "Enter your search",
     "resultsLabel": "Search results",
