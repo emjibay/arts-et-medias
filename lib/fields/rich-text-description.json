@@ -1,14 +1,27 @@
 [
   {
     "label": "Description",
-    "help": "",
+    "help": "Note: While it is possible to edit text in this field, it is suggested you edit its content directly in-context.",
     "name": "description",
     "type": "area",
     "options": {
       "limit": 1,
       "widgets": {
         "apostrophe-rich-text": {
-          "toolbar": ["Bold", "Italic", "Link", "Unlink"],
+          "toolbar": [
+            "Styles",
+            "Bold",
+            "Italic",
+            "Underline",
+            "Subscript",
+            "Superscript",
+            "Split",
+            "Blockquote",
+            "BulletedList",
+            "Split",
+            "Link",
+            "Unlink"
+          ],
           "truncate": 140
         }
       }
