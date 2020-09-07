@@ -123,11 +123,29 @@
     margin: 50px 0;
   }
 
-  .copyright {
+  .copyright,
+  .version {
+    display: inline-block;
     font-family: $ffHeading;
     font-size: $fsVerySmol;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
+    text-align: center;
+    width: 100%;
+
+    @media #{$mqTablet} {
+      width: 50%;
+    }
+  }
+  .copyright {
+    @media #{$mqTablet} {
+      text-align: left;
+    }
+  }
+  .version {
+    @media #{$mqTablet} {
+      text-align: right;
+    }
   }
 }
