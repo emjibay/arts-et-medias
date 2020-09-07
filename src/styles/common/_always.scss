@@ -89,6 +89,11 @@ body {
   @include button();
   color: $white;
   font-size: $fsSmol;
+  width: 100%;
+
+  @media #{$mqTablet} {
+    width: max-content;
+  }
 
   @media #{$mqDesktop} {
     font-size: $fsVerySmol;
