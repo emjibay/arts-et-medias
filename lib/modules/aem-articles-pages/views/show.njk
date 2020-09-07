@@ -54,17 +54,6 @@
     {{ contentSection(piece) }}
   </div>
 
-  {%- if piece.isTranslation -%}
-    <dl class="piece-props-list">
-      <dt>{{ __('pieceDetails|translatorLabel') }}</dt>
-      <dd>{{ pieceLinkList(piece._translator) }}</dd>
-
-      <dt>{{ __('pieceDetails|originalLanguageLabel') }}</dt>
-      {%- set originalLang = apos.aemI18n.getLanguagesFrom(piece.originalLang, locale) -%}
-      <dd>{{ originalLang }}</dd>
-    </dl>
-  {%- endif -%}
-
   {%- set isMention = piece.articleType === 'mention' -%}
   {%- if isMention -%}
     <div class="mention">
@@ -77,6 +66,26 @@
   {%- endif -%}
 
   <hr class="separator"/>
+
+  <dl class="piece-props-list">
+    {%-
+      set isSameLocale = apos.aemI18n.isSameLocale(
+        piece.originalLang,
+        locale,
+        { emptyAsTrue: true }
+      )
+    -%}
+    {%- if not isSameLocale -%}
+      <dt>{{ __('pieceDetails|originalLanguageLabel') }}</dt>
+      {%- set originalLang = apos.aemI18n.getLanguagesFrom(piece.originalLang, locale) -%}
+      <dd>{{ originalLang }}</dd>
+    {%- endif -%}
+
+    {%- if piece.isTranslation -%}
+      <dt>{{ __('pieceDetails|translatorLabel') }}</dt>
+      <dd>{{ pieceLinkList(piece._translator) }}</dd>
+    {%- endif -%}
+  </dl>
 
   {%- set relatedArticles = apos.aemArrays.merge(piece._relatedArticles, piece._articles) -%}
   {{ relatedPieces(__('articles|related'), relatedArticles) }}
