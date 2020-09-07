@@ -1,6 +1,6 @@
 <figure>
   {%- set imageData = apos.images.first(data.widget) -%}
-  {%- set image = apos.aem.getImageBasicData(imageData) -%}
+  {%- set image = apos.aemUtils.getImageBasicData(imageData) -%}
 
   <a href="{{ image.url }}" class="image-link">
     <img

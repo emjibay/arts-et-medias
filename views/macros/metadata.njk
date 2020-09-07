@@ -20,7 +20,7 @@
   {%- if options.heroImage -%}
     {%- set aposImageData = apos.images.first(options.heroImage) -%}
     {%- if aposImageData -%}
-      {%- set imageData = apos.aem.getImageBasicData(aposImageData) -%}
+      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
       {%- set image = imageData.url -%}
     {%- else -%}
       {%- set image = '/img/opengraph.jpg' -%}
@@ -43,7 +43,7 @@
   {%- if options.heroImage -%}
     {%- set aposImageData = apos.images.first(options.heroImage) -%}
     {%- if aposImageData -%}
-      {%- set imageData = apos.aem.getImageBasicData(aposImageData) -%}
+      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
       {%- set image = imageData.url -%}
     {%- else -%}
       {%- set image = '/img/opengraph.jpg' -%}

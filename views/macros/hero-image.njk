@@ -1,7 +1,7 @@
 {% macro heroImage(piece, hasCaption = false) %}
   {%- set aposImageData = apos.images.first(piece.heroImage) -%}
   {%- if aposImageData -%}
-    {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+    {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
     <figure>
       <img
         class="hero-image"

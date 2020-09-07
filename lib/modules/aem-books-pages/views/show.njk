@@ -43,7 +43,7 @@
               {# image start #}
               {%- set aposImageData = apos.images.first(piece.heroImage) -%}
               {%- if aposImageData -%}
-                {%- set image = apos.aem.getImageBasicData(aposImageData) -%}
+                {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
                 <img
                   class="book-cover"
                   src="{{ image.url }}"
