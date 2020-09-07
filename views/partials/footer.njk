@@ -153,6 +153,14 @@
     <hr class="footer-separator" />
 
     <p class="copyright">{{ __('footer|copyrightLabel') }}</p>
-    <p class="version">{{ apos.aemUtils.getVersion() }}</p>
+
+    {%- set latestVersion = apos.aemUtils.getVersion() -%}
+    {%- set latestUpdate = apos.aemUtils.getLatestUpdate() -%}
+    {%- if latestUpdate -%}
+      {%- set versionLabel = latestVersion + ' (' + latestUpdate + ')' -%}
+    {%- else -%}
+      {%- set versionLabel = latestVersion -%}
+    {%- endif -%}
+    <p class="version">{{ versionLabel }}</p>
   </article>
 </footer>
