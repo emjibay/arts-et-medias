@@ -18,13 +18,14 @@
     font-weight: normal;
     height: 40px;
     line-height: 40px;
-    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     text-align: center;
     width: 40px;
     vertical-align: top;
 
-    &:first-of-type {
-      margin-left: 0;
+    &:last-of-type {
+      margin-right: 0;
     }
 
     &:hover  {
@@ -64,12 +65,13 @@
   }
 
   .apos-pager-gap {
-    display: inline;
+    display: inline-block;
     color: $black;
     font-family: $ffSerif;
     font-size: $fsTextBody;
     line-height: 40px;
-    margin-left: 10px;
+    margin-right: 10px;
     padding: 0 10px;
+    width: 40px;
   }
 }
