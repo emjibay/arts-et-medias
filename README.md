@@ -1,6 +1,6 @@
-# Arts et Médias
+# Arts & Médias
 
-News and resources about contemporary and media art.
+Sources for *Arts & Médias*'s website, a reference for critical content and resources about contemporary art, with a bias towards media art and installation art.
 
 
 ## Suggesting Content and Reporting Issues
