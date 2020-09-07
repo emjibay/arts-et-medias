@@ -156,7 +156,18 @@
     "seeMoreCTA": "Voir les détails du livre",
     "seeAllCTA": "Voir tous les livres",
     "searchLabel": "Chercher parmi les livres",
-    "noPiecesLabel": "Aucun livre trouvé"
+    "noPiecesLabel": "Aucun livre trouvé",
+    "sidebar": {
+      "heading": "Citez cet ouvrage",
+      "footnoteHeading": "Note de bas de page",
+      "bibliographyHeading": "Article de bibliographie",
+      "warning": "Assurez-vous de valider que les formats d'articles de bibliographie et de notes de bas de page soient corrects avant de les soumettre dans vos travaux. Nous les générons pour vous aider, mais nous ne pouvons pas garantir qu'ils soient corrects dans tous les cas.",
+      "styles": {
+        "apa": "APA",
+        "chicago": "Chicago",
+        "mla": "MLA"
+      }
+    }
   },
   "education": {
     "heading": "Academia",

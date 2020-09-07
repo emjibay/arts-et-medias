@@ -2,21 +2,23 @@
 {% from 'macros/footnote.njk' import apaFootnote, chicagoFootnote, mlaFootnote %}
 
 <section>
-  <h2 class="h1">Cite this book</h2>
+  <h2 class="h1">{{ __('books|sidebar|heading') }}</h2>
 
-  <h3 class="h2">Footnote</h3>
-  <h4 class="h3">APA</h4>
+  <h3 class="h2">{{ __('books|sidebar|footnoteHeading') }}</h3>
+  <h4 class="h3">{{ __('books|sidebar|styles|apa') }}</h4>
   <p>{{ apaFootnote(data.piece) }}</p>
-  <h4 class="h3">Chicago Style</h4>
+  <h4 class="h3">{{ __('books|sidebar|styles|chicago') }}</h4>
   <p>{{ chicagoFootnote(data.piece) }}</p>
-  <h4 class="h3">MLA</h4>
+  <h4 class="h3">{{ __('books|sidebar|styles|mla') }}</h4>
   <p>{{ mlaFootnote(data.piece) }}</p>
 
-  <h3 class="h2">Bibliography Entry</h3>
-  <h4 class="h3">APA</h4>
+  <h3 class="h2">{{ __('books|sidebar|bibliographyHeading') }}</h3>
+  <h4 class="h3">{{ __('books|sidebar|styles|apa') }}</h4>
   <p>{{ apaBib(data.piece) }}</p>
-  <h4 class="h3">Chicago Style</h4>
+  <h4 class="h3">{{ __('books|sidebar|styles|chicago') }}</h4>
   <p>{{ chicagoBib(data.piece) }}</p>
-  <h4 class="h3">MLA</h4>
+  <h4 class="h3">{{ __('books|sidebar|styles|mla') }}</h4>
   <p>{{ mlaBib(data.piece) }}</p>
+
+  <p class="citation-warning">{{ __('books|sidebar|warning') }}</p>
 </section>

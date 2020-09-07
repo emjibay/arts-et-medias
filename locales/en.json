@@ -156,7 +156,18 @@
     "seeMoreCTA": "View Details",
     "seeAllCTA": "See All Books",
     "searchLabel": "Search Books",
-    "noPiecesLabel": "No Books Found"
+    "noPiecesLabel": "No Books Found",
+    "sidebar": {
+      "heading": "Cite this book",
+      "footnoteHeading": "Footnote",
+      "bibliographyHeading": "Bibliography Entry",
+      "warning": "Ensure to confirm that the following bibliographic entry and footnote formats are correct before submitting papers with them. We generate these to help out, however we cannot guarantee that they are correct in all cases.",
+      "styles": {
+        "apa": "APA",
+        "chicago": "Chicago",
+        "mla": "MLA"
+      }
+    }
   },
   "education": {
     "heading": "Academia",
