@@ -95,31 +95,31 @@
   {%- set mediaCats = 'media|categories|' -%}
 
   {# magazines #}
-  {%- set magazinesCat = orgsCats + 'magazines|' -%}
+  {%- set magazinesCat = mediaCats + 'magazines|' -%}
   {{
     relatedTaggedPieces(
       __(magazinesCat + 'related'),
-      events,
+      media,
       __(magazinesCat + 'tags')
     )
   }}
 
   {# blogs #}
-  {%- set blogsCat = orgsCats + 'blogs|' -%}
+  {%- set blogsCat = mediaCats + 'blogs|' -%}
   {{
     relatedTaggedPieces(
       __(blogsCat + 'related'),
-      events,
+      media,
       __(blogsCat + 'tags')
     )
   }}
 
   {# websites #}
-  {%- set websitesCat = orgsCats + 'websites|' -%}
+  {%- set websitesCat = mediaCats + 'websites|' -%}
   {{
     relatedTaggedPieces(
       __(websitesCat + 'related'),
-      events,
+      media,
       __(websitesCat + 'tags')
     )
   }}
