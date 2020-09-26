@@ -9,7 +9,7 @@
 {%- macro openGraph(options) -%}
   <meta property="og:title" content="{{ options.title }}" />
   <meta property="og:description" content="{{ options.description }}" />
-  <meta property="og:image" content="{{ options.baseUrl }}{{ options.image }}" />
+  <meta property="og:image:secure_url" content="{{ options.baseUrl }}{{ options.image }}" />
   <meta property="og:url" content="{{ options.baseUrl }}{{ options.url }}" />
   <meta property="og:site_name" content="{{ siteName }}" />
   {#- TODO: add locale -#}
