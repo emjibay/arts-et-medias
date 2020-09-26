@@ -1,6 +1,6 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{%- from 'macros/metadata.njk' import descriptiveMetaData -%}
+{%- from 'macros/metadata.njk' import bookMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, relatedMedia, relatedOrganizations, relatedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
@@ -9,17 +9,26 @@
 {%- set piece = data.piece -%}
 
 {% block title %}
-  {{ piece.title }} - Books | Arts et Médias
+  {{
+    apos.aemSeo.buildPieceWithType(
+      __,
+      piece.title,
+      __('books|heading')
+    )
+  }}
 {% endblock %}
 
 {% block metadata %}
   {{
-    descriptiveMetaData({
-      title: piece.title + ', by ' + apos.aemAuthors.getListFromPiece(piece),
+    bookMetaData({
+      title: piece.title,
+      authors: apos.aemAuthors.getArrayFromPiece(piece),
       description: piece.shortDescription,
+      yearPublished: piece.yearPublished,
       heroImage: piece.heroImage,
       url: piece._url,
-      baseUrl: data.baseUrl
+      baseUrl: data.baseUrl,
+      tags: piece.tags
     })
   }}
 {% endblock %}

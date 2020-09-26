@@ -1,81 +1,164 @@
+{# site name #}
+{%- set siteName = 'Arts et Médias' -%}
+
 {# approx tweet-size #}
 {%- set maxDescriptionLength = 250 -%}
 
 
-{%- macro minimalMetaData(options) -%}
-  {%- set descriptionText = 'A hub for content and resources about contemporary and media art, with a bias towards media and installation arts.' -%}
-
-  <meta property="og:title" content="{{ options.title }}" />
-  <meta property="og:description" content="{{ descriptionText }}" />
-  <meta property="og:image" content="/img/opengraph.jpg" />
-  <meta property="og:url" content="{{ options.baseUrl }}{{ options.url }}" />
-  <meta property="og:site_name" content="Arts et Médias" />
-
-  <meta property="website" content="{{ options.baseUrl }}" />
-{%- endmacro -%}
-
-
-{%- macro descriptiveMetaData(options) -%}
-  {#- get hero image -#}
-  {%- if options.heroImage -%}
-    {%- set aposImageData = apos.images.first(options.heroImage) -%}
-    {%- if aposImageData -%}
-      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
-      {%- set image = imageData.url -%}
-    {%- else -%}
-      {%- set image = '/img/opengraph.jpg' -%}
-    {%- endif -%}
-  {%- else -%}
-    {%- set image = '/img/opengraph.jpg' -%}
-  {%- endif -%}
-  {#- get hero image end -#}
-
+{# internal macros #}
+{%- macro openGraph(options) -%}
   <meta property="og:title" content="{{ options.title }}" />
   <meta property="og:description" content="{{ options.description }}" />
-  <meta property="og:image" content="{{ options.baseUrl }}{{ image }}" />
+  <meta property="og:image" content="{{ options.baseUrl }}{{ options.image }}" />
   <meta property="og:url" content="{{ options.baseUrl }}{{ options.url }}" />
-  <meta property="og:site_name" content="Arts et Médias" />
-
-  <meta property="website" content="{{ options.baseUrl }}" />
-{%- endmacro -%}
-
-{%- macro articleMetaData(options) -%}
-  {#- get hero image -#}
-  {%- if options.heroImage -%}
-    {%- set aposImageData = apos.images.first(options.heroImage) -%}
-    {%- if aposImageData -%}
-      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
-      {%- set image = imageData.url -%}
-    {%- else -%}
-      {%- set image = '/img/opengraph.jpg' -%}
-    {%- endif -%}
-  {%- else -%}
-    {%- set image = '/img/opengraph.jpg' -%}
-  {%- endif -%}
-  {#- get hero image end -#}
-
-  {# og #}
-  <meta property="og:title" content="{{ options.title }}" />
-  <meta property="og:description" content="{{ options.description }}" />
-  <meta property="og:image" content="{{ options.baseUrl }}{{ image }}" />
-  <meta property="og:url" content="{{ options.baseUrl }}{{ options.url }}" />
-  <meta property="og:site_name" content="Arts et Médias" />
+  <meta property="og:site_name" content="{{ siteName }}" />
   {#- TODO: add locale -#}
   {#- <meta property="og:locale" content="fr_CA" /> -#}
-  {# og end #}
+{%- endmacro -%}
 
-  {# twitter #}
+{%- macro twitterCard(options) -%}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@arts_et_medias" />
   <meta name="twitter:title" content="{{ options.title }}" />
   <meta name="twitter:text:title" content="{{ options.title }}" />
   <meta name="twitter:description" content="{{ options.description }}" />
-  <meta name="twitter:image:src" content="{{ options.baseUrl }}{{ image }}" />
-  {# twitter end #}
+  <meta name="twitter:image:src" content="{{ options.baseUrl }}{{ options.image }}" />
+{%- endmacro -%}
 
-  {# other #}
-  <meta name="author" content="{{ options.author }}" />
-  <meta property="article:section" content="{{ options.section }}" />
-  <meta property="article:published_time" content="{{ options.publicationDate }}"/>
+
+{# exported macros #}
+{%- macro minimalMetaData(options) -%}
+  {# TODO: get from translation #}
+  {%- set descriptionText = 'A hub for content and resources about contemporary and media art, with a bias towards media and installation arts.' -%}
+
+  {{
+    openGraph({
+      title: options.title,
+      description: descriptionText,
+      baseUrl: options.baseUrl,
+      url: options.url,
+      image: '/img/opengraph.jpg'
+    })
+  }}
+
   <meta property="website" content="{{ options.baseUrl }}" />
 {%- endmacro -%}
+
+{%- macro descriptiveMetaData(options) -%}
+  {# TODO: create method to get hero image #}
+  {#- get hero image -#}
+  {%- if options.heroImage -%}
+    {%- set aposImageData = apos.images.first(options.heroImage) -%}
+    {%- if aposImageData -%}
+      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
+      {%- set image = imageData.url -%}
+    {%- else -%}
+      {%- set image = '/img/opengraph.jpg' -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- set image = '/img/opengraph.jpg' -%}
+  {%- endif -%}
+  {#- get hero image end -#}
+
+  {%-
+    set metadataOptions = {
+      title: options.title,
+      description: options.description,
+      baseUrl: options.baseUrl,
+      url: options.url,
+      image: image
+    }
+  -%}
+
+  {{ openGraph(metadataOptions) }}
+
+  {{ twitterCard(metadataOptions) }}
+
+  {# other #}
+  <meta property="website" content="{{ options.baseUrl }}" />
+{%- endmacro -%}
+
+{%- macro articleMetaData(options) -%}
+  {# TODO: create method to get hero image #}
+  {#- get hero image -#}
+  {%- if options.heroImage -%}
+    {%- set aposImageData = apos.images.first(options.heroImage) -%}
+    {%- if aposImageData -%}
+      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
+      {%- set image = imageData.url -%}
+    {%- else -%}
+      {%- set image = '/img/opengraph.jpg' -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- set image = '/img/opengraph.jpg' -%}
+  {%- endif -%}
+  {#- get hero image end -#}
+
+  {%-
+    set metadataOptions = {
+      title: options.title,
+      description: options.description,
+      baseUrl: options.baseUrl,
+      url: options.url,
+      image: image
+    }
+  -%}
+
+  <meta property="og:type" content="article" />
+  {{ openGraph(metadataOptions) }}
+  {% for author in options.authors -%}
+    <meta property="article:author" content="{{ author }}" />
+  {% endfor %}
+  <meta property="article:section" content="{{ options.section }}" />
+  <meta property="article:published_time" content="{{ options.publicationDate }}"/>
+  {% for tag in options.tags -%}
+    <meta property="article:tag" content="{{ tag }}" />
+  {% endfor %}
+
+  {{ twitterCard(metadataOptions) }}
+
+  {# other #}
+  <meta property="website" content="{{ options.baseUrl }}" />
+{%- endmacro -%}
+
+{% macro bookMetaData(options) %}
+  {# TODO: create method to get hero image #}
+  {#- get hero image -#}
+  {%- if options.heroImage -%}
+    {%- set aposImageData = apos.images.first(options.heroImage) -%}
+    {%- if aposImageData -%}
+      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
+      {%- set image = imageData.url -%}
+    {%- else -%}
+      {%- set image = '/img/opengraph.jpg' -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- set image = '/img/opengraph.jpg' -%}
+  {%- endif -%}
+  {#- get hero image end -#}
+
+  {%-
+    set metadataOptions = {
+      title: options.title,
+      description: options.description,
+      baseUrl: options.baseUrl,
+      url: options.url,
+      image: image
+    }
+  -%}
+
+  <meta property="og:type" content="book" />
+  {{ openGraph(metadataOptions) }}
+  {% for author in options.authors -%}
+    <meta property="book:author" content="{{ author }}" />
+  {% endfor -%}
+  <meta property="book:release_date" content="{{ options.yearPublished }}"/>
+  {% for tag in options.tags -%}
+    <meta property="book:tag" content="{{ tag }}" />
+  {% endfor %}
+
+  {{ twitterCard(metadataOptions) }}
+
+  {# other #}
+  <meta property="website" content="{{ options.baseUrl }}" />
+{% endmacro %}

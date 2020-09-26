@@ -26,14 +26,15 @@
   {%- set author = apos.aemAuthors.getListFromArticle(piece) -%}
   {{
     articleMetaData({
-      title: apos.aemSeo.buildWrittenBy(piece.title, author, locale),
-      author: author,
+      title: piece.title,
+      authors: apos.aemAuthors.getArrayFromArticle(piece),
       publicationDate: apos.aemPieces.getISODate(piece),
       description: piece.shortDescription,
       heroImage: piece.heroImage,
       section: apos.aemPieces.getArticleSection(__, piece),
       url: piece._url,
-      baseUrl: data.baseUrl
+      baseUrl: data.baseUrl,
+      tags: piece.tags
     })
   }}
 {% endblock %}
