@@ -33,7 +33,7 @@
       heroImage: piece.heroImage,
       section: apos.aemPieces.getArticleSection(__, piece),
       url: piece._url,
-      baseUrl: data.baseUrl,
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl),
       tags: piece.tags
     })
   }}

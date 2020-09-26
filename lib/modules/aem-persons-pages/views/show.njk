@@ -27,7 +27,7 @@
       description: piece.shortDescription,
       heroImage: piece.profilePic,
       url: piece._url,
-      baseUrl: data.baseUrl
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
     })
   }}
 {% endblock %}

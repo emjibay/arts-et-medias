@@ -22,7 +22,7 @@
     minimalMetaData({
       title: data.page.title,
       url: piece._url,
-      baseUrl: data.baseUrl
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
     })
   }}
 {% endblock %}

@@ -17,7 +17,7 @@
     minimalMetaData({
       title: __('search|heading'),
       url: data.page._url,
-      baseUrl: data.baseUrl
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
     })
   }}
 {% endblock %}
