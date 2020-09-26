@@ -22,7 +22,7 @@
 {% block extraHead %}
   {{ super() }}
 
-  {# prevent iOS from rendering numbers as phone number links #}
+  {#- prevent iOS from rendering numbers as phone number links -#}
   <meta name="format-detection" content="telephone=no">
 
   {% block metadata %}{% endblock %}
