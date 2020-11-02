@@ -15,20 +15,20 @@
   "license": "MIT",
   "dependencies": {
     "accept-language": "^3.0.18",
-    "apostrophe": "^2.110.0",
+    "apostrophe": "^2.113.0",
     "apostrophe-db-mongo-3-driver": "^2.0.1",
     "apostrophe-second-chance-login": "^2.0.0",
-    "apostrophe-workflow": "^2.36.0",
-    "chalk": "^4.1.0",
-    "lodash": "^4.17.19",
-    "moment": "^2.27.0"
+    "apostrophe-workflow": "^2.38.2",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
     "@cloudraker/sass-brunch": "^3.0.1",
     "apostrophe-monitor": "^2.1.0",
     "babel-brunch": "^7.0.1",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.3",
     "brunch": "^2.10.17",
+    "chalk": "^4.1.0",
     "core-js": "3",
     "eslint": "^7.7.0",
     "globby": "^10.0.2",
