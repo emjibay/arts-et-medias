@@ -7,6 +7,11 @@
     margin-top: 0;
   }
 
+  .book-subtitle {
+    @include heading3();
+    margin: 10px 0;
+  }
+
   .book-cover {
     @include heroImageShadow();
     position: relative;
