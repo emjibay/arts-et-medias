@@ -158,13 +158,12 @@
     "searchLabel": "Search Books",
     "noPiecesLabel": "No Books Found",
     "editorAbbreviation": "ed.",
-    "sidebar": {
-      "heading": "Cite this book",
-      "footnoteHeading": "Footnote",
-      "bibliographyHeading": "Bibliography Entry",
-      "warning": "Ensure to confirm that the following bibliographic entry and footnote formats are correct before submitting papers with them. We generate these to help out, however we cannot guarantee that they are correct in all cases.",
+    "citations": {
+      "heading": "Cite This Book",
+      "warning": "Ensure to confirm that the following bibliographic entries are correct before submitting papers with them. We generate these to help out, however we cannot guarantee that they are correct in all cases.",
       "styles": {
         "apa": "APA",
+        "bibtex": "BibTex",
         "chicago": "Chicago",
         "mla": "MLA"
       }

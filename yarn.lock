@@ -795,6 +795,86 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@citation-js/cli@0.5.0-alpha.9":
+  version "0.5.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@citation-js/cli/-/cli-0.5.0-alpha.9.tgz#e14a3515a698f321dcf45b3cd8022406d355359f"
+  integrity sha512-IYislCXar2ooyeeMSa3zo/OZPQGzAhGlQ4dogQAdEADUMX3dqTXdjIzi4ySgj3UVqseZIW67gTF0QilcItNBdQ==
+  dependencies:
+    "@citation-js/core" "^0.5.0-alpha.9"
+    "@citation-js/plugin-bibjson" "^0.5.0-alpha.9"
+    "@citation-js/plugin-bibtex" "^0.5.0-alpha.9"
+    "@citation-js/plugin-csl" "^0.5.0-alpha.9"
+    "@citation-js/plugin-doi" "^0.5.0-alpha.9"
+    "@citation-js/plugin-ris" "^0.5.0-alpha.9"
+    "@citation-js/plugin-wikidata" "^0.5.0-alpha.9"
+    commander "^5.1.0"
+
+"@citation-js/core@0.5.0-alpha.9", "@citation-js/core@^0.5.0-alpha.9":
+  version "0.5.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@citation-js/core/-/core-0.5.0-alpha.9.tgz#ea618cf06d1b2eed6f040b338e502bdc02c6ccb7"
+  integrity sha512-0fAJ4AFemfJ5hTG8pepqL4c6wsbNgd7aede+oJaCDEZapiW6TTW4IGTu43Lp4k1xefW46tNLuAdnqRD0NKn/vg==
+  dependencies:
+    "@citation-js/date" "^0.4.4"
+    "@citation-js/name" "^0.4.2"
+    isomorphic-fetch "^3.0.0"
+    sync-fetch "^0.2.0"
+
+"@citation-js/date@0.4.4", "@citation-js/date@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@citation-js/date/-/date-0.4.4.tgz#2e90b3c04b8b4861b331274916c3cc3e57860628"
+  integrity sha512-wD195pZPwCCN8idhxz4HYZbf5mMnPZMRhOipcU8v1orZWqZp6YDRjOplNKo6yX7tf6fB4ZO8QLuNaNjuic5AWQ==
+
+"@citation-js/name@0.4.2", "@citation-js/name@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@citation-js/name/-/name-0.4.2.tgz#8dc834b7e6c06998fc8d3b63632658754c94a875"
+  integrity sha512-brSPsjs2fOVzSnARLKu0qncn6suWjHVQtrqSUrnqyaRH95r/Ad4wPF5EsoWr+Dx8HzkCGb/ogmoAzfCsqlTwTQ==
+
+"@citation-js/plugin-bibjson@0.5.0-alpha.9", "@citation-js/plugin-bibjson@^0.5.0-alpha.9":
+  version "0.5.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@citation-js/plugin-bibjson/-/plugin-bibjson-0.5.0-alpha.9.tgz#5aed604793815cf42be1b0e7ced4b3d231b655ea"
+  integrity sha512-hEQh4BNZmOpBQ6DhNzVPVhAo/W8QobIqETY4VSdg0vLKMYmB92hCHJn0ybEFTdpUW4Mg7yv97KM70u0MitXMfw==
+  dependencies:
+    "@citation-js/date" "^0.4.4"
+    "@citation-js/name" "^0.4.2"
+
+"@citation-js/plugin-bibtex@0.5.0-alpha.9", "@citation-js/plugin-bibtex@^0.5.0-alpha.9":
+  version "0.5.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@citation-js/plugin-bibtex/-/plugin-bibtex-0.5.0-alpha.9.tgz#f4f965845581c2de824c255c3bd4293d4cbbdf40"
+  integrity sha512-Fsk3NVoYwUHiF/Z6/1qIoL3aIAZLwvDHYJsWf73k2d1ovpnP1FpAGu1H947MuC5Fa0Ly2+xP2HGbwwT4KfTNzQ==
+  dependencies:
+    "@citation-js/date" "^0.4.4"
+    "@citation-js/name" "^0.4.2"
+    moo "^0.5.1"
+
+"@citation-js/plugin-csl@0.5.0-alpha.9", "@citation-js/plugin-csl@^0.5.0-alpha.9":
+  version "0.5.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@citation-js/plugin-csl/-/plugin-csl-0.5.0-alpha.9.tgz#e11cdaef210e07b2ed312529bd6d095137c4f27e"
+  integrity sha512-AeQQjqx8z/MflvEV9ZF3zn48z+FTXrGQ3WQuMecu5eKdUNYZxARfM4MfnY1jIYGTey35IzVloallT+s3XmmE3g==
+  dependencies:
+    citeproc "^2.4.6"
+
+"@citation-js/plugin-doi@0.5.0-alpha.9", "@citation-js/plugin-doi@^0.5.0-alpha.9":
+  version "0.5.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@citation-js/plugin-doi/-/plugin-doi-0.5.0-alpha.9.tgz#ec238cf3423dd6b91ba79be5774da189f9ea191d"
+  integrity sha512-hNPWLYQhtRaivHfkbhiGanwVlqsQXt+MxhOQYiuvfPmTwaltuY+IT+6vwgSZuWc/wdIsB6jTGA4GF/ZD6xslFA==
+
+"@citation-js/plugin-ris@0.5.0-alpha.9", "@citation-js/plugin-ris@^0.5.0-alpha.9":
+  version "0.5.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@citation-js/plugin-ris/-/plugin-ris-0.5.0-alpha.9.tgz#e659a0f0a334b6f42f8553f74475190e228abbdc"
+  integrity sha512-83p+a+6QULjKtKTwWN0eKz6d6aFwcd2PPxiaPrib9ArjJTuelAOSzLmH1ytVO756gM3fkMDysEMy98qM0PUHSQ==
+  dependencies:
+    "@citation-js/date" "^0.4.4"
+    "@citation-js/name" "^0.4.2"
+
+"@citation-js/plugin-wikidata@0.5.0-alpha.9", "@citation-js/plugin-wikidata@^0.5.0-alpha.9":
+  version "0.5.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@citation-js/plugin-wikidata/-/plugin-wikidata-0.5.0-alpha.9.tgz#42b2eb360139dc431ac9c040a31ec5b9b4dba62e"
+  integrity sha512-oZSBc8W1uldE/5yYJV5gtIfbdZK+axpSVmms/OhngMHzqbj4EqfR09MVRee8G4Acgchc7D3eZItL/yU9Pi7E9A==
+  dependencies:
+    "@citation-js/date" "^0.4.4"
+    "@citation-js/name" "^0.4.2"
+    wikidata-sdk "7"
+
 "@cloudraker/sass-brunch@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@cloudraker/sass-brunch/-/sass-brunch-3.0.1.tgz#513f5ab95d592a98615f52763a6c336cb8ee1b95"
@@ -1726,7 +1806,7 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-base64-js@^1.0.2, base64-js@^1.3.0:
+base64-js@^1.0.2, base64-js@^1.3.0, base64-js@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.3.1.tgz#58ece8cb75dd07e71ed08c736abc5fac4dbf8df1"
   integrity sha512-mLQ4i2QO1ytvGWFWmcngKO//JXAQueZvwEKtjgQFM4jIK0kU+ytMfplL8j+n5mspOfjHwoAg+9yhb7BwAHm36g==
@@ -2056,6 +2136,14 @@ buffer@^5.2.0:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
 
+buffer@^5.4.2:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/buffer/-/buffer-5.7.0.tgz#88afbd29fc89fa7b58e82b39206f31f2cf34feed"
+  integrity sha512-cd+5r1VLBwUqTrmnzW+D7ABkJUM6mr7uv1dv+6jRw4Rcl7tFIFHDqHPL98LhpGFn3dbAt3gtLxtrWp4m1kFrqg==
+  dependencies:
+    base64-js "^1.3.1"
+    ieee754 "^1.1.13"
+
 buffer@~4.3.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/buffer/-/buffer-4.3.1.tgz#0e65fd01cc3e9154d152f6b3c934b5b8a1b6733c"
@@ -2302,6 +2390,28 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+citation-js@0.5.0-alpha.9:
+  version "0.5.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/citation-js/-/citation-js-0.5.0-alpha.9.tgz#9c2e1a7f9f55f80ca182bea20de99de0dca81642"
+  integrity sha512-M1KRo7AFduk/ZvtN+uYtpvantbVpHN9p9jg0H8BcSvgu/YSYBbBbSmrSpB6K1KMzbGv2yiUBCZklRWec0hFFUQ==
+  dependencies:
+    "@citation-js/cli" "0.5.0-alpha.9"
+    "@citation-js/core" "0.5.0-alpha.9"
+    "@citation-js/date" "0.4.4"
+    "@citation-js/name" "0.4.2"
+    "@citation-js/plugin-bibjson" "0.5.0-alpha.9"
+    "@citation-js/plugin-bibtex" "0.5.0-alpha.9"
+    "@citation-js/plugin-csl" "0.5.0-alpha.9"
+    "@citation-js/plugin-doi" "0.5.0-alpha.9"
+    "@citation-js/plugin-ris" "0.5.0-alpha.9"
+    "@citation-js/plugin-wikidata" "0.5.0-alpha.9"
+    citeproc "^2.4.6"
+
+citeproc@^2.4.6:
+  version "2.4.45"
+  resolved "https://registry.yarnpkg.com/citeproc/-/citeproc-2.4.45.tgz#5ece5bb9e3d9020867f18a93654132a3ddb66e7c"
+  integrity sha512-o7LJkGAGCvIwNyWhvUk63TiTb37PL4K6xrMI2kfZNrXh8gAnS6A4S4fBvKkgXjvSKqSr+5/p1ZjmY/Apto/qMA==
+
 class-utils@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
@@ -2426,6 +2536,11 @@ commander@^2.0.0, commander@^2.19.0, commander@^2.8.1:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
+commander@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
+  integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
 
 commander@~2.9:
   version "2.9.0"
@@ -4268,6 +4383,11 @@ ieee754@1.1.13, ieee754@^1.1.4:
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.13.tgz#ec168558e95aa181fd87d37f55c32bbcb6708b84"
   integrity sha512-4vf7I2LYV/HaWerSo3XmlMkp5eZ83i+/CDluXi/IGTs/O1sejBNhTtnxzmRZfvOUqj7lZjqHkeTvpgSFDlWZTg==
 
+ieee754@^1.1.13:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
+  integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
+
 ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
@@ -4644,6 +4764,14 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
+
+isomorphic-fetch@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz#0267b005049046d2421207215d45d6a262b8b8b4"
+  integrity sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==
+  dependencies:
+    node-fetch "^2.6.1"
+    whatwg-fetch "^3.4.1"
 
 isstream@~0.1.2:
   version "0.1.2"
@@ -5351,6 +5479,11 @@ mongodb@^3.1.1, mongodb@^3.3.5:
   optionalDependencies:
     saslprep "^1.0.0"
 
+moo@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/moo/-/moo-0.5.1.tgz#7aae7f384b9b09f620b6abf6f74ebbcd1b65dbc4"
+  integrity sha512-I1mnb5xn4fO80BH9BLcF0yLypy2UKl+Cb01Fu0hJRkJjlCRtxZMWkTdAtDd5ZqCOxtCkhmRwyI57vWT+1iZ67w==
+
 moog-require@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/moog-require/-/moog-require-1.2.0.tgz#a2fee146fd63cba38544c118a6476d28a037402c"
@@ -5493,7 +5626,7 @@ node-browser-modules@^0.1.0:
     util "~0.10.3"
     vm-browserify "~0.0.4"
 
-node-fetch@^2.3.0, node-fetch@^2.6.1:
+node-fetch@^2.3.0, node-fetch@^2.6.0, node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
@@ -7116,6 +7249,14 @@ swap-case@^1.1.0:
     lower-case "^1.1.1"
     upper-case "^1.1.1"
 
+sync-fetch@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/sync-fetch/-/sync-fetch-0.2.0.tgz#e53fe8b24d4f2ca22b91b11bbdd4ad7ba6bd4c10"
+  integrity sha512-hpGlo2YfnNYligGQl4Hk6UY2FH6xRFp5GTMAek68/kIbur7zglXiNw/2JvUbtS3HstaR4gZkrfF+vtrfm0slOw==
+  dependencies:
+    buffer "^5.4.2"
+    node-fetch "^2.6.0"
+
 syntax-error@^1.3.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/syntax-error/-/syntax-error-1.4.0.tgz#2d9d4ff5c064acb711594a3e3b95054ad51d907c"
@@ -7579,6 +7720,11 @@ vm-browserify@~0.0.4:
   dependencies:
     indexof "0.0.1"
 
+whatwg-fetch@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.4.1.tgz#e5f871572d6879663fa5674c8f833f15a8425ab3"
+  integrity sha512-sofZVzE1wKwO+EYPbWfiwzaKovWiZXf4coEzjGP9b2GBVgQRLQUZ2QcuPpQExGDAW5GItpEm6Tl4OU5mywnAoQ==
+
 which@^1.2.12, which@^1.2.14, which@^1.2.9:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/which/-/which-1.3.1.tgz#a45043d54f5805316da8d62f9f50918d3da70b0a"
@@ -7592,6 +7738,18 @@ which@^2.0.1:
   integrity sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   dependencies:
     isexe "^2.0.0"
+
+wikibase-sdk@^7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/wikibase-sdk/-/wikibase-sdk-7.8.0.tgz#524b963cb7810bc265c0032ca5c167ef4970c19b"
+  integrity sha512-89IBMxaRIMxMpWRKp+Agtl5hUAuz4WSnMydd8YUg8JXdTXG/VGAPlL5+/CyP3Ei90sVmaDYhk5Wg5jDWsBcR9g==
+
+wikidata-sdk@7:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/wikidata-sdk/-/wikidata-sdk-7.8.0.tgz#d8c7aa092a96306c827c7dce5ec656bdba28edad"
+  integrity sha512-VROKzFbryXFCcPVLYUkhfU5dZTYs9gVRAg4mtfoLknwHKuTKbJVK0cnuzEvZ1vkbBt2AXaJ44lBrPrMWF+I/IA==
+  dependencies:
+    wikibase-sdk "^7.8.0"
 
 window-size@0.1.0:
   version "0.1.0"

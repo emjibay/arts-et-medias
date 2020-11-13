@@ -158,13 +158,12 @@
     "searchLabel": "Chercher parmi les livres",
     "noPiecesLabel": "Aucun livre trouvé",
     "editorAbbreviation": "éd.",
-    "sidebar": {
+    "citations": {
       "heading": "Citez cet ouvrage",
-      "footnoteHeading": "Note de bas de page",
-      "bibliographyHeading": "Article de bibliographie",
-      "warning": "Assurez-vous de valider que les formats d'articles de bibliographie et de notes de bas de page soient corrects avant de les soumettre dans vos travaux. Nous les générons pour vous aider, mais nous ne pouvons pas garantir qu'ils soient corrects dans tous les cas.",
+      "warning": "Assurez-vous de valider les formats d'articles de bibliographie avant de les soumettre dans vos travaux. Nous les générons pour vous aider, mais nous ne pouvons pas garantir qu'ils soient exacts dans tous les cas.",
       "styles": {
         "apa": "APA",
+        "bibtex": "BibTex",
         "chicago": "Chicago",
         "mla": "MLA"
       }

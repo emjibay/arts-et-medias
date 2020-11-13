@@ -45,4 +45,28 @@
       width: getColumnsSpan(4, $xxl);
     }
   }
+
+  .citations {
+    .citation-heading {
+      @include heading4();
+    }
+
+    .citation-list {
+      dt {
+        @include heading5();
+      }
+      dd {
+        @include paragraph();
+
+        &.bibtex {
+          background-color: $lightestGrey;
+          font-family: $ffMonospace;
+          font-size: $fsVerySmol;
+          overflow-x: auto;
+          padding: 15px 10px 0 10px;
+          white-space: pre;
+        }
+      }
+    }
+  }
 }
