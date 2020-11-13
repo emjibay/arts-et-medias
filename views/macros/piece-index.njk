@@ -31,13 +31,25 @@
               <p class="heading">{{ piece.title }}</p>
 
               {% if hasByline %}
-                <ul class="byline-list">
-                  {% for author in piece._author %}
-                    <li>
-                      <p>{{ author.title }}</p>
-                    </li>
-                  {% endfor %}
-                </ul>
+                {%- if (piece.type === 'book') -%}
+                  {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
+                  {%- set authorList = apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation) -%}
+                  <ul class="byline-list">
+                    {% for author in authorList %}
+                      <li>
+                        <p>{{ author }}</p>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {%- else -%}
+                  <ul class="byline-list">
+                    {% for author in piece._author %}
+                      <li>
+                        <p>{{ author.title }}</p>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {%- endif -%}
               {% endif %}
 
               <div class="short-description">

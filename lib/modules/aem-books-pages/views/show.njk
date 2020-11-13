@@ -7,6 +7,7 @@
 
 
 {%- set piece = data.piece -%}
+{%- set editorAbbreviation = __('books|editorAbbreviation') -%}
 
 
 {% block title %}
@@ -23,7 +24,7 @@
   {{
     bookMetaData({
       title: piece.title,
-      authors: apos.aemAuthors.getArrayFromPiece(piece),
+      authors: apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation),
       description: piece.shortDescription,
       yearPublished: piece.yearPublished,
       heroImage: piece.heroImage,
@@ -55,7 +56,7 @@
               authorsLinkList(
                 piece._author,
                 piece._editor,
-                __('books|editorAbbreviation')
+                editorAbbreviation
               )
             }}
           </div>

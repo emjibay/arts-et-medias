@@ -17,7 +17,7 @@
     <div class="list-heading">{{ options.heading }}</div>
     <ul class="list">
       {% for listItem in list %}
-        {%- set authorList = apos.aemPieces.getAuthorList(listItem) -%}
+        {%- set authorList = apos.aemAuthors.getListFromPiece(listItem) -%}
         <li>
           <a
             class="list-item"
