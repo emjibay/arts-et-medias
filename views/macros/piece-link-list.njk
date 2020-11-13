@@ -2,9 +2,9 @@
   <ul class="piece-link-list">
     {% for piece in pieces %}
       <li><a
-          class="piece-link"
-          href="{{ piece._url }}"
-        >{{ piece.title }}</a></li>
+        class="piece-link"
+        href="{{ piece._url }}"
+      >{{ piece.title }}</a></li>
     {% endfor %}
   </ul>
 {%- endmacro -%}
@@ -13,3 +13,19 @@
   {{ pieceLinkList(apos.aemPieces.sortByTitle(pieces)) }}
 {%- endmacro -%}
 
+{%- macro authorsLinkList(authors, editors, editorLabel) -%}
+  <ul class="piece-link-list">
+    {% for author in authors %}
+      <li><a
+        class="piece-link"
+        href="{{ author._url }}"
+      >{{ author.title }}</a></li>
+    {% endfor %}
+    {% for editor in editors %}
+      <li><a
+        class="piece-link"
+        href="{{ editor._url }}"
+      >{{ editor.title }} ({{ editorLabel }})</a></li>
+    {% endfor %}
+  </ul>
+{%- endmacro -%}

@@ -2,7 +2,7 @@
 
 {%- from 'macros/metadata.njk' import bookMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, relatedMedia, relatedOrganizations, relatedPieces, tags, websiteCTA -%}
-{%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
+{%- from 'macros/piece-link-list.njk' import authorsLinkList, pieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
@@ -50,7 +50,13 @@
 
           <div class="subheading">
             <h2 class="sr-only">{{ __('pieceDetails|authorsLabel') }}</h2>
-            {{ pieceLinkList(piece._author) }}
+            {{
+              authorsLinkList(
+                piece._author,
+                piece._editor,
+                __('books|editorAbbreviation')
+              )
+            }}
           </div>
 
           <div class="page-content">
