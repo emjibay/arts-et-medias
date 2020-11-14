@@ -17,7 +17,12 @@
     <div class="list-heading">{{ options.heading }}</div>
     <ul class="list">
       {% for listItem in list %}
-        {%- set authorList = apos.aemAuthors.getListFromPiece(listItem) -%}
+        {%- if listItem.type === 'book' -%}
+          {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
+          {%- set authorList = apos.aemAuthors.getListFromBook(listItem, editorAbbreviation) -%}
+        {%- else -%}
+          {%- set authorList = apos.aemAuthors.getListFromPiece(listItem) -%}
+        {%- endif -%}
         <li>
           <a
             class="list-item"

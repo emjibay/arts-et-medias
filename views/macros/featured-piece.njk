@@ -46,10 +46,12 @@
 
     <h1>{{ piece.title }}</h1>
 
+    {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
+    {%- set authorList = apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation) -%}
     <ul class="byline-list">
-      {% for author in piece._author %}
+      {% for author in authorList %}
         <li>
-          <p>{{ author.title }}</p>
+          <p>{{ author }}</p>
         </li>
       {% endfor %}
     </ul>
