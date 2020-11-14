@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "accept-language": "^3.0.18",
-    "apostrophe": "^2.113.0",
+    "apostrophe": "^2.113.1",
     "apostrophe-db-mongo-3-driver": "^2.0.1",
     "apostrophe-second-chance-login": "^2.0.0",
     "apostrophe-workflow": "^2.38.2",
@@ -30,7 +30,7 @@
     "bootstrap": "^4.5.3",
     "brunch": "^2.10.17",
     "chalk": "^4.1.0",
-    "core-js": "3",
+    "core-js": "^3.7.0",
     "eslint": "^7.7.0",
     "globby": "^10.0.2",
     "terser-brunch": "^3.0.0"

@@ -1547,10 +1547,10 @@ apostrophe-workflow@^2.38.2:
     qs "^6.9.1"
     request-promise "^4.2.5"
 
-apostrophe@^2.113.0:
-  version "2.113.0"
-  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.113.0.tgz#93cbaf438f99be2e160a261ac8aa4806ceea2ac0"
-  integrity sha512-K1n4SAHaOcdjtgnuiuo9XXPsSwV1NmFvmhks3GzJPOfJc90Lw3E5+wauglMLyAs0yCGCRHG4hj84Z8wz5IM+1g==
+apostrophe@^2.113.1:
+  version "2.113.1"
+  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.113.1.tgz#d98fb35a0d806e762fa69430a8b25e34bc99e41c"
+  integrity sha512-/9XdQDob1HaTT1+PNss+lK+Zsz5lOSjl701ikmiyDICHxvKI55SRN0S4Np7ojHn9k9zZ7dKvkQ00lwYLNl2Sew==
   dependencies:
     "@apostrophecms/nunjucks" "^2.5.4"
     "@sailshq/lodash" "^3.10.4"
@@ -2662,15 +2662,20 @@ core-js-compat@^3.6.2:
     browserslist "^4.8.5"
     semver "7.0.0"
 
-core-js@3, core-js@^3.4.1:
-  version "3.6.5"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
-  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
-
 core-js@^1.1.1:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
   integrity sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
+
+core-js@^3.4.1:
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
+  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
+
+core-js@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.7.0.tgz#b0a761a02488577afbf97179e4681bf49568520f"
+  integrity sha512-NwS7fI5M5B85EwpWuIwJN4i/fbisQUwLwiSNUWeXlkAZ0sbBjLEvLvFLf1uzAUV66PcEPt4xCGCmOZSxVf3xzA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
