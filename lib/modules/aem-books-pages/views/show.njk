@@ -144,11 +144,10 @@
 
               {{ tags(piece) }}
 
-              {# FIXME: citations seem to slow down site #}
-              {#
-              <hr class="separator"/>
-              {%- include 'partials/books/citations-section.njk' -%}
-               #}
+              {%- if piece.citations -%}
+                <hr class="separator"/>
+                {%- include 'partials/books/citations-section.njk' -%}
+              {%- endif -%}
             </div>
           </div>
 

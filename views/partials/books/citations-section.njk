@@ -3,35 +3,16 @@
   <p>{{ __('books|citations|warning') }}</p>
 
   <dl class="citation-list">
-    {%- set citations = data.bookCitations -%}
-    {%-
-      set options = {
-        piece: piece,
-        citations: citations,
-        locale: locale
-      }
-    -%}
-
     <dt>{{ __('books|citations|styles|mla') }}</dt>
-    <dd>
-      {%- set mlaCitation = apos.aemBooks.getMLA(piece, citations) -%}
-      {{ mlaCitation | safe }}
-    </dd>
+    <dd>{{ piece.citations.mla | safe }}</dd>
 
     <dt>{{ __('books|citations|styles|chicago') }}</dt>
-    <dd>
-      {%- set chicagoCitation = apos.aemBooks.getChicago(piece, citations, locale) -%}
-      {{ chicagoCitation | safe }}
-    </dd>
+    <dd>{{ piece.citations.chicago | safe }}</dd>
 
     <dt>{{ __('books|citations|styles|apa') }}</dt>
-    <dd>
-      {%- set apaCitation = apos.aemBooks.getAPA(piece, citations, locale) -%}
-      {{ apaCitation | safe }}
-    </dd>
+    <dd>{{ piece.citations.apa | safe }}</dd>
 
     <dt>{{ __('books|citations|styles|bibtex') }}</dt>
-    {%- set bibtexCitation = apos.aemBooks.getBibTex(piece, citations, locale) -%}
-    <dd class="bibtex">{{ bibtexCitation }}</dd>
+    <dd class="bibtex">{{ piece.citations.bibtex }}</dd>
   </dl>
 </section>
