@@ -233,6 +233,10 @@
         margin-top: 0;
       }
 
+      &.sans-feature {
+        margin-left: 0;
+      }
+
       .list-item,
       .article-card {
         @include nColumnWidth(3);

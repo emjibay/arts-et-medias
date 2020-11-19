@@ -209,8 +209,11 @@
     "featured": "Événement vedette",
     "sponsored": "Événement commandité",
     "related": "Événements associés",
+    "ongoingSingular": "Événement en cours",
+    "ongoingPlural": "Événements en cours",
+    "upcomingSingular": "Événement à venir",
+    "upcomingPlural": "Événements à venir",
     "recentlyAdded": "Événements ajoutés récemment",
-    "next": "Prochain événement",
     "seeMoreCTA": "Voir les détails de l'événement",
     "seeAllCTA": "Voir tous les événements",
     "searchLabel": "Chercher parmi les événements",
@@ -226,6 +229,7 @@
         "url": "/fr/evenements/conferences",
         "recentlyAdded": "Conférences récemment ajoutées",
         "next": "Prochaines conférences",
+        "nextOrOngoing": "Conférences en cours ou à venir",
         "related": "Conférences associées",
         "seeAllCTA": "Voir toutes les conférences",
         "tags": ["conférence"]
@@ -235,6 +239,7 @@
         "url": "/fr/evenements/expositions",
         "recentlyAdded": "Exposition récemment ajoutées",
         "next": "Prochaines expositions",
+        "nextOrOngoing": "Expositions en cours ou à venir",
         "related": "Exposition associées",
         "seeAllCTA": "Voir toutes les expositions",
         "tags": ["exposition", "vernissage"]
@@ -244,6 +249,7 @@
         "url": "/fr/evenements/festivals",
         "recentlyAdded": "Festivals récemment ajoutés",
         "next": "Prochains festivals",
+        "nextOrOngoing": "Festivals en cours ou à venir",
         "related": "Festivals associés",
         "seeAllCTA": "Voir tous les festivals",
         "tags": ["festival", "biennale", "triennale"]
@@ -253,6 +259,7 @@
         "url": "/fr/evenements/ateliers",
         "recentlyAdded": "Ateliers récemment ajoutés",
         "next": "Prochains ateliers",
+        "nextOrOngoing": "Ateliers en cours ou à venir",
         "related": "Ateliers associés",
         "seeAllCTA": "Voir tous les ateliers",
         "tags": ["atelier"]

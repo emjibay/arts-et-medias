@@ -4,6 +4,18 @@
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 
+{# FIXME: improve this check #}
+{%- set hasFeaturedEvent = data.global.featuredEvent.items[0].pieceIds|length > 0 -%}
+
+{%- set numOngoingProjects = data.ongoingEvents|length -%}
+{%- set numFutureProjects = data.futureEvents|length -%}
+
+
+{% macro eventTile(event, label) %}
+  <div class="mm-col">
+    {{ featuredEvent(event, label, locale) }}
+  </div>
+{% endmacro %}
 
 {%- macro eventList(pieces, category, heading) -%}
   {%- set cat = 'events|categories|' + category + '|' -%}
@@ -50,23 +62,45 @@
   id="mmEvents"
   class="events-section"
 >
-  <div class="mm-col">
-    {% include "partials/events/featured.njk" %}
-  </div>
+  {%- if hasFeaturedEvent -%}
+    <div class="mm-col">
+      {% include "partials/events/featured.njk" %}
+    </div>
+
+    {%- if numOngoingProjects >= 1 -%}
+      {{ eventTile(data.ongoingEvents[0], __('events|ongoingSingular')) }}
+    {%- else -%}
+      {{ eventTile(data.futureEvents[0], __('events|upcomingSingular')) }}
+    {%- endif -%}
+
+  {%- else -%}
+    {%- if numOngoingProjects >= 2 -%}
+      {{ eventTile(data.ongoingEvents[0], __('events|ongoingSingular')) }}
+      {{ eventTile(data.ongoingEvents[1], __('events|ongoingSingular')) }}
+    {%- elseif numOngoingProjects === 1 -%}
+      {{ eventTile(data.ongoingEvents[0], __('events|ongoingSingular')) }}
+      {{ eventTile(data.futureEvents[1], __('events|upcomingSingular')) }}
+    {%- else -%}
+      {{ eventTile(data.futureEvents[0], __('events|upcomingSingular')) }}
+      {{ eventTile(data.futureEvents[1], __('events|upcomingSingular')) }}
+    {%- endif -%}
+  {%- endif -%}
 
   <div class="mm-col">
-    {%- set nextEvent = data.orderedEvents[0] -%}
-    {{
-      featuredEvent(
-        nextEvent,
-        __('events|next'),
-        locale
+    {%- if hasFeaturedEvent -%}
+      {%- set numItemsToDelete = 1 -%}
+    {%- else -%}
+      {%- set numItemsToDelete = 2 -%}
+    {%- endif -%}
+
+    {%-
+      set nextEvents = apos.aemArrays.splice(
+        data.ongoingAndFutureEvents,
+        0,
+        numItemsToDelete
       )
-    }}
-  </div>
+    -%}
 
-  <div class="mm-col">
-    {%- set nextEvents = apos.aemArrays.splice(data.orderedEvents, 0) -%}
     {{
       eventList(
         nextEvents,

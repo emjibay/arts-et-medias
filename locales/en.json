@@ -210,7 +210,10 @@
     "sponsored": "Sponsored Event",
     "related": "Related Events",
     "recentlyAdded": "Recently Added Events",
-    "next": "Next Event",
+    "ongoingSingular": "Ongoing Event",
+    "ongoingPlural": "Ongoing Events",
+    "upcomingSingular": "Upcoming Event",
+    "upcomingPlural": "Upcoming Events",
     "seeMoreCTA": "View Details",
     "seeAllCTA": "See All Events",
     "searchLabel": "Search Events",
@@ -226,6 +229,7 @@
         "url": "/events/conferences",
         "recentlyAdded": "Recently Added Conferences",
         "next": "Next Conferences",
+        "nextOrOngoing": "Next or Ongoing Conferences",
         "related": "Related Conferences",
         "seeAllCTA": "See All Conferences",
         "tags": ["conference"]
@@ -235,6 +239,7 @@
         "url": "/events/exhibits",
         "recentlyAdded": "Recently Added Exhibits",
         "next": "Next Exhibits",
+        "nextOrOngoing": "Next or Ongoing Exhibits",
         "related": "Related Exhibits",
         "seeAllCTA": "See All Exhibits",
         "tags": ["exhibit", "vernissage"]
@@ -244,6 +249,7 @@
         "url": "/events/festivals",
         "recentlyAdded": "Recently Added Festivals",
         "next": "Next Festivals",
+        "nextOrOngoing": "Next or Ongoing Festivals",
         "related": "Related Festivals",
         "seeAllCTA": "See All Festivals",
         "tags": ["festival", "biennale", "triennale"]
@@ -253,6 +259,7 @@
         "url": "/events/workshops",
         "recentlyAdded": "Recently Added Workshops",
         "next": "Next Workshops",
+        "nextOrOngoing": "Next or Ongoing Workshops",
         "related": "Related Workshops",
         "seeAllCTA": "See All Workshops",
         "tags": ["workshop"]

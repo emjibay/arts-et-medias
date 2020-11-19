@@ -5,6 +5,10 @@
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 
+{# FIXME: improve this check #}
+{%- set hasFeaturedEvent = data.global.featuredEvent.items[0].pieceIds.length > 0 -%}
+
+
 
 {% macro seeAllCTA(label, url) %}
   <div class="see-all-cta">
@@ -21,7 +25,7 @@
   {#- next events -#}
   {%-
     set next = apos.aemPieces.getFirstTwoWithTags(
-      data.orderedEvents,
+      data.ongoingAndFutureEvents,
       __(cat + 'tags')
     )
   -%}
@@ -29,7 +33,7 @@
   {%- if hasNextEvents -%}
     {{
       recentlyAddedEvents(
-        __(cat + 'next'),
+        __(cat + 'nextOrOngoing'),
         next,
         locale
       )
@@ -74,7 +78,9 @@
 {% block mainAdditionalClasses %}event-index{% endblock %}
 
 {% block pageContent %}
-  {% include "partials/events/featured.njk" %}
+  {%- if hasFeaturedEvent -%}
+    {% include "partials/events/featured.njk" %}
+  {%- endif -%}
 
   {#- TODO: add exhibits -#}
 
