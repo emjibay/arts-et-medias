@@ -24,7 +24,8 @@
     "mmPeopleToggle":  "Toggles people mega menu panel",
     "mmOrgsToggle":  "Toggles organizations mega menu panel",
     "mmEducationToggle":  "Toggles academia mega menu panel",
-    "mmLangSwitchToggle":  "Toggles language switch mega menu panel"
+    "mmLangSwitchToggle":  "Toggles language switch mega menu panel",
+    "mmSearchToggle":  "Toggles search mega menu panel"
   },
   "megaMenu": {
     "hideMenuCTA": "Hide Menu",

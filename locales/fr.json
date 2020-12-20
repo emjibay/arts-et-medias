@@ -25,7 +25,8 @@
     "mmPeopleToggle":  "Bascule la visibilité du panneau de menu des personnes",
     "mmOrgsToggle":  "Bascule la visibilité du panneau de menu des organisations",
     "mmEducationToggle":  "Bascule la visibilité du panneau de menu des sujets académiques",
-    "mmLangSwitchToggle":  "Bascule la visibilité du panneau de menu de changement de langue"
+    "mmLangSwitchToggle":  "Bascule la visibilité du panneau de menu de changement de langue",
+    "mmSearchToggle":  "Bascule la visibilité du panneau de menu de recherche"
   },
   "megaMenu": {
     "hideMenuCTA": "Cacher le menu",
