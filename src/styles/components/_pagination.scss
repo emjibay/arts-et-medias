@@ -29,7 +29,7 @@
     }
 
     &:hover  {
-      background-color: $white;
+      background-color: $almostWhite;
       border: 1px solid $black;
 
       a {
@@ -42,7 +42,7 @@
     }
 
     &.apos-active {
-      background-color: $white;
+      background-color: $almostWhite;
       border: 1px solid $black;
       color: $black;
     }
@@ -53,7 +53,7 @@
 
     a {
       display: inline-block;
-      color: $white;
+      color: $almostWhite;
       text-decoration: none;
       width: 100%;
 

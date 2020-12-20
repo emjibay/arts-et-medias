@@ -7,7 +7,7 @@
   .nav-item {
     &.search {
       .search-button {
-        color: $white;
+        color: $almostWhite;
         display: block;
 
         @media #{$mqTablet} {

@@ -46,7 +46,7 @@ $hideDuration: 480ms;
 
   .menu-panel {
     @include transform(translateY(-1000px), $hideDuration);
-    background-color: $white;
+    background-color: $almostWhite;
     border-bottom: 1px solid $black;
     filter: drop-shadow(0 5px 5px rgba($black, 0.5));
     padding: 20px 0;

@@ -138,7 +138,7 @@
   display: inline-block;
   background-color: $black;
   border: 2px solid transparent;
-  color: $white;
+  color: $almostWhite;
   cursor: pointer;
   font-family: $ffButtonLabel;
   font-size: $fsVerySmol;
@@ -151,7 +151,7 @@
   text-decoration: none;
 
   &:hover {
-    background-color: $white;
+    background-color: $almostWhite;
     border: 2px solid $main;
     color: $main;
     text-decoration: none;
@@ -207,7 +207,7 @@
   background-repeat: no-repeat;
   background-size: 15px 20px;
   border: none;
-  color: $white;
+  color: $almostWhite;
   cursor: pointer;
   font-family: $ffButtonLabel;
   font-size: $fsVerySmol;
@@ -219,7 +219,7 @@
 
   &:focus {
     @include focusOutline();
-    color: $white !important;
+    color: $almostWhite !important;
   }
 
   // fix for firefox removes dotted outline on selection option
@@ -245,7 +245,7 @@
 @mixin textInput {
   display: inline-block;
   -webkit-appearance: none;
-  background-color: $white;
+  background-color: $almostWhite;
   border-radius: 0;
   border: 1px solid $black;
   color: $black;

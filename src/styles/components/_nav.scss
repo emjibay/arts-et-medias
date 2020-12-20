@@ -6,7 +6,7 @@
 @mixin navItemIdle {
   display: block;
   margin: auto;
-  color: $white;
+  color: $almostWhite;
   cursor: pointer;
   font-family: $ffTextBody;
   font-size: 15pt;
@@ -194,7 +194,7 @@
     }
 
     .label {
-      color: $white;
+      color: $almostWhite;
       display: inline-block;
       font-family: $ffSansSerif;;
       font-size: 15pt;
@@ -256,7 +256,7 @@
 
   .switch-lang-link {
     @include anchor();
-    color: $white;
+    color: $almostWhite;
     display: inline-flex;
     font-size: 10pt;
     text-transform: uppercase;

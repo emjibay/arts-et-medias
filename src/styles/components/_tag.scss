@@ -18,7 +18,7 @@
   display: inline-block;
   background-color: $halfGrey;
   border: 1px solid transparent;
-  color: $white;
+  color: $almostWhite;
   font-family: $ffButtonLabel;
   font-size: 8pt;
   font-style: normal;
@@ -33,7 +33,7 @@
 a {
   &.tag {
     &:hover {
-      background-color: $white;
+      background-color: $almostWhite;
       color: $main;
       border: 1px solid $main;
     }

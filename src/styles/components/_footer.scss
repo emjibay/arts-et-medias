@@ -5,7 +5,7 @@
 
 .footer {
   background-color: $black;
-  color: $white;
+  color: $almostWhite;
   padding: 50px 0 30px;
   margin-top: 70px;
 
@@ -96,7 +96,7 @@
       }
 
       .footer-link {
-        color: $white;
+        color: $almostWhite;
         font-family: $ffTextBody;
         font-size: $fsVerySmol;
         font-style: normal;
@@ -119,7 +119,7 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid $white;
+    border-bottom: 1px solid $almostWhite;
     margin: 50px 0;
   }
 
