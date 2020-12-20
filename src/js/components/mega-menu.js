@@ -14,9 +14,10 @@ const contentIds = [
 ];
 
 // dom elements
+let headerNav;
 let toggles;
-let hideButtons;
 let menuPanel;
+let hideButtons;
 let firstElement;
 let lastElement;
 
@@ -56,7 +57,11 @@ function addBodyClickListener() {
       if (!isVisible) {
         return;
       }
-      if (!menuPanel.contains(event.target)) {
+
+      const isElementInHeaderNav = headerNav.contains(event.target);
+      const isElementInMenuPanel = menuPanel.contains(event.target);
+
+      if (!isElementInHeaderNav && !isElementInMenuPanel) {
         hideMenu();
       }
     }
@@ -121,8 +126,10 @@ function addWindowResizeListener() {
 
 // dom methods
 function getDOMElements() {
-  menuPanel = document.getElementById('megaMenuPanel');
+  headerNav = document.getElementById('headerNav');
   toggles = document.querySelectorAll('.header-nav .nav-list .nav-item .nav-item-btn');
+
+  menuPanel = document.getElementById('megaMenuPanel');
   hideButtons = document.querySelectorAll('.mega-menu .hide-mega-menu-button');
 }
 
@@ -141,19 +148,18 @@ function addTogglesListeners() {
       (event) => {
         const button = event.target;
         const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        const clickedContentId = button.dataset.contentId;
 
         collapseAllNavButtons();
         hideAllSections();
         lastElement = null;
 
-        if (isExpanded) {
-          hideMenu();
-        } else {
+        if (!isExpanded) {
           // a11y
           button.setAttribute('aria-expanded', true);
 
           // content
-          currentContentId = button.dataset.contentId;
+          currentContentId = clickedContentId;
           showSection(currentContentId);
 
           // dom
@@ -164,6 +170,11 @@ function addTogglesListeners() {
             .then(
               () => menuPanel.focus()
             );
+        } else if (isExpanded && button.dataset.contentId === currentContentId) {
+          hideMenu();
+
+        } else {
+          console.warn('Unable to toggle mega menu visibility');
         }
       }
     );
