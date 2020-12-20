@@ -1,0 +1,12 @@
+.skip-to-main-button {
+  @include button();
+  position: absolute;
+  top: -1000px;
+  width: auto;
+  z-index: 1000;
+
+  &:focus {
+    top: 10px;
+    left: 10px;
+  }
+}

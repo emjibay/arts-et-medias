@@ -5,6 +5,7 @@ const modulesList = [
   'components/lang-switch',
   'components/mega-menu',
   'components/mobile-menu',
+  'components/skip-to-main-button',
 ];
 
 
