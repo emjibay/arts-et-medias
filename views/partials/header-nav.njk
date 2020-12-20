@@ -1,41 +1,147 @@
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+{#
+  @param options (object)
+  - id (string)
+  - ariaLabel (string)
+  - label (string) Optional
+  - hasVisibleLabel (string) Optional
+#}
+{% macro navItemCaret(options) %}
+  {# id #}
+  {%- set buttonId = options.id + 'Button' -%}
+
+  {# css classes #}
+  {%- if options.hasVisibleLabel -%}
+    {%- set buttonClassList = 'nav-item-btn with-label' -%}
+    {%- set labelClassList = 'label uppercase' -%}
+  {%- else -%}
+    {%- set buttonClassList = 'nav-item-btn' -%}
+    {%- set labelClassList = 'label sr-only' -%}
+  {%- endif -%}
+
+  {# label and aria-label #}
+  {%- if options.label -%}
+    {%- set buttonLabel = options.label -%}
+  {%- else -%}
+    {%- set buttonLabel = options.ariaLabel -%}
+  {%- endif -%}
+
+  <button
+    id="{{ buttonId }}"
+    class="{{ buttonClassList }}"
+    aria-expanded="false"
+    data-content-id="{{ options.id }}"
+    {%- if options.hasVisibleLabel -%}
+      aria-label="{{ options.ariaLabel }}"
+    {%- endif -%}
+  >
+    <span class="{{ labelClassList }}">{{ buttonLabel }}</span>
+    <span class="caret">
+      {% include "/svg/icon-caret-down.svg" %}
+    </span>
+  </button>
+{% endmacro %}
+
 {% macro pieceIndexLink(type, anchorId) %}
   <a
     id="{{ anchorId }}"
     href="{{ __(type + '|url') }}"
+    class="nav-link"
   >{{ __(type + '|heading') }}</a>
 {% endmacro %}
+
 
 <nav class="nav header-nav">
   <ul class="content nav-list">
     <li class="nav-item">
       {{ pieceIndexLink('articles', 'headerArticlesNavItem') }}
+      {{
+        navItemCaret({
+          id: 'mmArticles',
+          label: __('headerNav|mmArticlesToggle')
+        })
+      }}
     </li>
+
     <li class="nav-item">
       {{ pieceIndexLink('events', 'headerEventsNavItem') }}
+      {{
+        navItemCaret({
+          id: 'mmEvents',
+          label: __('headerNav|mmEventsToggle')
+        })
+      }}
     </li>
+
     <li class="nav-item">
       {{ pieceIndexLink('media', 'headerMediaNavItem') }}
+      {{
+        navItemCaret({
+          id: 'mmMedia',
+          label: __('headerNav|mmMediaToggle')
+        })
+      }}
     </li>
+
     <li class="nav-item">
       {{ pieceIndexLink('people', 'headerPeopleNavItem') }}
+      {{
+        navItemCaret({
+          id: 'mmPeople',
+          label: __('headerNav|mmPeopleToggle')
+        })
+      }}
     </li>
+
     <li class="nav-item">
       {{ pieceIndexLink('organizations', 'headerOrgsNavItem') }}
+      {{
+        navItemCaret({
+          id: 'mmOrgs',
+          label: __('headerNav|mmOrgsToggle')
+        })
+      }}
     </li>
+
     <li class="nav-item">
       {{ pieceIndexLink('education', 'headerEducationNavItem') }}
+      {{
+        navItemCaret({
+          id: 'mmEducation',
+          label: __('headerNav|mmEducationToggle')
+        })
+      }}
     </li>
+
     <li class="nav-item">
       <a
-        class="sans-menu"
+        class="nav-link sans-menu"
         href="{{ __('pages|about|url') }}"
       >{{ __('pages|about|title') }}</a>
     </li>
+
+    <li
+      class="nav-item nav-group-separator desktop-separator"
+      aria-hidden="true"
+    ></li>
+
+    <li class="nav-item lang-switch">
+      {{
+        navItemCaret({
+          id: 'mmLangSwitch',
+          label: locale,
+          ariaLabel: __('headerNav|mmLangSwitchToggle'),
+          hasVisibleLabel: true
+        })
+      }}
+    </li>
+
     <li class="nav-item search">
       <a
         id="headerSearchNavItem"
         href="{{ __('search|url') }}"
-        class="search-button"
+        class="nav-link search-button"
       >
         <span class="icon">
           {% include "/svg/icon-search.svg" %}
@@ -45,8 +151,25 @@
         </span>
       </a>
     </li>
-    <li class="nav-item lang-switch">
-      {% include "partials/components/lang-switch.njk" %}
+
+    <li
+      class="nav-item nav-group-separator mobile-separator"
+      aria-hidden="true"
+    ></li>
+
+    <li class="nav-item mobile-lang-options">
+      {%- if locale != 'en' -%}
+        <a
+          href="/en/"
+          class="switch-lang-link"
+        >EN</a>
+      {%- endif -%}
+      {%- if locale != 'fr' -%}
+        <a
+          href="/fr/"
+          class="switch-lang-link"
+        >FR</a>
+      {%- endif -%}
     </li>
   </ul>
 </nav>

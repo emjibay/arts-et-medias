@@ -18,8 +18,21 @@
     "githubURL": "https://github.com/jansensan/arts-et-medias",
     "emailValue": "arts-et-medias@protonmail.com"
   },
+  "headerNav": {
+    "mmArticlesToggle": "Toggles articles mega menu panel",
+    "mmEventsToggle":  "Toggles events mega menu panel",
+    "mmMediaToggle":  "Toggles projects and media mega menu panel",
+    "mmPeopleToggle":  "Toggles people mega menu panel",
+    "mmOrgsToggle":  "Toggles organizations mega menu panel",
+    "mmEducationToggle":  "Toggles academia mega menu panel",
+    "mmLangSwitchToggle":  "Toggles language switch mega menu panel"
+  },
+  "megaMenu": {
+    "hideMenuCTA": "Hide Menu",
+    "hideMenuAriaLabel": "Hides the mega menu, sets focus back to nav item"
+  },
   "langSwitch": {
-    "selectLabel": "Language",
+    "radioLabel": "Select a Language",
     "buttonLabel": "Change Language"
   },
   "sidebar": {

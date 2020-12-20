@@ -3,6 +3,42 @@
 @import '../mixins/mixins';
 
 
+@mixin navItemIdle {
+  display: block;
+  margin: auto;
+  color: $white;
+  cursor: pointer;
+  font-family: $ffTextBody;
+  font-size: 15pt;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding: 15px 0;
+  text-decoration: none;
+
+  @media #{$mqTablet} {
+    display: unset;
+    color: $black;
+    font-size: $fsVerySmol;
+    padding: unset;
+  }
+
+  @media #{$mqDesktop} {
+    font-size: $fsTextBody;
+  }
+
+  @media #{$mqXL} {
+    font-size: 15pt;
+  }
+}
+
+@mixin navItemHover {
+  color: $main;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+
 .nav {
   background-color: $black;
   border-bottom: 1px solid $halfGrey;
@@ -25,54 +61,209 @@
       flex-flow: row wrap;
       justify-content: space-between;
     }
+  }
 
-    li {
-      display: flex;
-      text-align: center;
+  .nav-item {
+    display: flex;
+    text-align: center;
 
-      @media #{$mqTablet} {
-        text-align: unset;
-      }
+    @media #{$mqTablet} {
+      text-align: unset;
+    }
 
-      a {
-        display: block;
-        margin: auto;
-        color: $white;
-        cursor: pointer;
-        font-family: $ffTextBody;
-        font-size: 15pt;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1;
-        padding: 15px 0;
-        text-decoration: none;
-
+    &.lang-switch {
+      .nav-item-btn {
         @media #{$mqTablet} {
-          display: unset;
-          color: $black;
-          font-size: $fsVerySmol;
-          padding: unset;
+          display: inline-block;
+          visibility: visible;
         }
 
         @media #{$mqDesktop} {
-          font-size: $fsTextBody;
-        }
-
-        @media #{$mqXL} {
-          font-size: 15pt;
-        }
-
-        &:hover {
-          color: $main;
-          text-decoration: underline;
-          text-decoration-thickness: 2px;
-        }
-
-        &:focus {
-          @include focusOutline();
+          .label {
+            font-size: 14pt;
+          }
         }
       }
     }
+
+    &.mobile-only {
+      @media #{$mqTablet} {
+        display: none;
+        visibility: hidden;
+      }
+    }
+
+    .nav-link,
+    .lang-switch-label {
+      @include navItemIdle();
+    }
+
+    .nav-link {
+      &:hover {
+        @include navItemHover();
+      }
+
+      &:focus {
+        @include focusOutline();
+      }
+    }
+
+    .lang-switch-label {
+      font-size: 14pt;
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  .nav-group-separator {
+    background-color: $darkGrey;
+    height: 1px;
+    margin: 20px 0 15px;
+    position: relative;
+
+    @media #{$mqTablet} {
+      background-color: $lighterGrey;
+      height: 20px;
+      margin: 0;
+      top: 3px;
+      width: 1px;
+    }
+  }
+
+  .mobile-separator {
+    display: flex;
+
+    @media #{$mqTablet} {
+      display: none;
+    }
+  }
+
+  .desktop-separator {
+    display: none;
+
+    @media #{$mqTablet} {
+      display: flex;
+    }
+  }
+
+  .nav-item-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 0;
+    height: 100%;
+    line-height: 0;
+    padding: 0;
+    position: relative;
+    top: 2px;
+    visibility: hidden;
+    width: 25px;
+
+    &.with-label {
+      width: auto;
+
+      &:hover {
+        .label {
+          @include navItemHover();
+        }
+      }
+    }
+
+    &[aria-expanded='true'] {
+      .caret {
+        top: 2px;
+        transform: scaleY(-1);
+        transition:
+          transform 250ms,
+          top 250ms;
+      }
+    }
+
+    @media #{$mqDesktop} {
+      display: inline-block;
+      visibility: visible;
+    }
+
+    &:hover {
+      color: $main;
+    }
+
+    &:focus {
+      @include focusOutline();
+    }
+
+    .label {
+      color: $white;
+      display: inline-block;
+      font-family: $ffSansSerif;;
+      font-size: 15pt;
+      margin-right: 8px;
+      pointer-events: none;
+
+      @media #{$mqTablet} {
+        color: $black;
+        font-size: $fsVerySmol;
+      }
+
+      @media #{$mqDesktop} {
+        font-size: $fsTextBody;
+        bottom: -3px;
+        position: relative;
+      }
+
+      @media #{$mqXL} {
+        font-size: 15pt;
+      }
+
+      &.uppercase {
+        text-transform: uppercase;
+      }
+
+      &.sr-only {
+        @include visuallyHidden();
+        // margin: 0;
+        // font-size: 0;
+      }
+    }
+
+    .caret {
+      display: inline-block;
+      height: 10px;
+      pointer-events: none;
+      position: relative;
+      top: -2px;
+      width: 10px;
+      transition:
+        transform 125ms,
+        top 125ms;
+
+      @media #{$mqDesktop} {
+        top: 0;
+      }
+    }
+  }
+
+  // mobile only
+  .mobile-lang-options {
+    justify-content: center;
+
+    @media #{$mqTablet} {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  .switch-lang-link {
+    @include anchor();
+    color: $white;
+    display: inline-flex;
+    font-size: 10pt;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+      @include navItemHover();
+    }
   }
 }
-

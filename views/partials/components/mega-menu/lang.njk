@@ -1,0 +1,53 @@
+{%- from 'macros/mega-menu.njk' import hideMegaMenuButton -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
+<section
+  id="mmLangSwitch"
+  class="lang-switch-section"
+>
+  <form class="lang-switch-form mm-lang-switch-form">
+    <div class="lang-switch-content">
+      <fieldset>
+        <legend>{{ __('langSwitch|radioLabel') }}</legend>
+        <span class="radio-input-container">
+          <input
+            id="langEN"
+            type="radio"
+            name="langRadio"
+            value="en"
+            {%- if locale ==='en' -%}
+              checked
+            {%- endif -%}
+          >
+          <label for="langEN">EN</label>
+        </span>
+        <span class="radio-input-container">
+          <input
+            id="langFR"
+            type="radio"
+            name="langRadio"
+            value="fr"
+            {%- if locale ==='fr' -%}
+              checked
+            {%- endif -%}
+          >
+          <label for="langFR">FR</label>
+        </span>
+      </fieldset>
+    </div>
+
+    <div class="mm-footer">
+      <hr class="separator" />
+
+      {{ hideMegaMenuButton('mmLangSwitch') }}
+
+      <button
+        class="lang-switch-submit-btn"
+        type="submit"
+      >{{ __('langSwitch|buttonLabel') }}</button>
+    </div>
+  <form>
+</section>

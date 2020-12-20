@@ -2,27 +2,30 @@ const breakpointModel = require('../models/breakpoints-model');
 
 
 // id mapping
-const idsDict = {
-  headerArticlesNavItem: 'mmArticles',
-  headerEventsNavItem: 'mmEvents',
-  headerMediaNavItem: 'mmMedia',
-  headerPeopleNavItem: 'mmPeople',
-  headerOrgsNavItem: 'mmOrgs',
-  headerEducationNavItem: 'mmEducation',
-  headerSearchNavItem: 'mmSearch',
-  headerAboutNavItem: 'mmPages',
-};
+const contentIds = [
+  'mmArticles',
+  'mmEvents',
+  'mmMedia',
+  'mmPeople',
+  'mmOrgs',
+  'mmEducation',
+  'mmSearch',
+  'mmLangSwitch',
+];
 
 // dom elements
-let navItems;
+let toggles;
 let hideButtons;
 let menuPanel;
+let firstElement;
+let lastElement;
 
-// mouse out timer
-const duration = 750;
-let timer;
-
+// state vars
 let isVisible = false;
+let currentContentId = null;
+
+// timer
+let animTimer;
 
 
 // public api
@@ -35,10 +38,10 @@ export function init() {
 // event handlers
 function addEventListeners() {
   addBodyClickListener();
+  addKeyListeners();
   addWindowResizeListener();
-  addNavItemListeners();
-  addMenuPanelListeners();
-  addHideButtonListener();
+  addTogglesListeners();
+  addHideButtonsListener();
 }
 
 function addBodyClickListener() {
@@ -60,7 +63,138 @@ function addBodyClickListener() {
   );
 }
 
-function addHideButtonListener() {
+function addKeyListeners() {
+  document.addEventListener(
+    'keydown',
+    (event) => {
+      if (!isVisible) {
+        return;
+      }
+      const { key, shiftKey } = event;
+
+      if (key === 'Escape') {
+        hideMenu()
+          .then(
+            () => setFocusToCaretButton(currentContentId)
+          );
+      }
+
+      if (key === 'Tab') {
+        if (shiftKey) {
+          // tabbing backwards
+          if (document.activeElement === firstElement) {
+            event.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          // tabbing forward
+          if (document.activeElement === lastElement) {
+            menuPanel.focus();
+          }
+        }
+      }
+    }
+  );
+}
+
+function addWindowResizeListener() {
+  if (!window) {
+    console.warn('Unable to handle window resize');
+    return;
+  }
+  window.addEventListener(
+    'resize',
+    () => {
+      if (
+        (breakpointModel.isMobileOrTablet() && currentContentId !== 'mmLangSwitch')
+        || breakpointModel.isMobile()
+      ) {
+        hideMenu()
+          .then(
+            () => setFocusToCaretButton(currentContentId)
+          );
+      }
+    }
+  );
+}
+
+
+// dom methods
+function getDOMElements() {
+  menuPanel = document.getElementById('megaMenuPanel');
+  toggles = document.querySelectorAll('.header-nav .nav-list .nav-item .nav-item-btn');
+  hideButtons = document.querySelectorAll('.mega-menu .hide-mega-menu-button');
+}
+
+
+// nav items methods
+function addTogglesListeners() {
+  if (!toggles || !toggles.length) {
+    console.warn('Unable to handle nav items mouse events');
+    return;
+  }
+
+  for (let i = 0; i < toggles.length; i++) {
+    const megaMenuToggle = toggles[i];
+    megaMenuToggle.addEventListener(
+      'click',
+      (event) => {
+        const button = event.target;
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        collapseAllNavButtons();
+        hideAllSections();
+        lastElement = null;
+
+        if (isExpanded) {
+          hideMenu();
+        } else {
+          // a11y
+          button.setAttribute('aria-expanded', true);
+
+          // content
+          currentContentId = button.dataset.contentId;
+          showSection(currentContentId);
+
+          // dom
+          setFocusableElements();
+
+          // menu panel
+          showMenu()
+            .then(
+              () => menuPanel.focus()
+            );
+        }
+      }
+    );
+  }
+}
+
+function collapseAllNavButtons(exception) {
+  contentIds.forEach(id => {
+    if (exception && id === exception) {
+      return;
+    }
+    const buttonId = `${ id }Button`;
+    const button = document.getElementById(buttonId);
+    if (button) {
+      button.setAttribute('aria-expanded', false);
+    }
+  });
+}
+
+function setFocusToCaretButton(contentId) {
+  const caretButton = document.getElementById(`${ contentId }Button`);
+  if (caretButton) {
+    caretButton.focus();
+  } else {
+    console.warn(`Unable to get caret button with content id "${ contentId }"`);
+  }
+}
+
+
+// menu panel methods
+function addHideButtonsListener() {
   if (!hideButtons || !hideButtons.length) {
     console.warn('Unable to handle hide buttons\' click');
     return;
@@ -71,124 +205,85 @@ function addHideButtonListener() {
     button.addEventListener(
       'click',
       () => {
-        clearTimer();
-        hideMenu();
+        hideMenu()
+          .then(
+            () => {
+              // set focus back to nav item
+              const { contentId } = button.dataset;
+              setFocusToCaretButton(contentId);
+            }
+          );
       }
     );
   }
 }
 
-function addMenuPanelListeners() {
-  if (!menuPanel) {
-    console.warn('Unable to handle menu panel mouse events');
-    return;
-  }
-
-  menuPanel.addEventListener(
-    'mouseover',
-    () => clearTimer()
-  );
-  menuPanel.addEventListener(
-    'mouseout',
-    (event) => {
-      // TODO: make more solid?
-      const yThreshold = 200;
-      if (event.pageY > yThreshold) {
-        startTimer();
-      }
-    }
-  );
-}
-
-function addNavItemListeners() {
-  if (!navItems || !navItems.length) {
-    console.warn('Unable to handle nav items mouse events');
-    return;
-  }
-
-  for (let i = 0; i < navItems.length; i++) {
-    const navItem = navItems[i];
-    navItem.addEventListener(
-      'mouseover',
-      (event) => {
-        const element = event.target;
-        if (element.classList.contains('sans-menu')) {
-          hideMenu();
-        } else {
-          clearTimer();
-          showMenu(element.id);
-        }
-      }
-    );
-  }
-}
-
-function addWindowResizeListener() {
-  if (!window) {
-    console.warn('Unable to handle window resize');
-    return;
-  }
-  window.addEventListener('resize', onWindowResized);
-}
-
-function onWindowResized() {
-  if (breakpointModel.isMobileOrTablet()) {
-    hideMenu();
-  }
-}
-
-
-// dom methods
-function getDOMElements() {
-  menuPanel = document.getElementById('megaMenuPanel');
-  navItems = document.querySelectorAll('.header-nav .nav-list li a');
-  hideButtons = document.querySelectorAll('.mega-menu .hide-mega-menu-button');
-}
-
-function getSectionByNavItem(navItemId) {
-  return document.getElementById(idsDict[navItemId]);
-}
-
-
-// show/hide methods
-function showMenu(navItemId) {
-  hideAllSections();
-
+function showMenu() {
   menuPanel.classList.add('visible');
 
-  const section = getSectionByNavItem(navItemId);
-  if (section) {
-    section.classList.add('visible');
-  }
-
-  isVisible = true;
+  return new Promise(resolve => {
+    startAnimTimer(
+      750,
+      () => {
+        isVisible = true;
+        resolve();
+      }
+    );
+  });
 }
 
 function hideMenu() {
   menuPanel.classList.remove('visible');
-  isVisible = false;
+  collapseAllNavButtons();
+
+  return new Promise(resolve => {
+    startAnimTimer(
+      500,
+      () => {
+        isVisible = false;
+        resolve();
+      }
+    );
+  });
 }
 
+function setFocusableElements() {
+  const currentSection = document.getElementById(currentContentId);
+  const focusable = currentSection.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  firstElement = focusable[0];
+  lastElement = focusable[focusable.length - 1];
+}
+
+
+// section methods
 function hideAllSections() {
-  for (var key in idsDict) {
-    const section = getSectionByNavItem(key);
+  contentIds.forEach(contentId => {
+    const section = document.getElementById(contentId);
     if (section) {
       section.classList.remove('visible');
+    } else {
+      console.warn(`Unable to get section with id ${ contentId }`);
     }
+  });
+}
+
+function showSection(contentId) {
+  const section = document.getElementById(contentId);
+  if (section) {
+    section.classList.add('visible');
+  } else {
+    console.warn(`Unable to show section with id "${ contentId }"`);
   }
 }
 
 
 // timer methods
-function startTimer() {
-  clearTimer();
-  timer = setTimeout(
-    () => hideMenu(),
-    duration
-  );
+function startAnimTimer(duration, callback) {
+  clearAnimTimer();
+  animTimer = setTimeout(callback, duration);
 }
 
-function clearTimer() {
-  clearTimeout(timer);
-  timer = null;
+function clearAnimTimer() {
+  clearTimeout(animTimer);
+  animTimer = null;
 }

@@ -1,0 +1,38 @@
+@import '../common/variables';
+@import '../common/ui';
+
+
+.mm-lang-switch-form {
+  legend {
+    @include inputLabel();
+  }
+
+  .lang-switch-content {
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+  }
+
+  .radio-input-container {
+    margin-right: 20px;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+    vertical-align: text-bottom;
+  }
+
+  input[type="radio"] + label {
+    @include inputLabel();
+    cursor: pointer;
+    display: inline-block;
+    font-family: $ffTextBody;
+    font-size: 12pt;
+  }
+
+  .lang-switch-submit-btn {
+    @include button();
+    display: inline-block;
+    margin-left: 20px;
+  }
+}

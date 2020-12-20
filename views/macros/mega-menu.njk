@@ -32,10 +32,13 @@
   {%- endif -%}
 {%- endmacro -%}
 
-{% macro hideMegaMenuButton() %}
+{% macro hideMegaMenuButton(contentId) %}
   <button
+    type="button"
     class="hide-mega-menu-button"
-  >{{ __('global|hideMenuCTA') }}</button>
+    aria-label="{{ __('megaMenu|hideMenuCTA') }} - __('megaMenu|hideMenuAriaLabel') }}"
+    data-content-id="{{ contentId }}"
+  >{{ __('megaMenu|hideMenuCTA') }}</button>
 {% endmacro %}
 
 {% macro seeAllCTA(label, url) %}

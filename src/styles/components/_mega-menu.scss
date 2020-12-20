@@ -1,20 +1,19 @@
 @import '../common/variables';
 @import '../common/ui';
 
+@import 'mega-menu-lang-form';
+
 
 // vars
-$showDuration: 550ms;
-$hideDuration: 325ms;
+$showDuration: 640ms;
+$hideDuration: 480ms;
 
 
 // mixins
 @mixin transform($transformation, $duration) {
   -webkit-transform: $transformation;
   transform: $transformation;
-  transition:
-    transform
-    $duration
-    ease-in-out;
+  transition: transform $duration ease-in-out;
   will-change: transform;
 }
 
@@ -47,18 +46,20 @@ $hideDuration: 325ms;
 
   .menu-panel {
     @include transform(translateY(-1000px), $hideDuration);
-    position: absolute;
     background-color: $white;
     border-bottom: 1px solid $black;
-    filter: drop-shadow(0 5px 5px rgba(black, 0.333));
+    filter: drop-shadow(0 5px 5px rgba($black, 0.5));
     padding: 20px 0;
     pointer-events: all;
+    position: absolute;
     width: 100%;
 
     &.visible {
-      @media #{$mqDesktop} {
-        @include transform(translateY(0), $showDuration);
-      }
+      @include transform(translateY(0), $showDuration);
+    }
+
+    &:focus {
+      @include focusOutline();
     }
   }
 
@@ -295,9 +296,9 @@ $hideDuration: 325ms;
 
     .hide-mega-menu-button {
       @include anchor();
-      display: inline-block;
       background-color: transparent;
       border: none;
+      display: inline-block;
       font-size: $fsVerySmol;
       line-height: 1.75;
       padding-left: 0;
