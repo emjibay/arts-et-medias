@@ -296,6 +296,16 @@
   }
 }
 
+@mixin noFocusOutline {
+  border-color: transparent;
+  box-shadow: none;
+  outline: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
 @mixin aposFocus {
   outline: $aposGreen dotted 2px;
 }
