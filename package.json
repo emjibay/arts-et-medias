@@ -1,6 +1,6 @@
 {
   "name": "arts-et-medias",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "description": "A reference for critical content and resources about contemporary art, with a bias towards media art and installation art.",
   "main": "app.js",
   "scripts": {
@@ -14,26 +14,26 @@
   "author": "Mat Janson Blanchet",
   "license": "MIT",
   "dependencies": {
-    "accept-language": "^3.0.18",
-    "apostrophe": "^2.113.1",
-    "apostrophe-db-mongo-3-driver": "^2.0.1",
-    "apostrophe-second-chance-login": "^2.0.0",
-    "apostrophe-workflow": "^2.38.2",
+    "accept-language": "3.0.18",
+    "apostrophe": "2.113.3",
+    "apostrophe-db-mongo-3-driver": "2.0.1",
+    "apostrophe-second-chance-login": "2.0.0",
+    "apostrophe-workflow": "2.38.2",
     "citation-js": "0.5.0-alpha.9",
-    "lodash": "^4.17.20",
-    "moment": "^2.29.1"
+    "lodash": "4.17.20",
+    "moment": "2.29.1"
   },
   "devDependencies": {
-    "@cloudraker/sass-brunch": "^3.0.1",
-    "apostrophe-monitor": "^2.1.0",
-    "babel-brunch": "^7.0.1",
-    "bootstrap": "^4.5.3",
-    "brunch": "^2.10.17",
+    "@cloudraker/sass-brunch": "3.0.1",
+    "apostrophe-monitor": "2.1.0",
+    "babel-brunch": "7.0.1",
+    "bootstrap": "4.5.3",
+    "brunch": "2.10.17",
     "chalk": "^4.1.0",
-    "core-js": "^3.7.0",
-    "eslint": "^7.7.0",
-    "globby": "^10.0.2",
-    "terser-brunch": "^3.0.0"
+    "core-js": "3.8.1",
+    "eslint": "7.16.0",
+    "globby": "10.0.2",
+    "terser-brunch": "3.0.0"
   },
   "nodemonConfig": {
     "verbose": true,
