@@ -1,6 +1,6 @@
 # Arts & Médias
 
-Sources for *Arts & Médias*'s website, a reference for critical content and resources about contemporary art, with a bias towards media art and installation art.
+Sources for [*Arts & Médias*'s website](https://arts-et-medias.net/), a reference for critical content and resources about contemporary art, with a bias towards media art and installation art.
 
 ![GitHub Tag](https://shields.io/github/v/tag/jansensan/arts-et-medias) 
 
