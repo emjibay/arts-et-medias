@@ -1,21 +1,30 @@
-{%- from 'macros/featured-piece.njk' import featuredArticle, featuredBook -%}
+{%- from 'macros/featured-piece.njk' import featuredArticle, featuredBook, featuredProject -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 
 
 <aside class="sidebar">
-  {%- set latestArticle = data.articlesByMostRecent[0] -%}
-  {{
-    featuredArticle(
-      latestArticle,
-      __('articles|latest'),
-      locale
-    )
-  }}
+  <section class="section-with-margins">
+    {%- set latestArticle = data.articlesByMostRecent[0] -%}
+    {{
+      featuredArticle(
+        latestArticle,
+        __('articles|latest'),
+        locale
+      )
+    }}
+  </section>
 
-  {%- set latestBook = data.booksByMostRecent[0] -%}
-  {{ featuredBook(latestBook, __('books|latest')) }}
+  <section class="section-with-margins">
+    {%- set latestBook = data.booksByMostRecent[0] -%}
+    {{ featuredBook(latestBook, __('books|latest')) }}
+  </section>
+
+  <section class="section-with-margins">
+    {%- set latestProject = data.projectsByMostRecent[0] -%}
+    {{ featuredProject(latestProject, __('projects|latest')) }}
+  </section>
 
   {% include "partials/sidebar/help-cta.njk" %}
 </aside>
