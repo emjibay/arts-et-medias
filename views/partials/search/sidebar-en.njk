@@ -1,4 +1,4 @@
-{%- from 'macros/featured-piece.njk' import featuredArticle -%}
+{%- from 'macros/featured-piece.njk' import featuredArticle, featuredBook -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
@@ -13,6 +13,9 @@
       locale
     )
   }}
+
+  {%- set latestBook = data.booksByMostRecent[0] -%}
+  {{ featuredBook(latestBook, __('books|latest')) }}
 
   {% include "partials/sidebar/help-cta.njk" %}
 </aside>
