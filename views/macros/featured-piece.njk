@@ -15,7 +15,11 @@
         {{ truncatedDescription(piece) }}
       </div>
 
-      <a class="cta" href="{{ piece._url }}">{{ ctaLabel }}</a>
+      <a
+        class="cta"
+        href="{{ piece._url }}"
+        aria-label="{{ ctaLabel }} - {{ piece.title }}"
+      >{{ ctaLabel }}</a>
     </div>
   </div>
 {% endmacro %}
