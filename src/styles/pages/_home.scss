@@ -257,8 +257,14 @@
             @include heroImageDimensions(3, 0.5);
           }
         }
-        .short-description * {
-          font-size: $fsSmol;
+        .short-description {
+          display: none;
+          @media #{$mqTablet} {
+            display: block;
+          }
+          * {
+            font-size: $fsSmol;
+          }
         }
       }
     }
