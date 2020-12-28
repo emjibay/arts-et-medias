@@ -516,12 +516,13 @@
   "login": {
     "heading": "Editors' Corner",
     "url": "/login",
-    "label": "Log In",
     "logInCTA": "Please enter your credentials to log in.",
+    "formLegend": "Credentials",
     "usernameLabel": "Username or Email",
     "usernamePlaceholder": "Enter your username or email",
     "passwordLabel": "Password",
     "passwordPlaceholder": "Enter your password",
+    "submitButtonLabel": "Log In",
     "contributionHeading": "Do you wish to contribute?",
     "contributionParagraph": "Arts et Médias has the lofty goal of being a reference for all things related media arts and installation art. However this is not possible without help.",
     "contributionCTA": "Please consider helping us."
@@ -536,7 +537,7 @@
   "error": {
     "heading": "An error occured",
     "paragraph": "An error occured while loading the current page. We apologize for the inconvenience.",
-    "techDetailsLabel": "Détails technique",
+    "techDetailsLabel": "Technical Details",
     "localeLabel": "Locale",
     "pageTitleLabel": "Page Title",
     "pageTypeLabel": "Template Type",

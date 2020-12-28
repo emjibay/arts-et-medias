@@ -1,19 +1,20 @@
 {% extends "layouts/layout.njk" %}
 
 
-{# TODO: l18n #}
-{%- set pageTitle = "Editors' Corner" -%}
-
 {% block title %}
-  {{ pageTitle }} | {{ __('global|title') }}
+  {{ __('login|heading') }} | {{ __('global|title') }}
 {% endblock %}
 
 {% block main %}
   <div class="page-login">
     <main id="main" class="content">
-      <h1 class="h1">{{ pageTitle }}</h1>
-      {# TODO: l18n #}
-      <p class="subheading">Please enter your credentials to log in.</p>
+      <h1 class="h1">
+        {{ __('login|heading') }}
+      </h1>
+
+      <p class="subheading">
+        {{ __('login|logInCTA') }}
+      </p>
 
       <div class="columns-container">
         <div class="login-form-column">
@@ -35,40 +36,39 @@
             {% endif %}
 
             <fieldset>
-              {# TODO: l18n #}
-              <legend>Credentials</legend>
+              <legend>
+                {{ __('login|formLegend') }}
+              </legend>
 
               <div class="form-group">
                 <label for="username">
-                  {{ __ns('apostrophe', 'Username or Email') }}
+                  {{ __('login|usernameLabel') }}
                 </label>
                 <input
                   id="username"
                   type="text"
                   name="username"
-                  placeholder="Enter your username or email"
+                  placeholder="{{ __('login|usernamePlaceholder') }}"
                   autofocus
                 />
               </div>
 
               <div class="form-group">
                 <label for="password">
-                  {{ __ns('apostrophe', 'Password') }}
+                  {{ __('login|passwordLabel') }}
                 </label>
                 <input
+                  id="password"
                   type="password"
                   name="password"
-                  placeholder="Enter your password"
-                  id="password"
+                  placeholder="{{ __('login|passwordPlaceholder') }}"
                 />
               </div>
             </fieldset>
 
             <div>
               <button type="submit">
-                {% block buttonLabel %}
-                  {{ __ns('apostrophe', 'Log In') }}
-                {% endblock %}
+                {{ __('login|submitButtonLabel') }}
               </button>
             </div>
           </form>

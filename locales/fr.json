@@ -516,12 +516,13 @@
   "login": {
     "heading": "Le coin des éditeurs",
     "url": "/login",
-    "label": "Connexion",
     "logInCTA": "Veuillez vous identifier pour continuer.",
+    "formLegend": "Identifiant",
     "usernameLabel": "Nom d'utilisateur ou courriel",
     "usernamePlaceholder": "Inscrivez votre nom d'utilisateur ou courriel",
     "passwordLabel": "Mot de passe",
     "passwordPlaceholder": "Inscrivez votre mot de passe",
+    "submitButtonLabel": "Se connecter",
     "contributionHeading": "Vous souhaitez contribuer ?",
     "contributionParagraph": "Arts et Médias a l'objectif ambitieux d'être une référence pour tout ce qui touche aux arts médiatiques et à l'art d'installation. Cependant, cela n'est pas possible sans aide.",
     "contributionCTA": "Veuillez considérer nous aider."
