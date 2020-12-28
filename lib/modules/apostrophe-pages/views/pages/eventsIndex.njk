@@ -1,13 +1,10 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/piece-index.njk' import recentlyAddedEvents -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-
-{# FIXME: improve this check #}
-{%- set hasFeaturedEvent = data.global.featuredEvent.items[0].pieceIds.length > 0 -%}
-
 
 
 {% macro seeAllCTA(label, url) %}
@@ -77,8 +74,12 @@
 
 {% block mainAdditionalClasses %}event-index{% endblock %}
 
+{% block advertisementBeforeMain %}
+  {% include "partials/events/top-leaderboard.njk" %}
+{% endblock %}
+
 {% block pageContent %}
-  {%- if hasFeaturedEvent -%}
+  {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
     {% include "partials/events/featured.njk" %}
   {%- endif -%}
 

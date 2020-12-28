@@ -1,5 +1,6 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/piece-index.njk' import recentlyAddedOrgs -%}
 
 
@@ -32,6 +33,10 @@
 {% endblock %}
 
 {% block mainAdditionalClasses %}organization-index{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/organizations/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block pageContent %}
   {{ orgList('galleries') }}

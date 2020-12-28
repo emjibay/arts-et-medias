@@ -1,11 +1,17 @@
 {% extends 'layouts/indexLayout.njk' %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
+
 
 {% block title %}
   {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
 {% endblock %}
 
 {% block mainAdditionalClasses %}people-index{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/people/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block pageContent %}
   {# pieces list #}

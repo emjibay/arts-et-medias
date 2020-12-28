@@ -1,13 +1,11 @@
 {% extends "layouts/layout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard, mobileBannerAds -%}
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-index.njk' import articleList, eventList, bookList, projectList -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-
-{# FIXME: improve this check #}
-{%- set hasFeaturedEvent = data.global.featuredEvent.items[0].pieceIds.length > 0 -%}
 
 
 {% macro seeAllCTA(type) %}
@@ -59,27 +57,46 @@
           <h1 class="sr-only">{{ __('pages|home|title') }}</h1>
 
           <div class="page-content">
+            {{
+              leaderboard({
+                data: data,
+                propName: 'homeTopLeaderboard',
+                isTopLeaderboard: true
+              })
+            }}
+
             <section class="articles-section">
               <div class="section-heading">
                 <h2 class="h2">{{ __('home|newsHeading') }}</h2>
                 {{ seeAllArticlesCTA() }}
               </div>
 
-              <div class="featured-article">
-                {% include "partials/articles/featured.njk" %}
-              </div>
+              <div class="articles-section-content">
+                <div class="featured-article">
+                  {% include "partials/articles/featured.njk" %}
+                </div>
 
-              <div class="recently-added-articles">
-                <h3 class="latest-pieces-heading">
-                  {{ __('articles|recentlyAdded') }}
-                </h3>
-                {%-
-                  set recentArticles = apos.aemPieces.getFirstN(
-                    data.articlesByMostRecent,
-                    3
-                  )
-                -%}
-                {{ articleList(recentArticles, locale) }}
+                <aside class="home-banners">
+                  {{
+                    mobileBannerAds({
+                      data: data,
+                      propName: 'homeBannerAds'
+                    })
+                  }}
+                </aside>
+
+                <div class="recently-added-articles">
+                  <h3 class="latest-pieces-heading">
+                    {{ __('articles|recentlyAdded') }}
+                  </h3>
+                  {%-
+                    set recentArticles = apos.aemPieces.getFirstN(
+                      data.articlesByMostRecent,
+                      3
+                    )
+                  -%}
+                  {{ articleList(recentArticles, locale) }}
+                </div>
               </div>
 
               {% include "partials/home/sidebar-en.njk" %}
@@ -87,13 +104,20 @@
               {{ seeAllArticlesCTA() }}
             </section>
 
+            {{
+              leaderboard({
+                data: data,
+                propName: 'homeLeaderboard2'
+              })
+            }}
+
             <section class="events-section">
               <div class="section-heading">
                 <h2 class="h2">{{ __('events|heading') }}</h2>
                 {{ seeAllEventsCTA() }}
               </div>
 
-              {%- if hasFeaturedEvent -%}
+              {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
                 <div class="featured-piece">
                   {% include "partials/events/featured.njk" %}
                 </div>
@@ -143,6 +167,13 @@
               {{ seeAllEventsCTA() }}
             </section>
 
+            {{
+              leaderboard({
+                data: data,
+                propName: 'homeLeaderboard3'
+              })
+            }}
+
             <section class="projects-section">
               <div class="section-heading">
                 <h2 class="h2">{{ __('projects|heading') }}</h2>
@@ -166,6 +197,13 @@
 
               {{ seeAllProjectsCTA() }}
             </section>
+
+            {{
+              leaderboard({
+                data: data,
+                propName: 'homeLeaderboard4'
+              })
+            }}
 
             <section class="books-section">
               <div class="section-heading">

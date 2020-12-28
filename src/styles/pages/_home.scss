@@ -67,6 +67,10 @@
   .articles-section {
     @include sectionHeadingCTA();
 
+    .articles-section-content {
+      display: inline-block;
+    }
+
     .featured-article {
       @include nColumnWidth(6);
 
@@ -152,33 +156,45 @@
     .home-sidebar {
       @include nColumnWidth(3);
       display: none;
-      position: absolute;
       right: 0;
       top: 52px;
 
       @media #{$mqDesktop} {
-        display: block;
+        display: inline-block;
       }
 
-      .featured-piece-widget {
-        @include nColumnWidth(3);
+      .advertisement {
         display: block;
         margin-bottom: 40px;
+        width: 100%;
 
-        .hero-image {
-          @include heroImageDimensions(3, 9/16);
-        }
-
-        &.featured-book-widget {
-          .hero-image {
-            @include heroImageContainedInSquare(3);
-            filter: drop-shadow(0 1px 1px #eeeeee);
-          }
+        .apos-area-widget-wrapper {
+          margin-top: 20px;
         }
       }
 
-      .tweets-heading {
+      .sidebar-heading {
         @include contentTypeHeading();
+      }
+
+      .medium-rectangle {
+        width: 215px;
+        height: 180px;
+
+        @media #{$mqDesktop} {
+          width: 210px;
+          height: 175px;
+        }
+
+        @media #{$mqXL} {
+          width: 250px;
+          height: 209px;
+        }
+
+        @media #{$mqXXL} {
+          width: 290px;
+          height: 242px;
+        }
       }
     }
 
@@ -333,6 +349,70 @@
 
       .piece-link {
         width: 100%;
+      }
+    }
+  }
+
+  .home-leaderboard {
+    @include nColumnWidth(6);
+
+    margin-top: 75px;
+
+    @media #{$mqTablet} {
+      @include nColumnWidth(12);
+      margin-bottom: 20px;
+    }
+
+    @media #{$mqDesktop} {
+      @include columnsAsLeftMargin(2);
+      @include nColumnWidth(8);
+    }
+
+    &.top {
+      margin-top: 0;
+      margin-bottom: 50px;
+
+      @media #{$mqTablet} {
+        margin-bottom: 75px;
+      }
+    }
+  }
+
+  .home-banners {
+    margin-top: 75px;
+
+    @media #{$mqTablet} {
+      margin-top: 50px;
+    }
+
+    @media #{$mqDesktop} {
+      display: none;
+    }
+
+    .banner-col {
+      @include nColumnWidth(6);
+      display: block;
+
+      &.banner-2 {
+        margin-top: 50px;
+      }
+
+      @media #{$mqTablet} {
+        @include nColumnWidth(4);
+        display: inline-block;
+
+        &.banner-1 {
+          @include columnsAsLeftMargin(2);
+
+          &.single {
+            @include columnsAsLeftMargin(4);
+          }
+        }
+
+        &.banner-2 {
+          @include gutterLeftMargin();
+          margin-top: 0;
+        }
       }
     }
   }

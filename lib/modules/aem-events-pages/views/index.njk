@@ -1,6 +1,7 @@
 {% extends "layouts/indexLayout.njk" %}
 
-{% from 'macros/piece-index.njk' import eventList %}
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
+{%- from 'macros/piece-index.njk' import eventList -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
@@ -19,6 +20,10 @@
 {% endblock %}
 
 {% block mainAdditionalClasses %}events-index{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/events/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block pageContent %}
   {%- if isFirstPage and not hasTags -%}

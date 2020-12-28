@@ -1,20 +1,21 @@
+{%- from 'macros/banner-ad.njk' import sidebarBannerAds -%}
+
+
 <aside class="sidebar home-sidebar">
-  {{
-    apos.area(
-      data.global,
-      'featuredPiece',
-      {
-        'aem-articles-featured': {},
-        'aem-books-featured': {},
-        contextual: true
-      }
-    )
-  }}
+  {%- set bannerMacroOptions = { data: data, propName: 'homeBannerAds' } -%}
+  {%- set numActiveBannerAds = apos.aemBannerAds.getNumActive(bannerMacroOptions) -%}
+
+  {{ sidebarBannerAds(bannerMacroOptions) }}
 
   <div class="tweets">
-    <h3 class="tweets-heading">Tweets</h3>
+    <h3 class="sidebar-heading">
+      {{ __('global|tweetsHeading') }}
+    </h3>
     {% include "partials/sidebar/twitter-timeline-en.njk" %}
   </div>
 
-  {% include "partials/sidebar/help-cta.njk" %}
+  {%- if numActiveBannerAds < 2 -%}
+    <hr class="separator" />
+    {% include "partials/sidebar/help-cta.njk" %}
+  {%- endif -%}
 </aside>

@@ -5,7 +5,7 @@
 
 
 <aside class="sidebar">
-  <section class="section-with-margins">
+  <section>
     {%- set latestArticle = data.articlesByMostRecent[0] -%}
     {{
       featuredArticle(
@@ -16,15 +16,17 @@
     }}
   </section>
 
-  <section class="section-with-margins">
+  <section class="section-mt">
     {%- set latestBook = data.booksByMostRecent[0] -%}
     {{ featuredBook(latestBook, __('books|latest')) }}
   </section>
 
-  <section class="section-with-margins">
+  <section class="section-mt">
     {%- set latestProject = data.projectsByMostRecent[0] -%}
     {{ featuredProject(latestProject, __('projects|latest')) }}
   </section>
+
+  <hr class="separator" />
 
   {% include "partials/sidebar/help-cta.njk" %}
 </aside>

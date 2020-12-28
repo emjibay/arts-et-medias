@@ -1,5 +1,6 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import websiteCTA, relatedContent, tags -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
@@ -23,6 +24,10 @@
 {% endblock %}
 
 {% block mainAdditionalClasses %}event-details{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/events/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block pageContent %}
   {{ heroImage(piece, true) }}

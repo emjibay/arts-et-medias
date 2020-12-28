@@ -1,9 +1,39 @@
+{%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
+
+
 <aside class="sidebar">
   <article>
-    {% include "partials/events/featured.njk" %}
-    <hr class="separator" />
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'eventsSidebarBanners1',
+        hasTopSeparator: false,
+        hasBottomSeparator: false
+      })
+    }}
+
+    {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
+      {% include "partials/events/featured.njk" %}
+      <hr class="separator no-mb" />
+    {%- endif -%}
+
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'eventsSidebarBanners2',
+        hasTopSeparator: false,
+        hasBottomSeparator: true
+      })
+    }}
+
     {% include "partials/events/in-this-section-en.njk" %}
+
+    <hr class="separator" />
+
     {% include "partials/events/search-en.njk" %}
+
+    <hr class="separator" />
+
     {% include "partials/sidebar/help-cta.njk" %}
   </article>
 </aside>

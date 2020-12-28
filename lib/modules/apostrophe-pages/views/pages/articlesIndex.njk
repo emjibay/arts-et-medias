@@ -1,5 +1,6 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard, mobileBannerAds -%}
 {%- from 'macros/piece-index.njk' import recentlyAddedArticles -%}
 
 
@@ -41,10 +42,28 @@
 
 {% block mainAdditionalClasses %}articles-index{% endblock %}
 
+{% block advertisementBeforeMain %}
+  {% include "partials/articles/top-leaderboard.njk" %}
+{% endblock %}
+
 {% block pageContent %}
   {% include "partials/articles/featured.njk" %}
 
+  {{
+    mobileBannerAds({
+      data: data,
+      propName: 'articlesSidebarBanners1'
+    })
+  }}
+
   {{ articleList('news') }}
+
+  {{
+    mobileBannerAds({
+      data: data,
+      propName: 'articlesSidebarBanners2'
+    })
+  }}
 
   {{ articleList('essays') }}
 

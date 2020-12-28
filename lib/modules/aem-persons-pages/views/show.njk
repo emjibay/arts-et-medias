@@ -1,5 +1,6 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedEvents, relatedMedia, relatedOrganizations, relatedPieces, relatedTaggedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
@@ -33,6 +34,10 @@
 {% endblock %}
 
 {% block mainAdditionalClasses %}person-details{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/people/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block pageContent %}
   <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>

@@ -48,6 +48,10 @@
   </div>
 {% endblock %}
 
+{% block advertisementBeforeMain %}
+  {% include "partials/articles/top-leaderboard.njk" %}
+{% endblock %}
+
 {% block pageContent %}
   {{ heroImage(piece, true) }}
 
@@ -62,6 +66,7 @@
       <a
         class="website-cta"
         href="{{ piece.externalLink }}"
+        aria-label="{{ __('articles|seeMoreCTA') }} - {{ piece.title }}"
       >{{ __('articles|seeMoreCTA') }}</a>
     </div>
   {%- endif -%}

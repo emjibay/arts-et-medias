@@ -1,5 +1,6 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/piece-details.njk' import relatedPieces -%}
 
 
@@ -15,6 +16,10 @@
 {% endblock %}
 
 {% block mainAdditionalClasses %}medium-details{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/media/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block relatedContent %}
   {%-

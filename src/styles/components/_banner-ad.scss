@@ -1,0 +1,142 @@
+@import '../mixins/mixins';
+
+
+.banner-ad {
+  display: block;
+  width: 100%;
+
+  .ad-label {
+    @include contentTypeHeading();
+    border: none;
+    font-size: 6pt !important;
+    margin: 5px 0 0 0;
+    padding: 0;
+    text-align: right;
+  }
+
+  .ad-link {
+    display: inline-block;
+  }
+
+
+  // mobile
+  .mobile-leaderboard,
+  .mobile-medium-rectangle,
+  .mobile-square {
+    display: block;
+    width: 100%;
+
+    @media #{$mqTablet} {
+      display: none;
+    }
+  }
+
+  .mobile-leaderboard {
+    width: 320px;
+    height: 50px;
+  }
+
+  .mobile-medium-rectangle {
+    width: 320px;
+    height: 267px;
+  }
+
+  .mobile-square {
+    width: 320px;
+    height: 320px;
+  }
+
+
+  // desktop
+  .medium-rectangle,
+  .leaderboard,
+  .half-page,
+  .square {
+    display: none;
+    width: 100%;
+
+    @media #{$mqTablet} {
+      display: block;
+    }
+  }
+
+  .medium-rectangle {
+    width: 215px;
+    height: 180px;
+
+    @media #{$mqDesktop} {
+      width: 290px;
+      height: 242px;
+    }
+
+    @media #{$mqXL} {
+      width: 345px;
+      height: 288px;
+    }
+
+    @media #{$mqXXL} {
+      width: 400px;
+      height: 333px;
+    }
+  }
+
+  .leaderboard {
+    width: 695px;
+    height: 86px;
+
+    @media #{$mqDesktop} {
+      width: 610px;
+      height: 76px;
+    }
+
+    @media #{$mqXL} {
+      width: 725px;
+      height: 90px;
+    }
+
+    @media #{$mqXXL} {
+      width: 840px;
+      height: 104px;
+    }
+  }
+
+  .half-page {
+    width: 215px;
+    height: 430px;
+
+    @media #{$mqDesktop} {
+      width: 210px;
+      height: 420px;
+    }
+
+    @media #{$mqXL} {
+      width: 250px;
+      height: 500px;
+    }
+
+    @media #{$mqXXL} {
+      width: 290px;
+      height: 580px;
+    }
+  }
+
+  .square {
+    width: 215px;
+    height: 215px;
+
+    @media #{$mqDesktop} {
+      width: 210px;
+      height: 210px;
+    }
+
+    @media #{$mqXL} {
+      width: 250px;
+      height: 250px;
+    }
+
+    @media #{$mqXXL} {
+      width: 290px;
+      height: 290px;
+    }
+  }
+}

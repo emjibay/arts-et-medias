@@ -1,0 +1,24 @@
+{%- from 'macros/banner-ad.njk' import bannerAd -%}
+
+
+{%- if data.widget._pieces -%}
+
+  {%- set hasLabel = false -%}
+  {%- if data.options.hasLabel -%}
+    {%- set hasLabel = data.options.hasLabel -%}
+  {%- endif -%}
+
+  {# TODO: ensure only one piece should be passed? #}
+  {% for piece in data.widget._pieces %}
+    {{
+      bannerAd(
+        piece,
+        {
+          user: data.user,
+          hasLabel: hasLabel
+        }
+      )
+    }}
+  {% endfor %}
+{%- endif -%}
+

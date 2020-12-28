@@ -1,0 +1,17 @@
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
+
+
+{%-
+  set leaderboardOptions = {
+    data: data,
+    propName: 'booksTopLeaderboard'
+  }
+-%}
+
+{%- if apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+  <div class="content advertisement-before-main">
+    <div class="advertisement">
+      {{ leaderboard(leaderboardOptions) }}
+    </div>
+  </div>
+{%- endif -%}

@@ -1,7 +1,13 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
+
 
 {% block mainAdditionalClasses %}books-index{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/books/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block pageContent %}
   {# pieces list #}
