@@ -1,16 +1,18 @@
 {% extends "layouts/layout.njk" %}
 
 
+{# TODO: l18n #}
 {%- set pageTitle = "Editors' Corner" -%}
 
 {% block title %}
-  {{ pageTitle }} | Arts et Médias
+  {{ pageTitle }} | {{ __('global|title') }}
 {% endblock %}
 
 {% block main %}
   <div class="page-login">
     <main id="main" class="content">
       <h1 class="h1">{{ pageTitle }}</h1>
+      {# TODO: l18n #}
       <p class="subheading">Please enter your credentials to log in.</p>
 
       <div class="columns-container">
@@ -33,6 +35,7 @@
             {% endif %}
 
             <fieldset>
+              {# TODO: l18n #}
               <legend>Credentials</legend>
 
               <div class="form-group">

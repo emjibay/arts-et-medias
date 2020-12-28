@@ -1,0 +1,16 @@
+.mobile-banners {
+  margin-top: 75px;
+
+  @media #{$mqTablet} {
+    display: none;
+  }
+
+  .banner-col {
+    @include nColumnWidth(6);
+    display: block;
+
+    &.banner-2 {
+      margin-top: 50px;
+    }
+  }
+}

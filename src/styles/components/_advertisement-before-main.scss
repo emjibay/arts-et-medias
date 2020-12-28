@@ -1,0 +1,17 @@
+.advertisement-before-main {
+  padding-top: 20px;
+
+  .advertisement {
+    @include nColumnWidth(6);
+    margin-bottom: 20px;
+
+    @media #{$mqTablet} {
+      @include nColumnWidth(12);
+    }
+
+    @media #{$mqDesktop} {
+      @include columnsAsLeftMargin(2);
+      @include nColumnWidth(8);
+    }
+  }
+}

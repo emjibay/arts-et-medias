@@ -1,9 +1,40 @@
+{%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
+
+
 <aside class="sidebar sidebar-projects">
   <article>
-    {% include "partials/projects/featured.njk" %}
-    <hr class="separator" />
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'projectsSidebarBanners1',
+        hasTopSeparator: false,
+        hasBottomSeparator: false
+      })
+    }}
+
+    {%- set hasFeaturedProject = data.global.featuredProject.items.length > 0 -%}
+    {%- if hasFeaturedProject -%}
+      {% include "partials/projects/featured.njk" %}
+      <hr class="separator no-mb" />
+    {%- endif -%}
+
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'projectsSidebarBanners2',
+        hasTopSeparator: false,
+        hasBottomSeparator: true
+      })
+    }}
+
     {% include "partials/organizations/related-en.njk" %}
+
+    <hr class="separator" />
+
     {% include "partials/projects/search-en.njk" %}
+
+    <hr class="separator" />
+
     {% include "partials/sidebar/help-cta.njk" %}
   </article>
 </aside>

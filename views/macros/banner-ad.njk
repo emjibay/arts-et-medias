@@ -1,0 +1,160 @@
+{# private macros #}
+{% macro warnBannerNotOngoing(user) %}
+  {%- if apos.aemUsers.isUserAdmin(user) -%}
+    <div style="color:darkred; font-size:14pt; font-family:monospace; word-wrap:word-break;">
+      <p>The campaign "{{ piece.title }}" is not currently ongoing.</p>
+      <p>Campaign is due from {{ apos.aemDates.format(piece.startDate, 'en') }} to {{ apos.aemDates.format(piece.endDate, 'en') }}.
+    </div>
+  {%- endif -%}
+{% endmacro %}
+
+
+{# public macros #}
+{#
+  @param piece
+  @param options
+  - user
+  - hasLabel
+#}
+{% macro bannerAd(piece, options) %}
+  {%- if apos.aemDates.isTodayBetween(piece.startDate, piece.endDate) -%}
+    <div class="banner-ad">
+      <a class="ad-link" href="{{ piece.targetUrl }}">
+        {%- set aposImageData = apos.images.first(piece.bannerImage) -%}
+        {%- set bannerImage = apos.aemUtils.getImageBasicData(aposImageData) -%}
+        <img
+          class="{{ piece.bannerType }}"
+          src="{{ bannerImage.url }}"
+          alt="{{ piece.altText }}"
+        />
+        {%- if piece.isVisibleAtMobile -%}
+          {%- set aposMobileImageData = apos.images.first(piece.mobileBannerImage) -%}
+          {%- set mobileBannerImage = apos.aemUtils.getImageBasicData(aposMobileImageData) -%}
+          <img
+            class="{{ piece.mobileBannerType }}"
+            src="{{ mobileBannerImage.url }}"
+            alt="{{ piece.altText }}"
+          />
+        {%- endif -%}
+      </a>
+      <p class="ad-label">
+        {{ __('global|advertisementHeading') }}
+      </p>
+    </div>
+  {%- else -%}
+    {{ warnBannerNotOngoing(options.user) }}
+  {%- endif -%}
+{% endmacro %}
+
+
+{#
+  @param options (object)
+  - data
+  - propName
+  - isTopLeaderboard
+#}
+{% macro leaderboard(options) %}
+  {%- if apos.aemBannerAds.areVisible(options) -%}
+    {%- set classList = 'home-leaderboard' -%}
+    {%- if options.isTopLeaderboard -%}
+      {%- set classList = classList + ' top' -%}
+    {%- endif -%}
+
+    <aside class="{{ classList }}">
+      {%- if apos.aemBannerAds.areVisible(options) -%}
+        {{
+          apos.singleton(
+            options.data.global,
+            options.propName,
+            'aem-banner-ads',
+            { hasLabel: true }
+          )
+        }}
+      {%- endif -%}
+    </aside>
+  {%- endif -%}
+{% endmacro %}
+
+
+{#
+  @param options (object)
+  - data
+  - propName
+#}
+{% macro sidebarBannerAds(options) %}
+  {%- if apos.aemBannerAds.areVisible(options) -%}
+    <div class="advertisement">
+      {{
+        apos.area(
+          options.data.global,
+          options.propName,
+          {
+            widgets: {
+              'aem-banner-ads': {}
+            },
+            limit: 2
+          }
+        )
+      }}
+    </div>
+  {%- endif -%}
+{% endmacro %}
+
+
+{#
+  @param options (object)
+  - data
+  - propName
+#}
+{% macro mobileBannerAds(options) %}
+  {%- if apos.aemBannerAds.areVisible(options) -%}
+    {%- set numActiveBannerAds = apos.aemBannerAds.getNumActive(options) -%}
+    {%- set bannerAdOptions = { user: options.data.user, hasLabel: true } -%}
+
+    <aside class="mobile-banners">
+      {%- if numActiveBannerAds > 0 -%}
+        {%- set banner1ClassList = 'banner-col banner-1' -%}
+        {%- if numActiveBannerAds === 1 -%}
+          {%- set banner1ClassList = banner1ClassList + ' single' -%}
+        {%- endif -%}
+        <div class="{{ banner1ClassList }}">
+          {%- set banner1 = options.data.global[options.propName].items[0]._pieces[0] -%}
+          {{ bannerAd(banner1, bannerAdOptions) }}
+        </div>
+      {%- endif -%}
+
+      {%- if numActiveBannerAds > 1 -%}
+        <div class="banner-col banner-2">
+          {%- set banner2 = options.data.global[options.propName].items[1]._pieces[0] -%}
+          {{ bannerAd(banner2, bannerAdOptions) }}
+        </div>
+      {%- endif -%}
+    </aside>
+  {%- endif -%}
+{% endmacro %}
+
+
+{#
+  @param options (object)
+  - data
+  - propName
+  - hasTopSeparator
+  - hasBottomSeparator
+#}
+{% macro containedSidebarBanners(options) %}
+  {%- if apos.aemBannerAds.areVisible(options) -%}
+    {%- set classList = 'sidebar-banners' -%}
+
+    <div class="{{ classList }}">
+      {%- if options.hasTopSeparator -%}
+        <hr class="separator no-mt" />
+      {%- endif -%}
+
+      {{ sidebarBannerAds({ data: options.data, propName: options.propName }) }}
+
+      {%- if options.hasBottomSeparator -%}
+        <hr class="separator no-mb" />
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+{% endmacro %}

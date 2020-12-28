@@ -1,5 +1,6 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/piece-index.njk' import recentlyAdded, recentlyAddedProjects -%}
 
 
@@ -42,6 +43,10 @@
 {% block mainAdditionalClasses %}media-index{% endblock %}
 
 {% block pageTitle %}{{ data.page.title }}{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/media/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block pageContent %}
   {#- projects -#}

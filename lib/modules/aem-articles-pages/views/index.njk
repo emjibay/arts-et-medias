@@ -20,6 +20,10 @@
 
 {% block mainAdditionalClasses %}articles-index{% endblock %}
 
+{% block advertisementBeforeMain %}
+  {% include "partials/articles/top-leaderboard.njk" %}
+{% endblock %}
+
 {% block pageContent %}
   {%- if isFirstPage and not hasTags -%}
     {% include "partials/articles/featured.njk" %}

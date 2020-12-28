@@ -1,5 +1,6 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/metadata.njk' import bookMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, relatedMedia, relatedOrganizations, relatedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import authorsLinkList, pieceLinkList -%}
@@ -33,6 +34,10 @@
       tags: piece.tags
     })
   }}
+{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/books/top-leaderboard.njk" %}
 {% endblock %}
 
 {% block main %}

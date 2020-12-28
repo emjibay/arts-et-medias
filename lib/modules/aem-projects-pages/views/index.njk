@@ -29,6 +29,10 @@
 
 {% block mainAdditionalClasses %}projects-index{% endblock %}
 
+{% block advertisementBeforeMain %}
+  {% include "partials/projects/top-leaderboard.njk" %}
+{% endblock %}
+
 {% block pageContent %}
   {%- if isFirstPage -%}
     {% include "partials/projects/featured.njk" %}

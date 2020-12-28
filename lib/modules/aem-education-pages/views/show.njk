@@ -1,5 +1,6 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
@@ -37,6 +38,10 @@
       </li>
     </ul>
   </div>
+{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/education/top-leaderboard.njk" %}
 {% endblock %}
 
 {% block pageContent %}

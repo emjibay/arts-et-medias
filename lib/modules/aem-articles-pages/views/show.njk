@@ -48,6 +48,10 @@
   </div>
 {% endblock %}
 
+{% block advertisementBeforeMain %}
+  {% include "partials/articles/top-leaderboard.njk" %}
+{% endblock %}
+
 {% block pageContent %}
   {{ heroImage(piece, true) }}
 

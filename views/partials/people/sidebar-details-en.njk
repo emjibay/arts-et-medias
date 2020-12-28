@@ -1,9 +1,39 @@
+{%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
+
+
 <aside class="sidebar sidebar-person-details">
   <article>
+    {# TODO: move to content, like books? #}
     {% include "partials/people/profile-pic-en.njk" %}
+
+    {# TODO: add separator if there is profile pic #}
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'peopleSidebarBanners1',
+        hasTopSeparator: false,
+        hasBottomSeparator: true
+      })
+    }}
+
     {% include "partials/people/in-this-section-en.njk" %}
     {% include "partials/people/related-en.njk" %}
+
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'peopleSidebarBanners2',
+        hasTopSeparator: true,
+        hasBottomSeparator: false
+      })
+    }}
+
+    <hr class="separator" />
+
     {% include "partials/people/search-en.njk" %}
+
+    <hr class="separator" />
+
     {% include "partials/sidebar/help-cta.njk" %}
   </article>
 </aside>

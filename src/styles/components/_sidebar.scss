@@ -25,6 +25,7 @@
     @include heading6();
   }
 
+  // FIXME: ensure following tags are not in apos' ui
   p {
     @include paragraph();
     font-size: $fsSmol !important;
@@ -72,8 +73,8 @@
 
     .icon {
       display: inline-block;
-      position: relative;
       height: 15px;
+      position: relative;
       top: 2px;
       width: 15px;
     }
@@ -97,7 +98,33 @@
     margin-top: 20px;
   }
 
-  .section-with-margins {
-    margin-bottom: 40px;
+  .section-mt {
+    margin-top: 40px;
+  }
+
+  .sidebar-banners {
+    display: inline-block;
+    margin-top: 40px;
+    width: 100%;
+
+    &.top {
+      margin-top: 0;
+    }
+
+    .advertisement {
+      .sidebar-heading {
+        @include contentTypeHeading();
+      }
+
+      .apos-area-widget-wrapper {
+        width: 100%;
+      }
+
+      .apos-area-widget-wrapper + .apos-area-widget-wrapper {
+        @media #{$mqTablet} {
+          margin-top: 40px;
+        }
+      }
+    }
   }
 }

@@ -1,8 +1,35 @@
+{%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
+
+
 <aside class="sidebar">
   <article>
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'educationSidebarBanners1',
+        hasTopSeparator: false,
+        hasBottomSeparator: true
+      })
+    }}
+
     {% include "partials/education/in-this-section-en.njk" %}
     {% include "partials/education/related-en.njk" %}
+
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'educationSidebarBanners2',
+        hasTopSeparator: true,
+        hasBottomSeparator: false
+      })
+    }}
+
+    <hr class="separator" />
+
     {% include "partials/education/search-en.njk" %}
+
+    <hr class="separator" />
+
     {% include "partials/sidebar/help-cta.njk" %}
   </article>
 </aside>

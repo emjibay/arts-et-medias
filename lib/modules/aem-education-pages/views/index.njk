@@ -1,5 +1,6 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {% from 'macros/piece-index.njk' import educationList %}
 
 
@@ -19,6 +20,10 @@
 {% endblock %}
 
 {% block mainAdditionalClasses %}education-index{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/education/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block pageContent %}
   {%- if isFirstPage and not hasTags -%}

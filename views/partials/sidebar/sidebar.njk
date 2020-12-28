@@ -1,5 +1,67 @@
+{%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
+{%- from 'macros/featured-piece.njk' import featuredArticle, featuredBook, featuredProject -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 <aside class="sidebar">
-  {% include "partials/articles/featured.njk" %}
+  {{
+    containedSidebarBanners({
+      data: data,
+      propName: 'globalSidebarBanners1',
+      hasTopSeparator: false,
+      hasBottomSeparator: false
+    })
+  }}
+
+  {# TODO: hide if globalSidebarBanners3 has items #}
+  <section>
+    {%- set latestArticle = data.articlesByMostRecent[0] -%}
+    {{
+      featuredArticle(
+        latestArticle,
+        __('articles|latest'),
+        locale
+      )
+    }}
+  </section>
+
+  {{
+    containedSidebarBanners({
+      data: data,
+      propName: 'globalSidebarBanners2',
+      hasTopSeparator: true,
+      hasBottomSeparator: false
+    })
+  }}
+
+  {# TODO: hide if globalSidebarBanners2 has items #}
+  <section class="section-mt">
+    {%- set latestBook = data.booksByMostRecent[0] -%}
+    {{ featuredBook(latestBook, __('books|latest')) }}
+  </section>
+
+  {{
+    containedSidebarBanners({
+      data: data,
+      propName: 'globalSidebarBanners3',
+      hasTopSeparator: true,
+      hasBottomSeparator: false
+    })
+  }}
+
+  {# TODO: hide if globalSidebarBanners1 has items #}
+  <section class="section-mt">
+    {%- set latestProject = data.projectsByMostRecent[0] -%}
+    {{ featuredProject(latestProject, __('projects|latest')) }}
+  </section>
+
+  <hr class="separator" />
+
   {% include "partials/sidebar/search-en.njk" %}
+
+  <hr class="separator" />
+
   {% include "partials/sidebar/help-cta.njk" %}
 </aside>

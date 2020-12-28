@@ -1,8 +1,35 @@
+{%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
+
+
 <aside class="sidebar sidebar-book-details">
   <article>
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'booksSidebarBanners1',
+        hasTopSeparator: false,
+        hasBottomSeparator: true
+      })
+    }}
+
+    {% include "partials/media/in-this-section-en.njk" %}
     {% include "partials/books/related-en.njk" %}
-    {% include "partials/books/search-en.njk" %}
+
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'booksSidebarBanners2',
+        hasTopSeparator: true,
+        hasBottomSeparator: false
+      })
+    }}
+
     <hr class="separator" />
+
+    {% include "partials/books/search-en.njk" %}
+
+    <hr class="separator" />
+
     {% include "partials/sidebar/help-cta.njk" %}
   </article>
 </aside>

@@ -1,5 +1,7 @@
 {% extends "layouts/indexLayout.njk" %}
 
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
+
 
 {% block title %}
   {{
@@ -12,6 +14,10 @@
 {% endblock %}
 
 {% block mainAdditionalClasses %}media-index{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/media/top-leaderboard.njk" %}
+{% endblock %}
 
 {% block pageContent %}
   {# pieces list #}
