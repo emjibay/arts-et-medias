@@ -7,9 +7,6 @@
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 
-{# FIXME: improve this check #}
-{%- set hasFeaturedEvent = data.global.featuredEvent.items[0].pieceIds.length > 0 -%}
-
 
 {% macro seeAllCTA(type) %}
   <div class="see-all-cta">
@@ -120,7 +117,7 @@
                 {{ seeAllEventsCTA() }}
               </div>
 
-              {%- if hasFeaturedEvent -%}
+              {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
                 <div class="featured-piece">
                   {% include "partials/events/featured.njk" %}
                 </div>

@@ -3,10 +3,7 @@
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-
-{# FIXME: improve this check #}
-{%- set hasFeaturedEvent = data.global.featuredEvent.items[0].pieceIds|length > 0 -%}
-
+{%- set hasFeaturedEvent = apos.aemPieces.hasFeaturedEvent(data) > 0 -%}
 {%- set numOngoingProjects = data.ongoingEvents|length -%}
 {%- set numFutureProjects = data.futureEvents|length -%}
 

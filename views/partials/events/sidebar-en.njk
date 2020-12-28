@@ -12,8 +12,7 @@
       })
     }}
 
-    {%- set hasFeaturedEvent = data.global.featuredEvent.items.length > 0 -%}
-    {%- if hasFeaturedEvent -%}
+    {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
       {% include "partials/events/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}

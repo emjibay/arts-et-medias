@@ -12,8 +12,7 @@
       })
     }}
 
-    {%- set hasFeaturedProject = data.global.featuredProject.items.length > 0 -%}
-    {%- if hasFeaturedProject -%}
+    {%- if apos.aemPieces.hasFeaturedProject(data) -%}
       {% include "partials/projects/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}

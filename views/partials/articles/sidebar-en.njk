@@ -12,8 +12,7 @@
       })
     }}
 
-    {%- set hasFeaturedArticle = data.global.featuredArticle.items.length > 0 -%}
-    {%- if hasFeaturedArticle -%}
+    {%- if apos.aemPieces.hasFeaturedArticle(data) -%}
       {% include "partials/articles/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}

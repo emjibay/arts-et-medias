@@ -12,8 +12,7 @@
       })
     }}
 
-    {%- set hasFeaturedEducation = data.global.featuredEducation.items.length > 0 -%}
-    {%- if hasFeaturedEducation -%}
+    {%- if apos.aemPieces.hasFeaturedEducation(data) -%}
       {% include "partials/education/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}
