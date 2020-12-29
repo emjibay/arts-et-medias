@@ -475,19 +475,19 @@
     },
     "about": {
       "title": "About",
-      "url": "/about"
+      "url": "/en/about"
     },
     "a11y": {
       "title": "Accessibility",
-      "url": "/accessibility"
+      "url": "/en/accessibility"
     },
     "faq": {
       "title": "FAQ",
-      "url": "/faq"
+      "url": "/en/faq"
     },
     "help": {
       "title": "Help Us",
-      "url": "/help"
+      "url": "/en/help"
     },
     "logIn": {
       "title": "Log In",
