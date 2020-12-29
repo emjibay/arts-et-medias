@@ -50,3 +50,10 @@
     left: getSideWidth($desktop);
   }
 }
+
+
+// decoration
+@mixin underlinedH1() {
+  border-bottom: 2px solid $lightGrey;
+  padding-bottom: 5px;
+}

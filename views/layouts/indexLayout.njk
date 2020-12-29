@@ -29,7 +29,7 @@
             {% include "partials/components/breadcrumbs.njk" %}
           {% endblock %}
 
-          <h1>{% block pageTitle %}{{ data.page.title }}{% endblock %}</h1>
+          <h1 class="page-heading">{% block pageTitle %}{{ data.page.title }}{% endblock %}</h1>
 
           <div class="page-content">
             {% block pageContent %}

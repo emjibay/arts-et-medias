@@ -1,8 +1,13 @@
 @import '../common/variables';
 @import '../common/ui';
+@import '../mixins/mixins';
 
 
 .page-index {
+  .page-heading {
+    @include underlinedH1();
+  }
+
   .content-type-heading {
     @include contentTypeHeading();
   }

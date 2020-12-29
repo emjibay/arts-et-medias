@@ -1,9 +1,11 @@
 @import '../common/variables';
 @import '../common/ui';
+@import '../mixins/mixins';
 
 
 .piece-details {
-  .h1 {
+  .page-heading {
+    @include underlinedH1();
     margin-bottom: 0;
   }
 

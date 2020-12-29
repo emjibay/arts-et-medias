@@ -48,9 +48,8 @@
   }
 
   .section-heading {
+    @include underlinedH1();
     position: relative;
-    border-bottom: 2px solid $lightGrey;
-    padding-bottom: 5px;
     margin-bottom: 20px;
 
     .h2 {

@@ -33,10 +33,9 @@
             {% include "partials/components/breadcrumbs.njk" %}
           {% endblock %}
 
-          <h1 class="h1">{{ piece.title }}</h1>
+          <h1 class="page-heading">{{ piece.title }}</h1>
 
           {% block subheading %}{% endblock %}
-
 
           {%- if hasHeroImage -%}
             {%- set pageContentClassList = 'page-content with-hero' -%}

@@ -1,12 +1,14 @@
 @import '../common/variables';
 @import '../common/ui';
+@import '../mixins/mixins';
 
 
 .media-index {}
 
 
 .medium-details {
-  main > article > .h1 {
+  main > article > .page-heading {
+    @include underlinedH1();
     margin-bottom: 20px;
   }
 }

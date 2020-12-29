@@ -1,12 +1,14 @@
 @import '../common/variables';
 @import '../common/ui';
+@import '../mixins/mixins';
 
 
 .event-index {}
 
 .event-details {
   main > article {
-    > .h1 {
+    .page-heading {
+      @include underlinedH1();
       margin-bottom: 20px;
     }
     .without-hero {

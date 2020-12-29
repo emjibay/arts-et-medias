@@ -1,0 +1,8 @@
+@import '../mixins/mixins';
+
+
+.content-template {
+  .page-heading {
+    @include underlinedH1();
+  }
+}
