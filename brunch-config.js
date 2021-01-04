@@ -108,7 +108,7 @@ function getOrCreateStyleReloader() {
 
     return cachedStyleReloader = require('util').promisify(
       cb => {
-        aposAssets.generation = `CR_DEV_${ Date.now() }`;
+        aposAssets.generation = `AEM_DEV_${Date.now()}`;
         return aposAssets.buildLessMasters(cb);
       }
     );
