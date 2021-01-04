@@ -1,3 +1,5 @@
+// Originally created by Antoine Beauvais-Lacasse
+
 const apostrophe = require('apostrophe');
 const aposConfig = require('./apos-config');
 

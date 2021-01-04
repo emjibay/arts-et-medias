@@ -1,3 +1,5 @@
+// Originally created by Antoine Beauvais-Lacasse
+
 // See http://brunch.io for documentation.
 // noinspection NpmUsedModulesInstalled (Included with Brunch)
 const logger = require('loggy');
