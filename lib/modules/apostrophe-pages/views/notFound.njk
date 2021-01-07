@@ -1,7 +1,9 @@
 {% extends "layouts/layout.njk" %}
 
 {%- from 'macros/search.njk' import searchInput -%}
-{%- from 'macros/featured-piece.njk' import featuredArticle -%}
+{%- from 'macros/featured-piece.njk' import featuredArticle, featuredBook, featuredProject -%}
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 
 
 {% block title %}
@@ -19,15 +21,24 @@
 
       <section class="suggested-content">
         <div class="column">
-          {% include "partials/articles/featured.njk" %}
+          {%- set latestArticle = data.articlesByMostRecent[0] -%}
+          {{
+            featuredArticle(
+              latestArticle,
+              __('articles|latest'),
+              locale
+            )
+          }}
         </div>
 
         <div class="column">
-          {% include "partials/events/featured.njk" %}
+          {%- set latestBook = data.booksByMostRecent[0] -%}
+          {{ featuredBook(latestBook, __('books|latest')) }}
         </div>
 
         <div class="column">
-          {% include "partials/projects/featured.njk" %}
+          {%- set latestProject = data.projectsByMostRecent[0] -%}
+          {{ featuredProject(latestProject, __('projects|latest')) }}
         </div>
       </section>
 
