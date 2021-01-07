@@ -30,8 +30,8 @@
     "bootstrap": "4.5.3",
     "brunch": "2.10.17",
     "chalk": "^4.1.0",
-    "core-js": "3.8.1",
-    "eslint": "7.16.0",
+    "core-js": "3.8.2",
+    "eslint": "7.17.0",
     "globby": "10.0.2",
     "terser-brunch": "3.0.0"
   },
