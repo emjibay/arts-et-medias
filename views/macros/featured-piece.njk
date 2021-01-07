@@ -5,121 +5,135 @@
 
 {# private macros #}
 {% macro contentDetails(piece, ctaLabel) %}
-  <div>
-    <div class="image-content">
-      {{ heroImage(piece) }}
-    </div>
-
-    <div class="text-content">
-      <div class="short-description">
-        {{ truncatedDescription(piece) }}
+  {%- if piece -%}
+    <div>
+      <div class="image-content">
+        {{ heroImage(piece) }}
       </div>
 
-      <a
-        class="cta"
-        href="{{ piece._url }}"
-        aria-label="{{ ctaLabel }} - {{ piece.title }}"
-      >{{ ctaLabel }}</a>
+      <div class="text-content">
+        <div class="short-description">
+          {{ truncatedDescription(piece) }}
+        </div>
+
+        <a
+          class="cta"
+          href="{{ piece._url }}"
+          aria-label="{{ ctaLabel }} - {{ piece.title }}"
+        >{{ ctaLabel }}</a>
+      </div>
     </div>
-  </div>
+  {%- endif -%}
 {% endmacro %}
 
 
 {# public macros #}
 {%- macro featuredArticle(piece, label, locale) -%}
-  <article class="featured-piece-widget featured-article-widget">
-    <p class="feature-type">{{ label }}</p>
+  {%- if piece -%}
+    <article class="featured-piece-widget featured-article-widget">
+      <p class="feature-type">{{ label }}</p>
 
-    <h1>{{ piece.title }}</h1>
+      <h1>{{ piece.title }}</h1>
 
-    {%- set publicationDate = apos.aemDates.format(piece.publicationDate, locale) -%}
-    <div class="byline-and-date">
-      {% for author in piece._originalAuthor %}
-        <span>{{ author.title }}</span>
-      {% endfor %}
-      <span class="publication-date">, {{ publicationDate }}</span>
-    </div>
+      {%- set publicationDate = apos.aemDates.format(piece.publicationDate, locale) -%}
+      <div class="byline-and-date">
+        {% for author in piece._originalAuthor %}
+          <span>{{ author.title }}</span>
+        {% endfor %}
+        <span class="publication-date">, {{ publicationDate }}</span>
+      </div>
 
-    {{ contentDetails(piece, __('articles|seeMoreCTA')) }}
-  </article>
+      {{ contentDetails(piece, __('articles|seeMoreCTA')) }}
+    </article>
+  {%- endif -%}
 {%- endmacro -%}
 
 {% macro featuredBook(piece, label) %}
-  <article class="featured-piece-widget featured-book-widget">
-    <p class="feature-type">{{ label }}</p>
+  {%- if piece -%}
+    <article class="featured-piece-widget featured-book-widget">
+      <p class="feature-type">{{ label }}</p>
 
-    <h1>{{ piece.title }}</h1>
+      <h1>{{ piece.title }}</h1>
 
-    {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
-    {%- set authorList = apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation) -%}
-    <ul class="byline-list">
-      {% for author in authorList %}
-        <li>
-          <p>{{ author }}</p>
-        </li>
-      {% endfor %}
-    </ul>
+      {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
+      {%- set authorList = apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation) -%}
+      <ul class="byline-list">
+        {% for author in authorList %}
+          <li>
+            <p>{{ author }}</p>
+          </li>
+        {% endfor %}
+      </ul>
 
-    {{ contentDetails(piece, __('books|seeMoreCTA')) }}
-  </article>
+      {{ contentDetails(piece, __('books|seeMoreCTA')) }}
+    </article>
+  {%- endif -%}
 {% endmacro %}
 
 {% macro featuredEducation(piece, label) %}
-  <article class="featured-piece-widget featured-education-widget">
-    <p class="feature-type">{{ label }}</p>
+  {%- if piece -%}
+    <article class="featured-piece-widget featured-education-widget">
+      <p class="feature-type">{{ label }}</p>
 
-    <h1>{{ piece.title }}</h1>
+      <h1>{{ piece.title }}</h1>
 
-    {# FIXME: does not work, get it via institutionIds instead? #}
-    {%- set institution = piece._institution[0] -%}
-    <p class="byline">{{ institution.title }}</p>
+      {# FIXME: does not work, get it via institutionIds instead? #}
+      {%- set institution = piece._institution[0] -%}
+      <p class="byline">{{ institution.title }}</p>
 
-    {{ contentDetails(piece, __('education|seeMoreCTA')) }}
-  </article>
+      {{ contentDetails(piece, __('education|seeMoreCTA')) }}
+    </article>
+  {%- endif -%}
 {% endmacro %}
 
 {% macro featuredEvent(piece, label, locale) %}
-  <article class="featured-piece-widget featured-event-widget">
-    <p class="feature-type">{{ label }}</p>
+  {%- if piece -%}
+    <article class="featured-piece-widget featured-event-widget">
+      <p class="feature-type">{{ label }}</p>
 
-    <h1>{{ piece.title }}</h1>
+      <h1>{{ piece.title }}</h1>
 
-    <p class="byline">
-      {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
-      {{ apos.aemDates.format(piece.startDate, locale) }}, {{ piece.city }}, {{ localizedCountry }}
-    </p>
+      <p class="byline">
+        {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
+        {{ apos.aemDates.format(piece.startDate, locale) }}, {{ piece.city }}, {{ localizedCountry }}
+      </p>
 
-    {{ contentDetails(piece, __('events|seeMoreCTA')) }}
-  </article>
+      {{ contentDetails(piece, __('events|seeMoreCTA')) }}
+    </article>
+  {%- endif -%}
 {% endmacro %}
 
 {% macro featuredOrganization(piece, label, locale) %}
-  <article class="featured-piece-widget featured-organization-widget">
-    <p class="feature-type">{{ label }}</p>
+  {%- if piece -%}
+    <article class="featured-piece-widget featured-organization-widget">
+      <p class="feature-type">{{ label }}</p>
 
-    <h1>{{ piece.title }}</h1>
+      <h1>{{ piece.title }}</h1>
 
-    {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
-    <p class="byline">{{ piece.city }}, {{ localizedCountry }}</p>
+      {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
+      <p class="byline">{{ piece.city }}, {{ localizedCountry }}</p>
 
-    {{ contentDetails(piece, __('organizations|seeMoreCTA')) }}
-  </article>
+      {{ contentDetails(piece, __('organizations|seeMoreCTA')) }}
+    </article>
+  {%- endif -%}
 {% endmacro %}
 
 {% macro featuredProject(piece, label) %}
-  <article class="featured-piece-widget featured-project-widget">
-    <p class="feature-type">{{ label }}</p>
+  {%- if piece -%}
+    <article class="featured-piece-widget featured-project-widget">
+      <p class="feature-type">{{ label }}</p>
 
-    <h1>{{ piece.title }}</h1>
+      <h1>{{ piece.title }}</h1>
 
-    <ul class="byline-list">
-      {% for author in piece._author %}
-        <li>
-          <p>{{ author.title }}</p>
-        </li>
-      {% endfor %}
-    </ul>
+      <ul class="byline-list">
+        {% for author in piece._author %}
+          <li>
+            <p>{{ author.title }}</p>
+          </li>
+        {% endfor %}
+      </ul>
 
-    {{ contentDetails(piece, __('projects|seeMoreCTA')) }}
-  </article>
+      {{ contentDetails(piece, __('projects|seeMoreCTA')) }}
+    </article>
+  {%- endif -%}
 {% endmacro %}
