@@ -2,6 +2,10 @@
 
 {%- from 'macros/metadata.njk' import minimalMetaData -%}
 
+{% block apostropheMenu %}
+  {# TODO: show different admin bar layouts depending on user group #}
+  {{ apos.adminBar.output() }}
+{% endblock %}
 
 {% block title %}
   {% if data.piece %}
