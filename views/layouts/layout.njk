@@ -3,21 +3,16 @@
 {%- from 'macros/metadata.njk' import minimalMetaData -%}
 
 
-{% if data.piece %}
-  {%- set pageTitle = data.piece.title -%}
-  {%- set pageUrl = data.piece._url -%}
-{% elseif data.page %}
-  {%- set pageTitle = data.page.title -%}
-  {%- set pageUrl = data.page._url -%}
-{% else %}
-  {{ apos.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.') }}
-{% endif %}
-
-
 {% block title %}
-  {{ pageTitle }}
+  {% if data.piece %}
+    {%- set pageTitle = data.piece.title -%}
+  {% elseif data.page %}
+    {%- set pageTitle = data.page.title -%}
+  {% else %}
+    {{ apos.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.') }}
+  {% endif %}
+  {{ pageTitle }} | {{ __('global|title') }}
 {% endblock %}
-
 
 {% block extraHead %}
   {{ super() }}
@@ -27,7 +22,6 @@
 
   {% block metadata %}{% endblock %}
 {% endblock %}
-
 
 {% block beforeMain %}
   {% include "partials/components/skip-to-main.njk" %}
