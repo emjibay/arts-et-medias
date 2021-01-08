@@ -7,12 +7,14 @@
 
   {{ sidebarBannerAds(bannerMacroOptions) }}
 
-  <div class="tweets">
-    <h3 class="sidebar-heading">
-      {{ __('global|tweetsHeading') }}
-    </h3>
-    {% include "partials/sidebar/twitter-timeline-en.njk" %}
-  </div>
+  {%- if data.when === 'anon' -%}
+    <div class="tweets">
+      <h3 class="sidebar-heading">
+        {{ __('global|tweetsHeading') }}
+      </h3>
+      {% include "partials/sidebar/twitter-timeline-en.njk" %}
+    </div>
+  {%- endif -%}
 
   {%- if numActiveBannerAds < 2 -%}
     <hr class="separator" />
