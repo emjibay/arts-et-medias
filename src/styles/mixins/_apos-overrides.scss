@@ -69,12 +69,21 @@
     vertical-align: sub;
     font-size: 75%;
   }
-  ul {
-    @include list();
 
-    li {
-      @include unorderedListItem();
+  ul {
+    // necessary to not affect apos ui
+    &:not(.apos-dropdown-items) {
+      @include list();
+
+      li {
+        @include unorderedListItem();
+      }
     }
+  }
+
+  // fix italicized "plus" in button
+  .apos-button > i {
+    font-style: normal;
   }
 }
 

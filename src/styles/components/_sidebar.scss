@@ -25,18 +25,20 @@
     @include heading6();
   }
 
-  // FIXME: ensure following tags are not in apos' ui
   p {
     @include paragraph();
     font-size: $fsSmol !important;
   }
 
   ul {
-    @include list();
-  }
+    // necessary to not affect apos ui
+    &:not(.apos-dropdown-items) {
+      @include list();
 
-  li {
-    @include unorderedListItem();
+      li {
+        @include unorderedListItem();
+      }
+    }
   }
 
   a {

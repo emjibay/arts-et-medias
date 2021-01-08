@@ -34,7 +34,7 @@ main {
 
 body {
   &.apos-workflow-draft-page {
-    [data-apos-widget="apostrophe-rich-text"],[data-apos-area-edit] {
+    [data-apos-widget="apostrophe-rich-text"], [data-apos-area-edit] {
       outline: $aposGreen dashed 2px;
     }
   }
