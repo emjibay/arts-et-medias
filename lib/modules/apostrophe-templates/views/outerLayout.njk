@@ -2,41 +2,7 @@
   This file extends Apostrophe's outerLayoutBase template, which we don't recommend
   overriding directly. Changes in this file, if any, are usually block overrides to
   modify the outer chrome, outside the main content area of the page. Most of the
-  time you should just edit `layout.njk` in the top level `views/` folder.
+  time you should just edit `layout.html` in the top level `views/` folder.
 #}
 
-{% extends "outerLayoutBase.njk" %}
-
-{# ALL SCRIPTS IN HEAD WITH `defer` #}
-{% block extraHead %}
-  {% if data.when != 'user' %}
-    {{ apos.assets.scripts(data.when) }}
-    <script type="text/javascript">
-      document.addEventListener(
-        'DOMContentLoaded',
-        function () {
-          {{ data.js.globalCalls }}
-          {{ data.js.reqCalls }}
-        },
-        { passive: true, once: true }
-      );
-    </script>
-  {% endif %}
-{% endblock %}
-
-{% block aposScripts %}
-  {% if data.when == 'user' %}
-    {{ apos.assets.scripts(data.when) }}
-  {% endif %}
-{% endblock %}
-
-
-{% block jsCalls %}
-  {% if data.when == 'user' %}
-    <script type="text/javascript">
-      {{ data.js.globalCalls }}
-      {{ data.js.reqCalls }}
-    </script>
-  {% endif %}
-{% endblock %}
- 
+{% extends "outerLayoutBase.html" %}
