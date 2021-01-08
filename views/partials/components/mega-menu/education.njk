@@ -2,6 +2,12 @@
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set hasFeaturedEducation = apos.aemPieces.hasFeaturedEducation(data) > 0 -%}
+{%- if hasFeaturedEducation -%}
+  {%- set colClassList = 'mm-col' -%}
+{%- else -%}
+  {%- set colClassList = 'mm-col-3' -%}
+{%- endif -%}
 
 
 {%- macro programList(category) -%}
@@ -44,19 +50,21 @@
   id="mmEducation"
   class="education-section"
 >
-  <div class="mm-col">
-    {% include "partials/education/featured.njk" %}
-  </div>
+  {%- if hasFeaturedEducation -%}
+    <div class="mm-col">
+      {% include "partials/education/featured.njk" %}
+    </div>
+  {%- endif -%}
 
-  <div class="mm-col">
+  <div class="{{ colClassList }}">
     {{ programList('undergrad') }}
   </div>
 
-  <div class="mm-col">
+  <div class="{{ colClassList }}">
     {{ programList('masters') }}
   </div>
 
-  <div class="mm-col">
+  <div class="{{ colClassList }}">
     {{ orgList(data.organizationsByMostRecent, 'academicInstitutions') }}
   </div>
 
