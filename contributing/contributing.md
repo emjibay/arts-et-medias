@@ -267,28 +267,32 @@ This project follows the [Gitflow Workflow](https://www.atlassian.com/git/tutori
 <a name="branch-naming-conventions"></a>
 ### Branch Naming Conventions
 
-Ensure to standardize the branch names when creating a branch from `develop`. Below is the expected structure:
+Ensure to standardize the branch names when creating a branch from `develop`.
+
+
+#### Structure
 
 ```
 <username>/<issueNumber>-<action>
 ```
 
-Here is a breakdown of the naming structure shown above:
+##### `<username>`
 
-- `<username>`: Your username, e.g. "**mjanson/**".  
-  This sorts the feature branches relative to who is working on it.  
-  If there are more than one developer working on the feature branch, either user the name of the principal developer, or simply use "**feature/**" instead of the username.
+Your username, e.g. "**mjanson/**".  
 
-- `<issueNumber>`: Issues addressed should ideally have an entry in the [issue list on GitHub](https://github.com/jansensan/arts-et-medias/issues). This allows to have a space to discuss the work to be done or completed.
+This sorts the feature branches relative to who is working on it.  
 
-- `<action>`: The task which will be addressed, in _imperative form_, in the _present tense_. Ensure to use a short telegraphic sentence to describe the task.  
+If there are more than one developer working on the feature branch, either user the name of the principal developer, or simply use "**feature/**" instead of the username.
 
 
-#### Additional Notes
+##### `<issueNumber>`
 
-- Ensure to use dashes ("-") and not underscores to separate words.
+Issues addressed should ideally have an entry in the [issue list on GitHub](https://github.com/jansensan/arts-et-medias/issues). This allows to have a space to discuss the work to be done or completed.
 
-- Branch names should be in lowercase.
+
+##### `<action>`
+
+The task which will be addressed, in _imperative form_, in the _present tense_. Ensure to use a short telegraphic sentence to describe the task.
 
 
 #### Examples
@@ -296,6 +300,13 @@ Here is a breakdown of the naming structure shown above:
 - mjanson/72-fix-header-search-form
 
 - feature/123-add-spanish-translation
+
+
+#### Additional Notes
+
+- Ensure to use dashes ("-") and not underscores to separate words.
+
+- Branch names should be in lowercase.
 
 
 <a name="pulling-from-remote-branches"></a>
@@ -323,6 +334,16 @@ Ensure that you [rebase](https://docs.github.com/en/free-pro-team@latest/github/
 
 For commits to be understood properly by all, here are some guidelines to write commit messages:
 
+
+#### Structure
+
+```
+<sentence> (#<issueNumber>)
+```
+
+
+##### `<sentence>`
+
 - A **short** explanation of the work done, in **sentence case**, without a period at the end:
     > Fixed broken parsing
 
@@ -333,6 +354,25 @@ For commits to be understood properly by all, here are some guidelines to write 
 
     > Fix this issue
 
-- In the case where you need to add more details, keep the message short, and add the details in the commit body.
+
+##### `<issueNumber>`
+
+The number of the issue this commit addresses, preceded by a number sign ("#"). Must be wrapped in brackets, and a space must preceded the brackets.
+
+Ideally there should only be one per commit. In the case where there are many, the whole list of issue numbers should be wrapped in brackets, separated by a comma and a space (e.g. "(#1, #2, #3)"). Here also, a space must preceded the brackets.
+
+
+#### Examples
+
+- Ensured search form leads to the search results (#72)
+
+- Added Spanish translation (#123)
+
+- Fixed home page layout (#1, #2, #4)
+
+
+#### Additional Notes
+
+In the case where you need to add more details, keep the message short, and add the details in the commit body.
 
 See the [Git documentation](https://git-scm.com/docs/git-commit) as needed.
