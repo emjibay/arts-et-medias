@@ -41,7 +41,7 @@
 {% endblock %}
 
 {% block extraBody %}
-  {%- if apos.aemUtils.isProduction() and data.when === 'anon' -%}
+  {%- if apos.aemUtils.includeAnalytics(data) -%}
     <script src="//collect.privacystats.com/js/ps.js" type="text/javascript"></script>
     <script src="//collect.privacystats.com/collect/?privacystats_c=2702b111-d593-4b04-a518-727c9556ef47" type="text/javascript"></script>
   {%- endif -%}
