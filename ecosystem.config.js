@@ -2,12 +2,13 @@
 
 const projectName = require('./package.json').name;
 
-const deployPath = `/srv/${projectName}`;
+const deployPath = `/srv/${ projectName }`;
 
 const installDependenciesCommand = 'NODE_ENV=production yarn --prod';
 const bundleCommand = 'APOS_BUNDLE=1 node app apostrophe:generation --create-bundle prod-bundle';
 const launchAppCommand = 'pm2 startOrRestart ecosystem.config.js --env prod';
 
+const stagingDeployCommand = [installDependenciesCommand, launchAppCommand].join(' && ');
 const prodDeployCommand = [installDependenciesCommand, bundleCommand, launchAppCommand].join(' && ');
 
 module.exports = {
@@ -18,18 +19,27 @@ module.exports = {
       script: 'app.js',
       env: {
         NODE_ENV: 'production',
-        CONFIG_FILE: `${deployPath}/.env`,
+        CONFIG_FILE: `${ deployPath }/.env`,
         HOST: '127.0.0.1',
         PORT: '9696'
       }
     }
   ],
   deploy: {
+    staging: {
+      user: 'jansensan',
+      host: 'arts-et-medias.net',
+      ref: 'origin/master',
+      repo: `/jansensan/${ projectName }.git`,
+      path: deployPath,
+      'post-deploy': stagingDeployCommand,
+      env: {}
+    },
     production: {
       user: 'jansensan',
       host: 'arts-et-medias.net',
       ref: 'origin/master',
-      repo: `/jansensan/${projectName}.git`,
+      repo: `/jansensan/${ projectName }.git`,
       path: deployPath,
       'post-deploy': prodDeployCommand,
       env: {
