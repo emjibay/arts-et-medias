@@ -1,6 +1,13 @@
-### src
-lib/modules/apostrophe-assets/public
-lib/modules/apostrophe-rich-text-widgets/public
+_assets
+.circleci
+.github
+.vscode
+
+### project files and directories
+contributing
+data
+node_modules
+scripts
 
 
 ### config files
@@ -9,5 +16,6 @@ brunch-config.js
 ecosystem.config.js
 
 
-### assets
-_assets
+### src
+lib/modules/apostrophe-assets/public
+lib/modules/apostrophe-rich-text-widgets/public
