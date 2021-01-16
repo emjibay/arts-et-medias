@@ -28,13 +28,13 @@ main {
 
 // apostrophe
 .apos-area-widget-controls {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 
 body {
   &.apos-workflow-draft-page {
-    [data-apos-widget="apostrophe-rich-text"], [data-apos-area-edit] {
+    [data-apos-widget="apostrophe-rich-text"] > .apos-rich-text {
       outline: $aposGreen dashed 2px;
     }
   }
