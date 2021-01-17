@@ -34,9 +34,22 @@ main {
 
 body {
   &.apos-workflow-draft-page {
+    [data-apos-widget-wrapper="aem-articles-featured"],
+    [data-apos-widget-wrapper="aem-banner-ads"],
+    [data-apos-widget-wrapper="aem-books-featured"],
+    [data-apos-widget-wrapper="aem-education-featured"],
+    [data-apos-widget-wrapper="aem-education-featured"],
+    [data-apos-widget-wrapper="aem-events-featured"],
+    [data-apos-widget-wrapper="aem-organizations-featured"],
+    [data-apos-widget-wrapper="aem-projects-featured"],
+    [data-apos-widget-wrapper="apostrophe-images"],
     [data-apos-widget="apostrophe-rich-text"] > .apos-rich-text {
       outline: $aposGreen dashed 2px;
     }
+  }
+
+  .apos-empty {
+    outline: $aposGreen dashed 2px;
   }
 }
 
