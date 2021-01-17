@@ -1,0 +1,30 @@
+{%- set widget = data.widget -%}
+
+<figure class="video-figure">
+  {%- if widget.videoType === 'youtube' -%}
+    {%- set videoUrl = 'https://www.youtube.com/embed/' + widget.videoId -%}
+
+    <iframe
+      class="video-iframe youtube"
+      src="{{ videoUrl }}"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  {%- endif -%}
+
+  {%- if widget.videoType === 'vimeo' -%}
+    {%- set videoUrl = 'https://player.vimeo.com/video/' + widget.videoId + '?color=1276D3&title=0&byline=0&portrait=0' -%}
+
+    <iframe
+      class="video-iframe vimeo"
+      src="{{ videoUrl }}"
+      frameborder="0"
+      webkitallowfullscreen mozallowfullscreen allowfullscreen
+    ></iframe>
+  {%- endif -%}
+
+  {%- if widget.caption -%}
+    <figcaption>{{ widget.caption }}</figcaption>
+  {%- endif -%}
+</figure>

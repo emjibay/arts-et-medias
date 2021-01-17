@@ -1,0 +1,30 @@
+.video-figure {}
+
+.video-iframe {
+  background-color: black;
+  vertical-align: top;
+  // 320x180
+  width: 100%;
+  height: 180px;
+
+  @media #{$mqTablet} {
+    // 455x256
+    @include nColumnWidth(8);
+    height: 256px;
+  }
+
+  @media #{$mqDesktop} {
+    // 610x343
+    height: 343px;
+  }
+
+  @media #{$mqXL} {
+    // 725x408
+    height: 408px;
+  }
+
+  @media #{$mqXXL} {
+    // 840x473
+    height: 473px;
+  }
+}
