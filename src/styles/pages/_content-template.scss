@@ -5,4 +5,8 @@
   .page-heading {
     @include underlinedH1();
   }
+
+  [data-apos-widget-wrapper="aem-link"] {
+    margin-bottom: 40px;
+  }
 }
