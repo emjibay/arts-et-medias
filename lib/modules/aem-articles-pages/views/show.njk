@@ -3,7 +3,7 @@
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/metadata.njk' import articleMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedMedia, relatedOrganizations, relatedPieces, tags -%}
+{%- from 'macros/piece-details.njk' import relatedEvents, relatedMedia, relatedOrganizations, relatedPieces, tags -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 
 
@@ -93,14 +93,21 @@
     {%- endif -%}
   </dl>
 
+  {# articles #}
   {%- set relatedArticles = apos.aemArrays.merge(piece._relatedArticles, piece._articles) -%}
   {{ relatedPieces(__('articles|related'), relatedArticles) }}
 
+  {# books #}
   {{ relatedPieces(__('books|related'), piece._relatedBooks) }}
 
+  {# media #}
   {{ relatedMedia(piece._relatedMedia) }}
 
+  {# organizations #}
   {{ relatedOrganizations(piece._relatedOrganizations) }}
+
+  {# events #}
+  {{ relatedEvents(piece._relatedEvents) }}
 
   {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 
