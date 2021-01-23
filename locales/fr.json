@@ -55,6 +55,17 @@
     "adminHeading": "Admin",
     "copyrightLabel": "Tous les droits d'auteurs appartiennent à leurs propriétaires respectifs."
   },
+  "citations": {
+    "articleHeading": "Citez cet article",
+    "bookHeading": "Citez cet ouvrage",
+    "warning": "Assurez-vous de valider les formats d'articles de bibliographie avant de les soumettre dans vos travaux. Nous les générons pour vous aider, mais nous ne pouvons pas garantir qu'ils soient exacts dans tous les cas.",
+    "styles": {
+      "apa": "APA",
+      "bibtex": "BibTex",
+      "chicago": "Chicago",
+      "mla": "MLA"
+    }
+  },
 
   "pieceIndex": {
     "seeMoreCTA": "Voir les détails"
@@ -173,17 +184,7 @@
     "seeAllCTA": "Voir tous les livres",
     "searchLabel": "Chercher parmi les livres",
     "noPiecesLabel": "Aucun livre trouvé",
-    "editorAbbreviation": "éd.",
-    "citations": {
-      "heading": "Citez cet ouvrage",
-      "warning": "Assurez-vous de valider les formats d'articles de bibliographie avant de les soumettre dans vos travaux. Nous les générons pour vous aider, mais nous ne pouvons pas garantir qu'ils soient exacts dans tous les cas.",
-      "styles": {
-        "apa": "APA",
-        "bibtex": "BibTex",
-        "chicago": "Chicago",
-        "mla": "MLA"
-      }
-    }
+    "editorAbbreviation": "éd."
   },
   "education": {
     "heading": "Academia",

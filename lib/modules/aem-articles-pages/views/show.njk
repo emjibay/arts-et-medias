@@ -112,6 +112,11 @@
   {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 
   {{ tags(piece) }}
+
+  {%- if piece.hasCitations and piece.citations -%}
+    <hr class="separator"/>
+    {%- include 'partials/articles/citations-section.njk' -%}
+  {%- endif -%}
 {% endblock %}
 
 {% block sidebar %}
