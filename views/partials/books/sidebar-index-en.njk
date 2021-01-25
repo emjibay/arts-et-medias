@@ -12,7 +12,9 @@
       })
     }}
 
-    {%- if apos.aemPieces.hasFeaturedBook(data) -%}
+    {%- set isUserAdmin = apos.aemUsers.isUserAdmin(data.user) -%}
+    {%- set hasFeaturedBook = apos.aemPieces.hasFeaturedBook(data) -%}
+    {%- if isUserAdmin or hasFeaturedBook -%}
       {% include "partials/books/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}

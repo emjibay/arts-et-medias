@@ -327,6 +327,28 @@
     }
 
     .latest-pieces {
+      &.sans-feature {
+        width: 100%;
+
+        .list-item {
+          &:nth-child(odd) {
+            margin-left: 0;
+          }
+          &:nth-child(n+3) {
+            margin-top: 40px;
+          }
+
+          @media #{$mqTablet} {
+            &:nth-child(n+3) {
+              margin-top: unset;
+            }
+            &:not(:first-of-type) {
+              @include gutterLeftMargin();
+            }
+          }
+        }
+      }
+
       .piece-card {
         .hero-image {
           @include heroImageFullHeight(3);
