@@ -151,7 +151,7 @@
   text-decoration: none;
 
   &:hover {
-    background-color: $almostWhite;
+    background-color: $white;
     border: 2px solid $main;
     color: $main;
     text-decoration: none;
@@ -258,10 +258,12 @@
 
   &:focus {
     @include focusOutline();
+    background-color: $white;
   }
 
   &::placeholder {
     color: $halfGrey;
+    opacity: 1;
   }
 }
 
