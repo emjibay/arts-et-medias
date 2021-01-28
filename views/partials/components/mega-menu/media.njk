@@ -2,6 +2,14 @@
 {%- from 'macros/mega-menu.njk' import hideMegaMenuButton, seeAllCTA -%}
 
 
+{%- set hasFeaturedBook = apos.aemPieces.hasFeaturedBook(data) -%}
+{%- if hasFeaturedBook -%}
+  {%- set colClassList = 'mm-col' -%}
+{%- else -%}
+  {%- set colClassList = 'mm-col-3' -%}
+{%- endif -%}
+
+
 {#
   @param options (object)
     - heading (string)
@@ -51,15 +59,17 @@
   id="mmMedia"
   class="media-section"
 >
-  <div class="mm-col">
+  <div class="{{ colClassList }}">
     {% include "partials/projects/featured.njk" %}
   </div>
 
-  <div class="mm-col">
-    {% include "partials/books/featured.njk" %}
-  </div>
+  {%- if hasFeaturedBook -%}
+    <div class="{{ colClassList }}">
+      {% include "partials/books/featured.njk" %}
+    </div>
+  {%- endif -%}
 
-  <div class="mm-col">
+  <div class="{{ colClassList }}">
     {{
       mediaList({
         heading: __('projects|recentlyAdded'),
@@ -71,12 +81,12 @@
     }}
   </div>
 
-  <div class="mm-col">
+  <div class="{{ colClassList }}">
     {{
       mediaList({
         heading: __('books|recentlyAdded'),
         pieces: data.booksByMostRecent,
-        numPieces: 3,
+        numPieces: 4,
         ctaLabel: __('books|seeAllCTA'),
         ctaUrl: __('books|url')
       })
