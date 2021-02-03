@@ -38,7 +38,11 @@
       {%- set publicationDate = apos.aemDates.format(piece.publicationDate, locale) -%}
       <div class="byline-and-date">
         {% for author in piece._originalAuthor %}
-          <span>{{ author.title }}</span>
+          {%- if loop.first -%}
+            <span class="author">{{ author.title }}</span>
+          {%- else -%}
+            <span class="author">, {{ author.title }}</span>
+          {%- endif -%}
         {% endfor %}
         <span class="publication-date">, {{ publicationDate }}</span>
       </div>
