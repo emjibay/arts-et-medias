@@ -103,17 +103,17 @@
   {# media #}
   {{ relatedMedia(piece._relatedMedia) }}
 
-  {# organizations #}
-  {{ relatedOrganizations(piece._relatedOrganizations) }}
-
   {# events #}
   {{ relatedEvents(piece._relatedEvents) }}
 
-  {# academic programs #}
-  {{ relatedPieces(__('education|related'), piece._relatedEducation) }}
-
   {# people #}
   {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
+
+  {# organizations #}
+  {{ relatedOrganizations(piece._relatedOrganizations) }}
+
+  {# academic programs #}
+  {{ relatedPieces(__('education|related'), piece._relatedEducation) }}
 
   {# tags #}
   {{ tags(piece) }}
