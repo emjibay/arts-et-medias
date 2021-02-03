@@ -109,8 +109,13 @@
   {# events #}
   {{ relatedEvents(piece._relatedEvents) }}
 
+  {# academic programs #}
+  {{ relatedPieces(__('education|related'), piece._relatedEducation) }}
+
+  {# people #}
   {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 
+  {# tags #}
   {{ tags(piece) }}
 
   {%- if piece.hasCitations and piece.citations -%}

@@ -1,0 +1,15 @@
+[
+  {
+    "label": "Related Academic Programs",
+    "help": "",
+    "name": "_relatedEducation",
+    "type": "joinByArray",
+    "withType": ["education"],
+    "filters": {
+      "projection": {
+        "_url": 1,
+        "title": 1
+      }
+    }
+  }
+]
