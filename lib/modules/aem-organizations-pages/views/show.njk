@@ -58,8 +58,22 @@
 
   <hr class="separator"/>
 
+  {# articles #}
+  {%-
+    set relatedArticles = apos.aemArrays.merge(
+      piece._articles,
+      piece._articlesWritten
+    )
+  -%}
+  {{ relatedPieces(__('articles|related'), relatedArticles) }}
+
+  {# books #}
+  {{ relatedPieces(__('books|related'), piece._books) }}
+
+  {# people #}
   {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 
+  {# orgs #}
   {%-
     set relatedOrgs = apos.aemArrays.merge(
       piece._relatedOrganizations,
@@ -67,8 +81,6 @@
     )
   -%}
   {{ relatedOrganizations(relatedOrgs) }}
-
-  {{ relatedPieces(__('articles|related'), piece._relatedArticles) }}
 
   {{ tags(piece) }}
 {% endblock %}
