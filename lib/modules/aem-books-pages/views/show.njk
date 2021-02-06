@@ -136,17 +136,23 @@
                 {%- endif -%}
               </dl>
 
-              {{ relatedPieces(__('articles|related'), piece._relatedArticles) }}
+              {# articles #}
+              {{ relatedPieces(__('articles|related'), piece._articles) }}
 
+              {# books #}
               {%- set relatedBooks = apos.aemArrays.merge(piece._relatedBooks, piece._booksMentioned) -%}
               {{ relatedPieces(__('books|related'), relatedBooks) }}
 
-              {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
-
-              {{ relatedOrganizations(piece._relatedOrganizations) }}
-
+              {# media #}
               {{ relatedMedia(piece._relatedMedia) }}
 
+              {# people #}
+              {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
+
+              {# organizations #}
+              {{ relatedOrganizations(piece._relatedOrganizations) }}
+
+              {# tags #}
               {{ tags(piece) }}
 
               {%- if piece.citations -%}
