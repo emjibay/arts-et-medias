@@ -64,15 +64,12 @@
   <hr class="separator"/>
 
   {# projects #}
-  {# FIXME #}
-  {#
   {{
     relatedPieces(
-      'Creator of the Following Projects',
-      piece._projects
+      __('pieceDetails|projectsCreatorLabel'),
+      piece.projectsCreated
     )
   }}
-  #}
 
   {# articles #}
   {{
