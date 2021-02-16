@@ -2,7 +2,7 @@
   <a class="footer-link" href="{{ __(linkUrl) }}">{{ __(linkLabel) }}</a>
 {% endmacro %}
 
-{%- if data.when === 'user' -%}
+{%- if data.user -%}
   <div class="editors-footer">
     <article class="content">
       <h1 class="footer-title">Editors' Tools</h1>
@@ -80,7 +80,7 @@
   </div>
 {%- endif -%}
 
-{%- if data.when === 'user' -%}
+{%- if data.user -%}
   {%- set footerClassList = 'footer no-mt' -%}
 {%- else -%}
   {%- set footerClassList = 'footer' -%}
