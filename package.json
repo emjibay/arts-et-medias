@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "accept-language": "3.0.18",
-    "apostrophe": "2.114.0",
+    "apostrophe": "2.115.0",
     "apostrophe-db-mongo-3-driver": "2.0.1",
     "apostrophe-second-chance-login": "2.0.0",
     "apostrophe-workflow": "2.38.2",
@@ -35,7 +35,7 @@
     "brunch": "2.10.17",
     "chalk": "^4.1.0",
     "core-js": "3.8.3",
-    "eslint": "7.19.0",
+    "eslint": "7.20.0",
     "globby": "10.0.2",
     "terser-brunch": "3.0.0"
   },
