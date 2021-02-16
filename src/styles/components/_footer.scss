@@ -3,13 +3,9 @@
 @import '../mixins/mixins';
 
 
-.footer {
-  background-color: $black;
-  color: $almostWhite;
-  padding: 50px 0 30px;
-  margin-top: 70px;
-
-  .site-title {
+.footer,
+.editors-footer {
+  .footer-title {
     @include headingBase();
     font-size: 20pt;
     line-height: 20pt;
@@ -122,6 +118,18 @@
     border-bottom: 1px solid $almostWhite;
     margin: 50px 0;
   }
+}
+
+
+.footer {
+  background-color: $black;
+  color: $almostWhite;
+  padding: 50px 0 30px;
+  margin-top: 70px;
+
+  &.no-mt {
+    margin-top: 0;
+  }
 
   .copyright,
   .version {
@@ -148,4 +156,11 @@
       text-align: right;
     }
   }
+}
+
+.editors-footer {
+  background-color: $darkGrey;
+  color: $almostWhite;
+  padding: 50px 0;
+  margin-top: 70px;
 }

@@ -6,6 +6,8 @@ const modulesList = [
   'components/mega-menu',
   'components/mobile-menu',
   'components/skip-to-main-button',
+  // pages
+  'pages/analytics-downloads',
 ];
 
 

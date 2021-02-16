@@ -201,11 +201,11 @@
   -webkit-appearance: none;
   -webkit-border-radius: 0;
   background-color: $black;
-  background-image: url(/img/icon-white-caret-down.svg);
-  background-position-x: 80%;
-  background-position-y: 10px;
+  background-image: url(/img/icon-caret-down-white.svg);
+  background-position-x: calc(100% - 15px);
+  background-position-y: center;
   background-repeat: no-repeat;
-  background-size: 15px 20px;
+  background-size: 10px;
   border: none;
   color: $almostWhite;
   cursor: pointer;
@@ -213,7 +213,7 @@
   font-size: $fsVerySmol;
   font-style: normal;
   font-weight: normal;
-  line-height: 40px;
+  line-height: 35px;
   padding-left: 10px;
   padding-right: 30px;
 
@@ -226,6 +226,13 @@
   &:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 $black;
+  }
+
+  option {
+    background-color: $almostWhite;
+    color: $black;
+    font-family: $ffSansSerif;
+    line-height: 1.5;
   }
 }
 

@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
+
+{% block title %}
+  {{ data.page.title }} | {{ __('global|title') }}
+{% endblock %}
+
+{% block metadata %}
+  {{
+    minimalMetaData({
+      title: data.page.title,
+      url: data.page._url,
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
+    })
+  }}
+{% endblock %}
+
+{% block main %}
+  <div class="content-template analytics-dashboard-template">
+    <div class="content">
+      <main id="main" tabindex="-1">
+        <article>
+          <h1 class="page-heading">{{ data.page.title }}</h1>
+
+          <div class="page-content">
+            {{ contentSection(data.page) }}
+          </div>
+
+          {% block sidebar %}
+            {% include "partials/sidebar/sidebar.njk" %}
+          {% endblock %}
+        </article>
+      </main>
+    </div>
+  </div>
+{% endblock %}

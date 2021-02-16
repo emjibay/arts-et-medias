@@ -1,0 +1,205 @@
+{% extends "layouts/layout.njk" %}
+
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
+{%- from 'macros/pending-button.njk' import pendingButton -%}
+
+{% block title %}
+  {{ data.page.title }} | {{ __('global|title') }}
+{% endblock %}
+
+{% block metadata %}
+  {{
+    minimalMetaData({
+      title: data.page.title,
+      url: data.page._url,
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
+    })
+  }}
+{% endblock %}
+
+{% block main %}
+  {%- set isLocal = data.baseUrl.indexOf('localhost') > -1 -%}
+  <div
+    class="content-template analytics-downloads-template"
+    data-is-local="{{ isLocal }}"
+  >
+    <div class="content">
+      <main id="main" tabindex="-1">
+        <article>
+          <h1 class="page-heading">{{ data.page.title }}</h1>
+
+          <div class="page-content">
+            <section class="content-pieces-section">
+              <h2>Content Pieces</h2>
+              <h3>Download Data</h3>
+              <ul class="button-list">
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'academiaDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download Academia Data'
+                    })
+                  }}
+                </li>
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'articlesDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download Articles Data'
+                    })
+                  }}
+                </li>
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'booksDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download Books Data'
+                    })
+                  }}
+                </li>
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'eventsDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download Events Data'
+                    })
+                  }}
+                </li>
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'mediaDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download Media Data'
+                    })
+                  }}
+                </li>
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'orgsDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download Organizations Data'
+                    })
+                  }}
+                </li>
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'peopleDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download People Data'
+                    })
+                  }}
+                </li>
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'projectsDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download Projects Data'
+                    })
+                  }}
+                </li>
+              </ul>
+              <h3>Pieces Added During a Specific Month</h3>
+              <form id="piecesCreatedAtForm">
+                <div class="form-column">
+                  <label
+                    for="createdAtYear"
+                    class="input-label"
+                  >Year</label>
+                  <input
+                    type="number"
+                    name="createdAtYear"
+                    id="createdAtYear"
+                    min="2020"
+                    max="2021"
+                    class="text-input year-input"
+                  >
+                </div>
+                <div class="form-column">
+                  <label
+                    for="createdAtMonth"
+                    class="input-label"
+                  >Month</label>
+                  <select
+                    id="createdAtMonth"
+                    name="createdAtMonth"
+                    class="select month-select"
+                  >
+                    <option value="0">January</option>
+                    <option value="1">February</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                  </select>
+                </div>
+                {{
+                  pendingButton({
+                    id: 'piecesCreatedAtButton',
+                    type: 'submit',
+                    classList: 'cta month-additions-btn',
+                    label: 'Download'
+                  })
+                }}
+              </form>
+            </section>
+
+            <hr class="separator"/>
+
+            <section class="stats-section">
+              <h2>Stats</h2>
+              <ul class="button-list">
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'fetchBannersDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download Banners Data'
+                    })
+                  }}
+                </li>
+                <li class="list-item">
+                  {{
+                    pendingButton({
+                      id: 'fetchLinksDataButton',
+                      type: 'button',
+                      classList: 'cta',
+                      label: 'Download Forward Links Data'
+                    })
+                  }}
+                </li>
+              </ul>
+            </section>
+          </div>
+
+          {% block sidebar %}
+            {% include "partials/sidebar/sidebar.njk" %}
+          {% endblock %}
+        </article>
+      </main>
+    </div>
+  </div>
+{% endblock %}

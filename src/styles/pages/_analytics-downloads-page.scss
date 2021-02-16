@@ -1,0 +1,52 @@
+@import "../common/variables";
+@import "../common/ui";
+
+
+.analytics-downloads-template {
+  h3 {
+    margin-top: 40px;
+  }
+
+  .button-list {
+    .list-item {
+      margin-bottom: 20px;
+    }
+  }
+
+  .input-label {
+    @include inputLabel();
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .text-input {
+    @include textInput();
+    display: inline-block;
+  }
+
+  .select {
+    @include select();
+  }
+
+  .form-column {
+    display: block;
+
+    @media #{$mqTablet} {
+      @include nColumnWidth(4);
+      display: inline-block;
+
+      & + .form-column {
+        @include gutterLeftMargin();
+      }
+    }
+  }
+
+  .year-input,
+  .month-select {
+    width: 100%;
+  }
+
+  .month-additions-btn {
+    margin-top: 20px;
+  }
+}

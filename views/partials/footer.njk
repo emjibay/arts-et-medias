@@ -2,10 +2,92 @@
   <a class="footer-link" href="{{ __(linkUrl) }}">{{ __(linkLabel) }}</a>
 {% endmacro %}
 
+{%- if data.when === 'user' -%}
+  <div class="editors-footer">
+    <article class="content">
+      <h1 class="footer-title">Editors' Tools</h1>
 
-<footer class="footer">
+      <section class="link-columns">
+
+      <!-- general -->
+      <div class="column">
+        <h2 class="column-title">General Guidelines</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            {{ footerLink('Guides', '/en/guides') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('ApostropheCMS', '/en/guides/apostrophe-cms') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('Writing', '/en/guides/writing') }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- people and orgs -->
+      <div class="column">
+        <h2 class="column-title">People and Organizations</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            {{ footerLink('Editing "People" Content Pieces', '/en/guides/people') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('Editing "Organizations" Content Pieces', '/en/guides/organizations') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('Editing "Media" Content Pieces', '/en/guides/media') }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- content pieces -->
+      <div class="column">
+        <h2 class="column-title">Content Pieces</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            {{ footerLink('Editing "Articles" Content Pieces', '/en/guides/articles') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('Editing "Projects" Content Pieces', '/en/guides/projects') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('Editing "Books" Content Pieces', '/en/guides/books') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('Editing "Events" Content Pieces', '/en/guides/events') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('Editing "Academia" Content Pieces', '/en/guides/academia') }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- analytics -->
+      <div class="column">
+        <h2 class="column-title">Analytics</h2>
+        <ul class="footer-link-list">
+          <li class="list-item">
+            {{ footerLink('Dashboard ', '/en/analytics') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('Downloads', '/en/analytics/downloads') }}
+          </li>
+        </ul>
+      </div>
+    </section>
+    </article>
+  </div>
+{%- endif -%}
+
+{%- if data.when === 'user' -%}
+  {%- set footerClassList = 'footer no-mt' -%}
+{%- else -%}
+  {%- set footerClassList = 'footer' -%}
+{%- endif -%}
+<footer class="{{ footerClassList }}">
   <article class="content">
-    <h1 class="site-title">{{ __('global|title') }}</h1>
+    <h1 class="footer-title">{{ __('global|title') }}</h1>
 
     <section class="link-columns">
 

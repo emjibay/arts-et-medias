@@ -1,0 +1,10 @@
+{% macro pendingButton(options) %}
+  <button
+    id="{{ options.id }}"
+    type="{{ options.type }}"
+    class="{{ options.classList }} pending-button"
+  >
+    <span class="label">{{ options.label }}</span>
+    <span class="spinner"></span>
+  </button>
+{% endmacro %}
