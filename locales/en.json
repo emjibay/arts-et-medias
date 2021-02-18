@@ -45,6 +45,43 @@
     "helpParagraph2": "Consider contributing to help us maintain this site up to date.",
     "helpUsCTA": "Help Us"
   },
+  "editorsFooter": {
+    "heading": "Editors' Tools",
+
+    "generalHeading": "General Guidelines",
+    "guidesLabel": "Guides",
+    "guidesURL": "/en/guides",
+    "aposLabel": "ApostropheCMS",
+    "aposURL": "/en/guides/apostrophe-cms",
+    "writingLabel": "Writing",
+    "writingURL": "/en/guides/writing",
+
+    "peopleAndOrgsHeading": "People and Organizations",
+    "peopleLabel": "Editing \"People\"",
+    "peopleURL": "/en/guides/editing-people-content-pieces",
+    "orgsLabel": "Editing \"Organizations\"",
+    "orgsURL": "/en/guides/editing-organizations-content-pieces",
+    "mediaLabel": "Editing \"Media\"",
+    "mediaURL": "/en/guides/editing-media-content-pieces",
+
+    "contentPiecesHeading": "Content Pieces",
+    "projectsLabel": "Editing \"Projects\"",
+    "projectsURL": "/en/guides/editing-projects-content-pieces",
+    "articlesLabel": "Editing \"Articles\"",
+    "articlesURL": "/en/guides/editing-articles-content-pieces",
+    "booksLabel": "Editing \"Books\"",
+    "booksURL": "/en/guides/editing-books-content-pieces",
+    "eventsLabel": "Editing \"Events\"",
+    "eventsURL": "/en/guides/editing-events-content-pieces",
+    "academiaLabel": "Editing \"Academia\"",
+    "academiaURL": "/en/guides/editing-academia-content-pieces",
+
+    "analyticsHeading": "Analytics",
+    "dashboardLabel": "Dashboard",
+    "dashboardURL": "/en/analytics",
+    "downloadsLabel": "Downloads",
+    "downloadsURL": "/en/analytics/downloads"
+  },
   "footer": {
     "contentHeading": "Content",
     "projectsHeading": "Projects and Media",

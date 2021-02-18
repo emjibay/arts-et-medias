@@ -5,73 +5,73 @@
 {%- if data.user -%}
   <div class="editors-footer">
     <article class="content">
-      <h1 class="footer-title">Editors' Tools</h1>
+      <h1 class="footer-title">{{ __('editorsFooter|heading') }}</h1>
 
       <section class="link-columns">
 
       <!-- general -->
       <div class="column">
-        <h2 class="column-title">General Guidelines</h2>
+        <h2 class="column-title">{{ __('editorsFooter|generalHeading') }}</h2>
         <ul class="footer-link-list">
           <li class="list-item">
-            {{ footerLink('Guides', '/en/guides') }}
+            {{ footerLink(__('editorsFooter|guidesLabel'), __('editorsFooter|guidesURL')) }}
           </li>
           <li class="list-item">
-            {{ footerLink('ApostropheCMS', '/en/guides/apostrophe-cms') }}
+            {{ footerLink(__('editorsFooter|aposLabel'), __('editorsFooter|aposURL')) }}
           </li>
           <li class="list-item">
-            {{ footerLink('Writing', '/en/guides/writing') }}
+            {{ footerLink(__('editorsFooter|writingLabel'), __('editorsFooter|writingURL')) }}
           </li>
         </ul>
       </div>
 
       <!-- people and orgs -->
       <div class="column">
-        <h2 class="column-title">People and Organizations</h2>
+        <h2 class="column-title">{{ __('editorsFooter|peopleAndOrgsHeading') }}</h2>
         <ul class="footer-link-list">
           <li class="list-item">
-            {{ footerLink('Editing "People" Content Pieces', '/en/guides/people') }}
+            {{ footerLink(__('editorsFooter|peopleLabel'), __('editorsFooter|peopleURL')) }}
           </li>
           <li class="list-item">
-            {{ footerLink('Editing "Organizations" Content Pieces', '/en/guides/organizations') }}
+            {{ footerLink(__('editorsFooter|orgsLabel'), __('editorsFooter|orgsURL')) }}
           </li>
           <li class="list-item">
-            {{ footerLink('Editing "Media" Content Pieces', '/en/guides/media') }}
+            {{ footerLink(__('editorsFooter|mediaLabel'), __('editorsFooter|mediaURL')) }}
           </li>
         </ul>
       </div>
 
       <!-- content pieces -->
       <div class="column">
-        <h2 class="column-title">Content Pieces</h2>
+        <h2 class="column-title">{{ __('editorsFooter|contentPiecesHeading') }}</h2>
         <ul class="footer-link-list">
           <li class="list-item">
-            {{ footerLink('Editing "Articles" Content Pieces', '/en/guides/articles') }}
+            {{ footerLink(__('editorsFooter|projectsLabel'), __('editorsFooter|projectsURL')) }}
           </li>
           <li class="list-item">
-            {{ footerLink('Editing "Projects" Content Pieces', '/en/guides/projects') }}
+            {{ footerLink(__('editorsFooter|articlesLabel'), __('editorsFooter|articlesURL')) }}
           </li>
           <li class="list-item">
-            {{ footerLink('Editing "Books" Content Pieces', '/en/guides/books') }}
+            {{ footerLink(__('editorsFooter|booksLabel'), __('editorsFooter|booksURL')) }}
           </li>
           <li class="list-item">
-            {{ footerLink('Editing "Events" Content Pieces', '/en/guides/events') }}
+            {{ footerLink(__('editorsFooter|eventsLabel'), __('editorsFooter|eventsURL')) }}
           </li>
           <li class="list-item">
-            {{ footerLink('Editing "Academia" Content Pieces', '/en/guides/academia') }}
+            {{ footerLink(__('editorsFooter|academiaLabel'), __('editorsFooter|academiaURL')) }}
           </li>
         </ul>
       </div>
 
       <!-- analytics -->
       <div class="column">
-        <h2 class="column-title">Analytics</h2>
+        <h2 class="column-title">{{ __('editorsFooter|analyticsHeading') }}</h2>
         <ul class="footer-link-list">
           <li class="list-item">
-            {{ footerLink('Dashboard ', '/en/analytics') }}
+            {{ footerLink(__('editorsFooter|dashboardLabel'), __('editorsFooter|dashboardURL')) }}
           </li>
           <li class="list-item">
-            {{ footerLink('Downloads', '/en/analytics/downloads') }}
+            {{ footerLink(__('editorsFooter|downloadsLabel'), __('editorsFooter|downloadsURL')) }}
           </li>
         </ul>
       </div>
