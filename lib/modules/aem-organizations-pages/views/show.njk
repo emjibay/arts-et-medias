@@ -82,6 +82,9 @@
   -%}
   {{ relatedOrganizations(relatedOrgs) }}
 
+  {# education #}
+  {{ relatedPieces(__('education|related'), piece._academicPrograms) }}
+
   {{ tags(piece) }}
 {% endblock %}
 
