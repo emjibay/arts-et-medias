@@ -94,10 +94,6 @@ $hideDuration: 480ms;
       @include nColumnWidth(4);
       display: inline-block;
       vertical-align: top;
-
-      &::placeholder {
-        color: $black;
-      }
     }
 
     .search-button {

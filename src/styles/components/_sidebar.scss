@@ -60,10 +60,6 @@
     @media #{$mqDesktop} {
       width: calc(100% - 50px);
     }
-
-    &::placeholder {
-      color: $black;
-    }
   }
 
   .search-button {

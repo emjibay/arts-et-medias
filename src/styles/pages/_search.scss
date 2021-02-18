@@ -17,10 +17,6 @@
       @media #{$mqDesktop} {
         @include nColumnWidth(6);
       }
-
-      &::placeholder {
-        color: $black;
-      }
     }
 
     .search-button {
