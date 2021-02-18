@@ -67,21 +67,25 @@
 }
 
 .apos-workflow-draft-page {
-  .video-figure,
-  .apos-video-player,
-  .apos-rich-text,
-  [data-apos-widget-wrapper="apostrophe-images"] {
-    margin-bottom: 60px;
-  }
+  .rich-content {
+    $draftMargin: 80px;
 
-  .apos-area-widget-wrapper {
-    &[data-apos-widget-wrapper="aem-link"] {
-      margin-bottom: 100px;
+    .video-figure,
+    .apos-video-player,
+    .apos-rich-text,
+    [data-apos-widget-wrapper="apostrophe-images"] {
+      margin-bottom: $draftMargin;
+    }
 
-      .apos-ui {
-        position: absolute;
-        right: 365px;
-        top: -50px;
+    .apos-area-widget-wrapper {
+      &[data-apos-widget-wrapper="aem-link"] {
+        margin-bottom: $draftMargin;
+
+        .apos-ui {
+          position: absolute;
+          right: 365px;
+          top: -50px;
+        }
       }
     }
   }
