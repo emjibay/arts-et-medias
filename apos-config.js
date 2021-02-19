@@ -1,5 +1,6 @@
 'use strict';
 
+
 const path = require('path');
 const fs = require('fs');
 const aposSearchFilters = require('./lib/constants/apos-search-filters');
@@ -40,15 +41,11 @@ const aposOptions = {
       deconflictSlugs: false
     },
 
-    // 'apostrophe-attachments': {
-    //   uploadfs: {
-    //     https: true
-    //   }
-    // },
-
     'apostrophe-db-mongo-3-driver': {},
 
-    'apostrophe-workflow': {},
+    'apostrophe-workflow': {
+      defaultMode: 'live'
+    },
 
     'apostrophe-second-chance-login': {},
 
