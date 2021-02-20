@@ -32,7 +32,7 @@ main {
 }
 
 body {
-  &.apos-workflow-draft-page {
+  &[data-apos-workflow-mode="draft"] {
     [data-apos-widget-wrapper="aem-articles-featured"],
     [data-apos-widget-wrapper="aem-banner-ads"],
     [data-apos-widget-wrapper="aem-books-featured"],
