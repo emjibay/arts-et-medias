@@ -1,5 +1,8 @@
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 <!DOCTYPE html>
-<html lang="{% block locale %}en{% endblock %}" {% block extraHtml %}{% endblock %}>
+<html lang="{{ locale }}" {% block extraHtml %}{% endblock %}>
   <head>
     {% block startHead %}
     {% endblock %}
