@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block main %}
-  {%- set isLocal = data.baseUrl.indexOf('localhost') > -1 -%}
+  {%- set isLocal = apos.aemUtils.isLocal(data) -%}
   <div
     class="content-template analytics-downloads-template"
     data-is-local="{{ isLocal }}"

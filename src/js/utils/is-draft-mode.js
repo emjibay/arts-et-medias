@@ -12,7 +12,7 @@ function isDraftMode() {
 
   for (let i = 0; i < classList.length; i++) {
     const className = classList[i];
-    if (className.indexOf('draft') > -1) {
+    if (className && className.indexOf('draft') > -1) {
       response = true;
     }
   }
