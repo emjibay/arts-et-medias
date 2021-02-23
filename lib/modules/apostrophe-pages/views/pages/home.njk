@@ -133,7 +133,7 @@
                       ['festival']
                     )
                   -%}
-                  {{ eventList(ongoingAndFutureFestivals) }}
+                  {{ eventList(ongoingAndFutureFestivals, locale) }}
                 </div>
               {%- else -%}
                 {# FIXME: reduce repetition for following div (#80) #}
@@ -148,7 +148,7 @@
                       ['festival']
                     )
                   -%}
-                  {{ eventList(ongoingAndFutureFestivals) }}
+                  {{ eventList(ongoingAndFutureFestivals, locale) }}
                 </div>
                 <div class="latest-pieces">
                   <h3 class="latest-pieces-heading">
@@ -161,7 +161,7 @@
                       ['festival']
                     )
                   -%}
-                  {{ eventList(recentlyAddedFestivals) }}
+                  {{ eventList(recentlyAddedFestivals, locale) }}
                 </div>
               {%- endif -%}
 

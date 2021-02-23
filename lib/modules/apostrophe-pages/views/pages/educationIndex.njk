@@ -4,6 +4,9 @@
 {%- from 'macros/piece-index.njk' import recentlyAddedEducation -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
 {% macro programsList(category) %}
   {%- set cat = 'education|categories|' + category + '|' -%}
 
@@ -11,6 +14,7 @@
     recentlyAddedEducation(
       __(cat + 'recentlyAdded'),
       data.educationByMostRecent,
+      locale,
       __(cat + 'tags')
     )
   }}
