@@ -19,7 +19,8 @@
       description: piece.shortDescription,
       heroImage: piece.heroImage,
       url: piece._url,
-      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl),
+      locale: locale
     })
   }}
 {% endblock %}

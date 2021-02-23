@@ -7,6 +7,7 @@
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
 {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
 
@@ -31,7 +32,8 @@
       heroImage: piece.heroImage,
       url: piece._url,
       baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl),
-      tags: piece.tags
+      tags: piece.tags,
+      locale: locale
     })
   }}
 {% endblock %}

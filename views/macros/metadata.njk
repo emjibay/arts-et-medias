@@ -1,5 +1,11 @@
+{# {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%} #}
+
+
 {# site name #}
-{%- set siteName = 'Arts et Médias' -%}
+{%- set siteName = __('global|title') -%}
+
+{# site description #}
+{%- set siteDescription = __('global|description') -%}
 
 {# approx tweet-size #}
 {%- set maxDescriptionLength = 250 -%}
@@ -12,8 +18,7 @@
   <meta property="og:image:secure_url" content="{{ options.baseUrl }}{{ options.image }}" />
   <meta property="og:url" content="{{ options.baseUrl }}{{ options.url }}" />
   <meta property="og:site_name" content="{{ siteName }}" />
-  {#- TODO: add locale -#}
-  {#- <meta property="og:locale" content="fr_CA" /> -#}
+  <meta property="og:locale" content="{{ options.locale }}_CA" />
 {%- endmacro -%}
 
 {%- macro twitterCard(options) -%}
@@ -28,16 +33,14 @@
 
 {# exported macros #}
 {%- macro minimalMetaData(options) -%}
-  {# TODO: get from translation #}
-  {%- set descriptionText = 'A hub for content and resources about contemporary and media art, with a bias towards media and installation arts.' -%}
-
   {{
     openGraph({
       title: options.title,
-      description: descriptionText,
+      description: siteDescription,
       baseUrl: options.baseUrl,
       url: options.url,
-      image: '/img/opengraph.jpg'
+      image: '/img/opengraph.jpg',
+      locale: options.locale
     })
   }}
 
@@ -45,28 +48,14 @@
 {%- endmacro -%}
 
 {%- macro descriptiveMetaData(options) -%}
-  {# TODO: create method to get hero image #}
-  {#- get hero image -#}
-  {%- if options.heroImage -%}
-    {%- set aposImageData = apos.images.first(options.heroImage) -%}
-    {%- if aposImageData -%}
-      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
-      {%- set image = imageData.url -%}
-    {%- else -%}
-      {%- set image = '/img/opengraph.jpg' -%}
-    {%- endif -%}
-  {%- else -%}
-    {%- set image = '/img/opengraph.jpg' -%}
-  {%- endif -%}
-  {#- get hero image end -#}
-
   {%-
     set metadataOptions = {
       title: options.title,
       description: options.description,
       baseUrl: options.baseUrl,
       url: options.url,
-      image: image
+      image: apos.aemUtils.getHeroImageUrlFromMetadata(options),
+      locale: options.locale
     }
   -%}
 
@@ -79,28 +68,14 @@
 {%- endmacro -%}
 
 {%- macro articleMetaData(options) -%}
-  {# TODO: create method to get hero image #}
-  {#- get hero image -#}
-  {%- if options.heroImage -%}
-    {%- set aposImageData = apos.images.first(options.heroImage) -%}
-    {%- if aposImageData -%}
-      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
-      {%- set image = imageData.url -%}
-    {%- else -%}
-      {%- set image = '/img/opengraph.jpg' -%}
-    {%- endif -%}
-  {%- else -%}
-    {%- set image = '/img/opengraph.jpg' -%}
-  {%- endif -%}
-  {#- get hero image end -#}
-
   {%-
     set metadataOptions = {
       title: options.title,
       description: options.description,
       baseUrl: options.baseUrl,
       url: options.url,
-      image: image
+      image: apos.aemUtils.getHeroImageUrlFromMetadata(options),
+      locale: options.locale
     }
   -%}
 
@@ -119,28 +94,14 @@
 {%- endmacro -%}
 
 {% macro bookMetaData(options) %}
-  {# TODO: create method to get hero image #}
-  {#- get hero image -#}
-  {%- if options.heroImage -%}
-    {%- set aposImageData = apos.images.first(options.heroImage) -%}
-    {%- if aposImageData -%}
-      {%- set imageData = apos.aemUtils.getImageBasicData(aposImageData) -%}
-      {%- set image = imageData.url -%}
-    {%- else -%}
-      {%- set image = '/img/opengraph.jpg' -%}
-    {%- endif -%}
-  {%- else -%}
-    {%- set image = '/img/opengraph.jpg' -%}
-  {%- endif -%}
-  {#- get hero image end -#}
-
   {%-
     set metadataOptions = {
       title: options.title,
       description: options.description,
       baseUrl: options.baseUrl,
       url: options.url,
-      image: image
+      image: apos.aemUtils.getHeroImageUrlFromMetadata(options),
+      locale: options.locale
     }
   -%}
 

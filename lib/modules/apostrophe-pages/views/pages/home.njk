@@ -44,7 +44,8 @@
       title: __('global|title'),
       description: __('global|description'),
       url: data.page._url,
-      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl),
+      locale: locale
     })
   }}
 {% endblock %}

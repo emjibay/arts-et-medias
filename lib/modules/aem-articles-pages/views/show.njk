@@ -34,7 +34,8 @@
       section: apos.aemPieces.getArticleSection(__, piece),
       url: piece._url,
       baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl),
-      tags: piece.tags
+      tags: piece.tags,
+      locale: locale
     })
   }}
 {% endblock %}

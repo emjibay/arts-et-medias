@@ -7,6 +7,7 @@
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
 {%- set hasProfilePic = apos.aemPieces.hasProfilePic(piece) -%}
 
@@ -28,7 +29,8 @@
       description: piece.shortDescription,
       heroImage: piece.profilePic,
       url: piece._url,
-      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl),
+      locale: locale
     })
   }}
 {% endblock %}
