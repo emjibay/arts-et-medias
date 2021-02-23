@@ -38,7 +38,7 @@ $showDuration: 300ms;
 
   @media #{$mqTablet} {
     display: none;
-    // TODO: hide menu in js if breakpoint changes
+    // TODO: hide menu in js if breakpoint changes (#95)
   }
 
   .site-title {

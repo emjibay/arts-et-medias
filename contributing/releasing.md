@@ -37,4 +37,4 @@ This project is not a library on which other projects depend. As such, its relea
 
 ### With Changes in Assets or Database
 
-TODO
+TODO ([#82](https://github.com/jansensan/arts-et-medias/issues/82))

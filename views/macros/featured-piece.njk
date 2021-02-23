@@ -81,7 +81,7 @@
 
       <h1>{{ piece.title }}</h1>
 
-      {# FIXME: does not work, get it via institutionIds instead? #}
+      {# FIXME: does not work, get it via institutionIds instead? (#79) #}
       {%- set institution = piece._institution[0] -%}
       <p class="byline">{{ institution.title }}</p>
 

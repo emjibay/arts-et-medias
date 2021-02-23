@@ -8,7 +8,7 @@
     {%- set hasLabel = data.options.hasLabel -%}
   {%- endif -%}
 
-  {# TODO: ensure only one piece should be passed? #}
+  {# TODO: ensure only one piece should be passed? (#84) #}
   {% for piece in data.widget._pieces %}
     {{
       bannerAd(
