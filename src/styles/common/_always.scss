@@ -45,17 +45,17 @@ body {
     [data-apos-widget-wrapper="aem-video"],
     [data-apos-widget-wrapper="apostrophe-images"],
     [data-apos-widget="apostrophe-rich-text"] > .apos-rich-text {
-      outline: $aposGreen dashed 2px;
+      @include cmsOutline();
     }
   }
 
   .apos-empty {
-    outline: $aposGreen dashed 2px;
+    @include cmsOutline();
   }
 }
 
 [data-apos-widget="apostrophe-rich-text"] > [data-rich-text]:focus {
-  outline: $aposGreen dashed 2px;
+  @include cmsOutline();
 }
 
 .apos-modal-body {
