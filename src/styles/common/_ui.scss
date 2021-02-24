@@ -318,3 +318,9 @@
 @mixin aposFocus {
   outline: $aposGreen dotted 2px;
 }
+
+
+// cms
+@mixin cmsOutline($color: $cmsColor) {
+  outline: $color dashed 2px;
+}

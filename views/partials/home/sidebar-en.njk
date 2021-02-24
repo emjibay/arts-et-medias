@@ -7,12 +7,18 @@
 
   {{ sidebarBannerAds(bannerMacroOptions) }}
 
-  {%- if data.when === 'anon' -%}
+  {%- set isAnon = data.when === 'anon' -%}
+  {%- set isNotDraft = not apos.aemUtils.isDraftMode(data) -%}
+  {%- if isAnon or isNotDraft -%}
     <div class="tweets">
       <h3 class="sidebar-heading">
         {{ __('global|tweetsHeading') }}
       </h3>
       {% include "partials/sidebar/twitter-timeline-en.njk" %}
+    </div>
+  {%- else -%}
+    <div class="twitter-removed">
+      <div class="message">{{ __('global|twitterRemovedLabel') }}</div>
     </div>
   {%- endif -%}
 

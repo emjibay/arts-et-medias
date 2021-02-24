@@ -1,7 +1,21 @@
 @import '../common/variables';
+@import '../common/ui';
+
 
 .twitter-timeline-container {
   .twitter-cta {
     margin-top: 25px;
+  }
+}
+
+.twitter-removed {
+  @include cmsOutline($red);
+  background-color: rgba($red, 0.125);
+  padding: 20px;
+
+  .message {
+    font-family: $ffTextBody;
+    font-size: $fsSmol;
+    line-height: 1.25;
   }
 }
