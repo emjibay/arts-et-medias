@@ -3,6 +3,48 @@
 @import '../mixins/mixins';
 
 
+@mixin imageDimensions {
+  $width: getColumnsSpan(6, $phone);
+  $imgWidth: $width;
+  $imgHeight: calc(#{$width} * 0.5);
+  height: $imgHeight;
+  width: $imgWidth;
+  object-fit: cover;
+
+  @media #{$mqTablet} {
+    $width: getColumnsSpan(8, $tablet);
+    $imgWidth: $width;
+    $imgHeight: calc(#{$width} * 0.5);
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+
+  @media #{$mqDesktop} {
+    $width: getColumnsSpan(8, $desktop);
+    $imgWidth: $width;
+    $imgHeight: calc(#{$width} * 0.5);
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+
+  @media #{$mqXL} {
+    $width: getColumnsSpan(8, $xl);
+    $imgWidth: $width;
+    $imgHeight: calc(#{$width} * 0.5);
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+
+  @media #{$mqXXL} {
+    $width: getColumnsSpan(8, $xxl);
+    $imgWidth: $width;
+    $imgHeight: calc(#{$width} * 0.5);
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+}
+
+
 .piece-details {
   .page-heading {
     @include underlinedH1();
@@ -41,44 +83,7 @@
   }
 
   .hero-image {
-    $width: getColumnsSpan(6, $phone);
-    $imgWidth: $width;
-    $imgHeight: calc(#{$width} * 0.5);
-    height: $imgHeight;
-    width: $imgWidth;
-    object-fit: cover;
-
-    @media #{$mqTablet} {
-      $width: getColumnsSpan(8, $tablet);
-      $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.5);
-      height: $imgHeight;
-      width: $imgWidth;
-    }
-
-    @media #{$mqDesktop} {
-      $width: getColumnsSpan(8, $desktop);
-      $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.5);
-      height: $imgHeight;
-      width: $imgWidth;
-    }
-
-    @media #{$mqXL} {
-      $width: getColumnsSpan(8, $xl);
-      $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.5);
-      height: $imgHeight;
-      width: $imgWidth;
-    }
-
-    @media #{$mqXXL} {
-      $width: getColumnsSpan(8, $xxl);
-      $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.5);
-      height: $imgHeight;
-      width: $imgWidth;
-    }
+    @include imageDimensions();
   }
 
   figcaption {
@@ -136,6 +141,14 @@
           white-space: pre;
         }
       }
+    }
+  }
+}
+
+[data-apos-workflow-mode="draft"] {
+  .image-link {
+    img {
+      @include imageDimensions();
     }
   }
 }

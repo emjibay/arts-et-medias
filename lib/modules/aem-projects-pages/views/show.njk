@@ -51,7 +51,13 @@
 {% endblock %}
 
 {% block pageContent %}
-  {{ heroImage(piece, true) }}
+  {{
+    heroImage(
+      piece,
+      true,
+      apos.aemUtils.isDraftMode(data)
+    )
+  }}
 
   <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
   <div class="description rich-description">

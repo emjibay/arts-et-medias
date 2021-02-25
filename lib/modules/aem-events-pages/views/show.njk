@@ -30,7 +30,13 @@
 {% endblock %}
 
 {% block pageContent %}
-  {{ heroImage(piece, true) }}
+  {{
+    heroImage(
+      piece,
+      true,
+      apos.aemUtils.isDraftMode(data)
+    )
+  }}
 
   {%-
     set displayDate = apos.aemDates.buildDisplayDate(

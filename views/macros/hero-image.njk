@@ -1,22 +1,43 @@
-{% macro heroImage(piece, hasCaption = false) %}
-  {%- set aposImageData = apos.images.first(piece.heroImage) -%}
-  {%- if aposImageData -%}
-    {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
-    <figure>
-      <img
-        class="hero-image"
-        src="{{ image.url }}"
-        alt="{{ image.alt }}"
-      />
-      {%- if hasCaption and image.caption -%}
-        {%- if image.credit -%}
-          {%- set captionText = image.caption + '. ' + __('global|imageCreditLabel') + ': ' + image.credit -%}
-        {%- else -%}
-          {%- set captionText = image.caption -%}
-        {%- endif -%}
+{% macro heroImage(piece, hasCaption = false, isEditable = false) %}
+  {%- if isEditable -%}
+    {{
+      apos.singleton(
+        piece,
+        'heroImage',
+        'apostrophe-images',
+        {
+          additionalClasses: ['hero-image'],
+          addLabel: 'Set hero image',
+          controls: {
+            position: 'top-left',
+            movable: false
+          },
+          editLabel: 'Change hero image',
+          limit: 1
+        }
+      )
+    }}
+  {%- else -%}
+    {%- set aposImageData = apos.images.first(piece.heroImage) -%}
+    {%- if aposImageData -%}
+      {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
+      <figure>
+        <img
+          class="hero-image"
+          src="{{ image.url }}"
+          alt="{{ image.alt }}"
+        />
+        {%- if hasCaption and image.caption -%}
+          {%- if image.credit -%}
+            {%- set captionText = image.caption + '. ' + __('global|imageCreditLabel') + ': ' + image.credit -%}
+          {%- else -%}
+            {%- set captionText = image.caption -%}
+          {%- endif -%}
 
-        <figcaption>{{ captionText }}</figcaption>
-      {%- endif -%}
-    </figure>
+          <figcaption>{{ captionText }}</figcaption>
+        {%- endif -%}
+      </figure>
+    {%- endif -%}
   {%- endif -%}
+
 {% endmacro %}

@@ -54,7 +54,13 @@
 {% endblock %}
 
 {% block pageContent %}
-  {{ heroImage(piece, true) }}
+  {{
+    heroImage(
+      piece,
+      true,
+      apos.aemUtils.isDraftMode(data)
+    )
+  }}
 
   <div class="description rich-description">
     {{ contentSection(piece) }}
