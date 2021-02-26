@@ -1582,10 +1582,10 @@ apostrophe-workflow@2.38.2:
     qs "^6.9.1"
     request-promise "^4.2.5"
 
-apostrophe@2.115.0:
-  version "2.115.0"
-  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.115.0.tgz#22e0e4185f5501b92fffe85dab76ea8904615d55"
-  integrity sha512-skO74n20CesuBjj1mhlzb9rsUQFfkJPs7wKFtSRM3CltYZiO9206ydAE5gvxCUN8aeqC80RrmBX7TcsptnSXBQ==
+apostrophe@2.116.0:
+  version "2.116.0"
+  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.116.0.tgz#d3139d9faf1d0ffc8a269c1194e3f224fb1a7a1e"
+  integrity sha512-8nxL9Q5bfX7uk3QSyUlTuC4IEI5c73je76uUEBNy/1BY+W2I4uYdygr7sudmpERnWOHntBx0NDLS+P8wa0hM/Q==
   dependencies:
     "@apostrophecms/nunjucks" "^2.5.4"
     "@sailshq/lodash" "^3.10.4"
