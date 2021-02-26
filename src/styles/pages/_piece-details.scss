@@ -146,9 +146,11 @@
 }
 
 [data-apos-workflow-mode="draft"] {
-  .image-link {
-    img {
-      @include imageDimensions();
+  .piece-details {
+    .image-link {
+      img {
+        @include imageDimensions();
+      }
     }
   }
 }
