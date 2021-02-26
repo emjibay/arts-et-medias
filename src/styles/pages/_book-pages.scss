@@ -2,6 +2,43 @@
 @import '../common/ui';
 
 
+@mixin bookCover {
+  @include heroImageShadow();
+  position: relative;
+  float: left;
+  margin-bottom: getGutterHalfWidth($phone);
+  margin-right: getGutterWidth($phone);
+  margin-top: 45px;
+  width: getColumnsSpan(3, $phone);
+  height: max-content;
+  object-fit: contain;
+
+  @media #{$mqTablet} {
+    margin-bottom: getGutterHalfWidth($tablet);
+    margin-right: getGutterWidth($tablet);
+    width: getColumnsSpan(4, $tablet);
+  }
+
+  @media #{$mqDesktop} {
+    margin-bottom: getGutterHalfWidth($desktop);
+    margin-right: getGutterWidth($desktop);
+    width: getColumnsSpan(4, $desktop);
+  }
+
+  @media #{$mqXL} {
+    margin-bottom: getGutterHalfWidth($xl);
+    margin-right: getGutterWidth($xl);
+    width: getColumnsSpan(4, $xl);
+  }
+
+  @media #{$mqXXL} {
+    margin-bottom: getGutterHalfWidth($xxl);
+    margin-right: getGutterWidth($xxl);
+    width: getColumnsSpan(4, $xxl);
+  }
+}
+
+
 .book-details {
   .page-content {
     margin-top: 0;
@@ -13,36 +50,30 @@
   }
 
   .book-cover {
-    @include heroImageShadow();
-    position: relative;
-    float: left;
-    margin-bottom: getGutterHalfWidth($phone);
-    margin-right: getGutterWidth($phone);
-    margin-top: 45px;
-    width: getColumnsSpan(3, $phone);
+    @include bookCover();
+  }
+}
 
-    @media #{$mqTablet} {
-      margin-bottom: getGutterHalfWidth($tablet);
-      margin-right: getGutterWidth($tablet);
-      width: getColumnsSpan(4, $tablet);
-    }
-
-    @media #{$mqDesktop} {
-      margin-bottom: getGutterHalfWidth($desktop);
-      margin-right: getGutterWidth($desktop);
-      width: getColumnsSpan(4, $desktop);
-    }
-
-    @media #{$mqXL} {
-      margin-bottom: getGutterHalfWidth($xl);
-      margin-right: getGutterWidth($xl);
-      width: getColumnsSpan(4, $xl);
-    }
-
-    @media #{$mqXXL} {
-      margin-bottom: getGutterHalfWidth($xxl);
-      margin-right: getGutterWidth($xxl);
-      width: getColumnsSpan(4, $xxl);
+[data-apos-workflow-mode="draft"] {
+  .book-details {
+    [data-dot-path="heroImage"] {
+      [data-apos-widget-wrapper="apostrophe-images"] {
+        outline: none;
+      }
+      [data-apos-widget="apostrophe-images"] {
+        .apos-ui {
+          position: relative;
+          top: 50px;
+        }
+      }
+      .image-link {
+        img {
+          @include bookCover();
+        }
+      }
+      figcaption {
+        display: none;
+      }
     }
   }
 }

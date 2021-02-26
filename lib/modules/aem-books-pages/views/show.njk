@@ -1,6 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/banner-ad.njk' import leaderboard -%}
+{%- from 'macros/book-cover.njk' import bookCover -%}
 {%- from 'macros/metadata.njk' import bookMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, relatedMedia, relatedOrganizations, relatedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import authorsLinkList, pieceLinkList -%}
@@ -71,7 +72,16 @@
           <div class="page-content">
             {% block pageContent %}
               {# image start #}
+              {{
+                bookCover(
+                  piece,
+                  {
+                    isEditable: apos.aemUtils.isDraftMode(data)
+                  }
+                )
+              }}
               {# TODO: allow edition in context #}
+              {#
               {%- set aposImageData = apos.images.first(piece.heroImage) -%}
               {%- if aposImageData -%}
                 {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
@@ -81,6 +91,7 @@
                   alt="{{ image.alt }}"
                 />
               {%- endif -%}
+               #}
               {# image end #}
 
               <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>

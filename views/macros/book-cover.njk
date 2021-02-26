@@ -1,0 +1,31 @@
+{% macro bookCover(piece, options) %}
+  {%- if options.isEditable -%}
+    {{
+      apos.singleton(
+        piece,
+        'heroImage',
+        'apostrophe-images',
+        {
+          addLabel: 'Set book cover',
+          controls: {
+            position: 'top-left',
+            movable: false
+          },
+          editLabel: 'Change book cover',
+          limit: 1
+        }
+      )
+    }}
+  {%- else -%}
+    {%- set aposImageData = apos.images.first(piece.heroImage) -%}
+    {%- if aposImageData -%}
+      {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
+      <img
+        class="book-cover"
+        src="{{ image.url }}"
+        alt="{{ image.alt }}"
+      />
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+
