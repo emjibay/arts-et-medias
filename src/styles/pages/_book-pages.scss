@@ -56,23 +56,25 @@
 
 [data-apos-workflow-mode="draft"] {
   .book-details {
-    [data-dot-path="heroImage"] {
-      [data-apos-widget-wrapper="apostrophe-images"] {
-        outline: none;
-      }
-      [data-apos-widget="apostrophe-images"] {
-        .apos-ui {
-          position: relative;
-          top: 50px;
+    .page-content {
+      [data-dot-path="heroImage"] {
+        [data-apos-widget-wrapper="apostrophe-images"] {
+          outline: none;
         }
-      }
-      .image-link {
-        img {
-          @include bookCover();
+        [data-apos-widget="apostrophe-images"] {
+          .apos-ui {
+            position: relative;
+            top: 50px;
+          }
         }
-      }
-      figcaption {
-        display: none;
+        .image-link {
+          img {
+            @include bookCover();
+          }
+        }
+        figcaption {
+          display: none;
+        }
       }
     }
   }
