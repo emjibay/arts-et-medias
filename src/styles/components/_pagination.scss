@@ -2,6 +2,7 @@
 @import '../common/ui';
 @import '../mixins/mixins';
 
+
 .apos-pager {
   background-color: transparent !important;
   margin: 40px 0;
@@ -29,7 +30,7 @@
     }
 
     &:hover  {
-      background-color: $almostWhite;
+      background-color: $white;
       border: 1px solid $black;
 
       a {
@@ -73,5 +74,47 @@
     margin-right: 10px;
     padding: 0 10px;
     width: 40px;
+  }
+}
+
+// temp fixes for apos modal
+.apos-modal-footer {
+  .apos-modal-footer-inner {
+    .apos-manage-pager {
+      margin-left: 250px;
+      margin-top: 10px;
+    }
+    .apos-pager-number {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: $cmsColor;
+
+      &.apos-active {
+        background-color: $white;
+        border: 2px solid $cmsColor;
+        color: $cmsColor;
+      }
+
+      &:hover  {
+        background-color: $white;
+        border: 2px solid $cmsColor;
+
+        a {
+          color: $cmsColor;
+        }
+      }
+    }
+    .apos-pager-gap {
+      font-family: Helvetica, Arial, sans-serif;
+      color: $cmsColor;
+    }
+  }
+}
+
+
+[data-apos-workflow-mode="draft"] {
+  .apos-pager-number {
+    &:not(.apos-active) {
+      line-height: 20px;
+    }
   }
 }
