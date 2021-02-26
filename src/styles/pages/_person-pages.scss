@@ -2,9 +2,35 @@
 @import '../common/ui';
 
 
-.people-index {
+@mixin imageDimensions {
+  $imageSize: getColumnsSpan(6, $phone);
+  object-fit: cover;
+  height: $imageSize;
+  width: $imageSize;
 
+  @media #{$mqTablet} {
+    width: getColumnsSpan(4, $tablet);
+    height: getColumnsSpan(4, $tablet);
+  }
+
+  @media #{$mqDesktop} {
+    width: getColumnsSpan(4, $desktop);
+    height: getColumnsSpan(4, $desktop);
+  }
+
+  @media #{$mqXL} {
+    width: getColumnsSpan(4, $xl);
+    height: getColumnsSpan(4, $xl);
+  }
+
+  @media #{$mqXXL} {
+    width: getColumnsSpan(4, $xxl);
+    height: getColumnsSpan(4, $xxl);
+  }
 }
+
+
+.people-index {}
 
 .person-details {
   .profile-pic-container {
@@ -29,31 +55,7 @@
     margin-top: 45px;
 
     .fig-headshot {
-      $imageSize: getColumnsSpan(6, $phone);
-
-      object-fit: cover;
-      height: $imageSize;
-      width: $imageSize;
-
-      @media #{$mqTablet} {
-        width: getColumnsSpan(4, $tablet);
-        height: getColumnsSpan(4, $tablet);
-      }
-
-      @media #{$mqDesktop} {
-        width: getColumnsSpan(4, $desktop);
-        height: getColumnsSpan(4, $desktop);
-      }
-
-      @media #{$mqXL} {
-        width: getColumnsSpan(4, $xl);
-        height: getColumnsSpan(4, $xl);
-      }
-
-      @media #{$mqXXL} {
-        width: getColumnsSpan(4, $xxl);
-        height: getColumnsSpan(4, $xxl);
-      }
+      @include imageDimensions();
     }
 
     .fig-credits{
@@ -63,6 +65,19 @@
       font-style: italic;
       margin: 15px 0 30px 0;
       text-align: right;
+    }
+  }
+}
+
+[data-apos-workflow-mode="draft"] {
+  .sidebar-person-details {
+    .image-link {
+      display: block;
+      margin-top: 45px;
+
+      img {
+        @include imageDimensions();
+      }
     }
   }
 }

@@ -1,4 +1,3 @@
-
 {#
   @param piece: Piece of type 'person'
   @param options: Options object with the following properties:
@@ -6,32 +5,51 @@
     - showIfMissing <boolean>
 #}
 {% macro profilePic(piece, options) %}
-  {%- set aposImageData = apos.images.first(piece.profilePic) -%}
-
-  {%- if options.showIfMissing -%}
-    {%- set shouldRenderImage = true -%}
+  {%- if options.isEditable -%}
+    {{
+      apos.singleton(
+        piece,
+        'profilePic',
+        'apostrophe-images',
+        {
+          addLabel: 'Set profile picture',
+          controls: {
+            position: 'top-left',
+            movable: false
+          },
+          editLabel: 'Change profile picture',
+          limit: 1
+        }
+      )
+    }}
   {%- else -%}
-    {%- set shouldRenderImage = aposImageData -%}
-  {%- endif -%}
+    {%- set aposImageData = apos.images.first(piece.profilePic) -%}
 
-  {%- if shouldRenderImage -%}
-    {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
-    <figure class="fig-profile">
-      <img
-        class="fig-headshot"
-        src="{{ image.url }}"
-        alt="{{ image.alt }}"
-      />
+    {%- if options.showIfMissing -%}
+      {%- set shouldRenderImage = true -%}
+    {%- else -%}
+      {%- set shouldRenderImage = aposImageData -%}
+    {%- endif -%}
 
-      {%- if not options.showCredits -%}
-        {%- set shouldRenderCredits = false -%}
-      {%- else -%}
-        {%- set shouldRenderCredits = image.credit -%}
-      {%- endif -%}
+    {%- if shouldRenderImage -%}
+      {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
+      <figure class="fig-profile">
+        <img
+          class="fig-headshot"
+          src="{{ image.url }}"
+          alt="{{ image.alt }}"
+        />
 
-      {%- if shouldRenderCredits -%}
-        <figcaption class="fig-credits">{{ __('global|imageCreditLabel') }}: {{ image.credit }}</figcaption>
-      {%- endif -%}
-    </figure>
+        {%- if not options.showCredits -%}
+          {%- set shouldRenderCredits = false -%}
+        {%- else -%}
+          {%- set shouldRenderCredits = image.credit -%}
+        {%- endif -%}
+
+        {%- if shouldRenderCredits -%}
+          <figcaption class="fig-credits">{{ __('global|imageCreditLabel') }}: {{ image.credit }}</figcaption>
+        {%- endif -%}
+      </figure>
+    {%- endif -%}
   {%- endif -%}
 {% endmacro %}
