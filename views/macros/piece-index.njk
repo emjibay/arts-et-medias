@@ -100,7 +100,7 @@
   {%- endif -%}
 {%- endmacro -%}
 
-{%- macro bookList(pieces) -%}
+{%- macro bookList(pieces, options) -%}
   {%- if pieces -%}
     <ul class="piece-list book-list">
       {% for piece in pieces %}
@@ -116,6 +116,11 @@
                 {% for author in piece._author %}
                   <li>
                     <p>{{ author.title }}</p>
+                  </li>
+                {% endfor %}
+                {% for editor in piece._editor %}
+                  <li>
+                    <p>{{ editor.title }} ({{ options.editorLabel }})</p>
                   </li>
                 {% endfor %}
               </ul>

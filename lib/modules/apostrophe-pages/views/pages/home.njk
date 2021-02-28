@@ -212,6 +212,11 @@
                 {{ seeAllBooksCTA() }}
               </div>
 
+              {%-
+                set bookListOptions = {
+                  editorLabel: __('books|editorAbbreviation')
+                }
+              -%}
               {%- if apos.aemPieces.hasFeaturedBook(data) -%}
                 <div class="featured-piece">
                   {% include "partials/books/featured.njk" %}
@@ -225,7 +230,7 @@
                       2
                     )
                   -%}
-                  {{ bookList(recentBooks) }}
+                  {{ bookList(recentBooks, bookListOptions) }}
                 </div>
               {%- else -%}
                 <div class="latest-pieces sans-feature">
@@ -236,7 +241,7 @@
                       4
                     )
                   -%}
-                  {{ bookList(recentBooks) }}
+                  {{ bookList(recentBooks, bookListOptions) }}
                 </div>
               {%- endif -%}
 
