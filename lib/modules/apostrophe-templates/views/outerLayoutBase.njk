@@ -32,7 +32,9 @@
         <div class="apos-ui">
           <div class="apos-context-menu-container">
             {{ apos.templates.prepended('contextMenu') }}
-            {{ apos.pages.menu({ contextMenu: data.contextMenu, page: data.page, bottom: true })}}
+            {%- if apos.aemUsers.isUserAdmin(data.user) -%}
+              {{ apos.pages.menu({ contextMenu: data.contextMenu, page: data.page, bottom: true })}}
+            {%- endif -%}
             {{ apos.pages.publishMenu({ publishMenu: data.publishMenu, page: data.page, piece: data.piece, bottom: true }) }}
             {{ apos.templates.appended('contextMenu') }}
           </div>

@@ -1,0 +1,225 @@
+{% import 'apostrophe-ui:components/dropdowns.html' as dropdowns with context -%}
+
+
+{%- set isAdmin = apos.aemUsers.isUserAdmin(data.user)-%}
+{%- set isCollaborator = apos.aemUsers.isUserCollaborator(data.user)-%}
+{%- set isGuest = apos.aemUsers.isUserGuest(data.user)-%}
+
+
+{%- if not isGuest -%}
+  {%-
+    set collaboratorMenuItems = [
+      {
+        "menu": true,
+        "items": [
+          {
+            "name": "apostrophe-global",
+            "label": "Global",
+            "permission": "admin-apostrophe-global",
+            "options": {},
+            "menuLeader": "apostrophe-global"
+          },
+          {
+            "name": "apostrophe-tags",
+            "label": "Tags",
+            "permission": "",
+            "options": {},
+            "menuLeader": "apostrophe-global"
+          },
+          {
+            "name": "apostrophe-workflow-manage-modal",
+            "label": "Submitted",
+            "options": {},
+            "menuLeader": "apostrophe-global"
+          }
+        ],
+        "leader": {
+          "name": "apostrophe-global",
+          "label": "Global",
+          "permission": "admin-apostrophe-global",
+          "options": {},
+          "menuLeader": "apostrophe-users"
+        },
+        "label": "Admin"
+      },
+      {
+        "menu": true,
+        "items": [
+          {
+            "name": "apostrophe-images",
+            "label": "Images",
+            "permission": "edit-apostrophe-image",
+            "options": {},
+            "menuLeader": "apostrophe-images"
+          }
+        ],
+        "leader": {
+          "name": "apostrophe-images",
+          "label": "Images",
+          "permission": "edit-apostrophe-image",
+          "options": {},
+          "menuLeader": "apostrophe-images"
+        },
+        "label": "Files"
+      },
+      {
+        "menu": true,
+        "items": [
+          {
+            "name": "aem-persons",
+            "label": "People",
+            "permission": "edit-person",
+            "options": {},
+            "menuLeader": "aem-persons"
+          },
+          {
+            "name": "aem-organizations",
+            "label": "Organizations",
+            "permission": "edit-organization",
+            "options": {},
+            "menuLeader": "aem-persons"
+          },
+          {
+            "name": "aem-media",
+            "label": "Medias",
+            "permission": "edit-media",
+            "options": {},
+            "menuLeader": "aem-persons"
+          }
+        ],
+        "leader": {
+          "name": "aem-persons",
+          "label": "People",
+          "permission": "edit-person",
+          "options": {},
+          "menuLeader": "aem-persons"
+        },
+        "label": "People and Organizations"
+      },
+      {
+        "menu": true,
+        "items": [
+          {
+            "name": "aem-education",
+            "label": "Academic programs",
+            "permission": "edit-education",
+            "options": {},
+            "menuLeader": "aem-education"
+          },
+          {
+            "name": "aem-articles",
+            "label": "Articles",
+            "permission": "edit-article",
+            "options": {},
+            "menuLeader": "aem-education"
+          },
+          {
+            "name": "aem-banner-ads",
+            "label": "Banner Ads",
+            "permission": "edit-banner",
+            "options": {},
+            "menuLeader": "aem-education"
+          },
+          {
+            "name": "aem-books",
+            "label": "Books",
+            "permission": "edit-book",
+            "options": {},
+            "menuLeader": "aem-education"
+          },
+          {
+            "name": "aem-events",
+            "label": "Events",
+            "permission": "edit-event",
+            "options": {},
+            "menuLeader": "aem-education"
+          },
+          {
+            "name": "aem-projects",
+            "label": "Projects",
+            "permission": "edit-project",
+            "options": {},
+            "menuLeader": "aem-education"
+          }
+        ],
+        "leader": {
+          "name": "aem-education",
+          "label": "Academic programs",
+          "permission": "edit-education",
+          "options": {},
+          "menuLeader": "aem-education"
+        },
+        "label": "Content Pieces"
+      },
+      {
+        "name": "apostrophe-login-logout",
+        "label": "Log Out",
+        "permission": null,
+        "options": {
+          "last": true,
+          "href": "/logout"
+        }
+      }
+    ]
+  -%}
+
+  {%- if isAdmin -%}
+    {%- set menuItems = data.items -%}
+  {%- else -%}
+    {%- set menuItems = collaboratorMenuItems -%}
+  {%- endif -%}
+
+  <div class="apos-ui">
+    <div class="apos-admin-bar apos-text-meta" data-apos-admin-bar>
+      <div class="apos-admin-bar-inner">
+        <div class="apos-admin-bar-logo" data-apos-admin-bar-logo data-apos-actionable="data-apos-admin-bar">
+          {% include 'logo.html' %}
+        </div>
+
+        {% for item in menuItems %}
+          <div class="apos-admin-bar-item">
+            {% if item.menu %}
+              {# Please do not remove data-apos-admin-bar-dropdown as nightwatch tests require it. -Tom #}
+              <div
+                class="apos-dropdown apos-dropdown--admin apos-dropdown--down"
+                data-apos-dropdown="down"
+                data-apos-actionable
+                data-apos-dropdown-name="{{ item.items[0].name }}"
+              >
+            {% endif %}
+            <div class="apos-admin-bar-item-inner"
+              {%- if not item.menu %} data-apos-admin-bar-item="{{ item.name }}"
+              {%- endif -%}
+            >
+            {%- if item.options.href -%}
+              <a href="{{ apos.prefix }}{{ item.options.href }}">
+            {%- endif -%}
+              {{ __ns('apostrophe', item.label | d('')) }}
+            {%- if item.options.href -%}
+              </a>
+            {%- endif -%}
+            </div>
+            {% if item.menu %}
+              <ul class="apos-dropdown-items" data-apos-dropdown-items>
+                {% for subItem in item.items %}
+                  <li class="apos-dropdown-item" data-apos-admin-bar-item="{{ subItem.name }}">
+                    {%- if subItem.options.href -%}
+                      <a href="{{ apos.prefix }}{{ subItem.options.href }}">
+                    {%- endif -%}
+                    {{ __ns('apostrophe', subItem.label | d('')) }}
+                    {%- if subItem.options.href -%}
+                      </a>
+                    {%- endif -%}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+            {% if item.menu %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
