@@ -71,7 +71,6 @@
 
           <div class="page-content">
             {% block pageContent %}
-              {# image start #}
               {{
                 bookCover(
                   piece,
@@ -80,19 +79,6 @@
                   }
                 )
               }}
-              {# TODO: allow edition in context #}
-              {#
-              {%- set aposImageData = apos.images.first(piece.heroImage) -%}
-              {%- if aposImageData -%}
-                {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
-                <img
-                  class="book-cover"
-                  src="{{ image.url }}"
-                  alt="{{ image.alt }}"
-                />
-              {%- endif -%}
-               #}
-              {# image end #}
 
               <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
               <div class="description rich-description">
@@ -149,6 +135,9 @@
                   <dd>{{ pieceLinkList(piece._translator) }}</dd>
                 {%- endif -%}
               </dl>
+
+              {# projets #}
+              {{ relatedPieces(__('projects|related'), piece._relatedProjects) }}
 
               {# articles #}
               {{ relatedPieces(__('articles|related'), piece._articles) }}

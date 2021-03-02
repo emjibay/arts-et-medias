@@ -100,6 +100,9 @@
     {%- endif -%}
   </dl>
 
+  {# projets #}
+  {{ relatedPieces(__('projects|related'), piece._relatedProjects) }}
+
   {# articles #}
   {%- set relatedArticles = apos.aemArrays.merge(piece._relatedArticles, piece._articles) -%}
   {{ relatedPieces(__('articles|related'), relatedArticles) }}

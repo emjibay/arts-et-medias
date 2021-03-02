@@ -3,7 +3,7 @@
 {%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedContent, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedContent, relatedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
@@ -79,6 +79,30 @@
     <dt>{{ __('pieceDetails|yearPublishedLabel') }}</dt>
     <dd>{{ piece.yearPublished }}</dd>
   </dl>
+
+  {# articles #}
+  {{
+    relatedPieces(
+      __('articles|related'),
+      piece._articlesMentioned
+    )
+  }}
+
+  {# books #}
+  {{
+    relatedPieces(
+      __('books|related'),
+      piece._booksMentioned
+    )
+  }}
+
+  {# events #}
+  {{
+    relatedPieces(
+      __('events|related'),
+      piece._eventsMentioned
+    )
+  }}
 
   {{ relatedContent(piece) }}
 

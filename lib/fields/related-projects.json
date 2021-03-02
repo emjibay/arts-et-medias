@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Related Projects",
+    "name": "_relatedProjects",
+    "type": "joinByArray",
+    "withType": ["project"],
+    "filters": {
+      "projection": {
+        "_url": 1,
+        "title": 1
+      }
+    }
+  }
+]
