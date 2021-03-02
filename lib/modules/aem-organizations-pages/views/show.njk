@@ -64,6 +64,14 @@
 
   <hr class="separator"/>
 
+  {# projects #}
+  {{
+    relatedPieces(
+      __('pieceDetails|projectsCreatorLabel'),
+      piece._projects
+    )
+  }}
+
   {# articles #}
   {%-
     set relatedArticles = apos.aemArrays.merge(
