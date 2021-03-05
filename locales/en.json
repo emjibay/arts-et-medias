@@ -570,8 +570,11 @@
   "notFound": {
     "heading": "Page Not Found",
     "paragraph1": "We're sorry. We couldn't find the page you're looking for.",
-    "paragraph2": "We do have a few suggestions for you below.",
-    "stillNotSatistfied": "Still unable to find what you are looking for?",
+    "searchHeading": "Search",
+    "searchParagraph": "Try searching for the content you were initially looking for, similar content may pop up.",
+    "suggestionsHeading": "Suggestions",
+    "suggestionsParagraph": "We do have a few suggestions for you below.",
+    "stillNotSatisfied": "Still unable to find what you are looking for?",
     "helpUsCTA": "Consider contributing to help us maintain this site up to date."
   },
   "error": {

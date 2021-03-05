@@ -45,5 +45,31 @@
     @media #{$mqDesktop} {
       margin: 50px 0;
     }
+
+    &.search {
+      .search-input {
+        @include textInput();
+        @include nColumnWidth(4);
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .search-button {
+        @include gutterLeftMargin();
+        @include button();
+        @include nColumnWidth(2);
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 20px;
+
+        .icon {
+          display: none;
+        }
+
+        .label {
+          @include cancelVisuallyHidden();
+        }
+      }
+    }
   }
 }

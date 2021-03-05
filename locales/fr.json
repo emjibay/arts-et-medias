@@ -570,8 +570,11 @@
   "notFound": {
     "heading": "Page introuvable",
     "paragraph1": "Nous sommes désolé, nous n'avons pu trouver ce que vous recherchez.",
-    "paragraph2": "Nous avons quelques suggestions pour vous ci-dessous.",
-    "stillNotSatistfied": "Vous ne trouvez toujours pas ce que vous cherchez ?",
+    "searchHeading": "Recherche",
+    "searchParagraph": "Essayez de rechercher le contenu que vous recherchiez au départ, des résultats similaires pourraient vous intéresser.",
+    "suggestionsHeading": "Suggestions",
+    "suggestionsParagraph": "Nous avons quelques suggestions pour vous ci-dessous.",
+    "stillNotSatisfied": "Vous ne trouvez toujours pas ce que vous cherchez ?",
     "helpUsCTA": "Peut-être avez-vous quelque chose à contribuer ? Veuillez considérer nous aider afin de maintenir le contenu du site à jour."
   },
   "error": {

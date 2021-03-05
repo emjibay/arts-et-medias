@@ -21,6 +21,9 @@
         type="search"
         name="q"
         placeholder="{{ __('search|placeholder') }}"
+        {%- if options.fieldValue -%}
+          value="{{ options.fieldValue }}"
+        {%- endif -%}
       />
       {%- if options.type -%}
         <input

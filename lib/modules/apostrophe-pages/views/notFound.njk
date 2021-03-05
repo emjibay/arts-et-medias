@@ -16,10 +16,24 @@
       <h1>{{ __('notFound|heading') }}</h1>
       <div class="subheading">
         <p>{{ __('notFound|paragraph1') }}</p>
-        <p>{{ __('notFound|paragraph2') }}</p>
       </div>
 
+      <section class="suggested-content search">
+        <h2>{{ __('notFound|searchHeading') }}</h2>
+        <p>{{ __('notFound|searchParagraph') }}</p>
+        {{
+          searchInput({
+            id: 'notFoundSearchInput',
+            fieldValue: apos.aemUtils.urlToSearchValue(data.url),
+            label: __('search|buttonLabel')
+          })
+        }}
+      </section>
+
       <section class="suggested-content">
+        <h2>{{ __('notFound|suggestionsHeading') }}</h2>
+        <p>{{ __('notFound|suggestionsParagraph') }}</p>
+
         <div class="column">
           {%- set latestArticle = data.articlesByMostRecent[0] -%}
           {{
@@ -43,7 +57,7 @@
       </section>
 
       <section class="suggested-content">
-        <h2>{{ __('notFound|stillNotSatistfied') }}</h2>
+        <h2>{{ __('notFound|stillNotSatisfied') }}</h2>
         <p>{{ __('notFound|helpUsCTA') }}</p>
         <a
           class="website-cta"
