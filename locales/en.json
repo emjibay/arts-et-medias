@@ -551,7 +551,9 @@
     "resultsLabel": "Search results",
     "resultsDetails": "Showing results for \"%s\"",
     "noResultsLabel": "There are no results for \"%s\".",
-    "noResultsSuggestion": "Try checking your spelling or use more general terms."
+    "noResultsSuggestion": "Try checking your spelling or use more general terms.",
+    "filterLabel": "Filter results by type",
+    "filterAllLabel": "All"
   },
   "login": {
     "heading": "Editors' Corner",

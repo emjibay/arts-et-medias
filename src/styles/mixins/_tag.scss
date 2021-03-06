@@ -1,0 +1,45 @@
+@import '../common/variables';
+
+
+@mixin tagList {
+  margin: 20px 0;
+
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+@mixin staticTag {
+  display: inline-block;
+  background-color: $halfGrey;
+  border: 1px solid transparent;
+  color: $almostWhite;
+  font-family: $ffButtonLabel;
+  font-size: 8pt;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.25pt;
+  line-height: 1;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+@mixin tagOnHover {
+  &:hover {
+    background-color: $almostWhite;
+    border: 1px solid $main;
+    color: $main;
+  }
+}
+
+@mixin clickableTag {
+  @include staticTag();
+  @include tagOnHover();
+}

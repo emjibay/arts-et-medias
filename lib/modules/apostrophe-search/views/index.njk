@@ -4,8 +4,29 @@
 {%- from 'macros/piece-index.njk' import pieceListWithType -%}
 
 
+{% macro filterTab(options) %}
+  {%- if options.numResults -%}
+    <li class="list-item">
+      {%- if options.isActive -%}
+        <span class="search-tab active">{{ options.label }} ({{ options.numResults }})</span>
+      {%- else -%}
+        <a
+          class="search-tab"
+          href="{{ options.url }}"
+        >{{ options.label }} ({{ options.numResults }})</a>
+      {%- endif -%}
+    </li>
+  {%- endif -%}
+{% endmacro %}
+
+
+{%- set buildFilteredUrl = apos.aemSearchUtils.buildFilteredUrl -%}
+{%- set getNumFiltersWithResults = apos.aemSearchUtils.getNumFiltersWithResults -%}
+{%- set getNumResultsPerType = apos.aemSearchUtils.getNumResultsPerType -%}
+
 {%- set hasQuery = data.query !== null and data.query.q !== '' and data.query.q !== undefined -%}
-{%- set numResults = data.docs|length -%}
+{%- set results = getNumResultsPerType(data) -%}
+{%- set numFiltersWithResults = getNumFiltersWithResults(data) -%}
 
 
 {% block title %}
@@ -91,7 +112,7 @@
 
           <div class="page-content">
             <section class="search-results">
-              {%- if numResults -%}
+              {%- if data.docs|length -%}
                 {%- if hasQuery -%}
                   <h2 class="title">{{ __('search|resultsLabel') }}</h2>
                   {%- if data.query.q -%}
@@ -107,6 +128,89 @@
                 {%- else -%}
                   <h2 class="title">{{ __('search|heading') }}</h2>
                 {%- endif -%}
+
+                {# search filters #}
+                {%- if numFiltersWithResults -%}
+                  <div class="search-filter-tabs">
+                    <div class="filter-tabs-label">{{ __('search|filterLabel') }}</div>
+                    <ul class="search-filter-list">
+                      {{
+                        filterTab({
+                          label: __('search|filterAllLabel'),
+                          url: buildFilteredUrl(data),
+                          numResults: data.totalDocs,
+                          isActive: data.activeFilter === ''
+                        })
+                      }}
+                      {{
+                        filterTab({
+                          label: __('articles|plural'),
+                          url: buildFilteredUrl(data, 'article'),
+                          numResults: results.numArticles,
+                          isActive: data.activeFilter === 'article'
+                        })
+                      }}
+                      {{
+                        filterTab({
+                          label: __('books|plural'),
+                          url: buildFilteredUrl(data, 'book'),
+                          numResults: results.numBooks,
+                          isActive: data.activeFilter === 'book'
+                        })
+                      }}
+                      {{
+                        filterTab({
+                          label: __('projects|plural'),
+                          url: buildFilteredUrl(data, 'project'),
+                          numResults: results.numProjects,
+                          isActive: data.activeFilter === 'project'
+                        })
+                      }}
+                      {{
+                        filterTab({
+                          label: __('events|plural'),
+                          url: buildFilteredUrl(data, 'event'),
+                          numResults: results.numEvents,
+                          isActive: data.activeFilter === 'event'
+                        })
+                      }}
+                      {{
+                        filterTab({
+                          label: __('people|plural'),
+                          url: buildFilteredUrl(data, 'person'),
+                          numResults: results.numPeople,
+                          isActive: data.activeFilter === 'person'
+                        })
+                      }}
+                      {{
+                        filterTab({
+                          label: __('organizations|plural'),
+                          url: buildFilteredUrl(data, 'organization'),
+                          numResults: results.numOrgs,
+                          isActive: data.activeFilter === 'organization'
+                        })
+                      }}
+                      {{
+                        filterTab({
+                          label: __('media|plural'),
+                          url: buildFilteredUrl(data, 'media'),
+                          numResults: results.numMedia,
+                          isActive: data.activeFilter === 'media'
+                        })
+                      }}
+                      {{
+                        filterTab({
+                          label: __('education|plural'),
+                          url: buildFilteredUrl(data, 'education'),
+                          numResults: results.numAcademia,
+                          isActive: data.activeFilter === 'education'
+                        })
+                      }}
+                    </ul>
+                  </div>
+                {%- endif -%}
+                {# search filters end #}
+
                 {{ pieceListWithType(data.docs) }}
                 {% include "pager.html" %}
               {%- else -%}

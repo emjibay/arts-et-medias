@@ -551,7 +551,9 @@
     "resultsLabel": "Résultats des recherches",
     "resultsDetails": "Résultats pour « %s »",
     "noResultsLabel": "Aucun résultat pour « %s ».",
-    "noResultsSuggestion": "Assurez-vous de vérifier votre orthographe ou utilisez des termes plus généraux."
+    "noResultsSuggestion": "Assurez-vous de vérifier votre orthographe ou utilisez des termes plus généraux.",
+    "filterLabel": "Filtrer les résultats par type",
+    "filterAllLabel": "Tous"
   },
   "login": {
     "heading": "Le coin des éditeurs",

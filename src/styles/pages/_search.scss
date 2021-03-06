@@ -1,5 +1,6 @@
-@import "../common/variables";
-@import "../common/ui";
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
 
 
 .page-search {
@@ -86,6 +87,36 @@
 
     .title {
       @include heading1();
+    }
+  }
+
+  .search-filter-tabs {
+    margin-top: 50px;
+
+    .filter-tabs-label {
+      @include inputLabel();
+    }
+
+    .search-filter-list {
+      .list-item {
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 10px;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+
+      .search-tab {
+        @include clickableTag();
+        text-transform: lowercase;
+
+        &.active {
+          background-color: $main;
+          color: $almostWhite;
+        }
+      }
     }
   }
 
