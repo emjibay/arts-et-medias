@@ -56,6 +56,28 @@
         }
       }
     }
+
+    .search-tips {
+      .heading {
+        @include paragraph();
+        cursor: pointer;
+        font-size: $fsVerySmol;
+      }
+
+      .search-tips-list {
+        @include list();
+
+        .list-item {
+          @include unorderedListItem();
+          @include paragraph();
+          font-size: $fsVerySmol;
+
+          em {
+            font-weight: bold;
+          }
+        }
+      }
+    }
   }
 
   // results

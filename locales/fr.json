@@ -553,7 +553,12 @@
     "noResultsLabel": "Aucun résultat pour « %s ».",
     "noResultsSuggestion": "Assurez-vous de vérifier votre orthographe ou utilisez des termes plus généraux.",
     "filterLabel": "Filtrer les résultats par type",
-    "filterAllLabel": "Tous"
+    "filterAllLabel": "Tous",
+    "tipsHeading": "Conseils pour chercher",
+    "tips": [
+      "Si vous souhaitez chercher pour une expression, assurez-vous de l'écrire entre guillemets dactylographiques, ex. : <em>\"nouveaux arts médiatiques\"</em>",
+      "Si vous souhaitez exclure un mot de la recherche, précédez-le d'un tiret, ex. : <em>nouveaux -médias</em>"
+    ]
   },
   "login": {
     "heading": "Le coin des éditeurs",

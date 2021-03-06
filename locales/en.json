@@ -553,7 +553,12 @@
     "noResultsLabel": "There are no results for \"%s\".",
     "noResultsSuggestion": "Try checking your spelling or use more general terms.",
     "filterLabel": "Filter results by type",
-    "filterAllLabel": "All"
+    "filterAllLabel": "All",
+    "tipsHeading": "Tips for searching",
+    "tips": [
+      "If you wish to search for an expression, ensure to wrap it in double quotes, e.g. <em>\"new media art\"</em>",
+      "If you wish to exclude a term, use a dash before that term, e.g. <em>robot -art</em>"
+    ]
   },
   "login": {
     "heading": "Editors' Corner",
