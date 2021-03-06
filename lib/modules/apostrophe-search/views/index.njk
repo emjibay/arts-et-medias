@@ -79,35 +79,6 @@
                 </span>
               </button>
             </fieldset>
-
-            {#
-              TODO: filters should sort results (#73)
-
-              {% if data.filters %}
-                <fieldset>
-                  <legend class="filter-legend">
-                    {{ __ns('apostrophe', 'Filter Results By Type') }}
-                  </legend>
-                  <ul class="filter-list">
-                    {% for filter in data.filters %}
-                      <li class="list-item">
-                        <input
-                          data-apos-search-filter
-                          class="filter-option"
-                          type="checkbox"
-                          name="{{ filter.name | e }}"
-                          {% if filter.value %}checked{% endif %}
-                          value="1"
-                        />
-                        <span class="filter-option-label">
-                          {{ filter.label | e }}
-                        </span>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </fieldset>
-              {% endif %}
-            #}
           </form>
 
           <div class="page-content">
