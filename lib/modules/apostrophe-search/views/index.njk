@@ -132,7 +132,7 @@
                 {# search filters #}
                 {%- if numFiltersWithResults -%}
                   <div class="search-filter-tabs">
-                    <div class="filter-tabs-label">{{ __('search|filterLabel') }}</div>
+                    <div class="filter-legend">{{ __('search|filterLabel') }}</div>
                     <ul class="search-filter-list">
                       {{
                         filterTab({
@@ -229,7 +229,7 @@
             </section>
           </div>
 
-          {% include "partials/sidebar/sidebar.njk" %}
+            {% include "partials/sidebar/sidebar.njk" %}
         </article>
       </main>
     </div>
