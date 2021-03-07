@@ -7,9 +7,11 @@
 
   {{ sidebarBannerAds(bannerMacroOptions) }}
 
+
   {%- set isAnon = data.when === 'anon' -%}
   {%- set isNotDraft = not apos.aemUtils.isDraftMode(data) -%}
-  {%- if isAnon or isNotDraft -%}
+  {%- set isNotLocal = not apos.aemUtils.isLocal(data) -%}
+  {%- if (isAnon or isNotDraft) and isNotLocal -%}
     <div class="tweets">
       <h3 class="sidebar-heading">
         {{ __('global|tweetsHeading') }}
