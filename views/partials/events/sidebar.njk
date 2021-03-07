@@ -6,27 +6,31 @@
     {{
       containedSidebarBanners({
         data: data,
-        propName: 'mediaSidebarBanners1',
+        propName: 'eventsSidebarBanners1',
         hasTopSeparator: false,
         hasBottomSeparator: false
       })
     }}
 
-    {% include "partials/media/in-this-section-en.njk" %}
-    {% include "partials/books/related-en.njk" %}
+    {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
+      {% include "partials/events/featured.njk" %}
+      <hr class="separator no-mb" />
+    {%- endif -%}
 
     {{
       containedSidebarBanners({
         data: data,
-        propName: 'mediaSidebarBanners2',
+        propName: 'eventsSidebarBanners2',
         hasTopSeparator: false,
-        hasBottomSeparator: false
+        hasBottomSeparator: true
       })
     }}
 
+    {% include "partials/events/in-this-section.njk" %}
+
     <hr class="separator" />
 
-    {% include "partials/media/search-en.njk" %}
+    {% include "partials/events/search.njk" %}
 
     <hr class="separator" />
 

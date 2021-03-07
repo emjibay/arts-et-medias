@@ -75,8 +75,8 @@
 {% block sidebar %}
   {%- set isCollective = data.page.withTags.includes('collective') -%}
   {%- if isCollective -%}
-    {% include "partials/people/sidebar-index-en.njk" %}
+    {% include "partials/people/sidebar-index.njk" %}
   {%- else -%}
-    {% include "partials/organizations/sidebar-en.njk" %}
+    {% include "partials/organizations/sidebar.njk" %}
   {%- endif -%}
 {% endblock %}

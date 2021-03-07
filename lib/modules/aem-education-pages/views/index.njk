@@ -67,10 +67,10 @@
 
 {% block sidebar %}
   {%- if hasTags -%}
-    {% include "partials/education/sidebar-en.njk" %}
+    {% include "partials/education/sidebar.njk" %}
   {%- elseif isFirstPage -%}
-    {% include "partials/education/sidebar-no-feature-en.njk" %}
+    {% include "partials/education/sidebar-no-feature.njk" %}
   {%- else -%}
-    {% include "partials/education/sidebar-en.njk" %}
+    {% include "partials/education/sidebar.njk" %}
   {%- endif -%}
 {% endblock %}

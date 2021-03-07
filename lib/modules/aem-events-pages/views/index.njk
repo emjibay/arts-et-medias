@@ -67,10 +67,10 @@
 
 {% block sidebar %}
   {%- if hasTags -%}
-    {% include "partials/events/sidebar-en.njk" %}
+    {% include "partials/events/sidebar.njk" %}
   {%- elseif isFirstPage -%}
-    {% include "partials/events/sidebar-no-feature-en.njk" %}
+    {% include "partials/events/sidebar-no-feature.njk" %}
   {%- else -%}
-    {% include "partials/events/sidebar-en.njk" %}
+    {% include "partials/events/sidebar.njk" %}
   {%- endif -%}
 {% endblock %}

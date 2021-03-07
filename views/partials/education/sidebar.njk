@@ -6,31 +6,32 @@
     {{
       containedSidebarBanners({
         data: data,
-        propName: 'eventsSidebarBanners1',
+        propName: 'educationSidebarBanners1',
         hasTopSeparator: false,
         hasBottomSeparator: false
       })
     }}
 
-    {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
-      {% include "partials/events/featured.njk" %}
+    {%- if apos.aemPieces.hasFeaturedEducation(data) -%}
+      {% include "partials/education/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}
 
     {{
       containedSidebarBanners({
         data: data,
-        propName: 'eventsSidebarBanners2',
+        propName: 'educationSidebarBanners2',
         hasTopSeparator: false,
         hasBottomSeparator: true
       })
     }}
 
-    {% include "partials/events/in-this-section-en.njk" %}
+    {% include "partials/education/in-this-section.njk" %}
+    {% include "partials/education/related.njk" %}
 
     <hr class="separator" />
 
-    {% include "partials/events/search-en.njk" %}
+    {% include "partials/education/search.njk" %}
 
     <hr class="separator" />
 
