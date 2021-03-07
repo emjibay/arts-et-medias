@@ -1,0 +1,50 @@
+{#
+  @param options (object)
+  - id (string)
+  - ariaLabel (string)
+  - label (string) Optional
+  - hasVisibleLabel (string) Optional
+#}
+{% macro navItemCaret(options) %}
+  {# id #}
+  {%- set buttonId = options.id + 'Button' -%}
+
+  {# css classes #}
+  {%- if options.hasVisibleLabel -%}
+    {%- set buttonClassList = 'nav-item-btn with-label' -%}
+    {%- set labelClassList = 'label uppercase' -%}
+  {%- else -%}
+    {%- set buttonClassList = 'nav-item-btn' -%}
+    {%- set labelClassList = 'label sr-only' -%}
+  {%- endif -%}
+
+  {# label and aria-label #}
+  {%- if options.label -%}
+    {%- set buttonLabel = options.label -%}
+  {%- else -%}
+    {%- set buttonLabel = options.ariaLabel -%}
+  {%- endif -%}
+
+  <button
+    id="{{ buttonId }}"
+    class="{{ buttonClassList }}"
+    aria-expanded="false"
+    data-content-id="{{ options.id }}"
+    {%- if options.hasVisibleLabel -%}
+      aria-label="{{ options.ariaLabel }}"
+    {%- endif -%}
+  >
+    <span class="{{ labelClassList }}">{{ buttonLabel }}</span>
+    <span class="caret">
+      {% include "/svg/icon-caret-down.svg" %}
+    </span>
+  </button>
+{% endmacro %}
+
+{% macro pieceIndexLink(type, anchorId) %}
+  <a
+    id="{{ anchorId }}"
+    href="{{ __(type + '|url') }}"
+    class="nav-link"
+  >{{ __(type + '|heading') }}</a>
+{% endmacro %}
