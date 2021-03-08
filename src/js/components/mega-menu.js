@@ -3,12 +3,19 @@ const breakpointModel = require('../models/breakpoints-model');
 
 // id mapping
 const contentIds = [
+  // v1
   'mmArticles',
   'mmEvents',
   'mmMedia',
   'mmPeople',
   'mmOrgs',
   'mmEducation',
+  // v2
+  'mmDiscover',
+  'mmVisit',
+  'mmRead',
+  'mmLearn',
+  // constant
   'mmSearch',
   'mmLangSwitch',
 ];

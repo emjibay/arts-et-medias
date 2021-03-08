@@ -1,0 +1,61 @@
+{%- from 'macros/featured-piece.njk' import featuredEvent -%}
+{%- from 'macros/mega-menu.njk' import eventList, orgList, hideMegaMenuButton, seeAllCTA -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
+<section
+  id="mmVisit"
+  class="visit-section"
+>
+  <div class="mm-col">
+    {# TODO: handle featured gallery #}
+    {{
+      orgList(
+        data.organizationsByMostRecent,
+        'galleries',
+        locale
+      )
+    }}
+  </div>
+
+  <div class="mm-col">
+    {{
+      orgList(
+        data.organizationsByMostRecent,
+        'artCenters',
+        locale
+      )
+    }}
+  </div>
+
+  <div class="mm-col">
+    {{
+      orgList(
+        data.organizationsByMostRecent,
+        'makerSpaces',
+        locale
+      )
+    }}
+  </div>
+
+  <div class="mm-col">
+    {# TODO: handle featured festival #}
+    {{
+      eventList({
+        pieces: data.ongoingAndFutureEvents,
+        heading: __('events|categories|festivals|next'),
+        category: 'festivals',
+        locale: locale
+      })
+    }}
+  </div>
+
+  {# TODO: handle conferences #}
+
+  <div class="mm-footer">
+    <hr class="separator" />
+    {{ hideMegaMenuButton('mmVisit') }}
+  </div>
+</section>

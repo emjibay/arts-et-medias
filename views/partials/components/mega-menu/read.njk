@@ -1,0 +1,92 @@
+{%- from 'macros/featured-piece.njk' import featuredArticle -%}
+{%- from 'macros/mega-menu.njk' import mediaList, hideMegaMenuButton, seeAllCTA -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set hasFeaturedBook = apos.aemPieces.hasFeaturedBook(data) -%}
+
+
+{% macro recentlyAddedArticles(category) %}
+  {%- set cat = 'articles|categories|' + category + '|' -%}
+  {%- set tags = __(cat + 'tags') -%}
+  {%- set list = apos.aemPieces.getWithTags(data.articlesByMostRecent, tags) -%}
+  {%- set list = apos.aemArrays.truncate(list, 2) -%}
+
+  <div class="list-container">
+    <div class="list-heading">{{ __(cat + 'recentlyAdded') }}</div>
+    <ul class="list">
+      {% for listItem in list %}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >{{ listItem.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{
+      seeAllCTA(
+        __(cat + 'seeAllCTA'),
+        __(cat + 'url')
+      )
+    }}
+  </div>
+{% endmacro %}
+
+
+<section
+  id="mmRead"
+  class="articles-section"
+>
+  <div class="mm-col">
+    {% include "partials/articles/featured.njk" %}
+  </div>
+
+  {%- if not hasFeaturedBook -%}
+    <div class="mm-col">
+      {{ recentlyAddedArticles('news') }}
+      {{ recentlyAddedArticles('reviews') }}
+    </div>
+
+    <div class="mm-col">
+      {{ recentlyAddedArticles('essays') }}
+      {{ recentlyAddedArticles('interviews') }}
+    </div>
+  {%- else -%}
+    <div class="mm-col">
+      {{
+        mediaList({
+          heading: __('articles|recentlyAdded'),
+          pieces: data.articlesByMostRecent,
+          numPieces: 4,
+          ctaLabel: __('articles|seeAllCTA'),
+          ctaUrl: __('articles|url')
+        })
+      }}
+    </div>
+  {%- endif -%}
+
+  {%- if hasFeaturedBook -%}
+    <div class="mm-col">
+      {% include "partials/books/featured.njk" %}
+    </div>
+  {%- endif -%}
+
+  <div class="mm-col">
+    {{
+      mediaList({
+        heading: __('books|recentlyAdded'),
+        pieces: data.booksByMostRecent,
+        numPieces: 4,
+        ctaLabel: __('books|seeAllCTA'),
+        ctaUrl: __('books|url')
+      })
+    }}
+  </div>
+
+  <div class="mm-footer">
+    <hr class="separator" />
+
+    {{ hideMegaMenuButton('mmRead') }}
+  </div>
+</section>

@@ -1,0 +1,78 @@
+{% extends "layouts/subjectPageLayout.njk" %}
+
+
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/cta.njk' import seeAllCTA -%}
+{%- from 'macros/piece-index.njk' import recentlyAdded, recentlyAddedProjects -%}
+
+
+{% block pageContent %}
+  {%- set hasContent = data.page.bodyContent and data.page.bodyContent|length -%}
+  {%- if hasContent or apos.aemUtils.isDraftMode(data) -%}
+    <div class="rich-preamble">
+      {{ contentSection(data.page) }}
+    </div>
+  {%- endif -%}
+
+  <section class="subject-section projects">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('projects|heading') }}</h2>
+    </div>
+    <div class="featured-piece">
+      {% include "partials/projects/featured.njk" %}
+    </div>
+    {{
+      recentlyAddedProjects(
+        __('projects|recentlyAdded'),
+        data.projectsByMostRecent,
+        []
+      )
+    }}
+    {{
+      seeAllCTA(
+        __('projects|seeAllCTA'),
+        __('projects|url')
+      )
+    }}
+  </section>
+
+  <section class="subject-section creators">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('people|categories|creators|title') }}</h2>
+    </div>
+    {{
+      recentlyAdded(
+        __('people|categories|creators|recentlyAdded'),
+        data.peopleByMostRecent,
+        __('people|categories|creators|tags'),
+        4
+      )
+    }}
+    {{
+      seeAllCTA(
+        __('people|categories|creators|seeAllCTA'),
+        __('people|categories|creators|url')
+      )
+    }}
+  </section>
+
+  <section class="subject-section collectives">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('organizations|categories|collectives|title') }}</h2>
+    </div>
+    {{
+      recentlyAdded(
+        __('organizations|categories|collectives|recentlyAdded'),
+        data.organizationsByMostRecent,
+        __('organizations|categories|collectives|tags'),
+        4
+      )
+    }}
+    {{
+      seeAllCTA(
+        __('organizations|categories|collectives|seeAllCTA'),
+        __('organizations|categories|collectives|url')
+      )
+    }}
+  </section>
+{% endblock %}

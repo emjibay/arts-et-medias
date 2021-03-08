@@ -1,0 +1,82 @@
+{% extends "layouts/subjectPageLayout.njk" %}
+
+
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/cta.njk' import seeAllCTA -%}
+{%- from 'macros/piece-index.njk' import eventList -%}
+{%- from 'macros/piece-index.njk' import recentlyAdded -%}
+
+
+{% block pageContent %}
+  {%- set hasContent = data.page.bodyContent and data.page.bodyContent|length -%}
+  {%- if hasContent or apos.aemUtils.isDraftMode(data) -%}
+    <div class="rich-preamble">
+      {{ contentSection(data.page) }}
+    </div>
+  {%- endif -%}
+
+  {%-
+    set workshops = apos.aemPieces.getWithTags(
+      data.ongoingAndFutureEvents,
+      __('events|categories|workshops|tags')
+    )
+  -%}
+  {%- set nextWorkshops = apos.aemArrays.truncate(workshops, 4) -%}
+  {%- if nextWorkshops|length -%}
+    <section class="subject-section workshops">
+      <div class="section-heading">
+        <h2 class="h2">{{ __('events|categories|workshops|nextOrOngoing') }}</h2>
+      </div>
+      {{ eventList(nextWorkshops, locale) }}
+      {{
+        seeAllCTA(
+          __('events|categories|workshops|seeAllCTA'),
+          __('events|categories|workshops|url')
+        )
+      }}
+    </section>
+  {%- endif -%}
+
+  <section class="subject-section undergrad">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('education|categories|undergrad|title') }}</h2>
+    </div>
+    {{
+      recentlyAdded(
+        __('education|categories|undergrad|recentlyAdded'),
+        data.educationByMostRecent,
+        __('education|categories|undergrad|tags'),
+        4
+      )
+    }}
+    {{
+      seeAllCTA(
+        __('education|categories|undergrad|seeAllCTA'),
+        __('education|categories|undergrad|url')
+      )
+    }}
+  </section>
+
+  <section class="subject-section grad">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('education|categories|masters|title') }}</h2>
+    </div>
+    {{
+      recentlyAdded(
+        __('education|categories|masters|recentlyAdded'),
+        data.educationByMostRecent,
+        __('education|categories|masters|tags'),
+        4
+      )
+    }}
+    {{
+      seeAllCTA(
+        __('education|categories|masters|seeAllCTA'),
+        __('education|categories|masters|url')
+      )
+    }}
+  </section>
+
+  <section class="subject-section institutions">
+  </section>
+{% endblock %}

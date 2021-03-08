@@ -1,0 +1,125 @@
+{% extends "layouts/subjectPageLayout.njk" %}
+
+
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/cta.njk' import seeAllCTA -%}
+{%- from 'macros/piece-index.njk' import eventList -%}
+{%- from 'macros/piece-index.njk' import recentlyAdded -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set numPieces = 4 -%}
+
+
+{% block pageContent %}
+  {%- set hasContent = data.page.bodyContent and data.page.bodyContent|length -%}
+  {%- if hasContent or apos.aemUtils.isDraftMode(data) -%}
+    <div class="rich-preamble">
+      {{ contentSection(data.page) }}
+    </div>
+  {%- endif -%}
+
+  <section class="subject-section galleries">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('organizations|categories|galleries|title') }}</h2>
+    </div>
+    {{
+      recentlyAdded(
+        __('organizations|categories|galleries|recentlyAdded'),
+        data.organizationsByMostRecent,
+        __('organizations|categories|galleries|tags'),
+        numPieces
+      )
+    }}
+    {{
+      seeAllCTA(
+        __('organizations|categories|galleries|seeAllCTA'),
+        __('organizations|categories|galleries|url')
+      )
+    }}
+  </section>
+
+  <section class="subject-section art-centers">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('organizations|categories|artCenters|title') }}</h2>
+    </div>
+    {{
+      recentlyAdded(
+        __('organizations|categories|artCenters|recentlyAdded'),
+        data.organizationsByMostRecent,
+        __('organizations|categories|artCenters|tags'),
+        numPieces
+      )
+    }}
+    {{
+      seeAllCTA(
+        __('organizations|categories|artCenters|seeAllCTA'),
+        __('organizations|categories|artCenters|url')
+      )
+    }}
+  </section>
+
+  <section class="subject-section maker-spaces">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('organizations|categories|makerSpaces|title') }}</h2>
+    </div>
+    {{
+      recentlyAdded(
+        __('organizations|categories|makerSpaces|recentlyAdded'),
+        data.organizationsByMostRecent,
+        __('organizations|categories|makerSpaces|tags'),
+        numPieces
+      )
+    }}
+    {{
+      seeAllCTA(
+        __('organizations|categories|makerSpaces|seeAllCTA'),
+        __('organizations|categories|makerSpaces|url')
+      )
+    }}
+  </section>
+
+  {%-
+    set festivals = apos.aemPieces.getFirstNWithTags(
+      data.ongoingAndFutureEvents,
+      numPieces,
+      __('events|categories|festivals|tags')
+    )
+  -%}
+  {%- if festivals|length -%}
+    <section class="subject-section festivals">
+      <div class="section-heading">
+        <h2 class="h2">{{ __('events|categories|festivals|nextOrOngoing') }}</h2>
+      </div>
+      {{ eventList(festivals, locale) }}
+      {{
+        seeAllCTA(
+          __('events|categories|festivals|seeAllCTA'),
+          __('events|categories|festivals|url')
+        )
+      }}
+    </section>
+  {%- endif -%}
+
+  {%-
+    set conferences = apos.aemPieces.getFirstNWithTags(
+      data.ongoingAndFutureEvents,
+      numPieces,
+      __('events|categories|conferences|tags')
+    )
+  -%}
+  {%- if conferences|length -%}
+    <section class="subject-section conferences">
+      <div class="section-heading">
+        <h2 class="h2">{{ __('events|categories|conferences|nextOrOngoing') }}</h2>
+      </div>
+      {{ eventList(conferences, locale) }}
+      {{
+        seeAllCTA(
+          __('events|categories|conferences|seeAllCTA'),
+          __('events|categories|conferences|url')
+        )
+      }}
+    </section>
+  {%- endif -%}
+{% endblock %}

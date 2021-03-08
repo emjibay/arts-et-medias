@@ -36,6 +36,7 @@ $hideDuration: 480ms;
   width: 100%;
   z-index: 1;
 
+  // TODO: use class name instead of element directly
   section {
     display: none;
 
@@ -262,23 +263,80 @@ $hideDuration: 480ms;
           }
         }
       }
-    }
 
-    .website-cta {
-      @include anchor();
+      &.col-3 {
+        .list-item {
+          @media #{$mqDesktop} {
+            $col: getColumnWidth($desktop);
+            $halfCol: calc(#{$col} / 2);
+            .profile-pic-container {
+              .fig-headshot {
+                width: $halfCol;
+                height: $halfCol;
+              }
+            }
+            .person-details {
+              width: 160px;
+              .person-description {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+              }
+            }
+          }
+
+          @media #{$mqXL} {
+            $col: getColumnWidth($desktop);
+            $halfCol: calc(#{$col} / 2);
+            $quarterCol: calc(#{$halfCol} / 2);
+            .profile-pic-container {
+              .fig-headshot {
+                width: $halfCol;
+                height: $halfCol;
+              }
+            }
+            .person-details {
+              width: 200px;
+              margin-left: $quarterCol;
+            }
+          }
+
+          @media #{$mqXXL} {
+            $col: getColumnWidth($desktop);
+            $halfCol: calc(#{$col} / 2);
+            $quarterCol: calc(#{$halfCol} / 2);
+            .profile-pic-container {
+              .fig-headshot {
+                width: $halfCol;
+                height: $halfCol;
+              }
+            }
+            .person-details {
+              width: 240px;
+              margin-left: $quarterCol;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .website-cta {
+    @include anchor();
+    background-color: transparent;
+    border: none;
+    color: $black;
+    height: 25px;
+    line-height: 1;
+    padding: 0;
+
+    &:hover {
       background-color: transparent;
       border: none;
-      color: $black;
-      height: 25px;
-      line-height: 1;
-      padding: 0;
-
-      &:hover {
-        background-color: transparent;
-        border: none;
-        color: $main;
-        text-decoration: none;
-      }
+      color: $main;
+      text-decoration: none;
     }
   }
 

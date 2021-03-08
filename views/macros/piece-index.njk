@@ -148,7 +148,7 @@
 
 {%- macro educationList(pieces, locale) -%}
   {%- if pieces -%}
-    <ul class="piece-list">
+    <ul class="piece-list education-list">
       {% for piece in pieces %}
         <li class="list-item">
           <a
@@ -182,7 +182,7 @@
 
 {%- macro eventList(pieces, locale) -%}
   {%- if pieces -%}
-    <ul class="piece-list">
+    <ul class="piece-list event-list">
       {% for piece in pieces %}
         <li class="list-item">
           <a
@@ -220,7 +220,7 @@
 #}
 {%- macro organizationList(pieces, options) -%}
   {%- if pieces -%}
-    <ul class="piece-list">
+    <ul class="piece-list org-list">
       {% for piece in pieces %}
         <li class="list-item">
           <a
@@ -250,7 +250,7 @@
 
 {%- macro projectList(pieces) -%}
   {%- if pieces -%}
-    <ul class="piece-list">
+    <ul class="piece-list project-list">
       {% for piece in pieces %}
         <li class="list-item">
           <a
@@ -314,10 +314,11 @@
 {%- endmacro -%}
 
 {# recently added #}
-{% macro recentlyAdded(label, pieces, tags = []) %}
+{% macro recentlyAdded(label, pieces, tags = [], amount = 2) %}
   {%-
-    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+    set recentlyAdded = apos.aemPieces.getFirstNWithTags(
       pieces,
+      amount,
       tags
     )
   -%}

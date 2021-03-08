@@ -1,3 +1,121 @@
+{%- from 'macros/piece-details.njk' import truncatedDescription -%}
+{%- from 'macros/profile-pic.njk' import profilePic -%}
+
+
+{# --- UI MACROS --- #}
+
+{% macro hideMegaMenuButton(contentId) %}
+  <button
+    type="button"
+    class="hide-mega-menu-button"
+    aria-label="{{ __('megaMenu|hideMenuCTA') }} - {{ __('megaMenu|hideMenuAriaLabel') }}"
+    data-content-id="{{ contentId }}"
+  >{{ __('megaMenu|hideMenuCTA') }}</button>
+{% endmacro %}
+
+{% macro seeAllCTA(label, url) %}
+  <div class="see-all-cta">
+    <a
+      class="website-cta"
+      href="{{ url }}"
+    >{{ label }}</a>
+  </div>
+{% endmacro %}
+
+
+{# --- PIECES MACROS #}
+
+{#
+  @param options (object)
+    - pieces (array)
+    - heading (string)
+    - category (string)
+    - locale (string)
+ #}
+{%- macro eventList(options) -%}
+  {%- set cat = 'events|categories|' + options.category + '|' -%}
+  {%- set tags = __(cat + 'tags') -%}
+
+  {%- set list = apos.aemPieces.getWithTags(options.pieces, tags) -%}
+  {%- set list = apos.aemArrays.truncate(list, 3) -%}
+
+  <div class="list-container">
+    <div class="list-heading">{{ options.heading }}</div>
+    <ul class="list">
+      {% for listItem in list %}
+        {%-
+          set displayDate = apos.aemDates.buildDisplayDate(
+            listItem.startDate,
+            listItem.endDate,
+            options.locale
+          )
+        -%}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >
+            <span class="piece-title">{{ listItem.title }}</span>
+            <br>
+            {%- set localizedCountry = apos.aemI18n.getCountry(listItem.country, options.locale) -%}
+            <span>{{ listItem.city }}, {{ localizedCountry }}, {{ displayDate }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{
+      seeAllCTA(
+        __(cat + 'seeAllCTA'),
+        __(cat + 'url')
+      )
+    }}
+  </div>
+{%- endmacro -%}
+
+{#
+  @param options (object)
+    - heading (string)
+    - pieces (array)
+    - numPieces (number)
+    - ctaLabel (string)
+    - ctaUrl (string)
+ #}
+{%- macro mediaList(options) -%}
+  {%- set list = apos.aemArrays.truncate(options.pieces, options.numPieces) -%}
+
+  <div class="list-container">
+    <div class="list-heading">{{ options.heading }}</div>
+    <ul class="list">
+      {% for listItem in list %}
+        {%- if listItem.type === 'book' -%}
+          {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
+          {%- set authorList = apos.aemAuthors.getListFromBook(listItem, editorAbbreviation) -%}
+        {%- else -%}
+          {%- set authorList = apos.aemAuthors.getListFromPiece(listItem) -%}
+        {%- endif -%}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >
+            <cite class="piece-title">{{ listItem.title }}</cite>
+            <br>
+            <span>
+              {{
+                apos.aemI18n.replace(
+                  __('pieceDetails|byline'),
+                  [{ pattern: '%s', str: authorList }]
+                )
+              }}
+            </span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{ seeAllCTA(options.ctaLabel, options.ctaUrl) }}
+  </div>
+{%- endmacro -%}
+
 {%- macro orgList(pieces, category, locale) -%}
   {%- if (pieces and pieces.length > 0) -%}
     {%- set cat = 'organizations|categories|' + category + '|' -%}
@@ -32,20 +150,92 @@
   {%- endif -%}
 {%- endmacro -%}
 
-{% macro hideMegaMenuButton(contentId) %}
-  <button
-    type="button"
-    class="hide-mega-menu-button"
-    aria-label="{{ __('megaMenu|hideMenuCTA') }} - {{ __('megaMenu|hideMenuAriaLabel') }}"
-    data-content-id="{{ contentId }}"
-  >{{ __('megaMenu|hideMenuCTA') }}</button>
-{% endmacro %}
+{% macro peopleList(pieces, category) %}
+  {%- set cat = 'people|categories|' + category + '|' -%}
+  {%- set tags = __(cat + 'tags') -%}
+  {%- set list = apos.aemPieces.getWithTags(pieces, tags) -%}
+  {%- set list = apos.aemArrays.truncate(list, 3) -%}
 
-{% macro seeAllCTA(label, url) %}
-  <div class="see-all-cta">
-    <a
-      class="website-cta"
-      href="{{ url }}"
-    >{{ label }}</a>
+  <div class="list-container">
+    <div class="list-heading">{{ __(cat + 'recentlyAdded') }}</div>
+    <ul class="people-list col-3">
+      {% for listItem in list %}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >
+            <div class="profile-pic-container">
+              {{
+                profilePic(
+                  listItem,
+                  {
+                    showCredits: false,
+                    showIfMissing: true
+                  }
+                )
+              }}
+            </div>
+            <div class="person-details">
+              <div class="person-name">
+                {{ listItem.title }}
+              </div>
+              <div class="person-description">
+                {{
+                  truncatedDescription(
+                    listItem,
+                    {
+                      alwaysTruncate: true,
+                      numChars: 75
+                    }
+                  )
+                }}
+              </div>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 {% endmacro %}
+
+{#
+  @param options (object)
+    - pieces (array)
+    - category (string)
+    - locale (string)
+ #}
+{%- macro programList(options) -%}
+  {%- set cat = 'education|categories|' + options.category + '|' -%}
+  {%- set tags = __(cat + 'tags') -%}
+  {%- set list = apos.aemPieces.getWithTags(options.pieces, tags) -%}
+  {%- set list = apos.aemArrays.truncate(list, 3) -%}
+
+  <div class="list-container">
+    <div class="list-heading">{{ __(cat + 'recentlyAdded') }}</div>
+    <ul class="list">
+      {% for listItem in list %}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >
+            <span class="piece-title">{{ listItem.title }}</span>
+            <br>
+            {%- set institution = listItem._institution[0] -%}
+            <span>{{ institution.title }}</span>
+            <br>
+            {%- set localizedCountry = apos.aemI18n.getCountry(institution.country, options.locale) -%}
+            <span>{{ institution.city }}, {{ localizedCountry }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{
+      seeAllCTA(
+        __(cat + 'seeAllCTA'),
+        __(cat + 'url')
+      )
+    }}
+  </div>
+{%- endmacro -%}

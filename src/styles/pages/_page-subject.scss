@@ -1,0 +1,93 @@
+@import '../common/variables';
+@import '../mixins/mixins';
+
+
+.page-subject {
+  .rich-preamble {
+    margin-bottom: 75px;
+  }
+
+  .section-heading {
+    position: relative;
+    margin-bottom: 40px;
+
+    .see-all-cta {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .subject-section {
+    margin-bottom: 100px;
+  }
+
+  .featured-piece {
+    &.book {
+      @media #{$mqTablet} {
+        margin-bottom: 75px;
+
+        .image-content {
+          display: inline-block;
+          vertical-align: top;
+          margin-top: 10px;
+        }
+        .hero-image {
+          @include heroImageFullHeight(4);
+        }
+        .text-content {
+          @include nColumnWidth(4);
+          @include gutterLeftMargin();
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+
+  .piece-list {
+    @media #{$mqTablet} {
+      .list-item:nth-child(n + 3) {
+        margin-top: 40px;
+      }
+    }
+
+    &.event-list,
+    &.book-list {
+      margin-top: 0;
+
+      .list-item {
+        margin-bottom: 0;
+      }
+    }
+
+    .piece-card {
+      &.book {
+        .hero-image {
+          @include heroImageContainedInSquare(6);
+        }
+        @media #{$mqTablet} {
+          .hero-image {
+            @include heroImageContainedInSquare(4);
+          }
+        }
+        @media #{$mqDesktop} {
+          $halfGutter: getGutterHalfWidth($desktop);
+          .image-content {
+            position: relative;
+            float: left;
+            margin-right: $halfGutter;
+            margin-bottom: $halfGutter;
+          }
+          .hero-image {
+            @include heroImageFullHeight(2);
+          }
+        }
+      }
+    }
+  }
+
+  .see-all-cta {
+    margin-top: 75px;
+  }
+}

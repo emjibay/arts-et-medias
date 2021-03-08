@@ -1,0 +1,79 @@
+{% extends "layouts/subjectPageLayout.njk" %}
+
+
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/cta.njk' import seeAllCTA -%}
+{%- from 'macros/piece-index.njk' import articleList, bookList -%}
+
+
+{% block pageContent %}
+  {%- set hasContent = data.page.bodyContent and data.page.bodyContent|length -%}
+  {%- if hasContent or apos.aemUtils.isDraftMode(data) -%}
+    <div class="rich-preamble">
+      {{ contentSection(data.page) }}
+    </div>
+  {%- endif -%}
+
+  <section class="subject-section articles">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('articles|heading') }}</h2>
+    </div>
+    <div class="featured-piece">
+      {% include "partials/articles/featured.njk" %}
+    </div>
+    <div class="recently-added-articles">
+      <h3 class="content-type-heading">
+        {{ __('articles|recentlyAdded') }}
+      </h3>
+      {%-
+        set recentArticles = apos.aemPieces.getFirstN(
+          data.articlesByMostRecent,
+          4
+        )
+      -%}
+      {{ articleList(recentArticles, locale) }}
+    </div>
+    {{
+      seeAllCTA(
+        __('articles|seeAllCTA'),
+        __('articles|url')
+      )
+    }}
+  </section>
+
+  <section class="subject-section books">
+    <div class="section-heading">
+      <h2 class="h2">{{ __('books|heading') }}</h2>
+    </div>
+
+    {%- if apos.aemPieces.hasFeaturedBook(data) -%}
+      <div class="featured-piece book">
+        {% include "partials/books/featured.njk" %}
+      </div>
+    {%- endif -%}
+
+    <div class="recently-added-books">
+      <h3 class="content-type-heading">
+        {{ __('books|recentlyAdded') }}
+      </h3>
+      {%-
+        set recentBooks = apos.aemPieces.getFirstN(
+          data.booksByMostRecent,
+          4
+        )
+      -%}
+      {%-
+        set bookListOptions = {
+          editorLabel: __('books|editorAbbreviation')
+        }
+      -%}
+      {{ bookList(recentBooks, bookListOptions) }}
+    </div>
+    {{
+      seeAllCTA(
+        __('books|seeAllCTA'),
+        __('books|url')
+      )
+    }}
+  </section>
+{% endblock %}

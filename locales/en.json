@@ -22,13 +22,19 @@
   },
   "headerNav": {
     "mmArticlesToggle": "Toggles articles mega menu panel",
-    "mmEventsToggle":  "Toggles events mega menu panel",
-    "mmMediaToggle":  "Toggles projects and media mega menu panel",
-    "mmPeopleToggle":  "Toggles people mega menu panel",
-    "mmOrgsToggle":  "Toggles organizations mega menu panel",
-    "mmEducationToggle":  "Toggles academia mega menu panel",
-    "mmLangSwitchToggle":  "Toggles language switch mega menu panel",
-    "mmSearchToggle":  "Toggles search mega menu panel"
+    "mmEventsToggle": "Toggles events mega menu panel",
+    "mmMediaToggle": "Toggles projects and media mega menu panel",
+    "mmPeopleToggle": "Toggles people mega menu panel",
+    "mmOrgsToggle": "Toggles organizations mega menu panel",
+    "mmEducationToggle": "Toggles academia mega menu panel",
+
+    "mmDiscoverToggle": "Toggles discover mega menu panel",
+    "mmVisitToggle": "Toggles visit mega menu panel",
+    "mmReadToggle": "Toggles read mega menu panel",
+    "mmLearnToggle": "Toggles learn mega menu panel",
+
+    "mmSearchToggle": "Toggles search mega menu panel",
+    "mmLangSwitchToggle": "Toggles language switch mega menu panel"
   },
   "megaMenu": {
     "hideMenuCTA": "Hide Menu",
@@ -284,8 +290,8 @@
         "title": "Conferences",
         "url": "/events/conferences",
         "recentlyAdded": "Recently Added Conferences",
-        "next": "Next Conferences",
-        "nextOrOngoing": "Next or Ongoing Conferences",
+        "next": "Upcoming Conferences",
+        "nextOrOngoing": "Ongoing or Upcoming Conferences",
         "related": "Related Conferences",
         "seeAllCTA": "See All Conferences",
         "tags": ["conference"]
@@ -294,8 +300,8 @@
         "title": "Exhibits",
         "url": "/events/exhibits",
         "recentlyAdded": "Recently Added Exhibits",
-        "next": "Next Exhibits",
-        "nextOrOngoing": "Next or Ongoing Exhibits",
+        "next": "Upcoming Exhibits",
+        "nextOrOngoing": "Ongoing or Upcoming Exhibits",
         "related": "Related Exhibits",
         "seeAllCTA": "See All Exhibits",
         "tags": ["exhibit", "vernissage"]
@@ -304,8 +310,8 @@
         "title": "Festivals",
         "url": "/events/festivals",
         "recentlyAdded": "Recently Added Festivals",
-        "next": "Next Festivals",
-        "nextOrOngoing": "Next or Ongoing Festivals",
+        "next": "Upcoming Festivals",
+        "nextOrOngoing": "Ongoing or Upcoming Festivals",
         "related": "Related Festivals",
         "seeAllCTA": "See All Festivals",
         "tags": ["festival", "biennale", "triennale"]
@@ -314,8 +320,8 @@
         "title": "Workshops",
         "url": "/events/workshops",
         "recentlyAdded": "Recently Added Workshops",
-        "next": "Next Workshops",
-        "nextOrOngoing": "Next or Ongoing Workshops",
+        "next": "Upcoming Workshops",
+        "nextOrOngoing": "Ongoing or Upcoming Workshops",
         "related": "Related Workshops",
         "seeAllCTA": "See All Workshops",
         "tags": ["workshop"]
@@ -512,6 +518,26 @@
     "home": {
       "title": "Home",
       "url": "/en/"
+    },
+    "discover": {
+      "title": "Discover",
+      "url": "/en/discover"
+    },
+    "read": {
+      "title": "Read",
+      "url": "/en/read"
+    },
+    "visit": {
+      "title": "Visit",
+      "url": "/en/visit"
+    },
+    "learn": {
+      "title": "Learn",
+      "url": "/en/learn"
+    },
+    "contribute": {
+      "title": "Contribute",
+      "url": "/en/help"
     },
     "about": {
       "title": "About",

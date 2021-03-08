@@ -130,7 +130,7 @@
                     set ongoingAndFutureFestivals = apos.aemPieces.getFirstNWithTags(
                       data.ongoingAndFutureEvents,
                       2,
-                      ['festival']
+                      __('events|categories|festivals|tags')
                     )
                   -%}
                   {{ eventList(ongoingAndFutureFestivals, locale) }}
@@ -145,7 +145,7 @@
                     set ongoingAndFutureFestivals = apos.aemPieces.getFirstNWithTags(
                       data.ongoingAndFutureEvents,
                       2,
-                      ['festival']
+                      __('events|categories|festivals|tags')
                     )
                   -%}
                   {{ eventList(ongoingAndFutureFestivals, locale) }}
@@ -158,7 +158,7 @@
                     set recentlyAddedFestivals = apos.aemPieces.getFirstNWithTags(
                       data.eventsByMostRecent,
                       2,
-                      ['festival']
+                      __('events|categories|festivals|tags')
                     )
                   -%}
                   {{ eventList(recentlyAddedFestivals, locale) }}

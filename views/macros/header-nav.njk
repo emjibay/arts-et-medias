@@ -41,6 +41,14 @@
   </button>
 {% endmacro %}
 
+{% macro pageLink(label, anchorId, pageUrl) %}
+  <a
+    id="{{ anchorId }}"
+    href="{{ pageUrl }}"
+    class="nav-link"
+  >{{ label }}</a>
+{% endmacro %}
+
 {% macro pieceIndexLink(type, anchorId) %}
   <a
     id="{{ anchorId }}"

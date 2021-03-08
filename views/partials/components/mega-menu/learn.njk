@@ -1,0 +1,109 @@
+{%- from 'macros/mega-menu.njk' import orgList, programList, hideMegaMenuButton, seeAllCTA -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+{%-
+  set workshops = apos.aemPieces.getWithTags(
+    data.ongoingAndFutureEvents,
+    __('events|categories|workshops|tags')
+  )
+-%}
+{%- set nextWorkshops = apos.aemArrays.truncate(workshops, 3) -%}
+
+{%- if nextWorkshops|length -%}
+  {%- set colClassList = 'mm-col' -%}
+{%- else -%}
+  {%- set colClassList = 'mm-col-3' -%}
+{%- endif -%}
+
+
+{%- macro workshopList(pieces, heading) -%}
+  <div class="list-container">
+    <div class="list-heading">{{ heading }}</div>
+    <ul class="list">
+      {% for listItem in pieces %}
+        {%-
+          set displayDate = apos.aemDates.buildDisplayDate(
+            listItem.startDate,
+            listItem.endDate,
+            locale
+          )
+        -%}
+        <li>
+          <a
+            class="list-item"
+            href="{{ listItem._url }}"
+          >
+            <span class="piece-title">{{ listItem.title }}</span>
+            <br>
+            {%- set localizedCountry = apos.aemI18n.getCountry(listItem.country, locale) -%}
+            <span>{{ listItem.city }}, {{ localizedCountry }}, {{ displayDate }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{
+      seeAllCTA(
+        __('events|categories|workshops|seeAllCTA'),
+        __('events|categories|workshops|url')
+      )
+    }}
+  </div>
+{%- endmacro -%}
+
+
+<section
+  id="mmLearn"
+  class="learn-section"
+>
+  {%- if workshops|length -%}
+    {# TODO: handle featured workshop #}
+    <div class="mm-col">
+      {{
+        workshopList(
+          workshops,
+          __('events|categories|workshops|next')
+        )
+      }}
+    </div>
+  {%- endif -%}
+
+  <div class="{{ colClassList }}">
+    {# TODO: handle featured undergrad program #}
+    {{
+      programList({
+        pieces: data.educationByMostRecent,
+        category: 'undergrad',
+        locale: locale
+      })
+    }}
+  </div>
+
+  <div class="{{ colClassList }}">
+    {# TODO: handle featured masters program #}
+    {{
+      programList({
+        pieces: data.educationByMostRecent,
+        category: 'masters',
+        locale: locale
+      })
+    }}
+  </div>
+
+  <div class="{{ colClassList }}">
+    {# TODO: handle featured academic institution #}
+    {{
+      orgList(
+        data.organizationsByMostRecent,
+        'academicInstitutions',
+        locale
+      )
+    }}
+  </div>
+
+  <div class="mm-footer">
+    <hr class="separator" />
+    {{ hideMegaMenuButton('mmLearn') }}
+  </div>
+</section>

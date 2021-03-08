@@ -1,0 +1,41 @@
+{% extends "layouts/layout.njk" %}
+
+{% import 'apostrophe-pager:macros.html' as pager with context %}
+
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
+{%- from 'macros/piece-index.njk' import pieceList -%}
+
+
+{% block title %}
+  {{ data.page.title }} | {{ __('global|title') }}
+{% endblock %}
+
+{% block metadata %}
+  {{
+    minimalMetaData({
+      title: data.page.title,
+      url: piece._url,
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
+    })
+  }}
+{% endblock %}
+
+{% block main %}
+  <div class="page-index page-subject {% block mainAdditionalClasses %}{% endblock %}">
+    <div class="content">
+      <main id="main" tabindex="-1">
+        <article>
+          <h1 class="page-heading">{% block pageTitle %}{{ data.page.title }}{% endblock %}</h1>
+
+          <div class="page-content">
+            {% block pageContent %}{% endblock %}
+          </div>
+
+          {% block sidebar %}
+            {% include "partials/sidebar/sidebar.njk" %}
+          {% endblock %}
+        </article>
+      </main>
+    </div>
+  </div>
+{% endblock %}

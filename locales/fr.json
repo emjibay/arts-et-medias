@@ -22,13 +22,19 @@
   },
   "headerNav": {
     "mmArticlesToggle": "Bascule la visibilité du panneau de menu des articles",
-    "mmEventsToggle":  "Bascule la visibilité du panneau de menu des événements",
-    "mmMediaToggle":  "Bascule la visibilité du panneau de menu des projets et des médias",
-    "mmPeopleToggle":  "Bascule la visibilité du panneau de menu des personnes",
-    "mmOrgsToggle":  "Bascule la visibilité du panneau de menu des organisations",
-    "mmEducationToggle":  "Bascule la visibilité du panneau de menu des sujets académiques",
-    "mmLangSwitchToggle":  "Bascule la visibilité du panneau de menu de changement de langue",
-    "mmSearchToggle":  "Bascule la visibilité du panneau de menu de recherche"
+    "mmEventsToggle": "Bascule la visibilité du panneau de menu des événements",
+    "mmMediaToggle": "Bascule la visibilité du panneau de menu des projets et des médias",
+    "mmPeopleToggle": "Bascule la visibilité du panneau de menu des personnes",
+    "mmOrgsToggle": "Bascule la visibilité du panneau de menu des organisations",
+    "mmEducationToggle": "Bascule la visibilité du panneau de menu des sujets académiques",
+
+    "mmDiscoverToggle": "Bascule la visibilité du panneau de menu de découverte",
+    "mmVisitToggle": "Bascule la visibilité du panneau de menu de visite",
+    "mmReadToggle": "Bascule la visibilité du panneau de menu de lecture",
+    "mmLearnToggle": "Bascule la visibilité du panneau de menu d'apprentissage",
+
+    "mmLangSwitchToggle": "Bascule la visibilité du panneau de menu de changement de langue",
+    "mmSearchToggle": "Bascule la visibilité du panneau de menu de recherche"
   },
   "megaMenu": {
     "hideMenuCTA": "Cacher le menu",
@@ -512,6 +518,26 @@
     "home": {
       "title": "Accueil",
       "url": "/fr/"
+    },
+    "discover": {
+      "title": "Découvrir",
+      "url": "/fr/decouvrir"
+    },
+    "read": {
+      "title": "Lire",
+      "url": "/fr/lire"
+    },
+    "visit": {
+      "title": "Visiter",
+      "url": "/fr/visiter"
+    },
+    "learn": {
+      "title": "Apprendre",
+      "url": "/fr/apprendre"
+    },
+    "contribute": {
+      "title": "Contribuer",
+      "url": "/fr/aidez-nous"
     },
     "about": {
       "title": "À propos",

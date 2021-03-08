@@ -1,0 +1,54 @@
+{%- from 'macros/featured-piece.njk' import featuredArticle -%}
+{%- from 'macros/mega-menu.njk' import mediaList, peopleList, orgList, hideMegaMenuButton, seeAllCTA -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
+<section
+  id="mmDiscover"
+  class="discover-section"
+>
+  <div class="mm-col">
+    {% include "partials/projects/featured.njk" %}
+  </div>
+
+  <div class="mm-col">
+    {{
+      mediaList({
+        heading: __('projects|recentlyAdded'),
+        pieces: data.projectsByMostRecent,
+        numPieces: 4,
+        ctaLabel: __('projects|seeAllCTA'),
+        ctaUrl: __('projects|url')
+      })
+    }}
+  </div>
+
+  <div class="mm-col">
+    {# TODO: handle featured creator #}
+    {{ peopleList(data.peopleByMostRecent, 'creators') }}
+    {{
+      seeAllCTA(
+        __('people|categories|creators|seeAllCTA'),
+        __('people|categories|creators|url')
+      )
+    }}
+  </div>
+
+  <div class="mm-col">
+    {# TODO: handle featured collective #}
+    {{
+      orgList(
+        data.organizationsByMostRecent,
+        'collectives',
+        locale
+      )
+    }}
+  </div>
+
+  <div class="mm-footer">
+    <hr class="separator" />
+    {{ hideMegaMenuButton('mmDiscover') }}
+  </div>
+</section>
