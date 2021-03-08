@@ -3,7 +3,15 @@
 @import '../mixins/mixins';
 
 
-.media-index {}
+.media-index {
+  .piece-list {
+    @media #{$mqTablet} {
+      .list-item:nth-child(n + 3) {
+        margin-top: 40px;
+      }
+    }
+  }
+}
 
 
 .medium-details {

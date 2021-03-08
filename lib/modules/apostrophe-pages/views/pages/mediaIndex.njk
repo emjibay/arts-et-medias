@@ -1,30 +1,19 @@
 {% extends "layouts/indexLayout.njk" %}
 
+
+{%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/banner-ad.njk' import leaderboard -%}
-{%- from 'macros/piece-index.njk' import recentlyAdded, recentlyAddedProjects -%}
+{%- from 'macros/piece-index.njk' import recentlyAdded -%}
 
-
-{% macro seeAllCTA(label, url) %}
-  <div class="see-all-cta">
-    <a
-      class="website-cta"
-      href="{{ url }}"
-    >{{ label }}</a>
-  </div>
-{% endmacro %}
 
 {% macro recentlyAddedMedia(type, category) %}
-  {%-
-    set mediaItems = apos.aemPieces.getMediaWithType(
-      data.mediaByMostRecent,
-      type
-    )
-  -%}
   {%- set cat = 'media|categories|' + category + '|' -%}
   {{
     recentlyAdded(
       __(cat + 'recentlyAdded'),
-      mediaItems
+      data.mediaByMostRecent,
+      __(cat + 'tags'),
+      4
     )
   }}
   {{
@@ -49,41 +38,6 @@
 {% endblock %}
 
 {% block pageContent %}
-  {#- projects -#}
-  {{
-    recentlyAddedProjects(
-      __('projects|recentlyAdded'),
-      data.projectsByMostRecent,
-      []
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      seeAllCTA(
-        __('projects|seeAllCTA'),
-        __('projects|url')
-      )
-    }}
-  </div>
-  {#- projects end -#}
-
-  {#- books -#}
-  {{
-    recentlyAdded(
-      __('books|recentlyAdded'),
-      data.booksByMostRecent
-    )
-  }}
-  <div class="see-all-cta">
-    {{
-      seeAllCTA(
-        __('books|seeAllCTA'),
-        __('books|url')
-      )
-    }}
-  </div>
-  {#- books end -#}
-
   {#- media types -#}
   {{ recentlyAddedMedia('magazine', 'magazines') }}
 
