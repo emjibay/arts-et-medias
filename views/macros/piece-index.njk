@@ -36,7 +36,7 @@
                   {%- set authorList = apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation) -%}
                   <ul class="byline-list">
                     {% for author in authorList %}
-                      <li>
+                      <li class="list-item">
                         <p>{{ author }}</p>
                       </li>
                     {% endfor %}
@@ -44,7 +44,7 @@
                 {%- else -%}
                   <ul class="byline-list">
                     {% for author in piece._author %}
-                      <li>
+                      <li class="list-item">
                         <p>{{ author.title }}</p>
                       </li>
                     {% endfor %}
@@ -114,7 +114,7 @@
 
               <ul class="byline-list">
                 {% for author in piece._author %}
-                  <li>
+                  <li class="list-item">
                     <p>{{ author.title }}</p>
                   </li>
                 {% endfor %}
@@ -160,7 +160,7 @@
 
               <ul class="byline-list">
                 {% for org in piece._institution %}
-                  <li>
+                  <li class="list-item">
                     {%- set localizedCountry = apos.aemI18n.getCountry(org.country, locale) -%}
                     <p>{{ org.title }}, {{ org.city }}, {{ localizedCountry }}</p>
                   </li>
@@ -262,7 +262,7 @@
 
               <ul class="byline-list">
                 {% for author in piece._author %}
-                  <li>
+                  <li class="list-item">
                     <p>{{ author.title }}</p>
                   </li>
                 {% endfor %}
