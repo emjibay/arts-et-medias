@@ -24,11 +24,11 @@
 
     &::after {
       @include minorText();
-      position: absolute;
-      bottom: 0;
       content: ',';
+      display: inline-block;
       line-height: 1.5;
-      right: -5px;
+      margin-right: 5px;
+      position: relative;
     }
 
     &:last-of-type {
@@ -41,6 +41,7 @@
 
     p {
       @include minorText();
+      display: inline-block;
       line-height: 1.5;
       margin: 0;
     }
