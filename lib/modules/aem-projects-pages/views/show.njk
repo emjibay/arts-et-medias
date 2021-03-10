@@ -104,7 +104,11 @@
     )
   }}
 
+  {# generic #}
   {{ relatedContent(piece) }}
+
+  {# academic programs #}
+  {{ relatedPieces(__('education|related'), piece._programsMentioned) }}
 
   {{ tags(piece) }}
 {% endblock %}

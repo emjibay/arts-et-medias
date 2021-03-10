@@ -97,7 +97,13 @@
   {{ relatedOrganizations(relatedOrgs) }}
 
   {# education #}
-  {{ relatedPieces(__('education|related'), piece._academicPrograms) }}
+  {%-
+    set relatedPrograms = apos.aemArrays.merge(
+      piece._academicPrograms,
+      piece._programsMentioned
+    )
+  -%}
+  {{ relatedPieces(__('education|related'), relatedPrograms) }}
 
   {# tags #}
   {{ tags(piece) }}

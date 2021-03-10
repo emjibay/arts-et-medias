@@ -2,7 +2,7 @@
 
 {%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/piece-details.njk' import relatedPieces, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedOrganizations, relatedPieces, tags, websiteCTA -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
@@ -69,11 +69,17 @@
 
   <hr class="separator"/>
 
+  {# people #}
+  {{ relatedPieces(__('projects|related'), piece._relatedProjects) }}
+
   {# articles #}
   {{ relatedPieces(__('articles|related'), piece._articles) }}
 
   {# people #}
   {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
+
+  {# organizations #}
+  {{ relatedOrganizations(piece._relatedOrganizations) }}
 
   {# tags #}
   {{ tags(piece) }}
