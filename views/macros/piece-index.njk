@@ -140,11 +140,13 @@
             <article class="piece-card">
               <p class="heading">{{ piece.title }}</p>
 
-              {%- set localizedCountry = apos.aemI18n.getCountry(org.country, locale) -%}
               {{
                 bylineList(
                   piece,
-                  { localizedCountry: localizedCountry }
+                  {
+                    locale: locale,
+                    getCountry: apos.aemI18n.getCountry
+                  }
                 )
               }}
 

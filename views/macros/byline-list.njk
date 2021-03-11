@@ -14,11 +14,12 @@
   </ul>
 {% endmacro %}
 
-{% macro orgBylineList(piece, options) %}
+{% macro programBylineList(piece, options) %}
   <ul class="byline-list">
     {% for org in piece._institution %}
       <li class="byline-li">
-        <span>{{ org.title }}, {{ org.city }}, {{ options.localizedCountry }}</span>
+        {%- set localizedCountry = options.getCountry(org.country, options.locale) -%}
+        <span>{{ org.title }}, {{ org.city }}, {{ localizedCountry }}</span>
       </li>
     {% endfor %}
   </ul>
@@ -39,8 +40,8 @@
 {% macro bylineList(piece, options) %}
   {%- if piece.type === 'book' -%}
     {{ bookBylineList(piece, options) }}
-  {%- elseif piece.type === 'organization' -%}
-    {{ orgBylineList(piece, options) }}
+  {%- elseif piece.type === 'education' -%}
+    {{ programBylineList(piece, options) }}
   {%- else -%}
     {{ genericBylineList(piece, options) }}
   {%- endif -%}
