@@ -1,0 +1,64 @@
+{% extends "layouts/layout.njk" %}
+
+
+{%- set pageTitle = __('slackSignup|heading') -%}
+
+
+{% block title %}
+  {{ pageTitle }} | {{ __('global|title') }}
+{% endblock %}
+
+
+{% block main %}
+  <div class="page slack-signup-page">
+    <div class="content">
+      <main id="main" tabindex="-1">
+        <article>
+          <h1>{{ pageTitle }}</h1>
+
+          <div class="page-content">
+            <section>
+              <p class="cta-paragraph">{{ __('slackSignup|paragraph') }}</p>
+              <form
+                class="signup-form"
+                action="//docs.google.com/forms/u/0/d/e/1FAIpQLSdMywlYItXFaIoheJnuA_5yUfunckHNIjyrucZWUbqjjFrtYA/formResponse"
+                method="post"
+                target="_blank"
+              >
+                <label
+                  class="form-label"
+                  for="for"
+                >{{ __('slackSignup|emailLabel') }}</label>
+                <input
+                  class="input-text"
+                  id="emailAddress"
+                  type="email"
+                  name="emailAddress"
+                  placeholder="{{ __('slackSignup|emailPlaceholder') }}"
+                  autocomplete="email"
+                >
+                <button
+                  class="submit-btn"
+                  type="submit"
+                >{{ __('slackSignup|submitLabel') }}</button>
+              </form>
+              <p class="disclaimer">{{ __('slackSignup|disclaimer') }}</p>
+            </section>
+
+            <section>
+              <h2 class="h2">{{ __('slackSignup|alreadySubHeading') }}</h2>
+              <a
+                href="{{ __('slackSignup|slackWorkspaceUrl') }}"
+                class="website-cta"
+              >{{ __('slackSignup|alreadySubButtonLabel') }}</a>
+            </section>
+          </div>
+
+          {% block sidebar %}
+            {% include "partials/sidebar/sidebar.njk" %}
+          {% endblock %}
+        </article>
+      </main>
+    </div>
+  </div>
+{% endblock %}

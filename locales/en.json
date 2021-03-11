@@ -600,6 +600,18 @@
     "contributionParagraph": "Arts et Médias has the lofty goal of being a reference for all things related media arts and installation art. However this is not possible without help.",
     "contributionCTA": "Please consider helping us."
   },
+  "slackSignup": {
+    "heading": "Slack Workspace Signup",
+    "url": "/en/slack-signup",
+    "paragraph": "Slack requires the addition of ad-hoc participants to be done manually. Please share your email below, and we'll add you to the Arts & Médias Slack workspace as soon as possible. Thanks for understanding!",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter Your Email",
+    "submitLabel": "Invite Me!",
+    "disclaimer": "Please note that emails are saved in Google Spreadsheet via a Google Form at this time.",
+    "alreadySubHeading": "Already Subscribed?",
+    "alreadySubButtonLabel": "Open Slack",
+    "slackWorkspaceUrl": "https://arts-et-medias.slack.com/"
+  },
   "notFound": {
     "heading": "Page Not Found",
     "paragraph1": "We're sorry. We couldn't find the page you're looking for.",

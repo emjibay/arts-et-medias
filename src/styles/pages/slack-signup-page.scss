@@ -1,0 +1,37 @@
+@import '../common/variables';
+@import '../common/ui';
+@import '../mixins/mixins';
+
+
+.slack-signup-page {
+  .cta-paragraph {
+    @include paragraph();
+  }
+  .signup-form {
+    margin-top: 50px;
+    .form-label {
+      @include inputLabel();
+    }
+    .input-text {
+      @include textInput();
+      @include nColumnWidth(6);
+      vertical-align: bottom;
+    }
+    .submit-btn {
+      @include button();
+      @include nColumnWidth(2);
+      @include gutterLeftMargin();
+      vertical-align: bottom;
+    }
+  }
+  .disclaimer {
+    @include paragraph();
+    color: $halfGrey;
+    font-size: $fsVerySmol;
+  }
+  section {
+    &:not(:first-of-type) {
+      margin-top: 50px;
+    }
+  }
+}

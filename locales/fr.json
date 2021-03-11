@@ -610,6 +610,18 @@
     "stillNotSatisfied": "Vous ne trouvez toujours pas ce que vous cherchez ?",
     "helpUsCTA": "Peut-être avez-vous quelque chose à contribuer ? Veuillez considérer nous aider afin de maintenir le contenu du site à jour."
   },
+  "slackSignup": {
+    "heading": "Inscription aux canaux Slack",
+    "url": "/fr/inscription-slack",
+    "paragraph": "Slack exige que l'ajout de participants ad-hoc se fasse manuellement. Veuillez partager votre courriel ci-dessous, et nous vous ajouterons aux canaux Slack d'Arts & Médias dès que possible. Merci de votre compréhension !",
+    "emailLabel": "Courriel",
+    "emailPlaceholder": "Inscrivez votre courriel",
+    "submitLabel": "Invitez-moi !",
+    "disclaimer": "Veuillez noter qu'actuellement, les courriels sont compilés dans Google Spreadsheet via un formulaire Google Forms.",
+    "alreadySubHeading": "Déjà inscrit ?",
+    "alreadySubButtonLabel": "Ouvrir Slack",
+    "slackWorkspaceUrl": "https://arts-et-medias.slack.com/"
+  },
   "error": {
     "heading": "Une erreur est survenue",
     "paragraph": "Une erreur s'est produite lors du chargement de la page en cours. Nous vous prions de bien vouloir nous excuser pour ce désagrément.",
