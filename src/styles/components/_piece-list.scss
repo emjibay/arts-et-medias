@@ -53,18 +53,7 @@
     }
 
     .byline-list {
-      display: inline-block;
-      margin: 5px 0 0 0;
-      padding-left: 0;
-
-      .list-item {
-        margin-bottom: 5px;
-        max-width: max-content;
-
-        &:not(:first-child) {
-          margin-left: 0;
-        }
-      }
+      margin: 5px 0 10px 0;
     }
 
     .byline-and-date {

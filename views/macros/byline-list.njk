@@ -1,0 +1,47 @@
+{# per piece #}
+{% macro bookBylineList(piece, options) %}
+  <ul class="byline-list">
+    {% for author in piece._author %}
+      <li class="byline-li">
+        <span>{{ author.title }}</span>
+      </li>
+    {% endfor %}
+    {% for editor in piece._editor %}
+      <li class="byline-li">
+        <span>{{ editor.title }} ({{ options.editorLabel }})</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro orgBylineList(piece, options) %}
+  <ul class="byline-list">
+    {% for org in piece._institution %}
+      <li class="byline-li">
+        <span>{{ org.title }}, {{ org.city }}, {{ options.localizedCountry }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro genericBylineList(piece, options) %}
+  <ul class="byline-list">
+    {% for author in piece._author %}
+      <li class="byline-li">
+        <span>{{ author.title }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+
+{# global #}
+{% macro bylineList(piece, options) %}
+  {%- if piece.type === 'book' -%}
+    {{ bookBylineList(piece, options) }}
+  {%- elseif piece.type === 'organization' -%}
+    {{ orgBylineList(piece, options) }}
+  {%- else -%}
+    {{ genericBylineList(piece, options) }}
+  {%- endif -%}
+{% endmacro %}

@@ -1,5 +1,6 @@
 {% import 'apostrophe-pager:macros.html' as pager with context %}
 
+{%- from 'macros/byline-list.njk' import bylineList -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
 
@@ -31,25 +32,12 @@
               <p class="heading">{{ piece.title }}</p>
 
               {% if hasByline %}
-                {%- if (piece.type === 'book') -%}
-                  {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
-                  {%- set authorList = apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation) -%}
-                  <ul class="byline-list">
-                    {% for author in authorList %}
-                      <li class="list-item">
-                        <p>{{ author }}</p>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                {%- else -%}
-                  <ul class="byline-list">
-                    {% for author in piece._author %}
-                      <li class="list-item">
-                        <p>{{ author.title }}</p>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                {%- endif -%}
+                {{
+                  bylineList(
+                    piece,
+                    { editorLabel: __('books|editorAbbreviation') }
+                  )
+                }}
               {% endif %}
 
               <div class="short-description">
@@ -112,18 +100,12 @@
             <article class="piece-card book">
               <p class="heading">{{ piece.title }}</p>
 
-              <ul class="byline-list">
-                {% for author in piece._author %}
-                  <li class="list-item">
-                    <p>{{ author.title }}</p>
-                  </li>
-                {% endfor %}
-                {% for editor in piece._editor %}
-                  <li class="list-item">
-                    <p>{{ editor.title }} ({{ options.editorLabel }})</p>
-                  </li>
-                {% endfor %}
-              </ul>
+              {{
+                bylineList(
+                  piece,
+                  { editorLabel: options.editorLabel }
+                )
+              }}
 
               <div>
                 <div class="image-content">
@@ -158,14 +140,13 @@
             <article class="piece-card">
               <p class="heading">{{ piece.title }}</p>
 
-              <ul class="byline-list">
-                {% for org in piece._institution %}
-                  <li class="list-item">
-                    {%- set localizedCountry = apos.aemI18n.getCountry(org.country, locale) -%}
-                    <p>{{ org.title }}, {{ org.city }}, {{ localizedCountry }}</p>
-                  </li>
-                {% endfor %}
-              </ul>
+              {%- set localizedCountry = apos.aemI18n.getCountry(org.country, locale) -%}
+              {{
+                bylineList(
+                  piece,
+                  { localizedCountry: localizedCountry }
+                )
+              }}
 
               <div class="short-description">
                 {{ truncatedDescription(piece) }}
@@ -260,13 +241,7 @@
             <article class="piece-card">
               <p class="heading">{{ piece.title }}</p>
 
-              <ul class="byline-list">
-                {% for author in piece._author %}
-                  <li class="list-item">
-                    <p>{{ author.title }}</p>
-                  </li>
-                {% endfor %}
-              </ul>
+              {{ bylineList(piece) }}
 
               {{ heroImage(piece) }}
 

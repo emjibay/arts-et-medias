@@ -1,3 +1,4 @@
+{%- from 'macros/byline-list.njk' import bylineList -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
@@ -59,15 +60,12 @@
 
       <h1>{{ piece.title }}</h1>
 
-      {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
-      {%- set authorList = apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation) -%}
-      <ul class="byline-list">
-        {% for author in authorList %}
-          <li class="list-item">
-            <p>{{ author }}</p>
-          </li>
-        {% endfor %}
-      </ul>
+      {{
+        bylineList(
+          piece,
+          { editorLabel: __('books|editorAbbreviation') }
+        )
+      }}
 
       {{ contentDetails(piece, __('books|seeMoreCTA')) }}
     </article>
@@ -129,13 +127,7 @@
 
       <h1>{{ piece.title }}</h1>
 
-      <ul class="byline-list">
-        {% for author in piece._author %}
-          <li class="list-item">
-            <p>{{ author.title }}</p>
-          </li>
-        {% endfor %}
-      </ul>
+      {{ bylineList(piece) }}
 
       {{ contentDetails(piece, __('projects|seeMoreCTA')) }}
     </article>
