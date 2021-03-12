@@ -176,8 +176,9 @@
               <p class="heading">{{ piece.title }}</p>
 
               <p class="org-location">
-                {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
-                {{ apos.aemDates.format(piece.startDate, locale) }}, {{ piece.city }}, {{ localizedCountry }}
+                {%- set startDate = apos.aemDates.format(piece.startDate, locale) -%}
+                {%- set location = apos.aemEvents.getLocation(piece, { i18n: __, locale: locale }) -%}
+                {{ startDate }}, {{ location }}
               </p>
 
               {{ heroImage(piece) }}

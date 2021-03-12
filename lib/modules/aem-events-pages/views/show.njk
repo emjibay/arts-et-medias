@@ -58,8 +58,8 @@
   <div class="description event-info">
     {{ displayDate }}{%- if additionalInfo -%}<span class="relative-date"> ({{ additionalInfo }})</span>{%- endif -%},<br>
     {%- if isWorkshop -%}{{ sortedPieceLinkList(piece._relatedOrganizations) }},<br/>{%- endif -%}
-    {%- set localizedCountry = apos.aemI18n.getCountry(piece.country, locale) -%}
-    <span>{{ piece.city }}, {{ localizedCountry }}</span>
+    {%- set location = apos.aemEvents.getLocation(piece, { i18n: __, locale: locale }) -%}
+    <span>{{ location }}</span>
   </div>
 
   <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>

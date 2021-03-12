@@ -43,13 +43,6 @@
     <div class="list-heading">{{ options.heading }}</div>
     <ul class="list">
       {% for listItem in list %}
-        {%-
-          set displayDate = apos.aemDates.buildDisplayDate(
-            listItem.startDate,
-            listItem.endDate,
-            options.locale
-          )
-        -%}
         <li>
           <a
             class="list-item"
@@ -57,8 +50,15 @@
           >
             <span class="piece-title">{{ listItem.title }}</span>
             <br>
-            {%- set localizedCountry = apos.aemI18n.getCountry(listItem.country, options.locale) -%}
-            <span>{{ listItem.city }}, {{ localizedCountry }}, {{ displayDate }}</span>
+            {%-
+              set displayDate = apos.aemDates.buildDisplayDate(
+                listItem.startDate,
+                listItem.endDate,
+                options.locale
+              )
+            -%}
+            {%- set location = apos.aemEvents.getLocation(listItem, { i18n: __, locale: options.locale }) -%}
+            <span>{{ displayDate }}, {{ location }}</span>
           </a>
         </li>
       {% endfor %}
