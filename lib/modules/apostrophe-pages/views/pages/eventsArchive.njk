@@ -1,0 +1,54 @@
+{% extends 'layouts/indexLayout.njk' %}
+
+{%- from 'macros/cta.njk' import seeAllCTA -%}
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
+{%- from 'macros/piece-index.njk' import eventList -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
+{% block title %}
+  {{
+    apos.aemSeo.buildCategoryIndex(
+      __,
+      __('events|plural'),
+      data.page.title
+    )
+  }}
+{% endblock %}
+
+{% block mainAdditionalClasses %}event-index events-archive{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {% include "partials/events/top-leaderboard.njk" %}
+{% endblock %}
+
+{% block pageContent %}
+  {%- set numPastEvents = data.pastEvents|length -%}
+  {%- set numPages = apos.aemPagination.getNumPages(data.pastEvents) -%}
+  {%- set currentPage = apos.aemPagination.getCurrentPage(data, { max: numPages }) -%}
+  {%-
+    set piecesOnPage = apos.aemPieces.getAtPage(
+      data.pastEvents,
+      currentPage
+    )
+  -%}
+
+  {{ eventList(piecesOnPage, locale) }}
+
+  {# pagination #}
+  {{
+    pager.render(
+      {
+        page: currentPage,
+        total: numPages
+      },
+      data.url
+    )
+  }}
+{% endblock %}
+
+{% block sidebar %}
+  {% include "partials/events/sidebar.njk" %}
+{% endblock %}
