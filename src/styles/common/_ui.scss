@@ -141,14 +141,20 @@
   color: $almostWhite;
   cursor: pointer;
   font-family: $ffButtonLabel;
-  font-size: $fsVerySmol;
+  font-size: $fsSmol;
   font-style: normal;
   font-weight: normal;
-  line-height: 35px;
-  height: 35px;
+  line-height: 40px;
+  height: 40px;
   padding: 0 20px;
   text-align: center;
   text-decoration: none;
+
+  @media #{$mqDesktop} {
+    font-size: $fsVerySmol;
+    height: 35px;
+    line-height: 35px;
+  }
 
   &:hover {
     background-color: $white;
@@ -156,12 +162,15 @@
     color: $main;
     text-decoration: none;
   }
+
   &:active {
     text-decoration: none;
   }
+
   &:focus {
     @include focusOutline();
   }
+
   &:disabled,
   &[disabled] {
     cursor: not-allowed;

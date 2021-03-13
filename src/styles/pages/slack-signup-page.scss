@@ -7,6 +7,7 @@
   .cta-paragraph {
     @include paragraph();
   }
+
   .signup-form {
     margin-top: 50px;
     .form-label {
@@ -15,20 +16,39 @@
     .input-text {
       @include textInput();
       @include nColumnWidth(6);
-      vertical-align: bottom;
+
+      @media #{$mqTablet} {
+        @include nColumnWidth(8);
+      }
+
+      @media #{$mqDesktop} {
+        @include nColumnWidth(5);
+        vertical-align: bottom;
+      }
     }
     .submit-btn {
       @include button();
-      @include nColumnWidth(2);
-      @include gutterLeftMargin();
-      vertical-align: bottom;
+      margin-top: 20px;
+      width: 100%;
+
+      @media #{$mqTablet} {
+        width: max-content;
+      }
+
+      @media #{$mqDesktop} {
+        @include gutterLeftMargin();
+        @include nColumnWidth(3);
+        vertical-align: bottom;
+      }
     }
   }
+
   .disclaimer {
     @include paragraph();
     color: $halfGrey;
     font-size: $fsVerySmol;
   }
+
   section {
     &:not(:first-of-type) {
       margin-top: 50px;
