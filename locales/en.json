@@ -327,7 +327,7 @@
         "seeAllCTA": "See All Workshops",
         "tags": ["workshop"]
       },
-      "archive": {
+      "archives": {
         "title": "Archives",
         "url": "/events/archives"
       }

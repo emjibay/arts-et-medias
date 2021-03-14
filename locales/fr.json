@@ -327,7 +327,7 @@
         "seeAllCTA": "Voir tous les ateliers",
         "tags": ["atelier"]
       },
-      "archive": {
+      "archives": {
         "title": "Archives",
         "url": "/fr/evenements/archives"
       }
