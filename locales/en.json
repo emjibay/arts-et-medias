@@ -326,6 +326,10 @@
         "related": "Related Workshops",
         "seeAllCTA": "See All Workshops",
         "tags": ["workshop"]
+      },
+      "archive": {
+        "title": "Archives",
+        "url": "/events/archives"
       }
     }
   },
