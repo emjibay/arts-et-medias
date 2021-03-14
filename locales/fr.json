@@ -287,6 +287,16 @@
       "passed": "passé"
     },
     "categories": {
+      "festivals": {
+        "title": "Festivals",
+        "url": "/fr/evenements/festivals",
+        "recentlyAdded": "Festivals récemment ajoutés",
+        "next": "Prochains festivals",
+        "nextOrOngoing": "Festivals en cours ou à venir",
+        "related": "Festivals associés",
+        "seeAllCTA": "Voir tous les festivals",
+        "tags": ["festival", "biennale", "triennale"]
+      },
       "conferences": {
         "title": "Conférences",
         "url": "/fr/evenements/conferences",
@@ -306,16 +316,6 @@
         "related": "Exposition associées",
         "seeAllCTA": "Voir toutes les expositions",
         "tags": ["exposition", "vernissage", "exposition en ligne", "vernissage en ligne"]
-      },
-      "festivals": {
-        "title": "Festivals",
-        "url": "/fr/evenements/festivals",
-        "recentlyAdded": "Festivals récemment ajoutés",
-        "next": "Prochains festivals",
-        "nextOrOngoing": "Festivals en cours ou à venir",
-        "related": "Festivals associés",
-        "seeAllCTA": "Voir tous les festivals",
-        "tags": ["festival", "biennale", "triennale"]
       },
       "workshops": {
         "title": "Ateliers",

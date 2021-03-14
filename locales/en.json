@@ -287,6 +287,16 @@
       "passed": "passed"
     },
     "categories": {
+      "festivals": {
+        "title": "Festivals",
+        "url": "/events/festivals",
+        "recentlyAdded": "Recently Added Festivals",
+        "next": "Upcoming Festivals",
+        "nextOrOngoing": "Ongoing or Upcoming Festivals",
+        "related": "Related Festivals",
+        "seeAllCTA": "See All Festivals",
+        "tags": ["festival", "biennale", "triennale"]
+      },
       "conferences": {
         "title": "Conferences",
         "url": "/events/conferences",
@@ -306,16 +316,6 @@
         "related": "Related Exhibits",
         "seeAllCTA": "See All Exhibits",
         "tags": ["exhibit", "vernissage", "online exhibit", "online vernissage"]
-      },
-      "festivals": {
-        "title": "Festivals",
-        "url": "/events/festivals",
-        "recentlyAdded": "Recently Added Festivals",
-        "next": "Upcoming Festivals",
-        "nextOrOngoing": "Ongoing or Upcoming Festivals",
-        "related": "Related Festivals",
-        "seeAllCTA": "See All Festivals",
-        "tags": ["festival", "biennale", "triennale"]
       },
       "workshops": {
         "title": "Workshops",
