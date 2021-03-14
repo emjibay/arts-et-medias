@@ -2,7 +2,7 @@
 
 {%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/piece-details.njk' import relatedPieces, relatedOrganizations, relatedTaggedPieces, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedEvents, relatedPieces, relatedOrganizations, relatedTaggedPieces, tags, websiteCTA -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
@@ -83,6 +83,9 @@
 
   {# books #}
   {{ relatedPieces(__('books|related'), piece._books) }}
+
+  {# events #}
+  {{ relatedEvents(piece._events) }}
 
   {# people #}
   {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
