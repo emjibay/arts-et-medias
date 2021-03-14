@@ -305,7 +305,7 @@
         "nextOrOngoing": "Expositions en cours ou à venir",
         "related": "Exposition associées",
         "seeAllCTA": "Voir toutes les expositions",
-        "tags": ["exposition", "vernissage"]
+        "tags": ["exposition", "vernissage", "exposition en ligne", "vernissage en ligne"]
       },
       "festivals": {
         "title": "Festivals",

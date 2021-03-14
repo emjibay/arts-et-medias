@@ -305,7 +305,7 @@
         "nextOrOngoing": "Ongoing or Upcoming Exhibits",
         "related": "Related Exhibits",
         "seeAllCTA": "See All Exhibits",
-        "tags": ["exhibit", "vernissage"]
+        "tags": ["exhibit", "vernissage", "online exhibit", "online vernissage"]
       },
       "festivals": {
         "title": "Festivals",
