@@ -97,12 +97,7 @@
   }}
 
   {# events #}
-  {{
-    relatedEvents(
-      __('events|related'),
-      piece._eventsMentioned
-    )
-  }}
+  {{ relatedEvents(piece._eventsMentioned) }}
 
   {# generic #}
   {{ relatedContent(piece) }}
