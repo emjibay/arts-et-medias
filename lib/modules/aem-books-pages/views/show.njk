@@ -107,7 +107,6 @@
                 <dt>{{ __('pieceDetails|yearPublishedLabel') }}</dt>
                 <dd>{{ piece.yearPublished }}</dd>
 
-                {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
                 {%- set langs = apos.aemI18n.getLanguagesFrom(piece.lang, locale) -%}
                 {%- if langs|length > 1 -%}
                   <dt>{{ __('pieceDetails|languagesLabel') }}</dt>
