@@ -289,7 +289,7 @@
     "categories": {
       "festivals": {
         "title": "Festivals",
-        "url": "/events/festivals",
+        "url": "/en/events/festivals",
         "recentlyAdded": "Recently Added Festivals",
         "next": "Upcoming Festivals",
         "nextOrOngoing": "Ongoing or Upcoming Festivals",
@@ -299,7 +299,7 @@
       },
       "conferences": {
         "title": "Conferences",
-        "url": "/events/conferences",
+        "url": "/en/events/conferences",
         "recentlyAdded": "Recently Added Conferences",
         "next": "Upcoming Conferences",
         "nextOrOngoing": "Ongoing or Upcoming Conferences",
@@ -309,7 +309,7 @@
       },
       "exhibits": {
         "title": "Exhibits",
-        "url": "/events/exhibits",
+        "url": "/en/events/exhibits",
         "recentlyAdded": "Recently Added Exhibits",
         "next": "Upcoming Exhibits",
         "nextOrOngoing": "Ongoing or Upcoming Exhibits",
@@ -319,7 +319,7 @@
       },
       "workshops": {
         "title": "Workshops",
-        "url": "/events/workshops",
+        "url": "/en/events/workshops",
         "recentlyAdded": "Recently Added Workshops",
         "next": "Upcoming Workshops",
         "nextOrOngoing": "Ongoing or Upcoming Workshops",
