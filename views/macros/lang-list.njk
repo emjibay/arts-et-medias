@@ -1,0 +1,21 @@
+{% macro langList(piece, locale) %}
+  <dl class="piece-props-list">
+    {%- set langs = apos.aemI18n.getLanguagesFrom(piece.lang, locale) -%}
+    {%- if langs|length > 1 -%}
+      <dt>{{ __('pieceDetails|languagesLabel') }}</dt>
+      <dd>
+        <p>
+          {% for lang in langs %}
+            <span>{{ lang }}</span>
+            {%- if not loop.last -%}
+              <span>, </span>
+            {%- endif -%}
+          {% endfor %}
+        </p>
+      </dd>
+    {%- else -%}
+      <dt>{{ __('pieceDetails|languageLabel') }}</dt>
+      <dd>{{ langs[0] }}</dd>
+    {%- endif -%}
+  </dl>
+{% endmacro %}
