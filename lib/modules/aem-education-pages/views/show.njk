@@ -2,6 +2,7 @@
 
 {%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
+{%- from 'macros/lang-list.njk' import langList -%}
 {%- from 'macros/piece-details.njk' import relatedOrganizations, relatedPieces, tags, websiteCTA -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
@@ -68,6 +69,8 @@
   {{ websiteCTA(piece) }}
 
   <hr class="separator"/>
+
+  {{ langList(piece, locale) }}
 
   {# people #}
   {{ relatedPieces(__('projects|related'), piece._relatedProjects) }}
