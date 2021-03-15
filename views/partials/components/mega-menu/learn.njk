@@ -81,11 +81,11 @@
   </div>
 
   <div class="{{ colClassList }}">
-    {# TODO: handle featured masters program #}
+    {# TODO: handle featured graduate program #}
     {{
       programList({
         pieces: data.educationByMostRecent,
-        category: 'masters',
+        category: 'grad',
         locale: locale
       })
     }}

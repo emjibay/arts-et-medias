@@ -313,16 +313,26 @@
   </div>
 {% endmacro %}
 
-{% macro recentlyAddedEducation(label, pieces, locale, tags = []) %}
+
+{#
+  pieces: <array>
+  options: <object>
+    - label: <string>
+    - locale: <string>
+    - amount: <number>
+    - tags: array
+#}
+{% macro recentlyAddedEducation(pieces, options) %}
   {%-
-    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+    set recentlyAdded = apos.aemPieces.getFirstNWithTags(
       pieces,
-      tags
+      options.amount,
+      options.tags
     )
   -%}
   <div class="recently-added-education">
-    <h2 class="content-type-heading">{{ label }}</h2>
-    {{ educationList(recentlyAdded, locale) }}
+    <h2 class="content-type-heading">{{ options.label }}</h2>
+    {{ educationList(recentlyAdded, options.locale) }}
   </div>
 {% endmacro %}
 

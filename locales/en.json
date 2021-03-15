@@ -247,19 +247,27 @@
     "categories": {
       "undergrad": {
         "title": "Undergrad Programs",
-        "url": "/academia/undergrad-programs",
+        "url": "/en/academia/undergrad-programs",
         "recentlyAdded": "Recently Added Undergrad Programs",
         "related": "Related Undergrad Programs",
         "seeAllCTA": "See All Undergrad Programs",
         "tags": ["bfa", "bachelor", "bachelor's", "bachelor's degree", "bachelor of fine arts", "undergraduate program"]
       },
-      "masters": {
+      "grad": {
         "title": "Graduate Programs",
-        "url": "/academia/graduate-programs",
+        "url": "/en/academia/graduate-programs",
         "recentlyAdded": "Recently Added Graduate Programs",
         "related": "Related Graduate Programs",
         "seeAllCTA": "See All Graduate Programs",
         "tags": ["mfa", "master's", "masters", "master of fine arts", "master of design", "graduate program"]
+      },
+      "postgrad": {
+        "title": "Post-Graduate Programs",
+        "url": "/en/academia/post-graduate-programs",
+        "recentlyAdded": "Recently Added Post-Graduate Programs",
+        "related": "Related Post-Graduate Programs",
+        "seeAllCTA": "See All Post-Graduate Programs",
+        "tags": ["phd", "post-graduate program", "post-grad program", "doctorate"]
       }
     }
   },

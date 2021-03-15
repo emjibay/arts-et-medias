@@ -253,13 +253,21 @@
         "seeAllCTA": "Voir tous les programmes de premier cycle",
         "tags": ["baccalauréat en beaux-arts", "baccalauréat ès beaux-arts", "baccalauréat", "bachelor of fine arts", "bachelor's degree", "bachelor's", "bachelor", "bfa", "cycle prégradué", "diplôme national d'arts plastiques", "dnap", "licence d'arts plastiques", "programme de premier cycle", "undergraduate program"]
       },
-      "masters": {
+      "grad": {
         "title": "Programmes de deuxième cycle",
         "url": "/fr/academia/programmes-deuxieme-cycle",
         "recentlyAdded": "Programmes de deuxième cycle récemment ajoutés",
         "related": "Programmes de deuxième cycle associés",
         "seeAllCTA": "Voir tous les programmes de deuxième cycle",
         "tags": ["graduate program", "maîtrise ès beaux arts", "maîtrise ès design", "maîtrise", "master of fine arts", "master's", "masters", "mfa", "programme d'études supérieures", "programme de deuxième cycle"]
+      },
+      "postgrad": {
+        "title": "Programmes de troisième cycle",
+        "url": "/fr/academia/programmes-troisieme-cycle",
+        "recentlyAdded": "Programmes de troisième cycle récemment ajoutés",
+        "related": "Programmes de troisième cycle associés",
+        "seeAllCTA": "Voir tous les programmes de troisième cycle",
+        "tags": ["phd", "doctora", "programme de troisième cycle"]
       }
     }
   },

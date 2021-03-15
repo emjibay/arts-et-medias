@@ -19,7 +19,7 @@
     {% for org in piece._institution %}
       <li class="byline-li">
         {%- set localizedCountry = options.getCountry(org.country, options.locale) -%}
-        <span>{{ org.title }}, {{ org.city }}, {{ localizedCountry }}</span>
+        <span>{{ org.title }}, {{ org.city }},&nbsp;{{ localizedCountry }}</span>
       </li>
     {% endfor %}
   </ul>

@@ -12,10 +12,13 @@
 
   {{
     recentlyAddedEducation(
-      __(cat + 'recentlyAdded'),
       data.educationByMostRecent,
-      locale,
-      __(cat + 'tags')
+      {
+        label: __(cat + 'recentlyAdded'),
+        tags: __(cat + 'tags'),
+        locale: locale,
+        amount: 2
+      }
     )
   }}
 
@@ -43,7 +46,9 @@
 
   {{ programsList('undergrad') }}
 
-  {{ programsList('masters') }}
+  {{ programsList('grad') }}
+
+  {{ programsList('postgrad') }}
 {% endblock %}
 
 {% block sidebar %}

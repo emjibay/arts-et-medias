@@ -4,7 +4,38 @@
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import eventList -%}
-{%- from 'macros/piece-index.njk' import recentlyAdded -%}
+{%- from 'macros/piece-index.njk' import recentlyAddedEducation -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
+{% macro academicProgramSection(category) %}
+  {%- set academiaCat = 'education|categories|' + category -%}
+
+  <section class="subject-section grad">
+    <div class="section-heading">
+      <h2 class="h2">{{ __(academiaCat + '|title') }}</h2>
+    </div>
+    {{
+      recentlyAddedEducation(
+        data.educationByMostRecent,
+        {
+          label: __(academiaCat + '|recentlyAdded'),
+          tags: __(academiaCat + '|tags'),
+          locale: locale,
+          amount: 4
+        }
+      )
+    }}
+    {{
+      seeAllCTA(
+        __(academiaCat + '|seeAllCTA'),
+        __(academiaCat + '|url')
+      )
+    }}
+  </section>
+{% endmacro %}
 
 
 {% block pageContent %}
@@ -37,46 +68,9 @@
     </section>
   {%- endif -%}
 
-  <section class="subject-section undergrad">
-    <div class="section-heading">
-      <h2 class="h2">{{ __('education|categories|undergrad|title') }}</h2>
-    </div>
-    {{
-      recentlyAdded(
-        __('education|categories|undergrad|recentlyAdded'),
-        data.educationByMostRecent,
-        __('education|categories|undergrad|tags'),
-        4
-      )
-    }}
-    {{
-      seeAllCTA(
-        __('education|categories|undergrad|seeAllCTA'),
-        __('education|categories|undergrad|url')
-      )
-    }}
-  </section>
+  {{ academicProgramSection('undergrad') }}
 
-  <section class="subject-section grad">
-    <div class="section-heading">
-      <h2 class="h2">{{ __('education|categories|masters|title') }}</h2>
-    </div>
-    {{
-      recentlyAdded(
-        __('education|categories|masters|recentlyAdded'),
-        data.educationByMostRecent,
-        __('education|categories|masters|tags'),
-        4
-      )
-    }}
-    {{
-      seeAllCTA(
-        __('education|categories|masters|seeAllCTA'),
-        __('education|categories|masters|url')
-      )
-    }}
-  </section>
+  {{ academicProgramSection('grad') }}
 
-  <section class="subject-section institutions">
-  </section>
+  {{ academicProgramSection('postgrad') }}
 {% endblock %}
