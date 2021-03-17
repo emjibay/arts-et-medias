@@ -19,7 +19,11 @@
 {% macro bannerAd(piece, options) %}
   {%- if apos.aemDates.isTodayBetween(piece.startDate, piece.endDate) -%}
     <div class="banner-ad">
-      <a class="ad-link" href="{{ piece.targetUrl }}">
+      <a
+        class="ad-link"
+        href="{{ piece.targetUrl }}"
+        rel="nofollow noopener"
+      >
         {%- set aposImageData = apos.images.first(piece.bannerImage) -%}
         {%- set bannerImage = apos.aemUtils.getImageBasicData(aposImageData) -%}
         <img
