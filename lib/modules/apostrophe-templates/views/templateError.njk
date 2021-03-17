@@ -1,3 +1,6 @@
+{%- from 'macros/cta.njk' import websiteCTA -%}
+
+
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set pageTitle = __('error|heading') -%}
 
@@ -23,10 +26,8 @@
     </dl>
 
     <p class="p">{{ __('error|bugReportCTA') }}</p>
-    <a
-      class="website-cta"
-      href="{{ __('error|bugReportUrl') }}"
-    >{{ __('error|bugReportLabel') }}</a>
+
+    {{ websiteCTA(__('error|bugReportLabel'), __('error|bugReportUrl')) }}
   </details>
 {% endmacro %}
 

@@ -1,5 +1,7 @@
 {% extends "layouts/indexLayout.njk" %}
 
+
+{%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/piece-index.njk' import recentlyAddedEducation -%}
 
@@ -22,12 +24,7 @@
     )
   }}
 
-  <div class="see-all-cta">
-    <a
-      class="website-cta"
-      href="{{ __(cat + 'url') }}"
-    >{{ __(cat + 'seeAllCTA') }}</a>
-  </div>
+  {{ seeAllCTA(__(cat + 'seeAllCTA'), __(cat + 'url')) }}
 {% endmacro %}
 
 

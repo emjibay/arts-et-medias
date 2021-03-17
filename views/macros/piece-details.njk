@@ -1,3 +1,4 @@
+{%- from 'macros/cta.njk' import externalCTA -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
 {%- from 'macros/tag-list.njk' import tagList -%}
 
@@ -31,10 +32,12 @@
 
 {%- macro websiteCTA(piece) -%}
   {%- if piece.website -%}
-    <a
-      class="website-cta"
-      href="{{ piece.website }}"
-    >{{ __('global|viewWebsiteLabel') }}</a>
+    {{
+      externalCTA({
+        label: __('global|viewWebsiteLabel'),
+        url: piece.website
+      })
+    }}
   {%- endif -%}
 {%- endmacro -%}
 

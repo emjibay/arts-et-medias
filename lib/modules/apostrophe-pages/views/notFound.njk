@@ -1,5 +1,7 @@
 {% extends "layouts/layout.njk" %}
 
+
+{%- from 'macros/cta.njk' import websiteCTA -%}
 {%- from 'macros/search.njk' import searchInput -%}
 {%- from 'macros/featured-piece.njk' import featuredArticle, featuredBook, featuredProject -%}
 
@@ -60,10 +62,7 @@
       <section class="suggested-content">
         <h2>{{ __('notFound|stillNotSatisfied') }}</h2>
         <p>{{ __('notFound|helpUsCTA') }}</p>
-        <a
-          class="website-cta"
-          href="{{ __('pages|help|url') }}"
-        >{{ __('pages|help|title') }}</a>
+        {{ websiteCTA(__('pages|help|title'), __('pages|help|url')) }}
       </section>
     </main>
   </div>

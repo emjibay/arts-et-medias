@@ -1,6 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 {%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/cta.njk' import externalCTA -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/metadata.njk' import articleMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedEvents, relatedMedia, relatedOrganizations, relatedPieces, tags -%}
@@ -70,11 +71,13 @@
   {%- if isMention -%}
     <div class="mention">
       <p class="mention-notes">{{ __('articles|notOriginallyPublishedHere') }}</p>
-      <a
-        class="website-cta"
-        href="{{ piece.externalLink }}"
-        aria-label="{{ __('articles|seeMoreCTA') }} - {{ piece.title }}"
-      >{{ __('articles|seeMoreCTA') }}</a>
+      {{
+        externalCTA({
+          label: __('global|viewWebsiteLabel'),
+          ariaLabel: __('articles|seeMoreCTA') + ' - ' + piece.title,
+          url: piece.externalLink
+        })
+      }}
     </div>
   {%- endif -%}
 

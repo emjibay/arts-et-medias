@@ -1,8 +1,36 @@
+{% macro websiteCTA(label, url) %}
+  <a
+    class="website-cta"
+    href="{{ url }}"
+  >{{ label }}</a>
+{% endmacro %}
+
+
+{#
+  A "see all" call to action link for a specific content type.
+  @param label (string)
+  @param url (string)
+#}
 {% macro seeAllCTA(label, url) %}
   <div class="see-all-cta">
-    <a
-      class="website-cta"
-      href="{{ url }}"
-    >{{ label }}</a>
+    {{ websiteCTA(label, url) }}
   </div>
+{% endmacro %}
+
+{#
+  A call to action that leads to an external website.
+  @param options
+  - label (string)
+  - url (string)
+  - ariaLabel (string)
+#}
+{% macro externalCTA(options) %}
+  <a
+    class="website-cta"
+    href="{{ options.url }}"
+    {%- if options.ariaLabel -%}
+    aria-label="{{ options.ariaLabel }}"
+    {%- endif -%}
+    rel="noopener"
+  >{{ options.label }}</a>
 {% endmacro %}

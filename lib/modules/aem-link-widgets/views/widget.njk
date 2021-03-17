@@ -1,4 +1,3 @@
-<a
-  class="website-cta"
-  href="{{ data.widget._target._url }}"
->{{ data.widget.label }}</a>
+{%- from 'macros/cta.njk' import websiteCTA -%}
+
+{{ websiteCTA(data.widget.label, data.widget._target._url) }}

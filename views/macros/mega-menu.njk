@@ -1,3 +1,4 @@
+{%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
 {%- from 'macros/profile-pic.njk' import profilePic -%}
 
@@ -11,15 +12,6 @@
     aria-label="{{ __('megaMenu|hideMenuCTA') }} - {{ __('megaMenu|hideMenuAriaLabel') }}"
     data-content-id="{{ contentId }}"
   >{{ __('megaMenu|hideMenuCTA') }}</button>
-{% endmacro %}
-
-{% macro seeAllCTA(label, url) %}
-  <div class="see-all-cta">
-    <a
-      class="website-cta"
-      href="{{ url }}"
-    >{{ label }}</a>
-  </div>
 {% endmacro %}
 
 
@@ -63,12 +55,7 @@
         </li>
       {% endfor %}
     </ul>
-    {{
-      seeAllCTA(
-        __(cat + 'seeAllCTA'),
-        __(cat + 'url')
-      )
-    }}
+    {{ seeAllCTA(__(cat + 'seeAllCTA'), __(cat + 'url')) }}
   </div>
 {%- endmacro -%}
 
@@ -140,12 +127,7 @@
           </li>
         {% endfor %}
       </ul>
-      {{
-        seeAllCTA(
-          __(cat + 'seeAllCTA'),
-          __(cat + 'url')
-        )
-      }}
+      {{ seeAllCTA(__(cat + 'seeAllCTA'), __(cat + 'url')) }}
     </div>
   {%- endif -%}
 {%- endmacro -%}
@@ -231,11 +213,6 @@
         </li>
       {% endfor %}
     </ul>
-    {{
-      seeAllCTA(
-        __(cat + 'seeAllCTA'),
-        __(cat + 'url')
-      )
-    }}
+    {{ seeAllCTA(__(cat + 'seeAllCTA'), __(cat + 'url')) }}
   </div>
 {%- endmacro -%}

@@ -1,6 +1,7 @@
 {% extends "layouts/layout.njk" %}
 
 {%- from 'macros/banner-ad.njk' import leaderboard, mobileBannerAds -%}
+{%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-index.njk' import articleList, eventList, bookList, projectList -%}
 
@@ -8,29 +9,29 @@
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 
 
-{% macro seeAllCTA(type) %}
-  <div class="see-all-cta">
-    <a
-      class="website-cta"
-      href="{{ __(type + '|url') }}"
-    >{{ __(type + '|seeAllCTA') }}</a>
-  </div>
+{% macro seeAllPiecesCTA(type) %}
+  {{
+    seeAllCTA(
+      __(type + '|seeAllCTA'),
+      __(type + '|url')
+    )
+  }}
 {% endmacro %}
 
 {% macro seeAllArticlesCTA() %}
-  {{ seeAllCTA('articles') }}
+  {{ seeAllPiecesCTA('articles') }}
 {% endmacro %}
 
 {% macro seeAllEventsCTA() %}
-  {{ seeAllCTA('events') }}
+  {{ seeAllPiecesCTA('events') }}
 {% endmacro %}
 
 {% macro seeAllProjectsCTA() %}
-  {{ seeAllCTA('projects') }}
+  {{ seeAllPiecesCTA('projects') }}
 {% endmacro %}
 
 {% macro seeAllBooksCTA() %}
-  {{ seeAllCTA('books') }}
+  {{ seeAllPiecesCTA('books') }}
 {% endmacro %}
 
 
