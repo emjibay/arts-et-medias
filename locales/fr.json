@@ -174,12 +174,12 @@
         "tags": ["nouvelles", "reportage", "infolettre"]
       },
       "essays": {
-        "title": "Essais",
+        "title": "Articles et essais",
         "url": "/fr/articles/essais",
         "recentlyAdded": "Essais récemment ajoutés",
         "related": "Essais associés",
         "seeAllCTA": "Voir tous les essais",
-        "tags": ["article", "bilan", "essai", "éditorial", "opinion", "analyse"]
+        "tags": ["article", "bilan", "chronique", "essai", "éditorial", "opinion", "analyse"]
       },
       "reviews": {
         "title": "Critiques",
