@@ -91,13 +91,13 @@ package-lock.json
 .yarn-integrity
 
 # output directories, etc.
-./bin
-./build
-./coverage
-./dist
-./out
-./temp
-./tmp
+/bin
+/build
+/coverage
+/dist
+/out
+/temp
+/tmp
 
 
 ### PROJECT-SPECIFIC FILES BELOW ###
