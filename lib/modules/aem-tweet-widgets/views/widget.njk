@@ -1,0 +1,7 @@
+{%- set widget = data.widget -%}
+
+{%- if widget.tweetCode -%}
+  <div class="embedded-tweet">
+    {{ widget.tweetCode | safe }}
+  </div>
+{%- endif -%}
