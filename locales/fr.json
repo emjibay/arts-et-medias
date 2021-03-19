@@ -217,7 +217,7 @@
   },
   "books": {
     "heading": "Livres",
-    "url": "/fr/medias/livres",
+    "url": "/fr/livres",
     "singular": "livre",
     "plural": "livres",
     "featured": "Livre vedette",
@@ -378,6 +378,14 @@
         "related": "Sites web associés",
         "seeAllCTA": "Voir tous les sites web",
         "tags": ["site web", "www"]
+      },
+      "newsletters": {
+        "title": "Infolettres",
+        "url": "/fr/medias/infolettres",
+        "recentlyAdded": "Infolettres récemment ajoutées",
+        "related": "Infolettres associés",
+        "seeAllCTA": "Voir toutes les infolettres",
+        "tags": ["infolettre", "newsletter"]
       }
     }
   },

@@ -150,7 +150,7 @@
 
   "articles": {
     "heading": "Articles",
-    "url": "/articles",
+    "url": "/en/articles",
     "singular": "article",
     "plural": "articles",
     "featured": "Featured Article",
@@ -167,7 +167,7 @@
     "categories": {
       "news": {
         "title": "News",
-        "url": "/articles/news",
+        "url": "/en/articles/news",
         "recentlyAdded": "Recently Added News",
         "related": "Related News",
         "seeAllCTA": "See All News",
@@ -175,7 +175,7 @@
       },
       "essays": {
         "title": "Essays and Other Texts",
-        "url": "/articles/essays",
+        "url": "/en/articles/essays",
         "recentlyAdded": "Recently Added Essays",
         "related": "Related Essays",
         "seeAllCTA": "See All Essays",
@@ -183,7 +183,7 @@
       },
       "reviews": {
         "title": "Reviews and Critiques",
-        "url": "/articles/reviews",
+        "url": "/en/articles/reviews",
         "recentlyAdded": "Recently Added Reviews and Critiques",
         "related": "Related Reviews and Critiques",
         "seeAllCTA": "See All Reviews and Critiques",
@@ -191,7 +191,7 @@
       },
       "interviews": {
         "title": "Interviews",
-        "url": "/articles/interviews",
+        "url": "/en/articles/interviews",
         "recentlyAdded": "Recently Added Interviews",
         "related": "Related Interviews",
         "seeAllCTA": "See All Interviews",
@@ -199,7 +199,7 @@
       },
       "academicPapers": {
         "title": "Academic Papers",
-        "url": "/articles/academic-papers",
+        "url": "/en/articles/academic-papers",
         "recentlyAdded": "Recently Added Academic Papers",
         "related": "Related Academic Papers",
         "seeAllCTA": "See All Academic Papers",
@@ -207,7 +207,7 @@
       },
       "conferenceProceedings": {
         "title": "Conference Proceedings",
-        "url": "/articles/conference-proceedings",
+        "url": "/en/articles/conference-proceedings",
         "recentlyAdded": "Recently Added Conference Proceedings",
         "related": "Related Conference Proceedings",
         "seeAllCTA": "See All Conference Proceedings",
@@ -217,7 +217,7 @@
   },
   "books": {
     "heading": "Books",
-    "url": "/media/books",
+    "url": "/en/books",
     "singular": "book",
     "plural": "books",
     "featured": "Featured Book",
@@ -233,7 +233,7 @@
   },
   "education": {
     "heading": "Academia",
-    "url": "/academia",
+    "url": "/en/academia",
     "singular": "academic program",
     "plural": "academic programs",
     "featured": "Featured Academic Program",
@@ -273,7 +273,7 @@
   },
   "events": {
     "heading": "Events",
-    "url": "/events",
+    "url": "/en/events",
     "singular": "event",
     "plural": "events",
     "locationOnlyOnline": "online",
@@ -343,7 +343,7 @@
   },
   "media": {
     "heading": "Projects & Media",
-    "url": "/media",
+    "url": "/en/media",
     "singular": "medium",
     "plural": "media",
     "featured": "Featured Medium",
@@ -357,7 +357,7 @@
     "categories": {
       "blogs": {
         "title": "Blogs",
-        "url": "/media/blogs",
+        "url": "/en/media/blogs",
         "recentlyAdded": "Recently Added Blogs",
         "related": "Related Blogs",
         "seeAllCTA": "See All Blogs",
@@ -365,7 +365,7 @@
       },
       "magazines": {
         "title": "Magazines",
-        "url": "/media/magazines",
+        "url": "/en/media/magazines",
         "recentlyAdded": "Recently Added Magazines",
         "related": "Related Magazines",
         "seeAllCTA": "See All Magazines",
@@ -373,17 +373,25 @@
       },
       "websites": {
         "title": "Websites",
-        "url": "/media/websites",
+        "url": "/en/media/websites",
         "recentlyAdded": "Recently Added Websites",
         "related": "Related Websites",
         "seeAllCTA": "See All Websites",
         "tags": ["website", "www"]
+      },
+      "newsletters": {
+        "title": "Newsletters",
+        "url": "/en/media/newsletters",
+        "recentlyAdded": "Recently Added Newsletters",
+        "related": "Related Newsletters",
+        "seeAllCTA": "See All Newsletters",
+        "tags": ["newsletter"]
       }
     }
   },
   "organizations": {
     "heading": "Organizations",
-    "url": "/organizations",
+    "url": "/en/organizations",
     "singular": "organization",
     "plural": "organizations",
     "featured": "Featured Organization",
@@ -398,7 +406,7 @@
       "academicInstitutions": {
         "title": "Academic Institutions",
         "singular": "Academic Institution",
-        "url": "/academia/academic-institutions",
+        "url": "/en/academia/academic-institutions",
         "recentlyAdded": "Recently Added Academic Institutions",
         "related": "Related Academic Institutions",
         "seeAllCTA": "See All Academic Institutions",
@@ -406,7 +414,7 @@
       },
       "artCenters": {
         "title": "Art Centers",
-        "url": "/organizations/art-centers",
+        "url": "/en/organizations/art-centers",
         "recentlyAdded": "Recently Added Art Centers",
         "related": "Related Art Centers",
         "seeAllCTA": "See All Art Centers",
@@ -414,15 +422,15 @@
       },
       "collectives": {
         "title": "Collectives and Studios",
-        "url": "/people/collectives",
-        "recentlyAdded": "Recently Added Collectives",
-        "related": "Related Collectives",
-        "seeAllCTA": "See All Collectives",
+        "url": "/en/people/collectives",
+        "recentlyAdded": "Recently Added Collectives and Studios",
+        "related": "Related Collectives and Studios",
+        "seeAllCTA": "See All Collectives and Studios",
         "tags": ["collective", "studio"]
       },
       "galleries": {
         "title": "Galleries and Museums",
-        "url": "/organizations/galleries",
+        "url": "/en/organizations/galleries",
         "recentlyAdded": "Recently Added Galleries and Museums",
         "related": "Related Galleries and Museums",
         "seeAllCTA": "See All Galleries and Museums",
@@ -430,7 +438,7 @@
       },
       "makerSpaces": {
         "title": "Maker Spaces",
-        "url": "/organizations/maker-spaces",
+        "url": "/en/organizations/maker-spaces",
         "recentlyAdded": "Recently Added Maker Spaces",
         "related": "Related Maker Spaces",
         "seeAllCTA": "See All Maker Spaces",
@@ -438,7 +446,7 @@
       },
       "mediaLabs": {
         "title": "Media Labs and Research Centers",
-        "url": "/organizations/media-labs",
+        "url": "/en/organizations/media-labs",
         "recentlyAdded": "Recently Added Media Labs and Research Centers",
         "related": "Related Media Labs and Research Centers",
         "seeAllCTA": "See All Media Labs and Research Centers",
@@ -448,7 +456,7 @@
   },
   "people": {
     "heading": "People",
-    "url": "/people",
+    "url": "/en/people",
     "singular": "person",
     "plural": "people",
     "featured": "Featured Person",
@@ -462,7 +470,7 @@
     "categories": {
       "creators": {
         "title": "Artists and Creators",
-        "url": "/people/creators",
+        "url": "/en/people/creators",
         "recentlyAdded": "Recently Added Artists and Creators",
         "related": "Related Artists and Creators",
         "seeAllCTA": "See All Artists and Creators",
@@ -470,7 +478,7 @@
       },
       "authors": {
         "title": "Authors and Writers",
-        "url": "/people/authors",
+        "url": "/en/people/authors",
         "recentlyAdded": "Recently Added Authors and Writers",
         "related": "Related Authors and Writers",
         "seeAllCTA": "See All Authors and Writers",
@@ -478,7 +486,7 @@
       },
       "curators": {
         "title": "Curators",
-        "url": "/people/curators",
+        "url": "/en/people/curators",
         "recentlyAdded": "Recently Added Curators",
         "related": "Related Curators",
         "seeAllCTA": "See All Curators",
@@ -486,7 +494,7 @@
       },
       "educators": {
         "title": "Educators",
-        "url": "/people/educators",
+        "url": "/en/people/educators",
         "recentlyAdded": "Recently Added Educators",
         "related": "Related Educators",
         "seeAllCTA": "See All Educators",
@@ -494,7 +502,7 @@
       },
       "translators": {
         "title": "Translators",
-        "url": "/people/translators",
+        "url": "/en/people/translators",
         "recentlyAdded": "Recently Added Translators",
         "related": "Related Translators",
         "seeAllCTA": "See All Translators",
@@ -502,7 +510,7 @@
       },
       "missingDescription": {
         "title": "People Missing Description",
-        "url": "/people/missing-description",
+        "url": "/en/people/missing-description",
         "recentlyAdded": "Recently Added People Missing Description",
         "related": "Related People Missing Description",
         "seeAllCTA": "See All People Missing Description",
@@ -512,7 +520,7 @@
   },
   "projects": {
     "heading": "Projects",
-    "url": "/projects",
+    "url": "/en/projects",
     "singular": "project",
     "plural": "projects",
     "featured": "Featured Project",
