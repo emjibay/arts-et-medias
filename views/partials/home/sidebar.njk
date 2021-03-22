@@ -3,10 +3,8 @@
 
 <aside class="sidebar home-sidebar">
   {%- set bannerMacroOptions = { data: data, propName: 'homeBannerAds' } -%}
-  {%- set numActiveBannerAds = apos.aemBannerAds.getNumActive(bannerMacroOptions) -%}
 
   {{ sidebarBannerAds(bannerMacroOptions) }}
-
 
   {%- set isAnon = data.when === 'anon' -%}
   {%- set isNotDraft = not apos.aemUtils.isDraftMode(data) -%}
@@ -25,7 +23,8 @@
     </div>
   {%- endif -%}
 
-  {%- if numActiveBannerAds < 2 -%}
+  {%- set isHelpVisible = apos.aemBannerAds.determineHelpVisibility(bannerMacroOptions) -%}
+  {%- if isHelpVisible -%}
     <hr class="separator" />
     {% include "partials/sidebar/help-cta.njk" %}
   {%- endif -%}

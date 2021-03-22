@@ -140,3 +140,11 @@
     }
   }
 }
+
+[data-apos-widget-wrapper="aem-banner-ads"] {
+  .banner-ad {
+    &:not(:first-of-type) {
+      margin-top: 20px;
+    }
+  }
+}
