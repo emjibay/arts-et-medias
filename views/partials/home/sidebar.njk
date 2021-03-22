@@ -10,8 +10,9 @@
 
   {%- set isAnon = data.when === 'anon' -%}
   {%- set isNotDraft = not apos.aemUtils.isDraftMode(data) -%}
-  {%- set isNotLocal = not apos.aemUtils.isLocal(data) -%}
-  {%- if (isAnon or isNotDraft) and isNotLocal -%}
+  {%- set isLocal = apos.aemUtils.isLocal(data) -%}
+  {%- set overrideAndShow = apos.aemUtils.showTwitterTimeline() -%}
+  {%- if ((isAnon or isNotDraft) and not isLocal) or (isLocal and overrideAndShow) -%}
     <div class="tweets">
       <h3 class="sidebar-heading">
         {{ __('global|tweetsHeading') }}
