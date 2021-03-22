@@ -1,6 +1,11 @@
 {% extends 'layouts/indexLayout.njk' %}
 
-{%- from 'macros/banner-ad.njk' import leaderboard -%}
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
+
+
+{%- set leaderboardOptions = { data: data, propName: 'peopleLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% block title %}
@@ -10,7 +15,9 @@
 {% block mainAdditionalClasses %}people-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/people/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
@@ -45,6 +52,10 @@
     <div class="no-pieces">
       {{ __('people|noPiecesLabel') }}
     </div>
+  {%- endif -%}
+
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
   {%- endif -%}
 {% endblock %}
 

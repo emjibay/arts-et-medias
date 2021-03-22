@@ -1,12 +1,14 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
-{%- from 'macros/banner-ad.njk' import leaderboard, mobileBannerAds -%}
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import recentlyAddedArticles -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set leaderboardOptions = { data: data, propName: 'articlesLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% macro articleList(category) %}
@@ -40,7 +42,9 @@
 {% block mainAdditionalClasses %}articles-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/articles/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}

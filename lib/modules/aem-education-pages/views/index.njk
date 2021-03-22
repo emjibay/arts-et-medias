@@ -1,12 +1,15 @@
 {% extends "layouts/indexLayout.njk" %}
 
-{%- from 'macros/banner-ad.njk' import leaderboard -%}
-{% from 'macros/piece-index.njk' import educationList %}
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
+{%- from 'macros/piece-index.njk' import educationList -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set isFirstPage = (data.currentPage === 1) -%}
 {%- set hasTags = apos.aemPieces.hasTags(data.page) -%}
+{%- set leaderboardOptions = { data: data, propName: 'educationLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% block title %}
@@ -22,7 +25,9 @@
 {% block mainAdditionalClasses %}education-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/education/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
@@ -62,6 +67,10 @@
     <div class="no-pieces">
       {{ __('education|noPiecesLabel') }}
     </div>
+  {%- endif -%}
+
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
   {%- endif -%}
 {% endblock %}
 

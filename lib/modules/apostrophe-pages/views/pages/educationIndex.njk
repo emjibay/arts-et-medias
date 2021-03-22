@@ -1,12 +1,14 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
-{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/piece-index.njk' import recentlyAddedEducation -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set leaderboardOptions = { data: data, propName: 'educationLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% macro programsList(category) %}
@@ -35,7 +37,9 @@
 {% block mainAdditionalClasses %}education-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/education/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}

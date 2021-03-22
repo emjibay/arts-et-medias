@@ -1,6 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{%- from 'macros/banner-ad.njk' import leaderboard -%}
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/book-cover.njk' import bookCover -%}
 {%- from 'macros/metadata.njk' import bookMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, relatedMedia, relatedOrganizations, relatedPieces, tags, websiteCTA -%}
@@ -11,6 +12,8 @@
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
 {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
+{%- set leaderboardOptions = { data: data, propName: 'booksLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% block title %}
@@ -40,7 +43,9 @@
 {% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/books/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block main %}
@@ -94,6 +99,10 @@
 
               {{ websiteCTA(piece) }}
             {% endblock %}
+
+            {%- if areLeaderboardsVisible -%}
+              {{ inContextLeaderboard(leaderboardOptions, {}) }}
+            {%- endif -%}
 
             <div class="page-content">
               <hr class="separator"/>
@@ -162,6 +171,10 @@
                 {%- include 'partials/books/citations-section.njk' -%}
               {%- endif -%}
             </div>
+
+            {%- if areLeaderboardsVisible -%}
+              {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
+            {%- endif -%}
           </div>
 
           {% block sidebar %}

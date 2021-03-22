@@ -1,5 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import externalCTA -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
@@ -10,6 +12,8 @@
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
+{%- set leaderboardOptions = { data: data, propName: 'articlesLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% block title %}
@@ -51,7 +55,9 @@
 {% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/articles/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
@@ -79,6 +85,10 @@
         })
       }}
     </div>
+  {%- endif -%}
+
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, {}) }}
   {%- endif -%}
 
   <hr class="separator"/>
@@ -134,6 +144,10 @@
   {%- if piece.hasCitations and piece.citations -%}
     <hr class="separator"/>
     {%- include 'partials/articles/citations-section.njk' -%}
+  {%- endif -%}
+
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
   {%- endif -%}
 {% endblock %}
 

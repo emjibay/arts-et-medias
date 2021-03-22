@@ -17,6 +17,10 @@
       <hr class="separator no-mb" />
     {%- endif -%}
 
+    {% include "partials/events/in-this-section.njk" %}
+
+    <hr class="separator" />
+
     {{
       containedSidebarBanners({
         data: data,
@@ -25,10 +29,6 @@
         hasBottomSeparator: true
       })
     }}
-
-    {% include "partials/events/in-this-section.njk" %}
-
-    <hr class="separator" />
 
     {% include "partials/events/search.njk" %}
 

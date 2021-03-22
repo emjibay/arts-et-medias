@@ -1,6 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{%- from 'macros/banner-ad.njk' import leaderboard -%}
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-details.njk' import relatedContent, relatedEvents, relatedPieces, tags, websiteCTA -%}
@@ -12,6 +13,8 @@
 {%- set piece = data.piece -%}
 {%- set author = apos.aemAuthors.getListFromPiece(piece) -%}
 {%- set pieceTitleWithCredits = apos.aemSeo.buildWrittenBy(piece.title, author, locale) -%}
+{%- set leaderboardOptions = { data: data, propName: 'projectsLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% block title %}
@@ -47,7 +50,9 @@
 {% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/projects/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
@@ -72,6 +77,10 @@
   </div>
 
   {{ websiteCTA(piece) }}
+
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, {}) }}
+  {%- endif -%}
 
   <hr class="separator"/>
 
@@ -106,6 +115,10 @@
   {{ relatedPieces(__('education|related'), piece._programsMentioned) }}
 
   {{ tags(piece) }}
+
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block sidebar %}

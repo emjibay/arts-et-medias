@@ -1,9 +1,13 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
-{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/piece-index.njk' import recentlyAdded -%}
+
+
+{%- set leaderboardOptions = { data: data, propName: 'mediaLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% macro recentlyAddedMedia(type, category) %}
@@ -34,7 +38,9 @@
 {% block pageTitle %}{{ data.page.title }}{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/media/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
@@ -44,6 +50,8 @@
   {{ recentlyAddedMedia('blog', 'blogs') }}
 
   {{ recentlyAddedMedia('website', 'websites') }}
+
+  {{ recentlyAddedMedia('newsletter', 'newsletters') }}
   {#- media types end -#}
 {% endblock %}
 

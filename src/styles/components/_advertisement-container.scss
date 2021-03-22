@@ -1,0 +1,69 @@
+.advertisement-container {
+  &.before-main {
+    padding-top: 20px;
+
+    .advertisement {
+      margin-bottom: 20px;
+
+      @media #{$mqDesktop} {
+        @include columnsAsLeftMargin(2);
+      }
+    }
+  }
+
+  &.in-main {
+    margin-top: 50px;
+  }
+
+  &.after-main {
+    padding-top: 50px;
+
+    @media #{$mqTablet} {
+      padding-top: 75px;
+    }
+  }
+
+  .advertisement {
+    @include nColumnWidth(6);
+
+    @media #{$mqTablet} {
+      @include nColumnWidth(12);
+    }
+
+    @media #{$mqDesktop} {
+      @include nColumnWidth(8);
+    }
+  }
+}
+
+.advertisement-before-main {
+  padding-top: 20px;
+
+  .advertisement {
+    @include nColumnWidth(6);
+    margin-bottom: 20px;
+
+    @media #{$mqTablet} {
+      @include nColumnWidth(12);
+    }
+
+    @media #{$mqDesktop} {
+      @include columnsAsLeftMargin(2);
+      @include nColumnWidth(8);
+    }
+  }
+}
+
+.advertisement-in-main {
+  .advertisement {
+    @include nColumnWidth(6);
+
+    @media #{$mqTablet} {
+      @include nColumnWidth(12);
+    }
+
+    @media #{$mqDesktop} {
+      @include nColumnWidth(8);
+    }
+  }
+}

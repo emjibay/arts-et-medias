@@ -1,10 +1,15 @@
 {% extends "layouts/indexLayout.njk" %}
 
-{%- from 'macros/piece-index.njk' import projectList, recentlyAddedProjects -%}
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/metadata.njk' import minimalMetaData -%}
+{%- from 'macros/piece-index.njk' import projectList, recentlyAddedProjects -%}
 
 
 {%- set isFirstPage = (data.currentPage === 1) -%}
+{%- set leaderboardOptions = { data: data, propName: 'projectsLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+
 
 
 {% block title %}
@@ -30,7 +35,9 @@
 {% block mainAdditionalClasses %}projects-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/projects/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
@@ -81,6 +88,10 @@
     <div class="no-pieces">
       {{ __('projects|noPiecesLabel') }}
     </div>
+  {%- endif -%}
+
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
   {%- endif -%}
 {% endblock %}
 

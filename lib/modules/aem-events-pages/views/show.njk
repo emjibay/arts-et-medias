@@ -1,6 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{%- from 'macros/banner-ad.njk' import leaderboard -%}
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import websiteCTA, relatedOrganizations, relatedPieces, tags -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
@@ -10,6 +11,8 @@
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
 {%- set isWorkshop = piece.tags.indexOf('workshop') > -1 -%}
+{%- set leaderboardOptions = { data: data, propName: 'eventsLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% block title %}
@@ -26,7 +29,9 @@
 {% block mainAdditionalClasses %}event-details{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/events/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
@@ -76,6 +81,10 @@
 
   {{ websiteCTA(piece) }}
 
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, {}) }}
+  {%- endif -%}
+
   <hr class="separator"/>
 
   {# projets #}
@@ -92,6 +101,10 @@
 
   {# tags #}
   {{ tags(piece) }}
+
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block sidebar %}

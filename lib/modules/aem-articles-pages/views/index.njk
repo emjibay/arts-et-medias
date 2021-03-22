@@ -1,11 +1,15 @@
 {% extends "layouts/indexLayout.njk" %}
 
-{% from 'macros/piece-index.njk' import articleList %}
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
+{%- from 'macros/piece-index.njk' import articleList -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set isFirstPage = (data.currentPage === 1) -%}
 {%- set hasTags = apos.aemPieces.hasTags(data.page) -%}
+{%- set leaderboardOptions = { data: data, propName: 'articlesLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% block title %}
@@ -21,7 +25,9 @@
 {% block mainAdditionalClasses %}articles-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/articles/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
@@ -61,6 +67,10 @@
     <div class="no-pieces">
       {{ __('articles|noPiecesLabel') }}
     </div>
+  {%- endif -%}
+
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
   {%- endif -%}
 {% endblock %}
 

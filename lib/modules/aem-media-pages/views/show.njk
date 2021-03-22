@@ -1,7 +1,12 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
-{%- from 'macros/banner-ad.njk' import leaderboard -%}
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/piece-details.njk' import relatedPieces -%}
+
+
+{%- set leaderboardOptions = { data: data, propName: 'mediaLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% block title %}
@@ -18,7 +23,15 @@
 {% block mainAdditionalClasses %}medium-details{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/media/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
+{% endblock %}
+
+{% block advertisementInMain %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, {}) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block relatedContent %}
@@ -33,6 +46,12 @@
   {{ relatedPieces(__('books|related'), piece._relatedBooks) }}
 
   {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
+{% endblock %}
+
+{% block advertisementAfterMain %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block sidebar %}

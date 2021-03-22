@@ -65,16 +65,14 @@
     {%- endif -%}
 
     <aside class="{{ classList }}">
-      {%- if apos.aemBannerAds.areVisible(options) -%}
-        {{
-          apos.singleton(
-            options.data.global,
-            options.propName,
-            'aem-banner-ads',
-            { hasLabel: true }
-          )
-        }}
-      {%- endif -%}
+      {{
+        apos.singleton(
+          options.data.global,
+          options.propName,
+          'aem-banner-ads',
+          { hasLabel: true }
+        )
+      }}
     </aside>
   {%- endif -%}
 {% endmacro %}
@@ -164,4 +162,21 @@
       {%- endif -%}
     </div>
   {%- endif -%}
+{% endmacro %}
+
+
+{% macro inContextLeaderboard(leaderboardOptions, options) %}
+  {%- if options.location === 'before' -%}
+    {%- set containerClass = 'before-main' -%}
+  {%- elseif options.location === 'after' -%}
+    {%- set containerClass = 'after-main' -%}
+  {%- else -%}
+    {%- set containerClass = 'in-main' -%}
+  {%- endif -%}
+
+  <div class="content advertisement-container {{ containerClass }}">
+    <div class="advertisement">
+      {{ leaderboard(leaderboardOptions) }}
+    </div>
+  </div>
 {% endmacro %}

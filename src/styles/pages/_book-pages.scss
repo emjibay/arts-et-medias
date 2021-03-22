@@ -10,7 +10,6 @@
   margin-right: getGutterWidth($phone);
   margin-top: 45px;
   width: getColumnsSpan(3, $phone);
-  height: max-content;
   object-fit: contain;
 
   @media #{$mqTablet} {

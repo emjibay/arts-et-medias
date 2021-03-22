@@ -1,11 +1,14 @@
 {% extends 'layouts/indexLayout.njk' %}
 
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
-{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/piece-index.njk' import eventList -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set leaderboardOptions = { data: data, propName: 'eventsLeaderboard' } -%}
+{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
 
 
 {% block title %}
@@ -21,7 +24,9 @@
 {% block mainAdditionalClasses %}event-index events-archive{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {% include "partials/events/top-leaderboard.njk" %}
+  {%- if areLeaderboardsVisible -%}
+    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
