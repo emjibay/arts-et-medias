@@ -1,60 +1,40 @@
 {% extends 'layouts/indexLayout.njk' %}
 
 
-{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
-{%- from 'macros/piece-index.njk' import eventList -%}
+{%- from 'macros/piece-index.njk' import eventList, recentlyAddedEvents -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set numPreviewEvents = 2 -%}
+{%- set mainLBOptions = { data: data, propName: 'eventsLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'eventsMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%- set bannerPropNames = ['eventsSidebarBanners1', 'eventsSidebarBanners2'] -%}
+
+{#- TODO: add exhibits (#93) -#}
+{%-
+  set eventCategories = [
+    'festivals',
+    'conferences',
+    'workshops'
+  ]
+-%}
 
 
-{% macro eventList(category) %}
-  {%- set cat = 'events|categories|' + category + '|' -%}
-
-  {#- next events -#}
-  {%-
-    set next = apos.aemPieces.getFirstTwoWithTags(
-      data.ongoingAndFutureEvents,
-      __(cat + 'tags')
-    )
-  -%}
-  {%- set hasNextEvents = (next and next|length > 0) -%}
-  {%- if hasNextEvents -%}
-    {{
-      recentlyAddedEvents(
-        __(cat + 'nextOrOngoing'),
-        next,
-        locale
-      )
-    }}
-  {%- endif -%}
-
-  {#- recently added events -#}
-  {%-
-    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
-      data.eventsByMostRecent,
-      __(cat + 'tags')
-    )
-  -%}
-  {%- set hasRecentlyAddedEvents = (recentlyAdded and recentlyAdded|length > 0) -%}
-  {%- if hasRecentlyAddedEvents -%}
-    {{
-      recentlyAddedEvents(
-        __(cat + 'recentlyAdded'),
-        recentlyAdded,
-        locale
-      )
-    }}
-  {%- endif -%}
-
-  {%- if hasNextEvents or hasRecentlyAddedEvents -%}
-    {{
-      seeAllCTA(
-        __(cat + 'seeAllCTA'),
-        __(cat + 'url')
-      )
-    }}
+{% macro alternateLeaderboard(lbIndex) %}
+  {%- if lbIndex % 2 === 0 -%}
+    {# even #}
+    {%- if isMainLBVisible -%}
+      {{ inContextLeaderboard(mainLBOptions, options) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if isMinorLBVisible -%}
+      {{ inContextLeaderboard(minorLBOptions, options) }}
+    {%- endif -%}
   {%- endif -%}
 {% endmacro %}
 
@@ -66,23 +46,71 @@
 {% block mainAdditionalClasses %}event-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
   {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
-  {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
+  {%- set lbIndex = 1 -%}
+  {%- set bannerIndex = 0 -%}
+
+  {%- if apos.aemPieces.hasFeaturedEvent(data) or apos.aemUtils.isDraftMode(data) -%}
     {% include "partials/events/featured.njk" %}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   {%- endif -%}
 
-  {#- TODO: add exhibits (#93) -#}
+  {% for category in eventCategories %}
+    {%- set i18nCat = 'events|categories|' + category + '|' -%}
+    {%- set catTags = __(i18nCat + 'tags') -%}
+    {%- set nextEvents = apos.aemEvents.filterOngoingAndFuture(data, catTags) -%}
+    {%- set hasNextEvents = (nextEvents and nextEvents|length > 0) -%}
+    {%- set recentlyAdded = apos.aemEvents.filterRecentlyAdded(data, catTags) -%}
+    {%- set hasRecentlyAddedEvents = (recentlyAdded and recentlyAdded|length > 0) -%}
 
-  {{ eventList('festivals') }}
+    {%- if hasNextEvents -%}
+      {{
+        recentlyAddedEvents(
+          __(i18nCat + 'nextOrOngoing'),
+          apos.aemPieces.getFirstN(nextEvents, numPreviewEvents),
+          locale
+        )
+      }}
+    {%- endif -%}
 
-  {{ eventList('conferences') }}
+    {%- if bannerIndex < bannerPropNames|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: bannerPropNames[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
 
-  {{ eventList('workshops') }}
+    {%- if hasRecentlyAddedEvents -%}
+      {{
+        recentlyAddedEvents(
+          __(i18nCat + 'recentlyAdded'),
+          apos.aemPieces.getFirstN(recentlyAdded, numPreviewEvents),
+          locale
+        )
+      }}
+    {%- endif -%}
+
+    {%- if hasNextEvents or hasRecentlyAddedEvents -%}
+      {{
+        seeAllCTA(
+          __(i18nCat + 'seeAllCTA'),
+          __(i18nCat + 'url')
+        )
+      }}
+
+      {{ alternateLeaderboard(lbIndex) }}
+      {%- set lbIndex = lbIndex + 1 -%}
+    {%- endif -%}
+  {% endfor %}
 {% endblock %}
 
 {% block sidebar %}

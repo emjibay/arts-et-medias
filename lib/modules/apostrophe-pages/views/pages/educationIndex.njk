@@ -1,32 +1,40 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
-{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import recentlyAddedEducation -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-{%- set leaderboardOptions = { data: data, propName: 'educationLeaderboard' } -%}
-{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+{%- set numPreview = 2 -%}
+{%- set mainLBOptions = { data: data, propName: 'educationLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'educationMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%- set bannerPropNames = ['educationSidebarBanners1', 'educationSidebarBanners2'] -%}
+
+{%-
+  set academiaCategories = [
+    'undergrad',
+    'grad',
+    'postgrad'
+  ]
+-%}
 
 
-{% macro programsList(category) %}
-  {%- set cat = 'education|categories|' + category + '|' -%}
-
-  {{
-    recentlyAddedEducation(
-      data.educationByMostRecent,
-      {
-        label: __(cat + 'recentlyAdded'),
-        tags: __(cat + 'tags'),
-        locale: locale,
-        amount: 2
-      }
-    )
-  }}
-
-  {{ seeAllCTA(__(cat + 'seeAllCTA'), __(cat + 'url')) }}
+{% macro alternateLeaderboard(lbIndex) %}
+  {%- if lbIndex % 2 === 0 -%}
+    {# even #}
+    {%- if isMainLBVisible -%}
+      {{ inContextLeaderboard(mainLBOptions, options) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if isMinorLBVisible -%}
+      {{ inContextLeaderboard(minorLBOptions, options) }}
+    {%- endif -%}
+  {%- endif -%}
 {% endmacro %}
 
 
@@ -37,19 +45,56 @@
 {% block mainAdditionalClasses %}education-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
   {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
-  {% include "partials/education/featured.njk" %}
+  {%- set lbIndex = 1 -%}
+  {%- set bannerIndex = 0 -%}
 
-  {{ programsList('undergrad') }}
+  {%- if apos.aemPieces.hasFeaturedEducation(data) or apos.aemUtils.isDraftMode(data) -%}
+    {% include "partials/education/featured.njk" %}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
+  {%- endif -%}
 
-  {{ programsList('grad') }}
+  {% for category in academiaCategories %}
+    {%- set i18nCat = 'education|categories|' + category + '|' -%}
 
-  {{ programsList('postgrad') }}
+    {{
+      recentlyAddedEducation(
+        data.educationByMostRecent,
+        {
+          label: __(i18nCat + 'recentlyAdded'),
+          tags: __(i18nCat + 'tags'),
+          locale: locale,
+          amount: numPreview
+        }
+      )
+    }}
+
+    {%- if bannerIndex < bannerPropNames|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: bannerPropNames[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
+    {{
+      seeAllCTA(
+        __(i18nCat + 'seeAllCTA'),
+        __(i18nCat + 'url')
+      )
+    }}
+
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
+  {% endfor %}
 {% endblock %}
 
 {% block sidebar %}

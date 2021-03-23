@@ -1,29 +1,40 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
-{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import recentlyAddedOrgs -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-{%- set leaderboardOptions = { data: data, propName: 'orgsLeaderboard' } -%}
-{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+{%- set mainLBOptions = { data: data, propName: 'orgsLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'orgsMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%- set bannerPropNames = ['orgsSidebarBanners1', 'orgsSidebarBanners2'] -%}
+
+{%-
+  set orgsCategories = [
+    'galleries',
+    'artCenters',
+    'mediaLabs',
+    'makerSpaces'
+  ]
+-%}
 
 
-{% macro orgList(category) %}
-  {%- set cat = 'organizations|categories|' + category + '|' -%}
-
-  {{
-    recentlyAddedOrgs(
-      __(cat + 'recentlyAdded'),
-      data.organizationsByMostRecent,
-      __(cat + 'tags'),
-      locale
-    )
-  }}
-
-  {{ seeAllCTA(__(cat + 'seeAllCTA'), __(cat + 'url')) }}
+{% macro alternateLeaderboard(lbIndex) %}
+  {%- if lbIndex % 2 === 0 -%}
+    {# even #}
+    {%- if isMainLBVisible -%}
+      {{ inContextLeaderboard(mainLBOptions, options) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if isMinorLBVisible -%}
+      {{ inContextLeaderboard(minorLBOptions, options) }}
+    {%- endif -%}
+  {%- endif -%}
 {% endmacro %}
 
 
@@ -34,19 +45,47 @@
 {% block mainAdditionalClasses %}organization-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
   {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
-  {{ orgList('galleries') }}
+  {%- set lbIndex = 1 -%}
+  {%- set bannerIndex = 0 -%}
 
-  {{ orgList('artCenters') }}
+  {% for category in orgsCategories %}
+    {%- set i18nCat = 'organizations|categories|' + category + '|' -%}
 
-  {{ orgList('mediaLabs') }}
+    {{
+      recentlyAddedOrgs(
+        __(i18nCat + 'recentlyAdded'),
+        data.organizationsByMostRecent,
+        __(i18nCat + 'tags'),
+        locale
+      )
+    }}
 
-  {{ orgList('makerSpaces') }}
+    {%- if bannerIndex < bannerPropNames|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: bannerPropNames[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
+    {{
+      seeAllCTA(
+        __(i18nCat + 'seeAllCTA'),
+        __(i18nCat + 'url')
+      )
+    }}
+
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
+  {% endfor %}
 {% endblock %}
 
 {% block sidebar %}

@@ -1,31 +1,40 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
-{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import recentlyAdded -%}
 
 
-{%- set leaderboardOptions = { data: data, propName: 'mediaLeaderboard' } -%}
-{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+{%- set numPreviewMedia = 4 -%}
+{%- set mainLBOptions = { data: data, propName: 'mediaLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'mediaMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%- set bannerPropNames = ['mediaSidebarBanners1', 'mediaSidebarBanners2'] -%}
+
+{%-
+  set mediaCategories = [
+    'magazines',
+    'websites',
+    'blogs',
+    'newsletters'
+  ]
+-%}
 
 
-{% macro recentlyAddedMedia(type, category) %}
-  {%- set cat = 'media|categories|' + category + '|' -%}
-  {{
-    recentlyAdded(
-      __(cat + 'recentlyAdded'),
-      data.mediaByMostRecent,
-      __(cat + 'tags'),
-      4
-    )
-  }}
-  {{
-    seeAllCTA(
-      __(cat + 'seeAllCTA'),
-      __(cat + 'url')
-    )
-  }}
+{% macro alternateLeaderboard(lbIndex) %}
+  {%- if lbIndex % 2 === 0 -%}
+    {# even #}
+    {%- if isMainLBVisible -%}
+      {{ inContextLeaderboard(mainLBOptions, options) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if isMinorLBVisible -%}
+      {{ inContextLeaderboard(minorLBOptions, options) }}
+    {%- endif -%}
+  {%- endif -%}
 {% endmacro %}
 
 
@@ -38,21 +47,47 @@
 {% block pageTitle %}{{ data.page.title }}{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
   {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
-  {#- media types -#}
-  {{ recentlyAddedMedia('magazine', 'magazines') }}
+  {%- set lbIndex = 1 -%}
+  {%- set bannerIndex = 0 -%}
 
-  {{ recentlyAddedMedia('blog', 'blogs') }}
+  {% for category in mediaCategories %}
+    {%- set i18nCat = 'media|categories|' + category + '|' -%}
 
-  {{ recentlyAddedMedia('website', 'websites') }}
+    {{
+      recentlyAdded(
+        __(i18nCat + 'recentlyAdded'),
+        data.mediaByMostRecent,
+        __(i18nCat + 'tags'),
+        numPreviewMedia
+      )
+    }}
 
-  {{ recentlyAddedMedia('newsletter', 'newsletters') }}
-  {#- media types end -#}
+    {%- if bannerIndex < bannerPropNames|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: bannerPropNames[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
+    {{
+      seeAllCTA(
+        __(i18nCat + 'seeAllCTA'),
+        __(i18nCat + 'url')
+      )
+    }}
+
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
+  {% endfor %}
 {% endblock %}
 
 {% block sidebar %}

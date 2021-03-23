@@ -7,30 +7,35 @@
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-{%- set leaderboardOptions = { data: data, propName: 'articlesLeaderboard' } -%}
-{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+{%- set mainLBOptions = { data: data, propName: 'articlesLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'articlesMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%- set bannerPropNames = ['articlesSidebarBanners1', 'articlesSidebarBanners2'] -%}
+
+{%-
+  set articlesCategories = [
+    'news',
+    'essays',
+    'reviews',
+    'interviews',
+    'academicPapers',
+    'conferenceProceedings'
+  ]
+-%}
 
 
-{% macro articleList(category) %}
-  {%- set cat = 'articles|categories|' + category + '|' -%}
-
-  {%-
-    set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
-      data.articlesByMostRecent,
-      __(cat + 'tags')
-    )
-  -%}
-
-  {%- if (recentlyAdded and recentlyAdded|length > 0) -%}
-    {{
-      recentlyAddedArticles(
-        __(cat + 'recentlyAdded'),
-        recentlyAdded,
-        locale
-      )
-    }}
-
-    {{ seeAllCTA(__(cat + 'seeAllCTA'), __(cat + 'url')) }}
+{% macro alternateLeaderboard(lbIndex) %}
+  {%- if lbIndex % 2 === 0 -%}
+    {# even #}
+    {%- if isMainLBVisible -%}
+      {{ inContextLeaderboard(mainLBOptions, options) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if isMinorLBVisible -%}
+      {{ inContextLeaderboard(minorLBOptions, options) }}
+    {%- endif -%}
   {%- endif -%}
 {% endmacro %}
 
@@ -42,39 +47,57 @@
 {% block mainAdditionalClasses %}articles-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
   {%- endif -%}
 {% endblock %}
 
 {% block pageContent %}
+  {%- set lbIndex = 1 -%}
+  {%- set bannerIndex = 0 -%}
+
   {% include "partials/articles/featured.njk" %}
 
-  {{
-    mobileBannerAds({
-      data: data,
-      propName: 'articlesSidebarBanners1'
-    })
-  }}
+  {% for category in articlesCategories %}
+    {%- set i18nCat = 'articles|categories|' + category + '|' -%}
+    {%-
+      set recentlyAdded = apos.aemPieces.getFirstTwoWithTags(
+        data.articlesByMostRecent,
+        __(i18nCat + 'tags')
+      )
+    -%}
+    {%- set hasRecentlyAddedEvents = (recentlyAdded and recentlyAdded|length > 0) -%}
 
-  {{ articleList('news') }}
+    {%- if hasRecentlyAddedEvents -%}
+      {%- if bannerIndex < bannerPropNames|length -%}
+        {{
+          mobileBannerAds({
+            data: data,
+            propName: bannerPropNames[bannerIndex]
+          })
+        }}
+        {%- set bannerIndex = bannerIndex + 1 -%}
+      {%- endif -%}
+    {%- endif -%}
 
-  {{
-    mobileBannerAds({
-      data: data,
-      propName: 'articlesSidebarBanners2'
-    })
-  }}
+    {{
+      recentlyAddedArticles(
+        __(i18nCat + 'recentlyAdded'),
+        recentlyAdded,
+        locale
+      )
+    }}
 
-  {{ articleList('essays') }}
+    {{
+      seeAllCTA(
+        __(i18nCat + 'seeAllCTA'),
+        __(i18nCat + 'url')
+      )
+    }}
 
-  {{ articleList('reviews') }}
-
-  {{ articleList('interviews') }}
-
-  {{ articleList('academicPapers') }}
-
-  {{ articleList('conferenceProceedings') }}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
+  {% endfor %}
 {% endblock %}
 
 {% block sidebar %}

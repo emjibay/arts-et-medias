@@ -13,6 +13,23 @@
 
   &.in-main {
     margin-top: 50px;
+
+    .advertisement {
+      @media #{$mqTablet} {
+        @include nColumnWidth(8);
+
+        .leaderboard {
+          @include nColumnWidth(8);
+          height: 56px;
+        }
+      }
+
+      @media #{$mqDesktop} {
+        .leaderboard {
+          height: unset;
+        }
+      }
+    }
   }
 
   &.after-main {
