@@ -12,7 +12,7 @@
       })
     }}
 
-    {%- if apos.aemPieces.hasFeaturedEducation(data) -%}
+    {%- if apos.aemPieces.hasFeaturedEducation(data) or apos.aemUtils.isDraftMode(data) -%}
       {% include "partials/education/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}

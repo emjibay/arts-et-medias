@@ -46,7 +46,7 @@
       <h2 class="h2">{{ __('books|heading') }}</h2>
     </div>
 
-    {%- if apos.aemPieces.hasFeaturedBook(data) -%}
+    {%- if apos.aemPieces.hasFeaturedBook(data) or apos.aemUtils.isDraftMode(data) -%}
       <div class="featured-piece book">
         {% include "partials/books/featured.njk" %}
       </div>

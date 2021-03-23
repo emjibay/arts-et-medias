@@ -12,7 +12,7 @@
       })
     }}
 
-    {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
+    {%- if apos.aemPieces.hasFeaturedEvent(data) or apos.aemUtils.isDraftMode(data) -%}
       {% include "partials/events/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}

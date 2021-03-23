@@ -14,7 +14,7 @@
 
     {%- set isUserAdmin = apos.aemUsers.isUserAdmin(data.user) -%}
     {%- set hasFeaturedBook = apos.aemPieces.hasFeaturedBook(data) -%}
-    {%- if isUserAdmin or hasFeaturedBook -%}
+    {%- if isUserAdmin or hasFeaturedBook or apos.aemUtils.isDraftMode(data)-%}
       {% include "partials/books/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}
