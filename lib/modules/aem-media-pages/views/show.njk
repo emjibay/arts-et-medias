@@ -5,8 +5,10 @@
 {%- from 'macros/piece-details.njk' import relatedPieces -%}
 
 
-{%- set leaderboardOptions = { data: data, propName: 'mediaLeaderboard' } -%}
-{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+{%- set mainLBOptions = { data: data, propName: 'mediaLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'mediaMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
 
 
 {% block title %}
@@ -23,14 +25,14 @@
 {% block mainAdditionalClasses %}medium-details{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
   {%- endif -%}
 {% endblock %}
 
 {% block advertisementInMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, {}) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, {}) }}
   {%- endif -%}
 {% endblock %}
 
@@ -49,8 +51,8 @@
 {% endblock %}
 
 {% block advertisementAfterMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'after' }) }}
   {%- endif -%}
 {% endblock %}
 

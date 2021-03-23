@@ -4,15 +4,15 @@
 {%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 
 
-{%- set leaderboardOptions = { data: data, propName: 'booksLeaderboard' } -%}
-{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+{%- set mainLBOptions = { data: data, propName: 'booksLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
 
 
 {% block mainAdditionalClasses %}books-index{% endblock %}
 
 {% block advertisementBeforeMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
   {%- endif -%}
 {% endblock %}
 
@@ -44,8 +44,8 @@
     </div>
   {%- endif -%}
 
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'after' }) }}
   {%- endif -%}
 {% endblock %}
 

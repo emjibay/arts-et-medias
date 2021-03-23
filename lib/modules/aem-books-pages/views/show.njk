@@ -12,8 +12,10 @@
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
 {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
-{%- set leaderboardOptions = { data: data, propName: 'booksLeaderboard' } -%}
-{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+{%- set mainLBOptions = { data: data, propName: 'booksLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'booksMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
 
 
 {% block title %}
@@ -43,8 +45,8 @@
 {% endblock %}
 
 {% block advertisementBeforeMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
   {%- endif -%}
 {% endblock %}
 
@@ -100,8 +102,8 @@
               {{ websiteCTA(piece) }}
             {% endblock %}
 
-            {%- if areLeaderboardsVisible -%}
-              {{ inContextLeaderboard(leaderboardOptions, {}) }}
+            {%- if isMinorLBVisible -%}
+              {{ inContextLeaderboard(minorLBOptions, {}) }}
             {%- endif -%}
 
             <div class="page-content">
@@ -172,8 +174,8 @@
               {%- endif -%}
             </div>
 
-            {%- if areLeaderboardsVisible -%}
-              {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
+            {%- if isMainLBVisible -%}
+              {{ inContextLeaderboard(mainLBOptions, { location: 'after' }) }}
             {%- endif -%}
           </div>
 

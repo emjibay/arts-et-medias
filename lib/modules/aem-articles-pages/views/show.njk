@@ -12,8 +12,10 @@
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
-{%- set leaderboardOptions = { data: data, propName: 'articlesLeaderboard' } -%}
-{%- set areLeaderboardsVisible = apos.aemBannerAds.areVisible(leaderboardOptions) -%}
+{%- set mainLBOptions = { data: data, propName: 'articlesLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'articlesMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
 
 
 {% block title %}
@@ -55,8 +57,8 @@
 {% endblock %}
 
 {% block advertisementBeforeMain %}
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'before' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
   {%- endif -%}
 {% endblock %}
 
@@ -87,8 +89,8 @@
     </div>
   {%- endif -%}
 
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, {}) }}
+  {%- if isMinorLBVisible -%}
+    {{ inContextLeaderboard(minorLBOptions, {}) }}
   {%- endif -%}
 
   <hr class="separator"/>
@@ -146,8 +148,8 @@
     {%- include 'partials/articles/citations-section.njk' -%}
   {%- endif -%}
 
-  {%- if areLeaderboardsVisible -%}
-    {{ inContextLeaderboard(leaderboardOptions, { location: 'after' }) }}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'after' }) }}
   {%- endif -%}
 {% endblock %}
 
