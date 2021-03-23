@@ -17,6 +17,9 @@
       <hr class="separator no-mb" />
     {%- endif -%}
 
+    {% include "partials/education/in-this-section.njk" %}
+    {% include "partials/education/related.njk" %}
+
     {{
       containedSidebarBanners({
         data: data,
@@ -25,9 +28,6 @@
         hasBottomSeparator: true
       })
     }}
-
-    {% include "partials/education/in-this-section.njk" %}
-    {% include "partials/education/related.njk" %}
 
     <hr class="separator" />
 
