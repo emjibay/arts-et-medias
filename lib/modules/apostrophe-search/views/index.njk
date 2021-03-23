@@ -48,7 +48,7 @@
     <div class="content">
       <main id="main" tabindex="-1">
         <article>
-          <h1 class="sr-only">{{ __('search|heading') }}</h1>
+          <h1 class="title">{{ __('search|heading') }}</h1>
 
           <form
             data-apos-search-page-form
@@ -105,94 +105,92 @@
                       }}
                     </p>
                   {%- endif -%}
-                {%- else -%}
-                  <h2 class="title">{{ __('search|heading') }}</h2>
-                {%- endif -%}
 
-                {# search filters #}
-                {%- if numFiltersWithResults -%}
-                  <div class="search-filter-tabs">
-                    <div class="filter-legend">{{ __('search|filterLabel') }}</div>
-                    <ul class="search-filter-list">
-                      {{
-                        filterTab({
-                          label: __('search|filterAllLabel'),
-                          url: buildFilteredUrl(data),
-                          numResults: results.numAll,
-                          isActive: data.activeFilter === ''
-                        })
-                      }}
-                      {{
-                        filterTab({
-                          label: __('articles|plural'),
-                          url: buildFilteredUrl(data, 'article'),
-                          numResults: results.numArticles,
-                          isActive: data.activeFilter === 'article'
-                        })
-                      }}
-                      {{
-                        filterTab({
-                          label: __('books|plural'),
-                          url: buildFilteredUrl(data, 'book'),
-                          numResults: results.numBooks,
-                          isActive: data.activeFilter === 'book'
-                        })
-                      }}
-                      {{
-                        filterTab({
-                          label: __('projects|plural'),
-                          url: buildFilteredUrl(data, 'project'),
-                          numResults: results.numProjects,
-                          isActive: data.activeFilter === 'project'
-                        })
-                      }}
-                      {{
-                        filterTab({
-                          label: __('events|plural'),
-                          url: buildFilteredUrl(data, 'event'),
-                          numResults: results.numEvents,
-                          isActive: data.activeFilter === 'event'
-                        })
-                      }}
-                      {{
-                        filterTab({
-                          label: __('people|plural'),
-                          url: buildFilteredUrl(data, 'person'),
-                          numResults: results.numPeople,
-                          isActive: data.activeFilter === 'person'
-                        })
-                      }}
-                      {{
-                        filterTab({
-                          label: __('organizations|plural'),
-                          url: buildFilteredUrl(data, 'organization'),
-                          numResults: results.numOrgs,
-                          isActive: data.activeFilter === 'organization'
-                        })
-                      }}
-                      {{
-                        filterTab({
-                          label: __('media|plural'),
-                          url: buildFilteredUrl(data, 'media'),
-                          numResults: results.numMedia,
-                          isActive: data.activeFilter === 'media'
-                        })
-                      }}
-                      {{
-                        filterTab({
-                          label: __('education|plural'),
-                          url: buildFilteredUrl(data, 'education'),
-                          numResults: results.numAcademia,
-                          isActive: data.activeFilter === 'education'
-                        })
-                      }}
-                    </ul>
-                  </div>
-                {%- endif -%}
-                {# search filters end #}
+                  {# search filters #}
+                  {%- if numFiltersWithResults -%}
+                    <div class="search-filter-tabs">
+                      <div class="filter-legend">{{ __('search|filterLabel') }}</div>
+                      <ul class="search-filter-list">
+                        {{
+                          filterTab({
+                            label: __('search|filterAllLabel'),
+                            url: buildFilteredUrl(data),
+                            numResults: results.numAll,
+                            isActive: data.activeFilter === ''
+                          })
+                        }}
+                        {{
+                          filterTab({
+                            label: __('articles|plural'),
+                            url: buildFilteredUrl(data, 'article'),
+                            numResults: results.numArticles,
+                            isActive: data.activeFilter === 'article'
+                          })
+                        }}
+                        {{
+                          filterTab({
+                            label: __('books|plural'),
+                            url: buildFilteredUrl(data, 'book'),
+                            numResults: results.numBooks,
+                            isActive: data.activeFilter === 'book'
+                          })
+                        }}
+                        {{
+                          filterTab({
+                            label: __('projects|plural'),
+                            url: buildFilteredUrl(data, 'project'),
+                            numResults: results.numProjects,
+                            isActive: data.activeFilter === 'project'
+                          })
+                        }}
+                        {{
+                          filterTab({
+                            label: __('events|plural'),
+                            url: buildFilteredUrl(data, 'event'),
+                            numResults: results.numEvents,
+                            isActive: data.activeFilter === 'event'
+                          })
+                        }}
+                        {{
+                          filterTab({
+                            label: __('people|plural'),
+                            url: buildFilteredUrl(data, 'person'),
+                            numResults: results.numPeople,
+                            isActive: data.activeFilter === 'person'
+                          })
+                        }}
+                        {{
+                          filterTab({
+                            label: __('organizations|plural'),
+                            url: buildFilteredUrl(data, 'organization'),
+                            numResults: results.numOrgs,
+                            isActive: data.activeFilter === 'organization'
+                          })
+                        }}
+                        {{
+                          filterTab({
+                            label: __('media|plural'),
+                            url: buildFilteredUrl(data, 'media'),
+                            numResults: results.numMedia,
+                            isActive: data.activeFilter === 'media'
+                          })
+                        }}
+                        {{
+                          filterTab({
+                            label: __('education|plural'),
+                            url: buildFilteredUrl(data, 'education'),
+                            numResults: results.numAcademia,
+                            isActive: data.activeFilter === 'education'
+                          })
+                        }}
+                      </ul>
+                    </div>
+                  {%- endif -%}
+                  {# search filters end #}
 
-                {{ pieceListWithType(data.docs) }}
-                {% include "pager.html" %}
+                  {{ pieceListWithType(data.docs) }}
+                  {% include "pager.html" %}
+                {%- endif -%}
               {%- else -%}
                 {%- if data.query.q -%}
                   <p>

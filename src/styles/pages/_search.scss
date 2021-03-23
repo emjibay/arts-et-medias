@@ -5,10 +5,14 @@
 
 .page-search {
   .main-search-form {
+    @media #{$mqDesktop} {
+      @include nColumnWidth(8);
+    }
+
     .search-input {
       @include textInput();
       display: inline-block;
-      vertical-align: top;
+      vertical-align: middle;
       width: calc(100% - 55px);
 
       @media #{$mqTablet} {
@@ -24,15 +28,15 @@
       @include gutterLeftMargin();
       @include button();
       display: inline-block;
-      vertical-align: top;
+      vertical-align: middle;
       padding: 0 10px;
 
       @media #{$mqTablet} {
         @include nColumnWidth(4);
-        padding: 0 20px;
       }
 
       @media #{$mqDesktop} {
+        @include gutterLeftMargin();
         @include nColumnWidth(2);
       }
 
@@ -121,6 +125,10 @@
 
   // sidebar
   .sidebar {
-    margin-top: 100px;
+    margin-top: 20px;
+
+    @media #{$mqDesktop} {
+      margin-top: -95px;
+    }
   }
 }
