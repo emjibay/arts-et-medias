@@ -1,19 +1,63 @@
 {% extends "layouts/subjectPageLayout.njk" %}
 
 
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import articleList, bookList -%}
 
 
+{%- set numPreviews = 4 -%}
+{%- set mainLBOptions = { data: data, propName: 'readLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'readMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%-
+  set bannerPropNames = [
+    'globalSidebarBanners1',
+    'globalSidebarBanners2',
+    'globalSidebarBanners3'
+  ]
+-%}
+
+
+{% macro alternateLeaderboard(lbIndex, options) %}
+  {%- if lbIndex % 2 === 0 -%}
+    {# even #}
+    {%- if isMainLBVisible -%}
+      {{ inContextLeaderboard(mainLBOptions, options) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if isMinorLBVisible -%}
+      {{ inContextLeaderboard(minorLBOptions, options) }}
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+
+
+{% block advertisementBeforeMain %}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
+  {%- endif -%}
+{% endblock %}
+
+
 {% block pageContent %}
+  {%- set lbIndex = 1 -%}
+  {%- set bannerIndex = 0 -%}
+
+  {# rich preamble #}
   {%- set hasContent = data.page.bodyContent and data.page.bodyContent|length -%}
   {%- if hasContent or apos.aemUtils.isDraftMode(data) -%}
     <div class="rich-preamble">
       {{ contentSection(data.page) }}
     </div>
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   {%- endif -%}
 
+  {# articles #}
   <section class="subject-section articles">
     <div class="section-heading">
       <h2 class="h2">{{ __('articles|heading') }}</h2>
@@ -28,7 +72,7 @@
       {%-
         set recentArticles = apos.aemPieces.getFirstN(
           data.articlesByMostRecent,
-          4
+          numPreviews
         )
       -%}
       {{ articleList(recentArticles, locale) }}
@@ -39,8 +83,22 @@
         __('articles|url')
       )
     }}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   </section>
 
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
+
+  {# books #}
   <section class="subject-section books">
     <div class="section-heading">
       <h2 class="h2">{{ __('books|heading') }}</h2>
@@ -59,7 +117,7 @@
       {%-
         set recentBooks = apos.aemPieces.getFirstN(
           data.booksByMostRecent,
-          4
+          numPreviews
         )
       -%}
       {%-
@@ -75,5 +133,18 @@
         __('books|url')
       )
     }}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   </section>
+
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
 {% endblock %}

@@ -1,19 +1,62 @@
 {% extends "layouts/subjectPageLayout.njk" %}
 
 
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import recentlyAdded, recentlyAddedProjects -%}
 
 
+{%- set numPreviews = 4 -%}
+{%- set mainLBOptions = { data: data, propName: 'discoverLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'discoverMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%-
+  set bannerPropNames = [
+    'globalSidebarBanners1',
+    'globalSidebarBanners2',
+    'globalSidebarBanners3'
+  ]
+-%}
+
+
+{% macro alternateLeaderboard(lbIndex, options) %}
+  {%- if lbIndex % 2 === 0 -%}
+    {# even #}
+    {%- if isMainLBVisible -%}
+      {{ inContextLeaderboard(mainLBOptions, options) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if isMinorLBVisible -%}
+      {{ inContextLeaderboard(minorLBOptions, options) }}
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+
+
+{% block advertisementBeforeMain %}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
+  {%- endif -%}
+{% endblock %}
+
 {% block pageContent %}
+  {%- set lbIndex = 1 -%}
+  {%- set bannerIndex = 0 -%}
+
+  {# rich preamble #}
   {%- set hasContent = data.page.bodyContent and data.page.bodyContent|length -%}
   {%- if hasContent or apos.aemUtils.isDraftMode(data) -%}
     <div class="rich-preamble">
       {{ contentSection(data.page) }}
     </div>
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   {%- endif -%}
 
+  {# projects and artworks #}
   <section class="subject-section projects">
     <div class="section-heading">
       <h2 class="h2">{{ __('projects|heading') }}</h2>
@@ -34,8 +77,22 @@
         __('projects|url')
       )
     }}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   </section>
 
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
+
+  {# creators and artists #}
   <section class="subject-section creators">
     <div class="section-heading">
       <h2 class="h2">{{ __('people|categories|creators|title') }}</h2>
@@ -45,7 +102,7 @@
         __('people|categories|creators|recentlyAdded'),
         data.peopleByMostRecent,
         __('people|categories|creators|tags'),
-        4
+        numPreviews
       )
     }}
     {{
@@ -54,8 +111,22 @@
         __('people|categories|creators|url')
       )
     }}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   </section>
 
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
+
+  {# collectives #}
   <section class="subject-section collectives">
     <div class="section-heading">
       <h2 class="h2">{{ __('organizations|categories|collectives|title') }}</h2>
@@ -65,7 +136,7 @@
         __('organizations|categories|collectives|recentlyAdded'),
         data.organizationsByMostRecent,
         __('organizations|categories|collectives|tags'),
-        4
+        numPreviews
       )
     }}
     {{
@@ -74,5 +145,18 @@
         __('organizations|categories|collectives|url')
       )
     }}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   </section>
+
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
 {% endblock %}

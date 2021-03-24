@@ -1,6 +1,7 @@
 {% extends "layouts/subjectPageLayout.njk" %}
 
 
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import eventList -%}
@@ -8,17 +9,56 @@
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-{%- set numPieces = 4 -%}
+{%- set numPreviews = 4 -%}
+{%- set mainLBOptions = { data: data, propName: 'visitLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'visitMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%-
+  set bannerPropNames = [
+    'globalSidebarBanners1',
+    'globalSidebarBanners2',
+    'globalSidebarBanners3'
+  ]
+-%}
 
+
+{% macro alternateLeaderboard(lbIndex, options) %}
+  {%- if lbIndex % 2 === 0 -%}
+    {# even #}
+    {%- if isMainLBVisible -%}
+      {{ inContextLeaderboard(mainLBOptions, options) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if isMinorLBVisible -%}
+      {{ inContextLeaderboard(minorLBOptions, options) }}
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+
+
+{% block advertisementBeforeMain %}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
+  {%- endif -%}
+{% endblock %}
 
 {% block pageContent %}
+  {%- set lbIndex = 1 -%}
+  {%- set bannerIndex = 0 -%}
+
+  {# rich preamble #}
   {%- set hasContent = data.page.bodyContent and data.page.bodyContent|length -%}
   {%- if hasContent or apos.aemUtils.isDraftMode(data) -%}
     <div class="rich-preamble">
       {{ contentSection(data.page) }}
     </div>
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   {%- endif -%}
 
+  {# galleries #}
   <section class="subject-section galleries">
     <div class="section-heading">
       <h2 class="h2">{{ __('organizations|categories|galleries|title') }}</h2>
@@ -28,7 +68,7 @@
         __('organizations|categories|galleries|recentlyAdded'),
         data.organizationsByMostRecent,
         __('organizations|categories|galleries|tags'),
-        numPieces
+        numPreviews
       )
     }}
     {{
@@ -37,8 +77,22 @@
         __('organizations|categories|galleries|url')
       )
     }}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   </section>
 
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
+
+  {# art centers #}
   <section class="subject-section art-centers">
     <div class="section-heading">
       <h2 class="h2">{{ __('organizations|categories|artCenters|title') }}</h2>
@@ -48,7 +102,7 @@
         __('organizations|categories|artCenters|recentlyAdded'),
         data.organizationsByMostRecent,
         __('organizations|categories|artCenters|tags'),
-        numPieces
+        numPreviews
       )
     }}
     {{
@@ -57,8 +111,22 @@
         __('organizations|categories|artCenters|url')
       )
     }}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   </section>
 
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
+
+  {# maker spaces #}
   <section class="subject-section maker-spaces">
     <div class="section-heading">
       <h2 class="h2">{{ __('organizations|categories|makerSpaces|title') }}</h2>
@@ -68,7 +136,7 @@
         __('organizations|categories|makerSpaces|recentlyAdded'),
         data.organizationsByMostRecent,
         __('organizations|categories|makerSpaces|tags'),
-        numPieces
+        numPreviews
       )
     }}
     {{
@@ -77,12 +145,26 @@
         __('organizations|categories|makerSpaces|url')
       )
     }}
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   </section>
 
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
+
+  {# festivals #}
   {%-
     set festivals = apos.aemPieces.getFirstNWithTags(
       data.ongoingAndFutureEvents,
-      numPieces,
+      numPreviews,
       __('events|categories|festivals|tags')
     )
   -%}
@@ -98,13 +180,26 @@
           __('events|categories|festivals|url')
         )
       }}
+      {{ alternateLeaderboard(lbIndex) }}
+      {%- set lbIndex = lbIndex + 1 -%}
     </section>
+
+    {%- if bannerIndex < bannerPropNames|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: bannerPropNames[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
   {%- endif -%}
 
+  {# conferences #}
   {%-
     set conferences = apos.aemPieces.getFirstNWithTags(
       data.ongoingAndFutureEvents,
-      numPieces,
+      numPreviews,
       __('events|categories|conferences|tags')
     )
   -%}
@@ -120,6 +215,18 @@
           __('events|categories|conferences|url')
         )
       }}
+      {{ alternateLeaderboard(lbIndex) }}
+      {%- set lbIndex = lbIndex + 1 -%}
     </section>
+
+    {%- if bannerIndex < bannerPropNames|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: bannerPropNames[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
   {%- endif -%}
 {% endblock %}

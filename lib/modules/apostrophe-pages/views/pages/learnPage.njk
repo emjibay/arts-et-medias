@@ -1,6 +1,7 @@
 {% extends "layouts/subjectPageLayout.njk" %}
 
 
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import eventList -%}
@@ -8,7 +9,32 @@
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set mainLBOptions = { data: data, propName: 'learnLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'learnMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%-
+  set bannerPropNames = [
+    'globalSidebarBanners1',
+    'globalSidebarBanners2',
+    'globalSidebarBanners3'
+  ]
+-%}
 
+
+{% macro alternateLeaderboard(lbIndex, options) %}
+  {%- if lbIndex % 2 === 0 -%}
+    {# even #}
+    {%- if isMainLBVisible -%}
+      {{ inContextLeaderboard(mainLBOptions, options) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if isMinorLBVisible -%}
+      {{ inContextLeaderboard(minorLBOptions, options) }}
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
 
 {% macro academicProgramSection(category) %}
   {%- set academiaCat = 'education|categories|' + category -%}
@@ -38,14 +64,27 @@
 {% endmacro %}
 
 
+{% block advertisementBeforeMain %}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
+  {%- endif -%}
+{% endblock %}
+
 {% block pageContent %}
+  {%- set lbIndex = 1 -%}
+  {%- set bannerIndex = 0 -%}
+
+  {# rich preamble #}
   {%- set hasContent = data.page.bodyContent and data.page.bodyContent|length -%}
   {%- if hasContent or apos.aemUtils.isDraftMode(data) -%}
     <div class="rich-preamble">
       {{ contentSection(data.page) }}
     </div>
+    {{ alternateLeaderboard(lbIndex) }}
+    {%- set lbIndex = lbIndex + 1 -%}
   {%- endif -%}
 
+  {# workshops #}
   {%-
     set workshops = apos.aemPieces.getWithTags(
       data.ongoingAndFutureEvents,
@@ -65,12 +104,66 @@
           __('events|categories|workshops|url')
         )
       }}
+      {{ alternateLeaderboard(lbIndex) }}
+      {%- set lbIndex = lbIndex + 1 -%}
     </section>
+
+    {%- if bannerIndex < bannerPropNames|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: bannerPropNames[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
   {%- endif -%}
 
+  {# undergrad programs #}
   {{ academicProgramSection('undergrad') }}
+  {{ alternateLeaderboard(lbIndex) }}
+  {%- set lbIndex = lbIndex + 1 -%}
 
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
+
+  {# grad programs #}
   {{ academicProgramSection('grad') }}
+  {{ alternateLeaderboard(lbIndex) }}
+  {%- set lbIndex = lbIndex + 1 -%}
 
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
+
+  {# postgrad programs #}
   {{ academicProgramSection('postgrad') }}
+  {{ alternateLeaderboard(lbIndex) }}
+  {%- set lbIndex = lbIndex + 1 -%}
+
+  {# mobile banners #}
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
 {% endblock %}

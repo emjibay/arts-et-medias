@@ -3,13 +3,16 @@
 
 
 .page-subject {
-  .rich-preamble {
-    margin-bottom: 75px;
+  .rich-preamble + .advertisement-container {
+    margin-top: 50px;
+  }
+
+  .advertisement-container + * {
+    margin-top: 50px;
   }
 
   .section-heading {
     position: relative;
-    margin-bottom: 40px;
 
     .see-all-cta {
       position: absolute;
@@ -19,7 +22,9 @@
   }
 
   .subject-section {
-    margin-bottom: 100px;
+    &:not(:first-of-type) {
+      margin-top: 75px;
+    }
   }
 
   .featured-piece {
@@ -89,5 +94,11 @@
 
   .see-all-cta {
     margin-top: 75px;
+  }
+
+  .sidebar {
+    .sidebar-banners {
+      margin-top: 20px;
+    }
   }
 }
