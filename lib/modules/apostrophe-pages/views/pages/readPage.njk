@@ -65,6 +65,18 @@
     <div class="featured-piece">
       {% include "partials/articles/featured.njk" %}
     </div>
+
+    {# mobile banners #}
+    {%- if bannerIndex < bannerPropNames|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: bannerPropNames[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
     <div class="recently-added-articles">
       <h3 class="content-type-heading">
         {{ __('articles|recentlyAdded') }}
@@ -108,6 +120,17 @@
       <div class="featured-piece book">
         {% include "partials/books/featured.njk" %}
       </div>
+
+      {# mobile banners #}
+      {%- if bannerIndex < bannerPropNames|length -%}
+        {{
+          mobileBannerAds({
+            data: data,
+            propName: bannerPropNames[bannerIndex]
+          })
+        }}
+        {%- set bannerIndex = bannerIndex + 1 -%}
+      {%- endif -%}
     {%- endif -%}
 
     <div class="recently-added-books">
