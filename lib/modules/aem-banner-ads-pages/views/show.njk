@@ -97,19 +97,10 @@
         <dd>{{ sponsorName }}</dd>
 
         {%- set hasNotes = sponsor.notes and sponsor.notes.items|length > 0 -%}
-        {%- if hasNotes or apos.aemUtils.isDraftMode(data) -%}
+        {%- if hasNotes -%}
           <dt>{{ __('sponsors|props|notes') }}</dt>
           <dd>
-            <div class="description rich-description">
-              {{
-                apos.singleton(
-                  sponsor,
-                  'notes',
-                  'apostrophe-rich-text',
-                  fixedRichTextOptions
-                )
-              }}
-            </div>
+            {{ sponsor.notes.items[0].content | safe }}
           </dd>
         {%- endif -%}
       </dl>
