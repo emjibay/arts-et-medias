@@ -8,7 +8,7 @@
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
 
-{%- set sponsor = piece._client -%}
+{%- set sponsor = piece._sponsor -%}
 {%- set sponsorName = sponsor.title -%}
 {%- if not sponsorName -%}
   {%- set sponsorName = 'undefined' -%}

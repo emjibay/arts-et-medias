@@ -26,10 +26,10 @@
 {% endmacro %}
 
 {% macro bannerAdBylineList(piece, options) %}
-  {%- if piece._client -%}
+  {%- if piece._sponsor -%}
     <ul class="byline-list">
         <li class="byline-li">
-          <span>{{ piece._client.title }}</span>
+          <span>{{ piece._sponsor.title }}</span>
         </li>
     </ul>
   {%- endif -%}
