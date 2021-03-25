@@ -44,6 +44,8 @@
     {{ bannerAd(piece, { user: data.user , hasLabel: false }) }}
   </section>
 
+  <hr class="separator" />
+
   <section class="banner-details-section">
     <h2 class="h2">{{ __('bannerAds|detailsLabel') }}</h2>
 
@@ -70,7 +72,8 @@
       </dd>
 
       {%- set hasNotes = piece.campaignNotes and piece.campaignNotes.items|length > 0 -%}
-      {%- if hasNotes or apos.aemUtils.isDraftMode(data) -%}
+      {%- set isDraftMode = apos.aemUtils.isDraftMode(data) -%}
+      {%- if hasNotes or isDraftMode -%}
         <dt>{{ __('bannerAds|props|campaignNotes') }}</dt>
         <dd>
           <div class="description rich-description">
@@ -82,6 +85,9 @@
                 fixedRichTextOptions
               )
             }}
+            {%- if isDraftMode -%}
+              <p class="notes-warning">⚠️ {{ __('bannerAds|props|notesWarning') }}</p>
+            {%- endif -%}
           </div>
         </dd>
       {%- endif -%}
@@ -89,6 +95,8 @@
   </section>
 
   {%- if sponsor -%}
+    <hr class="separator" />
+
     <section class="banner-details-section">
       <h2 class="h2">{{ __('sponsors|heading') }}</h2>
 

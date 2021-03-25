@@ -542,7 +542,8 @@
     "noPiecesLabel": "Aucun commanditaire trouvé",
     "props": {
       "name": "Nom",
-      "notes": "Notes"
+      "notes": "Notes",
+      "notesWarning": "Les commanditaires peuvent voir ces notes, assurez-vous d'être professionnels et respectueux."
     }
   },
   "bannerAds": {
@@ -557,7 +558,8 @@
       "endDate": "Date de fin",
       "targetUrl": "URL de destination",
       "altText": "Texte alternatif",
-      "campaignNotes": "Notes"
+      "campaignNotes": "Notes",
+      "notesWarning": "Les commanditaires peuvent voir ces notes, assurez-vous d'être professionnels et respectueux."
     }
   },
 

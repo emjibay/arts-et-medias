@@ -48,4 +48,8 @@
       @include gutterLeftMargin();
     }
   }
+
+  .notes-warning {
+    @include minorText();
+  }
 }

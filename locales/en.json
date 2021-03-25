@@ -542,7 +542,8 @@
     "noPiecesLabel": "No Sponsors Found",
     "props": {
       "name": "Name",
-      "notes": "Notes"
+      "notes": "Notes",
+      "notesWarning": "Sponsors may view these notes, ensure to remain professional and respectful."
     }
   },
   "bannerAds": {
@@ -557,7 +558,8 @@
       "endDate": "End Date",
       "targetUrl": "Target URL",
       "altText": "Alt Text",
-      "campaignNotes": "Notes"
+      "campaignNotes": "Notes",
+      "notesWarning": "Sponsors may view these notes, ensure to remain professional and respectful."
     }
   },
 
