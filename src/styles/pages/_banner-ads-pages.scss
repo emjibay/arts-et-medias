@@ -1,0 +1,51 @@
+@import '../common/variables';
+@import '../common/ui';
+
+
+.banner-ads-index {}
+
+.banner-ad-details {
+  .banner-details-section {
+    &:not(:first-of-type) {
+      margin-top: 50px;
+    }
+  }
+
+  .page-content {
+    // override .without-hero
+    margin-top: 20px !important;
+  }
+
+  .banner-ad {
+    .ad-link {
+      background-image: url(/img/pattern-transparency.png);
+      width: 100%;
+
+      img {
+        // apply to all banner types
+        margin: 0 auto;
+      }
+    }
+
+    .leaderboard {
+      @media #{$mqTablet} {
+        @include nColumnWidth(8);
+        height: 56px;
+      }
+      @media #{$mqDesktop} {
+        height: unset;
+      }
+    }
+  }
+
+  @media #{$mqTablet} {
+    .prop-col {
+      @include nColumnWidth(4);
+      display: inline-block;
+    }
+
+    .prop-col + .prop-col {
+      @include gutterLeftMargin();
+    }
+  }
+}

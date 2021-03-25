@@ -535,6 +535,32 @@
     "noPiecesLabel": "Aucun projet trouvé"
   },
 
+  "sponsors": {
+    "heading": "Commanditaire",
+    "singular": "commanditaire",
+    "plural": "commanditaires",
+    "noPiecesLabel": "Aucun commanditaire trouvé",
+    "props": {
+      "name": "Nom",
+      "notes": "Notes"
+    }
+  },
+  "bannerAds": {
+    "heading": "Bannières",
+    "singular": "bannière",
+    "plural": "bannières",
+    "previewLabel": "Aperçu",
+    "detailsLabel": "Détails",
+    "noPiecesLabel": "Aucune bannière trouvée",
+    "props": {
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "targetUrl": "URL de destination",
+      "altText": "Texte alternatif",
+      "campaignNotes": "Notes"
+    }
+  },
+
   "pages": {
     "home": {
       "title": "Accueil",

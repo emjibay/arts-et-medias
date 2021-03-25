@@ -535,6 +535,32 @@
     "noPiecesLabel": "No Projects Found"
   },
 
+  "sponsors": {
+    "heading": "Sponsor",
+    "singular": "sponsor",
+    "plural": "sponsors",
+    "noPiecesLabel": "No Sponsors Found",
+    "props": {
+      "name": "Name",
+      "notes": "Notes"
+    }
+  },
+  "bannerAds": {
+    "heading": "Banner Ads",
+    "singular": "banner ad",
+    "plural": "banner ads",
+    "previewLabel": "Preview",
+    "detailsLabel": "Details",
+    "noPiecesLabel": "No Banner Ads Found",
+    "props": {
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "targetUrl": "Target URL",
+      "altText": "Alt Text",
+      "campaignNotes": "Notes"
+    }
+  },
+
   "pages": {
     "home": {
       "title": "Home",

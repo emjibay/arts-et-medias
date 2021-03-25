@@ -1,0 +1,118 @@
+{% extends "layouts/pieceDetailsLayout.njk" %}
+
+
+{%- from 'macros/banner-ad.njk' import bannerAd -%}
+{%- from 'options/options.njk' import fixedRichTextOptions -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set piece = data.piece -%}
+
+{%- set sponsor = piece._client -%}
+{%- set sponsorName = sponsor.title -%}
+{%- if not sponsorName -%}
+  {%- set sponsorName = 'undefined' -%}
+{%- endif -%}
+
+
+{% block title %}
+  {{
+    apos.aemSeo.buildPieceWithCategory(
+      __,
+      piece.title,
+      data.page.title,
+      sponsorName
+    )
+  }}
+{% endblock %}
+
+{% block mainAdditionalClasses %}banner-ad-details{% endblock %}
+
+{% block subheading %}
+  <div class="subheading">
+      <ul class="piece-link-list">
+        <li class="list-item">
+          {{ sponsorName }}
+        </li>
+      </ul>
+  </div>
+{% endblock %}
+
+{% block pageContent %}
+  <section class="banner-details-section">
+    <h2 class="h2">{{ __('bannerAds|previewLabel') }}</h2>
+    {{ bannerAd(piece, { user: data.user , hasLabel: false }) }}
+  </section>
+
+  <section class="banner-details-section">
+    <h2 class="h2">{{ __('bannerAds|detailsLabel') }}</h2>
+
+    <dl class="piece-props-list">
+      <div class="prop-col">
+        <dt>{{ __('bannerAds|props|startDate') }}</dt>
+        <dd>{{ apos.aemDates.format(piece.startDate, locale) }}</dd>
+      </div>
+
+      <div class="prop-col">
+        <dt>{{ __('bannerAds|props|endDate') }}</dt>
+        <dd>{{ apos.aemDates.format(piece.endDate, locale) }}</dd>
+      </div>
+
+      <dt>{{ __('bannerAds|props|altText') }}</dt>
+      <dd>{{ piece.altText }}</dd>
+
+      <dt>{{ __('bannerAds|props|targetUrl') }}</dt>
+      <dd>
+        <a
+          href="{{ piece.targetUrl }}"
+          rel="nofollow noopener"
+        >{{ piece.targetUrl }}</a>
+      </dd>
+
+      {%- set hasNotes = piece.campaignNotes and piece.campaignNotes.items|length > 0 -%}
+      {%- if hasNotes or apos.aemUtils.isDraftMode(data) -%}
+        <dt>{{ __('bannerAds|props|campaignNotes') }}</dt>
+        <dd>
+          <div class="description rich-description">
+            {{
+              apos.singleton(
+                piece,
+                'campaignNotes',
+                'apostrophe-rich-text',
+                fixedRichTextOptions
+              )
+            }}
+          </div>
+        </dd>
+      {%- endif -%}
+    </dl>
+  </section>
+
+  {%- if sponsor -%}
+    <section class="banner-details-section">
+      <h2 class="h2">{{ __('sponsors|heading') }}</h2>
+
+      <dl class="piece-props-list">
+        <dt>{{ __('sponsors|props|name') }}</dt>
+        <dd>{{ sponsorName }}</dd>
+
+        {%- set hasNotes = sponsor.notes and sponsor.notes.items|length > 0 -%}
+        {%- if hasNotes or apos.aemUtils.isDraftMode(data) -%}
+          <dt>{{ __('sponsors|props|notes') }}</dt>
+          <dd>
+            <div class="description rich-description">
+              {{
+                apos.singleton(
+                  sponsor,
+                  'notes',
+                  'apostrophe-rich-text',
+                  fixedRichTextOptions
+                )
+              }}
+            </div>
+          </dd>
+        {%- endif -%}
+      </dl>
+    </section>
+  {%- endif -%}
+{% endblock %}

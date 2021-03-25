@@ -41,9 +41,11 @@
           />
         {%- endif -%}
       </a>
-      <p class="ad-label">
-        {{ __('global|advertisementHeading') }}
-      </p>
+      {%- if options.hasLabel -%}
+        <p class="ad-label">
+          {{ __('global|advertisementHeading') }}
+        </p>
+      {%- endif -%}
     </div>
   {%- else -%}
     {{ warnBannerNotOngoing(options.user) }}

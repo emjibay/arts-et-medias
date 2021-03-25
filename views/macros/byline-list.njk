@@ -25,6 +25,16 @@
   </ul>
 {% endmacro %}
 
+{% macro bannerAdBylineList(piece, options) %}
+  {%- if piece._client -%}
+    <ul class="byline-list">
+        <li class="byline-li">
+          <span>{{ piece._client.title }}</span>
+        </li>
+    </ul>
+  {%- endif -%}
+{% endmacro %}
+
 {% macro genericBylineList(piece, options) %}
   <ul class="byline-list">
     {% for author in piece._author %}
@@ -42,6 +52,8 @@
     {{ bookBylineList(piece, options) }}
   {%- elseif piece.type === 'education' -%}
     {{ programBylineList(piece, options) }}
+  {%- elseif piece.type === 'banner' -%}
+    {{ bannerAdBylineList(piece, options) }}
   {%- else -%}
     {{ genericBylineList(piece, options) }}
   {%- endif -%}

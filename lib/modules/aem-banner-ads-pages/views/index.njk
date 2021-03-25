@@ -1,0 +1,36 @@
+{% extends "layouts/indexLayout.njk" %}
+
+
+{%- import 'apostrophe-pager:macros.html' as pager with context -%}
+
+{%- from 'macros/piece-index.njk' import bannerAdList -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+
+
+{% block title %}
+  {{ apos.aemSeo.buildSimplePageTitle(__, data.page.title) }}
+{% endblock %}
+
+
+{% block pageContent %}
+  {%- if data.pieces|length -%}
+    {{ bannerAdList(data.pieces, { locale: locale }) }}
+
+    {# pagination #}
+    {{
+      pager.render(
+        {
+          page: data.currentPage,
+          total: data.totalPages
+        },
+        data.url
+      )
+    }}
+  {%- else -%}
+    <div class="no-pieces">
+      {{ __('bannerAds|noPiecesLabel') }}
+    </div>
+  {% endif %}
+{% endblock %}

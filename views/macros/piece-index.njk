@@ -196,6 +196,45 @@
   {%- endif -%}
 {%- endmacro -%}
 
+{% macro bannerAdList(pieces, options) %}
+  {%- if pieces -%}
+    <ul class="piece-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
+
+              {%- set aposImageData = apos.images.first(piece.bannerImage) -%}
+              {%- if aposImageData -%}
+                {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
+                <img
+                  class="hero-image"
+                  src="{{ image.url }}"
+                  alt="{{ image.alt }}"
+                />
+              {%- endif -%}
+
+              <p class="org-location">
+                {%- set startDate = apos.aemDates.format(piece.startDate, options.locale) -%}
+                {%- set endDate = apos.aemDates.format(piece.endDate, options.locale) -%}
+                {{ startDate }} — {{ endDate }}
+              </p>
+
+              {{ bylineList(piece) }}
+
+              <div class="piece-cta">{{ __('pieceIndex|seeMoreCTA') }}</div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
+{% endmacro %}
+
 {#
   pieces: <array>
   options: <object>
