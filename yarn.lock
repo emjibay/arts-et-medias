@@ -1591,10 +1591,10 @@ apostrophe-workflow@2.38.3:
     qs "^6.9.4"
     request-promise "^4.2.6"
 
-apostrophe@2.116.1:
-  version "2.116.1"
-  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.116.1.tgz#bcd92a522a4911d589fc8d3652b9ea9fcacd1c0d"
-  integrity sha512-VyvwdoCoRXHQeK5RIvY/adIhpoz3s8IhBHPa5tAbHAGiOWyq1kBjEFtnwG8tlLPc27a4syugpB3dI5sJYoPwBA==
+apostrophe@2.117.0:
+  version "2.117.0"
+  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.117.0.tgz#90ae2d495830b62c244978db09711ede5da357e2"
+  integrity sha512-uaFjKzSNSLbUY4DJn3rf4RllSQVN7X859XmYr3ezzntuNbf3XRhaWLgRC+vmtccjTe6j+EaIXPH91eYxH9G38g==
   dependencies:
     "@apostrophecms/nunjucks" "^2.5.4"
     "@sailshq/lodash" "^3.10.4"
