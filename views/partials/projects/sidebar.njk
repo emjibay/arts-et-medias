@@ -1,18 +1,13 @@
 {%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
 
 
+{%- set hasFeaturedProject = apos.aemPieces.hasFeaturedProject(data) -%}
+{%- set isDraftMode = apos.aemUtils.isDraftMode(data) -%}
+
+
 <aside class="sidebar sidebar-projects">
   <article>
-    {{
-      containedSidebarBanners({
-        data: data,
-        propName: 'projectsSidebarBanners1',
-        hasTopSeparator: false,
-        hasBottomSeparator: false
-      })
-    }}
-
-    {%- if apos.aemPieces.hasFeaturedProject(data) or apos.aemUtils.isDraftMode(data) -%}
+    {%- if hasFeaturedProject or isDraftMode -%}
       {% include "partials/projects/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}
@@ -20,13 +15,22 @@
     {{
       containedSidebarBanners({
         data: data,
-        propName: 'projectsSidebarBanners2',
+        propName: 'projectsSidebarBanners1',
         hasTopSeparator: false,
         hasBottomSeparator: true
       })
     }}
 
     {% include "partials/organizations/related.njk" %}
+
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'projectsSidebarBanners2',
+        hasTopSeparator: true,
+        hasBottomSeparator: false
+      })
+    }}
 
     <hr class="separator" />
 
