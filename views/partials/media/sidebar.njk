@@ -8,21 +8,22 @@
         data: data,
         propName: 'mediaSidebarBanners1',
         hasTopSeparator: false,
-        hasBottomSeparator: false
+        hasBottomSeparator: true
       })
     }}
 
     {% include "partials/media/in-this-section.njk" %}
-    {% include "partials/books/related.njk" %}
 
     {{
       containedSidebarBanners({
         data: data,
         propName: 'mediaSidebarBanners2',
-        hasTopSeparator: false,
-        hasBottomSeparator: false
+        hasTopSeparator: true,
+        hasBottomSeparator: true
       })
     }}
+
+    {% include "partials/books/related.njk" %}
 
     <hr class="separator" />
 

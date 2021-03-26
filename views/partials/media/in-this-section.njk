@@ -1,23 +1,20 @@
-{%- from 'macros/sidebar.njk' import mediaLink, sidebarPageLink -%}
+{%- from 'macros/sidebar.njk' import mediaLink -%}
 
 
 <section class="in-this-section">
   <h2 class="h1">{{ __('sidebar|inThisSectionHeading') }}</h2>
   <ul>
     <li>
-      {{ sidebarPageLink('projects') }}
-    </li>
-    <li>
-      {{ sidebarPageLink('books') }}
-    </li>
-    <li>
       {{ mediaLink('magazines') }}
+    </li>
+    <li>
+      {{ mediaLink('websites') }}
     </li>
     <li>
       {{ mediaLink('blogs') }}
     </li>
     <li>
-      {{ mediaLink('websites') }}
+      {{ mediaLink('newsletters') }}
     </li>
   </ul>
 </section>
