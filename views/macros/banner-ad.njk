@@ -182,3 +182,27 @@
     </div>
   </div>
 {% endmacro %}
+
+
+{#
+  @param options (object)
+  - index: Current index of the iteration. Used as a modulo.
+  - isMainVisible: Whether or not the main leaderboard is visible. Overrides the modulo check.
+  - isMinorVisible: Whether or not the minor leaderboard is visible. Overrides the modulo check.
+  - mainOptions
+  - minorOptions
+  - additionalOptions
+#}
+{% macro alternatingLeaderboard(options) %}
+  {%- if options.index % 2 === 0 -%}
+    {# even #}
+    {%- if options.isMainVisible -%}
+      {{ inContextLeaderboard(options.mainOptions, options.additionalOptions) }}
+    {%- endif -%}
+  {%- else -%}
+    {# odd #}
+    {%- if options.isMinorVisible -%}
+      {{ inContextLeaderboard(options.minorOptions, options.additionalOptions) }}
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}

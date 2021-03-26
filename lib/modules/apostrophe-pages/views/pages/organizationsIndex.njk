@@ -7,12 +7,6 @@
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-{%- set mainLBOptions = { data: data, propName: 'orgsLeaderboard' } -%}
-{%- set minorLBOptions = { data: data, propName: 'orgsMinorLeaderboard' } -%}
-{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
-{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
-{%- set bannerPropNames = ['orgsSidebarBanners1', 'orgsSidebarBanners2'] -%}
-
 {%-
   set orgsCategories = [
     'galleries',
@@ -21,21 +15,22 @@
     'makerSpaces'
   ]
 -%}
-
-
-{% macro alternateLeaderboard(lbIndex) %}
-  {%- if lbIndex % 2 === 0 -%}
-    {# even #}
-    {%- if isMainLBVisible -%}
-      {{ inContextLeaderboard(mainLBOptions, options) }}
-    {%- endif -%}
-  {%- else -%}
-    {# odd #}
-    {%- if isMinorLBVisible -%}
-      {{ inContextLeaderboard(minorLBOptions, options) }}
-    {%- endif -%}
-  {%- endif -%}
-{% endmacro %}
+{%- set mainLBOptions = { data: data, propName: 'orgsLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'orgsMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%-
+  set alternatingLBOptions = {
+    index: 1,
+    isMainVisible: isMainLBVisible,
+    isMinorVisible: isMinorLBVisible,
+    mainOptions: mainLBOptions,
+    minorOptions: minorLBOptions,
+    additionalOptions: {}
+  }
+-%}
+{%- set increaseIndex = apos.aemBannerAds.increaseAlternatingLeaderboardIndex -%}
+{%- set bannerPropNames = ['orgsSidebarBanners1', 'orgsSidebarBanners2'] -%}
 
 
 {% block title %}
@@ -51,7 +46,6 @@
 {% endblock %}
 
 {% block pageContent %}
-  {%- set lbIndex = 1 -%}
   {%- set bannerIndex = 0 -%}
 
   {% for category in orgsCategories %}
@@ -83,8 +77,8 @@
       )
     }}
 
-    {{ alternateLeaderboard(lbIndex) }}
-    {%- set lbIndex = lbIndex + 1 -%}
+    {{ alternatingLeaderboard(alternatingLBOptions) }}
+    {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   {% endfor %}
 {% endblock %}
 

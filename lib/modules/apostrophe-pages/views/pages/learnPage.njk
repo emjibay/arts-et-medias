@@ -1,7 +1,7 @@
 {% extends "layouts/subjectPageLayout.njk" %}
 
 
-{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
+{%- from 'macros/banner-ad.njk' import alternatingLeaderboard, inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import eventList -%}
@@ -14,21 +14,18 @@
 {%- set minorLBOptions = { data: data, propName: 'learnMinorLeaderboard' } -%}
 {%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
 {%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%-
+  set alternatingLBOptions = {
+    index: 1,
+    isMainVisible: isMainLBVisible,
+    isMinorVisible: isMinorLBVisible,
+    mainOptions: mainLBOptions,
+    minorOptions: minorLBOptions,
+    additionalOptions: {}
+  }
+-%}
+{%- set increaseIndex = apos.aemBannerAds.increaseAlternatingLeaderboardIndex -%}
 
-
-{% macro alternateLeaderboard(lbIndex, options) %}
-  {%- if lbIndex % 2 === 0 -%}
-    {# even #}
-    {%- if isMainLBVisible -%}
-      {{ inContextLeaderboard(mainLBOptions, options) }}
-    {%- endif -%}
-  {%- else -%}
-    {# odd #}
-    {%- if isMinorLBVisible -%}
-      {{ inContextLeaderboard(minorLBOptions, options) }}
-    {%- endif -%}
-  {%- endif -%}
-{% endmacro %}
 
 {% macro academicProgramSection(category) %}
   {%- set academiaCat = 'education|categories|' + category -%}
@@ -65,7 +62,6 @@
 {% endblock %}
 
 {% block pageContent %}
-  {%- set lbIndex = 1 -%}
   {%- set bannerIndex = 0 -%}
 
   {# rich preamble #}
@@ -74,8 +70,8 @@
     <div class="rich-preamble">
       {{ contentSection(data.page) }}
     </div>
-    {{ alternateLeaderboard(lbIndex) }}
-    {%- set lbIndex = lbIndex + 1 -%}
+    {{ alternatingLeaderboard(alternatingLBOptions) }}
+    {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   {%- endif -%}
 
   {# workshops #}
@@ -98,8 +94,8 @@
           __('events|categories|workshops|url')
         )
       }}
-      {{ alternateLeaderboard(lbIndex) }}
-      {%- set lbIndex = lbIndex + 1 -%}
+      {{ alternatingLeaderboard(alternatingLBOptions) }}
+      {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
     </section>
 
     {%- if bannerIndex < globalSidebarBanners|length -%}
@@ -115,8 +111,8 @@
 
   {# undergrad programs #}
   {{ academicProgramSection('undergrad') }}
-  {{ alternateLeaderboard(lbIndex) }}
-  {%- set lbIndex = lbIndex + 1 -%}
+  {{ alternatingLeaderboard(alternatingLBOptions) }}
+  {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
 
   {# mobile banners #}
   {%- if bannerIndex < globalSidebarBanners|length -%}
@@ -131,8 +127,8 @@
 
   {# grad programs #}
   {{ academicProgramSection('grad') }}
-  {{ alternateLeaderboard(lbIndex) }}
-  {%- set lbIndex = lbIndex + 1 -%}
+  {{ alternatingLeaderboard(alternatingLBOptions) }}
+  {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
 
   {# mobile banners #}
   {%- if bannerIndex < globalSidebarBanners|length -%}
@@ -147,8 +143,8 @@
 
   {# postgrad programs #}
   {{ academicProgramSection('postgrad') }}
-  {{ alternateLeaderboard(lbIndex) }}
-  {%- set lbIndex = lbIndex + 1 -%}
+  {{ alternatingLeaderboard(alternatingLBOptions) }}
+  {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
 
   {# mobile banners #}
   {%- if bannerIndex < globalSidebarBanners|length -%}

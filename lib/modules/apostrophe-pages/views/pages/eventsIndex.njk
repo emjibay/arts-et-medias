@@ -1,19 +1,12 @@
 {% extends 'layouts/indexLayout.njk' %}
 
 
-{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
+{%- from 'macros/banner-ad.njk' import alternatingLeaderboard, inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import eventList, recentlyAddedEvents -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-{%- set numPreviewEvents = 2 -%}
-{%- set mainLBOptions = { data: data, propName: 'eventsLeaderboard' } -%}
-{%- set minorLBOptions = { data: data, propName: 'eventsMinorLeaderboard' } -%}
-{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
-{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
-{%- set bannerPropNames = ['eventsSidebarBanners1', 'eventsSidebarBanners2'] -%}
-
 {#- TODO: add exhibits (#93) -#}
 {%-
   set eventCategories = [
@@ -22,21 +15,24 @@
     'workshops'
   ]
 -%}
+{%- set numPreviewEvents = 2 -%}
+{%- set mainLBOptions = { data: data, propName: 'eventsLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'eventsMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%-
+  set alternatingLBOptions = {
+    index: 1,
+    isMainVisible: isMainLBVisible,
+    isMinorVisible: isMinorLBVisible,
+    mainOptions: mainLBOptions,
+    minorOptions: minorLBOptions,
+    additionalOptions: {}
+  }
+-%}
+{%- set increaseIndex = apos.aemBannerAds.increaseAlternatingLeaderboardIndex -%}
+{%- set bannerPropNames = ['eventsSidebarBanners1', 'eventsSidebarBanners2'] -%}
 
-
-{% macro alternateLeaderboard(lbIndex) %}
-  {%- if lbIndex % 2 === 0 -%}
-    {# even #}
-    {%- if isMainLBVisible -%}
-      {{ inContextLeaderboard(mainLBOptions, options) }}
-    {%- endif -%}
-  {%- else -%}
-    {# odd #}
-    {%- if isMinorLBVisible -%}
-      {{ inContextLeaderboard(minorLBOptions, options) }}
-    {%- endif -%}
-  {%- endif -%}
-{% endmacro %}
 
 
 {% block title %}
@@ -52,13 +48,12 @@
 {% endblock %}
 
 {% block pageContent %}
-  {%- set lbIndex = 1 -%}
   {%- set bannerIndex = 0 -%}
 
   {%- if apos.aemPieces.hasFeaturedEvent(data) or apos.aemUtils.isDraftMode(data) -%}
     {% include "partials/events/featured.njk" %}
-    {{ alternateLeaderboard(lbIndex) }}
-    {%- set lbIndex = lbIndex + 1 -%}
+    {{ alternatingLeaderboard(alternatingLBOptions) }}
+    {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   {%- endif -%}
 
   {% for category in eventCategories %}
@@ -79,16 +74,6 @@
       }}
     {%- endif -%}
 
-    {%- if bannerIndex < bannerPropNames|length -%}
-      {{
-        mobileBannerAds({
-          data: data,
-          propName: bannerPropNames[bannerIndex]
-        })
-      }}
-      {%- set bannerIndex = bannerIndex + 1 -%}
-    {%- endif -%}
-
     {%- if hasRecentlyAddedEvents -%}
       {{
         recentlyAddedEvents(
@@ -100,6 +85,16 @@
     {%- endif -%}
 
     {%- if hasNextEvents or hasRecentlyAddedEvents -%}
+      {%- if bannerIndex < bannerPropNames|length -%}
+        {{
+          mobileBannerAds({
+            data: data,
+            propName: bannerPropNames[bannerIndex]
+          })
+        }}
+        {%- set bannerIndex = bannerIndex + 1 -%}
+      {%- endif -%}
+
       {{
         seeAllCTA(
           __(i18nCat + 'seeAllCTA'),
@@ -107,8 +102,8 @@
         )
       }}
 
-      {{ alternateLeaderboard(lbIndex) }}
-      {%- set lbIndex = lbIndex + 1 -%}
+      {{ alternatingLeaderboard(alternatingLBOptions) }}
+      {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
     {%- endif -%}
   {% endfor %}
 {% endblock %}

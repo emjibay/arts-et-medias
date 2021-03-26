@@ -1,7 +1,7 @@
 {% extends "layouts/subjectPageLayout.njk" %}
 
 
-{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
+{%- from 'macros/banner-ad.njk' import alternatingLeaderboard, inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import articleList, bookList -%}
@@ -13,21 +13,17 @@
 {%- set minorLBOptions = { data: data, propName: 'readMinorLeaderboard' } -%}
 {%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
 {%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
-
-
-{% macro alternateLeaderboard(lbIndex, options) %}
-  {%- if lbIndex % 2 === 0 -%}
-    {# even #}
-    {%- if isMainLBVisible -%}
-      {{ inContextLeaderboard(mainLBOptions, options) }}
-    {%- endif -%}
-  {%- else -%}
-    {# odd #}
-    {%- if isMinorLBVisible -%}
-      {{ inContextLeaderboard(minorLBOptions, options) }}
-    {%- endif -%}
-  {%- endif -%}
-{% endmacro %}
+{%-
+  set alternatingLBOptions = {
+    index: 1,
+    isMainVisible: isMainLBVisible,
+    isMinorVisible: isMinorLBVisible,
+    mainOptions: mainLBOptions,
+    minorOptions: minorLBOptions,
+    additionalOptions: {}
+  }
+-%}
+{%- set increaseIndex = apos.aemBannerAds.increaseAlternatingLeaderboardIndex -%}
 
 
 {% block advertisementBeforeMain %}
@@ -38,7 +34,6 @@
 
 
 {% block pageContent %}
-  {%- set lbIndex = 1 -%}
   {%- set bannerIndex = 0 -%}
 
   {# rich preamble #}
@@ -47,8 +42,8 @@
     <div class="rich-preamble">
       {{ contentSection(data.page) }}
     </div>
-    {{ alternateLeaderboard(lbIndex) }}
-    {%- set lbIndex = lbIndex + 1 -%}
+    {{ alternatingLeaderboard(alternatingLBOptions) }}
+    {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   {%- endif -%}
 
   {# articles #}
@@ -89,8 +84,8 @@
         __('articles|url')
       )
     }}
-    {{ alternateLeaderboard(lbIndex) }}
-    {%- set lbIndex = lbIndex + 1 -%}
+    {{ alternatingLeaderboard(alternatingLBOptions) }}
+    {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   </section>
 
   {# mobile banners #}
@@ -150,8 +145,8 @@
         __('books|url')
       )
     }}
-    {{ alternateLeaderboard(lbIndex) }}
-    {%- set lbIndex = lbIndex + 1 -%}
+    {{ alternatingLeaderboard(alternatingLBOptions) }}
+    {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   </section>
 
   {# mobile banners #}

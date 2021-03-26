@@ -1,17 +1,10 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
-{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
+{%- from 'macros/banner-ad.njk' import alternatingLeaderboard, inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import recentlyAdded -%}
 
-
-{%- set numPreviewMedia = 4 -%}
-{%- set mainLBOptions = { data: data, propName: 'mediaLeaderboard' } -%}
-{%- set minorLBOptions = { data: data, propName: 'mediaMinorLeaderboard' } -%}
-{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
-{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
-{%- set bannerPropNames = ['mediaSidebarBanners1', 'mediaSidebarBanners2'] -%}
 
 {%-
   set mediaCategories = [
@@ -21,21 +14,23 @@
     'newsletters'
   ]
 -%}
-
-
-{% macro alternateLeaderboard(lbIndex) %}
-  {%- if lbIndex % 2 === 0 -%}
-    {# even #}
-    {%- if isMainLBVisible -%}
-      {{ inContextLeaderboard(mainLBOptions, options) }}
-    {%- endif -%}
-  {%- else -%}
-    {# odd #}
-    {%- if isMinorLBVisible -%}
-      {{ inContextLeaderboard(minorLBOptions, options) }}
-    {%- endif -%}
-  {%- endif -%}
-{% endmacro %}
+{%- set numPreviewMedia = 4 -%}
+{%- set mainLBOptions = { data: data, propName: 'mediaLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'mediaMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%-
+  set alternatingLBOptions = {
+    index: 1,
+    isMainVisible: isMainLBVisible,
+    isMinorVisible: isMinorLBVisible,
+    mainOptions: mainLBOptions,
+    minorOptions: minorLBOptions,
+    additionalOptions: {}
+  }
+-%}
+{%- set increaseIndex = apos.aemBannerAds.increaseAlternatingLeaderboardIndex -%}
+{%- set bannerPropNames = ['mediaSidebarBanners1', 'mediaSidebarBanners2'] -%}
 
 
 {% block title %}
@@ -53,7 +48,6 @@
 {% endblock %}
 
 {% block pageContent %}
-  {%- set lbIndex = 1 -%}
   {%- set bannerIndex = 0 -%}
 
   {% for category in mediaCategories %}
@@ -85,8 +79,8 @@
       )
     }}
 
-    {{ alternateLeaderboard(lbIndex) }}
-    {%- set lbIndex = lbIndex + 1 -%}
+    {{ alternatingLeaderboard(alternatingLBOptions) }}
+    {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   {% endfor %}
 {% endblock %}
 
