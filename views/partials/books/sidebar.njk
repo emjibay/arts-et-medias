@@ -1,20 +1,14 @@
 {%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
 
 
+{%- set hasFeaturedBook = apos.aemPieces.hasFeaturedBook(data) -%}
+{%- set isDraftMode = apos.aemUtils.isDraftMode(data) -%}
+{%- set isFeaturedBookVisible = hasFeaturedBook or isDraftMode -%}
+
+
 <aside class="sidebar">
   <article>
-    {{
-      containedSidebarBanners({
-        data: data,
-        propName: 'booksSidebarBanners1',
-        hasTopSeparator: false,
-        hasBottomSeparator: false
-      })
-    }}
-
-    {%- set isUserAdmin = apos.aemUsers.isUserAdmin(data.user) -%}
-    {%- set hasFeaturedBook = apos.aemPieces.hasFeaturedBook(data) -%}
-    {%- if isUserAdmin or hasFeaturedBook or apos.aemUtils.isDraftMode(data)-%}
+    {%- if hasFeaturedBook or isDraftMode -%}
       {% include "partials/books/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}
@@ -22,14 +16,22 @@
     {{
       containedSidebarBanners({
         data: data,
-        propName: 'booksSidebarBanners2',
+        propName: 'booksSidebarBanners1',
         hasTopSeparator: false,
         hasBottomSeparator: true
       })
     }}
 
-    {% include "partials/media/in-this-section.njk" %}
     {% include "partials/books/related.njk" %}
+
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'booksSidebarBanners2',
+        hasTopSeparator: true,
+        hasBottomSeparator: false
+      })
+    }}
 
     <hr class="separator" />
 
