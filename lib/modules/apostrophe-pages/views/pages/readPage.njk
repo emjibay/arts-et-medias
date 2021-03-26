@@ -5,6 +5,7 @@
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
 {%- from 'macros/piece-index.njk' import articleList, bookList -%}
+{%- from 'options/banner-ads.njk' import globalSidebarBanners -%}
 
 
 {%- set numPreviews = 4 -%}
@@ -12,13 +13,6 @@
 {%- set minorLBOptions = { data: data, propName: 'readMinorLeaderboard' } -%}
 {%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
 {%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
-{%-
-  set bannerPropNames = [
-    'globalSidebarBanners1',
-    'globalSidebarBanners2',
-    'globalSidebarBanners3'
-  ]
--%}
 
 
 {% macro alternateLeaderboard(lbIndex, options) %}
@@ -67,11 +61,11 @@
     </div>
 
     {# mobile banners #}
-    {%- if bannerIndex < bannerPropNames|length -%}
+    {%- if bannerIndex < globalSidebarBanners|length -%}
       {{
         mobileBannerAds({
           data: data,
-          propName: bannerPropNames[bannerIndex]
+          propName: globalSidebarBanners[bannerIndex]
         })
       }}
       {%- set bannerIndex = bannerIndex + 1 -%}
@@ -100,11 +94,11 @@
   </section>
 
   {# mobile banners #}
-  {%- if bannerIndex < bannerPropNames|length -%}
+  {%- if bannerIndex < globalSidebarBanners|length -%}
     {{
       mobileBannerAds({
         data: data,
-        propName: bannerPropNames[bannerIndex]
+        propName: globalSidebarBanners[bannerIndex]
       })
     }}
     {%- set bannerIndex = bannerIndex + 1 -%}
@@ -122,11 +116,11 @@
       </div>
 
       {# mobile banners #}
-      {%- if bannerIndex < bannerPropNames|length -%}
+      {%- if bannerIndex < globalSidebarBanners|length -%}
         {{
           mobileBannerAds({
             data: data,
-            propName: bannerPropNames[bannerIndex]
+            propName: globalSidebarBanners[bannerIndex]
           })
         }}
         {%- set bannerIndex = bannerIndex + 1 -%}
@@ -161,11 +155,11 @@
   </section>
 
   {# mobile banners #}
-  {%- if bannerIndex < bannerPropNames|length -%}
+  {%- if bannerIndex < globalSidebarBanners|length -%}
     {{
       mobileBannerAds({
         data: data,
-        propName: bannerPropNames[bannerIndex]
+        propName: globalSidebarBanners[bannerIndex]
       })
     }}
     {%- set bannerIndex = bannerIndex + 1 -%}
