@@ -121,6 +121,7 @@
     "authorsLabel": "Authors",
     "booksAuthorLabel": "Author of the Following Books",
     "booksContributorLabel": "Contributed to the Following Books",
+    "booksEditorLabel": "Editor of the Following Books",
     "booksTranslatorLabel": "Translated the Following Books",
     "byline": "by %s",
     "contributorsLabel": "Contributors",

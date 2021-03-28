@@ -121,6 +121,7 @@
     "authorsLabel": "Auteurs",
     "booksAuthorLabel": "Auteur des livres suivants",
     "booksContributorLabel": "Collaborateur aux livres suivants",
+    "booksEditorLabel": "Éditeur des livres suivants",
     "booksTranslatorLabel": "Traducteur des livres suivants",
     "byline": "par %s",
     "contributorsLabel": "Collaborateurs",
