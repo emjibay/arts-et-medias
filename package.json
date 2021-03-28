@@ -35,7 +35,7 @@
     "brunch": "2.10.17",
     "chalk": "4.1.0",
     "core-js": "3.9.1",
-    "eslint": "7.22.0",
+    "eslint": "7.23.0",
     "globby": "10.0.2",
     "terser-brunch": "3.0.0"
   },
