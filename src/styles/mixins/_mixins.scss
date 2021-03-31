@@ -42,14 +42,6 @@
 }
 
 
-// alignment
-@mixin leftAlignToContent() {
-  @media #{ vars.$mqDesktop } {
-    left: getSideWidth(vars.$desktop);
-  }
-}
-
-
 // decoration
 @mixin underlinedH1() {
   border-bottom: 2px solid vars.$lightGrey;

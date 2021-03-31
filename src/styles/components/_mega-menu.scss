@@ -200,6 +200,7 @@ $hideDuration: 480ms;
       }
 
       .list-item {
+        display: inline-block;
         text-decoration: none;
 
         .profile-pic-container {
@@ -235,15 +236,15 @@ $hideDuration: 480ms;
           vertical-align: top;
 
           @media #{ vars.$mqDesktop } {
-            margin-left: getGutterHalfWidth(vars.$desktop);
+            margin-left: fn.getGutterHalfWidth(vars.$desktop);
           }
 
           @media #{ vars.$mqXL } {
-            margin-left: getGutterHalfWidth(vars.$xl);
+            margin-left: fn.getGutterHalfWidth(vars.$xl);
           }
 
           @media #{ vars.$mqXXL } {
-            margin-left: getGutterHalfWidth(vars.$xxl);
+            margin-left: fn.getGutterHalfWidth(vars.$xxl);
           }
 
           .person-name {
@@ -271,7 +272,7 @@ $hideDuration: 480ms;
       &.col-3 {
         .list-item {
           @media #{ vars.$mqDesktop } {
-            $col: getColumnWidth(vars.$desktop);
+            $col: fn.getColumnWidth(vars.$desktop);
             $halfCol: calc(#{ $col } / 2);
             .profile-pic-container {
               .fig-headshot {
@@ -292,7 +293,7 @@ $hideDuration: 480ms;
           }
 
           @media #{ vars.$mqXL } {
-            $col: getColumnWidth(vars.$desktop);
+            $col: fn.getColumnWidth(vars.$desktop);
             $halfCol: calc(#{ $col } / 2);
             $quarterCol: calc(#{ $halfCol } / 2);
             .profile-pic-container {
@@ -308,7 +309,7 @@ $hideDuration: 480ms;
           }
 
           @media #{ vars.$mqXXL } {
-            $col: getColumnWidth(vars.$desktop);
+            $col: fn.getColumnWidth(vars.$desktop);
             $halfCol: calc(#{ $col } / 2);
             $quarterCol: calc(#{ $halfCol } / 2);
             .profile-pic-container {

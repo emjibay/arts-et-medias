@@ -1,4 +1,5 @@
 @use '../common/variables' as vars;
+@use '../mixins/functions' as fn;
 
 
 @mixin contentContainer {
@@ -21,7 +22,7 @@
 }
 
 @mixin customContentContainerWithSpanAt($numColSpan, $breakpoint) {
-  $nColWidth: getColumnsSpan($numColSpan, $breakpoint);
+  $nColWidth: fn.getColumnsSpan($numColSpan, $breakpoint);
   width: $nColWidth;
 }
 
