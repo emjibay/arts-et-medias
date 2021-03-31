@@ -4,17 +4,36 @@
 <!DOCTYPE html>
 <html lang="{{ locale }}" {% block extraHtml %}{% endblock %}>
   <head>
-    {% block startHead %}
-    {% endblock %}
+    {% block startHead %}{% endblock %}
+
     {{ apos.templates.prepended('head') }}
+
     <title>{% block title %}{% endblock %}</title>
+
+    <link
+      rel="preload"
+      href="/fonts/youngserif/YoungSerif-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="/fonts/quebec/Quebec-Light.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    >
+
     {{ apos.assets.stylesheets(data.when) }}
+
     {% block standardHead %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% endblock %}
+
     {{ apos.templates.appended('head') }}
-    {% block extraHead %}
-    {% endblock %}
+
+    {% block extraHead %}{% endblock %}
   </head>
   <body
     class="{{ data.aposBodyClasses }} {% block bodyClass %}{% endblock %}"
