@@ -1,4 +1,4 @@
-@import '../common/variables';
+@use '../common/variables' as vars;
 
 
 @mixin tagList {
@@ -17,10 +17,10 @@
 
 @mixin staticTag {
   display: inline-block;
-  background-color: $halfGrey;
+  background-color: vars.$halfGrey;
   border: 1px solid transparent;
-  color: $almostWhite;
-  font-family: $ffButtonLabel;
+  color: vars.$almostWhite;
+  font-family: vars.$ffButtonLabel;
   font-size: 8pt;
   font-style: normal;
   font-weight: normal;
@@ -33,9 +33,9 @@
 
 @mixin tagOnHover {
   &:hover {
-    background-color: $almostWhite;
-    border: 1px solid $main;
-    color: $main;
+    background-color: vars.$almostWhite;
+    border: 1px solid vars.$main;
+    color: vars.$main;
   }
 }
 

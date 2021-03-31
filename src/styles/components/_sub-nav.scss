@@ -1,21 +1,20 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+
 
 .sub-nav {
-  border-bottom: 1px solid $halfGrey;
+  border-bottom: 1px solid vars.$halfGrey;
   padding: 7px 0 13px 0;
 
   .sub-nav-list {
-
     li {
       display: inline-block;
       margin-right: 40px;
 
       a {
-        color: $black;
+        color: vars.$black;
         cursor: pointer;
-        font-family: $ffTextBody;
+        font-family: vars.$ffTextBody;
         font-size: 12.5pt;
         font-style: normal;
         font-weight: normal;
@@ -23,11 +22,11 @@
         text-decoration: none;
 
         &:hover {
-          color: $main;
+          color: vars.$main;
           text-decoration: underline;
         }
         &:focus {
-          @include focusOutline();
+          @include ui.focusOutline();
         }
       }
     }

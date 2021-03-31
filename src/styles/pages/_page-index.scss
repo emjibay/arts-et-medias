@@ -1,15 +1,15 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
 
 
 .page-index {
   .page-heading {
-    @include underlinedH1();
+    @include mx.underlinedH1();
   }
 
   .content-type-heading {
-    @include contentTypeHeading();
+    @include ui.contentTypeHeading();
   }
 
   .recently-added-pieces,
@@ -34,10 +34,10 @@
   }
 
   .no-pieces {
-    @include paragraph();
+    @include ui.paragraph();
     margin-top: 37.5px;
 
-    @media #{$mqXXL} {
+    @media #{ vars.$mqXXL } {
       margin-top: 35px;
     }
   }

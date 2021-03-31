@@ -1,11 +1,10 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../mixins/mixins' as mx;
 
 
 .page-media-index {
   .piece-list {
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       .list-item:nth-child(n + 3) {
         margin-top: 40px;
       }
@@ -17,7 +16,7 @@
 
 .medium-details {
   main > article > .page-heading {
-    @include underlinedH1();
+    @include mx.underlinedH1();
     margin-bottom: 20px;
   }
 }

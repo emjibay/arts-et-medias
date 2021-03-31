@@ -1,35 +1,37 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/variables' as vars;
+@use '../mixins/functions' as fn;
 
 
+// mixins
 @mixin imageDimensions {
-  $imageSize: getColumnsSpan(6, $phone);
+  $imageSize: fn.getColumnsSpan(6, vars.$phone);
   object-fit: cover;
   height: $imageSize;
   width: $imageSize;
 
-  @media #{$mqTablet} {
-    width: getColumnsSpan(4, $tablet);
-    height: getColumnsSpan(4, $tablet);
+  @media #{ vars.$mqTablet } {
+    width: fn.getColumnsSpan(4, vars.$tablet);
+    height: fn.getColumnsSpan(4, vars.$tablet);
   }
 
-  @media #{$mqDesktop} {
-    width: getColumnsSpan(4, $desktop);
-    height: getColumnsSpan(4, $desktop);
+  @media #{ vars.$mqDesktop } {
+    width: fn.getColumnsSpan(4, vars.$desktop);
+    height: fn.getColumnsSpan(4, vars.$desktop);
   }
 
-  @media #{$mqXL} {
-    width: getColumnsSpan(4, $xl);
-    height: getColumnsSpan(4, $xl);
+  @media #{ vars.$mqXL } {
+    width: fn.getColumnsSpan(4, vars.$xl);
+    height: fn.getColumnsSpan(4, vars.$xl);
   }
 
-  @media #{$mqXXL} {
-    width: getColumnsSpan(4, $xxl);
-    height: getColumnsSpan(4, $xxl);
+  @media #{ vars.$mqXXL } {
+    width: fn.getColumnsSpan(4, vars.$xxl);
+    height: fn.getColumnsSpan(4, vars.$xxl);
   }
 }
 
 
+// styles
 .people-index {}
 
 .person-details {
@@ -37,12 +39,12 @@
     margin: 40px 0;
     width: 100%;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: none;
     }
 
     .fig-headshot {
-      $imageSize: getColumnsSpan(6, $phone);
+      $imageSize: fn.getColumnsSpan(6, vars.$phone);
       object-fit: cover;
       height: $imageSize;
       width: $imageSize;
@@ -59,9 +61,9 @@
     }
 
     .fig-credits{
-      color: $darkGrey;
-      font-family: $ffSerif;
-      font-size: $fsVerySmol;
+      color: vars.$darkGrey;
+      font-family: vars.$ffSerif;
+      font-size: vars.$fsVerySmol;
       font-style: italic;
       margin: 15px 0 30px 0;
       text-align: right;

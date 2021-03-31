@@ -1,9 +1,9 @@
-@import '../mixins/mixins';
+@use '../mixins/mixins' as mx;
 
 
 .content-template {
   .page-heading {
-    @include underlinedH1();
+    @include mx.underlinedH1();
   }
 
   [data-apos-widget-wrapper="aem-link"] {

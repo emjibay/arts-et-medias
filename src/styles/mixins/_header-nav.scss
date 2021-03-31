@@ -1,20 +1,21 @@
-@import '../common/variables';
-@import '../common/ui';
-@import 'mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+
+@use 'mixins' as mx;
 
 
 @mixin searchAndLangSwitch() {
   .nav-item {
     &.search {
       .search-button {
-        color: $almostWhite;
+        color: vars.$almostWhite;
         display: block;
 
-        @media #{$mqTablet} {
+        @media #{ vars.$mqTablet } {
           background-color: transparent;
           border-radius: 0;
           border: 0;
-          color: $black;
+          color: vars.$black;
           display: inline-block;
           height: 20px;
           margin: 0;
@@ -24,22 +25,22 @@
           width: 20px;
         }
 
-        @media #{$mqDesktop} {
+        @media #{ vars.$mqDesktop } {
           top: 0;
         }
 
         &:hover {
-          color: $main;
+          color: vars.$main;
         }
 
         &:focus {
-          @include focusOutline();
+          @include ui.focusOutline();
         }
 
         .icon {
           display: none;
 
-          @media #{$mqTablet} {
+          @media #{ vars.$mqTablet } {
             display: inline-block;
             height: 12px;
             left: 2px;
@@ -48,12 +49,12 @@
             width: 12px;
           }
 
-          @media #{$mqDesktop} {
+          @media #{ vars.$mqDesktop } {
             height: 14px;
             width: 14px;
           }
 
-          @media #{$mqXL} {
+          @media #{ vars.$mqXL } {
             height: 16px;
             width: 16px;
           }
@@ -62,8 +63,8 @@
         .label {
           text-align: center;
 
-          @media #{$mqTablet} {
-            @include visuallyHidden();
+          @media #{ vars.$mqTablet } {
+            @include mx.visuallyHidden();
           }
         }
       }

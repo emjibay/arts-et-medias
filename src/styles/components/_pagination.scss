@@ -1,6 +1,7 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+
+
 
 
 .apos-pager {
@@ -10,42 +11,42 @@
 
   .apos-pager-number {
     display: inline-block;
-    background-color: $black;
+    background-color: vars.$black;
     border: 1px solid transparent;
     cursor: pointer;
-    font-family: $ffButtonLabel;
-    font-size: $fsTextBody;
+    font-family: vars.$ffButtonLabel;
+    font-size: vars.$fsTextBody;
     font-style: normal;
     font-weight: normal;
     height: 40px;
     line-height: 40px;
-    margin-right: 10px;
     margin-bottom: 10px;
+    margin-right: 10px;
     text-align: center;
-    width: 40px;
     vertical-align: top;
+    width: 40px;
 
     &:last-of-type {
       margin-right: 0;
     }
 
     &:hover  {
-      background-color: $white;
-      border: 1px solid $black;
+      background-color: vars.$white;
+      border: 1px solid vars.$black;
 
       a {
-        color: $black;
+        color: vars.$black;
       }
     }
 
     &:focus-within {
-      @include focusOutline();
+      @include ui.focusOutline();
     }
 
     &.apos-active {
-      background-color: $almostWhite;
-      border: 1px solid $black;
-      color: $black;
+      background-color: vars.$almostWhite;
+      border: 1px solid vars.$black;
+      color: vars.$black;
     }
 
     &.apos-last::after {
@@ -54,7 +55,7 @@
 
     a {
       display: inline-block;
-      color: $almostWhite;
+      color: vars.$almostWhite;
       text-decoration: none;
       width: 100%;
 
@@ -67,9 +68,9 @@
 
   .apos-pager-gap {
     display: inline-block;
-    color: $black;
-    font-family: $ffSerif;
-    font-size: $fsTextBody;
+    color: vars.$black;
+    font-family: vars.$ffSerif;
+    font-size: vars.$fsTextBody;
     line-height: 40px;
     margin-right: 10px;
     padding: 0 10px;
@@ -78,6 +79,8 @@
 }
 
 // temp fixes for apos modal
+$ffHelvetica: Helvetica, Arial, sans-serif;
+
 .apos-modal-footer {
   .apos-modal-footer-inner {
     .apos-manage-pager {
@@ -85,27 +88,27 @@
       margin-top: 10px;
     }
     .apos-pager-number {
-      font-family: Helvetica, Arial, sans-serif;
-      background-color: $cmsColor;
+      font-family: $ffHelvetica;
+      background-color: vars.$cmsColor;
 
       &.apos-active {
-        background-color: $white;
-        border: 2px solid $cmsColor;
-        color: $cmsColor;
+        background-color: vars.$white;
+        border: 2px solid vars.$cmsColor;
+        color: vars.$cmsColor;
       }
 
       &:hover  {
-        background-color: $white;
-        border: 2px solid $cmsColor;
+        background-color: vars.$white;
+        border: 2px solid vars.$cmsColor;
 
         a {
-          color: $cmsColor;
+          color: vars.$cmsColor;
         }
       }
     }
     .apos-pager-gap {
-      font-family: Helvetica, Arial, sans-serif;
-      color: $cmsColor;
+      font-family: $ffHelvetica;
+      color: vars.$cmsColor;
     }
   }
 }

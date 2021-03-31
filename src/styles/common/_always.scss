@@ -1,10 +1,12 @@
-@import 'variables';
-@import 'ui';
+@use 'variables' as vars;
+@use 'ui' as ui;
+
+@use '../mixins/mixins' as mx;
 
 
 // dom elements
 body {
-  background-color: $almostWhite;
+  background-color: vars.$almostWhite;
   font-size: 0 !important;
   overflow-x: hidden;
 }
@@ -15,13 +17,13 @@ img {
 }
 
 a {
-  @include anchor();
-  color: $black;
+  @include ui.anchor();
+  color: vars.$black;
 }
 
 main {
   &:focus {
-    @include noFocusOutline();
+    @include ui.noFocusOutline();
   }
 }
 
@@ -45,17 +47,17 @@ body {
     [data-apos-widget-wrapper="aem-video"],
     [data-apos-widget-wrapper="apostrophe-images"],
     [data-apos-widget="apostrophe-rich-text"] > .apos-rich-text {
-      @include cmsOutline();
+      @include ui.cmsOutline();
     }
   }
 
   .apos-empty {
-    @include cmsOutline();
+    @include ui.cmsOutline();
   }
 }
 
 [data-apos-widget="apostrophe-rich-text"] > [data-rich-text]:focus {
-  @include cmsOutline();
+  @include ui.cmsOutline();
 }
 
 .apos-modal-body {
@@ -69,44 +71,44 @@ body {
 
 // common
 .content {
-  @include contentContainer();
+  @include mx.contentContainer();
 
   h1 {
-    @include heading1();
+    @include ui.heading1();
   }
 
   h2 {
-    @include heading2();
+    @include ui.heading2();
   }
 
   h3 {
-    @include heading3();
+    @include ui.heading3();
   }
 
   h4 {
-    @include heading4();
+    @include ui.heading4();
   }
 
   p {
-    @include paragraph();
+    @include ui.paragraph();
   }
 }
 
 .page-content {
-  @include nColumnWidth(6);
+  @include mx.nColumnWidth(6);
   display: inline-block;
   vertical-align: top;
 
-  @media #{$mqTablet} {
-    @include nColumnWidth(8);
+  @media #{ vars.$mqTablet } {
+    @include mx.nColumnWidth(8);
   }
 }
 
 .latest-pieces-heading {
-  border-bottom: 1px solid $lightGrey;
-  color: $halfGrey;
-  font-family: $ffTextBody;
-  font-size: $fsVerySmol;
+  border-bottom: 1px solid vars.$lightGrey;
+  color: vars.$halfGrey;
+  font-family: vars.$ffTextBody;
+  font-size: vars.$fsVerySmol;
   font-weight: bold;
   margin-bottom: 0;
   margin-top: 60px;
@@ -115,23 +117,23 @@ body {
 
 .cta,
 .website-cta {
-  @include button();
-  color: $almostWhite;
-  font-size: $fsSmol;
+  @include ui.button();
+  color: vars.$almostWhite;
+  font-size: vars.$fsSmol;
   width: 100%;
 
-  @media #{$mqTablet} {
+  @media #{ vars.$mqTablet } {
     width: max-content;
   }
 
-  @media #{$mqDesktop} {
-    font-size: $fsVerySmol;
+  @media #{ vars.$mqDesktop } {
+    font-size: vars.$fsVerySmol;
   }
 }
 
 .separator {
   border: none;
-  border-bottom: 1px solid $lightGrey;
+  border-bottom: 1px solid vars.$lightGrey;
   margin: 40px auto;
   width: 66%;
 
@@ -147,5 +149,5 @@ body {
 
 // a11y
 .sr-only {
-  @include visuallyHidden();
+  @include mx.visuallyHidden();
 }

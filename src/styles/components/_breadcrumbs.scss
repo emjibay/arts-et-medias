@@ -1,8 +1,8 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/ui' as ui;
+
 
 .breadcrumbs {
-  @include minorText();
+  @include ui.minorText();
   margin-bottom: 30px;
 
   .breadcrumbs-list {
@@ -10,7 +10,7 @@
       display: inline-block;
 
       &::after {
-        @include minorText();
+        @include ui.minorText();
         content: '/';
         margin-left: 5px;
         margin-right: 5px;

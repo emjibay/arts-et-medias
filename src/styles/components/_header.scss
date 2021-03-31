@@ -1,48 +1,48 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
-@import '../mixins/header-nav';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+@use '../mixins/header-nav' as nav;
 
 
 .header {
-  border-bottom: 1px solid $black;
+  border-bottom: 1px solid vars.$black;
   margin-bottom: 40px;
   padding: 20px 0 0 0;
   position: relative;
 
-  @media #{$mqTablet} {
+  @media #{ vars.$mqTablet } {
     border-bottom: none;
-    margin-bottom:0;
+    margin-bottom: 0;
     padding: 20px 0 40px 0;
   }
 
   .site-title {
-    @include headingBase();
+    @include ui.headingBase();
     font-size: 20pt;
     line-height: 1;
     margin: 0 0 20px 0;
     text-align: center;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       font-size: 50pt;
     }
 
     a {
-      color: $black;
+      color: vars.$black;
       text-decoration: none;
 
       &:hover {
-        color: $main;
+        color: vars.$main;
       }
 
       &:focus {
-        @include focusOutline();
+        @include ui.focusOutline();
       }
     }
   }
 
   .mobile-container {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
     margin: 0 auto;
 
     .mobile-menu-button {
@@ -58,7 +58,7 @@
       display: inline-block;
     }
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: none;
     }
   }
@@ -66,10 +66,10 @@
   .desktop-container {
     display: none;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: block;
     }
 
-    @include searchAndLangSwitch();
+    @include nav.searchAndLangSwitch();
   }
 }

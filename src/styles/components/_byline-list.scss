@@ -1,3 +1,6 @@
+@use '../common/ui' as ui;
+
+
 .byline-list {
   display: block;
   list-style: none;
@@ -5,7 +8,7 @@
   padding-left: 0;
 
   &::after {
-    @include minorText();
+    @include ui.minorText();
     content: ',';
     margin: 5px 0;
   }
@@ -23,7 +26,7 @@
     position: relative;
 
     &::after {
-      @include minorText();
+      @include ui.minorText();
       content: ',';
       display: inline-block;
       line-height: 1.5;
@@ -40,7 +43,7 @@
     }
 
     * {
-      @include minorText();
+      @include ui.minorText();
       display: inline;
       line-height: 1.5;
       margin: 0;

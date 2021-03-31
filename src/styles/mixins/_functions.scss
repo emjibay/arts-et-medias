@@ -1,4 +1,4 @@
-@import '../common/variables';
+@use '../common/variables' as vars;
 
 
 /**
@@ -31,19 +31,19 @@
   * a column at a given breakpoint.
   */
 @function getColumnWidth($breakpoint) {
-  $columnWidth: $columnWidthXs;
+  $columnWidth: vars.$columnWidthXs;
 
-  @if ($breakpoint == $tablet) {
-    $columnWidth: $columnWidthSm;
+  @if ($breakpoint == vars.$tablet) {
+    $columnWidth: vars.$columnWidthSm;
   }
-  @else if ($breakpoint == $desktop) {
-    $columnWidth: $columnWidthMd;
+  @else if ($breakpoint == vars.$desktop) {
+    $columnWidth: vars.$columnWidthMd;
   }
-  @else if ($breakpoint == $xl) {
-    $columnWidth: $columnWidthXL;
+  @else if ($breakpoint == vars.$xl) {
+    $columnWidth: vars.$columnWidthXL;
   }
-  @else if ($breakpoint == $xxl) {
-    $columnWidth: $columnWidthXXL;
+  @else if ($breakpoint == vars.$xxl) {
+    $columnWidth: vars.$columnWidthXXL;
   }
 
   @return $columnWidth;
@@ -54,19 +54,19 @@
   * a gutter at a given breakpoint.
   */
 @function getGutterWidth($breakpoint) {
-  $gutterWidth: $gutterWidthXs;
+  $gutterWidth: vars.$gutterWidthXs;
 
-  @if ($breakpoint == $tablet) {
-    $gutterWidth: $gutterWidthSm;
+  @if ($breakpoint == vars.$tablet) {
+    $gutterWidth: vars.$gutterWidthSm;
   }
-  @else if ($breakpoint == $desktop) {
-    $gutterWidth: $gutterWidthMd;
+  @else if ($breakpoint == vars.$desktop) {
+    $gutterWidth: vars.$gutterWidthMd;
   }
-  @else if ($breakpoint == $xl) {
-    $gutterWidth: $gutterWidthXL;
+  @else if ($breakpoint == vars.$xl) {
+    $gutterWidth: vars.$gutterWidthXL;
   }
-  @else if ($breakpoint == $xxl) {
-    $gutterWidth: $gutterWidthXXL;
+  @else if ($breakpoint == vars.$xxl) {
+    $gutterWidth: vars.$gutterWidthXXL;
   }
 
   @return $gutterWidth;
@@ -77,19 +77,19 @@
   * half a gutter at a given breakpoint.
   */
 @function getGutterHalfWidth($breakpoint) {
-  $gutterWidth: $gutterWidthXs / 2;
+  $gutterWidth: vars.$gutterWidthXs / 2;
 
-  @if ($breakpoint == $tablet) {
-    $gutterWidth: $gutterWidthSm / 2;
+  @if ($breakpoint == vars.$tablet) {
+    $gutterWidth: vars.$gutterWidthSm / 2;
   }
-  @else if ($breakpoint == $desktop) {
-    $gutterWidth: $gutterWidthMd / 2;
+  @else if ($breakpoint == vars.$desktop) {
+    $gutterWidth: vars.$gutterWidthMd / 2;
   }
-  @else if ($breakpoint == $xl) {
-    $gutterWidth: $gutterWidthXL / 2;
+  @else if ($breakpoint == vars.$xl) {
+    $gutterWidth: vars.$gutterWidthXL / 2;
   }
-  @else if ($breakpoint == $xxl) {
-    $gutterWidth: $gutterWidthXXL / 2;
+  @else if ($breakpoint == vars.$xxl) {
+    $gutterWidth: vars.$gutterWidthXXL / 2;
   }
 
   @return $gutterWidth;

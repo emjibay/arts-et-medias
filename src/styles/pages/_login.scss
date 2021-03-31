@@ -1,11 +1,11 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
 
 
 .page-login {
   .h1 {
-    @include heading1();
+    @include ui.heading1();
     margin-bottom: 0;
   }
 
@@ -18,12 +18,12 @@
   }
 
   .login-form-column {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
     display: inline-block;
     vertical-align: top;
 
     .apos-login-warning {
-      @include paragraph();
+      @include ui.paragraph();
       background-color: lightgoldenrodyellow;
       border: 1px solid yellow;
       font-size: 10pt;
@@ -41,59 +41,59 @@
     }
 
     legend {
-      @include fieldsetLegend();
+      @include ui.fieldsetLegend();
     }
 
     label {
-      @include inputLabel();
+      @include ui.inputLabel();
     }
 
     input[type="text"],
     input[type="password"] {
-      @include nColumnWidth(6);
-      @include textInput();
+      @include mx.nColumnWidth(6);
+      @include ui.textInput();
 
-      @media #{$mqDesktop} {
-        @include nColumnWidth(4);
+      @media #{ vars.$mqDesktop } {
+        @include mx.nColumnWidth(4);
       }
     }
 
     button[type="submit"] {
-      @include nColumnWidth(6);
-      @include button();
+      @include mx.nColumnWidth(6);
+      @include ui.button();
 
-      @media #{$mqDesktop} {
-        @include nColumnWidth(4);
+      @media #{ vars.$mqDesktop } {
+        @include mx.nColumnWidth(4);
       }
     }
   }
 
   .help-us-column {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
     display: inline-block;
     vertical-align: top;
     margin-top: 45px;
 
-    @media #{$mqTablet} {
-      @include gutterLeftMargin();
+    @media #{ vars.$mqTablet } {
+      @include mx.gutterLeftMargin();
       margin-top: 15px;
     }
 
-    @media #{$mqDesktop} {
-      @include nColumnWidth(4);
+    @media #{ vars.$mqDesktop } {
+      @include mx.nColumnWidth(4);
     }
 
     .h2 {
-      @include heading3();
+      @include ui.heading3();
     }
 
     .h3 {
-      @include heading3();
-      font-size: $fsTextBody;
+      @include ui.heading3();
+      font-size: vars.$fsTextBody;
     }
 
     p {
-      font-size: $fsSmol;
+      font-size: vars.$fsSmol;
     }
   }
 }

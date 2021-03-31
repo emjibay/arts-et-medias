@@ -1,45 +1,46 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/functions' as fn;
+@use '../mixins/hero-image' as img;
 
 
 .featured-piece-widget {
-  $width: getColumnsSpan(6, $phone);
+  $width: fn.getColumnsSpan(6, vars.$phone);
   width: $width;
 
-  @media #{$mqTablet} {
-    $width: getColumnsSpan(8, $tablet);
+  @media #{ vars.$mqTablet } {
+    $width: fn.getColumnsSpan(8, vars.$tablet);
     width: $width;
   }
 
-  @media #{$mqDesktop} {
-    $width: getColumnsSpan(8, $desktop);
+  @media #{ vars.$mqDesktop } {
+    $width: fn.getColumnsSpan(8, vars.$desktop);
     width: $width;
   }
 
-  @media #{$mqXL} {
-    $width: getColumnsSpan(8, $xl);
+  @media #{ vars.$mqXL } {
+    $width: fn.getColumnsSpan(8, vars.$xl);
     width: $width;
   }
 
-  @media #{$mqXXL} {
-    $width: getColumnsSpan(8, $xxl);
+  @media #{ vars.$mqXXL } {
+    $width: fn.getColumnsSpan(8, vars.$xxl);
     width: $width;
   }
 
   .feature-type {
-    @include contentTypeHeading();
+    @include ui.contentTypeHeading();
   }
 
   // TODO: rename to .heading (#94)
   h1 {
-    @include heading4();
+    @include ui.heading4();
     margin-top: 5px;
     margin-bottom: 0;
   }
 
   .byline {
-    @include minorText();
+    @include ui.minorText();
     margin: 5px 0;
   }
 
@@ -62,27 +63,27 @@
     margin: 5px 0;
 
     span {
-      @include minorText();
-      font-size: $fsSmol;
+      @include ui.minorText();
+      font-size: vars.$fsSmol;
       margin: 5px 0 0 0;
       line-height: 1.25;
     }
   }
 
   .hero-image {
-    @include heroImageDimensions(6, 0.5);
+    @include img.heroImageDimensions(6, 0.5);
     margin-top: 10px;
 
-    @media #{$mqTablet} {
-      @include heroImageDimensions(8, 0.5);
+    @media #{ vars.$mqTablet } {
+      @include img.heroImageDimensions(8, 0.5);
     }
 
-    @media #{$mqXL} {
-      @include heroImageDimensions(8, 0.333);
+    @media #{ vars.$mqXL } {
+      @include img.heroImageDimensions(8, 0.333);
     }
 
-    @media #{$mqXXL} {
-      @include heroImageDimensions(8, 0.25);
+    @media #{ vars.$mqXXL } {
+      @include img.heroImageDimensions(8, 0.25);
     }
   }
 }
@@ -90,26 +91,26 @@
 .column,
 .sidebar {
   .featured-piece-widget {
-    $widgetWidth: getColumnsSpan(6, $phone);
+    $widgetWidth: fn.getColumnsSpan(6, vars.$phone);
     width: $widgetWidth;
 
-    @media #{$mqTablet} {
-      $widgetWidth: getColumnsSpan(4, $tablet);
+    @media #{ vars.$mqTablet } {
+      $widgetWidth: fn.getColumnsSpan(4, vars.$tablet);
       width: $widgetWidth;
     }
 
-    @media #{$mqDesktop} {
-      $widgetWidth: getColumnsSpan(4, $desktop);
+    @media #{ vars.$mqDesktop } {
+      $widgetWidth: fn.getColumnsSpan(4, vars.$desktop);
       width: $widgetWidth;
     }
 
-    @media #{$mqXL} {
-      $widgetWidth: getColumnsSpan(4, $xl);
+    @media #{ vars.$mqXL } {
+      $widgetWidth: fn.getColumnsSpan(4, vars.$xl);
       width: $widgetWidth;
     }
 
-    @media #{$mqXXL} {
-      $widgetWidth: getColumnsSpan(4, $xxl);
+    @media #{ vars.$mqXXL } {
+      $widgetWidth: fn.getColumnsSpan(4, vars.$xxl);
       width: $widgetWidth;
     }
 
@@ -124,21 +125,21 @@
 
     .hero-image {
       $ratio: 0.5625;
-      @include heroImageDimensions(6, $ratio);
+      @include img.heroImageDimensions(6, $ratio);
 
-      @media #{$mqTablet} {
-        @include heroImageDimensions(4, $ratio);
+      @media #{ vars.$mqTablet } {
+        @include img.heroImageDimensions(4, $ratio);
       }
     }
 
     &.featured-book-widget {
       .hero-image {
-        @include heroImageContainedInSquare(6);
-        @include heroImageShadow();
+        @include img.heroImageContainedInSquare(6);
+        @include img.heroImageShadow();
         margin-top: 10px;
 
-        @media #{$mqTablet} {
-          @include heroImageContainedInSquare(4);
+        @media #{ vars.$mqTablet } {
+          @include img.heroImageContainedInSquare(4);
         }
       }
     }

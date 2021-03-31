@@ -1,29 +1,33 @@
+@use '../common/variables' as vars;
+@use '../mixins/mixins' as mx;
+
+
 .video-figure {}
 
 .video-iframe {
-  background-color: black;
+  background-color: vars.$black;
   vertical-align: top;
   // 320x180
   width: 100%;
   height: 180px;
 
-  @media #{$mqTablet} {
+  @media #{ vars.$mqTablet } {
     // 455x256
-    @include nColumnWidth(8);
+    @include mx.nColumnWidth(8);
     height: 256px;
   }
 
-  @media #{$mqDesktop} {
+  @media #{ vars.$mqDesktop } {
     // 610x343
     height: 343px;
   }
 
-  @media #{$mqXL} {
+  @media #{ vars.$mqXL } {
     // 725x408
     height: 408px;
   }
 
-  @media #{$mqXXL} {
+  @media #{ vars.$mqXXL } {
     // 840x473
     height: 473px;
   }

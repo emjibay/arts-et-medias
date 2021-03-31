@@ -1,5 +1,8 @@
+@use '../common/ui' as ui;
+
+
 .skip-to-main-button {
-  @include button();
+  @include ui.button();
   position: absolute;
   top: -1000px;
   width: auto;

@@ -1,3 +1,7 @@
+@use '../common/variables' as vars;
+@use '../mixins/mixins' as mx;
+
+
 .advertisement-container {
   &.before-main {
     padding-top: 20px;
@@ -5,8 +9,8 @@
     .advertisement {
       margin-bottom: 20px;
 
-      @media #{$mqDesktop} {
-        @include columnsAsLeftMargin(2);
+      @media #{ vars.$mqDesktop } {
+        @include mx.columnsAsLeftMargin(2);
       }
     }
   }
@@ -15,16 +19,16 @@
     margin-top: 50px;
 
     .advertisement {
-      @media #{$mqTablet} {
-        @include nColumnWidth(8);
+      @media #{ vars.$mqTablet } {
+        @include mx.nColumnWidth(8);
 
         .leaderboard {
-          @include nColumnWidth(8);
+          @include mx.nColumnWidth(8);
           height: 56px;
         }
       }
 
-      @media #{$mqDesktop} {
+      @media #{ vars.$mqDesktop } {
         .leaderboard {
           height: unset;
         }
@@ -35,20 +39,20 @@
   &.after-main {
     padding-top: 50px;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       padding-top: 75px;
     }
   }
 
   .advertisement {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
 
-    @media #{$mqTablet} {
-      @include nColumnWidth(12);
+    @media #{ vars.$mqTablet } {
+      @include mx.nColumnWidth(12);
     }
 
-    @media #{$mqDesktop} {
-      @include nColumnWidth(8);
+    @media #{ vars.$mqDesktop } {
+      @include mx.nColumnWidth(8);
     }
   }
 }
@@ -57,30 +61,30 @@
   padding-top: 20px;
 
   .advertisement {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
     margin-bottom: 20px;
 
-    @media #{$mqTablet} {
-      @include nColumnWidth(12);
+    @media #{ vars.$mqTablet } {
+      @include mx.nColumnWidth(12);
     }
 
-    @media #{$mqDesktop} {
-      @include columnsAsLeftMargin(2);
-      @include nColumnWidth(8);
+    @media #{ vars.$mqDesktop } {
+      @include mx.columnsAsLeftMargin(2);
+      @include mx.nColumnWidth(8);
     }
   }
 }
 
 .advertisement-in-main {
   .advertisement {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
 
-    @media #{$mqTablet} {
-      @include nColumnWidth(12);
+    @media #{ vars.$mqTablet } {
+      @include mx.nColumnWidth(12);
     }
 
-    @media #{$mqDesktop} {
-      @include nColumnWidth(8);
+    @media #{ vars.$mqDesktop } {
+      @include mx.nColumnWidth(8);
     }
   }
 }

@@ -1,7 +1,7 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
-@import '../mixins/header-nav';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+@use '../mixins/header-nav' as nav;
 
 
 // vars
@@ -25,7 +25,7 @@ $showDuration: 300ms;
 .mobile-menu {
   display: inline-block;
   position: fixed;
-  color: $almostWhite;
+  color: vars.$almostWhite;
   top: 0;
   width: 100%;
   z-index: 2;
@@ -36,7 +36,7 @@ $showDuration: 300ms;
     @include transform(translateX(0), $showDuration);
   }
 
-  @media #{$mqTablet} {
+  @media #{ vars.$mqTablet } {
     display: none;
     // TODO: hide menu in js if breakpoint changes (#95)
   }
@@ -44,21 +44,21 @@ $showDuration: 300ms;
   .site-title {
     padding: 20px 0;
     text-align: center;
-    background-color: $black;
+    background-color: vars.$black;
 
     a {
-      @include headingBase();
-      color: $almostWhite;
+      @include ui.headingBase();
+      color: vars.$almostWhite;
       font-size: 20pt;
       line-height: 1;
       text-decoration: none;
 
       &:hover {
-        color: $main;
+        color: vars.$main;
       }
 
       &:focus {
-        @include focusOutline();
+        @include ui.focusOutline();
       }
     }
   }
@@ -77,16 +77,16 @@ $showDuration: 300ms;
       display: inline-block;
     }
     .label {
-      @include visuallyHidden();
+      @include mx.visuallyHidden();
     }
   }
 
-  @include searchAndLangSwitch();
+  @include nav.searchAndLangSwitch();
 }
 
 .overlay {
   position: absolute;
-  background-color: rgba($black, 0.75);
+  background-color: rgba(vars.$black, 0.75);
   height: 100%;
   left: 0;
   opacity: 0;

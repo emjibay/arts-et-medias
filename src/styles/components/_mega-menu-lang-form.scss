@@ -1,10 +1,10 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
 
 
 .mm-lang-switch-form {
   legend {
-    @include inputLabel();
+    @include ui.inputLabel();
   }
 
   .lang-switch-content {
@@ -23,15 +23,15 @@
   }
 
   input[type="radio"] + label {
-    @include inputLabel();
+    @include ui.inputLabel();
     cursor: pointer;
     display: inline-block;
-    font-family: $ffTextBody;
+    font-family: vars.$ffTextBody;
     font-size: 12pt;
   }
 
   .lang-switch-submit-btn {
-    @include button();
+    @include ui.button();
     display: inline-block;
     margin-left: 20px;
   }

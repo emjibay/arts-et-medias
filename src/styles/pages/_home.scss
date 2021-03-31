@@ -1,14 +1,16 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+@use '../mixins/hero-image' as img;
 
 
+// mixins
 @mixin sectionHeadingCTA {
   .section-heading {
     .see-all-cta {
       display: none;
 
-      @media #{$mqTablet} {
+      @media #{ vars.$mqTablet } {
         display: block;
         top: -50px;
       }
@@ -25,12 +27,14 @@
       display: block;
     }
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: none;
     }
   }
 }
 
+
+// styles
 .home {
   padding-top: 20px;
 
@@ -44,11 +48,11 @@
   }
 
   .latest-pieces-heading {
-    @include contentTypeHeading();
+    @include ui.contentTypeHeading();
   }
 
   .section-heading {
-    @include underlinedH1();
+    @include mx.underlinedH1();
     position: relative;
     margin-bottom: 20px;
 
@@ -71,42 +75,42 @@
     }
 
     .featured-article {
-      @include nColumnWidth(6);
+      @include mx.nColumnWidth(6);
 
       .featured-article-widget {
         width: 100%;
       }
 
       .hero-image {
-        @include heroImageDimensions(6, 9/16);
+        @include img.heroImageDimensions(6, 9/16);
       }
 
-      @media #{$mqTablet} {
-        @include nColumnWidth(12);
+      @media #{ vars.$mqTablet } {
+        @include mx.nColumnWidth(12);
 
         .hero-image {
-          @include heroImageDimensions(12, 0.25);
+          @include img.heroImageDimensions(12, 0.25);
         }
       }
 
-      @media #{$mqDesktop} {
-        @include nColumnWidth(9);
+      @media #{ vars.$mqDesktop } {
+        @include mx.nColumnWidth(9);
 
         .hero-image {
-          @include heroImageDimensions(9, 0.25);
+          @include img.heroImageDimensions(9, 0.25);
         }
       }
     }
 
     .recently-added-articles {
-      @include nColumnWidth(6);
+      @include mx.nColumnWidth(6);
 
-      @media #{$mqTablet} {
-        @include nColumnWidth(12);
+      @media #{ vars.$mqTablet } {
+        @include mx.nColumnWidth(12);
       }
 
-      @media #{$mqDesktop} {
-        @include nColumnWidth(9);
+      @media #{ vars.$mqDesktop } {
+        @include mx.nColumnWidth(9);
       }
 
       .latest-pieces-heading {
@@ -115,50 +119,50 @@
 
       .list-item,
       .article-card {
-        @include nColumnWidth(6);
+        @include mx.nColumnWidth(6);
 
-        @media #{$mqTablet} {
-          @include nColumnWidth(4);
+        @media #{ vars.$mqTablet } {
+          @include mx.nColumnWidth(4);
         }
 
-        @media #{$mqDesktop} {
-          @include nColumnWidth(3);
+        @media #{ vars.$mqDesktop } {
+          @include mx.nColumnWidth(3);
         }
       }
 
       .list-item {
         &:not(:first-of-type) {
-          @media #{$mqTablet} {
-            @include gutterLeftMargin();
+          @media #{ vars.$mqTablet } {
+            @include mx.gutterLeftMargin();
           }
         }
       }
 
       .article-card {
         .hero-image {
-          @include heroImageDimensions(6, 0.375);
+          @include img.heroImageDimensions(6, 0.375);
 
-          @media #{$mqTablet} {
-            @include heroImageDimensions(4, 0.5);
+          @media #{ vars.$mqTablet } {
+            @include img.heroImageDimensions(4, 0.5);
           }
 
-          @media #{$mqDesktop} {
-            @include heroImageDimensions(3, 0.5);
+          @media #{ vars.$mqDesktop } {
+            @include img.heroImageDimensions(3, 0.5);
           }
         }
         .short-description {
-          font-size: $fsSmol;
+          font-size: vars.$fsSmol;
         }
       }
     }
 
     .home-sidebar {
-      @include nColumnWidth(3);
+      @include mx.nColumnWidth(3);
       display: none;
       right: 0;
       top: 52px;
 
-      @media #{$mqDesktop} {
+      @media #{ vars.$mqDesktop } {
         display: inline-block;
       }
 
@@ -173,24 +177,24 @@
       }
 
       .sidebar-heading {
-        @include contentTypeHeading();
+        @include ui.contentTypeHeading();
       }
 
       .medium-rectangle {
         width: 215px;
         height: 180px;
 
-        @media #{$mqDesktop} {
+        @media #{ vars.$mqDesktop } {
           width: 210px;
           height: 175px;
         }
 
-        @media #{$mqXL} {
+        @media #{ vars.$mqXL } {
           width: 250px;
           height: 209px;
         }
 
-        @media #{$mqXXL} {
+        @media #{ vars.$mqXXL } {
           width: 290px;
           height: 242px;
         }
@@ -205,46 +209,46 @@
   .books-section {
     margin-top: 50px;
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       margin-top: 75px;
     }
 
     @include sectionHeadingCTA();
 
     .featured-piece {
-      @include nColumnWidth(6);
+      @include mx.nColumnWidth(6);
       display: inline-block;
       vertical-align: top;
 
       .featured-piece-widget {
-        @include nColumnWidth(6);
+        @include mx.nColumnWidth(6);
         display: inline-block;
       }
 
       .hero-image {
-        @include heroImageDimensions(6, 9/16);
+        @include img.heroImageDimensions(6, 9/16);
 
-        @media #{$mqDesktop} {
-          @include heroImageDimensions(6, 0.5);
+        @media #{ vars.$mqDesktop } {
+          @include img.heroImageDimensions(6, 0.5);
         }
       }
 
       .cta {
-        @include anchor();
+        @include ui.anchor();
         display: block;
         margin-top: 10px;
-        font-size: $fsTextBody;
+        font-size: vars.$fsTextBody;
       }
     }
 
     .latest-pieces {
-      @include nColumnWidth(6);
+      @include mx.nColumnWidth(6);
       display: inline-block;
       margin-top: 20px;
       vertical-align: top;
 
-      @media #{$mqTablet} {
-        @include gutterLeftMargin();
+      @media #{ vars.$mqTablet } {
+        @include mx.gutterLeftMargin();
         margin-top: 0;
       }
 
@@ -254,31 +258,31 @@
 
       .list-item,
       .article-card {
-        @include nColumnWidth(3);
+        @include mx.nColumnWidth(3);
       }
 
       .list-item {
         &:not(:first-of-type) {
-          @include gutterLeftMargin();
+          @include mx.gutterLeftMargin();
           margin-top: 0;
         }
       }
 
       .piece-card {
         .hero-image {
-          @include heroImageDimensions(3, 0.5);
+          @include img.heroImageDimensions(3, 0.5);
 
-          @media #{$mqDesktop} {
-            @include heroImageDimensions(3, 0.5);
+          @media #{ vars.$mqDesktop } {
+            @include img.heroImageDimensions(3, 0.5);
           }
         }
         .short-description {
           display: none;
-          @media #{$mqTablet} {
+          @media #{ vars.$mqTablet } {
             display: block;
           }
           * {
-            font-size: $fsSmol;
+            font-size: vars.$fsSmol;
           }
         }
       }
@@ -290,30 +294,30 @@
   .books-section {
     .featured-piece {
       .image-content {
-        @media #{$mqDesktop} {
-          @include nColumnWidth(3);
+        @media #{ vars.$mqDesktop } {
+          @include mx.nColumnWidth(3);
           display: inline-block;
           vertical-align: top;
         }
       }
 
       .hero-image {
-        @include heroImageContainedInSquare(6);
-        @include heroImageShadow();
+        @include img.heroImageContainedInSquare(6);
+        @include img.heroImageShadow();
 
-        @media #{$mqTablet} {
-          @include heroImageFullHeight(6);
+        @media #{ vars.$mqTablet } {
+          @include img.heroImageFullHeight(6);
         }
 
-        @media #{$mqDesktop} {
-          @include heroImageFullHeight(3);
+        @media #{ vars.$mqDesktop } {
+          @include img.heroImageFullHeight(3);
         }
       }
 
       .text-content {
-        @media #{$mqDesktop} {
-          @include gutterLeftMargin();
-          @include nColumnWidth(3);
+        @media #{ vars.$mqDesktop } {
+          @include mx.gutterLeftMargin();
+          @include mx.nColumnWidth(3);
           display: inline-block;
           vertical-align: top;
 
@@ -338,12 +342,12 @@
             margin-top: 40px;
           }
 
-          @media #{$mqTablet} {
+          @media #{ vars.$mqTablet } {
             &:nth-child(n+3) {
               margin-top: unset;
             }
             &:not(:first-of-type) {
-              @include gutterLeftMargin();
+              @include mx.gutterLeftMargin();
             }
           }
         }
@@ -351,10 +355,10 @@
 
       .piece-card {
         .hero-image {
-          @include heroImageFullHeight(3);
+          @include img.heroImageFullHeight(3);
 
-          @media #{$mqDesktop} {
-            @include heroImageContainedInSquare(3);
+          @media #{ vars.$mqDesktop } {
+            @include img.heroImageContainedInSquare(3);
           }
         }
       }
@@ -375,25 +379,25 @@
   }
 
   .home-leaderboard {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
 
     margin-top: 75px;
 
-    @media #{$mqTablet} {
-      @include nColumnWidth(12);
+    @media #{ vars.$mqTablet } {
+      @include mx.nColumnWidth(12);
       margin-bottom: 20px;
     }
 
-    @media #{$mqDesktop} {
-      @include columnsAsLeftMargin(2);
-      @include nColumnWidth(8);
+    @media #{ vars.$mqDesktop } {
+      @include mx.columnsAsLeftMargin(2);
+      @include mx.nColumnWidth(8);
     }
 
     &.top {
       margin-top: 0;
       margin-bottom: 50px;
 
-      @media #{$mqTablet} {
+      @media #{ vars.$mqTablet } {
         margin-bottom: 75px;
       }
     }
@@ -402,36 +406,36 @@
   .home-banners {
     margin-top: 75px;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       margin-top: 50px;
     }
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       display: none;
     }
 
     .banner-col {
-      @include nColumnWidth(6);
+      @include mx.nColumnWidth(6);
       display: block;
 
       &.banner-2 {
         margin-top: 50px;
       }
 
-      @media #{$mqTablet} {
-        @include nColumnWidth(4);
+      @media #{ vars.$mqTablet } {
+        @include mx.nColumnWidth(4);
         display: inline-block;
 
         &.banner-1 {
-          @include columnsAsLeftMargin(2);
+          @include mx.columnsAsLeftMargin(2);
 
           &.single {
-            @include columnsAsLeftMargin(4);
+            @include mx.columnsAsLeftMargin(4);
           }
         }
 
         &.banner-2 {
-          @include gutterLeftMargin();
+          @include mx.gutterLeftMargin();
           margin-top: 0;
         }
       }

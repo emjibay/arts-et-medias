@@ -1,22 +1,22 @@
-@import '../common/variables';
+@use '../common/variables' as vars;
 
 
 @mixin contentContainer {
   position: relative;
   margin: 0 auto;
-  width: $phoneContent;
+  width: vars.$phoneContent;
 
-  @media #{$mqTablet} {
-    width: $tabletContent;
+  @media #{vars.$mqTablet} {
+    width: vars.$tabletContent;
   }
-  @media #{$mqDesktop} {
-    width: $desktopContent;
+  @media #{vars.$mqDesktop} {
+    width: vars.$desktopContent;
   }
-  @media #{$mqXL} {
-    width: $xlContent;
+  @media #{vars.$mqXL} {
+    width: vars.$xlContent;
   }
-  @media #{$mqXXL} {
-    width: $xxlContent;
+  @media #{vars.$mqXXL} {
+    width: vars.$xxlContent;
   }
 }
 
@@ -28,18 +28,18 @@
 @mixin customContentContainerWithSpan($numColSpan) {
   position: relative;
   margin: 0 auto;
-  width: $phoneContent;
+  width: vars.$phoneContent;
 
-  @media #{$mqTablet} {
-    width: $tabletContent;
+  @media #{vars.$mqTablet} {
+    width: vars.$tabletContent;
   }
-  @media #{$mqDesktop} {
-    @include customContentContainerWithSpanAt($numColSpan, $desktop);
+  @media #{vars.$mqDesktop} {
+    @include customContentContainerWithSpanAt($numColSpan, vars.$desktop);
   }
   @media #{$mqXL} {
-    @include customContentContainerWithSpanAt($numColSpan, $xl);
+    @include customContentContainerWithSpanAt($numColSpan, vars.$xl);
   }
   @media #{$mqXXL} {
-    @include customContentContainerWithSpanAt($numColSpan, $xxl);
+    @include customContentContainerWithSpanAt($numColSpan, vars.$xxl);
   }
 }

@@ -1,11 +1,11 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
 
 
 .articles-index {
   .piece-card {
     .heading {
-      @include heading4();
+      @include ui.heading4();
       margin: 0;
     }
   }
@@ -13,8 +13,8 @@
 
 .article-details {
   .translation {
-    @include minorText();
-    font-size: $fsSmol;
+    @include ui.minorText();
+    font-size: vars.$fsSmol;
     margin: 20px 0;
 
     .piece-link-list {
@@ -23,11 +23,11 @@
       margin-bottom: 0;
 
       .piece-link {
-        @include minorText();
-        font-size: $fsSmol;
+        @include ui.minorText();
+        font-size: vars.$fsSmol;
 
         &:hover {
-          color: $main;
+          color: vars.$main;
         }
       }
     }
@@ -37,8 +37,8 @@
     margin-top: 40px;
 
     .mention-notes {
-      @include minorText();
-      font-size: $fsSmol;
+      @include ui.minorText();
+      font-size: vars.$fsSmol;
     }
   }
 }

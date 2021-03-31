@@ -1,5 +1,7 @@
-@import '../common/variables';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../mixins/mixins' as mx;
+@use '../mixins/hero-image' as img;
+@use '../mixins/functions' as fn;
 
 
 .page-subject {
@@ -29,7 +31,7 @@
 
   .featured-piece {
     &.book {
-      @media #{$mqTablet} {
+      @media #{ vars.$mqTablet } {
         margin-bottom: 75px;
 
         .image-content {
@@ -38,11 +40,11 @@
           margin-top: 10px;
         }
         .hero-image {
-          @include heroImageFullHeight(4);
+          @include img.heroImageFullHeight(4);
         }
         .text-content {
-          @include nColumnWidth(4);
-          @include gutterLeftMargin();
+          @include mx.nColumnWidth(4);
+          @include mx.gutterLeftMargin();
           display: inline-block;
           vertical-align: top;
         }
@@ -51,7 +53,7 @@
   }
 
   .piece-list {
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       .list-item:nth-child(n + 3) {
         margin-top: 40px;
       }
@@ -69,15 +71,15 @@
     .piece-card {
       &.book {
         .hero-image {
-          @include heroImageContainedInSquare(6);
+          @include img.heroImageContainedInSquare(6);
         }
-        @media #{$mqTablet} {
+        @media #{ vars.$mqTablet } {
           .hero-image {
-            @include heroImageContainedInSquare(4);
+            @include img.heroImageContainedInSquare(4);
           }
         }
-        @media #{$mqDesktop} {
-          $halfGutter: getGutterHalfWidth($desktop);
+        @media #{ vars.$mqDesktop } {
+          $halfGutter: fn.getGutterHalfWidth(vars.$desktop);
           .image-content {
             position: relative;
             float: left;
@@ -85,7 +87,7 @@
             margin-bottom: $halfGutter;
           }
           .hero-image {
-            @include heroImageFullHeight(2);
+            @include img.heroImageFullHeight(2);
           }
         }
       }

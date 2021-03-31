@@ -1,43 +1,44 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+@use '../mixins/tag' as tag;
 
 
 .page-search {
   .main-search-form {
-    @media #{$mqDesktop} {
-      @include nColumnWidth(8);
+    @media #{ vars.$mqDesktop } {
+      @include mx.nColumnWidth(8);
     }
 
     .search-input {
-      @include textInput();
+      @include ui.textInput();
       display: inline-block;
       vertical-align: middle;
       width: calc(100% - 55px);
 
-      @media #{$mqTablet} {
-        @include nColumnWidth(8);
+      @media #{ vars.$mqTablet } {
+        @include mx.nColumnWidth(8);
       }
 
-      @media #{$mqDesktop} {
-        @include nColumnWidth(6);
+      @media #{ vars.$mqDesktop } {
+        @include mx.nColumnWidth(6);
       }
     }
 
     .search-button {
-      @include gutterLeftMargin();
-      @include button();
+      @include mx.gutterLeftMargin();
+      @include ui.button();
       display: inline-block;
       vertical-align: middle;
       padding: 0 10px;
 
-      @media #{$mqTablet} {
-        @include nColumnWidth(4);
+      @media #{ vars.$mqTablet } {
+        @include mx.nColumnWidth(4);
       }
 
-      @media #{$mqDesktop} {
-        @include gutterLeftMargin();
-        @include nColumnWidth(2);
+      @media #{ vars.$mqDesktop } {
+        @include mx.gutterLeftMargin();
+        @include mx.nColumnWidth(2);
       }
 
       .icon {
@@ -47,34 +48,34 @@
         top: 2px;
         width: 15px;
 
-        @media #{$mqTablet} {
+        @media #{ vars.$mqTablet } {
           display: none;
         }
       }
 
       .label {
-        @include visuallyHidden();
+        @include mx.visuallyHidden();
 
-        @media #{$mqTablet} {
-          @include cancelVisuallyHidden();
+        @media #{ vars.$mqTablet } {
+          @include mx.cancelVisuallyHidden();
         }
       }
     }
 
     .search-tips {
       .heading {
-        @include paragraph();
+        @include ui.paragraph();
         cursor: pointer;
-        font-size: $fsVerySmol;
+        font-size: vars.$fsVerySmol;
       }
 
       .search-tips-list {
-        @include list();
+        @include ui.list();
 
         .list-item {
-          @include unorderedListItem();
-          @include paragraph();
-          font-size: $fsVerySmol;
+          @include ui.unorderedListItem();
+          @include ui.paragraph();
+          font-size: vars.$fsVerySmol;
 
           em {
             font-weight: bold;
@@ -89,7 +90,7 @@
     margin-top: 40px;
 
     .title {
-      @include heading1();
+      @include ui.heading1();
     }
   }
 
@@ -97,7 +98,7 @@
     margin-top: 50px;
 
     .filter-legend {
-      @include inputLabel();
+      @include ui.inputLabel();
     }
 
     .search-filter-list {
@@ -112,12 +113,12 @@
       }
 
       .search-tab {
-        @include clickableTag();
+        @include tag.clickableTag();
         text-transform: lowercase;
 
         &.active {
-          background-color: $main;
-          color: $almostWhite;
+          background-color: vars.$main;
+          color: vars.$almostWhite;
         }
       }
     }
@@ -127,7 +128,7 @@
   .sidebar {
     margin-top: 20px;
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       margin-top: -95px;
     }
   }

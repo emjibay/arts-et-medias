@@ -1,60 +1,63 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+@use '../mixins/functions' as fn;
 
 
+// mixins
 @mixin imageDimensions {
-  $width: getColumnsSpan(6, $phone);
+  $width: fn.getColumnsSpan(6, vars.$phone);
   $imgWidth: $width;
-  $imgHeight: calc(#{$width} * 0.5);
+  $imgHeight: calc(#{ $width } * 0.5);
   height: $imgHeight;
   width: $imgWidth;
   object-fit: cover;
 
-  @media #{$mqTablet} {
-    $width: getColumnsSpan(8, $tablet);
+  @media #{ vars.$mqTablet } {
+    $width: fn.getColumnsSpan(8, vars.$tablet);
     $imgWidth: $width;
-    $imgHeight: calc(#{$width} * 0.5);
+    $imgHeight: calc(#{ $width } * 0.5);
     height: $imgHeight;
     width: $imgWidth;
   }
 
-  @media #{$mqDesktop} {
-    $width: getColumnsSpan(8, $desktop);
+  @media #{ vars.$mqDesktop } {
+    $width: fn.getColumnsSpan(8, vars.$desktop);
     $imgWidth: $width;
-    $imgHeight: calc(#{$width} * 0.5);
+    $imgHeight: calc(#{ $width } * 0.5);
     height: $imgHeight;
     width: $imgWidth;
   }
 
-  @media #{$mqXL} {
-    $width: getColumnsSpan(8, $xl);
+  @media #{ vars.$mqXL } {
+    $width: fn.getColumnsSpan(8, vars.$xl);
     $imgWidth: $width;
-    $imgHeight: calc(#{$width} * 0.5);
+    $imgHeight: calc(#{ $width } * 0.5);
     height: $imgHeight;
     width: $imgWidth;
   }
 
-  @media #{$mqXXL} {
-    $width: getColumnsSpan(8, $xxl);
+  @media #{ vars.$mqXXL } {
+    $width: fn.getColumnsSpan(8, vars.$xxl);
     $imgWidth: $width;
-    $imgHeight: calc(#{$width} * 0.5);
+    $imgHeight: calc(#{ $width } * 0.5);
     height: $imgHeight;
     width: $imgWidth;
   }
 }
 
 
+// styles
 .piece-details {
   .page-heading {
-    @include underlinedH1();
+    @include mx.underlinedH1();
     margin-bottom: 0;
   }
 
   .subheading {
     height: 45px;
-    font-size: $fsTextBody;
-    font-family: $ffTextBody;
+    font-size: vars.$fsTextBody;
+    font-family: vars.$ffTextBody;
 
     p {
       margin-top: 0;
@@ -87,9 +90,9 @@
   }
 
   figcaption {
-    color: $darkGrey;
-    font-family: $ffSerif;
-    font-size: $fsVerySmol;
+    color: vars.$darkGrey;
+    font-family: vars.$ffSerif;
+    font-size: vars.$fsVerySmol;
     font-style: italic;
     line-height: 1.5;
     margin: 15px 0 30px 0;
@@ -98,13 +101,13 @@
 
   .piece-props-list {
     dt {
-      @include heading4();
+      @include ui.heading4();
       font-size: 15pt;
       margin: 30px 0 0 0;
     }
 
     dd {
-      @include paragraph();
+      @include ui.paragraph();
       margin-top: 10px;
 
       .piece-link-list,
@@ -116,27 +119,27 @@
 
   .description {
     &.rich-description {
-      @include aposRichText();
+      @include mx.aposRichText();
       margin: 40px 0;
     }
   }
 
   .citations {
     .citation-heading {
-      @include heading4();
+      @include ui.heading4();
     }
 
     .citation-list {
       dt {
-        @include heading5();
+        @include ui.heading5();
       }
       dd {
-        @include paragraph();
+        @include ui.paragraph();
 
         &.bibtex {
-          background-color: $lightestGrey;
-          font-family: $ffMonospace;
-          font-size: $fsVerySmol;
+          background-color: vars.$lightestGrey;
+          font-family: vars.$ffMonospace;
+          font-size: vars.$fsVerySmol;
           overflow-x: auto;
           padding: 15px 10px 0 10px;
           white-space: pre;

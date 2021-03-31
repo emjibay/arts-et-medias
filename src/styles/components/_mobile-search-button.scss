@@ -1,4 +1,4 @@
-@import '../mixins/mixins';
+@use '../mixins/mixins' as mx;
 
 
 .mobile-search-button {
@@ -13,6 +13,6 @@
   }
 
   .label {
-    @include visuallyHidden();
+    @include mx.visuallyHidden();
   }
 }

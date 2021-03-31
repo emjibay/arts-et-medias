@@ -1,14 +1,15 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
 
 
+// mixins
 @mixin navItemIdle {
   display: block;
   margin: auto;
-  color: $almostWhite;
+  color: vars.$almostWhite;
   cursor: pointer;
-  font-family: $ffTextBody;
+  font-family: vars.$ffTextBody;
   font-size: 15pt;
   font-style: normal;
   font-weight: normal;
@@ -16,37 +17,38 @@
   padding: 15px 0;
   text-decoration: none;
 
-  @media #{$mqTablet} {
+  @media #{ vars.$mqTablet } {
     display: unset;
-    color: $black;
-    font-size: $fsVerySmol;
+    color: vars.$black;
+    font-size: vars.$fsVerySmol;
     padding: unset;
   }
 
-  @media #{$mqDesktop} {
-    font-size: $fsTextBody;
+  @media #{ vars.$mqDesktop } {
+    font-size: vars.$fsTextBody;
   }
 
-  @media #{$mqXL} {
+  @media #{ vars.$mqXL } {
     font-size: 15pt;
   }
 }
 
 @mixin navItemHover {
-  color: $main;
+  color: vars.$main;
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
 
 
+// styles
 .nav {
-  background-color: $black;
-  border-bottom: 1px solid $halfGrey;
-  border-top: 1px solid $halfGrey;
+  background-color: vars.$black;
+  border-bottom: 1px solid vars.$halfGrey;
+  border-top: 1px solid vars.$halfGrey;
   padding: 15px 0 25px;
   margin-top: 0;
 
-  @media #{$mqTablet} {
+  @media #{ vars.$mqTablet } {
     display: block;
     background-color: transparent;
     margin-top: 15px;
@@ -56,7 +58,7 @@
   .nav-list {
     display: block;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
@@ -67,18 +69,18 @@
     display: flex;
     text-align: center;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       text-align: unset;
     }
 
     &.lang-switch {
       .nav-item-btn {
-        @media #{$mqTablet} {
+        @media #{ vars.$mqTablet } {
           display: inline-block;
           visibility: visible;
         }
 
-        @media #{$mqDesktop} {
+        @media #{ vars.$mqDesktop } {
           .label {
             font-size: 14pt;
           }
@@ -87,7 +89,7 @@
     }
 
     &.mobile-only {
-      @media #{$mqTablet} {
+      @media #{ vars.$mqTablet } {
         display: none;
         visibility: hidden;
       }
@@ -104,7 +106,7 @@
       }
 
       &:focus {
-        @include focusOutline();
+        @include ui.focusOutline();
       }
     }
 
@@ -116,13 +118,13 @@
   }
 
   .nav-group-separator {
-    background-color: $darkGrey;
+    background-color: vars.$darkGrey;
     height: 1px;
     margin: 20px 0 15px;
     position: relative;
 
-    @media #{$mqTablet} {
-      background-color: $lighterGrey;
+    @media #{ vars.$mqTablet } {
+      background-color: vars.$lighterGrey;
       height: 20px;
       margin: 0;
       top: 3px;
@@ -133,7 +135,7 @@
   .mobile-separator {
     display: flex;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: none;
     }
   }
@@ -141,7 +143,7 @@
   .desktop-separator {
     display: none;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: flex;
     }
   }
@@ -180,39 +182,39 @@
       }
     }
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       display: inline-block;
       visibility: visible;
     }
 
     &:hover {
-      color: $main;
+      color: vars.$main;
     }
 
     &:focus {
-      @include focusOutline();
+      @include ui.focusOutline();
     }
 
     .label {
-      color: $almostWhite;
+      color: vars.$almostWhite;
       display: inline-block;
-      font-family: $ffSansSerif;;
+      font-family: vars.$ffSansSerif;;
       font-size: 15pt;
       margin-right: 8px;
       pointer-events: none;
 
-      @media #{$mqTablet} {
-        color: $black;
-        font-size: $fsVerySmol;
+      @media #{ vars.$mqTablet } {
+        color: vars.$black;
+        font-size: vars.$fsVerySmol;
       }
 
-      @media #{$mqDesktop} {
-        font-size: $fsTextBody;
+      @media #{ vars.$mqDesktop } {
+        font-size: vars.$fsTextBody;
         bottom: -3px;
         position: relative;
       }
 
-      @media #{$mqXL} {
+      @media #{ vars.$mqXL } {
         font-size: 15pt;
       }
 
@@ -221,9 +223,7 @@
       }
 
       &.sr-only {
-        @include visuallyHidden();
-        // margin: 0;
-        // font-size: 0;
+        @include mx.visuallyHidden();
       }
     }
 
@@ -238,7 +238,7 @@
         transform 125ms,
         top 125ms;
 
-      @media #{$mqDesktop} {
+      @media #{ vars.$mqDesktop } {
         top: 0;
       }
     }
@@ -248,15 +248,15 @@
   .mobile-lang-options {
     justify-content: center;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: none;
       visibility: hidden;
     }
   }
 
   .switch-lang-link {
-    @include anchor();
-    color: $almostWhite;
+    @include ui.anchor();
+    color: vars.$almostWhite;
     display: inline-flex;
     font-size: 10pt;
     text-transform: uppercase;

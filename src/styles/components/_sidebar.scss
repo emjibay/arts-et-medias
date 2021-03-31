@@ -1,70 +1,70 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
 
 
 .sidebar {
-  @include gutterLeftMargin();
-  @include nColumnWidth(4);
+  @include mx.gutterLeftMargin();
+  @include mx.nColumnWidth(4);
   display: none;
   vertical-align: top;
 
-  @media #{$mqTablet} {
+  @media #{ vars.$mqTablet } {
     display: inline-block;
   }
 
   .h1 {
-    @include heading4();
+    @include ui.heading4();
   }
 
   .h2 {
-    @include heading5();
+    @include ui.heading5();
   }
 
   .h3 {
-    @include heading6();
+    @include ui.heading6();
   }
 
   p {
-    @include paragraph();
-    font-size: $fsSmol !important;
+    @include ui.paragraph();
+    font-size: vars.$fsSmol !important;
   }
 
   ul {
     // necessary to not affect apos ui
     &:not(.apos-dropdown-items) {
-      @include list();
+      @include ui.list();
 
       li {
-        @include unorderedListItem();
+        @include ui.unorderedListItem();
       }
     }
   }
 
   a {
-    @include anchor();
+    @include ui.anchor();
     font-size: 11.25pt;
-    color: $black;
+    color: vars.$black;
   }
 
   label {
-    @include inputLabel();
+    @include ui.inputLabel();
   }
 
   .search-input {
-    @include textInput();
+    @include ui.textInput();
     display: inline-block;
     vertical-align: top;
     width: 170px;
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       width: calc(100% - 50px);
     }
   }
 
   .search-button {
-    @include button();
-    color: $almostWhite;
+    @include ui.button();
+    color: vars.$almostWhite;
     float: right;
     padding: 0 10px;
     vertical-align: top;
@@ -79,8 +79,8 @@
   }
 
   .cta {
-    @include button();
-    color: $almostWhite;
+    @include ui.button();
+    color: vars.$almostWhite;
   }
 
   .in-this-section {
@@ -92,7 +92,7 @@
   }
 
   .citation-warning {
-    font-size: $fsVerySmol !important;
+    font-size: vars.$fsVerySmol !important;
     margin-top: 20px;
   }
 
@@ -111,7 +111,7 @@
 
     .advertisement {
       .sidebar-heading {
-        @include contentTypeHeading();
+        @include ui.contentTypeHeading();
       }
 
       .apos-area-widget-wrapper {
@@ -119,7 +119,7 @@
       }
 
       .apos-area-widget-wrapper + .apos-area-widget-wrapper {
-        @media #{$mqTablet} {
+        @media #{ vars.$mqTablet } {
           margin-top: 40px;
         }
       }

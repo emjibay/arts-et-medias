@@ -1,0 +1,59 @@
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+
+
+.slack-signup-page {
+  .cta-paragraph {
+    @include ui.paragraph();
+  }
+
+  .signup-form {
+    margin-top: 50px;
+
+    .form-label {
+      @include ui.inputLabel();
+    }
+
+    .input-text {
+      @include mx.nColumnWidth(6);
+      @include ui.textInput();
+
+      @media #{ vars.$mqTablet } {
+        @include mx.nColumnWidth(8);
+      }
+
+      @media #{ vars.$mqDesktop } {
+        @include mx.nColumnWidth(5);
+        vertical-align: bottom;
+      }
+    }
+    .submit-btn {
+      @include ui.button();
+      margin-top: 20px;
+      width: 100%;
+
+      @media #{ vars.$mqTablet } {
+        width: max-content;
+      }
+
+      @media #{ vars.$mqDesktop } {
+        @include mx.gutterLeftMargin();
+        @include mx.nColumnWidth(3);
+        vertical-align: bottom;
+      }
+    }
+  }
+
+  .disclaimer {
+    @include ui.paragraph();
+    color: vars.$halfGrey;
+    font-size: vars.$fsVerySmol;
+  }
+
+  section {
+    &:not(:first-of-type) {
+      margin-top: 50px;
+    }
+  }
+}

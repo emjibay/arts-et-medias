@@ -1,5 +1,6 @@
-@import '../common/variables';
-@import 'functions';
+@use '../common/variables' as vars;
+@use 'functions' as fn;
+
 
 /**
 * Sets `margin-left` for the specified column span.
@@ -8,32 +9,32 @@
 * @param $numGutters (Optional) Additional gutter width to add to the column span. Usually only one.
 */
 @mixin columnsAsLeftMargin($numColSpan, $numGutters: 1) {
-  $colSpan: getColumnsSpan($numColSpan, $phone);
-  margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$gutterWidthXs}));
+  $colSpan: fn.getColumnsSpan($numColSpan, vars.$phone);
+  margin-left: calc(#{ $colSpan } + (#{ $numGutters } * #{ vars.$gutterWidthXs }));
 
-  @media #{$mqTablet} {
-    $colSpan: getColumnsSpan($numColSpan, $tablet);
-    margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$gutterWidthSm}));
+  @media #{ vars.$mqTablet } {
+    $colSpan: fn.getColumnsSpan($numColSpan, vars.$tablet);
+    margin-left: calc(#{ $colSpan } + (#{ $numGutters } * #{ vars.$gutterWidthSm }));
   }
-  @media #{$mqDesktop} {
-    $colSpan: getColumnsSpan($numColSpan, $desktop);
-    margin-left: calc(#{$colSpan} + (#{$numGutters} * #{$columnWidthMd}));
+  @media #{ vars.$mqDesktop } {
+    $colSpan: fn.getColumnsSpan($numColSpan, vars.$desktop);
+    margin-left: calc(#{ $colSpan } + (#{ $numGutters } * #{ vars.$columnWidthMd }));
   }
 }
 
 @mixin gutterLeftMargin {
-  margin-left: $gutterWidthXs;
+  margin-left: vars.$gutterWidthXs;
 
-  @media #{$mqTablet} {
-    margin-left: $gutterWidthSm;
+  @media #{ vars.$mqTablet } {
+    margin-left: vars.$gutterWidthSm;
   }
-  @media #{$mqDesktop} {
-    margin-left: $gutterWidthMd;
+  @media #{ vars.$mqDesktop } {
+    margin-left: vars.$gutterWidthMd;
   }
-  @media #{$mqXL} {
-    margin-left: $gutterWidthXL;
+  @media #{ vars.$mqXL } {
+    margin-left: vars.$gutterWidthXL;
   }
-  @media #{$mqXXL} {
-    margin-left: $gutterWidthXXL;
+  @media #{ vars.$mqXXL } {
+    margin-left: vars.$gutterWidthXXL;
   }
 }

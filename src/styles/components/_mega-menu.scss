@@ -1,6 +1,9 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+@use '../mixins/hero-image' as img;
 
+// imports its own sub component
 @import 'mega-menu-lang-form';
 
 
@@ -18,8 +21,8 @@ $hideDuration: 480ms;
 }
 
 @mixin heading() {
-  font-family: $ffHeading;
-  font-size: $fsTextBody;
+  font-family: vars.$ffHeading;
+  font-size: vars.$fsTextBody;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
@@ -36,7 +39,7 @@ $hideDuration: 480ms;
   width: 100%;
   z-index: 1;
 
-  // TODO: use class name instead of element directly
+  // TODO: use class name instead of element directly (#94)
   section {
     display: none;
 
@@ -47,9 +50,9 @@ $hideDuration: 480ms;
 
   .menu-panel {
     @include transform(translateY(-1000px), $hideDuration);
-    background-color: $almostWhite;
-    border-bottom: 1px solid $black;
-    filter: drop-shadow(0 5px 5px rgba($black, 0.5));
+    background-color: vars.$almostWhite;
+    border-bottom: 1px solid vars.$black;
+    filter: drop-shadow(0 5px 5px rgba(vars.$black, 0.5));
     padding: 20px 0;
     pointer-events: all;
     position: absolute;
@@ -60,47 +63,47 @@ $hideDuration: 480ms;
     }
 
     &:focus {
-      @include focusOutline();
+      @include ui.focusOutline();
     }
   }
 
   .mm-col {
-    @include nColumnWidth(3);
+    @include mx.nColumnWidth(3);
     display: inline-block;
     vertical-align: top;
 
     &:not(:first-of-type) {
-      @include gutterLeftMargin();
+      @include mx.gutterLeftMargin();
     }
   }
 
   .mm-col-3 {
-    @include nColumnWidth(4);
+    @include mx.nColumnWidth(4);
     display: inline-block;
     vertical-align: top;
 
     &:not(:first-of-type) {
-      @include gutterLeftMargin();
+      @include mx.gutterLeftMargin();
     }
   }
 
   .mm-search-col {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
     margin: 0 auto;
     padding-bottom: 25px;
     padding-top: 25px;
 
     .search-input {
-      @include textInput();
-      @include nColumnWidth(4);
+      @include mx.nColumnWidth(4);
+      @include ui.textInput();
       display: inline-block;
       vertical-align: top;
     }
 
     .search-button {
-      @include gutterLeftMargin();
-      @include button();
-      @include nColumnWidth(2);
+      @include mx.nColumnWidth(2);
+      @include mx.gutterLeftMargin();
+      @include ui.button();
       display: inline-block;
       vertical-align: top;
       padding: 0 20px;
@@ -110,13 +113,13 @@ $hideDuration: 480ms;
       }
 
       .label {
-        @include cancelVisuallyHidden();
+        @include mx.cancelVisuallyHidden();
       }
     }
   }
 
   .featured-piece-widget {
-    @include nColumnWidth(3);
+    @include mx.nColumnWidth(3);
 
     .feature-type {
       margin-bottom: 7.5px;
@@ -125,24 +128,24 @@ $hideDuration: 480ms;
     }
 
     h1 {
-      font-size: $fsTextBody;
+      font-size: vars.$fsTextBody;
     }
 
     .hero-image {
-      @include heroImageDimensions(3, 0.25);
+      @include img.heroImageDimensions(3, 0.25);
     }
 
     .byline,
     .byline-list,
     .byline-and-date {
       * {
-        font-size: $fsVerySmol;
+        font-size: vars.$fsVerySmol;
         line-height: 1.5
       }
     }
 
     p {
-      font-size: $fsVerySmol;
+      font-size: vars.$fsVerySmol;
       line-height: 1.5;
     }
   }
@@ -157,25 +160,25 @@ $hideDuration: 480ms;
     }
 
     .list {
-      @include list();
+      @include ui.list();
       line-height: 1;
 
       li {
-        @include unorderedListItem();
+        @include ui.unorderedListItem();
         line-height: 1;
         margin: 7.5px 0;
       }
 
       .list-item {
-        @include anchor();
+        @include ui.anchor();
         display: inline-block;
         text-decoration: none;
-        font-size: $fsVerySmol;
+        font-size: vars.$fsVerySmol;
         line-height: 1.25;
 
         .piece-title {
-          font-family: $ffHeading;
-          font-size: $fsSmol;
+          font-family: vars.$ffHeading;
+          font-size: vars.$fsSmol;
           font-style: normal;
           font-weight: normal;
           line-height: 1;
@@ -184,13 +187,13 @@ $hideDuration: 480ms;
     }
 
     .people-list {
-      @include list();
+      @include ui.list();
       padding: 0;
 
       li {
         margin: 5px 0;
 
-        @media #{$mqDesktop} {
+        @media #{ vars.$mqDesktop } {
           margin-top: 15px;
         }
       }
@@ -207,18 +210,18 @@ $hideDuration: 480ms;
           .fig-headshot {
             object-fit: cover;
 
-            @media #{$mqDesktop} {
-              $imgWidth: getColumnsSpan(1, $desktop);
+            @media #{ vars.$mqDesktop } {
+              $imgWidth: getColumnsSpan(1, vars.$desktop);
               width: $imgWidth;
               height: $imgWidth;
             }
-            @media #{$mqXL} {
-              $imgWidth: getColumnsSpan(1, $xl);
+            @media #{ vars.$mqXL } {
+              $imgWidth: getColumnsSpan(1, vars.$xl);
               width: $imgWidth;
               height: $imgWidth;
             }
-            @media #{$mqXXL} {
-              $imgWidth: getColumnsSpan(1, $xxl);
+            @media #{ vars.$mqXXL } {
+              $imgWidth: getColumnsSpan(1, vars.$xxl);
               width: $imgWidth;
               height: $imgWidth;
             }
@@ -226,25 +229,25 @@ $hideDuration: 480ms;
         }
 
         .person-details {
-          @include nColumnWidth(3);
+          @include mx.nColumnWidth(3);
           display: inline-block;
           vertical-align: top;
 
-          @media #{$mqDesktop} {
-            margin-left: getGutterHalfWidth($desktop);
+          @media #{ vars.$mqDesktop } {
+            margin-left: getGutterHalfWidth(vars.$desktop);
           }
 
-          @media #{$mqXL} {
-            margin-left: getGutterHalfWidth($xl);
+          @media #{ vars.$mqXL } {
+            margin-left: getGutterHalfWidth(vars.$xl);
           }
 
-          @media #{$mqXXL} {
-            margin-left: getGutterHalfWidth($xxl);
+          @media #{ vars.$mqXXL } {
+            margin-left: getGutterHalfWidth(vars.$xxl);
           }
 
           .person-name {
-            font-family: $ffHeading;
-            font-size: $fsTextBody;
+            font-family: vars.$ffHeading;
+            font-size: vars.$fsTextBody;
             font-style: normal;
             font-weight: normal;
             line-height: 1;
@@ -256,7 +259,7 @@ $hideDuration: 480ms;
             }
 
             * {
-              font-size: $fsVerySmol;
+              font-size: vars.$fsVerySmol;
               line-height: 1.5;
               margin: 0;
             }
@@ -266,9 +269,9 @@ $hideDuration: 480ms;
 
       &.col-3 {
         .list-item {
-          @media #{$mqDesktop} {
-            $col: getColumnWidth($desktop);
-            $halfCol: calc(#{$col} / 2);
+          @media #{ vars.$mqDesktop } {
+            $col: getColumnWidth(vars.$desktop);
+            $halfCol: calc(#{ $col } / 2);
             .profile-pic-container {
               .fig-headshot {
                 width: $halfCol;
@@ -287,10 +290,10 @@ $hideDuration: 480ms;
             }
           }
 
-          @media #{$mqXL} {
-            $col: getColumnWidth($desktop);
-            $halfCol: calc(#{$col} / 2);
-            $quarterCol: calc(#{$halfCol} / 2);
+          @media #{ vars.$mqXL } {
+            $col: getColumnWidth(vars.$desktop);
+            $halfCol: calc(#{ $col } / 2);
+            $quarterCol: calc(#{ $halfCol } / 2);
             .profile-pic-container {
               .fig-headshot {
                 width: $halfCol;
@@ -303,10 +306,10 @@ $hideDuration: 480ms;
             }
           }
 
-          @media #{$mqXXL} {
-            $col: getColumnWidth($desktop);
-            $halfCol: calc(#{$col} / 2);
-            $quarterCol: calc(#{$halfCol} / 2);
+          @media #{ vars.$mqXXL } {
+            $col: getColumnWidth(vars.$desktop);
+            $halfCol: calc(#{ $col } / 2);
+            $quarterCol: calc(#{ $halfCol } / 2);
             .profile-pic-container {
               .fig-headshot {
                 width: $halfCol;
@@ -324,10 +327,10 @@ $hideDuration: 480ms;
   }
 
   .website-cta {
-    @include anchor();
+    @include ui.anchor();
     background-color: transparent;
     border: none;
-    color: $black;
+    color: vars.$black;
     height: 25px;
     line-height: 1;
     padding: 0;
@@ -335,7 +338,7 @@ $hideDuration: 480ms;
     &:hover {
       background-color: transparent;
       border: none;
-      color: $main;
+      color: vars.$main;
       text-decoration: none;
     }
   }
@@ -349,11 +352,11 @@ $hideDuration: 480ms;
     text-align: center;
 
     .hide-mega-menu-button {
-      @include anchor();
+      @include ui.anchor();
       background-color: transparent;
       border: none;
       display: inline-block;
-      font-size: $fsVerySmol;
+      font-size: vars.$fsVerySmol;
       line-height: 1.75;
       padding-left: 0;
       padding-right: 0;

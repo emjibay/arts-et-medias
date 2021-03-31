@@ -1,13 +1,10 @@
-@import '../common/variables';
+@use '../common/variables' as vars;
 
 @import 'content-containers';
 @import 'columns';
 @import 'margins';
-@import 'functions';
 
 @import 'apos-overrides';
-@import 'hero-image';
-@import 'tag';
 
 
 // visibility
@@ -47,14 +44,14 @@
 
 // alignment
 @mixin leftAlignToContent() {
-  @media #{$mqDesktop} {
-    left: getSideWidth($desktop);
+  @media #{ vars.$mqDesktop } {
+    left: getSideWidth(vars.$desktop);
   }
 }
 
 
 // decoration
 @mixin underlinedH1() {
-  border-bottom: 2px solid $lightGrey;
+  border-bottom: 2px solid vars.$lightGrey;
   padding-bottom: 5px;
 }

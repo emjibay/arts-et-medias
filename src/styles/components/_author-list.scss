@@ -1,4 +1,6 @@
-@import '../common/variables';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+
 
 .author-list {
   display: block;
@@ -10,9 +12,9 @@
     margin-bottom: 10px;
 
     &::after {
-      color: $black;
+      color: vars.$black;
       content: ',';
-      font-family: $ffTextBody;
+      font-family: vars.$ffTextBody;
       font-size: 12.5pt;
       font-style: normal;
       font-weight: normal;
@@ -27,8 +29,8 @@
     }
 
     .author {
-      @include anchor();
-      color: $black;
+      @include ui.anchor();
+      color: vars.$black;
       font-size: 12.5pt;
     }
   }

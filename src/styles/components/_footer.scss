@@ -1,12 +1,12 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
 
 
 .footer,
 .editors-footer {
   .footer-title {
-    @include headingBase();
+    @include ui.headingBase();
     font-size: 20pt;
     line-height: 20pt;
   }
@@ -15,8 +15,8 @@
     margin-top: 30px;
 
     .column {
-      @include gutterLeftMargin();
-      @include nColumnWidth(3);
+      @include mx.gutterLeftMargin();
+      @include mx.nColumnWidth(3);
       display: inline-block;
       vertical-align: top;
 
@@ -32,11 +32,11 @@
         margin-left: 0;
       }
 
-      @media #{$mqTablet} {
-        @include nColumnWidth(2);
+      @media #{ vars.$mqTablet } {
+        @include mx.nColumnWidth(2);
 
         &:nth-child(odd) {
-          @include gutterLeftMargin();
+          @include mx.gutterLeftMargin();
         }
 
         &:nth-child(n+3) {
@@ -49,29 +49,29 @@
       }
 
       .column-title {
-        @include headingBase();
-        font-size: $fsTextBody;
+        @include ui.headingBase();
+        font-size: vars.$fsTextBody;
         line-height: 1.5;
         min-height: 50px;
         margin-top: 40px;
 
-        @media #{$mqTablet} {
-          font-size: $fsVerySmol;
+        @media #{ vars.$mqTablet } {
+          font-size: vars.$fsVerySmol;
           min-height: 40px;
         }
 
-        @media #{$mqDesktop} {
-          font-size: $fsTextBody;
+        @media #{ vars.$mqDesktop } {
+          font-size: vars.$fsTextBody;
           min-height: 50px;
         }
       }
 
       .footer-link-list {
-        @media #{$mqTablet} {
+        @media #{ vars.$mqTablet } {
           margin-top: 20px;
         }
 
-        @media #{$mqDesktop} {
+        @media #{ vars.$mqDesktop } {
           margin-top: 30px;
         }
 
@@ -92,9 +92,9 @@
       }
 
       .footer-link {
-        color: $almostWhite;
-        font-family: $ffTextBody;
-        font-size: $fsVerySmol;
+        color: vars.$almostWhite;
+        font-family: vars.$ffTextBody;
+        font-size: vars.$fsVerySmol;
         font-style: normal;
         font-weight: normal;
         line-height: 1.25;
@@ -105,7 +105,7 @@
           text-decoration-thickness: 1px;
         }
         &:focus {
-          @include focusOutline();
+          @include ui.focusOutline();
         }
       }
     }
@@ -115,15 +115,15 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid $almostWhite;
+    border-bottom: 1px solid vars.$almostWhite;
     margin: 50px 0;
   }
 }
 
 
 .footer {
-  background-color: $black;
-  color: $almostWhite;
+  background-color: vars.$black;
+  color: vars.$almostWhite;
   padding: 50px 0 30px;
   margin-top: 70px;
 
@@ -134,33 +134,33 @@
   .copyright,
   .version {
     display: inline-block;
-    font-family: $ffHeading;
-    font-size: $fsVerySmol;
+    font-family: vars.$ffHeading;
+    font-size: vars.$fsVerySmol;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
     text-align: center;
     width: 100%;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       width: 50%;
     }
   }
   .copyright {
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       text-align: left;
     }
   }
   .version {
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       text-align: right;
     }
   }
 }
 
 .editors-footer {
-  background-color: $darkGrey;
-  color: $almostWhite;
+  background-color: vars.$darkGrey;
+  color: vars.$almostWhite;
   padding: 50px 0;
   margin-top: 70px;
 }

@@ -1,5 +1,5 @@
-@import '../common/variables';
-@import 'functions';
+@use '../common/variables' as vars;
+@use 'functions' as fn;
 
 
 /**
@@ -10,18 +10,18 @@
   * @param $numColSpan The number of columns to consider to calculate the width.
 */
 @mixin nColumnWidth($numColSpan) {
-  width: getColumnsSpan($numColSpan, $phone);
+  width: fn.getColumnsSpan($numColSpan, vars.$phone);
 
-  @media #{$mqTablet} {
-    width: getColumnsSpan($numColSpan, $tablet);
+  @media #{vars.$mqTablet} {
+    width: fn.getColumnsSpan($numColSpan, vars.$tablet);
   }
-  @media #{$mqDesktop} {
-    width: getColumnsSpan($numColSpan, $desktop);
+  @media #{vars.$mqDesktop} {
+    width: fn.getColumnsSpan($numColSpan, vars.$desktop);
   }
-  @media #{$mqXL} {
-    width: getColumnsSpan($numColSpan, $xl);
+  @media #{vars.$mqXL} {
+    width: fn.getColumnsSpan($numColSpan, vars.$xl);
   }
-  @media #{$mqXXL} {
-    width: getColumnsSpan($numColSpan, $xxl);
+  @media #{vars.$mqXXL} {
+    width: fn.getColumnsSpan($numColSpan, vars.$xxl);
   }
 }

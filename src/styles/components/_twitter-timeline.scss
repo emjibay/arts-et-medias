@@ -1,5 +1,5 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
 
 
 .twitter-timeline-container {
@@ -9,13 +9,13 @@
 }
 
 .twitter-removed {
-  @include cmsOutline($red);
-  background-color: rgba($red, 0.125);
+  @include ui.cmsOutline(vars.$red);
+  background-color: rgba(vars.$red, 0.125);
   padding: 20px;
 
   .message {
-    font-family: $ffTextBody;
-    font-size: $fsSmol;
+    font-family: vars.$ffTextBody;
+    font-size: vars.$fsSmol;
     line-height: 1.25;
   }
 }

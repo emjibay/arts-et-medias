@@ -1,4 +1,5 @@
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
 
 
 .banner-ad {
@@ -6,7 +7,7 @@
   width: 100%;
 
   .ad-label {
-    @include contentTypeHeading();
+    @include ui.contentTypeHeading();
     border: none;
     font-size: 6pt !important;
     margin: 5px 0 0 0;
@@ -26,7 +27,7 @@
     display: block;
     width: 100%;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: none;
     }
   }
@@ -55,7 +56,7 @@
     display: none;
     width: 100%;
 
-    @media #{$mqTablet} {
+    @media #{ vars.$mqTablet } {
       display: block;
     }
   }
@@ -64,17 +65,17 @@
     width: 215px;
     height: 180px;
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       width: 290px;
       height: 242px;
     }
 
-    @media #{$mqXL} {
+    @media #{ vars.$mqXL } {
       width: 345px;
       height: 288px;
     }
 
-    @media #{$mqXXL} {
+    @media #{ vars.$mqXXL } {
       width: 400px;
       height: 333px;
     }
@@ -85,17 +86,17 @@
     width: 695px;
     height: 86px;
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       width: 610px;
       height: 76px;
     }
 
-    @media #{$mqXL} {
+    @media #{ vars.$mqXL } {
       width: 725px;
       height: 90px;
     }
 
-    @media #{$mqXXL} {
+    @media #{ vars.$mqXXL } {
       width: 840px;
       height: 104px;
     }
@@ -105,17 +106,17 @@
     width: 215px;
     height: 430px;
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       width: 210px;
       height: 420px;
     }
 
-    @media #{$mqXL} {
+    @media #{ vars.$mqXL } {
       width: 250px;
       height: 500px;
     }
 
-    @media #{$mqXXL} {
+    @media #{ vars.$mqXXL } {
       width: 290px;
       height: 580px;
     }
@@ -125,17 +126,17 @@
     width: 215px;
     height: 215px;
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       width: 210px;
       height: 210px;
     }
 
-    @media #{$mqXL} {
+    @media #{ vars.$mqXL } {
       width: 250px;
       height: 250px;
     }
 
-    @media #{$mqXXL} {
+    @media #{ vars.$mqXXL } {
       width: 290px;
       height: 290px;
     }

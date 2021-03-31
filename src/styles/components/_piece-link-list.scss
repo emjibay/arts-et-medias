@@ -1,4 +1,5 @@
-@import '../common/variables';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
 
 
 .piece-link-list {
@@ -11,10 +12,10 @@
     margin-bottom: 10px;
 
     &::after {
-      color: $black;
+      color: vars.$black;
       content: ',';
-      font-family: $ffTextBody;
-      font-size: $fsTextBody;
+      font-family: vars.$ffTextBody;
+      font-size: vars.$fsTextBody;
       font-style: normal;
       font-weight: normal;
     }
@@ -28,9 +29,9 @@
     }
 
     .piece-link {
-      @include anchor();
-      color: $black;
-      font-size: $fsTextBody;
+      @include ui.anchor();
+      color: vars.$black;
+      font-size: vars.$fsTextBody;
     }
   }
 }

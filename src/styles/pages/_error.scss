@@ -1,6 +1,5 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
 
 
 .error-template {
@@ -9,31 +8,31 @@
   }
 
   .h1 {
-    @include heading1();
+    @include ui.heading1();
   }
 
   .p {
-    @include paragraph();
+    @include ui.paragraph();
   }
 
   .tech-details {
     margin-top: 100px;
 
     .heading {
-      @include heading5();
+      @include ui.heading5();
       cursor: pointer;
     }
 
     dl {
       dt {
-        @include paragraph();
+        @include ui.paragraph();
         font-weight: bold;
       }
 
       dd {
-        @include paragraph();
-        font-family: $ffMonospace;
-        background-color: $lightestGrey;
+        @include ui.paragraph();
+        font-family: vars.$ffMonospace;
+        background-color: vars.$lightestGrey;
         padding: 5px;
       }
     }

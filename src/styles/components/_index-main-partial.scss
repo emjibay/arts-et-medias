@@ -1,17 +1,17 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+
 
 .index-main-partial {
   .index-list {
-    @include list();
+    @include ui.list();
 
     li {
-      @include unorderedListItem();
+      @include ui.unorderedListItem();
 
       a {
-        @include anchor();
-        color: $black;
+        @include ui.anchor();
+        color: vars.$black;
       }
     }
   }

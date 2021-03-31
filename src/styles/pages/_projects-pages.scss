@@ -1,5 +1,5 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/variables' as vars;
+@use '../mixins/functions' as fn;
 
 
 .projects-index {
@@ -14,8 +14,8 @@
 
 .project-details {
   .main-hero-image {
-    $imgWidth: getColumnsSpan(8, $desktop);
-    $imgHeight: calc(#{$imgWidth} * 0.5625);
+    $imgWidth: fn.getColumnsSpan(8, vars.$desktop);
+    $imgHeight: calc(#{ $imgWidth } * 0.5625);
     object-fit: cover;
     height: $imgHeight;
     width: $imgWidth;

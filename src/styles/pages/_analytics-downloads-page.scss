@@ -1,5 +1,6 @@
-@import "../common/variables";
-@import "../common/ui";
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
 
 
 .analytics-downloads-template {
@@ -14,29 +15,29 @@
   }
 
   .input-label {
-    @include inputLabel();
+    @include ui.inputLabel();
     margin-top: 20px;
     margin-bottom: 10px;
   }
 
   .text-input {
-    @include textInput();
+    @include ui.textInput();
     display: inline-block;
   }
 
   .select {
-    @include select();
+    @include ui.select();
   }
 
   .form-column {
     display: block;
 
-    @media #{$mqTablet} {
-      @include nColumnWidth(4);
+    @media #{ vars.$mqTablet } {
+      @include mx.nColumnWidth(4);
       display: inline-block;
 
       & + .form-column {
-        @include gutterLeftMargin();
+        @include mx.gutterLeftMargin();
       }
     }
   }

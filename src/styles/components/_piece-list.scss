@@ -1,12 +1,15 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+@use '../mixins/hero-image' as img;
+@use '../mixins/functions' as fn;
 
 
 .piece-list {
   margin: 40px 0;
 
   .list-item {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
     display: inline-block;
     vertical-align: top;
 
@@ -14,8 +17,8 @@
       margin: 40px 0 0 0;
     }
 
-    @media #{$mqTablet} {
-      @include nColumnWidth(4);
+    @media #{ vars.$mqTablet } {
+      @include mx.nColumnWidth(4);
       margin: 0 0 60px 0;
 
       &:not(:first-of-type) {
@@ -23,7 +26,7 @@
       }
 
       &:nth-child(even) {
-        @include gutterLeftMargin();
+        @include mx.gutterLeftMargin();
       }
     }
   }
@@ -33,21 +36,21 @@
     display: inline-block;
 
     &:focus {
-      @include focusOutline();
+      @include ui.focusOutline();
     }
   }
 
   .piece-card {
-    color: $black;
+    color: vars.$black;
 
     .heading {
-      @include heading5();
-      @include headingBase();
+      @include ui.heading5();
+      @include ui.headingBase();
       line-height: 1;
       margin: 0;
 
-      @media #{$mqDesktop} {
-        @include heading4();
+      @media #{ vars.$mqDesktop } {
+        @include ui.heading4();
         margin: 0;
       }
     }
@@ -60,81 +63,81 @@
       margin: 5px 0;
 
       span {
-        @include minorText();
-        font-size: $fsSmol;
-        margin: 5px 0 0 0;
+        @include ui.minorText();
+        font-size: vars.$fsSmol;
         line-height: 1.25;
+        margin: 5px 0 0 0;
 
         &:not(:last-of-type) {
           margin-right: 5px;
 
           &::after {
-            @include minorText();
-            position: relative;
+            @include ui.minorText();
             content: ',';
-            font-size: $fsSmol;
+            font-size: vars.$fsSmol;
             line-height: 1.25;
+            position: relative;
           }
         }
       }
     }
 
     .publication-date {
-      @include minorText();
-      font-size: $fsSmol;
+      @include ui.minorText();
+      font-size: vars.$fsSmol;
       margin: 5px 0 0 0;
     }
 
     .org-location {
-      @include minorText();
+      @include ui.minorText();
       margin: 5px 0;
     }
 
     .hero-image {
-      $width: getColumnsSpan(6, $phone);
+      $width: fn.getColumnsSpan(6, vars.$phone);
       $imgWidth: $width;
-      $imgHeight: calc(#{$width} * 0.25);
+      $imgHeight: calc(#{ $width } * 0.25);
       height: $imgHeight;
       width: $imgWidth;
       margin-top: 10px;
       object-fit: cover;
 
-      @media #{$mqTablet} {
-        $width: getColumnsSpan(4, $tablet);
+      @media #{ vars.$mqTablet } {
+        $width: fn.getColumnsSpan(4, vars.$tablet);
+        $imgWidth: $width;
+        $imgHeight: calc(#{ $width } * 0.25);
+        height: $imgHeight;
+        width: $imgWidth;
+      }
+
+      @media #{ vars.$mqDesktop } {
+        $width: fn.getColumnsSpan(4, vars.$desktop);
         $imgWidth: $width;
         $imgHeight: calc(#{$width} * 0.25);
         height: $imgHeight;
         width: $imgWidth;
       }
 
-      @media #{$mqDesktop} {
-        $width: getColumnsSpan(4, $desktop);
+      @media #{ vars.$mqXL } {
+        $width: fn.getColumnsSpan(4, vars.$xl);
         $imgWidth: $width;
-        $imgHeight: calc(#{$width} * 0.25);
+        $imgHeight: calc(#{ $width } * 0.25);
         height: $imgHeight;
         width: $imgWidth;
       }
 
-      @media #{$mqXL} {
-        $width: getColumnsSpan(4, $xl);
+      @media #{ vars.$mqXXL } {
+        $width: fn.getColumnsSpan(4, vars.$xxl);
         $imgWidth: $width;
-        $imgHeight: calc(#{$width} * 0.25);
-        height: $imgHeight;
-        width: $imgWidth;
-      }
-
-      @media #{$mqXXL} {
-        $width: getColumnsSpan(4, $xxl);
-        $imgWidth: $width;
-        $imgHeight: calc(#{$width} * 0.25);
+        $imgHeight: calc(#{ $width } * 0.25);
         height: $imgHeight;
         width: $imgWidth;
       }
     }
 
     .piece-cta {
-      @include anchor();
-      font-size: $fsTextBody;
+      @include ui.anchor();
+      font-size: vars.$fsTextBody;
       margin-top: 20px;
     }
 
@@ -145,7 +148,7 @@
 
     &.book {
       .hero-image {
-        @include heroImageShadow();
+        @include img.heroImageShadow();
       }
     }
   }

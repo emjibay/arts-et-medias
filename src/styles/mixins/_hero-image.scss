@@ -1,41 +1,42 @@
-@import 'functions';
+@use '../common/variables' as vars;
+@use 'functions' as fn;
 
 
 // dimensions
 @mixin heroImageDimensions($colSpan, $heightRatio) {
-  $width: getColumnsSpan($colSpan, $phone);
+  $width: fn.getColumnsSpan($colSpan, vars.$phone);
   $imgWidth: $width;
   $imgHeight: calc(#{ $width } * #{ $heightRatio });
   height: $imgHeight;
   width: $imgWidth;
   object-fit: cover;
 
-  @media #{$mqTablet} {
-    $width: getColumnsSpan($colSpan, $tablet);
+  @media #{ vars.$mqTablet } {
+    $width: fn.getColumnsSpan($colSpan, vars.$tablet);
     $imgWidth: $width;
     $imgHeight: calc(#{ $width } * #{ $heightRatio });
     height: $imgHeight;
     width: $imgWidth;
   }
 
-  @media #{$mqDesktop} {
-    $width: getColumnsSpan($colSpan, $desktop);
+  @media #{ vars.$mqDesktop } {
+    $width: fn.getColumnsSpan($colSpan, vars.$desktop);
     $imgWidth: $width;
     $imgHeight: calc(#{ $width } * #{ $heightRatio });
     height: $imgHeight;
     width: $imgWidth;
   }
 
-  @media #{$mqXL} {
-    $width: getColumnsSpan($colSpan, $xl);
+  @media #{ vars.$mqXL } {
+    $width: fn.getColumnsSpan($colSpan, vars.$xl);
     $imgWidth: $width;
     $imgHeight: calc(#{ $width } * #{ $heightRatio });
     height: $imgHeight;
     width: $imgWidth;
   }
 
-  @media #{$mqXXL} {
-    $width: getColumnsSpan($colSpan, $xxl);
+  @media #{ vars.$mqXXL } {
+    $width: fn.getColumnsSpan($colSpan, vars.$xxl);
     $imgWidth: $width;
     $imgHeight: calc(#{ $width } * #{ $heightRatio });
     height: $imgHeight;
@@ -44,57 +45,57 @@
 }
 
 @mixin heroImageFullHeight($colSpan) {
-  width: getColumnsSpan($colSpan, $phone);
+  width: fn.getColumnsSpan($colSpan, vars.$phone);
   height: auto;
   object-fit: cover;
 
-  @media #{$mqTablet} {
-    width: getColumnsSpan($colSpan, $tablet);
+  @media #{ vars.$mqTablet } {
+    width: fn.getColumnsSpan($colSpan, vars.$tablet);
     height: auto;
   }
 
-  @media #{$mqDesktop} {
-    width: getColumnsSpan($colSpan, $desktop);
+  @media #{ vars.$mqDesktop } {
+    width: fn.getColumnsSpan($colSpan, vars.$desktop);
     height: auto;
   }
 
-  @media #{$mqXL} {
-    width: getColumnsSpan($colSpan, $xl);
+  @media #{ vars.$mqXL } {
+    width: fn.getColumnsSpan($colSpan, vars.$xl);
     height: auto;
   }
 
-  @media #{$mqXXL} {
-    width: getColumnsSpan($colSpan, $xxl);
+  @media #{ vars.$mqXXL } {
+    width: fn.getColumnsSpan($colSpan, vars.$xxl);
     height: auto;
   }
 }
 
 @mixin heroImageContainedInSquare($colSpan) {
-  $imgSize: getColumnsSpan($colSpan, $phone);
+  $imgSize: fn.getColumnsSpan($colSpan, vars.$phone);
   height: $imgSize;
   width: $imgSize;
   object-fit: contain;
 
-  @media #{$mqTablet} {
-    $imgSize: getColumnsSpan($colSpan, $tablet);
+  @media #{ vars.$mqTablet } {
+    $imgSize: fn.getColumnsSpan($colSpan, vars.$tablet);
     height: $imgSize;
     width: $imgSize;
   }
 
-  @media #{$mqDesktop} {
-    $imgSize: getColumnsSpan($colSpan, $desktop);
+  @media #{ vars.$mqDesktop } {
+    $imgSize: fn.getColumnsSpan($colSpan, vars.$desktop);
     height: $imgSize;
     width: $imgSize;
   }
 
-  @media #{$mqXL} {
-    $imgSize: getColumnsSpan($colSpan, $xl);
+  @media #{ vars.$mqXL } {
+    $imgSize: fn.getColumnsSpan($colSpan, vars.$xl);
     height: $imgSize;
     width: $imgSize;
   }
 
-  @media #{$mqXXL} {
-    $imgSize: getColumnsSpan($colSpan, $xxl);
+  @media #{ vars.$mqXXL } {
+    $imgSize: fn.getColumnsSpan($colSpan, vars.$xxl);
     height: $imgSize;
     width: $imgSize;
   }

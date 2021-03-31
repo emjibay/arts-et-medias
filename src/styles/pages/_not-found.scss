@@ -1,63 +1,64 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+@use '../mixins/functions' as fn;
 
 
 .page-not-found {
   .column {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
 
     &:not(:first-of-type) {
       margin-top: 50px;
     }
 
-    @media #{$mqTablet} {
-      @include nColumnWidth(4);
+    @media #{ vars.$mqTablet } {
+      @include mx.nColumnWidth(4);
       display: inline-block;
-      vertical-align: top;
       margin-top: 0;
+      vertical-align: top;
 
       &:not(:first-of-type) {
-        margin-left: getGutterWidth($tablet);
+        margin-left: fn.getGutterWidth(vars.$tablet);
         margin-top: 0;
       }
     }
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       margin-top: 0;
 
       &:not(:first-of-type) {
-        margin-left: getGutterWidth($desktop);
+        margin-left: fn.getGutterWidth(vars.$desktop);
         margin-top: 0;
       }
     }
   }
 
   .suggested-content {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
     display: inline-block;
     margin: 25px 0;
 
-    @media #{$mqTablet} {
-      @include nColumnWidth(12);
+    @media #{ vars.$mqTablet } {
+      @include mx.nColumnWidth(12);
     }
 
-    @media #{$mqDesktop} {
+    @media #{ vars.$mqDesktop } {
       margin: 50px 0;
     }
 
     &.search {
       .search-input {
-        @include textInput();
-        @include nColumnWidth(4);
+        @include mx.nColumnWidth(4);
+        @include ui.textInput();
         display: inline-block;
         vertical-align: top;
       }
 
       .search-button {
-        @include gutterLeftMargin();
-        @include button();
-        @include nColumnWidth(2);
+        @include mx.gutterLeftMargin();
+        @include mx.nColumnWidth(2);
+        @include ui.button();
         display: inline-block;
         vertical-align: top;
         padding: 0 20px;
@@ -67,7 +68,7 @@
         }
 
         .label {
-          @include cancelVisuallyHidden();
+          @include mx.cancelVisuallyHidden();
         }
       }
     }

@@ -1,22 +1,22 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
 
 
 @mixin aposRichText {
   h1 {
-    @include heading1();
+    @include ui.heading1();
   }
   h2 {
-    @include heading2();
+    @include ui.heading2();
     margin-top: 50px;
   }
   h3 {
-    @include heading3();
+    @include ui.heading3();
     margin-top: 20px;
   }
   h4 {
-    color: $darkGrey;
-    font-family: $ffTextBody;
+    color: vars.$darkGrey;
+    font-family: vars.$ffTextBody;
     font-size: 16pt;
     font-style: normal;
     font-weight: bold;
@@ -24,27 +24,27 @@
     margin: 10px 0 15px 0;
   }
   h5 {
-    @include heading5();
+    @include ui.heading5();
   }
   h6 {
-    @include heading6();
+    @include ui.heading6();
   }
   p {
-    @include paragraph();
+    @include ui.paragraph();
   }
   blockquote {
-    background-color: $lightestGrey;
+    background-color: vars.$lightestGrey;
     padding: 15px 30px;
     margin: 20px 0;
 
     * {
-      font-size: $fsSmol;
+      font-size: vars.$fsSmol;
       line-height: 1.75;
     }
   }
 
   .anchor, a {
-    @include anchor();
+    @include ui.anchor();
   }
 
   .underline, u {
@@ -75,10 +75,10 @@
   ul {
     // necessary to not affect apos ui
     &:not(.apos-dropdown-items) {
-      @include list();
+      @include ui.list();
 
       li {
-        @include unorderedListItem();
+        @include ui.unorderedListItem();
       }
     }
   }

@@ -1,5 +1,6 @@
-@import '../common/variables';
-@import '../common/ui';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
 
 
 .banner-ads-index {}
@@ -28,28 +29,28 @@
     }
 
     .leaderboard {
-      @media #{$mqTablet} {
-        @include nColumnWidth(8);
+      @media #{ vars.$mqTablet } {
+        @include mx.nColumnWidth(8);
         height: 56px;
       }
-      @media #{$mqDesktop} {
+      @media #{ vars.$mqDesktop } {
         height: unset;
       }
     }
   }
 
-  @media #{$mqTablet} {
+  @media #{ vars.$mqTablet } {
     .prop-col {
-      @include nColumnWidth(4);
+      @include mx.nColumnWidth(4);
       display: inline-block;
     }
 
     .prop-col + .prop-col {
-      @include gutterLeftMargin();
+      @include mx.gutterLeftMargin();
     }
   }
 
   .notes-warning {
-    @include minorText();
+    @include ui.minorText();
   }
 }

@@ -1,6 +1,6 @@
-@import '../common/variables';
-@import '../common/ui';
-@import '../mixins/mixins';
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
 
 
 .event-index {}
@@ -8,7 +8,7 @@
 .event-details {
   main > article {
     .page-heading {
-      @include underlinedH1();
+      @include mx.underlinedH1();
       margin-bottom: 20px;
     }
     .without-hero {
@@ -18,7 +18,7 @@
   }
 
   .event-info {
-    @include paragraph();
+    @include ui.paragraph();
 
     .piece-link-list {
       display: inline-block;
@@ -32,8 +32,8 @@
     }
 
     .relative-date {
-      @include minorText();
-      font-size: $fsSmol;
+      @include ui.minorText();
+      font-size: vars.$fsSmol;
     }
   }
 

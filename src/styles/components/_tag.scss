@@ -1,4 +1,5 @@
-@import '../common/variables';
+@use '../common/variables' as vars;
+
 
 .tag-list {
   margin: 20px 0;
@@ -16,10 +17,10 @@
 
 .tag {
   display: inline-block;
-  background-color: $halfGrey;
+  background-color: vars.$halfGrey;
   border: 1px solid transparent;
-  color: $almostWhite;
-  font-family: $ffButtonLabel;
+  color: vars.$almostWhite;
+  font-family: vars.$ffButtonLabel;
   font-size: 8pt;
   font-style: normal;
   font-weight: normal;
@@ -33,9 +34,9 @@
 a {
   &.tag {
     &:hover {
-      background-color: $almostWhite;
-      color: $main;
-      border: 1px solid $main;
+      background-color: vars.$almostWhite;
+      color: vars.$main;
+      border: 1px solid vars.$main;
     }
   }
 }

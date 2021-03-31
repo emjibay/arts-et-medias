@@ -1,12 +1,16 @@
+@use '../common/variables' as vars;
+@use '../mixins/mixins' as mx;
+
+
 .mobile-banners {
   margin-top: 75px;
 
-  @media #{$mqTablet} {
+  @media #{ vars.$mqTablet } {
     display: none;
   }
 
   .banner-col {
-    @include nColumnWidth(6);
+    @include mx.nColumnWidth(6);
     display: block;
 
     &.banner-2 {
