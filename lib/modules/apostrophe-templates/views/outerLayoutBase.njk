@@ -35,6 +35,7 @@
 
     {% block extraHead %}{% endblock %}
   </head>
+
   <body
     class="{{ data.aposBodyClasses }} {% block bodyClass %}{% endblock %}"
     {% block bodyAttributes %}{% endblock %}
@@ -60,6 +61,7 @@
         </div>
       {% endif %}
     {% endblock %}
+
     <div class="apos-refreshable" data-apos-refreshable>
       {% block beforeMain %}{% endblock %}
       {% block mainAnchor %}<a name="main"></a>{% endblock %}
@@ -68,14 +70,18 @@
       {{ apos.templates.appended('main') }}
       {% block afterMain %}{% endblock %}
     </div>
+
     {{ apos.assets.scripts(data.when) }}
+
     {% block jsCalls %}
       <script type="text/javascript">
         {{ data.js.globalCalls }}
         {{ data.js.reqCalls }}
       </script>
     {% endblock %}
+
     {{ apos.templates.appended('body') }}
+
     {% block extraBody %}{% endblock %}
   </body>
 </html>
