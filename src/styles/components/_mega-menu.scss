@@ -2,6 +2,7 @@
 @use '../common/ui' as ui;
 @use '../mixins/mixins' as mx;
 @use '../mixins/hero-image' as img;
+@use '../mixins/functions' as fn;
 
 // imports its own sub component
 @import 'mega-menu-lang-form';
@@ -211,17 +212,17 @@ $hideDuration: 480ms;
             object-fit: cover;
 
             @media #{ vars.$mqDesktop } {
-              $imgWidth: getColumnsSpan(1, vars.$desktop);
+              $imgWidth: fn.getColumnsSpan(1, vars.$desktop);
               width: $imgWidth;
               height: $imgWidth;
             }
             @media #{ vars.$mqXL } {
-              $imgWidth: getColumnsSpan(1, vars.$xl);
+              $imgWidth: fn.getColumnsSpan(1, vars.$xl);
               width: $imgWidth;
               height: $imgWidth;
             }
             @media #{ vars.$mqXXL } {
-              $imgWidth: getColumnsSpan(1, vars.$xxl);
+              $imgWidth: fn.getColumnsSpan(1, vars.$xxl);
               width: $imgWidth;
               height: $imgWidth;
             }
