@@ -22,10 +22,6 @@
   {{ seeAllPiecesCTA('articles') }}
 {% endmacro %}
 
-{% macro seeAllEventsCTA() %}
-  {{ seeAllPiecesCTA('events') }}
-{% endmacro %}
-
 {% macro seeAllProjectsCTA() %}
   {{ seeAllPiecesCTA('projects') }}
 {% endmacro %}
@@ -113,61 +109,7 @@
               })
             }}
 
-            <section class="events-section">
-              <div class="section-heading">
-                <h2 class="h2">{{ __('events|heading') }}</h2>
-                {{ seeAllEventsCTA() }}
-              </div>
-
-              {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
-                <div class="featured-piece">
-                  {% include "partials/events/featured.njk" %}
-                </div>
-                <div class="latest-pieces">
-                  <h3 class="latest-pieces-heading">
-                    {{ __('events|categories|festivals|nextOrOngoing') }}
-                  </h3>
-                  {%-
-                    set ongoingAndFutureFestivals = apos.aemPieces.getFirstNWithTags(
-                      data.ongoingAndFutureEvents,
-                      2,
-                      __('events|categories|festivals|tags')
-                    )
-                  -%}
-                  {{ eventList(ongoingAndFutureFestivals, locale) }}
-                </div>
-              {%- else -%}
-                {# FIXME: reduce repetition for following div (#80) #}
-                <div class="latest-pieces sans-feature">
-                  <h3 class="latest-pieces-heading">
-                    {{ __('events|categories|festivals|nextOrOngoing') }}
-                  </h3>
-                  {%-
-                    set ongoingAndFutureFestivals = apos.aemPieces.getFirstNWithTags(
-                      data.ongoingAndFutureEvents,
-                      2,
-                      __('events|categories|festivals|tags')
-                    )
-                  -%}
-                  {{ eventList(ongoingAndFutureFestivals, locale) }}
-                </div>
-                <div class="latest-pieces">
-                  <h3 class="latest-pieces-heading">
-                    {{ __('events|categories|festivals|recentlyAdded') }}
-                  </h3>
-                  {%-
-                    set recentlyAddedFestivals = apos.aemPieces.getFirstNWithTags(
-                      data.eventsByMostRecent,
-                      2,
-                      __('events|categories|festivals|tags')
-                    )
-                  -%}
-                  {{ eventList(recentlyAddedFestivals, locale) }}
-                </div>
-              {%- endif -%}
-
-              {{ seeAllEventsCTA() }}
-            </section>
+            {% include "partials/home/events-section.njk" %}
 
             {{
               leaderboard({

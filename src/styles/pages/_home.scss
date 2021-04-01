@@ -250,6 +250,7 @@
       @media #{ vars.$mqTablet } {
         @include mx.gutterLeftMargin();
         margin-top: 0;
+        margin-bottom: 50px;
       }
 
       &.sans-feature {
