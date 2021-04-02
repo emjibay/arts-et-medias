@@ -1,7 +1,7 @@
 {% extends "layouts/pieceDetailsLayout.njk" %}
 
 
-{%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import externalCTA -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
@@ -16,6 +16,7 @@
 {%- set minorLBOptions = { data: data, propName: 'articlesMinorLeaderboard' } -%}
 {%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
 {%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%- set bannerPropNames = ['articlesSidebarBanners1', 'articlesSidebarBanners2', 'articlesSidebarBanners3'] -%}
 
 
 {% block title %}
@@ -63,6 +64,8 @@
 {% endblock %}
 
 {% block pageContent %}
+  {%- set bannerIndex = 0 -%}
+
   {{
     heroImage(
       piece,
@@ -74,6 +77,16 @@
   <div class="description rich-description">
     {{ contentSection(piece) }}
   </div>
+
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
 
   {%- set isMention = piece.articleType === 'mention' -%}
   {%- if isMention -%}
@@ -143,9 +156,28 @@
   {# tags #}
   {{ tags(piece) }}
 
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
+
   {%- if piece.hasCitations and piece.citations -%}
     <hr class="separator"/>
     {%- include 'partials/articles/citations-section.njk' -%}
+  {%- endif -%}
+
+  {%- if bannerIndex < bannerPropNames|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: bannerPropNames[bannerIndex]
+      })
+    }}
   {%- endif -%}
 
   {%- if isMainLBVisible -%}

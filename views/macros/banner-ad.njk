@@ -89,15 +89,11 @@
   {%- if apos.aemBannerAds.areVisible(options) -%}
     <div class="advertisement">
       {{
-        apos.area(
+        apos.singleton(
           options.data.global,
           options.propName,
-          {
-            widgets: {
-              'aem-banner-ads': { hasLabel: true }
-            },
-            limit: 2
-          }
+          'aem-banner-ads',
+          { hasLabel: true }
         )
       }}
     </div>
@@ -111,7 +107,8 @@
   - propName
 #}
 {% macro mobileBannerAds(options) %}
-  {%- set pieces = options.data.global[options.propName].items[0]._pieces -%}
+  {%- set container = options.data.global[options.propName] -%}
+  {%- set pieces = apos.aemBannerAds.getPiecesFrom(container) -%}
   {%- set numActiveBannerAds = apos.aemBannerAds.getNumActive(pieces) -%}
 
   {%- if apos.aemBannerAds.areVisible(options) -%}
