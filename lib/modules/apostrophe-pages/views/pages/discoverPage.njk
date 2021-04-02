@@ -60,26 +60,30 @@
         []
       )
     }}
+
+    {# mobile banners #}
+    {%- if bannerIndex < globalSidebarBanners|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: globalSidebarBanners[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
+    {# cta #}
     {{
       seeAllCTA(
         __('projects|seeAllCTA'),
         __('projects|url')
       )
     }}
+
+    {# leaderboard #}
     {{ alternatingLeaderboard(alternatingLBOptions) }}
     {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   </section>
-
-  {# mobile banners #}
-  {%- if bannerIndex < globalSidebarBanners|length -%}
-    {{
-      mobileBannerAds({
-        data: data,
-        propName: globalSidebarBanners[bannerIndex]
-      })
-    }}
-    {%- set bannerIndex = bannerIndex + 1 -%}
-  {%- endif -%}
 
   {# creators and artists #}
   <section class="subject-section creators">
@@ -96,26 +100,30 @@
         }
       )
     }}
+
+    {# mobile banners #}
+    {%- if bannerIndex < globalSidebarBanners|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: globalSidebarBanners[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
+    {# cta #}
     {{
       seeAllCTA(
         __('people|categories|creators|seeAllCTA'),
         __('people|categories|creators|url')
       )
     }}
+
+    {# leaderboard #}
     {{ alternatingLeaderboard(alternatingLBOptions) }}
     {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   </section>
-
-  {# mobile banners #}
-  {%- if bannerIndex < globalSidebarBanners|length -%}
-    {{
-      mobileBannerAds({
-        data: data,
-        propName: globalSidebarBanners[bannerIndex]
-      })
-    }}
-    {%- set bannerIndex = bannerIndex + 1 -%}
-  {%- endif -%}
 
   {# collectives #}
   <section class="subject-section collectives">
@@ -130,24 +138,28 @@
         numPreviews
       )
     }}
+
+    {# mobile banners #}
+    {%- if bannerIndex < globalSidebarBanners|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: globalSidebarBanners[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
+    {# cta #}
     {{
       seeAllCTA(
         __('organizations|categories|collectives|seeAllCTA'),
         __('organizations|categories|collectives|url')
       )
     }}
+
+    {# leaderboard #}
     {{ alternatingLeaderboard(alternatingLBOptions) }}
     {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   </section>
-
-  {# mobile banners #}
-  {%- if bannerIndex < globalSidebarBanners|length -%}
-    {{
-      mobileBannerAds({
-        data: data,
-        propName: globalSidebarBanners[bannerIndex]
-      })
-    }}
-    {%- set bannerIndex = bannerIndex + 1 -%}
-  {%- endif -%}
 {% endblock %}
