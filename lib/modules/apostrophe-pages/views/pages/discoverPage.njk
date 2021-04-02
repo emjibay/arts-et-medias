@@ -4,7 +4,7 @@
 {%- from 'macros/banner-ad.njk' import alternatingLeaderboard, inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
 {%- from 'macros/cta.njk' import seeAllCTA -%}
-{%- from 'macros/piece-index.njk' import recentlyAdded, recentlyAddedProjects -%}
+{%- from 'macros/piece-index.njk' import recentlyAdded, recentlyAddedPeople, recentlyAddedProjects -%}
 {%- from 'options/banner-ads.njk' import globalSidebarBanners -%}
 
 
@@ -87,11 +87,13 @@
       <h2 class="h2">{{ __('people|categories|creators|title') }}</h2>
     </div>
     {{
-      recentlyAdded(
-        __('people|categories|creators|recentlyAdded'),
+      recentlyAddedPeople(
         data.peopleByMostRecent,
-        __('people|categories|creators|tags'),
-        numPreviews
+        {
+          label: __('people|categories|creators|recentlyAdded'),
+          tags: __('people|categories|creators|tags'),
+          amount: numPreviews
+        }
       )
     }}
     {{

@@ -2,6 +2,7 @@
 
 
 {%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
+{%- from 'macros/piece-index.njk' import peopleList -%}
 
 
 {%- set mainLBOptions = { data: data, propName: 'peopleLeaderboard' } -%}
@@ -36,7 +37,7 @@
   -%}
 
   {%- if piecesOnPage|length -%}
-    {{ pieceList(piecesOnPage) }}
+    {{ peopleList(piecesOnPage) }}
 
     {# pagination #}
     {{

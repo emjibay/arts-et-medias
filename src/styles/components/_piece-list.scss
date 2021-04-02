@@ -153,3 +153,71 @@
     }
   }
 }
+
+.people-piece-list {
+  .profile-pic-container {
+    font-size: 0;
+    line-height: 0;
+
+    .fig-headshot {
+      $imgWidth: fn.getColumnsSpan(6, vars.$tablet);
+      width: $imgWidth;
+      height: calc(#{ $imgWidth } * 0.75);
+      object-fit: cover;
+      margin-top: 20px;
+
+      @media #{ vars.$mqTablet } {
+        position: relative;
+        float: left;
+        margin-bottom: 10px;
+
+        $imgWidth: fn.getColumnsSpan(2, vars.$tablet);
+        $marginSize: fn.getGutterHalfWidth(vars.$tablet);
+        width: $imgWidth;
+        height: $imgWidth;
+        margin-right: $marginSize;
+      }
+
+      @media #{ vars.$mqDesktop } {
+        $imgWidth: fn.getColumnsSpan(2, vars.$desktop);
+        $marginSize: fn.getGutterHalfWidth(vars.$desktop);
+        width: $imgWidth;
+        height: $imgWidth;
+        margin-right: $marginSize;
+      }
+
+      @media #{ vars.$mqXL } {
+        $imgWidth: fn.getColumnsSpan(1, vars.$xl);
+        $marginSize: fn.getGutterHalfWidth(vars.$xl);
+        width: $imgWidth;
+        height: $imgWidth;
+        margin-right: $marginSize;
+      }
+
+      @media #{ vars.$mqXXL } {
+        $imgWidth: fn.getColumnsSpan(1, vars.$xxl);
+        $marginSize: fn.getGutterHalfWidth(vars.$xxl);
+        width: $imgWidth;
+        height: $imgWidth;
+        margin-right: $marginSize;
+      }
+    }
+  }
+
+  .person-details {
+    // @include mx.nColumnWidth(3);
+    display: inline-block;
+    vertical-align: top;
+
+    .person-description {
+      :first-child {
+        margin-top: 5px;
+      }
+
+      * {
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+  }
+}

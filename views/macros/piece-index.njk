@@ -3,6 +3,7 @@
 {%- from 'macros/byline-list.njk' import bylineList -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
+{%- from 'macros/profile-pic.njk' import profilePic -%}
 
 
 {%- macro mainContent(data) -%}
@@ -196,45 +197,6 @@
   {%- endif -%}
 {%- endmacro -%}
 
-{% macro bannerAdList(pieces, options) %}
-  {%- if pieces -%}
-    <ul class="piece-list">
-      {% for piece in pieces %}
-        <li class="list-item">
-          <a
-            href="{{ piece._url }}"
-            class="piece-link"
-          >
-            <article class="piece-card">
-              <p class="heading">{{ piece.title }}</p>
-
-              {%- set aposImageData = apos.images.first(piece.bannerImage) -%}
-              {%- if aposImageData -%}
-                {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
-                <img
-                  class="hero-image"
-                  src="{{ image.url }}"
-                  alt="{{ image.alt }}"
-                />
-              {%- endif -%}
-
-              <p class="org-location">
-                {%- set startDate = apos.aemDates.format(piece.startDate, options.locale) -%}
-                {%- set endDate = apos.aemDates.format(piece.endDate, options.locale) -%}
-                {{ startDate }} — {{ endDate }}
-              </p>
-
-              {{ bylineList(piece) }}
-
-              <div class="piece-cta">{{ __('pieceIndex|seeMoreCTA') }}</div>
-            </article>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  {%- endif -%}
-{% endmacro %}
-
 {#
   pieces: <array>
   options: <object>
@@ -263,6 +225,43 @@
               </div>
 
               <div class="piece-cta">{{ __('organizations|seeMoreCTA') }}</div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro peopleList(pieces) -%}
+  {%- if pieces -%}
+    <ul class="piece-list people-piece-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
+
+              <div class="profile-pic-container">
+                {{
+                  profilePic(
+                    piece,
+                    {
+                      showCredits: false,
+                      showIfMissing: false
+                    }
+                  )
+                }}
+              </div>
+
+              <div class="short-description">
+                {{ truncatedDescription(piece) }}
+              </div>
+
+              <div class="piece-cta">{{ __('pieceIndex|seeMoreCTA') }}</div>
             </article>
           </a>
         </li>
@@ -330,6 +329,46 @@
   {%- endif -%}
 {%- endmacro -%}
 
+{% macro bannerAdList(pieces, options) %}
+  {%- if pieces -%}
+    <ul class="piece-list">
+      {% for piece in pieces %}
+        <li class="list-item">
+          <a
+            href="{{ piece._url }}"
+            class="piece-link"
+          >
+            <article class="piece-card">
+              <p class="heading">{{ piece.title }}</p>
+
+              {%- set aposImageData = apos.images.first(piece.bannerImage) -%}
+              {%- if aposImageData -%}
+                {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
+                <img
+                  class="hero-image"
+                  src="{{ image.url }}"
+                  alt="{{ image.alt }}"
+                />
+              {%- endif -%}
+
+              <p class="org-location">
+                {%- set startDate = apos.aemDates.format(piece.startDate, options.locale) -%}
+                {%- set endDate = apos.aemDates.format(piece.endDate, options.locale) -%}
+                {{ startDate }} — {{ endDate }}
+              </p>
+
+              {{ bylineList(piece) }}
+
+              <div class="piece-cta">{{ __('pieceIndex|seeMoreCTA') }}</div>
+            </article>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
+{% endmacro %}
+
+
 {# recently added #}
 {% macro recentlyAdded(label, pieces, tags = [], amount = 2) %}
   {%-
@@ -351,7 +390,6 @@
     {{ articleList(pieces, locale) }}
   </div>
 {% endmacro %}
-
 
 {#
   pieces: <array>
@@ -392,6 +430,20 @@
   <div class="recently-added-orgs">
     <h2 class="content-type-heading">{{ label }}</h2>
     {{ organizationList(recentlyAdded, { hasLocation: true, locale: locale }) }}
+  </div>
+{% endmacro %}
+
+{% macro recentlyAddedPeople(pieces, options) %}
+  {%-
+    set filteredPieces = apos.aemPieces.getFirstNWithTags(
+      pieces,
+      options.amount,
+      options.tags
+    )
+  -%}
+  <div class="recently-added-pieces recently-added-people">
+    <h2 class="content-type-heading">{{ label }}</h2>
+    {{ peopleList(filteredPieces) }}
   </div>
 {% endmacro %}
 
