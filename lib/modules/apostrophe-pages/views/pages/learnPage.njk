@@ -34,6 +34,8 @@
     <div class="section-heading">
       <h2 class="h2">{{ __(academiaCat + '|title') }}</h2>
     </div>
+
+    {# recently added pieces #}
     {{
       recentlyAddedEducation(
         data.educationByMostRecent,
@@ -45,6 +47,8 @@
         }
       )
     }}
+
+    {# cta #}
     {{
       seeAllCTA(
         __(academiaCat + '|seeAllCTA'),
@@ -87,17 +91,24 @@
       <div class="section-heading">
         <h2 class="h2">{{ __('events|categories|workshops|nextOrOngoing') }}</h2>
       </div>
+
+      {# recently added pieces #}
       {{ eventList(nextWorkshops, locale) }}
+
+      {# cta #}
       {{
         seeAllCTA(
           __('events|categories|workshops|seeAllCTA'),
           __('events|categories|workshops|url')
         )
       }}
+
+      {# leaderboard #}
       {{ alternatingLeaderboard(alternatingLBOptions) }}
       {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
     </section>
 
+    {# mobile banners #}
     {%- if bannerIndex < globalSidebarBanners|length -%}
       {{
         mobileBannerAds({

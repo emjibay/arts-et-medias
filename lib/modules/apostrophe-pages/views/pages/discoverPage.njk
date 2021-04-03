@@ -50,9 +50,13 @@
     <div class="section-heading">
       <h2 class="h2">{{ __('projects|heading') }}</h2>
     </div>
+
+    {# featured piece #}
     <div class="featured-piece">
       {% include "partials/projects/featured.njk" %}
     </div>
+
+    {# recently added pieces #}
     {{
       recentlyAddedProjects(
         __('projects|recentlyAdded'),

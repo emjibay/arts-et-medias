@@ -52,6 +52,8 @@
     <div class="section-heading">
       <h2 class="h2">{{ __('organizations|categories|galleries|title') }}</h2>
     </div>
+
+    {# recently added pieces #}
     {{
       recentlyAdded(
         __('organizations|categories|galleries|recentlyAdded'),
@@ -60,32 +62,38 @@
         numPreviews
       )
     }}
+
+    {# mobile banners #}
+    {%- if bannerIndex < globalSidebarBanners|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: globalSidebarBanners[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
+    {# cta #}
     {{
       seeAllCTA(
         __('organizations|categories|galleries|seeAllCTA'),
         __('organizations|categories|galleries|url')
       )
     }}
+
+    {# leaderboard #}
     {{ alternatingLeaderboard(alternatingLBOptions) }}
     {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   </section>
-
-  {# mobile banners #}
-  {%- if bannerIndex < globalSidebarBanners|length -%}
-    {{
-      mobileBannerAds({
-        data: data,
-        propName: globalSidebarBanners[bannerIndex]
-      })
-    }}
-    {%- set bannerIndex = bannerIndex + 1 -%}
-  {%- endif -%}
 
   {# art centers #}
   <section class="subject-section art-centers">
     <div class="section-heading">
       <h2 class="h2">{{ __('organizations|categories|artCenters|title') }}</h2>
     </div>
+
+    {# recently added pieces #}
     {{
       recentlyAdded(
         __('organizations|categories|artCenters|recentlyAdded'),
@@ -94,32 +102,38 @@
         numPreviews
       )
     }}
+
+    {# mobile banners #}
+    {%- if bannerIndex < globalSidebarBanners|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: globalSidebarBanners[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
+    {# cta #}
     {{
       seeAllCTA(
         __('organizations|categories|artCenters|seeAllCTA'),
         __('organizations|categories|artCenters|url')
       )
     }}
+
+    {# leaderboard #}
     {{ alternatingLeaderboard(alternatingLBOptions) }}
     {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   </section>
-
-  {# mobile banners #}
-  {%- if bannerIndex < globalSidebarBanners|length -%}
-    {{
-      mobileBannerAds({
-        data: data,
-        propName: globalSidebarBanners[bannerIndex]
-      })
-    }}
-    {%- set bannerIndex = bannerIndex + 1 -%}
-  {%- endif -%}
 
   {# maker spaces #}
   <section class="subject-section maker-spaces">
     <div class="section-heading">
       <h2 class="h2">{{ __('organizations|categories|makerSpaces|title') }}</h2>
     </div>
+
+    {# recently added pieces #}
     {{
       recentlyAdded(
         __('organizations|categories|makerSpaces|recentlyAdded'),
@@ -128,26 +142,30 @@
         numPreviews
       )
     }}
+
+    {# mobile banners #}
+    {%- if bannerIndex < globalSidebarBanners|length -%}
+      {{
+        mobileBannerAds({
+          data: data,
+          propName: globalSidebarBanners[bannerIndex]
+        })
+      }}
+      {%- set bannerIndex = bannerIndex + 1 -%}
+    {%- endif -%}
+
+    {# cta #}
     {{
       seeAllCTA(
         __('organizations|categories|makerSpaces|seeAllCTA'),
         __('organizations|categories|makerSpaces|url')
       )
     }}
+
+    {# leaderboard #}
     {{ alternatingLeaderboard(alternatingLBOptions) }}
     {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   </section>
-
-  {# mobile banners #}
-  {%- if bannerIndex < globalSidebarBanners|length -%}
-    {{
-      mobileBannerAds({
-        data: data,
-        propName: globalSidebarBanners[bannerIndex]
-      })
-    }}
-    {%- set bannerIndex = bannerIndex + 1 -%}
-  {%- endif -%}
 
   {# festivals #}
   {%-
@@ -162,26 +180,33 @@
       <div class="section-heading">
         <h2 class="h2">{{ __('events|categories|festivals|nextOrOngoing') }}</h2>
       </div>
+
+      {# recently added pieces #}
       {{ eventList(festivals, locale) }}
+
+      {# mobile banners #}
+      {%- if bannerIndex < globalSidebarBanners|length -%}
+        {{
+          mobileBannerAds({
+            data: data,
+            propName: globalSidebarBanners[bannerIndex]
+          })
+        }}
+        {%- set bannerIndex = bannerIndex + 1 -%}
+      {%- endif -%}
+
+      {# cta #}
       {{
         seeAllCTA(
           __('events|categories|festivals|seeAllCTA'),
           __('events|categories|festivals|url')
         )
       }}
+
+      {# leaderboard #}
       {{ alternatingLeaderboard(alternatingLBOptions) }}
       {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
     </section>
-
-    {%- if bannerIndex < globalSidebarBanners|length -%}
-      {{
-        mobileBannerAds({
-          data: data,
-          propName: globalSidebarBanners[bannerIndex]
-        })
-      }}
-      {%- set bannerIndex = bannerIndex + 1 -%}
-    {%- endif -%}
   {%- endif -%}
 
   {# conferences #}
@@ -197,25 +222,32 @@
       <div class="section-heading">
         <h2 class="h2">{{ __('events|categories|conferences|nextOrOngoing') }}</h2>
       </div>
+
+      {# recently added pieces #}
       {{ eventList(conferences, locale) }}
+
+      {# mobile banners #}
+      {%- if bannerIndex < globalSidebarBanners|length -%}
+        {{
+          mobileBannerAds({
+            data: data,
+            propName: globalSidebarBanners[bannerIndex]
+          })
+        }}
+        {%- set bannerIndex = bannerIndex + 1 -%}
+      {%- endif -%}
+
+      {# cta #}
       {{
         seeAllCTA(
           __('events|categories|conferences|seeAllCTA'),
           __('events|categories|conferences|url')
         )
       }}
+
+      {# leaderboard #}
       {{ alternatingLeaderboard(alternatingLBOptions) }}
       {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
     </section>
-
-    {%- if bannerIndex < globalSidebarBanners|length -%}
-      {{
-        mobileBannerAds({
-          data: data,
-          propName: globalSidebarBanners[bannerIndex]
-        })
-      }}
-      {%- set bannerIndex = bannerIndex + 1 -%}
-    {%- endif -%}
   {%- endif -%}
 {% endblock %}
