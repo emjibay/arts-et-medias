@@ -1,0 +1,9 @@
+<details class="search-tips">
+  <summary class="heading">{{ __('search|tipsHeading') }}</summary>
+  <ul class="search-tips-list">
+    {%- set searchTips = __('search|tips') -%}
+    {% for tip in searchTips %}
+      <li class="list-item">{{ tip|safe }}</li>
+    {% endfor %}
+  </ul>
+</details>

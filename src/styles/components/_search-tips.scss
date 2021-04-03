@@ -1,0 +1,25 @@
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+
+
+.search-tips {
+  .heading {
+    @include ui.paragraph();
+    cursor: pointer;
+    font-size: vars.$fsVerySmol;
+  }
+
+  .search-tips-list {
+    @include ui.list();
+
+    .list-item {
+      @include ui.unorderedListItem();
+      @include ui.paragraph();
+      font-size: vars.$fsVerySmol;
+
+      em {
+        font-weight: bold;
+      }
+    }
+  }
+}
