@@ -269,6 +269,14 @@
         "related": "Related Post-Graduate Programs",
         "seeAllCTA": "See All Post-Graduate Programs",
         "tags": ["phd", "post-graduate program", "post-grad program", "doctorate"]
+      },
+      "other": {
+        "title": "Other Programs",
+        "url": "/en/academia/other-programs",
+        "recentlyAdded": "Recently Added Other Programs",
+        "related": "Related Other Programs",
+        "seeAllCTA": "See All Other Programs",
+        "tags": ["other", "other program", "college program", "cegep"]
       }
     }
   },
@@ -882,7 +890,6 @@
 	"Medias": "Medias",
 	"Mention": "Mention",
 	"Meta": "Meta",
-	"Miroslaw Gwiazda": "Miroslaw Gwiazda",
 	"Modified fields: %s": "Modified fields: %s",
 	"More": "More",
 	"Move to Trash": "Move to Trash",
@@ -1036,6 +1043,5 @@
 	"": "",
 	"Edit Featured Piece": "Edit Featured Piece",
 	"Add File": "Add File",
-  "Search Files...": "Search Files...",
-  "manualTest": "this is a test/text"
+  "Search Files...": "Search Files..."
 }

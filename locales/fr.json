@@ -268,7 +268,15 @@
         "recentlyAdded": "Programmes de troisième cycle récemment ajoutés",
         "related": "Programmes de troisième cycle associés",
         "seeAllCTA": "Voir tous les programmes de troisième cycle",
-        "tags": ["phd", "doctora", "programme de troisième cycle"]
+        "tags": ["phd", "doctorat", "programme de troisième cycle"]
+      },
+      "other": {
+        "title": "Autres programmes",
+        "url": "/fr/academia/autres-programmes",
+        "recentlyAdded": "Autres programmes récemment ajoutés",
+        "related": "Autres programmes associés",
+        "seeAllCTA": "Voir tous les autres programmes ",
+        "tags": ["autre", "autre programme", "programme collégial", "cegep", "cégep"]
       }
     }
   },
