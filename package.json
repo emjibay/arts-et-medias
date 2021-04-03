@@ -22,7 +22,7 @@
     "apostrophe-db-mongo-3-driver": "2.0.1",
     "apostrophe-second-chance-login": "2.0.0",
     "apostrophe-workflow": "2.38.3",
-    "citation-js": "0.5.0-alpha.10",
+    "citation-js": "0.5.0",
     "dotenv": "8.2.0",
     "lodash": "4.17.21",
     "moment": "2.29.1"
