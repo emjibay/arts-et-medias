@@ -4,7 +4,7 @@
 {%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedContent, relatedEvents, relatedPieces, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedAcademicPrograms, relatedContent, relatedEvents, relatedPieces, tags, websiteCTA -%}
 {%- from 'macros/piece-link-list.njk' import sortedPieceLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
@@ -112,7 +112,7 @@
   {{ relatedContent(piece) }}
 
   {# academic programs #}
-  {{ relatedPieces(__('education|related'), piece._programsMentioned) }}
+  {{ relatedAcademicPrograms(piece._programsMentioned, { i18n: __ }) }}
 
   {{ tags(piece) }}
 

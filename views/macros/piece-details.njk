@@ -50,6 +50,69 @@
   {%- endif -%}
 {% endmacro %}
 
+{% macro relatedAcademicPrograms(pieces, options) %}
+  {%- if (pieces and pieces|length > 0) -%}
+    {%- set educationCats = 'education|categories|' -%}
+    {%- set i18n = options.i18n -%}
+
+    <dl class="piece-props-list">
+
+      {# undergrad programs #}
+      {%- set undergradCat = educationCats + 'undergrad|' -%}
+      {%-
+        set undergradPrograms = apos.aemPieces.getWithTags(
+          pieces,
+          i18n(undergradCat + 'tags')
+        )
+      -%}
+      {%- if (undergradPrograms and undergradPrograms|length > 0) -%}
+        <dt>{{ __(undergradCat + 'related') }}</dt>
+        <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+      {%- endif -%}
+
+      {# grad programs #}
+      {%- set gradCat = educationCats + 'grad|' -%}
+      {%-
+        set gradPrograms = apos.aemPieces.getWithTags(
+          pieces,
+          i18n(gradCat + 'tags')
+        )
+      -%}
+      {%- if (gradPrograms and gradPrograms|length > 0) -%}
+        <dt>{{ __(gradCat + 'related') }}</dt>
+        <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+      {%- endif -%}
+
+      {# postgrad programs #}
+      {%- set postgradCat = educationCats + 'postgrad|' -%}
+      {%-
+        set postgradPrograms = apos.aemPieces.getWithTags(
+          pieces,
+          i18n(postgradCat + 'tags')
+        )
+      -%}
+      {%- if (postgradPrograms and postgradPrograms|length > 0) -%}
+        <dt>{{ __(postgradCat + 'related') }}</dt>
+        <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+      {%- endif -%}
+
+      {# other programs #}
+      {%- set otherCat = educationCats + 'other|' -%}
+      {%-
+        set otherPrograms = apos.aemPieces.getWithTags(
+          pieces,
+          i18n(otherCat + 'tags')
+        )
+      -%}
+      {%- if (otherPrograms and otherPrograms|length > 0) -%}
+        <dt>{{ __(otherCat + 'related') }}</dt>
+        <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+      {%- endif -%}
+
+    </dl>
+  {%- endif -%}
+{% endmacro %}
+
 {% macro relatedEvents(events) %}
   {%- set eventsCats = 'events|categories|' -%}
 

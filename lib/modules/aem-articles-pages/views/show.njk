@@ -6,7 +6,7 @@
 {%- from 'macros/cta.njk' import externalCTA -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/metadata.njk' import articleMetaData -%}
-{%- from 'macros/piece-details.njk' import relatedEvents, relatedMedia, relatedOrganizations, relatedPieces, tags -%}
+{%- from 'macros/piece-details.njk' import relatedAcademicPrograms, relatedEvents, relatedMedia, relatedOrganizations, relatedPieces, tags -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
 
 
@@ -151,7 +151,7 @@
   {{ relatedOrganizations(piece._relatedOrganizations) }}
 
   {# academic programs #}
-  {{ relatedPieces(__('education|related'), piece._relatedEducation) }}
+  {{ relatedAcademicPrograms(piece._relatedEducation, { i18n: __ }) }}
 
   {# tags #}
   {{ tags(piece) }}

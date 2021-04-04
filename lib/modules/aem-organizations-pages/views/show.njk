@@ -3,7 +3,7 @@
 
 {%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
-{%- from 'macros/piece-details.njk' import relatedEvents, relatedPieces, relatedOrganizations, relatedTaggedPieces, tags, websiteCTA -%}
+{%- from 'macros/piece-details.njk' import relatedAcademicPrograms, relatedEvents, relatedPieces, relatedOrganizations, relatedTaggedPieces, tags, websiteCTA -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
@@ -110,14 +110,14 @@
   -%}
   {{ relatedOrganizations(relatedOrgs) }}
 
-  {# education #}
+  {# academic programs #}
   {%-
     set relatedPrograms = apos.aemArrays.merge(
       piece._academicPrograms,
       piece._programsMentioned
     )
   -%}
-  {{ relatedPieces(__('education|related'), relatedPrograms) }}
+  {{ relatedAcademicPrograms(relatedPrograms, { i18n: __ }) }}
 
   {# tags #}
   {{ tags(piece) }}
