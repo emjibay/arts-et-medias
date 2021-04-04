@@ -3,7 +3,7 @@
 
 {%- from 'macros/banner-ad.njk' import alternatingLeaderboard, inContextLeaderboard, mobileBannerAds -%}
 {%- from 'macros/content-section.njk' import contentSection -%}
-{%- from 'macros/cta.njk' import seeAllCTA -%}
+{%- from 'macros/cta.njk' import seeAllOfTypeCTA -%}
 {%- from 'macros/piece-index.njk' import articleList, bookList -%}
 {%- from 'options/banner-ads.njk' import globalSidebarBanners -%}
 
@@ -84,12 +84,7 @@
     </div>
 
     {# cta #}
-    {{
-      seeAllCTA(
-        __('articles|seeAllCTA'),
-        __('articles|url')
-      )
-    }}
+    {{ seeAllOfTypeCTA('articles') }}
 
     {# leaderboard #}
     {{ alternatingLeaderboard(alternatingLBOptions) }}
@@ -152,12 +147,7 @@
     {%- endif -%}
 
     {# cta #}
-    {{
-      seeAllCTA(
-        __('books|seeAllCTA'),
-        __('books|url')
-      )
-    }}
+    {{ seeAllOfTypeCTA('books') }}
 
     {# leaderboard #}
     {{ alternatingLeaderboard(alternatingLBOptions) }}

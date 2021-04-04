@@ -1,7 +1,7 @@
 {% extends "layouts/layout.njk" %}
 
 {%- from 'macros/banner-ad.njk' import leaderboard, mobileBannerAds -%}
-{%- from 'macros/cta.njk' import seeAllCTA -%}
+{%- from 'macros/cta.njk' import seeAllOfTypeCTA -%}
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-index.njk' import articleList, eventList, bookList, projectList -%}
 
@@ -9,25 +9,16 @@
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 
 
-{% macro seeAllPiecesCTA(type) %}
-  {{
-    seeAllCTA(
-      __(type + '|seeAllCTA'),
-      __(type + '|url')
-    )
-  }}
-{% endmacro %}
-
 {% macro seeAllArticlesCTA() %}
-  {{ seeAllPiecesCTA('articles') }}
+  {{ seeAllOfTypeCTA('articles') }}
 {% endmacro %}
 
 {% macro seeAllProjectsCTA() %}
-  {{ seeAllPiecesCTA('projects') }}
+  {{ seeAllOfTypeCTA('projects') }}
 {% endmacro %}
 
 {% macro seeAllBooksCTA() %}
-  {{ seeAllPiecesCTA('books') }}
+  {{ seeAllOfTypeCTA('books') }}
 {% endmacro %}
 
 
