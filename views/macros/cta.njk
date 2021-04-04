@@ -17,6 +17,15 @@
   </div>
 {% endmacro %}
 
+{% macro seeAllOfTypeCTA(type) %}
+  {{
+    seeAllCTA(
+      __(type + '|seeAllCTA'),
+      __(type + '|url')
+    )
+  }}
+{% endmacro %}
+
 {#
   A call to action that leads to an external website.
   @param options
