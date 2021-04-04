@@ -167,4 +167,20 @@
     }}
     {%- set bannerIndex = bannerIndex + 1 -%}
   {%- endif -%}
+
+  {# other programs #}
+  {{ academicProgramSection('other') }}
+  {{ alternatingLeaderboard(alternatingLBOptions) }}
+  {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
+
+  {# mobile banners #}
+  {%- if bannerIndex < globalSidebarBanners|length -%}
+    {{
+      mobileBannerAds({
+        data: data,
+        propName: globalSidebarBanners[bannerIndex]
+      })
+    }}
+    {%- set bannerIndex = bannerIndex + 1 -%}
+  {%- endif -%}
 {% endblock %}
