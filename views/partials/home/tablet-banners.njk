@@ -1,0 +1,46 @@
+{%- from 'macros/banner-ad.njk' import bannerAd -%}
+
+
+{%- set homeBanner1 = data.global.homeSidebarBanner1.items[0]._pieces[0] -%}
+{%- set homeBanner2 = data.global.homeSidebarBanner2.items[0]._pieces[0] -%}
+
+{%- if homeBanner1 and homeBanner2 -%}
+  {%- set numBanners = 2 -%}
+{%- elseif homeBanner1 or homeBanner2 -%}
+  {%- set numBanners = 1 -%}
+{%- else -%}
+  {%- set numBanners = 0 -%}
+{%- endif -%}
+
+
+{%- if numBanners -%}
+  <aside class="home-tablet-banners num-banners-{{ numBanners }}">
+    {%- if homeBanner1 -%}
+      <div class="banner-tablet-col">
+        {{
+          bannerAd(
+            homeBanner1,
+            {
+              data: data,
+              hasLabel: true
+            }
+          )
+        }}
+      </div>
+    {%- endif -%}
+
+    {%- if homeBanner2 -%}
+      <div class="banner-tablet-col">
+        {{
+          bannerAd(
+            homeBanner2,
+            {
+              data: data,
+              hasLabel: true
+            }
+          )
+        }}
+      </div>
+    {%- endif -%}
+  </aside>
+{%- endif -%}

@@ -170,10 +170,6 @@
         display: block;
         margin-bottom: 40px;
         width: 100%;
-
-        .apos-area-widget-wrapper {
-          margin-top: 20px;
-        }
       }
 
       .sidebar-heading {
@@ -404,42 +400,33 @@
     }
   }
 
-  .home-banners {
-    margin-top: 75px;
+  .home-tablet-banners {
+    display: none;
 
     @media #{ vars.$mqTablet } {
-      margin-top: 50px;
+      display: block;
+      margin: 50px auto 0 auto;
     }
 
     @media #{ vars.$mqDesktop } {
       display: none;
     }
 
-    .banner-col {
-      @include mx.nColumnWidth(6);
-      display: block;
+    &.num-banners-1 {
+      @include mx.nColumnWidth(4);
+    }
 
-      &.banner-2 {
-        margin-top: 50px;
-      }
+    &.num-banners-2 {
+      @include mx.nColumnWidth(8);
+    }
 
-      @media #{ vars.$mqTablet } {
-        @include mx.nColumnWidth(4);
-        display: inline-block;
+    .banner-tablet-col {
+      @include mx.nColumnWidth(4);
+      display: inline-block;
+    }
 
-        &.banner-1 {
-          @include mx.columnsAsLeftMargin(2);
-
-          &.single {
-            @include mx.columnsAsLeftMargin(4);
-          }
-        }
-
-        &.banner-2 {
-          @include mx.gutterLeftMargin();
-          margin-top: 0;
-        }
-      }
+    .banner-tablet-col + .banner-tablet-col {
+      @include mx.gutterLeftMargin();
     }
   }
 }

@@ -1,25 +1,12 @@
 {% extends "layouts/layout.njk" %}
 
-{%- from 'macros/banner-ad.njk' import leaderboard, mobileBannerAds -%}
+{%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/cta.njk' import seeAllOfTypeCTA -%}
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
 {%- from 'macros/piece-index.njk' import articleList, eventList, bookList, projectList -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
-
-
-{% macro seeAllArticlesCTA() %}
-  {{ seeAllOfTypeCTA('articles') }}
-{% endmacro %}
-
-{% macro seeAllProjectsCTA() %}
-  {{ seeAllOfTypeCTA('projects') }}
-{% endmacro %}
-
-{% macro seeAllBooksCTA() %}
-  {{ seeAllOfTypeCTA('books') }}
-{% endmacro %}
 
 
 {% block title %}
@@ -57,7 +44,7 @@
             <section class="articles-section">
               <div class="section-heading">
                 <h2 class="h2">{{ __('home|newsHeading') }}</h2>
-                {{ seeAllArticlesCTA() }}
+                {{ seeAllOfTypeCTA('articles') }}
               </div>
 
               <div class="articles-section-content">
@@ -65,14 +52,7 @@
                   {% include "partials/articles/featured.njk" %}
                 </div>
 
-                <aside class="home-banners">
-                  {{
-                    mobileBannerAds({
-                      data: data,
-                      propName: 'homeBannerAds'
-                    })
-                  }}
-                </aside>
+                {% include "partials/home/tablet-banners.njk" %}
 
                 <div class="recently-added-articles">
                   <h3 class="latest-pieces-heading">
@@ -90,7 +70,9 @@
 
               {% include "partials/home/sidebar.njk" %}
 
-              {{ seeAllArticlesCTA() }}
+              {% include "partials/home/mobile-banner-1.njk" %}
+
+              {{ seeAllOfTypeCTA('articles') }}
             </section>
 
             {{
@@ -112,7 +94,7 @@
             <section class="projects-section">
               <div class="section-heading">
                 <h2 class="h2">{{ __('projects|heading') }}</h2>
-                {{ seeAllProjectsCTA() }}
+                {{ seeAllOfTypeCTA('projects') }}
               </div>
 
               <div class="featured-piece">
@@ -130,7 +112,7 @@
                 {{ projectList(recentProjects) }}
               </div>
 
-              {{ seeAllProjectsCTA() }}
+              {{ seeAllOfTypeCTA('projects') }}
             </section>
 
             {{
@@ -143,7 +125,7 @@
             <section class="books-section">
               <div class="section-heading">
                 <h2 class="h2">{{ __('books|heading') }}</h2>
-                {{ seeAllBooksCTA() }}
+                {{ seeAllOfTypeCTA('books') }}
               </div>
 
               {%-
@@ -179,7 +161,7 @@
                 </div>
               {%- endif -%}
 
-              {{ seeAllBooksCTA() }}
+              {{ seeAllOfTypeCTA('books') }}
             </section>
 
             {{

@@ -1,10 +1,27 @@
-{%- from 'macros/banner-ad.njk' import sidebarBannerAds -%}
+{%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
 
 
 <aside class="sidebar home-sidebar">
   {%- set bannerMacroOptions = { data: data, propName: 'homeBannerAds' } -%}
 
-  {{ sidebarBannerAds(bannerMacroOptions) }}
+  <div class="advertisement">
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'homeSidebarBanner1',
+        hasTopSeparator: false,
+        hasBottomSeparator: false
+      })
+    }}
+    {{
+      containedSidebarBanners({
+        data: data,
+        propName: 'homeSidebarBanner2',
+        hasTopSeparator: false,
+        hasBottomSeparator: false
+      })
+    }}
+  </div>
 
   {%- set isAnon = data.when === 'anon' -%}
   {%- set isNotDraft = not apos.aemUtils.isDraftMode(data) -%}

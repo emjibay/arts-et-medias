@@ -13,27 +13,33 @@
 {#
   @param piece
   @param options
-  - user
+  - data
   - hasLabel
 #}
 {% macro bannerAd(piece, options) %}
-  {%- if apos.aemDates.isTodayBetween(piece.startDate, piece.endDate) -%}
+  {%- set isCampaignActive = apos.aemDates.isTodayBetween(piece.startDate, piece.endDate) -%}
+  {%- set isDraftMode = apos.aemUtils.isDraftMode(options.data) -%}
+
+  {%- if isCampaignActive or isDraftMode -%}
+    {%- set firstImage = apos.images.first -%}
+    {%- set getImageBasicData = apos.aemUtils.getImageBasicData -%}
+
     <div class="banner-ad">
       <a
         class="ad-link"
         href="{{ piece.targetUrl }}"
         rel="nofollow noopener"
       >
-        {%- set aposImageData = apos.images.first(piece.bannerImage) -%}
-        {%- set bannerImage = apos.aemUtils.getImageBasicData(aposImageData) -%}
+        {%- set aposImageData = firstImage(piece.bannerImage) -%}
+        {%- set bannerImage = getImageBasicData(aposImageData) -%}
         <img
           class="{{ piece.bannerType }}"
           src="{{ bannerImage.url }}"
           alt="{{ piece.altText }}"
         />
         {%- if piece.isVisibleAtMobile -%}
-          {%- set aposMobileImageData = apos.images.first(piece.mobileBannerImage) -%}
-          {%- set mobileBannerImage = apos.aemUtils.getImageBasicData(aposMobileImageData) -%}
+          {%- set aposMobileImageData = firstImage(piece.mobileBannerImage) -%}
+          {%- set mobileBannerImage = getImageBasicData(aposMobileImageData) -%}
           <img
             class="{{ piece.mobileBannerType }}"
             src="{{ mobileBannerImage.url }}"
@@ -47,8 +53,10 @@
         </p>
       {%- endif -%}
     </div>
-  {%- else -%}
-    {{ warnBannerNotOngoing(options.user) }}
+  {%- endif -%}
+
+  {%- if isDraftMode and not isCampaignActive -%}
+    {{ warnBannerNotOngoing(options.data.user) }}
   {%- endif -%}
 {% endmacro %}
 
