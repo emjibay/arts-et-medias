@@ -1,0 +1,45 @@
+{%- from 'macros/cta.njk' import seeAllOfTypeCTA -%}
+{%- from 'macros/piece-index.njk' import bookList -%}
+
+
+<section class="books-section">
+  <div class="section-heading">
+    <h2 class="h2">{{ __('books|heading') }}</h2>
+    {{ seeAllOfTypeCTA('books') }}
+  </div>
+
+  {%-
+    set bookListOptions = {
+      editorLabel: __('books|editorAbbreviation')
+    }
+  -%}
+  {%- if apos.aemPieces.hasFeaturedBook(data) -%}
+    <div class="featured-piece">
+      {% include "partials/books/featured.njk" %}
+    </div>
+
+    <div class="latest-pieces">
+      <h3 class="latest-pieces-heading">{{ __('books|recentlyAdded') }}</h3>
+      {%-
+        set recentBooks = apos.aemPieces.getFirstN(
+          data.booksByMostRecent,
+          2
+        )
+      -%}
+      {{ bookList(recentBooks, bookListOptions) }}
+    </div>
+  {%- else -%}
+    <div class="latest-pieces sans-feature">
+      <h3 class="latest-pieces-heading">{{ __('books|recentlyAdded') }}</h3>
+      {%-
+        set recentBooks = apos.aemPieces.getFirstN(
+          data.booksByMostRecent,
+          4
+        )
+      -%}
+      {{ bookList(recentBooks, bookListOptions) }}
+    </div>
+  {%- endif -%}
+
+  {{ seeAllOfTypeCTA('books') }}
+</section>

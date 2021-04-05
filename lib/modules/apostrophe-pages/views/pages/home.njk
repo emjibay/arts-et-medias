@@ -1,9 +1,10 @@
 {% extends "layouts/layout.njk" %}
 
+
 {%- from 'macros/banner-ad.njk' import leaderboard -%}
 {%- from 'macros/cta.njk' import seeAllOfTypeCTA -%}
 {%- from 'macros/metadata.njk' import descriptiveMetaData -%}
-{%- from 'macros/piece-index.njk' import articleList, eventList, bookList, projectList -%}
+{%- from 'macros/piece-index.njk' import eventList, bookList -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
@@ -41,39 +42,7 @@
               })
             }}
 
-            <section class="articles-section">
-              <div class="section-heading">
-                <h2 class="h2">{{ __('home|newsHeading') }}</h2>
-                {{ seeAllOfTypeCTA('articles') }}
-              </div>
-
-              <div class="articles-section-content">
-                <div class="featured-article">
-                  {% include "partials/articles/featured.njk" %}
-                </div>
-
-                {% include "partials/home/tablet-banners.njk" %}
-
-                <div class="recently-added-articles">
-                  <h3 class="latest-pieces-heading">
-                    {{ __('articles|recentlyAdded') }}
-                  </h3>
-                  {%-
-                    set recentArticles = apos.aemPieces.getFirstN(
-                      data.articlesByMostRecent,
-                      3
-                    )
-                  -%}
-                  {{ articleList(recentArticles, locale) }}
-                </div>
-              </div>
-
-              {% include "partials/home/sidebar.njk" %}
-
-              {% include "partials/home/mobile-banner-1.njk" %}
-
-              {{ seeAllOfTypeCTA('articles') }}
-            </section>
+            {% include "partials/home/articles-section.njk" %}
 
             {{
               leaderboard({
@@ -91,29 +60,7 @@
               })
             }}
 
-            <section class="projects-section">
-              <div class="section-heading">
-                <h2 class="h2">{{ __('projects|heading') }}</h2>
-                {{ seeAllOfTypeCTA('projects') }}
-              </div>
-
-              <div class="featured-piece">
-                {% include "partials/projects/featured.njk" %}
-              </div>
-
-              <div class="latest-pieces">
-                <h3 class="latest-pieces-heading">{{ __('projects|recentlyAdded') }}</h3>
-                {%-
-                  set recentProjects = apos.aemPieces.getFirstN(
-                    data.projectsByMostRecent,
-                    2
-                  )
-                -%}
-                {{ projectList(recentProjects) }}
-              </div>
-
-              {{ seeAllOfTypeCTA('projects') }}
-            </section>
+            {% include "partials/home/projects-section.njk" %}
 
             {{
               leaderboard({
@@ -122,47 +69,7 @@
               })
             }}
 
-            <section class="books-section">
-              <div class="section-heading">
-                <h2 class="h2">{{ __('books|heading') }}</h2>
-                {{ seeAllOfTypeCTA('books') }}
-              </div>
-
-              {%-
-                set bookListOptions = {
-                  editorLabel: __('books|editorAbbreviation')
-                }
-              -%}
-              {%- if apos.aemPieces.hasFeaturedBook(data) -%}
-                <div class="featured-piece">
-                  {% include "partials/books/featured.njk" %}
-                </div>
-
-                <div class="latest-pieces">
-                  <h3 class="latest-pieces-heading">{{ __('books|recentlyAdded') }}</h3>
-                  {%-
-                    set recentBooks = apos.aemPieces.getFirstN(
-                      data.booksByMostRecent,
-                      2
-                    )
-                  -%}
-                  {{ bookList(recentBooks, bookListOptions) }}
-                </div>
-              {%- else -%}
-                <div class="latest-pieces sans-feature">
-                  <h3 class="latest-pieces-heading">{{ __('books|recentlyAdded') }}</h3>
-                  {%-
-                    set recentBooks = apos.aemPieces.getFirstN(
-                      data.booksByMostRecent,
-                      4
-                    )
-                  -%}
-                  {{ bookList(recentBooks, bookListOptions) }}
-                </div>
-              {%- endif -%}
-
-              {{ seeAllOfTypeCTA('books') }}
-            </section>
+            {% include "partials/home/books-section.njk" %}
 
             {{
               leaderboard({

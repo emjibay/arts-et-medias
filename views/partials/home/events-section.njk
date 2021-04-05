@@ -1,11 +1,10 @@
-{%- from 'macros/cta.njk' import seeAllCTA -%}
+{%- from 'macros/cta.njk' import seeAllOfTypeCTA -%}
+{%- from 'macros/piece-index.njk' import eventList -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 
 {%- set hasFeaturedEvent = apos.aemPieces.hasFeaturedEvent(data) -%}
-
-
 {%- set numEventPreviews = 2 -%}
 
 {# festivals #}
@@ -72,20 +71,10 @@
 {%- set hasEvenBlocks = maxBlocks % 2 === 0 -%}
 
 
-{% macro seeAllEventsCTA() %}
-  {{
-    seeAllCTA(
-      __('events|seeAllCTA'),
-      __('events|url')
-    )
-  }}
-{% endmacro %}
-
-
 <section class="events-section">
   <div class="section-heading">
     <h2 class="h2">{{ __('events|heading') }}</h2>
-    {{ seeAllEventsCTA() }}
+    {{ seeAllOfTypeCTA('events') }}
   </div>
 
   {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
@@ -129,5 +118,5 @@
 
   {% include "partials/home/mobile-banner-2.njk" %}
 
-  {{ seeAllEventsCTA() }}
+  {{ seeAllOfTypeCTA('events') }}
 </section>

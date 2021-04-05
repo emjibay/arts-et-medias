@@ -1,0 +1,27 @@
+{%- from 'macros/cta.njk' import seeAllOfTypeCTA -%}
+{%- from 'macros/piece-index.njk' import projectList -%}
+
+
+<section class="projects-section">
+  <div class="section-heading">
+    <h2 class="h2">{{ __('projects|heading') }}</h2>
+    {{ seeAllOfTypeCTA('projects') }}
+  </div>
+
+  <div class="featured-piece">
+    {% include "partials/projects/featured.njk" %}
+  </div>
+
+  <div class="latest-pieces">
+    <h3 class="latest-pieces-heading">{{ __('projects|recentlyAdded') }}</h3>
+    {%-
+      set recentProjects = apos.aemPieces.getFirstN(
+        data.projectsByMostRecent,
+        2
+      )
+    -%}
+    {{ projectList(recentProjects) }}
+  </div>
+
+  {{ seeAllOfTypeCTA('projects') }}
+</section>

@@ -1,0 +1,37 @@
+{%- from 'macros/cta.njk' import seeAllOfTypeCTA -%}
+{%- from 'macros/piece-index.njk' import articleList -%}
+
+
+<section class="articles-section">
+  <div class="section-heading">
+    <h2 class="h2">{{ __('home|newsHeading') }}</h2>
+    {{ seeAllOfTypeCTA('articles') }}
+  </div>
+
+  <div class="articles-section-content">
+    <div class="featured-article">
+      {% include "partials/articles/featured.njk" %}
+    </div>
+
+    {% include "partials/home/tablet-banners.njk" %}
+
+    <div class="recently-added-articles">
+      <h3 class="latest-pieces-heading">
+        {{ __('articles|recentlyAdded') }}
+      </h3>
+      {%-
+        set recentArticles = apos.aemPieces.getFirstN(
+          data.articlesByMostRecent,
+          3
+        )
+      -%}
+      {{ articleList(recentArticles, locale) }}
+    </div>
+  </div>
+
+  {% include "partials/home/sidebar.njk" %}
+
+  {% include "partials/home/mobile-banner-1.njk" %}
+
+  {{ seeAllOfTypeCTA('articles') }}
+</section>
