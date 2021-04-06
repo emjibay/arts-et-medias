@@ -33,3 +33,17 @@
     {% endfor %}
   </ul>
 {%- endmacro -%}
+
+{% macro orgLinkList(pieces, options) %}
+  <ul class="piece-link-list">
+    {% for org in pieces %}
+      {%- set localizedCountry = options.getCountry(org.country, options.locale) -%}
+      <li>
+        <a
+          class="piece-link"
+          href="{{ institution._url }}"
+        >{{ org.title }}</a>, {{ org.city }}, {{ localizedCountry }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
