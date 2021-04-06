@@ -9,5 +9,13 @@
   {%- endif -%}
 
   {%- set piece = data.widget._pieces[0] -%}
-  {{ featuredEducation(piece, label) }}
+  {{
+    featuredEducation(
+      piece,
+      {
+        label: label,
+        locale: apos.aemI18n.getSanitizedLocale(data)
+      }
+    )
+  }}
 {%- endif -%}

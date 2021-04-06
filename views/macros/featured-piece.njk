@@ -1,4 +1,4 @@
-{%- from 'macros/byline-list.njk' import bylineList -%}
+{%- from 'macros/byline-list.njk' import bylineList, programBylineList -%}
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/piece-details.njk' import truncatedDescription -%}
 {%- from 'macros/piece-link-list.njk' import pieceLinkList -%}
@@ -72,16 +72,24 @@
   {%- endif -%}
 {% endmacro %}
 
-{% macro featuredEducation(piece, label) %}
+{% macro featuredEducation(piece, options) %}
   {%- if piece -%}
     <article class="featured-piece-widget featured-education-widget">
-      <p class="feature-type">{{ label }}</p>
+      <p class="feature-type">{{ options.label }}</p>
 
       <h1>{{ piece.title }}</h1>
 
-      {# FIXME: does not work, get it via institutionIds instead? (#79) #}
       {%- set institution = piece._institution[0] -%}
-      <p class="byline">{{ institution.title }}</p>
+
+      {{
+        programBylineList(
+          piece,
+          {
+            locale: options.locale,
+            getCountry: apos.aemI18n.getCountry
+          }
+        )
+      }}
 
       {{ contentDetails(piece, __('education|seeMoreCTA')) }}
     </article>

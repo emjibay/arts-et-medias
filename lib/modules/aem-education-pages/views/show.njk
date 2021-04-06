@@ -5,6 +5,7 @@
 {%- from 'macros/hero-image.njk' import heroImage -%}
 {%- from 'macros/lang-list.njk' import langList -%}
 {%- from 'macros/piece-details.njk' import relatedOrganizations, relatedPieces, tags, websiteCTA -%}
+{%- from 'macros/piece-link-list.njk' import orgLinkList -%}
 {%- from 'options/options.njk' import fixedRichTextOptions -%}
 
 
@@ -34,15 +35,15 @@
     <h2 class="sr-only">
       {{ __('organizations|categories|academicInstitutions|singular') }}
     </h2>
-    <ul class="piece-link-list">
-      {%- set localizedCountry = apos.aemI18n.getCountry(institution.country, locale) -%}
-      <li>
-        <a
-          class="piece-link"
-          href="{{ institution._url }}"
-        >{{ institution.title }}</a>, {{ institution.city }}, {{ localizedCountry }}
-      </li>
-    </ul>
+    {{
+      orgLinkList(
+        piece._institution,
+        {
+          locale: locale,
+          getCountry: apos.aemI18n.getCountry
+        }
+      )
+    }}
   </div>
 {% endblock %}
 

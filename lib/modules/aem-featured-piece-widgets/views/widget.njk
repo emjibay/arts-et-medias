@@ -18,8 +18,15 @@
     {{ featuredBook(piece, label) }}
 
   {%- elseif piece.type === 'education' -%}
-    {%- set label = __('education|featured') -%}
-    {{ featuredEducation(piece, label) }}
+    {{
+      featuredEducation(
+        piece,
+        {
+          label: __('education|featured'),
+          locale: locale
+        }
+      )
+    }}
 
   {%- elseif piece.type === 'event' -%}
     {%- set label = __('events|featured') -%}
