@@ -1,0 +1,50 @@
+@use '../common/variables' as vars;
+
+
+.anchor-heading {
+  .anchor {
+    background-color: transparent;
+    height: 40px;
+    left: -40px;
+    opacity: 0;
+    padding: 10px;
+    position: absolute;
+    width: 40px;
+
+    &.level-2 {
+      top: -4px;
+    }
+
+    &.level-3 {
+      top: -8px;
+    }
+
+    &.level-4 {
+      top: -10px;
+    }
+
+    &:hover {
+      opacity: 1;
+      color: vars.$main;
+    }
+  }
+
+  .h2 {
+    margin: 50px 0 15px 0;
+  }
+
+  .h3 {
+    margin: 20px 0 15px 0;
+  }
+
+  .h4 {
+    // TODO: create mixin? (see apos overrides as well)
+    color: vars.$darkGrey;
+    font-family: vars.$ffTextBody;
+    font-size: vars.$fsBigTextBody;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1;
+    margin: 10px 0 15px 0;
+  }
+}

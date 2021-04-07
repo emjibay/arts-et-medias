@@ -1,0 +1,15 @@
+{%- set widget = data.widget -%}
+
+
+<div class="anchor-heading" id="{{ widget.anchor }}">
+  <a class="anchor {{ widget.level }}" href="#{{ widget.anchor }}">
+    {% include "/svg/icon-anchor.svg" %}
+  </a>
+  {%- if widget.level === 'level-2' -%}
+    <h2 class="h2">{{ widget.heading }}</h2>
+  {%- elseif widget.level === 'level-3' -%}
+    <h3 class="h3">{{ widget.heading }}</h3>
+  {%- elseif widget.level === 'level-4' -%}
+    <h4 class="h4">{{ widget.heading }}</h4>
+  {%- endif -%}
+</div>
