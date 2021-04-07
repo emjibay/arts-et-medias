@@ -1,13 +1,14 @@
-_assets
 .circleci
 .github
 .vscode
 
 ### project files and directories
-contributing
-data
-node_modules
-scripts
+/_assets/**
+/contributing/**
+/data/**
+/node_modules/**
+/public/**
+/scripts/**
 
 
 ### config files
@@ -17,5 +18,5 @@ ecosystem.config.js
 
 
 ### src
-lib/modules/apostrophe-assets/public
-lib/modules/apostrophe-rich-text-widgets/public
+/lib/modules/apostrophe-assets/public/**
+/lib/modules/apostrophe-rich-text-widgets/public/**
