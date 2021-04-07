@@ -18,15 +18,6 @@
   {{ pageTitle }} | {{ __('global|title') }}
 {% endblock %}
 
-{% block extraHead %}
-  {{ super() }}
-
-  {#- prevent iOS from rendering numbers as phone number links -#}
-  <meta name="format-detection" content="telephone=no">
-
-  {% block metadata %}{% endblock %}
-{% endblock %}
-
 {% block beforeMain %}
   {% include "partials/components/skip-to-main.njk" %}
   {% include "partials/components/header/header.njk" %}

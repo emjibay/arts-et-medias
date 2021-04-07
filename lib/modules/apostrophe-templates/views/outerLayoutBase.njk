@@ -4,7 +4,10 @@
 <!DOCTYPE html>
 <html lang="{{ locale }}" {% block extraHtml %}{% endblock %}>
   <head>
-    {% block startHead %}{% endblock %}
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
 
     {{ apos.templates.prepended('head') }}
 
@@ -14,14 +17,11 @@
 
     {{ apos.assets.stylesheets(data.when) }}
 
-    {% block standardHead %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% endblock %}
+    <link rel="icon" href="/favicon.ico"/>
+
+    {% block metadata %}{% endblock %}
 
     {{ apos.templates.appended('head') }}
-
-    {% block extraHead %}{% endblock %}
   </head>
 
   <body
