@@ -9,7 +9,7 @@
       src="{{ videoUrl }}"
       frameborder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
+      webkitallowfullscreen mozallowfullscreen allowfullscreen
     ></iframe>
   {%- endif -%}
 
@@ -20,6 +20,18 @@
       class="video-iframe vimeo"
       src="{{ videoUrl }}"
       frameborder="0"
+      webkitallowfullscreen mozallowfullscreen allowfullscreen
+    ></iframe>
+  {%- endif -%}
+
+  {%- if widget.videoType === 'tf1' -%}
+    {%- set videoUrl = 'https://www.tf1.fr/embedplayer/' + widget.videoId -%}
+
+    <iframe
+      class="video-iframe tf1"
+      src="{{ videoUrl }}"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
       webkitallowfullscreen mozallowfullscreen allowfullscreen
     ></iframe>
   {%- endif -%}
