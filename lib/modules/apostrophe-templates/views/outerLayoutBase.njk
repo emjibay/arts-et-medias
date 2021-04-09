@@ -26,9 +26,9 @@
 
   <body
     class="{{ data.aposBodyClasses }} {% block bodyClass %}{% endblock %}"
-    {% block bodyAttributes %}{% endblock %}
     {{ data.aposBodyDataAttributes | safe }}
     data-apos-workflow-mode="{{ apos.aemUtils.getWorkflowMode(data) }}"
+    {% block bodyAttributes %}{% endblock %}
   >
     {{ apos.templates.prepended('body') }}
     {% block apostropheMenu %}
@@ -40,10 +40,47 @@
         <div class="apos-ui">
           <div class="apos-context-menu-container">
             {{ apos.templates.prepended('contextMenu') }}
+
             {%- if apos.aemUsers.isUserAdmin(data.user) -%}
-              {{ apos.pages.menu({ contextMenu: data.contextMenu, page: data.page, bottom: true })}}
+              {%- if apos.aemPieces.canBeEditedInContext(data) -%}
+                {%-
+                  set contextMenuOptions = {
+                    contextMenu: [
+                      {
+                        "action": "edit-piece",
+                        "label": "Edit Content Piece"
+                      }
+                    ],
+                    page: data.piece,
+                    bottom: true
+                  }
+                -%}
+              {%- else -%}
+                {%-
+                  set contextMenuOptions = {
+                    contextMenu: [
+                      { 'action': 'insert-page', 'label': 'New Page' },
+                      { 'action': 'update-page', 'label': 'Page Settings' },
+                      { 'action': 'reorganize-page', 'label': 'Reorganize' }
+                    ],
+                    page: data.page,
+                    bottom: true
+                  }
+                -%}
+              {%- endif -%}
+
+              {{ apos.pages.menu(contextMenuOptions) }}
             {%- endif -%}
-            {{ apos.pages.publishMenu({ publishMenu: data.publishMenu, page: data.page, piece: data.piece, bottom: true }) }}
+
+            {{
+              apos.pages.publishMenu({
+                publishMenu: data.publishMenu,
+                page: data.page,
+                piece: data.piece,
+                bottom: true
+              })
+            }}
+
             {{ apos.templates.appended('contextMenu') }}
           </div>
         </div>

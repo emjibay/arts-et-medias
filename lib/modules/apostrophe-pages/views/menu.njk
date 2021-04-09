@@ -1,0 +1,17 @@
+{% import 'apostrophe-ui:components/dropdowns.html' as dropdowns with context -%}
+
+
+<div class="apos-context-menu">
+  {{
+    dropdowns.base(
+      {
+        label: 'Menu',
+        items: data.contextMenu
+      },
+      'button',
+      {
+        buttonType: 'global'
+      }
+    )
+  }}
+</div>
