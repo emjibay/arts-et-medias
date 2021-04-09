@@ -47,8 +47,12 @@
                   set contextMenuOptions = {
                     contextMenu: [
                       {
-                        "action": "edit-piece",
-                        "label": "Edit Content Piece"
+                        'action': 'edit-piece',
+                        'label': 'Edit ' + data.piece.type
+                      },
+                      {
+                        'action': 'edit-piece-tags',
+                        'label': 'Edit Tags'
                       }
                     ],
                     page: data.piece,
