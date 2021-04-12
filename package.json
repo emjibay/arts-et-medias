@@ -3,7 +3,7 @@
   "description": "A reference for critical content and resources about contemporary art, with a bias towards media art and installation art.",
   "author": "Mat Janson Blanchet <mat.jb@jansensan.net>",
   "license": "MIT",
-  "version": "3.18.1",
+  "version": "3.18.2",
   "main": "app.js",
   "engines": {
     "node": ">=12 <13"
