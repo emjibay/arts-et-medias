@@ -3,7 +3,9 @@
 
 const path = require('path');
 const fs = require('fs');
+
 const aposSearchFilters = require('./lib/constants/apos-search-filters');
+const isProd = require('./lib/utils/is-prod')();
 
 
 const customModuleNames = fs
@@ -22,6 +24,8 @@ const aposOptions = {
   root: module,
 
   shortName: 'arts-et-medias',
+
+  minify: isProd,
 
   // See lib/modules for basic project-level configuration of our modules
   // responsible for serving static assets, managing page templates and

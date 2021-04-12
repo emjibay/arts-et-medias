@@ -7,6 +7,9 @@ const globby = require('globby');
 const path = require('path');
 const fs = require('fs');
 
+const humanReadableFileSizeSI = require('./src/js/utils/human-readable-file-size-si');
+
+
 const modulesRoot = path.resolve(__dirname, 'lib', 'modules');
 const outputRoot = path.resolve(modulesRoot, 'apostrophe-assets', 'public');
 
@@ -28,6 +31,7 @@ const perModuleJsTargets = jsSources.reduce(
   },
   {}
 );
+
 
 exports.files = {
   javascripts: {
@@ -114,15 +118,6 @@ function getOrCreateStyleReloader() {
     );
   }
   return () => Promise.resolve();
-}
-
-function humanReadableFileSizeSI(bytes) {
-  const units = ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'];
-
-  const exponent = Math.floor(Math.log(bytes) / Math.log(1024));
-  const significand = (bytes / Math.pow(1024, exponent)).toFixed(1);
-
-  return `${ significand } ${ units[exponent] }B`;
 }
 
 exports.hooks = {

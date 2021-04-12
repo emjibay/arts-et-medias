@@ -3,6 +3,10 @@
 const apostrophe = require('apostrophe');
 const aposConfig = require('./apos-config');
 
+
+module.exports = initializeApos;
+
+
 /**
  * Brunch custom server function
  * See https://brunch.io/docs/config#server for details
@@ -11,7 +15,7 @@ const aposConfig = require('./apos-config');
  * @param readyCallback - Callback to tell Brunch that server is up
  * @returns {*} - Express object to close on exit
  */
-const initializeApos = (brunchConfig, readyCallback) => {
+function initializeApos(brunchConfig, readyCallback) {
   // Register the `ready` callback on apostrophe
   aposConfig.afterListen = readyCallback;
 
@@ -30,6 +34,4 @@ const initializeApos = (brunchConfig, readyCallback) => {
 
   // Return the express object as required by brunch:
   return aposRoot.app;
-};
-
-module.exports = initializeApos;
+}
