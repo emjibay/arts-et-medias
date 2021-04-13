@@ -203,12 +203,15 @@
             href="{{ listItem._url }}"
           >
             <span class="piece-title">{{ listItem.title }}</span>
-            <br>
-            {%- set institution = listItem._institution[0] -%}
-            <span>{{ institution.title }}</span>
-            <br>
-            {%- set localizedCountry = apos.aemI18n.getCountry(institution.country, options.locale) -%}
-            <span>{{ institution.city }}, {{ localizedCountry }}</span>
+            {%- if listItem._institution -%}
+              <br>
+              {% for institution in listItem._institution %}
+                <span>{{ institution.title }}</span>
+                <br>
+                {%- set localizedCountry = apos.aemI18n.getCountry(institution.country, options.locale) -%}
+                <span>{{ institution.city }}, {{ localizedCountry }}</span>
+              {% endfor %}
+            {%- endif -%}
           </a>
         </li>
       {% endfor %}
