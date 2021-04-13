@@ -35,61 +35,7 @@
       {{ apos.adminBar.output() }}
     {% endblock %}
 
-    {% block apostropheContextMenu %}
-      {% if apos.templates.showContextMenu() %}
-        <div class="apos-ui">
-          <div class="apos-context-menu-container">
-            {{ apos.templates.prepended('contextMenu') }}
-
-            {%- if apos.aemUsers.isUserAdmin(data.user) -%}
-              {%- if apos.aemPieces.canBeEditedInContext(data) -%}
-                {%-
-                  set contextMenuOptions = {
-                    contextMenu: [
-                      {
-                        'action': 'edit-piece',
-                        'label': 'Edit ' + data.piece.type
-                      },
-                      {
-                        'action': 'edit-piece-tags',
-                        'label': 'Edit Tags'
-                      }
-                    ],
-                    page: data.piece,
-                    bottom: true
-                  }
-                -%}
-              {%- else -%}
-                {%-
-                  set contextMenuOptions = {
-                    contextMenu: [
-                      { 'action': 'insert-page', 'label': 'New Page' },
-                      { 'action': 'update-page', 'label': 'Page Settings' },
-                      { 'action': 'reorganize-page', 'label': 'Reorganize' }
-                    ],
-                    page: data.page,
-                    bottom: true
-                  }
-                -%}
-              {%- endif -%}
-
-              {{ apos.pages.menu(contextMenuOptions) }}
-            {%- endif -%}
-
-            {{
-              apos.pages.publishMenu({
-                publishMenu: data.publishMenu,
-                page: data.page,
-                piece: data.piece,
-                bottom: true
-              })
-            }}
-
-            {{ apos.templates.appended('contextMenu') }}
-          </div>
-        </div>
-      {% endif %}
-    {% endblock %}
+    {% include "partials/apos-context-menu.njk" %}
 
     <div class="apos-refreshable" data-apos-refreshable>
       {% block beforeMain %}{% endblock %}

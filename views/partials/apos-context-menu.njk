@@ -1,0 +1,61 @@
+{% if apos.templates.showContextMenu() %}
+  <div class="apos-ui">
+    <div class="apos-context-menu-container">
+      {{ apos.templates.prepended('contextMenu') }}
+
+      {%- if apos.aemUsers.isUserAdmin(data.user) -%}
+        {%- if apos.aemPieces.canBeEditedInContext(data) -%}
+          {%-
+            set contextMenuOptions = {
+              contextMenu: [
+                {
+                  'action': 'edit-piece',
+                  'label': 'Edit "' + data.piece.title + '"'
+                },
+                {
+                  'action': 'edit-piece-tags',
+                  'label': 'Edit Short Description'
+                },
+                {
+                  'action': 'edit-piece-tags',
+                  'label': 'Edit Tags'
+                },
+                {
+                  'action': 'edit-piece-slug',
+                  'label': 'Edit Slug'
+                }
+              ],
+              page: data.piece,
+              bottom: true
+            }
+          -%}
+        {%- else -%}
+          {%-
+            set contextMenuOptions = {
+              contextMenu: [
+                { 'action': 'insert-page', 'label': 'New Page' },
+                { 'action': 'update-page', 'label': 'Page Settings' },
+                { 'action': 'reorganize-page', 'label': 'Reorganize' }
+              ],
+              page: data.page,
+              bottom: true
+            }
+          -%}
+        {%- endif -%}
+
+        {{ apos.pages.menu(contextMenuOptions) }}
+      {%- endif -%}
+
+      {{
+        apos.pages.publishMenu({
+          publishMenu: data.publishMenu,
+          page: data.page,
+          piece: data.piece,
+          bottom: true
+        })
+      }}
+
+      {{ apos.templates.appended('contextMenu') }}
+    </div>
+  </div>
+{% endif %}
