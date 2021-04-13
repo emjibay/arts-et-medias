@@ -25,8 +25,6 @@ const aposOptions = {
 
   shortName: 'arts-et-medias',
 
-  minify: isProd,
-
   // See lib/modules for basic project-level configuration of our modules
   // responsible for serving static assets, managing page templates and
   // configuring user accounts.
@@ -37,6 +35,10 @@ const aposOptions = {
 
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here: `moduleName: {}`
+
+    'apostrophe-assets': {
+      minify: isProd,
+    },
 
     'apostrophe-templates': { viewsFolderFallback: path.join(__dirname, 'views') },
 
