@@ -58,8 +58,8 @@
   id="mmLearn"
   class="learn-section"
 >
+  {# TODO: handle featured workshop #}
   {%- if workshops|length -%}
-    {# TODO: handle featured workshop #}
     <div class="mm-col">
       {{
         workshopList(
@@ -70,8 +70,8 @@
     </div>
   {%- endif -%}
 
+  {# TODO: handle featured undergrad program #}
   <div class="{{ colClassList }}">
-    {# TODO: handle featured undergrad program #}
     {{
       programList({
         pieces: data.educationByMostRecent,
@@ -81,8 +81,8 @@
     }}
   </div>
 
+  {# TODO: handle featured graduate program #}
   <div class="{{ colClassList }}">
-    {# TODO: handle featured graduate program #}
     {{
       programList({
         pieces: data.educationByMostRecent,
@@ -92,8 +92,8 @@
     }}
   </div>
 
+  {# TODO: handle featured academic institution #}
   <div class="{{ colClassList }}">
-    {# TODO: handle featured academic institution #}
     {{
       orgList(
         data.organizationsByMostRecent,
