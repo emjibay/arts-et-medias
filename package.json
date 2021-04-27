@@ -33,9 +33,9 @@
     "babel-brunch": "7.0.1",
     "bootstrap": "4.6.0",
     "brunch": "4.0.0",
-    "chalk": "4.1.0",
-    "core-js": "3.10.1",
-    "eslint": "7.24.0",
+    "chalk": "4.1.1",
+    "core-js": "3.11.0",
+    "eslint": "7.25.0",
     "globby": "11.0.3",
     "terser-brunch": "4.0.0"
   },
