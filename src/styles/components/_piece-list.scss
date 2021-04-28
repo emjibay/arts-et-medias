@@ -138,6 +138,7 @@
     .piece-cta {
       @include ui.anchor();
       font-size: vars.$fsTextBody;
+      line-height: 1.25;
       margin-top: 20px;
     }
 
