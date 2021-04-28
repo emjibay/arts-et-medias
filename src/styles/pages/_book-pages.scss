@@ -42,7 +42,51 @@
 }
 
 
-// styles
+// rules
+.books-index {
+  // TODO: create a mixin to DRY with src/styles/pages/_page-subject.scss ?
+  .piece-list {
+    @media #{ vars.$mqTablet } {
+      .list-item:nth-child(n + 3) {
+        margin-top: 40px;
+      }
+    }
+
+    &.book-list {
+      margin-top: 0;
+
+      .list-item {
+        margin-bottom: 0;
+      }
+    }
+
+    .piece-card {
+      &.book {
+        .hero-image {
+          @include img.heroImageContainedInSquare(6);
+        }
+        @media #{ vars.$mqTablet } {
+          .hero-image {
+            @include img.heroImageContainedInSquare(4);
+          }
+        }
+        @media #{ vars.$mqDesktop } {
+          $halfGutter: fn.getGutterHalfWidth(vars.$desktop);
+          .image-content {
+            position: relative;
+            float: left;
+            margin-right: $halfGutter;
+            margin-bottom: $halfGutter;
+          }
+          .hero-image {
+            @include img.heroImageFullHeight(2);
+          }
+        }
+      }
+    }
+  }
+}
+
 .book-details {
   .page-content {
     margin-top: 0;

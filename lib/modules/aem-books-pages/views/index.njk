@@ -1,6 +1,7 @@
 {% extends "layouts/indexLayout.njk" %}
 
 
+{%- from 'macros/piece-index.njk' import bookList -%}
 {%- from 'macros/banner-ad.njk' import inContextLeaderboard -%}
 
 
@@ -26,7 +27,12 @@
   -%}
 
   {%- if piecesOnPage|length -%}
-    {{ pieceList(piecesOnPage, true) }}
+    {%-
+      set bookListOptions = {
+        editorLabel: __('books|editorAbbreviation')
+      }
+    -%}
+    {{ bookList(piecesOnPage, bookListOptions) }}
 
     {# pagination #}
     {{
