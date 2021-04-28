@@ -108,6 +108,10 @@
       &:focus {
         @include ui.focusOutline();
       }
+
+      &.active {
+        color: vars.$main;
+      }
     }
 
     .lang-switch-label {
@@ -173,6 +177,8 @@
     }
 
     &[aria-expanded='true'] {
+      color: vars.$main;
+
       .caret {
         top: 2px;
         transform: scaleY(-1);

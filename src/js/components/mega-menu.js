@@ -1,4 +1,5 @@
 const breakpointModel = require('../models/breakpoints-model');
+const getPreviousElementSibling = require('../utils/get-previous-element-sibling');
 
 
 // id mapping
@@ -151,6 +152,7 @@ function addTogglesListeners() {
         const isExpanded = button.getAttribute('aria-expanded') === 'true';
         const clickedContentId = button.dataset.contentId;
 
+        toggleLinkState({ button, isExpanded });
         collapseAllNavButtons();
         hideAllSections();
         lastElement = null;
@@ -201,6 +203,30 @@ function setFocusToCaretButton(contentId) {
     caretButton.focus();
   } else {
     console.warn(`Unable to get caret button with content id "${ contentId }"`);
+  }
+}
+
+function toggleLinkState(options) {
+  const { button, isExpanded } = options;
+
+  // disable all nav items
+  const links = headerNav.getElementsByClassName('nav-link');
+  for (let i = 0; i < links.length; i++) {
+    const l = links[i];
+    if (l) {
+      l.classList.remove('active');
+    }
+  }
+
+  // get link before caret
+  const link = getPreviousElementSibling(button);
+  if (!link) {
+    return;
+  }
+  if (!isExpanded) {
+    link.classList.add('active');
+  } else {
+    link.classList.remove('active');
   }
 }
 
