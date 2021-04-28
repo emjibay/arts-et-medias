@@ -665,10 +665,16 @@
   "notFound": {
     "heading": "Page introuvable",
     "paragraph1": "Nous sommes désolé, nous n'avons pu trouver ce que vous recherchez.",
+
     "searchHeading": "Recherche",
     "searchParagraph": "Essayez de rechercher le contenu que vous recherchiez au départ, des résultats similaires pourraient vous intéresser.",
+
     "suggestionsHeading": "Suggestions",
     "suggestionsParagraph": "Nous avons quelques suggestions pour vous ci-dessous.",
+
+    "authSuggestionHeading": "Devez-vous d'abord vous connecter ?",
+    "authSuggestionParagraph": "La page que vous essayez d'atteindre nécessite-t-elle que vous soyez connecté ? Si c'est le cas, assurez-vous de vous connecter d'abord.",
+
     "stillNotSatisfied": "Vous ne trouvez toujours pas ce que vous cherchez ?",
     "helpUsCTA": "Peut-être avez-vous quelque chose à contribuer ? Veuillez considérer nous aider afin de maintenir le contenu du site à jour."
   },

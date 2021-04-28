@@ -678,10 +678,16 @@
   "notFound": {
     "heading": "Page Not Found",
     "paragraph1": "We're sorry. We couldn't find the page you're looking for.",
+
     "searchHeading": "Search",
     "searchParagraph": "Try searching for the content you were initially looking for, similar content may pop up.",
+
     "suggestionsHeading": "Suggestions",
     "suggestionsParagraph": "We do have a few suggestions for you below.",
+
+    "authSuggestionHeading": "Do you need to log in first?",
+    "authSuggestionParagraph": "Is the page you are trying to reach requires you to be logged in? If so, ensure to log in first.",
+
     "stillNotSatisfied": "Still unable to find what you are looking for?",
     "helpUsCTA": "Consider contributing to help us maintain this site up to date."
   },

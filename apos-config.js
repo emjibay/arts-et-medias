@@ -53,8 +53,6 @@ const aposOptions = {
       defaultMode: 'live'
     },
 
-    'apostrophe-second-chance-login': {},
-
     'apostrophe-search': {
       filters: aposSearchFilters
     },

@@ -61,6 +61,12 @@
       </section>
 
       <section class="suggested-content">
+        <h2>{{ __('notFound|authSuggestionHeading') }}</h2>
+        <p>{{ __('notFound|authSuggestionParagraph') }}</p>
+        {{ websiteCTA(__('pages|logIn|title'), __('pages|logIn|url')) }}
+      </section>
+
+      <section class="suggested-content">
         <h2>{{ __('notFound|stillNotSatisfied') }}</h2>
         <p>{{ __('notFound|helpUsCTA') }}</p>
         {{ websiteCTA(__('pages|contribute|title'), __('pages|contribute|url')) }}

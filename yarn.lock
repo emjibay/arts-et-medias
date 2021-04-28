@@ -1534,11 +1534,6 @@ apostrophe-monitor@2.1.0:
     regexp-quote "0.0.0"
     stoppable "^1.1.0"
 
-apostrophe-second-chance-login@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/apostrophe-second-chance-login/-/apostrophe-second-chance-login-2.0.0.tgz#398d9113e8560e88508b4e4e873612be0c08e77b"
-  integrity sha512-mIpv++b6eWQzYYuTeRUAwpcJhk6lSnn2kylbuP6CpDYT6h0bvE9He/TX3kkyf50GpVMmlslccTBVGL/YkLjg8g==
-
 apostrophe-workflow@2.38.3:
   version "2.38.3"
   resolved "https://registry.yarnpkg.com/apostrophe-workflow/-/apostrophe-workflow-2.38.3.tgz#c6980a3a94274aa42745413f1416de9e15406de3"
