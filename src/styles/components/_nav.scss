@@ -179,6 +179,10 @@
     &[aria-expanded='true'] {
       color: vars.$main;
 
+      .label {
+        color: vars.$main;
+      }
+
       .caret {
         top: 2px;
         transform: scaleY(-1);
