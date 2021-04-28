@@ -25,6 +25,22 @@
     <li class="nav-item">
       {{
         pageLink(
+          __('pages|participate|title'),
+          'headerVisitNavItem',
+          __('pages|participate|url')
+        )
+      }}
+      {{
+        navItemCaret({
+          id: 'mmParticipate',
+          label: __('headerNav|mmParticipateToggle')
+        })
+      }}
+    </li>
+
+    <li class="nav-item">
+      {{
+        pageLink(
           __('pages|visit|title'),
           'headerVisitNavItem',
           __('pages|visit|url')

@@ -1,5 +1,5 @@
 {%- from 'macros/featured-piece.njk' import featuredEvent -%}
-{%- from 'macros/mega-menu.njk' import eventList, orgList, hideMegaMenuButton -%}
+{%- from 'macros/mega-menu.njk' import orgList, hideMegaMenuButton -%}
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
@@ -9,8 +9,7 @@
   id="mmVisit"
   class="visit-section"
 >
-  <div class="mm-col">
-    {# TODO: handle featured gallery #}
+  <div class="mm-col-3">
     {{
       orgList(
         data.organizationsByMostRecent,
@@ -20,7 +19,7 @@
     }}
   </div>
 
-  <div class="mm-col">
+  <div class="mm-col-3">
     {{
       orgList(
         data.organizationsByMostRecent,
@@ -30,7 +29,7 @@
     }}
   </div>
 
-  <div class="mm-col">
+  <div class="mm-col-3">
     {{
       orgList(
         data.organizationsByMostRecent,
@@ -40,8 +39,8 @@
     }}
   </div>
 
-  <div class="mm-col">
-    {# TODO: handle featured festival #}
+  {#
+  <div class="mm-col-3">
     {{
       eventList({
         pieces: data.ongoingAndFutureEvents,
@@ -51,8 +50,7 @@
       })
     }}
   </div>
-
-  {# TODO: handle conferences #}
+   #}
 
   <div class="mm-footer">
     <hr class="separator" />

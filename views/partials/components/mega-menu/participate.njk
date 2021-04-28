@@ -1,0 +1,67 @@
+{%- from 'macros/featured-piece.njk' import featuredEvent -%}
+{%- from 'macros/mega-menu.njk' import eventList, hideMegaMenuButton -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%-
+  set numEvents = apos.aemEvents.countEventsPerCategory(
+    data.ongoingAndFutureEvents,
+    {
+      categories: ['exhibits', 'festivals', 'conferences'],
+      i18n: __
+    }
+  )
+-%}
+{%-
+  set has3Col = (numEvents.exhibits > 0)
+    and (numEvents.festivals > 0)
+    and (numEvents.conferences > 0)
+-%}
+{# TODO: handle if not enough events for 3 columns #}
+
+
+<section
+  id="mmParticipate"
+  class="participate-section"
+>
+  {# exhibits #}
+  <div class="mm-col-3">
+    {{
+      eventList({
+        pieces: data.ongoingAndFutureEvents,
+        heading: __('events|categories|exhibits|next'),
+        category: 'exhibits',
+        locale: locale
+      })
+    }}
+  </div>
+
+  {# festivals #}
+  <div class="mm-col-3">
+    {{
+      eventList({
+        pieces: data.ongoingAndFutureEvents,
+        heading: __('events|categories|festivals|next'),
+        category: 'festivals',
+        locale: locale
+      })
+    }}
+  </div>
+
+  {# conferences #}
+  <div class="mm-col-3">
+    {{
+      eventList({
+        pieces: data.ongoingAndFutureEvents,
+        heading: __('events|categories|conferences|next'),
+        category: 'conferences',
+        locale: locale
+      })
+    }}
+  </div>
+
+  <div class="mm-footer">
+    <hr class="separator" />
+    {{ hideMegaMenuButton('mmParticipate') }}
+  </div>
+</section>

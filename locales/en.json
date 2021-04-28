@@ -29,6 +29,7 @@
     "mmEducationToggle": "Toggles academia mega menu panel",
 
     "mmDiscoverToggle": "Toggles discover mega menu panel",
+    "mmParticipate": "Toggles participate mega menu panel",
     "mmVisitToggle": "Toggles visit mega menu panel",
     "mmReadToggle": "Toggles read mega menu panel",
     "mmLearnToggle": "Toggles learn mega menu panel",
@@ -581,13 +582,17 @@
       "title": "Discover",
       "url": "/en/discover"
     },
-    "read": {
-      "title": "Read",
-      "url": "/en/read"
+    "participate": {
+      "title": "Participate",
+      "url": "/en/participate"
     },
     "visit": {
       "title": "Visit",
       "url": "/en/visit"
+    },
+    "read": {
+      "title": "Read",
+      "url": "/en/read"
     },
     "learn": {
       "title": "Learn",

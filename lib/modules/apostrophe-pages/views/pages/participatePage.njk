@@ -1,0 +1,174 @@
+{% extends "layouts/subjectPageLayout.njk" %}
+
+
+{%- from 'macros/banner-ad.njk' import alternatingLeaderboard, inContextLeaderboard, mobileBannerAds -%}
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/cta.njk' import seeAllCTA -%}
+{%- from 'macros/piece-index.njk' import eventList -%}
+{%- from 'options/banner-ads.njk' import globalSidebarBanners -%}
+
+
+{%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set numPreviews = 4 -%}
+{%- set mainLBOptions = { data: data, propName: 'participateLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'participateMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+{%-
+  set alternatingLBOptions = {
+    index: 1,
+    isMainVisible: isMainLBVisible,
+    isMinorVisible: isMinorLBVisible,
+    mainOptions: mainLBOptions,
+    minorOptions: minorLBOptions,
+    additionalOptions: {}
+  }
+-%}
+{%- set increaseIndex = apos.aemBannerAds.increaseAlternatingLeaderboardIndex -%}
+
+
+{% block advertisementBeforeMain %}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
+  {%- endif -%}
+{% endblock %}
+
+{% block pageContent %}
+  {%- set bannerIndex = 0 -%}
+
+  {# rich preamble #}
+  {%- set hasContent = data.page.bodyContent and data.page.bodyContent|length -%}
+  {%- if hasContent or apos.aemUtils.isDraftMode(data) -%}
+    <div class="rich-preamble">
+      {{ contentSection(data.page) }}
+    </div>
+    {{ alternatingLeaderboard(alternatingLBOptions) }}
+    {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
+  {%- endif -%}
+
+  {# exhibits #}
+  {%-
+    set exhibits = apos.aemPieces.getFirstNWithTags(
+      data.ongoingAndFutureEvents,
+      numPreviews,
+      __('events|categories|exhibits|tags')
+    )
+  -%}
+  {%- if exhibits|length -%}
+    <section class="subject-section exhibits">
+      <div class="section-heading">
+        <h2 class="h2">{{ __('events|categories|exhibits|nextOrOngoing') }}</h2>
+      </div>
+
+      {# recently added pieces #}
+      {{ eventList(exhibits, locale) }}
+
+      {# mobile banners #}
+      {%- if bannerIndex < globalSidebarBanners|length -%}
+        {{
+          mobileBannerAds({
+            data: data,
+            propName: globalSidebarBanners[bannerIndex]
+          })
+        }}
+        {%- set bannerIndex = bannerIndex + 1 -%}
+      {%- endif -%}
+
+      {# cta #}
+      {{
+        seeAllCTA(
+          __('events|categories|exhibits|seeAllCTA'),
+          __('events|categories|exhibits|url')
+        )
+      }}
+
+      {# leaderboard #}
+      {{ alternatingLeaderboard(alternatingLBOptions) }}
+      {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
+    </section>
+  {%- endif -%}
+
+  {# festivals #}
+  {%-
+    set festivals = apos.aemPieces.getFirstNWithTags(
+      data.ongoingAndFutureEvents,
+      numPreviews,
+      __('events|categories|festivals|tags')
+    )
+  -%}
+  {%- if festivals|length -%}
+    <section class="subject-section festivals">
+      <div class="section-heading">
+        <h2 class="h2">{{ __('events|categories|festivals|nextOrOngoing') }}</h2>
+      </div>
+
+      {# recently added pieces #}
+      {{ eventList(festivals, locale) }}
+
+      {# mobile banners #}
+      {%- if bannerIndex < globalSidebarBanners|length -%}
+        {{
+          mobileBannerAds({
+            data: data,
+            propName: globalSidebarBanners[bannerIndex]
+          })
+        }}
+        {%- set bannerIndex = bannerIndex + 1 -%}
+      {%- endif -%}
+
+      {# cta #}
+      {{
+        seeAllCTA(
+          __('events|categories|festivals|seeAllCTA'),
+          __('events|categories|festivals|url')
+        )
+      }}
+
+      {# leaderboard #}
+      {{ alternatingLeaderboard(alternatingLBOptions) }}
+      {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
+    </section>
+  {%- endif -%}
+
+  {# conferences #}
+  {%-
+    set conferences = apos.aemPieces.getFirstNWithTags(
+      data.ongoingAndFutureEvents,
+      numPreviews,
+      __('events|categories|conferences|tags')
+    )
+  -%}
+  {%- if conferences|length -%}
+    <section class="subject-section conferences">
+      <div class="section-heading">
+        <h2 class="h2">{{ __('events|categories|conferences|nextOrOngoing') }}</h2>
+      </div>
+
+      {# recently added pieces #}
+      {{ eventList(conferences, locale) }}
+
+      {# mobile banners #}
+      {%- if bannerIndex < globalSidebarBanners|length -%}
+        {{
+          mobileBannerAds({
+            data: data,
+            propName: globalSidebarBanners[bannerIndex]
+          })
+        }}
+        {%- set bannerIndex = bannerIndex + 1 -%}
+      {%- endif -%}
+
+      {# cta #}
+      {{
+        seeAllCTA(
+          __('events|categories|conferences|seeAllCTA'),
+          __('events|categories|conferences|url')
+        )
+      }}
+
+      {# leaderboard #}
+      {{ alternatingLeaderboard(alternatingLBOptions) }}
+      {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
+    </section>
+  {%- endif -%}
+{% endblock %}

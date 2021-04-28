@@ -5,6 +5,7 @@ const breakpointModel = require('../models/breakpoints-model');
 const contentIds = [
   // v2
   'mmDiscover',
+  'mmParticipate',
   'mmVisit',
   'mmRead',
   'mmLearn',

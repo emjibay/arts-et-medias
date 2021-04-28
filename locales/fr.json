@@ -581,13 +581,17 @@
       "title": "Découvrir",
       "url": "/fr/decouvrir"
     },
-    "read": {
-      "title": "Lire",
-      "url": "/fr/lire"
+    "participate": {
+      "title": "Participer",
+      "url": "/fr/participer"
     },
     "visit": {
       "title": "Visiter",
       "url": "/fr/visiter"
+    },
+    "read": {
+      "title": "Lire",
+      "url": "/fr/lire"
     },
     "learn": {
       "title": "Apprendre",
