@@ -62,33 +62,36 @@
         __(i18nCat + 'tags')
       )
     -%}
-    {{
-      recentlyAddedArticles(
-        __(i18nCat + 'recentlyAdded'),
-        recentlyAdded,
-        locale
-      )
-    }}
 
-    {%- if bannerIndex < bannerPropNames|length -%}
+    {%- if recentlyAdded|length -%}
       {{
-        mobileBannerAds({
-          data: data,
-          propName: bannerPropNames[bannerIndex]
-        })
+        recentlyAddedArticles(
+          __(i18nCat + 'recentlyAdded'),
+          recentlyAdded,
+          locale
+        )
       }}
-      {%- set bannerIndex = bannerIndex + 1 -%}
+
+      {%- if bannerIndex < bannerPropNames|length -%}
+        {{
+          mobileBannerAds({
+            data: data,
+            propName: bannerPropNames[bannerIndex]
+          })
+        }}
+        {%- set bannerIndex = bannerIndex + 1 -%}
+      {%- endif -%}
+
+      {{
+        seeAllCTA(
+          __(i18nCat + 'seeAllCTA'),
+          __(i18nCat + 'url')
+        )
+      }}
+
+      {{ alternatingLeaderboard(alternatingLBOptions) }}
+      {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
     {%- endif -%}
-
-    {{
-      seeAllCTA(
-        __(i18nCat + 'seeAllCTA'),
-        __(i18nCat + 'url')
-      )
-    }}
-
-    {{ alternatingLeaderboard(alternatingLBOptions) }}
-    {%- set alternatingLBOptions = increaseIndex(alternatingLBOptions) -%}
   {% endfor %}
 {% endblock %}
 
