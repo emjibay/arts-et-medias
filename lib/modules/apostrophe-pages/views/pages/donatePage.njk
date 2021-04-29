@@ -1,0 +1,101 @@
+{% extends "layouts/layout.njk" %}
+
+
+{%- from 'macros/banner-ad.njk' import inContextLeaderboard, mobileBannerAds -%}
+{%- from 'macros/content-section.njk' import contentSection -%}
+{%- from 'macros/metadata.njk' import minimalMetaData -%}
+{%- from 'options/banner-ads.njk' import globalSidebarBanners -%}
+
+
+{%- set mainLBOptions = { data: data, propName: 'globalLeaderboard' } -%}
+{%- set minorLBOptions = { data: data, propName: 'globalMinorLeaderboard' } -%}
+{%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
+{%- set isMinorLBVisible = apos.aemBannerAds.areVisible(minorLBOptions) -%}
+
+
+
+{% block title %}
+  {{ data.page.title }} | {{ __('global|title') }}
+{% endblock %}
+
+{% block metadata %}
+  {{
+    minimalMetaData({
+      title: data.page.title,
+      url: data.page._url,
+      baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl)
+    })
+  }}
+{% endblock %}
+
+{% block advertisementBeforeMain %}
+  {%- if isMainLBVisible -%}
+    {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
+  {%- endif -%}
+{% endblock %}
+
+{% block main %}
+  {%- set bannerIndex = 0 -%}
+
+  <div class="content-template donate-page">
+    <div class="content">
+      <main id="main" tabindex="-1">
+        <article>
+          <h1 class="page-heading">{{ data.page.title }}</h1>
+
+          {# mobile banners #}
+          {{
+            mobileBannerAds({
+              data: data,
+              propName: globalSidebarBanners[bannerIndex]
+            })
+          }}
+          {%- set bannerIndex = bannerIndex + 1 -%}
+
+          <div class="page-content">
+            {# content #}
+            {{ contentSection(data.page) }}
+
+            <div class="donate-buttons">
+              <a class="donate-btn" href="#">
+                <span class="icon">
+                  {% include "/svg/logo-patreon.svg" %}
+                </span>
+                <span class="label">Patreon</span>
+              </button>
+
+              <a class="donate-btn" href="#">
+                <span class="icon">
+                  {% include "/svg/logo-paypal.svg" %}
+                </span>
+                <span class="label">PayPal</span>
+              </a>
+            </div>
+
+            {# leaderboard #}
+            {%- if isMinorLBVisible -%}
+              {{ inContextLeaderboard(minorLBOptions, { location: 'after' }) }}
+            {%- endif -%}
+
+            {# mobile banners #}
+            {% for i in range(bannerIndex, globalSidebarBanners|length) -%}
+              {%- if bannerIndex < globalSidebarBanners|length -%}
+                {{
+                  mobileBannerAds({
+                    data: data,
+                    propName: globalSidebarBanners[bannerIndex]
+                  })
+                }}
+                {%- set bannerIndex = bannerIndex + 1 -%}
+              {%- endif -%}
+            {%- endfor %}
+          </div>
+
+          {% block sidebar %}
+            {% include "partials/sidebar/sidebar.njk" %}
+          {% endblock %}
+        </article>
+      </main>
+    </div>
+  </div>
+{% endblock %}

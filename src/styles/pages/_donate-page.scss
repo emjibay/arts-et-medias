@@ -1,0 +1,26 @@
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+
+
+.donate-page {
+  .donate-btn {
+    @include ui.button();
+
+    .icon {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 5px;
+    }
+
+    &:hover {
+      .icon {
+        color: vars.$main;
+      }
+    }
+  }
+
+  .donate-btn + .donate-btn {
+    margin-left: 25px;
+  }
+}
