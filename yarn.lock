@@ -1534,6 +1534,13 @@ apostrophe-monitor@2.1.0:
     regexp-quote "0.0.0"
     stoppable "^1.1.0"
 
+apostrophe-rich-text-permalinks@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/apostrophe-rich-text-permalinks/-/apostrophe-rich-text-permalinks-2.0.5.tgz#d4f40b0758ab8517eb455ae3f03e9761938a6ae9"
+  integrity sha512-BVHAW9EC36rBrc1+AXDyw7xOyFhqqT+gokjT828lgVp17xJHoQU/ABKjpFrTH3ywoPyx+p2xYVWZjl5j57Ubjw==
+  dependencies:
+    lodash "^4.17.10"
+
 apostrophe-workflow@2.38.3:
   version "2.38.3"
   resolved "https://registry.yarnpkg.com/apostrophe-workflow/-/apostrophe-workflow-2.38.3.tgz#c6980a3a94274aa42745413f1416de9e15406de3"

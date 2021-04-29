@@ -1,3 +1,17 @@
 {%- from 'macros/cta.njk' import websiteCTA -%}
 
-{{ websiteCTA(data.widget.label, data.widget._target._url) }}
+
+{%- if data.widget.linkType === 'internal' -%}
+  {%- set targetUrl = data.widget._target._url -%}
+{%- else -%}
+  {%- set targetUrl = data.widget.targetUrl -%}
+{%- endif -%}
+
+
+{{
+  websiteCTA(
+    data.widget.label,
+    targetUrl,
+    { icon: data.widget.icon }
+  )
+}}

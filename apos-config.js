@@ -49,6 +49,22 @@ const aposOptions = {
 
     'apostrophe-db-mongo-3-driver': {},
 
+    'apostrophe-rich-text-permalinks': {
+      join: {
+        withType: [
+          'apostrophe-page',
+          'article',
+          'book',
+          'project',
+          'education',
+          'event',
+          'person',
+          'organization',
+          'media',
+        ]
+      }
+    },
+
     'apostrophe-workflow': {
       defaultMode: 'live'
     },

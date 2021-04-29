@@ -2,10 +2,11 @@
   "apostrophe-page",
   "article",
   "book",
+  "project",
   "education",
   "event",
-  "media",
-  "organization",
   "person",
-  "project"
+  "organization",
+  "media",
+  "apostrophe-file"
 ]

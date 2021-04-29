@@ -1,8 +1,21 @@
-{% macro websiteCTA(label, url) %}
+{% macro websiteCTA(label, url, options) %}
   <a
     class="website-cta"
     href="{{ url }}"
-  >{{ label }}</a>
+  >
+    {%- if options.icon -%}
+      <span class="icon">
+        {%- if options.icon === 'download' -%}
+          {% include "/svg/icon-download.svg" %}
+        {%- elseif options.icon === 'patreon' -%}
+          {% include "/svg/logo-patreon.svg" %}
+        {%- elseif options.icon === 'paypal' -%}
+          {% include "/svg/logo-paypal.svg" %}
+        {%- endif -%}
+      </span>
+    {%- endif -%}
+    <span class="label">{{ label }}</span>
+  </a>
 {% endmacro %}
 
 

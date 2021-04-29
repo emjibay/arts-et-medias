@@ -129,6 +129,13 @@ body {
   @media #{ vars.$mqDesktop } {
     font-size: vars.$fsVerySmol;
   }
+
+  .icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+  }
 }
 
 .separator {
