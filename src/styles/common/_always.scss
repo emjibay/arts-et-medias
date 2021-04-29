@@ -21,6 +21,11 @@ a {
   color: vars.$black;
 }
 
+::selection {
+  background-color: vars.$main;
+  color: vars.$white;
+}
+
 main {
   &:focus {
     @include ui.noFocusOutline();
