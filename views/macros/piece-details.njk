@@ -244,6 +244,16 @@
     )
   }}
 
+  {# maker spaces #}
+  {%- set makerSpacesCat = orgsCats + 'makerSpaces|' -%}
+  {{
+    relatedTaggedPieces(
+      __(makerSpacesCat + 'related'),
+      organizations,
+      __(makerSpacesCat + 'tags')
+    )
+  }}
+
   {# other orgs #}
   {%-
     set alreadyUsedTags = apos.aemArrays.flatten([
@@ -251,6 +261,7 @@
       __(galleriesCat + 'tags'),
       __(artCentersCat + 'tags'),
       __(academiaCat + 'tags'),
+      __(makerSpacesCat + 'tags'),
       __(mediaLabsCat + 'tags')
     ])
   -%}
