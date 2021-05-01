@@ -67,7 +67,7 @@
       -%}
       {%- if (undergradPrograms and undergradPrograms|length > 0) -%}
         <dt>{{ __(undergradCat + 'related') }}</dt>
-        <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+        <dd>{{ sortedPieceLinkList(undergradPrograms) }}</dd>
       {%- endif -%}
 
       {# grad programs #}
@@ -80,7 +80,7 @@
       -%}
       {%- if (gradPrograms and gradPrograms|length > 0) -%}
         <dt>{{ __(gradCat + 'related') }}</dt>
-        <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+        <dd>{{ sortedPieceLinkList(gradPrograms) }}</dd>
       {%- endif -%}
 
       {# postgrad programs #}
@@ -93,7 +93,7 @@
       -%}
       {%- if (postgradPrograms and postgradPrograms|length > 0) -%}
         <dt>{{ __(postgradCat + 'related') }}</dt>
-        <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+        <dd>{{ sortedPieceLinkList(postgradPrograms) }}</dd>
       {%- endif -%}
 
       {# other programs #}
@@ -106,7 +106,7 @@
       -%}
       {%- if (otherPrograms and otherPrograms|length > 0) -%}
         <dt>{{ __(otherCat + 'related') }}</dt>
-        <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+        <dd>{{ sortedPieceLinkList(otherPrograms) }}</dd>
       {%- endif -%}
 
     </dl>
