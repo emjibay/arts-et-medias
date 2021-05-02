@@ -11,7 +11,7 @@ Please answer the following questions. You can replace the example text.
 
 All information is mandatory unless marked otherwise. Incomplete information prevent us from adding new content, ensure to help us out.
 
-Ensure that the artwork you suggest is related to the world of media art which presented on *Arts et Médias*. We reserve the right to not add the project it is not in relation to our content.
+Ensure that the artwork you suggest is related to the world of media art which presented on *Arts & Médias*. We reserve the right to not add the project it is not in relation to our content.
 
 
 # Project/Artwork
