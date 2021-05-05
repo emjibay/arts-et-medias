@@ -331,5 +331,5 @@
 }
 
 @mixin cmsBoxShadow($color: vars.$cmsColor) {
-  box-shadow: 0 0 7px 2px rgba($color, 0.5);
+  box-shadow: 0 0 4px 2px rgba($color, 0.25);
 }
