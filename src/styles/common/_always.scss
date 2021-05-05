@@ -168,15 +168,6 @@ body {
   @include ui.cmsOutline();
 }
 
-.apos-modal-body {
-  .image-widget-simplified {
-    img {
-      display: inline-block;
-      width: 100%;
-    }
-  }
-}
-
 .apos-area-widget-controls {
   opacity: 0.8;
 }
@@ -224,10 +215,37 @@ body {
     }
   }
 
+  // modal
+  .apos-modal-breadcrumb .apos-modal-breadcrumb-item {
+    border-bottom-color: vars.$cmsColor !important;
+  }
 
-  // links
-  .apos-modal-body li a:hover {
-    color: vars.$cmsColor;
+  .apos-modal-body {
+    .image-widget-simplified {
+      img {
+        display: inline-block;
+        width: 100%;
+      }
+    }
+
+    li a:hover {
+      color: vars.$cmsColor;
+    }
+
+    .apos-chooser-tab-bar {
+      border-bottom-color: vars.$cmsColor;
+    }
+
+    .apos-chooser-tab-button {
+      &:hover {
+        color: vars.$cmsColor;
+      }
+      &.apos-active {
+        border-top-color: vars.$cmsColor;
+        border-right-color: vars.$cmsColor;
+        border-left-color: vars.$cmsColor;
+      }
+    }
   }
 
 
