@@ -148,6 +148,22 @@ body {
   }
 }
 
+.apos-global-busy {
+  background-color: rgba(vars.$cmsColor, 0.25);
+
+  &::after {
+    $iconSize: 60px; // must be even for nice rotation
+    $iconHalfSize: 30px;
+    color: vars.$cmsColor;
+    left: calc(50% - #{$iconHalfSize});
+    top: calc(50% - #{$iconHalfSize});
+    width: $iconSize;
+    height: $iconSize;
+    font-size: $iconSize;
+    content: '\f1ce'; // circle notch https://fontawesome.com/v4.7.0/icon/circle-o-notch
+  }
+}
+
 [data-apos-widget="apostrophe-rich-text"] > [data-rich-text]:focus {
   @include ui.cmsOutline();
 }
