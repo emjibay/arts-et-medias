@@ -108,9 +108,6 @@
             {{ footerLink('events|heading', 'events|url') }}
           </li>
           <li class="list-item">
-            {{ footerLink('pages|about|title', 'pages|about|url') }}
-          </li>
-          <li class="list-item">
             {{ footerLink('search|heading', 'search|url') }}
           </li>
         </ul>
@@ -228,7 +225,13 @@
         <h2 class="column-title">{{ __('footer|adminHeading') }}</h2>
         <ul class="footer-link-list">
           <li class="list-item">
+            {{ footerLink('pages|about|title', 'pages|about|url') }}
+          </li>
+          <li class="list-item">
             {{ footerLink('pages|faq|title', 'pages|faq|url') }}
+          </li>
+          <li class="list-item">
+            {{ footerLink('pages|advertise|title', 'pages|advertise|url') }}
           </li>
           <li class="list-item">
             {{ footerLink('pages|contribute|title', 'pages|contribute|url') }}

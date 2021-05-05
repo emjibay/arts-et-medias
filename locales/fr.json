@@ -597,6 +597,10 @@
       "title": "Apprendre",
       "url": "/fr/apprendre"
     },
+    "advertise": {
+      "title": "Placer une annonce",
+      "url": "/fr/placer-annonce"
+    },
     "contribute": {
       "title": "Contribuer",
       "url": "/fr/contribuer"
