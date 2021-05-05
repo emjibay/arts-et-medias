@@ -33,47 +33,6 @@ main {
 }
 
 
-// apostrophe
-.apos-area-widget-controls {
-  opacity: 0.8;
-}
-
-body {
-  &[data-apos-workflow-mode="draft"] {
-    [data-apos-widget-wrapper="aem-articles-featured"],
-    [data-apos-widget-wrapper="aem-banner-ads"],
-    [data-apos-widget-wrapper="aem-books-featured"],
-    [data-apos-widget-wrapper="aem-education-featured"],
-    [data-apos-widget-wrapper="aem-education-featured"],
-    [data-apos-widget-wrapper="aem-events-featured"],
-    [data-apos-widget-wrapper="aem-organizations-featured"],
-    [data-apos-widget-wrapper="aem-projects-featured"],
-    [data-apos-widget-wrapper="aem-link"],
-    [data-apos-widget-wrapper="aem-video"],
-    [data-apos-widget-wrapper="apostrophe-images"],
-    [data-apos-widget="apostrophe-rich-text"] > .apos-rich-text {
-      @include ui.cmsOutline();
-    }
-  }
-
-  .apos-empty {
-    @include ui.cmsOutline();
-  }
-}
-
-[data-apos-widget="apostrophe-rich-text"] > [data-rich-text]:focus {
-  @include ui.cmsOutline();
-}
-
-.apos-modal-body {
-  .image-widget-simplified {
-    img {
-      display: inline-block;
-      width: 100%;
-    }
-  }
-}
-
 // common
 .content {
   @include mx.contentContainer();
@@ -162,4 +121,223 @@ body {
 // a11y
 .sr-only {
   @include mx.visuallyHidden();
+}
+
+
+// apos ui overrides
+body {
+  &[data-apos-workflow-mode="draft"] {
+    [data-apos-widget-wrapper="aem-articles-featured"],
+    [data-apos-widget-wrapper="aem-banner-ads"],
+    [data-apos-widget-wrapper="aem-books-featured"],
+    [data-apos-widget-wrapper="aem-education-featured"],
+    [data-apos-widget-wrapper="aem-education-featured"],
+    [data-apos-widget-wrapper="aem-events-featured"],
+    [data-apos-widget-wrapper="aem-organizations-featured"],
+    [data-apos-widget-wrapper="aem-projects-featured"],
+    [data-apos-widget-wrapper="aem-link"],
+    [data-apos-widget-wrapper="aem-video"],
+    [data-apos-widget-wrapper="apostrophe-images"],
+    [data-apos-widget="apostrophe-rich-text"] > .apos-rich-text {
+      @include ui.cmsOutline();
+    }
+  }
+
+  .apos-empty {
+    @include ui.cmsOutline();
+  }
+}
+
+[data-apos-widget="apostrophe-rich-text"] > [data-rich-text]:focus {
+  @include ui.cmsOutline();
+}
+
+.apos-modal-body {
+  .image-widget-simplified {
+    img {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+.apos-area-widget-controls {
+  opacity: 0.8;
+}
+
+.apos-ui {
+  // buttons
+  .apos-button {
+    border-color: vars.$cmsColor;
+
+    &:hover,
+    &:active,
+    &:focus {
+      @include ui.cmsBoxShadow();
+    }
+  }
+
+  .apos-button[data-apos-dropdown-button-label="active"] {
+    @include ui.cmsBoxShadow();
+  }
+
+  .apos-buttons {
+    border-color: vars.$cmsColor;
+    @include ui.cmsBoxShadow();
+  }
+
+  .apos-button--global,
+  .apos-button--major {
+    background-color: vars.$cmsColor;
+
+    &:hover {
+      @include ui.cmsBoxShadow();
+    }
+  }
+
+  .apos-button--in-group {
+    &:hover {
+      color: vars.$cmsColor;
+      box-shadow: none;
+    }
+  }
+
+  .apos-button--in-context {
+    &:not(.apos-button--group) {
+      @include ui.cmsBoxShadow();
+    }
+  }
+
+
+  // links
+  .apos-modal-body li a:hover {
+    color: vars.$cmsColor;
+  }
+
+
+  // admin bar
+  .apos-admin-bar {
+    background-color: vars.$cmsColor;
+
+    .apos-admin-bar-item {
+      &:hover {
+        background-color: vars.$white;
+        color: vars.$cmsColor;
+      }
+
+      .apos-active {
+        background-color: vars.$white;
+        color: vars.$cmsColor;
+      }
+    }
+  }
+
+
+  // tables
+  .apos-table a:hover,
+  .apos-table td a:hover {
+    color: vars.$cmsColor;
+  }
+
+  .apos-manage-column--sortable:hover {
+    color: vars.$cmsColor;
+  }
+
+  .apos-reorganize-tree .jqtree-tree .apos-reorganize-controls a:hover {
+    color: vars.$cmsColor;
+  }
+
+
+  // image grid
+  .apos-manage-grid-view {
+    .apos-manage-grid-piece {
+      &:hover::before {
+        border: 2px solid vars.$cmsColor;
+      }
+      .apos-manage-grid-piece-controls .apos-button i {
+        color: vars.$cmsColor;
+      }
+    }
+  }
+
+  .apos-manage-grid-view .apos-manage-grid-piece.apos-focus {
+    &::before {
+      border: 2px solid vars.$cmsColor;
+    }
+  }
+
+  .apos-manage-grid-view .apos-manage-grid-piece.apos-focus .apos-field-input-checkbox-indicator {
+    background-color: vars.$cmsColor;
+    border-color: vars.$cmsColor;
+    border-width: 1px;
+  }
+
+
+  // fields
+  .apos-required label:first-of-type::after {
+    color: vars.$cmsColor;
+  }
+
+  .apos-field-input-textarea:focus,
+  .apos-field-input-text:focus,
+  .apos-field-input-select:focus {
+    @include ui.cmsBoxShadow();
+  }
+
+  [data-chooser-choice]:hover {
+    background-color: vars.$cmsColor;
+  }
+
+  .apos-field-input-checkbox:checked + .apos-field-input-checkbox-indicator {
+    background-color: vars.$cmsColor;
+    border-color: vars.$cmsColor;
+    border-width: 1px;
+  }
+
+
+  // tags
+  .apos-manage-tag-add {
+    color: vars.$cmsColor;
+
+    &:hover {
+      color: vars.$cmsColor;
+    }
+  }
+
+  .apos-manage-tags-view .apos-manage-tag-control--rename:hover,
+  .apos-manage-tags-view .apos-manage-tag-control--edit:hover {
+    color: vars.$cmsColor;
+  }
+
+  .apos-field-tags .apos-tags {
+    .apos-tag-entry {
+      border-bottom: 0px solid transparent;
+    }
+    .apos-tag-add:hover {
+      color: vars.$cmsColor;
+    }
+  }
+
+
+  // piece list
+  .apos-chooser-choice {
+    .apos-button--group,
+    .apos-button--group:active,
+    .apos-button--group:focus {
+      box-shadow: none;
+
+      .apos-button--in-group,
+      .apos-button--in-group:active,
+      .apos-button--in-group:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+
+  // workflow
+  .apos-workflow-locale-picker-items ul,
+  .apos-workflow-locale-tree ul {
+    border-color: vars.$cmsColor;
+  }
 }
