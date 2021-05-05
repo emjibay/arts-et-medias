@@ -351,9 +351,23 @@ body {
   }
 
 
+  // apos field/singleton
+  .apos-area-divider {
+    @include ui.cmsBoxShadow();
+    background-color: vars.$cmsColor;
+  }
+
+
   // workflow
   .apos-workflow-locale-picker-items ul,
   .apos-workflow-locale-tree ul {
+    border-color: vars.$cmsColor;
+  }
+}
+
+.cke_float {
+  .cke_inner {
+    @include ui.cmsBoxShadow();
     border-color: vars.$cmsColor;
   }
 }
