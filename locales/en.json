@@ -98,7 +98,8 @@
     "connectHeading": "Connect",
     "emailLabel": "Email",
     "adminHeading": "Admin",
-    "copyrightLabel": "All copyrights belong to their respective owners."
+    "copyrightLabel1": "Arts & Médias production and content are managed by Arts & Médias Publishing.",
+    "copyrightLabel2": "All other copyrights belong to their respective owners."
   },
   "citations": {
     "articleHeading": "Cite This Article",
