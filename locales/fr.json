@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "Arts & Médias",
+    "title": "Arts & Médias",
     "description": "Une référence pour du contenu critique et des ressources sur l'art contemporain, avec un penchant pour l'art médiatique et l'art d'installation.",
     "shortDescription": "Art médiatique, installations et art contemporain",
     "skipToMainCTA": "Sauter au contenu principal",
@@ -664,7 +664,7 @@
     "passwordPlaceholder": "Inscrivez votre mot de passe",
     "submitButtonLabel": "Se connecter",
     "contributionHeading": "Vous souhaitez contribuer ?",
-    "contributionParagraph": "Arts & Médias a l'objectif ambitieux d'être une référence pour tout ce qui touche aux arts médiatiques et à l'art d'installation. Cependant, cela n'est pas possible sans aide.",
+    "contributionParagraph": "Arts & Médias a l'objectif ambitieux d'être une référence pour tout ce qui touche aux arts médiatiques et à l'art d'installation. Cependant, cela n'est pas possible sans aide.",
     "contributionCTA": "Veuillez considérer nous aider."
   },
   "notFound": {
@@ -686,7 +686,7 @@
   "slackSignup": {
     "heading": "Inscription aux canaux Slack",
     "url": "/fr/inscription-slack",
-    "paragraph": "Slack exige que l'ajout de participants ad-hoc se fasse manuellement. Veuillez partager votre courriel ci-dessous, et nous vous ajouterons aux canaux Slack d'Arts & Médias dès que possible. Merci de votre compréhension !",
+    "paragraph": "Slack exige que l'ajout de participants ad-hoc se fasse manuellement. Veuillez partager votre courriel ci-dessous, et nous vous ajouterons aux canaux Slack d'Arts & Médias dès que possible. Merci de votre compréhension !",
     "emailLabel": "Courriel",
     "emailPlaceholder": "Inscrivez votre courriel",
     "submitLabel": "Invitez-moi !",

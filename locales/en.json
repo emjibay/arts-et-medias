@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "Arts & Médias",
+    "title": "Arts & Médias",
     "description": "A reference for critical content and resources about contemporary art, with a bias towards media art and installation art.",
     "shortDescription": "Media art, installation art, and contemporary art",
     "skipToMainCTA": "Skip to Main Content",
@@ -665,13 +665,13 @@
     "passwordPlaceholder": "Enter your password",
     "submitButtonLabel": "Log In",
     "contributionHeading": "Want to Help?",
-    "contributionParagraph": "Arts & Médias has the lofty goal of being a reference for all things related to Media Art. However, this is not possible without help.",
+    "contributionParagraph": "Arts & Médias has the lofty goal of being a reference for all things related to Media Art. However, this is not possible without help.",
     "contributionCTA": "Contribute"
   },
   "slackSignup": {
     "heading": "Slack Workspace Signup",
     "url": "/en/slack-signup",
-    "paragraph": "Slack requires the addition of ad-hoc participants to be done manually. Please share your email below, and we'll add you to the Arts & Médias Slack workspace as soon as possible. Thanks for understanding!",
+    "paragraph": "Slack requires the addition of ad-hoc participants to be done manually. Please share your email below, and we'll add you to the Arts & Médias Slack workspace as soon as possible. Thanks for understanding!",
     "emailLabel": "Email",
     "emailPlaceholder": "Enter Your Email",
     "submitLabel": "Invite Me!",
