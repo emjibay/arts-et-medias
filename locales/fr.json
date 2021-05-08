@@ -711,7 +711,7 @@
 
   "—": "—",
   "": "",
-  "[%s of %s] Committing %s": "[%s of %s] Committing %s",
+  "[%s of %s] Committing %s": "[%s of %s] Committing \"%s\"",
   "%s Selected": "%s Selected",
   "%s was committed successfully.": "\"%s\" was committed successfully.",
   "admin": "admin",
