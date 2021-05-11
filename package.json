@@ -18,11 +18,11 @@
   },
   "dependencies": {
     "accept-language": "3.0.18",
-    "apostrophe": "2.117.1",
+    "apostrophe": "2.118.0",
     "apostrophe-db-mongo-3-driver": "2.0.1",
     "apostrophe-rich-text-permalinks": "^2.0.5",
     "apostrophe-workflow": "2.38.3",
-    "citation-js": "0.5.0",
+    "citation-js": "0.5.1",
     "dotenv": "8.2.0",
     "lodash": "4.17.21",
     "moment": "2.29.1"
@@ -33,8 +33,8 @@
     "bootstrap": "4.6.0",
     "brunch": "4.0.0",
     "chalk": "4.1.1",
-    "core-js": "3.11.0",
-    "eslint": "7.25.0",
+    "core-js": "3.12.1",
+    "eslint": "7.26.0",
     "globby": "11.0.3",
     "sass-brunch": "3.0.0",
     "terser-brunch": "4.0.0"
