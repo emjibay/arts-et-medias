@@ -1,0 +1,12 @@
+@use '../common/variables' as vars;
+@use '../common/ui' as ui;
+@use '../mixins/mixins' as mx;
+
+
+.donate-page {
+  .donation-disclaimer {
+    @include ui.paragraph();
+    color: vars.$halfGrey;
+    font-size: vars.$fsSmol;
+  }
+}

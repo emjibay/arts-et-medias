@@ -665,7 +665,8 @@
   "donate": {
     "title": "Donate",
     "url": "/en/contribute/donate",
-    "paypalCTA": "Donate on PayPal"
+    "paypalCTA": "Donate on PayPal",
+    "disclaimer": "Donations are made to Arts & Médias Publishing, which is a trademark of Emjibay Productions inc."
   },
   "slackSignup": {
     "heading": "Slack Workspace Signup",

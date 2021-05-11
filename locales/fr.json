@@ -664,7 +664,8 @@
   "donate": {
     "title": "Faire un don",
     "url": "/fr/contribuer/faire-un-don",
-    "paypalCTA": "Faire un don via PayPal"
+    "paypalCTA": "Faire un don via PayPal",
+    "disclaimer": "Les dons sont versés aux Publications Arts & Médias, qui sont une marque de commerce des Productions Emjibay inc."
   },
   "slackSignup": {
     "heading": "Inscription aux canaux Slack",

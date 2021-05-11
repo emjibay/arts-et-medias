@@ -37,7 +37,7 @@
 {% block main %}
   {%- set bannerIndex = 0 -%}
 
-  <div class="content-template">
+  <div class="content-template donate-page">
     <div class="content">
       <main id="main" tabindex="-1">
         <article>
@@ -56,7 +56,11 @@
             {# content #}
             {{ contentSection(data.page) }}
 
-            <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <form
+              action="https://www.paypal.com/donate"
+              method="post"
+              target="_blank"
+            >
               <input type="hidden" name="hosted_button_id" value="UD8KRJ6MZP9VE" />
               <button
                 type="submit"
@@ -70,6 +74,10 @@
                 </span>
               </button>
             </form>
+
+            <p class="donation-disclaimer">
+              {{ __('donate|disclaimer') }}
+            </p>
 
             {# leaderboard #}
             {%- if isMinorLBVisible -%}
