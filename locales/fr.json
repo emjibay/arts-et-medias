@@ -606,6 +606,14 @@
       "title": "Contribuer",
       "url": "/fr/contribuer"
     },
+    "callForPapers": {
+      "title": "Appel de textes",
+      "url": "/fr/contribuer/appel-textes"
+    },
+    "donate": {
+      "title": "Faire un don",
+      "url": "/fr/contribuer/faire-un-don"
+    },
     "about": {
       "title": "À propos",
       "url": "/fr/a-propos"
@@ -653,6 +661,23 @@
       "Si vous souhaitez exclure un mot de la recherche, précédez-le d'un tiret, ex. : <em>nouveaux -médias</em>"
     ]
   },
+  "donate": {
+    "title": "Faire un don",
+    "url": "/fr/contribuer/faire-un-don",
+    "paypalCTA": "Faire un don via PayPal"
+  },
+  "slackSignup": {
+    "heading": "Inscription aux canaux Slack",
+    "url": "/fr/inscription-slack",
+    "paragraph": "Slack exige que l'ajout de participants ad-hoc se fasse manuellement. Veuillez partager votre courriel ci-dessous, et nous vous ajouterons aux canaux Slack d'Arts & Médias dès que possible. Merci de votre compréhension !",
+    "emailLabel": "Courriel",
+    "emailPlaceholder": "Inscrivez votre courriel",
+    "submitLabel": "Invitez-moi !",
+    "disclaimer": "Veuillez noter qu'actuellement, les courriels sont compilés dans Google Spreadsheet via un formulaire Google Forms.",
+    "alreadySubHeading": "Déjà inscrit ?",
+    "alreadySubButtonLabel": "Ouvrir Slack",
+    "slackWorkspaceUrl": "https://arts-et-medias.slack.com/"
+  },
   "login": {
     "heading": "Le coin des éditeurs",
     "url": "/login",
@@ -682,18 +707,6 @@
 
     "stillNotSatisfied": "Vous ne trouvez toujours pas ce que vous cherchez ?",
     "helpUsCTA": "Peut-être avez-vous quelque chose à contribuer ? Veuillez considérer nous aider afin de maintenir le contenu du site à jour."
-  },
-  "slackSignup": {
-    "heading": "Inscription aux canaux Slack",
-    "url": "/fr/inscription-slack",
-    "paragraph": "Slack exige que l'ajout de participants ad-hoc se fasse manuellement. Veuillez partager votre courriel ci-dessous, et nous vous ajouterons aux canaux Slack d'Arts & Médias dès que possible. Merci de votre compréhension !",
-    "emailLabel": "Courriel",
-    "emailPlaceholder": "Inscrivez votre courriel",
-    "submitLabel": "Invitez-moi !",
-    "disclaimer": "Veuillez noter qu'actuellement, les courriels sont compilés dans Google Spreadsheet via un formulaire Google Forms.",
-    "alreadySubHeading": "Déjà inscrit ?",
-    "alreadySubButtonLabel": "Ouvrir Slack",
-    "slackWorkspaceUrl": "https://arts-et-medias.slack.com/"
   },
   "error": {
     "heading": "Une erreur est survenue",

@@ -607,6 +607,14 @@
       "title": "Contribute",
       "url": "/en/contribute"
     },
+    "callForPapers": {
+      "title": "Call for Papers",
+      "url": "/en/contribute/call-for-papers"
+    },
+    "donate": {
+      "title": "Donate",
+      "url": "/en/contribute/donate"
+    },
     "about": {
       "title": "About",
       "url": "/en/about"
@@ -654,6 +662,23 @@
       "If you wish to exclude a term, use a dash before that term, e.g. <em>robot -art</em>"
     ]
   },
+  "donate": {
+    "title": "Donate",
+    "url": "/en/contribute/donate",
+    "paypalCTA": "Donate on PayPal"
+  },
+  "slackSignup": {
+    "heading": "Slack Workspace Signup",
+    "url": "/en/slack-signup",
+    "paragraph": "Slack requires the addition of ad-hoc participants to be done manually. Please share your email below, and we'll add you to the Arts & Médias Slack workspace as soon as possible. Thanks for understanding!",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter Your Email",
+    "submitLabel": "Invite Me!",
+    "disclaimer": "Please note that emails are saved in Google Spreadsheet via a Google Form at this time.",
+    "alreadySubHeading": "Already Subscribed?",
+    "alreadySubButtonLabel": "Open Slack",
+    "slackWorkspaceUrl": "https://arts-et-medias.slack.com/"
+  },
   "login": {
     "heading": "Editors' Corner",
     "url": "/login",
@@ -667,18 +692,6 @@
     "contributionHeading": "Want to Help?",
     "contributionParagraph": "Arts & Médias has the lofty goal of being a reference for all things related to Media Art. However, this is not possible without help.",
     "contributionCTA": "Contribute"
-  },
-  "slackSignup": {
-    "heading": "Slack Workspace Signup",
-    "url": "/en/slack-signup",
-    "paragraph": "Slack requires the addition of ad-hoc participants to be done manually. Please share your email below, and we'll add you to the Arts & Médias Slack workspace as soon as possible. Thanks for understanding!",
-    "emailLabel": "Email",
-    "emailPlaceholder": "Enter Your Email",
-    "submitLabel": "Invite Me!",
-    "disclaimer": "Please note that emails are saved in Google Spreadsheet via a Google Form at this time.",
-    "alreadySubHeading": "Already Subscribed?",
-    "alreadySubButtonLabel": "Open Slack",
-    "slackWorkspaceUrl": "https://arts-et-medias.slack.com/"
   },
   "notFound": {
     "heading": "Page Not Found",
