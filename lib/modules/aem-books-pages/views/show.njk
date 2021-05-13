@@ -150,20 +150,21 @@
               {{ relatedPieces(__('projects|related'), piece._relatedProjects) }}
 
               {# articles #}
-              {{ relatedPieces(__('articles|related'), piece._articles) }}
+              {%- set relatedArticles = apos.aemArrays.merge(piece._relatedArticles, piece._articles) -%}
+              {{ relatedPieces(__('articles|related'), relatedArticles) }}
 
               {# books #}
               {%- set relatedBooks = apos.aemArrays.merge(piece._relatedBooks, piece._booksMentioned) -%}
               {{ relatedPieces(__('books|related'), relatedBooks) }}
-
-              {# media #}
-              {{ relatedMedia(piece._relatedMedia) }}
 
               {# people #}
               {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
 
               {# organizations #}
               {{ relatedOrganizations(piece._relatedOrganizations) }}
+
+              {# media #}
+              {{ relatedMedia(piece._relatedMedia) }}
 
               {# tags #}
               {{ tags(piece) }}
