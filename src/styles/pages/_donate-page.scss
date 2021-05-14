@@ -4,6 +4,10 @@
 
 
 .donate-page {
+  .donate-btn {
+    margin: 10px 0;
+  }
+
   .donation-disclaimer {
     @include ui.paragraph();
     color: vars.$halfGrey;

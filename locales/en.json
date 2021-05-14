@@ -665,6 +665,8 @@
   "donate": {
     "title": "Donate",
     "url": "/en/contribute/donate",
+    "patreonCTA": "Become a Patron",
+    "patreonUrl": "https://www.patreon.com/arts_et_medias",
     "paypalCTA": "Donate on PayPal",
     "paypalId": "UD8KRJ6MZP9VE",
     "disclaimer": "Donations are made to Arts & Médias Publishing, which is a trademark of Emjibay Productions inc."

@@ -56,6 +56,21 @@
             {# content #}
             {{ contentSection(data.page) }}
 
+            {# patreon button #}
+            <a
+              class="website-cta donate-btn"
+              href="{{ __('donate|patreonUrl') }}"
+            >
+              <span class="icon">
+                {% include "/svg/logo-patreon.svg" %}
+              </span>
+              <span class="label">
+                {{ __('donate|patreonCTA') }}
+              </span>
+            </a>
+            {# patreon button end#}
+
+            {# paypal button #}
             <form
               action="https://www.paypal.com/donate"
               method="post"
@@ -68,7 +83,7 @@
               />
               <button
                 type="submit"
-                class="website-cta"
+                class="website-cta donate-btn"
               >
                 <span class="icon">
                   {% include "/svg/logo-paypal.svg" %}
@@ -78,6 +93,7 @@
                 </span>
               </button>
             </form>
+            {# paypal button end #}
 
             <p class="donation-disclaimer">
               {{ __('donate|disclaimer') }}
