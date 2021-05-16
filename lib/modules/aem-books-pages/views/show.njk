@@ -11,7 +11,10 @@
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
+{%- set fullTitle = apos.aemBooks.getFullTitle(piece, locale) -%}
 {%- set editorAbbreviation = __('books|editorAbbreviation') -%}
+{%- set authors = apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation) -%}
+{%- set fullTitleWithAuthors = apos.aemSeo.buildWrittenBy(fullTitle, authors, locale) -%}
 {%- set mainLBOptions = { data: data, propName: 'booksLeaderboard' } -%}
 {%- set minorLBOptions = { data: data, propName: 'booksMinorLeaderboard' } -%}
 {%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
@@ -22,7 +25,7 @@
   {{
     apos.aemSeo.buildPieceWithType(
       __,
-      piece.title,
+      fullTitleWithAuthors,
       __('books|heading')
     )
   }}
@@ -31,7 +34,7 @@
 {% block metadata %}
   {{
     bookMetaData({
-      title: piece.title,
+      title: fullTitle,
       authors: apos.aemAuthors.getArrayFromBook(piece, editorAbbreviation),
       description: piece.shortDescription,
       yearPublished: piece.yearPublished,
