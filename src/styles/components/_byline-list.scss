@@ -25,20 +25,20 @@
     display: inline;
     position: relative;
 
-    &::after {
-      @include ui.minorText();
-      content: ',';
-      display: inline-block;
-      line-height: 1.5;
-      margin-right: 5px;
-      position: relative;
-    }
-
     &:last-of-type {
       margin-right: 0;
 
       &::after {
         content: '';
+      }
+    }
+
+    &:not(:last-of-type) {
+      * {
+        &::after {
+          content: ',';
+          margin-right: 5px;
+        }
       }
     }
 
