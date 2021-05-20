@@ -127,6 +127,10 @@ main {
 // apos ui overrides
 body {
   &[data-apos-workflow-mode="draft"] {
+    &[data-localhost="true"] {
+      border: 4px dashed vars.$green;
+    }
+
     [data-apos-widget-wrapper="aem-articles-featured"],
     [data-apos-widget-wrapper="aem-banner-ads"],
     [data-apos-widget-wrapper="aem-books-featured"],
