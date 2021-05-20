@@ -287,7 +287,7 @@ If there are more than one developer working on the feature branch, either user 
 
 ##### `<issueNumber>`
 
-Issues addressed should ideally have an entry in the [issue list on GitHub](https://github.com/jansensan/arts-et-medias/issues). This allows to have a space to discuss the work to be done or completed.
+Issues addressed should ideally have an entry in the [issue list on GitHub](https://github.com/emjibay/arts-et-medias/issues). This allows to have a space to discuss the work to be done or completed.
 
 
 ##### `<action>`

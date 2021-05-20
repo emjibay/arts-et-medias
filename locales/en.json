@@ -17,7 +17,7 @@
     "twitterReadMoreCTA": "Read More Tweets",
     "twitterRemovedLabel": "Twitter timeline removed to reduce load page times while editing the site.",
     "githubLabel": "GitHub",
-    "githubURL": "https://github.com/jansensan/arts-et-medias",
+    "githubURL": "https://github.com/emjibay/arts-et-medias",
     "emailValue": "info@arts-et-medias.net"
   },
   "headerNav": {
@@ -724,7 +724,7 @@
     "timestampLabel": "Timestamp",
     "bugReportCTA": "We invite you to copy the technical details above and report this bug to help us improve the site.",
     "bugReportLabel": "Report Bug",
-    "bugReportUrl": "https://github.com/jansensan/arts-et-medias/issues/new?assignees=jansensan&labels=bug&template=report-a-bug.md&title=Error%20occurred%20while%20navigating%20on%20website"
+    "bugReportUrl": "https://github.com/emjibay/arts-et-medias/issues/new?assignees=jansensan&labels=bug&template=report-a-bug.md&title=Error%20occurred%20while%20navigating%20on%20website"
   },
 
   "—": "—",

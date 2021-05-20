@@ -8,7 +8,7 @@ Sources for [*Arts & Médias*' website](https://arts-et-medias.net/), a referenc
 
 ## Suggesting Content and Reporting Issues
 
-Please [submit an issue](https://github.com/jansensan/arts-et-medias/issues/new/choose) via GitHub.
+Please [submit an issue](https://github.com/emjibay/arts-et-medias/issues/new/choose) via GitHub.
 
 ![](https://shields.io/github/issues-pr-raw/jansensan/arts-et-medias) ![](https://shields.io/github/issues/jansensan/arts-et-medias)
 

@@ -30,7 +30,7 @@ Enter in which language this program is offered
 
 ## Academic Institution or Organization
 - If the organization is already listed in our content, please provide the link to their profile page(s) on our site;
-- If the organization *is not* already listed, ensure to [suggest the addition of that organization to our content](https://github.com/jansensan/arts-et-medias/issues/new?labels=feat%3A+organization&template=suggest-adding-a-new-organization.md). Note that programs *will not* be added without information about their organization.
+- If the organization *is not* already listed, ensure to [suggest the addition of that organization to our content](https://github.com/emjibay/arts-et-medias/issues/new?labels=feat%3A+organization&template=suggest-adding-a-new-organization.md). Note that programs *will not* be added without information about their organization.
 
 ## Website of the Organization (optional)
 Provide the full URL to the organization's website.

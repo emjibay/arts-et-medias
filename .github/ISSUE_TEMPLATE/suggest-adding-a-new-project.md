@@ -45,4 +45,4 @@ A list of subjects (e.g. "media art", "video installation", "electronics", etc) 
 
 Please provide information about the creator(s) of the artwork.
 - If the artist(s) are already listed in our content, please provide the link to their profile page(s) on our site;
-- If the artist(s) *are not* already listed, ensure to [suggest the addition of that person to our content](https://github.com/jansensan/arts-et-medias/issues/new?labels=feat%3A+people&template=suggest-adding-a-new-person.md). Note that artworks/projects *will not* be added without information about their creator.
+- If the artist(s) *are not* already listed, ensure to [suggest the addition of that person to our content](https://github.com/emjibay/arts-et-medias/issues/new?labels=feat%3A+people&template=suggest-adding-a-new-person.md). Note that artworks/projects *will not* be added without information about their creator.
