@@ -91,7 +91,6 @@
   {%- set isMention = piece.articleType === 'mention' -%}
   {%- if isMention -%}
     <div class="mention">
-      <p class="mention-notes">{{ __('articles|notOriginallyPublishedHere') }}</p>
       {{
         externalCTA({
           label: __('articles|readFullArticle'),
@@ -99,6 +98,7 @@
           url: piece.externalLink
         })
       }}
+      <p class="mention-notes">{{ __('articles|notOriginallyPublishedHere') }}</p>
     </div>
   {%- endif -%}
 
