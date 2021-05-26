@@ -53,6 +53,16 @@
 {% block subheading %}
   <div class="subheading">
     <h2 class="sr-only">{{ __('pieceDetails|authorsLabel') }}</h2>
+    {%- if piece.originalTitle -%}
+      <p class="piece-original-title">
+        {{
+          apos.aemI18n.replace(
+            __('articles|originalTitleLabel'),
+            [{ pattern: '%s', str: piece.originalTitle }]
+          )
+        }}
+      </p>
+    {%- endif -%}
     {{ pieceLinkList(piece._originalAuthor) }}{%- if piece.citationPublication -%}, {{ piece.citationPublication }}{%- endif -%}, {{ apos.aemDates.format(piece.publicationDate, locale) }}
   </div>
 {% endblock %}
@@ -75,16 +85,6 @@
   }}
 
   <div class="description rich-description">
-    {%- if piece.originalTitle -%}
-      <p>
-        {{
-          apos.aemI18n.replace(
-            __('articles|originalTitleLabel'),
-            [{ pattern: '%s', str: piece.originalTitle }]
-          )
-        }}
-      </p>
-    {%- endif -%}
     {{ contentSection(piece) }}
   </div>
 
