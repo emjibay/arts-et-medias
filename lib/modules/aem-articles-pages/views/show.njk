@@ -12,6 +12,7 @@
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
 {%- set piece = data.piece -%}
+{%- set authors = apos.aemAuthors.getArrayFromArticle(piece) -%}
 {%- set mainLBOptions = { data: data, propName: 'articlesLeaderboard' } -%}
 {%- set minorLBOptions = { data: data, propName: 'articlesMinorLeaderboard' } -%}
 {%- set isMainLBVisible = apos.aemBannerAds.areVisible(mainLBOptions) -%}
@@ -20,14 +21,20 @@
 
 
 {% block title %}
-  {{
-    apos.aemSeo.buildPieceWithCategory(
-      __,
-      piece.title,
-      __('articles|plural'),
-      data.page.title
+  {%-
+    set seoTitle = apos.aemSeo.buildArticleTitle(
+      piece,
+      {
+        i18n: __,
+        replace: apos.aemI18n.replace,
+        authors: authors,
+        citationPublication: piece.citationPublication,
+        type: __('articles|plural'),
+        category: data.page.title
+      }
     )
-  }}
+  -%}
+  {{ seoTitle }}
 {% endblock %}
 
 {% block metadata %}
