@@ -2,8 +2,8 @@ const modulesList = [
   // models
   'models/breakpoints-model',
   // components
-  'components/lang-switch',
   'components/mega-menu',
+  'components/lang-switch',
   'components/mobile-menu',
   'components/skip-to-main-button',
   // pages
