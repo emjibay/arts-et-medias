@@ -158,11 +158,11 @@
     "featured": "Article vedette",
     "sponsored": "Article commandité",
     "related": "Articles associés",
-    "recentlyAdded": "Articles ajoutés récemment",
-    "latest": "Dernier article ajouté",
+    "recentlyAdded": "Articles référencés récemment",
+    "latest": "Dernier article référencé",
     "notOriginallyPublishedHere": "Cet article n'a pas été publié sur ce site à l'origine.",
     "readFullArticle": "Lire l'article au complet",
-    "seeMoreCTA": "Lire l'article",
+    "seeMoreCTA": "Voir les détails de l'article",
     "seeAllCTA": "Voir tous les articles",
     "searchLabel": "Chercher parmi les articles",
     "noPiecesLabel": "Aucun article trouvé",
@@ -170,7 +170,7 @@
       "news": {
         "title": "Nouvelles",
         "url": "/fr/articles/nouvelles",
-        "recentlyAdded": "Nouvelles récemment ajoutées",
+        "recentlyAdded": "Nouvelles récemment référencées",
         "related": "Nouvelles associées",
         "seeAllCTA": "Voir toutes les nouvelles",
         "tags": ["nouvelles", "reportage", "infolettre"]
@@ -178,7 +178,7 @@
       "essays": {
         "title": "Essais et articles",
         "url": "/fr/articles/essais",
-        "recentlyAdded": "Essais récemment ajoutés",
+        "recentlyAdded": "Essais récemment référencés",
         "related": "Essais associés",
         "seeAllCTA": "Voir tous les essais",
         "tags": ["article", "bilan", "chronique", "essai", "éditorial", "opinion", "analyse"]
@@ -186,7 +186,7 @@
       "reviews": {
         "title": "Critiques",
         "url": "/fr/articles/critiques",
-        "recentlyAdded": "Critiques récemment ajoutées",
+        "recentlyAdded": "Critiques récemment référencées",
         "related": "Critiques associées",
         "seeAllCTA": "Voir toutes les critiques",
         "tags": ["critique"]
@@ -194,7 +194,7 @@
       "interviews": {
         "title": "Entrevues",
         "url": "/fr/articles/entrevues",
-        "recentlyAdded": "Entrevues récemment ajoutées",
+        "recentlyAdded": "Entrevues récemment référencées",
         "related": "Entrevues associées",
         "seeAllCTA": "Voir toutes les entrevues",
         "tags": ["entrevue", "interview"]
@@ -202,7 +202,7 @@
       "academicPapers": {
         "title": "Recherche académique",
         "url": "/fr/articles/recherche-academique",
-        "recentlyAdded": "Recherche académique récemment ajoutée",
+        "recentlyAdded": "Recherche académique récemment référencée",
         "related": "Recherche académique associée",
         "seeAllCTA": "Voir toute la recherche académique",
         "tags": ["academia", "recherche", "recherche académique", "thèse", "devoir"]
@@ -210,7 +210,7 @@
       "conferenceProceedings": {
         "title": "Actes de conférences",
         "url": "/fr/articles/actes-de-conferences",
-        "recentlyAdded": "Actes de conférences récemment ajoutés",
+        "recentlyAdded": "Actes de conférences récemment référencés",
         "related": "Actes de conférences associés",
         "seeAllCTA": "Voir tous les actes de conférences",
         "tags": ["actes de conférence", "actes de conférences",  "diapositives de conférence", "diapositives de conférences", "diapositives", "présentation de conférence", "présentation de conférences", "présentation"]

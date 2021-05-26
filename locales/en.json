@@ -159,11 +159,11 @@
     "featured": "Featured Article",
     "sponsored": "Sponsored Article",
     "related": "Related Articles",
-    "recentlyAdded": "Recently Added Articles",
-    "latest": "Latest Article Added",
+    "recentlyAdded": "Recently Referenced Articles",
+    "latest": "Latest Article Referenced",
     "notOriginallyPublishedHere": "This article was not originally published on this site.",
     "readFullArticle": "Read Complete Article",
-    "seeMoreCTA": "Read Article",
+    "seeMoreCTA": "See Article Details",
     "seeAllCTA": "See All Articles",
     "searchLabel": "Search Articles",
     "noPiecesLabel": "No Articles Found",
@@ -171,7 +171,7 @@
       "news": {
         "title": "News",
         "url": "/en/articles/news",
-        "recentlyAdded": "Recently Added News",
+        "recentlyAdded": "Recently Referenced News",
         "related": "Related News",
         "seeAllCTA": "See All News",
         "tags": ["news", "report", "newsletter"]
@@ -179,7 +179,7 @@
       "essays": {
         "title": "Essays and Articles",
         "url": "/en/articles/essays",
-        "recentlyAdded": "Recently Added Essays",
+        "recentlyAdded": "Recently Referenced Essays",
         "related": "Related Essays",
         "seeAllCTA": "See All Essays",
         "tags": ["article", "editorial", "essay", "opinion", "op-ed", "analysis"]
@@ -187,7 +187,7 @@
       "reviews": {
         "title": "Reviews and Critiques",
         "url": "/en/articles/reviews",
-        "recentlyAdded": "Recently Added Reviews and Critiques",
+        "recentlyAdded": "Recently Referenced Reviews and Critiques",
         "related": "Related Reviews and Critiques",
         "seeAllCTA": "See All Reviews and Critiques",
         "tags": ["critique", "review"]
@@ -195,7 +195,7 @@
       "interviews": {
         "title": "Interviews",
         "url": "/en/articles/interviews",
-        "recentlyAdded": "Recently Added Interviews",
+        "recentlyAdded": "Recently Referenced Interviews",
         "related": "Related Interviews",
         "seeAllCTA": "See All Interviews",
         "tags": ["interview"]
@@ -203,7 +203,7 @@
       "academicPapers": {
         "title": "Academic Papers",
         "url": "/en/articles/academic-papers",
-        "recentlyAdded": "Recently Added Academic Papers",
+        "recentlyAdded": "Recently Referenced Academic Papers",
         "related": "Related Academic Papers",
         "seeAllCTA": "See All Academic Papers",
         "tags": ["academic paper", "academia", "research", "assignment", "thesis"]
@@ -211,7 +211,7 @@
       "conferenceProceedings": {
         "title": "Conference Proceedings",
         "url": "/en/articles/conference-proceedings",
-        "recentlyAdded": "Recently Added Conference Proceedings",
+        "recentlyAdded": "Recently Referenced Conference Proceedings",
         "related": "Related Conference Proceedings",
         "seeAllCTA": "See All Conference Proceedings",
         "tags": ["conference proceedings", "conference paper", "conference presentation", "slides", "conference slides"]
