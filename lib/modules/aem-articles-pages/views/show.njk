@@ -36,9 +36,18 @@
     articleMetaData({
       title: piece.title,
       authors: apos.aemAuthors.getArrayFromArticle(piece),
+      publicationName: piece.citationPublication,
       publicationDate: apos.aemPieces.getISODate(piece),
       description: piece.shortDescription,
+
       heroImage: piece.heroImage,
+      isUsingRemoteImage: piece.isUsingRemoteImage,
+      remoteImageLocation: piece.remoteImageLocation,
+      remoteImageAltText: piece.remoteImageAltText,
+      remoteImageCaption: piece.remoteImageCaption,
+      remoteImageLocation: piece.remoteImageLocation,
+      remoteImageSource: piece.remoteImageSource,
+
       section: apos.aemPieces.getArticleSection(__, piece),
       url: piece._url,
       baseUrl: apos.aemUtils.ensureHTTPS(data.baseUrl),
