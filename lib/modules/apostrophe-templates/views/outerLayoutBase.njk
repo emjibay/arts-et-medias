@@ -49,6 +49,8 @@
       {% block afterMain %}{% endblock %}
     </div>
 
+    {%- include 'partials/scripts/hero-image.njk' -%}
+
     {{ apos.assets.scripts(data.when) }}
 
     {% block jsCalls %}

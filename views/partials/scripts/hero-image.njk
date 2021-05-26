@@ -1,0 +1,57 @@
+<script>
+  // dom elements
+  let images;
+
+
+  // auto initialization
+  initHeroImageWatch();
+
+
+  // methods
+  function initHeroImageWatch() {
+    getHeroImages();
+    handleImageLoadErrors();
+  }
+
+  function handleImageLoadErrors() {
+    if (!images || !images.length) {
+      return;
+    }
+
+    for (let i = 0; i < images.length; i++) {
+      var image = images[i];
+      image.onerror = function() {
+        // unable to load image from image.src
+
+        var figure = this.parentNode;
+
+        if (figure) {
+          // change ".page-content .with-hero" to ".page-content .without-hero"
+          var pageContent = document.getElementsByClassName('with-hero')[0];
+          if (pageContent && pageContent.contains(figure)) {
+            pageContent.classList.remove('with-hero');
+            pageContent.classList.add('without-hero');
+          }
+
+          // remove <figure>
+          figure.remove();
+        }
+      }
+    }
+  }
+
+  function getHeroImages() {
+    images = document.getElementsByClassName('hero-image');
+  }
+
+  function isDescendant(parent, child) {
+    var node = child.parentNode;
+    while (node != null) {
+      if (node == parent) {
+        return true;
+      }
+      node = node.parentNode;
+    }
+    return false;
+  }
+</script>
