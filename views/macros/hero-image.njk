@@ -1,5 +1,27 @@
 {% macro heroImage(piece, hasCaption = false, isEditable = false) %}
-  {%- if isEditable -%}
+  {%- if piece.isUsingRemoteImage -%}
+    {# OPTION A #}
+    <figure>
+      <img
+        class="hero-image"
+        src="{{ piece.remoteImageLocation }}"
+        alt="{{ piece.remoteImageAltText }}"
+      />
+      {%- if piece.remoteImageCredit -%}
+          {%- set captionText = piece.remoteImageCaption + '. © ' + piece.remoteImageCredit -%}
+        {%- else -%}
+          {%- set captionText = piece.remoteImageCaption -%}
+        {%- endif -%}
+        <figcaption>
+          {{ captionText }}
+          {%- if piece.remoteImageSource -%}
+            <span class="remote-img-source"> (<a class="remote-img-source-link" href="{{ piece.remoteImageSource }}">Source</a>)</span>
+          {%- endif -%}
+        </figcaption>
+    </figure>
+
+  {%- elseif isEditable -%}
+    {# OPTION B #}
     {{
       apos.singleton(
         piece,
@@ -16,7 +38,9 @@
         }
       )
     }}
+
   {%- else -%}
+    {# OPTION C #}
     {%- set aposImageData = apos.images.first(piece.heroImage) -%}
     {%- if aposImageData -%}
       {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
@@ -28,15 +52,19 @@
         />
         {%- if hasCaption and image.caption -%}
           {%- if image.credit -%}
-            {%- set captionText = image.caption + '. ' + __('global|imageCreditLabel') + ': ' + image.credit -%}
+            {%- set captionText = image.caption + '. © ' + image.credit -%}
           {%- else -%}
             {%- set captionText = image.caption -%}
           {%- endif -%}
 
-          <figcaption>{{ captionText }}</figcaption>
+          <figcaption>
+            {{ captionText }}
+            {%- if image.source -%}
+              <span class="remote-img-source"> (<a class="remote-img-source-link" href="{{ image.source }}">Source</a>)</span>
+            {%- endif -%}
+          </figcaption>
         {%- endif -%}
       </figure>
     {%- endif -%}
   {%- endif -%}
-
 {% endmacro %}

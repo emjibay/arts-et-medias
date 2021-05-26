@@ -10,10 +10,15 @@
   </a>
 
   {%- if image.credit -%}
-    {%- set captionText = image.caption + '. ' + __('global|imageCreditLabel') + ': ' + image.credit -%}
+    {%- set captionText = image.caption + '. © ' + image.credit -%}
   {%- else -%}
     {%- set captionText = image.caption -%}
   {%- endif -%}
 
-  <figcaption>{{ captionText }}</figcaption>
+  <figcaption>
+    {{ captionText }}
+    {%- if image.source -%}
+      <span class="remote-img-source"> (<a class="remote-img-source-link" href="{{ image.source }}">Source</a>)</span>
+    {%- endif -%}
+  </figcaption>
 </figure>

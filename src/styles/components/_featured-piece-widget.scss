@@ -132,6 +132,10 @@
       }
     }
 
+    figcaption {
+      margin: 15px 0;
+    }
+
     &.featured-book-widget {
       .hero-image {
         @include img.heroImageContainedInSquare(6);
