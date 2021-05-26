@@ -6,6 +6,7 @@
         class="hero-image"
         src="{{ piece.remoteImageLocation }}"
         alt="{{ piece.remoteImageAltText }}"
+        loading="lazy"
       />
       {%- if piece.remoteImageCredit -%}
           {%- set captionText = piece.remoteImageCaption + '. © ' + piece.remoteImageCredit -%}
@@ -49,6 +50,7 @@
           class="hero-image"
           src="{{ image.url }}"
           alt="{{ image.alt }}"
+          loading="lazy"
         />
         {%- if hasCaption and image.caption -%}
           {%- if image.credit -%}
