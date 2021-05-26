@@ -75,6 +75,16 @@
   }}
 
   <div class="description rich-description">
+    {%- if piece.originalTitle -%}
+      <p>
+        {{
+          apos.aemI18n.replace(
+            __('articles|originalTitleLabel'),
+            [{ pattern: '%s', str: piece.originalTitle }]
+          )
+        }}
+      </p>
+    {%- endif -%}
     {{ contentSection(piece) }}
   </div>
 

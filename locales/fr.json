@@ -160,6 +160,7 @@
     "related": "Articles associés",
     "recentlyAdded": "Articles référencés récemment",
     "latest": "Dernier article référencé",
+    "originalTitleLabel": "Titre original : « %s »",
     "notOriginallyPublishedHere": "Cet article n'a pas été publié sur ce site à l'origine.",
     "readFullArticle": "Lire l'article au complet",
     "seeMoreCTA": "Voir les détails de l'article",

@@ -161,6 +161,7 @@
     "related": "Related Articles",
     "recentlyAdded": "Recently Referenced Articles",
     "latest": "Latest Article Referenced",
+    "originalTitleLabel": "Original Title: “%s”",
     "notOriginallyPublishedHere": "This article was not originally published on this site.",
     "readFullArticle": "Read Complete Article",
     "seeMoreCTA": "See Article Details",
