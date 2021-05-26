@@ -45,6 +45,9 @@
             <span class="author">, {{ author.title }}</span>
           {%- endif -%}
         {% endfor %}
+        {%- if piece.citationPublication -%}
+          <span class="publication-date">, {{ piece.citationPublication }}</span>
+        {%- endif -%}
         <span class="publication-date">, {{ publicationDate }}</span>
       </div>
 
