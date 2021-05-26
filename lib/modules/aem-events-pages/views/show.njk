@@ -30,6 +30,34 @@
 
 {% block mainAdditionalClasses %}event-details{% endblock %}
 
+{% block subheading %}
+  <div class="subheading">
+    {%-
+      set displayDate = apos.aemDates.buildDisplayDate(
+        piece.startDate,
+        piece.endDate,
+        locale
+      )
+    -%}
+    {%-
+      set additionalInfo = apos.aemDates.buildAdditionalInfo({
+        i18n: __,
+        prefix: 'events|additionalInfo|',
+        startDate: piece.startDate,
+        endDate: piece.endDate
+      })
+    -%}
+
+    <h2 class="sr-only">{{ __('pieceDetails|dateAndLocationLabel') }}</h2>
+    <div class="description event-info">
+      {{ displayDate }}{%- if additionalInfo -%}<span class="relative-date"> ({{ additionalInfo }})</span>{%- endif -%},<br>
+      {%- if isWorkshop -%}{{ sortedPieceLinkList(piece._relatedOrganizations) }},<br/>{%- endif -%}
+      {%- set location = apos.aemEvents.getLocation(piece, { i18n: __, locale: locale }) -%}
+      <span>{{ location }}</span>
+    </div>
+  </div>
+{% endblock %}
+
 {% block advertisementBeforeMain %}
   {%- if isMainLBVisible -%}
     {{ inContextLeaderboard(mainLBOptions, { location: 'before' }) }}
@@ -44,30 +72,6 @@
       apos.aemUtils.isDraftMode(data)
     )
   }}
-
-  {%-
-    set displayDate = apos.aemDates.buildDisplayDate(
-      piece.startDate,
-      piece.endDate,
-      locale
-    )
-  -%}
-  {%-
-    set additionalInfo = apos.aemDates.buildAdditionalInfo({
-      i18n: __,
-      prefix: 'events|additionalInfo|',
-      startDate: piece.startDate,
-      endDate: piece.endDate
-    })
-  -%}
-
-  <h2 class="sr-only">{{ __('pieceDetails|dateAndLocationLabel') }}</h2>
-  <div class="description event-info">
-    {{ displayDate }}{%- if additionalInfo -%}<span class="relative-date"> ({{ additionalInfo }})</span>{%- endif -%},<br>
-    {%- if isWorkshop -%}{{ sortedPieceLinkList(piece._relatedOrganizations) }},<br/>{%- endif -%}
-    {%- set location = apos.aemEvents.getLocation(piece, { i18n: __, locale: locale }) -%}
-    <span>{{ location }}</span>
-  </div>
 
   <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
   <div class="description rich-description">
