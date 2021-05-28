@@ -66,15 +66,21 @@
             <article class="piece-card article-card">
               <p class="heading">{{ piece.title }}</p>
 
-              {%- set publicationDate = apos.aemDates.format(piece.publicationDate, locale) -%}
-              <div class="byline-and-date">
+              <div class="byline-and-date article">
                 {% for author in piece._originalAuthor %}
-                  <span>{{ author.title }}</span>
+                  {%- set articleAuthorClassList = "article-author" -%}
+                  {%- if loop.last -%}
+                    {%- set articleAuthorClassList = "article-author last" -%}
+                  {%- endif -%}
+                  <span class="{{ articleAuthorClassList }}">{{ author.title }}</span>
                 {% endfor %}
+
                 {%- if piece.citationPublication -%}
-                  <span>{{ piece.citationPublication }}</span>
+                  <span class="article-publication-name">{{ piece.citationPublication }}</span>
                 {%- endif -%}
-                <span class="publication-date">{{ publicationDate }}</span>
+
+                {%- set publicationDate = apos.aemDates.format(piece.publicationDate, locale) -%}
+                <span class="article-publication-date">{{ publicationDate }}</span>
               </div>
 
               {{ heroImage(piece) }}

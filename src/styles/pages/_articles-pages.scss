@@ -12,6 +12,22 @@
 }
 
 .article-details {
+  .subheading {
+    height: auto;
+    margin: 10px 0 0 0;
+
+    .piece-link-list {
+      height: auto;
+    }
+
+    .piece-link-list,
+    .publication-name,
+    .publication-date {
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+
   .translation {
     @include ui.minorText();
     font-size: vars.$fsSmol;

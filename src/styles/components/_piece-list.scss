@@ -222,3 +222,44 @@
     }
   }
 }
+
+.article-list {
+  .piece-card {
+    .byline-and-date {
+
+      .article-author {
+        &:last-of-type {
+          color: red;
+        }
+      }
+
+      span {
+        line-height: 1.5;
+        margin-right: 0;
+
+        &::after {
+          content: '';
+          font-size: vars.$fsSmol;
+          line-height: 1.5;
+          position: relative;
+        }
+
+        &.article-author {
+          margin-right: 5px;
+
+          &.last {
+            &::after {
+              content: ' –';
+            }
+          }
+        }
+
+        &.article-publication-name {
+          &::after {
+            content: ' |';
+          }
+        }
+      }
+    }
+  }
+}

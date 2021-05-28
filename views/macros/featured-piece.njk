@@ -45,10 +45,12 @@
             <span class="author">, {{ author.title }}</span>
           {%- endif -%}
         {% endfor %}
+
         {%- if piece.citationPublication -%}
-          <span class="publication-date">, {{ piece.citationPublication }}</span>
+          <span class="publication-date">&nbsp;– {{ piece.citationPublication }}</span>
         {%- endif -%}
-        <span class="publication-date">, {{ publicationDate }}</span>
+
+        <span class="publication-date">&nbsp;| {{ publicationDate }}</span>
       </div>
 
       {{ contentDetails(piece, __('articles|seeMoreCTA')) }}
