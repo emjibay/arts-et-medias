@@ -32,6 +32,23 @@
     margin-bottom: 20px;
   }
 
+  blockquote {
+    &::before,
+    &::after {
+      color: vars.$lightGrey;
+      font-family: vars.$ffSerif;
+      font-size: 24pt;
+      position: absolute;
+      width: calc(100% - 60px); // padding: 15px 30px in src/styles/mixins/_apos-overrides.scss
+    }
+    &::before {
+      text-align: left;
+    }
+    &::after {
+      text-align: right;
+    }
+  }
+
   [data-apos-widget-wrapper="apostrophe-images"] {
     padding: 0;
     margin: 40px 0;
@@ -62,6 +79,59 @@
   .apos-video-player {
     margin-top: 40px;
     margin-bottom: 40px;
+  }
+}
+
+[lang="en"] {
+  .rich-content {
+    blockquote {
+      &::before {
+        content: '“';
+
+        // outside
+        // margin-top: -20px;
+
+        // top left corner
+        margin-top: 2.5px;
+        left: 10px;
+      }
+      &::after {
+        content: '”';
+
+        // outside
+        // margin-top: 10px;
+
+        // bottom right corner
+        margin-top: -15px;
+        right: 10px;
+      }
+    }
+  }
+}
+[lang="fr"] {
+  .rich-content {
+    blockquote {
+      &::before {
+        content: '«';
+
+        // outside
+        // margin-top: -35px;
+
+        // top left corner
+        margin-top: -10px;
+        left: 5px;
+      }
+      &::after {
+        content: '»';
+
+        // outside
+        // margin-top: -5px;
+
+        // bottom right corner
+        margin-top: -25px;
+        right: 5px;
+      }
+    }
   }
 }
 
