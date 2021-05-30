@@ -8,6 +8,7 @@
 {%- set piece = data.piece -%}
 {%- set hasHeroImage = apos.aemPieces.hasHeroImage(piece) -%}
 
+
 {% block title %}
   {{ piece.title }} | {{ __('global|title') }}
 {% endblock %}
@@ -47,6 +48,7 @@
           {%- endif -%}
           <div class="{{ pageContentClassList }}">
             {% block pageContent %}
+
               <h2 class="sr-only">Description</h2>
               <div class="description rich-description">
                 {{
