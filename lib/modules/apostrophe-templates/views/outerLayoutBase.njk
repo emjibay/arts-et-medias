@@ -26,11 +26,15 @@
 
   <body
     class="{{ data.aposBodyClasses }} {% block bodyClass %}{% endblock %}"
+
     {{ data.aposBodyDataAttributes | safe }}
+
     data-apos-workflow-mode="{{ apos.aemUtils.getWorkflowMode(data) }}"
+
     {%- if apos.aemUtils.isLocal(data) -%}
       data-localhost="true"
     {%- endif -%}
+
     {% block bodyAttributes %}{% endblock %}
   >
     {{ apos.templates.prepended('body') }}
