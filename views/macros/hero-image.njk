@@ -1,4 +1,10 @@
-{% macro heroImage(piece, hasCaption = false, isEditable = false) %}
+{#
+  @param {Apos piece} piece
+  @param {object} options
+    - hasCaption {boolean} defaults to false
+    - isEditable {boolean} defaults to false
+#}
+{% macro heroImage(piece, options) %}
   {%- if piece.isUsingRemoteImage -%}
     {# OPTION A #}
     <figure>
@@ -8,20 +14,22 @@
         alt="{{ piece.remoteImageAltText }}"
         loading="lazy"
       />
-      {%- if piece.remoteImageCredit -%}
+        {%- if piece.remoteImageCredit -%}
           {%- set captionText = piece.remoteImageCaption + '. © ' + piece.remoteImageCredit -%}
         {%- else -%}
           {%- set captionText = piece.remoteImageCaption -%}
         {%- endif -%}
-        <figcaption>
-          {{ captionText }}
-          {%- if piece.remoteImageSource -%}
-            <span class="remote-img-source"> (<a class="remote-img-source-link" href="{{ piece.remoteImageSource }}">Source</a>)</span>
-          {%- endif -%}
-        </figcaption>
+        {%- if options.hasCaption -%}
+          <figcaption>
+            {{ captionText }}
+            {%- if piece.remoteImageSource -%}
+              <span class="remote-img-source"> (<a class="remote-img-source-link" href="{{ piece.remoteImageSource }}">Source</a>)</span>
+            {%- endif -%}
+          </figcaption>
+        {%- endif -%}
     </figure>
 
-  {%- elseif isEditable -%}
+  {%- elseif options.isEditable -%}
     {# OPTION B #}
     {{
       apos.singleton(
@@ -52,7 +60,7 @@
           alt="{{ image.alt }}"
           loading="lazy"
         />
-        {%- if hasCaption and image.caption -%}
+        {%- if options.hasCaption and image.caption -%}
           {%- if image.credit -%}
             {%- set captionText = image.caption + '. © ' + image.credit -%}
           {%- else -%}

@@ -68,8 +68,10 @@
   {{
     heroImage(
       piece,
-      true,
-      apos.aemUtils.isDraftMode(data)
+      {
+        hasCaption: true,
+        isEditable: apos.aemUtils.isDraftMode(data)
+      }
     )
   }}
 
