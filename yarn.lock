@@ -1541,10 +1541,10 @@ apostrophe-rich-text-permalinks@^2.0.5:
   dependencies:
     lodash "^4.17.10"
 
-apostrophe-workflow@2.38.3:
-  version "2.38.3"
-  resolved "https://registry.yarnpkg.com/apostrophe-workflow/-/apostrophe-workflow-2.38.3.tgz#c6980a3a94274aa42745413f1416de9e15406de3"
-  integrity sha512-a+4SFC7n1D3DwFSidm/5gvak4cUoutVYuCM8SdtVzOh9s35GB0rzQ64kfgI7luI0vr0+QSva+pUWlDNW4Rlx8g==
+apostrophe-workflow@2.39.0:
+  version "2.39.0"
+  resolved "https://registry.yarnpkg.com/apostrophe-workflow/-/apostrophe-workflow-2.39.0.tgz#77a78c1822c223d85f86c79546825100958b1a09"
+  integrity sha512-es+dmPp0A5dWK6FFHG9cd9rZwCB3XKK3OeuN/Aj3k/l0tGuRLM4F0+yI2xt7SQ9g/ZFy3YN36W4V5dZGFAaDWA==
   dependencies:
     "@sailshq/lodash" "^3.10.3"
     async "^1.5.2"
@@ -1558,10 +1558,10 @@ apostrophe-workflow@2.38.3:
     qs "^6.9.4"
     request-promise "^4.2.6"
 
-apostrophe@2.119.0:
-  version "2.119.0"
-  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.119.0.tgz#920ef006d57b90c426e051765f7bbd29c3f6c66d"
-  integrity sha512-1Gaxc4f7frXUpY8+maMgHNzP8Zv/nYUK6JTo2UIeJUvgzHrriIMZ4etBwh/pqglhiX57Z7AkFTFTTMRFOPdWtw==
+apostrophe@2.220.0:
+  version "2.220.0"
+  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.220.0.tgz#884a308ca847e1ced14c635218100b3db69d316b"
+  integrity sha512-Zh4L1gi9kszSePRivhjjFOZAuh/VsYAl4AZsVi3lJOQcpBBAuEN9Euf9Y7ximv1vsuqBxlJJaIy2ywzuE7BLxQ==
   dependencies:
     "@apostrophecms/nunjucks" "^2.5.4"
     "@sailshq/lodash" "^3.10.4"
@@ -2559,10 +2559,10 @@ core-js-compat@^3.8.1, core-js-compat@^3.9.0:
     browserslist "^4.16.3"
     semver "7.0.0"
 
-core-js@3.13.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.13.0.tgz#58ca436bf01d6903aee3d364089868d0d89fe58d"
-  integrity sha512-iWDbiyha1M5vFwPFmQnvRv+tJzGbFAm6XimJUT0NgHYW3xZEs1SkCAcasWSVFxpI2Xb/V1DDJckq3v90+bQnog==
+core-js@3.13.1:
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.13.1.tgz#30303fabd53638892062d8b4e802cac7599e9fb7"
+  integrity sha512-JqveUc4igkqwStL2RTRn/EPFGBOfEZHxJl/8ej1mXJR75V3go2mFF4bmUYkEIT1rveHKnkUlcJX/c+f1TyIovQ==
 
 core-js@^1.1.1:
   version "1.2.7"
