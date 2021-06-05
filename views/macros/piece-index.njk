@@ -229,6 +229,8 @@
                 <p class="org-location">{{ piece.city }}, {{ localizedCountry }}</p>
               {%- endif -%}
 
+              {{ heroImage(piece) }}
+
               <div class="short-description">
                 {{ truncatedDescription(piece) }}
               </div>
