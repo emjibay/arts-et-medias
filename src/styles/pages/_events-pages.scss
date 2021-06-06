@@ -17,8 +17,20 @@
     .with-hero {}
   }
 
+  .subheading {
+    height: auto;
+    margin: 10px 0 0 0;
+
+    .piece-link-list {
+      height: auto;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+
   .event-info {
     @include ui.paragraph();
+    margin-bottom: 0;
 
     .piece-link-list {
       display: inline-block;
@@ -36,5 +48,4 @@
       font-size: vars.$fsSmol;
     }
   }
-
 }
