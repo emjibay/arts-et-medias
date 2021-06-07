@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Please answer the following questions. You can replace the example text.
+Please answer the following questions. You can replace the example text and remove these instructions when submitting.
 
 All information is mandatory unless marked otherwise. Incomplete information prevent us from adding new content, ensure to help us out.
 
@@ -16,28 +16,43 @@ Ensure that the artwork you suggest is related to the world of media art which p
 
 # Project/Artwork
 
+
 ## Name
+
 - Please enter the name of the artwork;
 - The name does not need to be translated if it is in another language. The translation should be in the description if needed/desired.
 
+
 ## Description
+
 - Provide a description of the artwork (formal, artistic intent, relation to other artworks, art movements, or subjects);
 - Optional: Provide who wrote this description (you, a curator, the artist, etc.).
 
+
 ## Short Description
+
 Provide a tweet-sized short text (~250 characters max) that appears when content is showcased on the site or shared on social media.
 
+
 ## Year Published
+
 The year when the artwork was published or created.
 
+
 ## Website (optional)
+
 Provide the full URL to the artwork.
 
+
 ## Picture (optional)
-- Provide an image of the artwork, ideally 1280px x 720px, cropped properly.
-- Ensure to provide the name of the photographer of the work.
+
+Provide an image of the artwork, ideally 1280px x 720px, cropped properly.
+
+Read the [instructions on how to prepare your images](https://github.com/emjibay/arts-et-medias/wiki/Images) for publication on *Arts & Médias*.
+
 
 ## Tags (optional)
+
 A list of subjects (e.g. "media art", "video installation", "electronics", etc) that can be helpful to define the artwork. This will also be quite helpful when people search the site for those subjects.
 
 
