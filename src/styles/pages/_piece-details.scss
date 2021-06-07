@@ -55,9 +55,9 @@
   }
 
   .subheading {
-    height: 45px;
-    font-size: vars.$fsTextBody;
     font-family: vars.$ffTextBody;
+    font-size: vars.$fsTextBody;
+    height: auto;
 
     .piece-original-title {
       margin: 10px 0;
@@ -73,6 +73,7 @@
     .piece-link-list {
       display: inline-block;
       height: 25px;
+      line-height: 1.5;
       margin: 5px 0 20px 0;
     }
   }
