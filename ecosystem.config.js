@@ -23,7 +23,7 @@ module.exports = {
       user: 'jansensan',
       host: 'arts-et-medias.net',
       ref: 'origin/master',
-      repo: `/jansensan/${ projectName }.git`,
+      repo: `/emjibay/${ projectName }.git`,
       path: deployPath,
       'post-deploy': 'NODE_ENV=production yarn --prod && pm2 reload ecosystem.config.js --env prod;',
       env: {
