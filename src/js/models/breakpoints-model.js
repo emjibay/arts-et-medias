@@ -21,25 +21,25 @@ export function getCurrent() {
 export function getCurrentColumnWidth() {
   let width = -1;
   switch (currentBreakpoint) {
-  case Breakpoint.PHONE:
-    width = ColumnWidth.XS;
-    break;
+    case Breakpoint.PHONE:
+      width = ColumnWidth.XS;
+      break;
 
-  case Breakpoint.TABLET:
-    width = ColumnWidth.SM;
-    break;
+    case Breakpoint.TABLET:
+      width = ColumnWidth.SM;
+      break;
 
-  case Breakpoint.DESKTOP:
-    width = ColumnWidth.MD;
-    break;
+    case Breakpoint.DESKTOP:
+      width = ColumnWidth.MD;
+      break;
 
-  case Breakpoint.XL:
-    width = ColumnWidth.XL;
-    break;
+    case Breakpoint.XL:
+      width = ColumnWidth.XL;
+      break;
 
-  case Breakpoint.XXL:
-    width = ColumnWidth.XXL;
-    break;
+    case Breakpoint.XXL:
+      width = ColumnWidth.XXL;
+      break;
   }
   return width;
 }
@@ -47,25 +47,25 @@ export function getCurrentColumnWidth() {
 export function getCurrentGutterWidth() {
   let width = -1;
   switch (currentBreakpoint) {
-  case Breakpoint.PHONE:
-    width = GutterWidth.XS;
-    break;
+    case Breakpoint.PHONE:
+      width = GutterWidth.XS;
+      break;
 
-  case Breakpoint.TABLET:
-    width = GutterWidth.SM;
-    break;
+    case Breakpoint.TABLET:
+      width = GutterWidth.SM;
+      break;
 
-  case Breakpoint.DESKTOP:
-    width = GutterWidth.MD;
-    break;
+    case Breakpoint.DESKTOP:
+      width = GutterWidth.MD;
+      break;
 
-  case Breakpoint.XL:
-    width = GutterWidth.XL;
-    break;
+    case Breakpoint.XL:
+      width = GutterWidth.XL;
+      break;
 
-  case Breakpoint.XXL:
-    width = GutterWidth.XXL;
-    break;
+    case Breakpoint.XXL:
+      width = GutterWidth.XXL;
+      break;
   }
   return width;
 }
