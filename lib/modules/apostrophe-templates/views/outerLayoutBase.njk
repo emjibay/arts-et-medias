@@ -31,9 +31,7 @@
 
     data-apos-workflow-mode="{{ apos.aemUtils.getWorkflowMode(data) }}"
 
-    {%- if apos.aemUtils.isLocal(data) -%}
-      data-localhost="true"
-    {%- endif -%}
+    {% if apos.aemUtils.isLocal(data) %}data-localhost="true"{% endif %}
 
     {% block bodyAttributes %}{% endblock %}
   >
