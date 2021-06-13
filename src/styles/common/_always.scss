@@ -4,7 +4,7 @@
 @use '../mixins/mixins' as mx;
 
 
-// dom elements
+// global dom elements
 body {
   background-color: vars.$almostWhite;
   font-size: 0 !important;
@@ -114,6 +114,30 @@ main {
 
   &.no-mb {
     margin-bottom: 0
+  }
+}
+
+
+// images
+.remote-image-container {
+  position: relative;
+}
+
+.external-link-icon {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+[data-apos-workflow-mode="draft"] {
+  .external-link-icon {
+    color: vars.$main;
+    display: inline-block;
+    height: 15px;
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    width: 15px;
   }
 }
 

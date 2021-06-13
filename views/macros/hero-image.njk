@@ -7,27 +7,32 @@
 {% macro heroImage(piece, options) %}
   {%- if piece.isUsingRemoteImage -%}
     {# OPTION A #}
-    <figure>
-      <img
-        class="hero-image"
-        src="{{ piece.remoteImageLocation }}"
-        alt="{{ piece.remoteImageAltText }}"
-        loading="lazy"
-      />
-        {%- if piece.remoteImageCredit -%}
-          {%- set captionText = piece.remoteImageCaption + '. © ' + piece.remoteImageCredit -%}
-        {%- else -%}
-          {%- set captionText = piece.remoteImageCaption -%}
-        {%- endif -%}
-        {%- if options.hasCaption -%}
-          <figcaption>
-            {{ captionText }}
-            {%- if piece.remoteImageSource -%}
-              <span class="remote-img-source"> (<a class="remote-img-source-link" href="{{ piece.remoteImageSource }}">Source</a>)</span>
-            {%- endif -%}
-          </figcaption>
-        {%- endif -%}
-    </figure>
+    <div class="remote-image-container">
+      <figure>
+        <img
+          class="hero-image"
+          src="{{ piece.remoteImageLocation }}"
+          alt="{{ piece.remoteImageAltText }}"
+          loading="lazy"
+        />
+          {%- if piece.remoteImageCredit -%}
+            {%- set captionText = piece.remoteImageCaption + '. © ' + piece.remoteImageCredit -%}
+          {%- else -%}
+            {%- set captionText = piece.remoteImageCaption -%}
+          {%- endif -%}
+          {%- if options.hasCaption -%}
+            <figcaption>
+              {{ captionText }}
+              {%- if piece.remoteImageSource -%}
+                <span class="remote-img-source"> (<a class="remote-img-source-link" href="{{ piece.remoteImageSource }}">Source</a>)</span>
+              {%- endif -%}
+            </figcaption>
+          {%- endif -%}
+      </figure>
+      <div class="external-link-icon">
+        {% include "/svg/icon-external-link.svg" %}
+      </div>
+    </div>
 
   {%- elseif options.isEditable -%}
     {# OPTION B #}

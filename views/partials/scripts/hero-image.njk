@@ -38,6 +38,11 @@
     }
 
     var figure = imageNode.parentNode;
+    if (!figure) {
+      return;
+    }
+
+    var imageContainer = figure.parentNode;
 
     if (figure) {
       // change ".page-content .with-hero" to ".page-content .without-hero"
@@ -47,8 +52,8 @@
         pageContent.classList.add('without-hero');
       }
 
-      // remove <figure>
-      figure.remove();
+      // remove image container
+      imageContainer.remove();
     }
   }
 
