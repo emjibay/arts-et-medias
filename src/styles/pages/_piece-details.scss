@@ -83,6 +83,12 @@
 
     &.with-hero {
       margin-top: 40px;
+
+      .remote-image-container {
+        .external-link-icon {
+          top: 5px;
+        }
+      }
     }
 
     &.without-hero {
@@ -94,7 +100,7 @@
     @include imageDimensions();
   }
 
-
+  // TODO: use class name, not DOM element
   figcaption {
     color: vars.$darkGrey;
     font-family: vars.$ffSerif;
