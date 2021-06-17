@@ -694,8 +694,8 @@
     "passwordPlaceholder": "Inscrivez votre mot de passe",
     "submitButtonLabel": "Se connecter",
     "contributionHeading": "Vous souhaitez contribuer ?",
-    "contributionParagraph": "Arts & Médias a l'objectif ambitieux d'être une référence pour tout ce qui touche aux arts médiatiques et à l'art d'installation. Cependant, cela n'est pas possible sans aide.",
-    "contributionCTA": "Veuillez considérer nous aider."
+    "contributionParagraph": "Arts & Médias a l'objectif ambitieux de référencer tout ce qui touche aux arts médiatiques. Cependant, cela n'est pas possible sans aide.",
+    "contributionCTA": "Contribuer"
   },
   "notFound": {
     "heading": "Page introuvable",
