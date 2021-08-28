@@ -94,7 +94,7 @@
   {%- endif -%}
 
   {% for event in eventBlocks %}
-    {%- if loop.index <= maxBlocks -%}
+    {%- if loop.index <= (maxBlocks + 1) -%}
       {%- set eventClassList = "latest-pieces" -%}
 
       {%- if hasFeaturedEvent -%}
