@@ -145,14 +145,12 @@
   font-style: normal;
   font-weight: normal;
   line-height: 40px;
-  height: 40px;
   padding: 0 20px;
   text-align: center;
   text-decoration: none;
 
   @media #{ vars.$mqDesktop } {
     font-size: vars.$fsVerySmol;
-    height: 35px;
     line-height: 35px;
   }
 
@@ -268,7 +266,6 @@
   font-family: vars.$ffTextBody;
   font-size: 10pt;
   font-weight: normal;
-  height: 35px;
   line-height: 1;
   padding: 0 10px;
 
