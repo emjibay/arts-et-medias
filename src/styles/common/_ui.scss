@@ -135,22 +135,25 @@
   // should be applicable to both <button> and <a>
   // and provide the exact same visual behaviour
 
-  display: inline-block;
   background-color: vars.$black;
   border: 2px solid transparent;
   color: vars.$almostWhite;
   cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  padding: 0 20px;
+
   font-family: vars.$ffButtonLabel;
   font-size: vars.$fsSmol;
   font-style: normal;
   font-weight: normal;
   line-height: 40px;
-  padding: 0 20px;
   text-align: center;
   text-decoration: none;
 
   @media #{ vars.$mqDesktop } {
     font-size: vars.$fsVerySmol;
+    height: 35px;
     line-height: 35px;
   }
 
@@ -258,16 +261,19 @@
 
 @mixin textInput {
   display: inline-block;
+
   -webkit-appearance: none;
   background-color: vars.$almostWhite;
   border-radius: 0;
   border: 1px solid vars.$black;
+  height: 35px;
+  padding: 0 10px;
+
   color: vars.$black;
   font-family: vars.$ffTextBody;
   font-size: 10pt;
   font-weight: normal;
-  line-height: 1;
-  padding: 0 10px;
+  line-height: 35px;
 
   &:focus {
     @include focusOutline();
