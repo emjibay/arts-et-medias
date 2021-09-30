@@ -287,7 +287,7 @@ function hideMenu() {
 
 function setFocusableElements() {
   const currentSection = document.getElementById(currentContentId);
-  const focusable = currentSection.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  const focusable = currentSection.querySelectorAll('a, button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
   firstElement = focusable[0];
   lastElement = focusable[focusable.length - 1];
 }
