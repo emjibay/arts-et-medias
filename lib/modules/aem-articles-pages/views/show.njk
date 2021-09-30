@@ -88,6 +88,12 @@
     {%- endif -%}
 
     <p class="publication-date">{{ apos.aemDates.format(piece.publicationDate, locale) }}</p>
+
+    {%- if piece.isSponsored -%}
+      <div class="sponsored-tag">
+        <div class="tag">{{ __('articles|sponsored') }}</div>
+      </div>
+    {%- endif -%}
   </div>
 {% endblock %}
 
@@ -131,7 +137,8 @@
         externalCTA({
           label: __('articles|readFullArticle'),
           ariaLabel: __('articles|readFullArticle') + ' - ' + piece.title,
-          url: piece.externalLink
+          url: piece.externalLink,
+          isSponsored: piece.isSponsored
         })
       }}
       <p class="mention-notes">{{ __('articles|notOriginallyPublishedHere') }}</p>

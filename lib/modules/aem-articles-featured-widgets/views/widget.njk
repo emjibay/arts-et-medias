@@ -5,12 +5,13 @@
 
 
 {%- if data.widget._pieces -%}
-  {%- if data.widget.isSponsored -%}
+  {%- set piece = data.widget._pieces[0] -%}
+
+  {%- if data.widget.isSponsored or piece.isSponsored-%}
     {%- set label = __('articles|sponsored') -%}
   {%- else -%}
     {%- set label = __('articles|featured') -%}
   {%- endif -%}
 
-  {%- set piece = data.widget._pieces[0] -%}
   {{ featuredArticle(piece, label, locale) }}
 {%- endif -%}

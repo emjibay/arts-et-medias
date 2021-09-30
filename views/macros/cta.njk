@@ -50,9 +50,14 @@
   <a
     class="website-cta"
     href="{{ options.url }}"
-    {%- if options.ariaLabel -%}
+    target="_blank"
+    {% if options.isSponsored -%}
+    rel="nofollow noreferrer noopener"
+    {%- else -%}
+    rel="noreferrer noopener"
+    {%- endif %}
+    {% if options.ariaLabel -%}
     aria-label="{{ options.ariaLabel }}"
-    {%- endif -%}
-    rel="noopener"
+    {%- endif %}
   >{{ options.label }}</a>
 {% endmacro %}

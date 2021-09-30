@@ -139,6 +139,14 @@
       }
 
       .article-card {
+        .sponsored-tag {
+          margin-top: 10px;
+
+          .tag {
+            margin-top: 0;
+          }
+        }
+
         .hero-image {
           @include img.heroImageDimensions(6, 0.375);
 
@@ -150,6 +158,7 @@
             @include img.heroImageDimensions(3, 0.5);
           }
         }
+
         .short-description {
           font-size: vars.$fsSmol;
         }

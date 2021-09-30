@@ -83,6 +83,12 @@
                 <span class="article-publication-date">{{ publicationDate }}</span>
               </div>
 
+              {%- if piece.isSponsored -%}
+                <div class="sponsored-tag">
+                  <div class="tag">{{ __('articles|sponsored') }}</div>
+                </div>
+              {%- endif -%}
+
               {{ heroImage(piece) }}
 
               <p class="short-description">

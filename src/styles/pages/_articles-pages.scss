@@ -8,12 +8,21 @@
       @include ui.heading4();
       margin: 0;
     }
+
+    .sponsored-tag {
+      margin-top: 10px;
+
+      .tag {
+        margin-top: 0;
+      }
+    }
   }
 }
 
 .article-details {
   .subheading {
     margin: 10px 0 0 0;
+    position: relative;
 
     .piece-link-list {
       height: auto;
@@ -24,6 +33,17 @@
     .publication-date {
       margin: 0;
       line-height: 1.5;
+    }
+
+    .sponsored-tag {
+      margin-top: 10px;
+
+      @media #{ vars.$mqTablet } {
+        margin-top: unset;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
     }
   }
 
