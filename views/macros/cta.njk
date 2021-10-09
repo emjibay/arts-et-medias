@@ -52,9 +52,9 @@
     href="{{ options.url }}"
     target="_blank"
     {% if options.isSponsored -%}
-    rel="nofollow noreferrer noopener"
+    rel="sponsored noopener"
     {%- else -%}
-    rel="noreferrer noopener"
+    rel="noopener"
     {%- endif %}
     {% if options.ariaLabel -%}
     aria-label="{{ options.ariaLabel }}"
