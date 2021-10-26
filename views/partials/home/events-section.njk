@@ -7,10 +7,18 @@
 {%- set hasFeaturedEvent = apos.aemPieces.hasFeaturedEvent(data) -%}
 {%- set numEventPreviews = 2 -%}
 
+
 {# festivals #}
 {%-
-  set ongoingAndFutureFestivals = apos.aemPieces.getFirstNWithTags(
-    data.ongoingAndFutureEvents,
+  set ongoingFestivals = apos.aemPieces.getFirstNWithTags(
+    data.ongoingEvents,
+    numEventPreviews,
+    __('events|categories|festivals|tags')
+  )
+-%}
+{%-
+  set futureFestivals = apos.aemPieces.getFirstNWithTags(
+    data.futureEvents,
     numEventPreviews,
     __('events|categories|festivals|tags')
   )
@@ -18,8 +26,15 @@
 
 {# exhibits #}
 {%-
-  set ongoingAndFutureExhibits = apos.aemPieces.getFirstNWithTags(
-    data.ongoingAndFutureEvents,
+  set ongoingExhibits = apos.aemPieces.getFirstNWithTags(
+    data.ongoingEvents,
+    numEventPreviews,
+    __('events|categories|exhibits|tags')
+  )
+-%}
+{%-
+  set futureExhibits = apos.aemPieces.getFirstNWithTags(
+    data.futureEvents,
     numEventPreviews,
     __('events|categories|exhibits|tags')
   )
@@ -27,8 +42,15 @@
 
 {# conferences #}
 {%-
-  set ongoingAndFutureConferences = apos.aemPieces.getFirstNWithTags(
-    data.ongoingAndFutureEvents,
+  set ongoingConferences = apos.aemPieces.getFirstNWithTags(
+    data.ongoingEvents,
+    numEventPreviews,
+    __('events|categories|conferences|tags')
+  )
+-%}
+{%-
+  set futureConferences = apos.aemPieces.getFirstNWithTags(
+    data.futureEvents,
     numEventPreviews,
     __('events|categories|conferences|tags')
   )
@@ -36,39 +58,65 @@
 
 {# workshops #}
 {%-
-  set ongoingAndFutureWorkshops = apos.aemPieces.getFirstNWithTags(
-    data.ongoingAndFutureEvents,
+  set ongoingWorkshops = apos.aemPieces.getFirstNWithTags(
+    data.ongoingEvents,
+    numEventPreviews,
+    __('events|categories|workshops|tags')
+  )
+-%}
+{%-
+  set futureWorkshops = apos.aemPieces.getFirstNWithTags(
+    data.futureEvents,
     numEventPreviews,
     __('events|categories|workshops|tags')
   )
 -%}
 
+
 {%-
-  set eventBlocks = apos.aemEvents.filterNextEventBlocks(
+  set eventBlocks = [
     [
       {
-        heading: __('events|categories|festivals|nextOrOngoing'),
-        pieces: ongoingAndFutureFestivals
+        heading: __('events|categories|festivals|ongoing'),
+        pieces: ongoingFestivals
       },
       {
-        heading: __('events|categories|exhibits|nextOrOngoing'),
-        pieces: ongoingAndFutureExhibits
-      },
-      {
-        heading: __('events|categories|conferences|nextOrOngoing'),
-        pieces: ongoingAndFutureConferences
-      },
-      {
-        heading: __('events|categories|workshops|nextOrOngoing'),
-        pieces: ongoingAndFutureWorkshops
+        heading: __('events|categories|festivals|next'),
+        pieces: futureFestivals
       }
     ],
-    numEventPreviews
-  )
+    [
+      {
+        heading: __('events|categories|exhibits|ongoing'),
+        pieces: ongoingExhibits
+      },
+      {
+        heading: __('events|categories|exhibits|next'),
+        pieces: futureExhibits
+      }
+    ],
+    [
+      {
+        heading: __('events|categories|conferences|ongoing'),
+        pieces: ongoingConferences
+      },
+      {
+        heading: __('events|categories|conferences|next'),
+        pieces: futureConferences
+      }
+    ],
+    [
+      {
+        heading: __('events|categories|workshops|ongoing'),
+        pieces: ongoingWorkshops
+      },
+      {
+        heading: __('events|categories|workshops|next'),
+        pieces: futureWorkshops
+      }
+    ]
+  ]
 -%}
-
-{%- set maxBlocks = eventBlocks|length -%}
-{%- set hasEvenBlocks = maxBlocks % 2 === 0 -%}
 
 
 <section class="events-section">
@@ -77,44 +125,47 @@
     {{ seeAllOfTypeCTA('events') }}
   </div>
 
+  {#- TODO: revisit feature event module -#}
+  {#-
   {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
     <div class="featured-piece">
       {% include "partials/events/featured.njk" %}
     </div>
-
-    {%- if hasEvenBlocks -%}
-      {%- set maxBlocks = maxBlocks - 1 -%}
-      {%- set hasEvenBlocks = false -%}
-    {%- endif -%}
-  {%- else -%}
-    {%- if not hasEvenBlocks -%}
-      {%- set maxBlocks = maxBlocks - 1 -%}
-      {%- set hasEvenBlocks = false -%}
-    {%- endif -%}
   {%- endif -%}
+  -#}
 
-  {% for event in eventBlocks %}
-    {%- if loop.index <= (maxBlocks + 1) -%}
-      {%- set eventClassList = "latest-pieces" -%}
+  {% for events in eventBlocks %}
+    {%- set ongoingEvents = events[0] -%}
+    {%- set numOngoingEvents = ongoingEvents.pieces|length -%}
+    {%- set futureEvents = events[1] -%}
+    {%- set numFutureEvents = futureEvents.pieces|length -%}
 
-      {%- if hasFeaturedEvent -%}
-        {%- if loop.index % 2 === 0 -%}
-          {%- set eventClassList = "latest-pieces sans-feature" -%}
+    {%- if numOngoingEvents or numFutureEvents -%}
+      <div>
+        {# TODO: revisit class name to not be associated with featured piece #}
+        {%- set eventClassList = "latest-pieces sans-feature" -%}
+
+        {%- if numOngoingEvents -%}
+          <div class="{{ eventClassList }}">
+            <h3 class="latest-pieces-heading">
+              {{ ongoingEvents.heading }}
+            </h3>
+            {{ eventList(ongoingEvents.pieces, locale) }}
+          </div>
+          {%- set eventClassList = "latest-pieces" -%}
         {%- endif -%}
-      {%- else -%}
-        {%- if loop.index % 2 !== 0 -%}
-          {%- set eventClassList = "latest-pieces sans-feature" -%}
-        {%- endif -%}
-      {%- endif -%}
 
-      <div class="{{ eventClassList }}">
-        <h3 class="latest-pieces-heading">
-          {{ event.heading }}
-        </h3>
-        {{ eventList(event.pieces, locale) }}
+        {%- if numFutureEvents -%}
+          <div class="{{ eventClassList }}">
+            <h3 class="latest-pieces-heading">
+              {{ futureEvents.heading }}
+            </h3>
+            {{ eventList(futureEvents.pieces, locale) }}
+          </div>
+        {%- endif -%}
       </div>
     {%- endif -%}
-  {% endfor %}
+  {%- endfor -%}
 
   {% include "partials/home/mobile-banner-2.njk" %}
 
