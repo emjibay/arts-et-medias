@@ -9,9 +9,10 @@
 
 
 {# festivals #}
+{%- set ongoingFestivals = apos.aemEvents.sortByWhichEndsFirst(data.ongoingEvents) -%}
 {%-
   set ongoingFestivals = apos.aemPieces.getFirstNWithTags(
-    data.ongoingEvents,
+    ongoingFestivals,
     numEventPreviews,
     __('events|categories|festivals|tags')
   )
@@ -25,9 +26,10 @@
 -%}
 
 {# exhibits #}
+{%- set ongoingExhibits = apos.aemEvents.sortByWhichEndsFirst(data.ongoingEvents) -%}
 {%-
   set ongoingExhibits = apos.aemPieces.getFirstNWithTags(
-    data.ongoingEvents,
+    ongoingExhibits,
     numEventPreviews,
     __('events|categories|exhibits|tags')
   )
@@ -41,9 +43,10 @@
 -%}
 
 {# conferences #}
+{%- set ongoingConferences = apos.aemEvents.sortByWhichEndsFirst(data.ongoingEvents) -%}
 {%-
   set ongoingConferences = apos.aemPieces.getFirstNWithTags(
-    data.ongoingEvents,
+    ongoingConferences,
     numEventPreviews,
     __('events|categories|conferences|tags')
   )
@@ -57,9 +60,10 @@
 -%}
 
 {# workshops #}
+{%- set ongoingWorkshops = apos.aemEvents.sortByWhichEndsFirst(data.ongoingEvents) -%}
 {%-
   set ongoingWorkshops = apos.aemPieces.getFirstNWithTags(
-    data.ongoingEvents,
+    ongoingWorkshops,
     numEventPreviews,
     __('events|categories|workshops|tags')
   )
