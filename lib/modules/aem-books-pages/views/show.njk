@@ -68,16 +68,18 @@
             {%- endif -%}
           </h1>
 
-          <div class="subheading">
-            <h2 class="sr-only">{{ __('pieceDetails|authorsLabel') }}</h2>
-            {{
-              authorsLinkList(
-                piece._author,
-                piece._editor,
-                editorAbbreviation
-              )
-            }}
-          </div>
+          {%- if piece._author|length or piece._editor|length -%}
+            <div class="subheading">
+              <h2 class="sr-only">{{ __('pieceDetails|authorsLabel') }}</h2>
+              {{
+                authorsLinkList(
+                  piece._author,
+                  piece._editor,
+                  editorAbbreviation
+                )
+              }}
+            </div>
+          {%- endif -%}
 
           <div class="page-content">
             {% block pageContent %}
