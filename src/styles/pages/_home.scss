@@ -297,6 +297,41 @@
     @include endOfSectionCTA();
   }
 
+  .events-section {
+    .latest-pieces[data-num-events="2"] {
+      @include mx.nColumnWidth(6);
+    }
+
+    .latest-pieces[data-num-events="1"] {
+      @include mx.nColumnWidth(3);
+    }
+
+    .latest-pieces {
+      &[data-first-of-row-xs="true"] {
+        margin-left: 0;
+      }
+
+      &[data-first-of-row-xs="false"] {
+        @include mx.gutterLeftMargin();
+      }
+
+      @media #{ vars.$mqTablet } {
+        &[data-first-of-row-xs="true"],
+        &[data-first-of-row-xs="false"] {
+          margin-left: unset;
+        }
+
+        &[data-first-of-row-md="true"] {
+          margin-left: 0;
+        }
+
+        &[data-first-of-row-md="false"] {
+          @include mx.gutterLeftMargin();
+        }
+      }
+    }
+  }
+
   .books-section {
     .featured-piece {
       .image-content {

@@ -129,7 +129,7 @@
     {{ seeAllOfTypeCTA('events') }}
   </div>
 
-  {#- TODO: revisit feature event module -#}
+  {#- TODO: revisit featured event module -#}
   {#-
   {%- if apos.aemPieces.hasFeaturedEvent(data) -%}
     <div class="featured-piece">
@@ -138,6 +138,8 @@
   {%- endif -%}
   -#}
 
+  {%- set eventCount = 0 -%}
+
   {% for events in eventBlocks %}
     {%- set ongoingEvents = events[0] -%}
     {%- set numOngoingEvents = ongoingEvents.pieces|length -%}
@@ -145,29 +147,39 @@
     {%- set numFutureEvents = futureEvents.pieces|length -%}
 
     {%- if numOngoingEvents or numFutureEvents -%}
-      <div>
-        {# TODO: revisit class name to not be associated with featured piece #}
-        {%- set eventClassList = "latest-pieces sans-feature" -%}
+      {# TODO: revisit class name to not be associated with featured piece #}
+      {%- set eventClassList = "latest-pieces sans-feature" -%}
 
-        {%- if numOngoingEvents -%}
-          <div class="{{ eventClassList }}">
-            <h3 class="latest-pieces-heading">
-              {{ ongoingEvents.heading }}
-            </h3>
-            {{ eventList(ongoingEvents.pieces, locale) }}
-          </div>
-          {%- set eventClassList = "latest-pieces" -%}
-        {%- endif -%}
+      {%- if numOngoingEvents -%}
+        <div
+          class="{{ eventClassList }}"
+          data-num-events="{{ numOngoingEvents }}"
+          data-first-of-row-xs="{{ eventCount % 2 == 0 }}"
+          data-first-of-row-md="{{ eventCount % 4 == 0 }}"
+        >
+          <h3 class="latest-pieces-heading">
+            {{ ongoingEvents.heading }}
+          </h3>
+          {{ eventList(ongoingEvents.pieces, locale) }}
+        </div>
+        {%- set eventClassList = "latest-pieces" -%}
+        {%- set eventCount = eventCount + numOngoingEvents -%}
+      {%- endif -%}
 
-        {%- if numFutureEvents -%}
-          <div class="{{ eventClassList }}">
-            <h3 class="latest-pieces-heading">
-              {{ futureEvents.heading }}
-            </h3>
-            {{ eventList(futureEvents.pieces, locale) }}
-          </div>
-        {%- endif -%}
-      </div>
+      {%- if numFutureEvents -%}
+        <div
+          class="{{ eventClassList }}"
+          data-num-events="{{ numFutureEvents }}"
+          data-first-of-row-xs="{{ eventCount % 2 == 0 }}"
+          data-first-of-row-md="{{ eventCount % 4 == 0 }}"
+        >
+          <h3 class="latest-pieces-heading">
+            {{ futureEvents.heading }}
+          </h3>
+          {{ eventList(futureEvents.pieces, locale) }}
+        </div>
+        {%- set eventCount = eventCount + numFutureEvents -%}
+      {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
 
