@@ -113,7 +113,7 @@
         @include mx.nColumnWidth(9);
       }
 
-      .latest-pieces-heading {
+      .latest-pieces-heading[data-has-featured-article="true"] {
         margin-top: 50px;
       }
 

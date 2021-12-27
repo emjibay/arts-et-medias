@@ -1,6 +1,10 @@
 {%- from 'macros/banner-ad.njk' import containedSidebarBanners -%}
 
 
+{%- set hasFeaturedArticle = apos.aemPieces.hasFeaturedArticle(data) -%}
+{%- set isDraftMode = apos.aemUtils.isDraftMode(data) -%}
+
+
 <aside class="sidebar">
   <article>
     {{
@@ -12,7 +16,7 @@
       })
     }}
 
-    {%- if apos.aemPieces.hasFeaturedArticle(data) or apos.aemUtils.isDraftMode(data) -%}
+    {%- if hasFeaturedArticle or isDraftMode -%}
       {% include "partials/articles/featured.njk" %}
       <hr class="separator no-mb" />
     {%- endif -%}

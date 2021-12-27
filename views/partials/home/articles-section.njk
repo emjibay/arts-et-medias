@@ -2,6 +2,10 @@
 {%- from 'macros/piece-index.njk' import articleList -%}
 
 
+{%- set hasFeaturedArticle = apos.aemPieces.hasFeaturedArticle(data) -%}
+{%- set isDraftMode = apos.aemUtils.isDraftMode(data) -%}
+
+
 <section class="articles-section">
   <div class="section-heading">
     <h2 class="h2">{{ __('home|newsHeading') }}</h2>
@@ -9,16 +13,27 @@
   </div>
 
   <div class="articles-section-content">
-    <div class="featured-article">
-      {% include "partials/articles/featured.njk" %}
-    </div>
+    {%- if hasFeaturedArticle or isDraftMode -%}
+      <div class="featured-article">
+        {% include "partials/articles/featured.njk" %}
+      </div>
+    {%- endif -%}
 
     {% include "partials/home/tablet-banners.njk" %}
 
     <div class="recently-added-articles">
-      <h3 class="latest-pieces-heading">
+
+      <h3
+        class="latest-pieces-heading"
+        {%- if hasFeaturedArticle or isDraftMode -%}
+        data-has-featured-article="true"
+        {%- else -%}
+        data-has-featured-article="false"
+        {%- endif -%}
+      >
         {{ __('articles|recentlyAdded') }}
       </h3>
+
       {%-
         set recentArticles = apos.aemPieces.getFirstN(
           data.articlesByMostRecent,
