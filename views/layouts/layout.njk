@@ -31,9 +31,16 @@
   {% include "partials/footer.njk" %}
 {% endblock %}
 
-{% block extraBody %}
+{% block extraHead %}
   {%- if apos.aemUtils.includeAnalytics(data) -%}
-    <script src="//collect.privacystats.com/js/ps.js" type="text/javascript"></script>
-    <script src="//collect.privacystats.com/collect/?privacystats_c=2702b111-d593-4b04-a518-727c9556ef47" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D00K3M87FX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-D00K3M87FX');
+    </script>
   {%- endif -%}
 {% endblock %}
