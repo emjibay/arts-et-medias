@@ -138,7 +138,12 @@
   {%- endif -%}
   -#}
 
-  {%- set eventCount = 0 -%}
+  {%- set blockCount = 0 -%}
+
+  {%- set rowCountXS = 0 -%}
+  {%- set rowCountMD = 0 -%}
+  {%- set maxEventPerRowXS = 2 -%}
+  {%- set maxEventPerRowMD = 4 -%}
 
   {% for events in eventBlocks %}
     {%- set ongoingEvents = events[0] -%}
@@ -151,34 +156,53 @@
       {%- set eventClassList = "latest-pieces sans-feature" -%}
 
       {%- if numOngoingEvents -%}
+        {%- if (rowCountXS + numOngoingEvents) >= maxEventPerRowXS -%}
+          {%- set rowCountXS = 0 -%}
+        {%- endif -%}
+
+        {%- if (rowCountMD + numOngoingEvents) >= maxEventPerRowMD -%}
+          {%- set rowCountMD = 0 -%}
+        {%- endif -%}
+
         <div
           class="{{ eventClassList }}"
           data-num-events="{{ numOngoingEvents }}"
-          data-first-of-row-xs="{{ eventCount % 2 == 0 }}"
-          data-first-of-row-md="{{ eventCount % 4 == 0 }}"
+          data-first-of-row-xs="{{ rowCountXS == 0 }}"
+          data-first-of-row-md="{{ rowCountMD == 0 }}"
         >
           <h3 class="latest-pieces-heading">
             {{ ongoingEvents.heading }}
           </h3>
           {{ eventList(ongoingEvents.pieces, locale) }}
         </div>
+
         {%- set eventClassList = "latest-pieces" -%}
-        {%- set eventCount = eventCount + numOngoingEvents -%}
+        {%- set rowCountXS = rowCountXS + numOngoingEvents -%}
+        {%- set rowCountMD = rowCountMD + numOngoingEvents -%}
       {%- endif -%}
 
       {%- if numFutureEvents -%}
+        {%- if (rowCountXS + numFutureEvents) >= maxEventPerRowXS-%}
+          {%- set rowCountXS = 0 -%}
+        {%- endif -%}
+
+        {%- if (rowCountMD + numFutureEvents) >= maxEventPerRowMD -%}
+          {%- set rowCountMD = 0 -%}
+        {%- endif -%}
+
         <div
           class="{{ eventClassList }}"
           data-num-events="{{ numFutureEvents }}"
-          data-first-of-row-xs="{{ eventCount % 2 == 0 }}"
-          data-first-of-row-md="{{ eventCount % 4 == 0 }}"
+          data-first-of-row-xs="{{ rowCountXS == 0 }}"
+          data-first-of-row-md="{{ rowCountMD == 0 }}"
         >
           <h3 class="latest-pieces-heading">
             {{ futureEvents.heading }}
           </h3>
           {{ eventList(futureEvents.pieces, locale) }}
         </div>
-        {%- set eventCount = eventCount + numFutureEvents -%}
+        {%- set rowCountXS = rowCountXS + numFutureEvents -%}
+        {%- set rowCountMD = rowCountMD + numFutureEvents -%}
       {%- endif -%}
     {%- endif -%}
   {%- endfor -%}

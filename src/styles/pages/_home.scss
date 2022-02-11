@@ -317,7 +317,7 @@
 
       @media #{ vars.$mqTablet } {
         &[data-first-of-row-xs="true"],
-        &[data-first-of-row-xs="false"] {
+        &[data-first-of-row-md="false"] {
           margin-left: unset;
         }
 
