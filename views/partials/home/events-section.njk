@@ -156,11 +156,11 @@
       {%- set eventClassList = "latest-pieces sans-feature" -%}
 
       {%- if numOngoingEvents -%}
-        {%- if (rowCountXS + numOngoingEvents) >= maxEventPerRowXS -%}
+        {%- if (rowCountXS + numOngoingEvents) > maxEventPerRowXS -%}
           {%- set rowCountXS = 0 -%}
         {%- endif -%}
 
-        {%- if (rowCountMD + numOngoingEvents) >= maxEventPerRowMD -%}
+        {%- if (rowCountMD + numOngoingEvents) > maxEventPerRowMD -%}
           {%- set rowCountMD = 0 -%}
         {%- endif -%}
 
@@ -182,11 +182,11 @@
       {%- endif -%}
 
       {%- if numFutureEvents -%}
-        {%- if (rowCountXS + numFutureEvents) >= maxEventPerRowXS-%}
+        {%- if (rowCountXS + numFutureEvents) > maxEventPerRowXS-%}
           {%- set rowCountXS = 0 -%}
         {%- endif -%}
 
-        {%- if (rowCountMD + numFutureEvents) >= maxEventPerRowMD -%}
+        {%- if (rowCountMD + numFutureEvents) > maxEventPerRowMD -%}
           {%- set rowCountMD = 0 -%}
         {%- endif -%}
 
