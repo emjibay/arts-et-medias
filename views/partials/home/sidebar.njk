@@ -44,11 +44,4 @@
       <div class="message">{{ __('global|twitterRemovedLabel') }}</div>
     </div>
   {%- endif -%}
-
-  {%- set bannerMacroOptions = { data: data, propName: 'homeBannerAds' } -%}
-  {%- set isHelpVisible = apos.aemBannerAds.determineHelpVisibility(bannerMacroOptions) -%}
-  {%- if isHelpVisible -%}
-    <hr class="separator" />
-    {% include "partials/sidebar/help-cta.njk" %}
-  {%- endif -%}
 </aside>
