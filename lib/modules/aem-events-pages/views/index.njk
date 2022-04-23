@@ -49,6 +49,9 @@
       data.currentPage
     )
   -%}
+  {%- set numFilteredPieces = filteredPieces|length -%}
+  {%- set numPiecesPerPage = 10 -%}
+  {%- set numPages = (numFilteredPieces / numPiecesPerPage) | round(0, "ceil") -%}
 
   {%- if piecesOnPage|length -%}
     {{ eventList(piecesOnPage, locale) }}
@@ -58,7 +61,7 @@
       pager.render(
         {
           page: data.currentPage,
-          total: data.totalPages
+          total: numPages
         },
         data.url
       )
