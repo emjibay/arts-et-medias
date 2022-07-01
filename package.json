@@ -18,25 +18,25 @@
   },
   "dependencies": {
     "accept-language": "3.0.18",
-    "apostrophe": "2.220.7",
+    "apostrophe": "2.221.0",
     "apostrophe-db-mongo-3-driver": "2.0.1",
     "apostrophe-rich-text-permalinks": "2.0.5",
-    "apostrophe-workflow": "2.39.6",
-    "citation-js": "0.5.4",
+    "apostrophe-workflow": "2.40.0",
+    "citation-js": "0.6.3",
     "dotenv": "8.2.0",
     "lodash": "4.17.21",
-    "moment": "2.29.2"
+    "moment": "2.29.3"
   },
   "devDependencies": {
     "apostrophe-monitor": "2.1.0",
     "babel-brunch": "7.0.1",
     "brunch": "4.0.0",
     "chalk": "4.1.1",
-    "core-js": "3.14.0",
+    "core-js": "3.23.3",
     "eslint": "7.28.0",
     "globby": "11.0.3",
-    "sass-brunch": "3.0.0",
-    "terser-brunch": "4.0.0"
+    "sass-brunch": "3.0.1",
+    "terser-brunch": "4.1.0"
   },
   "nodemonConfig": {
     "verbose": true,
