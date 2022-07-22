@@ -1,9 +1,9 @@
 {
   "name": "arts-et-medias",
-  "description": "Referencing critical content and resources on Media Art.",
+  "description": "Critical content and resources on Media Art.",
   "author": "Mat Janson Blanchet <mat.jb@jansensan.net>",
   "license": "MIT",
-  "version": "3.34.5",
+  "version": "4.0.0",
   "main": "app.js",
   "engines": {
     "node": "14"
