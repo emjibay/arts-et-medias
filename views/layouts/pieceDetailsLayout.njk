@@ -75,6 +75,15 @@
 
               {% block advertisementAfterMain %}{% endblock %}
             {% endblock %}
+
+            {%- if piece.updatedAt -%}
+              <hr class="separator"/>
+
+              {%- set formattedLatestUpdate = apos.aemDates.format(piece.updatedAt, locale) -%}
+              <p class="latest-update">
+                {{ __('pieceDetails|latestUpdate') }} {{ formattedLatestUpdate }}
+              </p>
+            {%- endif -%}
           </div>
 
           {% block sidebar %}

@@ -138,6 +138,7 @@
     "tagsLabel": "Tags",
     "translatorLabel": "Translator",
     "yearPublishedLabel": "Year Published",
+    "latestUpdate": "Latest Update:",
     "types": {
       "article": "article",
       "book": "book",

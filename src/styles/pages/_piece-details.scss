@@ -167,6 +167,12 @@
       }
     }
   }
+
+  .latest-update {
+    @include ui.paragraph();
+    color: vars.$halfGrey;
+    font-size: vars.$fsSmol;
+  }
 }
 
 [data-apos-workflow-mode="draft"] {

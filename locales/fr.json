@@ -137,6 +137,7 @@
     "tagsLabel": "Étiquettes",
     "translatorLabel": "Traducteur",
     "yearPublishedLabel": "Année de publication",
+    "latestUpdate": "Dernière mise à jour :",
     "types": {
       "article": "article",
       "book": "livre",
