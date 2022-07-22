@@ -100,6 +100,24 @@ main {
     height: 12px;
     margin-right: 10px;
   }
+
+  &.external-cta {
+    .icon {
+      margin: 0 0 0 5px;
+
+      svg {
+        color: transparent;
+      }
+    }
+
+    &:hover {
+      .icon {
+        svg {
+          color: vars.$main;
+        }
+      }
+    }
+  }
 }
 
 .separator {
