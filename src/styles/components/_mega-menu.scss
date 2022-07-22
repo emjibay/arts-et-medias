@@ -63,7 +63,7 @@ $hideDuration: 480ms;
       @include transform(translateY(0), $showDuration);
     }
 
-    &:focus {
+    &.focus-visible {
       @include ui.focusOutline();
     }
   }

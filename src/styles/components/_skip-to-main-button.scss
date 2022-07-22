@@ -8,7 +8,7 @@
   width: auto;
   z-index: 1000;
 
-  &:focus {
+  &.focus-visible {
     top: 10px;
     left: 10px;
   }

@@ -225,7 +225,7 @@ body {
 
     &:hover,
     &:active,
-    &:focus {
+    &.focus-visible {
       @include ui.cmsBoxShadow();
     }
   }
@@ -358,9 +358,12 @@ body {
     color: vars.$cmsColor;
   }
 
-  .apos-field-input-textarea:focus,
-  .apos-field-input-text:focus,
-  .apos-field-input-select:focus {
+  // .apos-field-input-textarea:focus,
+  // .apos-field-input-text:focus,
+  // .apos-field-input-select:focus {
+  .apos-field-input-textarea.focus-visible,
+  .apos-field-input-text.focus-visible,
+  .apos-field-input-select.focus-visible {
     @include ui.cmsBoxShadow();
   }
 
@@ -403,12 +406,14 @@ body {
   .apos-chooser-choice {
     .apos-button--group,
     .apos-button--group:active,
-    .apos-button--group:focus {
+    // .apos-button--group:focus {
+    .apos-button--group.focus-visible {
       box-shadow: none;
 
       .apos-button--in-group,
       .apos-button--in-group:active,
-      .apos-button--in-group:focus {
+      // .apos-button--in-group:focus {
+      .apos-button--in-group.focus-visible {
         box-shadow: none;
       }
     }

@@ -105,7 +105,8 @@
           text-decoration: underline;
           text-decoration-thickness: 1px;
         }
-        &:focus {
+
+        &.focus-visible {
           @include ui.focusOutline();
         }
       }

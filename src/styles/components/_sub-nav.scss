@@ -25,7 +25,8 @@
           color: vars.$main;
           text-decoration: underline;
         }
-        &:focus {
+
+        &.focus-visible {
           @include ui.focusOutline();
         }
       }

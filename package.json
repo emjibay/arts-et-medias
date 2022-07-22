@@ -24,6 +24,7 @@
     "apostrophe-workflow": "2.40.0",
     "citation-js": "0.6.4",
     "dotenv": "8.2.0",
+    "focus-visible": "5.2.0",
     "lodash": "4.17.21",
     "moment": "2.29.4"
   },

@@ -168,7 +168,8 @@
     text-decoration: none;
   }
 
-  &:focus {
+  // &:focus {
+  &.focus-visible {
     @include focusOutline();
   }
 
@@ -201,7 +202,8 @@
   &:active {
     text-decoration: none;
   }
-  &:focus {
+  // &:focus {
+  &.focus-visible {
     @include focusOutline();
   }
 }
@@ -227,7 +229,7 @@
   padding-left: 10px;
   padding-right: 30px;
 
-  &:focus {
+  &.focus-visible {
     @include focusOutline();
     color: vars.$almostWhite !important;
   }

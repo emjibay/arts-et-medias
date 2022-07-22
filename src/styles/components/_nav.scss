@@ -154,7 +154,8 @@
         @include navItemHover();
       }
 
-      &:focus {
+      // &:focus {
+      &.focus-visible {
         @include ui.focusOutline();
       }
 
@@ -250,7 +251,7 @@
       color: vars.$main;
     }
 
-    &:focus {
+    &.focus-visible {
       @include ui.focusOutline();
     }
 

@@ -60,7 +60,7 @@ $showDuration: 300ms;
         color: vars.$main;
       }
 
-      &:focus {
+      &.focus-visible {
         @include ui.focusOutline();
       }
     }
