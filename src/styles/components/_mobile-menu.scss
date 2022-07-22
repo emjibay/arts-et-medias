@@ -23,16 +23,19 @@ $showDuration: 300ms;
 
 // components
 .mobile-menu {
+  background-color: vars.$black;
+  color: vars.$almostWhite;
   display: inline-block;
   position: fixed;
-  color: vars.$almostWhite;
   top: 0;
   width: 100%;
   z-index: 2;
 
+  // slide left
   @include transform(translateX(-100%), $hideDuration);
 
   &.visible {
+    // slide right
     @include transform(translateX(0), $showDuration);
   }
 
@@ -41,12 +44,12 @@ $showDuration: 300ms;
     // TODO: hide menu in js if breakpoint changes (#95)
   }
 
+  // TODO: should this be in src/styles/components/_header.scss
   .site-title {
     padding: 20px 0;
     text-align: center;
-    background-color: vars.$black;
 
-    a {
+    .title-link {
       @include ui.headingBase();
       color: vars.$almostWhite;
       font-size: 20pt;
@@ -60,6 +63,10 @@ $showDuration: 300ms;
       &:focus {
         @include ui.focusOutline();
       }
+    }
+
+    .description-text {
+      display: none;
     }
   }
 

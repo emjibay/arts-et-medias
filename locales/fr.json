@@ -653,7 +653,7 @@
     "heading": "Recherche",
     "url": "/fr/recherche",
     "buttonLabel": "Chercher",
-    "placeholder": "Inscrivez votre recherche ici",
+    "placeholder": "Commencez votre recherche ici",
     "resultsLabel": "Résultats des recherches",
     "resultsDetails": "Résultats pour « %s »",
     "noResultsLabel": "Aucun résultat pour « %s ».",

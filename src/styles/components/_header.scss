@@ -5,10 +5,10 @@
 
 
 .header {
+  position: relative;
   border-bottom: 1px solid vars.$black;
   margin-bottom: 40px;
   padding: 20px 0 0 0;
-  position: relative;
 
   @media #{ vars.$mqTablet } {
     border-bottom: none;
@@ -17,18 +17,18 @@
   }
 
   .site-title {
-    @include ui.headingBase();
-    font-size: 20pt;
-    line-height: 1;
     margin: 0 0 20px 0;
-    text-align: center;
 
     @media #{ vars.$mqTablet } {
-      font-size: 50pt;
+      margin: 0 0 30px 0;
     }
 
-    a {
+    .title-link {
+      @include ui.headingBase();
       color: vars.$black;
+      font-size: 20pt;
+      line-height: 1;
+      text-align: center;
       text-decoration: none;
 
       &:hover {
@@ -38,24 +38,55 @@
       &:focus {
         @include ui.focusOutline();
       }
+
+      @media #{ vars.$mqTablet } {
+        font-size: 30pt;
+        text-align: left;
+      }
+
+      @media #{ vars.$mqDesktop } {
+        font-size: 35pt;
+      }
+
+      @media #{ vars.$mqXL } {
+        font-size: 40pt;
+      }
+    }
+
+    .description-text {
+      display: none;
+
+      @media #{ vars.$mqTablet } {
+        @include ui.paragraph();
+        display: block;
+        font-size: vars.$fsSmol;
+        margin: 0;
+      }
+
+      @media #{ vars.$mqDesktop } {
+        font-size: vars.$fsTextBody;
+      }
     }
   }
 
   .mobile-container {
     @include mx.nColumnWidth(6);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     margin: 0 auto;
 
     .mobile-menu-button {
-      display: inline-block;
+      display: inline-flex;
     }
 
-    .site-title {
-      display: inline-block;
-      width: calc(100% - 70px);
+    .site-title-content {
+      display: inline-flex;
+      width: max-content;
     }
 
     .mobile-search-button {
-      display: inline-block;
+      display: inline-flex;
     }
 
     @media #{ vars.$mqTablet } {
@@ -68,6 +99,103 @@
 
     @media #{ vars.$mqTablet } {
       display: block;
+    }
+
+    .site-title-content {
+      @media #{ vars.$mqTablet } {
+        @include mx.contentContainer();
+
+        .site-title {
+          @media #{ vars.$mqTablet } {
+            @include mx.nColumnWidth(7);
+          }
+
+          @media #{ vars.$mqDesktop } {
+            @include mx.nColumnWidth(8);
+          }
+        }
+
+        .header-search {
+          @include mx.nColumnWidth(5);
+          display: inline-block;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+
+          @media #{ vars.$mqTablet } {
+            bottom: -7px;
+          }
+
+          @media #{ vars.$mqDesktop } {
+            @include mx.nColumnWidth(4);
+          }
+
+          @media #{ vars.$mqXL } {
+            bottom: -5px;
+          }
+
+          .search-input {
+            @include ui.textInput();
+            display: inline-block;
+            vertical-align: middle;
+
+            @media #{ vars.$mqTablet } {
+              width: 225px;
+            }
+
+            @media #{ vars.$mqDesktop } {
+              width: 240px;
+            }
+
+            @media #{ vars.$mqXL } {
+              width: 295px;
+            }
+
+            @media #{ vars.$mqXXL } {
+              width: 350px;
+            }
+          }
+
+          .search-button {
+            @include ui.button();
+            display: inline-block;
+            height: 35px;
+            padding: 0;
+            vertical-align: middle;
+            width: 35px;
+
+            @media #{ vars.$mqTablet } {
+              margin-left: 10px;
+            }
+
+            .icon {
+              display: inline-block;
+              position: relative;
+              height: 15px;
+              left: 1px;
+              margin: auto;
+              top: -2px;
+              width: 15px;
+
+              @media #{ vars.$mqDesktop } {
+                top: 2px;
+              }
+
+              svg {
+                position: absolute;
+                height: 15px;
+                left: 0;
+                top: 0;
+                width: 15px;
+              }
+            }
+
+            .label {
+              @include mx.visuallyHidden();
+            }
+          }
+        }
+      }
     }
 
     @include nav.searchAndLangSwitch();
