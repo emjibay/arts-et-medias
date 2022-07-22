@@ -141,14 +141,14 @@ main {
   position: relative;
 }
 
-.external-link-icon {
+.external-asset-icon {
   display: none;
   height: 0;
   width: 0;
 }
 
 [data-apos-workflow-mode="draft"] {
-  .external-link-icon {
+  .external-asset-icon {
     color: vars.$main;
     display: inline-block;
     height: 15px;
