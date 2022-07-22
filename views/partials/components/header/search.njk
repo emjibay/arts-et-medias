@@ -1,0 +1,11 @@
+{%- from 'macros/search.njk' import searchInput -%}
+
+
+<div id="headerSearch" class="header-search">
+  {{
+    searchInput({
+      id: 'headerSearchInput',
+      label: __('search|buttonLabel')
+    })
+  }}
+</div>

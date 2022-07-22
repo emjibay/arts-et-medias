@@ -5,156 +5,143 @@
 
 
 <nav id="headerNav" class="nav header-nav">
-  <ul class="content nav-list">
-    <li class="nav-item">
-      {{
-        pageLink(
-          __('pages|discover|title'),
-          'headerDiscoverNavItem',
-          __('pages|discover|url')
-        )
-      }}
-      {{
-        navItemCaret({
-          id: 'mmDiscover',
-          label: __('headerNav|mmDiscoverToggle')
-        })
-      }}
-    </li>
+  <div class="content">
+    <div class="header-content">
 
-    <li class="nav-item">
-      {{
-        pageLink(
-          __('pages|participate|title'),
-          'headerVisitNavItem',
-          __('pages|participate|url')
-        )
-      }}
-      {{
-        navItemCaret({
-          id: 'mmParticipate',
-          label: __('headerNav|mmParticipateToggle')
-        })
-      }}
-    </li>
+      <ul class="nav-list subject-nav-list">
+        <li class="nav-item">
+          {{
+            pageLink(
+              __('pages|discover|title'),
+              'headerDiscoverNavItem',
+              __('pages|discover|url')
+            )
+          }}
+          {{
+            navItemCaret({
+              id: 'mmDiscover',
+              label: __('headerNav|mmDiscoverToggle')
+            })
+          }}
+        </li>
 
-    <li class="nav-item">
-      {{
-        pageLink(
-          __('pages|visit|title'),
-          'headerVisitNavItem',
-          __('pages|visit|url')
-        )
-      }}
-      {{
-        navItemCaret({
-          id: 'mmVisit',
-          label: __('headerNav|mmVisitToggle')
-        })
-      }}
-    </li>
+        <li class="nav-item">
+          {{
+            pageLink(
+              __('pages|participate|title'),
+              'headerVisitNavItem',
+              __('pages|participate|url')
+            )
+          }}
+          {{
+            navItemCaret({
+              id: 'mmParticipate',
+              label: __('headerNav|mmParticipateToggle')
+            })
+          }}
+        </li>
 
-    <li class="nav-item">
-      {{
-        pageLink(
-          __('pages|read|title'),
-          'headerReadNavItem',
-          __('pages|read|url')
-        )
-      }}
-      {{
-        navItemCaret({
-          id: 'mmRead',
-          label: __('headerNav|mmReadToggle')
-        })
-      }}
-    </li>
+        <li class="nav-item">
+          {{
+            pageLink(
+              __('pages|visit|title'),
+              'headerVisitNavItem',
+              __('pages|visit|url')
+            )
+          }}
+          {{
+            navItemCaret({
+              id: 'mmVisit',
+              label: __('headerNav|mmVisitToggle')
+            })
+          }}
+        </li>
 
-    <li class="nav-item">
-      {{
-        pageLink(
-          __('pages|learn|title'),
-          'headerLearnNavItem',
-          __('pages|learn|url')
-        )
-      }}
-      {{
-        navItemCaret({
-          id: 'mmLearn',
-          label: __('headerNav|mmLearnToggle')
-        })
-      }}
-    </li>
+        <li class="nav-item">
+          {{
+            pageLink(
+              __('pages|read|title'),
+              'headerReadNavItem',
+              __('pages|read|url')
+            )
+          }}
+          {{
+            navItemCaret({
+              id: 'mmRead',
+              label: __('headerNav|mmReadToggle')
+            })
+          }}
+        </li>
 
-    <li class="nav-item">
-      <a
-        class="nav-link sans-menu"
-        href="{{ __('pages|contribute|url') }}"
-      >{{ __('pages|contribute|title') }}</a>
-    </li>
+        <li class="nav-item">
+          {{
+            pageLink(
+              __('pages|learn|title'),
+              'headerLearnNavItem',
+              __('pages|learn|url')
+            )
+          }}
+          {{
+            navItemCaret({
+              id: 'mmLearn',
+              label: __('headerNav|mmLearnToggle')
+            })
+          }}
+        </li>
+      </ul>
 
-    <li class="nav-item">
-      <a
-        class="nav-link sans-menu"
-        href="{{ __('pages|about|url') }}"
-      >{{ __('pages|about|title') }}</a>
-    </li>
+      <ul class="nav-list secondary-nav-list">
+        <li class="nav-item">
+          <a
+            class="nav-link sans-menu"
+            href="{{ __('pages|contribute|url') }}"
+          >{{ __('pages|contribute|title') }}</a>
+        </li>
 
-    <li
-      class="nav-item nav-group-separator desktop-separator"
-      aria-hidden="true"
-    ></li>
+        <li class="nav-item">
+          <a
+            class="nav-link sans-menu"
+            href="{{ __('pages|about|url') }}"
+          >{{ __('pages|about|title') }}</a>
+        </li>
 
-    <li class="nav-item lang-switch">
-      {{
-        navItemCaret({
-          id: 'mmLangSwitch',
-          label: locale,
-          ariaLabel: __('headerNav|mmLangSwitchToggle'),
-          hasVisibleLabel: true
-        })
-      }}
-    </li>
+        <li
+          class="nav-item nav-group-separator desktop-separator"
+          aria-hidden="true"
+        ></li>
 
-    <li class="nav-item search">
-      <a
-        id="headerSearchNavItem"
-        href="{{ __('search|url') }}"
-        class="nav-link search-button"
-      >
-        <span class="icon">
-          {% include "/svg/icon-search.svg" %}
-        </span>
-        <span class="label">
-          {{ __('search|heading') }}
-        </span>
-      </a>
-      {{
-        navItemCaret({
-          id: 'mmSearch',
-          label: __('headerNav|mmSearchToggle')
-        })
-      }}
-    </li>
+        <li class="nav-item lang-switch">
+          {{
+            navItemCaret({
+              id: 'mmLangSwitch',
+              label: locale,
+              ariaLabel: __('headerNav|mmLangSwitchToggle'),
+              hasVisibleLabel: true
+            })
+          }}
+        </li>
 
-    <li
-      class="nav-item nav-group-separator mobile-separator"
-      aria-hidden="true"
-    ></li>
+        <li
+          class="nav-item nav-group-separator mobile-separator"
+          aria-hidden="true"
+        ></li>
 
-    <li class="nav-item mobile-lang-options">
-      {%- if locale != 'en' -%}
-        <a
-          href="/en/"
-          class="switch-lang-link"
-        >EN</a>
-      {%- endif -%}
-      {%- if locale != 'fr' -%}
-        <a
-          href="/fr/"
-          class="switch-lang-link"
-        >FR</a>
-      {%- endif -%}
-    </li>
-  </ul>
+        <li class="nav-item mobile-lang-options">
+          {%- if locale != 'en' -%}
+            <a
+              href="/en/"
+              class="switch-lang-link"
+            >EN</a>
+          {%- endif -%}
+          {%- if locale != 'fr' -%}
+            <a
+              href="/fr/"
+              class="switch-lang-link"
+            >FR</a>
+          {%- endif -%}
+        </li>
+      </ul>
+
+    </div>
+  </div>
 </nav>

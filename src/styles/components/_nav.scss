@@ -5,16 +5,17 @@
 
 // mixins
 @mixin navItemIdle {
+  cursor: pointer;
   display: block;
   margin: auto;
+  padding: 15px 0;
+
   color: vars.$almostWhite;
-  cursor: pointer;
   font-family: vars.$ffTextBody;
   font-size: 15pt;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
-  padding: 15px 0;
   text-decoration: none;
 
   @media #{ vars.$mqTablet } {
@@ -55,13 +56,61 @@
     padding: 7px 0 13px 0;
   }
 
+  .header-content {
+    display: block;
+
+    @media #{ vars.$mqTablet } {
+      display: flex;
+    }
+  }
+
   .nav-list {
     display: block;
 
     @media #{ vars.$mqTablet } {
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-between;
+    }
+  }
+
+  .subject-nav-list,
+  .secondary-nav-list {
+    display: block;
+
+    @media #{ vars.$mqTablet } {
+      display: inline-flex;
+    }
+
+    .nav-item {
+      @media #{ vars.$mqTablet } {
+        &:not(:first-of-type) {
+          margin-left: 35px;
+        }
+      }
+
+      @media #{ vars.$mqXL } {
+        &:not(:first-of-type) {
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+
+  .secondary-nav-list {
+    margin-left: auto;
+
+    .nav-item {
+      @media #{ vars.$mqTablet } {
+        &:not(:first-of-type) {
+          margin-left: 20px;
+        }
+      }
+
+      @media #{ vars.$mqXL } {
+        &:not(:first-of-type) {
+          margin-left: 30px;
+        }
+      }
     }
   }
 
