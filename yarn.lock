@@ -1600,10 +1600,10 @@ apostrophe-workflow@2.40.0:
     qs "^6.9.4"
     request-promise "^4.2.6"
 
-apostrophe@2.221.0:
-  version "2.221.0"
-  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.221.0.tgz#155335f363b872a1b3f80a92136ac6aa1eab91cf"
-  integrity sha512-Rp7fTaeQAMPzJacISXp3PTxtQn3MDIYiRGLcGKpdaNnDyCq1dFqa3ZPAmE1n+JqdGRQ3/gUvdhcL+qNvdkA23g==
+apostrophe@2.222.0:
+  version "2.222.0"
+  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.222.0.tgz#7e69582b2b0774867a2465bfe77d97cc90447e36"
+  integrity sha512-3M6HpsXDc5pcgY6giRzzmVsWdkoOa2UgMVt/42Q6C0U0ni6yKSpc7airFOXQviHdsFpwqVjuIityw0F7b5bp+g==
   dependencies:
     "@apostrophecms/nunjucks" "^2.5.4"
     "@sailshq/lodash" "^3.10.4"
@@ -1652,7 +1652,7 @@ apostrophe@2.221.0:
     request-promise "^4.2.4"
     resolve "^1.20.0"
     rimraf "^2.7.1"
-    sanitize-html "^2.4.0"
+    sanitize-html "^2.7.1"
     server-destroy "^1.0.1"
     sluggo "^0.2.0"
     syntax-error "^1.3.0"
@@ -2594,10 +2594,10 @@ core-js@^1.1.1:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
   integrity sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
 
-core-js@^3.23.5:
-  version "3.23.5"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.23.5.tgz#1f82b0de5eece800827a2f59d597509c67650475"
-  integrity sha512-7Vh11tujtAZy82da4duVreQysIoO2EvVrur7y6IzZkH1IHPSekuDi8Vuw1+YKjkbfWLRD7Nc9ICQ/sIUDutcyg==
+core-js@^3.25.1:
+  version "3.25.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.1.tgz#5818e09de0db8956e16bf10e2a7141e931b7c69c"
+  integrity sha512-sr0FY4lnO1hkQ4gLDr24K0DGnweGO1QwSj5BpfQjpSJPdqWalja4cTps29Y/PJVG/P7FYlPDkH3hO+Tr0CvDgQ==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -4642,11 +4642,6 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
-klona@^2.0.3:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.4.tgz#7bb1e3affb0cb8624547ef7e8f6708ea2e39dfc0"
-  integrity sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
-
 launder@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/launder/-/launder-1.5.0.tgz#3f143cc947fdeed15ee8d13d5589ebbec616a3fe"
@@ -5109,15 +5104,10 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nanocolors@^0.2.2:
-  version "0.2.12"
-  resolved "https://registry.yarnpkg.com/nanocolors/-/nanocolors-0.2.12.tgz#4d05932e70116078673ea4cc6699a1c56cc77777"
-  integrity sha512-SFNdALvzW+rVlzqexid6epYdt8H9Zol7xDoQarioEFcFN0JHo4CYNztAxmtfgGTVRCmFlEOqqhBpoFGKqSAMug==
-
-nanoid@^3.1.25:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.2.0.tgz#62667522da6673971cca916a6d3eff3f415ff80c"
-  integrity sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==
+nanoid@^3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
+  integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -5575,6 +5565,11 @@ phin@^2.9.1:
   resolved "https://registry.yarnpkg.com/phin/-/phin-2.9.3.tgz#f9b6ac10a035636fb65dfc576aaaa17b8743125c"
   integrity sha512-CzFr90qM24ju5f88quFC/6qohjC144rehe5n6DH900lgXmUe86+xCKc10ev56gRKC4/BkHUoG4uSiQgBiIXwDA==
 
+picocolors@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
+  integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
+
 picomatch@^2.0.4, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
@@ -5710,14 +5705,14 @@ postcss@^7.0.1, postcss@^7.0.27, postcss@^7.0.6:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^8.0.2:
-  version "8.3.8"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.8.tgz#9ebe2a127396b4b4570ae9f7770e7fb83db2bac1"
-  integrity sha512-GT5bTjjZnwDifajzczOC+r3FI3Cu+PgPvrsjhQdRqa2kTJ4968/X9CUce9xttIB0xOs5c6xf0TCWZo/y9lF6bA==
+postcss@^8.3.11:
+  version "8.4.16"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.16.tgz#33a1d675fac39941f5f445db0de4db2b6e01d43c"
+  integrity sha512-ipHE1XBvKzm5xI7hiHCZJCSugxvsdq2mPnsq5+UF+VHCjiBvtDrlxJfMBToWaP9D5XlgNmcFGqoHmUn0EYEaRQ==
   dependencies:
-    nanocolors "^0.2.2"
-    nanoid "^3.1.25"
-    source-map-js "^0.6.2"
+    nanoid "^3.3.4"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.2"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -6180,18 +6175,17 @@ safe-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sanitize-html@^2.4.0:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-2.5.1.tgz#f49998dc54c8180153940440d3a7294b09e4258a"
-  integrity sha512-hUITPitQk+eFNLtr4dEkaaiAJndG2YE87IOpcfBSL1XdklWgwcNDJdr9Ppe8QKL/C3jFt1xH/Mbj20e0GZQOfg==
+sanitize-html@^2.7.1:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-2.7.2.tgz#54c5189af75e3237d996e4b9a5e3eaad12c7f7fc"
+  integrity sha512-DggSTe7MviO+K4YTCwprG6W1vsG+IIX67yp/QY55yQqKCJYSWzCA1rZbaXzkjoKeL9+jqwm56wD6srYLtUNivg==
   dependencies:
     deepmerge "^4.2.2"
     escape-string-regexp "^4.0.0"
     htmlparser2 "^6.0.0"
     is-plain-object "^5.0.0"
-    klona "^2.0.3"
     parse-srcset "^1.0.2"
-    postcss "^8.0.2"
+    postcss "^8.3.11"
 
 saslprep@^1.0.0:
   version "1.0.3"
@@ -6438,10 +6432,10 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-source-map-js@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-0.6.2.tgz#0bb5de631b41cfbda6cfba8bd05a80efdfd2385e"
-  integrity sha512-/3GptzWzu0+0MBQFrDKzw/DvvMTUORvgY6k6jd/VS6iCR4RDTKWH6v6WPwQoUO8667uQEf9Oe38DxAYWY5F/Ug==
+source-map-js@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
+  integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
 source-map-resolve@^0.5.0:
   version "0.5.3"
