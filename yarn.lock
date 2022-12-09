@@ -1583,10 +1583,10 @@ apostrophe-rich-text-permalinks@2.0.5:
   dependencies:
     lodash "^4.17.10"
 
-apostrophe-workflow@2.40.0:
-  version "2.40.0"
-  resolved "https://registry.yarnpkg.com/apostrophe-workflow/-/apostrophe-workflow-2.40.0.tgz#d57178b4892ba2a23d20081b9d7bf26461002a55"
-  integrity sha512-/kYq/MEOFdXzDmfZhrG92YjkU7vnS5JDlQ/FDnM3M9bfUxw2WLDEJ+32nwpLWd+NSM8B2b1mGeFlpa8oerOKwA==
+apostrophe-workflow@2.40.1:
+  version "2.40.1"
+  resolved "https://registry.yarnpkg.com/apostrophe-workflow/-/apostrophe-workflow-2.40.1.tgz#29d6f403c39ef259aa86f33691d717ac05a60f1e"
+  integrity sha512-7fJyl/6oWJi0hYGnWilbcShqpO4svuV6+BUd98s30OBfTUWi3yTs1pQPwNjXZC/AbSPLZuoraKwhJ/Gdk/STEQ==
   dependencies:
     "@sailshq/lodash" "^3.10.3"
     async "^1.5.2"
@@ -1600,10 +1600,10 @@ apostrophe-workflow@2.40.0:
     qs "^6.9.4"
     request-promise "^4.2.6"
 
-apostrophe@2.222.0:
-  version "2.222.0"
-  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.222.0.tgz#7e69582b2b0774867a2465bfe77d97cc90447e36"
-  integrity sha512-3M6HpsXDc5pcgY6giRzzmVsWdkoOa2UgMVt/42Q6C0U0ni6yKSpc7airFOXQviHdsFpwqVjuIityw0F7b5bp+g==
+apostrophe@2.223.0:
+  version "2.223.0"
+  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.223.0.tgz#1eab4059d17079ac3d5af1985a48acdb3ff5bd8c"
+  integrity sha512-608uyc1E9rQUgCwC3oahXJc6KPbv9Sqhvd7f96EzDdve500eQVXWlF6zeNcG3zO0n6wEsSZ71/ykW/SUlbolPw==
   dependencies:
     "@apostrophecms/nunjucks" "^2.5.4"
     "@sailshq/lodash" "^3.10.4"
@@ -2594,10 +2594,10 @@ core-js@^1.1.1:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
   integrity sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
 
-core-js@^3.25.1:
-  version "3.25.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.1.tgz#5818e09de0db8956e16bf10e2a7141e931b7c69c"
-  integrity sha512-sr0FY4lnO1hkQ4gLDr24K0DGnweGO1QwSj5BpfQjpSJPdqWalja4cTps29Y/PJVG/P7FYlPDkH3hO+Tr0CvDgQ==
+core-js@^3.26.1:
+  version "3.26.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.26.1.tgz#7a9816dabd9ee846c1c0fe0e8fcad68f3709134e"
+  integrity sha512-21491RRQVzUn0GGM9Z1Jrpr6PNPxPi+Za8OM9q4tksTSnlbXXGKK1nXNg/QvwFYettXvSX6zWKCtHHfjN4puyA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
