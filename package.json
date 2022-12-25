@@ -39,9 +39,6 @@
     "sass-brunch": "^3.0.1",
     "terser-brunch": "^4.1.0"
   },
-  "resolutions": {
-    "mongodb": "^3.7.3"
-  },
   "nodemonConfig": {
     "verbose": true,
     "ignore": [
