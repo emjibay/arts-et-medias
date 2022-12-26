@@ -33,6 +33,18 @@
   }
 }
 
+@mixin articleHeroDimensions {
+  @include img.heroImageDimensions(6, 0.375);
+
+  @media #{ vars.$mqTablet } {
+    @include img.heroImageDimensions(4, 0.5);
+  }
+
+  @media #{ vars.$mqDesktop } {
+    @include img.heroImageDimensions(3, 0.5);
+  }
+}
+
 
 // styles
 .home {
@@ -42,6 +54,7 @@
     width: 100%;
   }
 
+  // FIXME: use class name, not DOM element
   section {
     display: inline-block;
     width: 100%;
@@ -147,21 +160,25 @@
           }
         }
 
+        // HERO IMAGE - START
+        .image-container {
+          @include articleHeroDimensions();
+        }
+
+        .vertical-hero-image {
+          @include articleHeroDimensions();
+          position: absolute !important;
+          object-fit: contain !important;
+        }
+
         .hero-image {
-          @include img.heroImageDimensions(6, 0.375);
-
-          @media #{ vars.$mqTablet } {
-            @include img.heroImageDimensions(4, 0.5);
-          }
-
-          @media #{ vars.$mqDesktop } {
-            @include img.heroImageDimensions(3, 0.5);
-          }
+          @include articleHeroDimensions();
         }
 
         .short-description {
           font-size: vars.$fsSmol;
         }
+        // HERO IMAGE - END
       }
     }
 

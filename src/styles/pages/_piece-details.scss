@@ -96,11 +96,46 @@
     }
   }
 
+
+  // HERO IMAGE - START
+  .image-container {
+    overflow: hidden;
+  }
+
   .hero-image {
     @include imageDimensions();
   }
 
-  // TODO: use class name, not DOM element
+  .figure[data-is-image-vertical="true"] {
+    .image-container {
+      @include imageDimensions();
+      position: relative;
+    }
+
+    .vertical-hero-image {
+      @include imageDimensions();
+      position: absolute;
+      object-fit: contain;
+      z-index: 1;
+    }
+
+    .hero-image {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.25;
+      filter: blur(10px);
+    }
+  }
+
+  .vertical-image-widget-wrapper {
+    .image-widget-simplified {
+      img {
+        object-fit: contain !important;
+      }
+    }
+  }
+
+  // FIXME: use class name, not DOM element
   figcaption {
     color: vars.$darkGrey;
     font-family: vars.$ffSerif;
@@ -118,6 +153,8 @@
       line-height: 1.5;
     }
   }
+  // HERO IMAGE - END
+
 
   .piece-props-list {
     dt {
