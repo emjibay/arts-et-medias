@@ -1,3 +1,42 @@
+{# private macros #}
+{% macro horizontalHeroImage(src, alt) %}
+  <img
+    class="hero-image"
+    src="{{ src }}"
+    alt="{{ alt }}"
+    loading="lazy"
+  />
+{% endmacro %}
+
+{% macro verticalHeroImage(src, alt) %}
+  <img
+    class="vertical-hero-image"
+    src="{{ src }}"
+    alt="{{ alt }}"
+    loading="lazy"
+  />
+{% endmacro %}
+
+{% macro editableHeroImage(piece) %}
+  {{
+    apos.singleton(
+      piece,
+      'heroImage',
+      'apostrophe-images',
+      {
+        addLabel: 'Set hero image',
+        controls: {
+          position: 'top-left',
+          movable: false
+        },
+        editLabel: 'Change hero image',
+        limit: 1
+      }
+    )
+  }}
+{% endmacro %}
+
+
 {#
   @param {Apos piece} piece
   @param {object} options
@@ -5,16 +44,35 @@
     - isEditable {boolean} defaults to false
 #}
 {% macro heroImage(piece, options) %}
+  {# TODO: improve check to ensure boolean #}
+  {%- set isImageVertical = false -%}
+  {%- if piece.isImageVertical -%}
+    {%- set isImageVertical = true -%}
+  {%- endif -%}
+
   {%- if piece.isUsingRemoteImage -%}
-    {# OPTION A #}
+    {# OPTION A - remote image #}
     <div class="remote-image-container">
-      <figure>
-        <img
-          class="hero-image"
-          src="{{ piece.remoteImageLocation }}"
-          alt="{{ piece.remoteImageAltText }}"
-          loading="lazy"
-        />
+      <figure
+        class="figure"
+        data-is-image-vertical={{ isImageVertical }}
+      >
+        <div class ="image-container">
+          {%- if isImageVertical -%}
+            {{
+              verticalHeroImage(
+                piece.remoteImageLocation,
+                piece.remoteImageAltText
+              )
+            }}
+          {%- endif -%}
+          {{
+            horizontalHeroImage(
+              piece.remoteImageLocation,
+              piece.remoteImageAltText
+            )
+          }}
+        </div>
         {%- if piece.remoteImageCredit -%}
           {%- set captionText = piece.remoteImageCaption + '. © ' + piece.remoteImageCredit -%}
         {%- else -%}
@@ -35,36 +93,40 @@
     </div>
 
   {%- elseif options.isEditable -%}
-    {# OPTION B #}
-    {{
-      apos.singleton(
-        piece,
-        'heroImage',
-        'apostrophe-images',
-        {
-          addLabel: 'Set hero image',
-          controls: {
-            position: 'top-left',
-            movable: false
-          },
-          editLabel: 'Change hero image',
-          limit: 1
-        }
-      )
-    }}
+    {# OPTION B - editable #}
+    {%- if isImageVertical -%}
+      <div class="vertical-image-widget-wrapper">
+        {{ editableHeroImage(piece) }}
+      </div>
+    {%- else -%}
+      {{ editableHeroImage(piece) }}
+    {%- endif -%}
 
   {%- else -%}
-    {# OPTION C #}
+    {# OPTION C - uploaded image #}
     {%- set aposImageData = apos.images.first(piece.heroImage) -%}
     {%- if aposImageData -%}
       {%- set image = apos.aemUtils.getImageBasicData(aposImageData) -%}
-      <figure>
-        <img
-          class="hero-image"
-          src="{{ image.url }}"
-          alt="{{ image.alt }}"
-          loading="lazy"
-        />
+      <figure
+        class="figure"
+        data-is-image-vertical="{{ isImageVertical }}"
+      >
+        <div class="image-container">
+          {%- if isImageVertical -%}
+            {{
+              verticalHeroImage(
+                image.url,
+                image.alt
+              )
+            }}
+          {%- endif -%}
+          {{
+            horizontalHeroImage(
+              image.url,
+              image.alt
+            )
+          }}
+        </div>
         {%- if options.hasCaption and image.caption -%}
           {%- if image.credit -%}
             {%- set captionText = image.caption + '. © ' + image.credit -%}

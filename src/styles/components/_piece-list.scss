@@ -5,6 +5,50 @@
 @use '../mixins/functions' as fn;
 
 
+// mixins
+@mixin imageDimensions {
+  $width: fn.getColumnsSpan(6, vars.$phone);
+  $imgWidth: $width;
+  $imgHeight: calc(#{ $width } * 0.25);
+  height: $imgHeight;
+  width: $imgWidth;
+  object-fit: cover;
+
+  @media #{ vars.$mqTablet } {
+    $width: fn.getColumnsSpan(4, vars.$tablet);
+    $imgWidth: $width;
+    $imgHeight: calc(#{ $width } * 0.25);
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+
+  @media #{ vars.$mqDesktop } {
+    $width: fn.getColumnsSpan(4, vars.$desktop);
+    $imgWidth: $width;
+    $imgHeight: calc(#{$width} * 0.25);
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+
+  @media #{ vars.$mqXL } {
+    $width: fn.getColumnsSpan(4, vars.$xl);
+    $imgWidth: $width;
+    $imgHeight: calc(#{ $width } * 0.25);
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+
+  @media #{ vars.$mqXXL } {
+    $width: fn.getColumnsSpan(4, vars.$xxl);
+    $imgWidth: $width;
+    $imgHeight: calc(#{ $width } * 0.25);
+    height: $imgHeight;
+    width: $imgWidth;
+  }
+}
+
+
+// styles
 .piece-list {
   margin: 40px 0;
 
@@ -93,47 +137,37 @@
       margin: 5px 0;
     }
 
-    .hero-image {
-      $width: fn.getColumnsSpan(6, vars.$phone);
-      $imgWidth: $width;
-      $imgHeight: calc(#{ $width } * 0.25);
-      height: $imgHeight;
-      width: $imgWidth;
+    // HERO IMAGE - START
+    .image-container {
+      overflow: hidden;
       margin-top: 10px;
-      object-fit: cover;
+    }
 
-      @media #{ vars.$mqTablet } {
-        $width: fn.getColumnsSpan(4, vars.$tablet);
-        $imgWidth: $width;
-        $imgHeight: calc(#{ $width } * 0.25);
-        height: $imgHeight;
-        width: $imgWidth;
+    .hero-image {
+      @include imageDimensions();
+    }
+
+    .figure[data-is-image-vertical="true"] {
+      .image-container {
+        @include imageDimensions();
+        position: relative;
       }
 
-      @media #{ vars.$mqDesktop } {
-        $width: fn.getColumnsSpan(4, vars.$desktop);
-        $imgWidth: $width;
-        $imgHeight: calc(#{$width} * 0.25);
-        height: $imgHeight;
-        width: $imgWidth;
+      .vertical-hero-image {
+        @include imageDimensions();
+        position: absolute;
+        object-fit: contain;
+        z-index: 1;
       }
 
-      @media #{ vars.$mqXL } {
-        $width: fn.getColumnsSpan(4, vars.$xl);
-        $imgWidth: $width;
-        $imgHeight: calc(#{ $width } * 0.25);
-        height: $imgHeight;
-        width: $imgWidth;
-      }
-
-      @media #{ vars.$mqXXL } {
-        $width: fn.getColumnsSpan(4, vars.$xxl);
-        $imgWidth: $width;
-        $imgHeight: calc(#{ $width } * 0.25);
-        height: $imgHeight;
-        width: $imgWidth;
+      .hero-image {
+        position: absolute;
+        z-index: 0;
+        opacity: 0.25;
+        filter: blur(10px);
       }
     }
+    // HERO IMAGE - END
 
     .piece-cta {
       @include ui.anchor();
