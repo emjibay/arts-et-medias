@@ -90,7 +90,7 @@
     .heading {
       @include ui.heading5();
       @include ui.headingBase();
-      line-height: 1;
+      line-height: 1.375;
       margin: 0;
 
       @media #{ vars.$mqDesktop } {

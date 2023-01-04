@@ -52,6 +52,7 @@
   .page-heading {
     @include mx.underlinedH1();
     margin-bottom: 0;
+    line-height: 1.25;
   }
 
   .subheading {
