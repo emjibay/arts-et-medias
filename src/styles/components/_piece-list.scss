@@ -260,13 +260,6 @@
 .article-list {
   .piece-card {
     .byline-and-date {
-
-      .article-author {
-        &:last-of-type {
-          color: red;
-        }
-      }
-
       span {
         line-height: 1.5;
         margin-right: 0;
