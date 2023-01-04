@@ -90,7 +90,7 @@
     .heading {
       @include ui.heading5();
       @include ui.headingBase();
-      line-height: 1;
+      line-height: 1.375;
       margin: 0;
 
       @media #{ vars.$mqDesktop } {
@@ -260,13 +260,6 @@
 .article-list {
   .piece-card {
     .byline-and-date {
-
-      .article-author {
-        &:last-of-type {
-          color: red;
-        }
-      }
-
       span {
         line-height: 1.5;
         margin-right: 0;
