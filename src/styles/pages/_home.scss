@@ -1,18 +1,23 @@
 @use '../common/variables' as vars;
 @use '../common/ui' as ui;
 @use '../mixins/mixins' as mx;
+@use '../mixins/functions' as fn;
 @use '../mixins/hero-image' as img;
 
 
 // mixins
 @mixin sectionHeadingCTA {
   .section-heading {
+    .h2 {
+      margin: 0;
+    }
+
     .see-all-cta {
       display: none;
 
       @media #{ vars.$mqTablet } {
         display: block;
-        top: -50px;
+        top: fn.whitespace(4, -1);
       }
     }
   }
@@ -21,7 +26,7 @@
 @mixin endOfSectionCTA {
   .see-all-cta {
     display: block;
-    margin-top: 50px;
+    margin-top: fn.whitespace(4);
 
     .website-cta {
       display: block;
@@ -48,7 +53,7 @@
 
 // styles
 .home {
-  padding-top: 20px;
+  padding-top: fn.whitespace(2);
 
   .page-content {
     width: 100%;
@@ -67,7 +72,7 @@
   .section-heading {
     @include mx.underlinedH1();
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: fn.whitespace(2);
 
     .h2 {
       margin-top: 0;
@@ -127,7 +132,7 @@
       }
 
       .latest-pieces-heading[data-has-featured-article="true"] {
-        margin-top: 50px;
+        margin-top: fn.whitespace(4);
       }
 
       .list-item,
@@ -194,7 +199,7 @@
 
       .advertisement {
         display: block;
-        margin-bottom: 40px;
+        margin-bottom: fn.whitespace(3);
         width: 100%;
       }
 
@@ -229,10 +234,10 @@
   .events-section,
   .projects-section,
   .books-section {
-    margin-top: 50px;
+    margin-top: fn.whitespace(4);
 
     @media #{ vars.$mqDesktop } {
-      margin-top: 75px;
+      margin-top: fn.whitespace(5);
     }
 
     @include sectionHeadingCTA();
@@ -266,13 +271,13 @@
     .latest-pieces {
       @include mx.nColumnWidth(6);
       display: inline-block;
-      margin-top: 20px;
+      margin-top: fn.whitespace(1);
       vertical-align: top;
 
       @media #{ vars.$mqTablet } {
         @include mx.gutterLeftMargin();
         margin-top: 0;
-        margin-bottom: 50px;
+        margin-bottom: fn.whitespace(4);
       }
 
       &.sans-feature {
@@ -299,11 +304,14 @@
             @include img.heroImageDimensions(3, 0.5);
           }
         }
+
         .short-description {
           display: none;
+
           @media #{ vars.$mqTablet } {
             display: block;
           }
+
           * {
             font-size: vars.$fsSmol;
           }
@@ -397,7 +405,7 @@
             margin-left: 0;
           }
           &:nth-child(n+3) {
-            margin-top: 40px;
+            margin-top: fn.whitespace(3);
           }
 
           @media #{ vars.$mqTablet } {
@@ -424,8 +432,8 @@
   }
 
   .piece-list {
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: fn.whitespace(1);
+    margin-top: fn.whitespace(1);
 
     .list-item {
       margin-bottom: 0;
@@ -438,12 +446,11 @@
 
   .home-leaderboard {
     @include mx.nColumnWidth(6);
-
-    margin-top: 75px;
+    margin-top: fn.whitespace(5);
 
     @media #{ vars.$mqTablet } {
       @include mx.nColumnWidth(12);
-      margin-bottom: 20px;
+      margin-bottom: fn.whitespace(1);
     }
 
     @media #{ vars.$mqDesktop } {
@@ -453,10 +460,10 @@
 
     &.top {
       margin-top: 0;
-      margin-bottom: 50px;
+      margin-bottom: fn.whitespace(4);
 
       @media #{ vars.$mqTablet } {
-        margin-bottom: 75px;
+        margin-bottom: fn.whitespace(5);
       }
     }
   }
@@ -466,7 +473,7 @@
 
     @media #{ vars.$mqTablet } {
       display: block;
-      margin: 50px auto 0 auto;
+      margin: fn.whitespace(4) auto 0 auto;
     }
 
     @media #{ vars.$mqDesktop } {

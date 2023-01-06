@@ -1,6 +1,8 @@
 @use '../common/variables' as vars;
 
 
+// COLUMNS
+
 /**
   * Calculates the span taken by
   *   `n` number of columns and gutters
@@ -49,6 +51,9 @@
   @return $columnWidth;
 }
 
+
+// GUTTERS
+
 /**
   * Provides the span taken by
   * a gutter at a given breakpoint.
@@ -93,4 +98,13 @@
   }
 
   @return $gutterWidth;
+}
+
+
+// MARGINS
+
+@function whitespace($level, $direction: 1) {
+  $px: 1px;
+  $value: ($level * 15) * $direction;
+  @return $value * $px;
 }
