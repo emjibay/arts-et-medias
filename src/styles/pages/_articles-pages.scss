@@ -1,5 +1,6 @@
 @use '../common/variables' as vars;
 @use '../common/ui' as ui;
+@use '../mixins/functions' as fn;
 
 
 .articles-index {
@@ -10,7 +11,7 @@
     }
 
     .sponsored-tag {
-      margin-top: 10px;
+      margin-top: fn.whitespace(1);
 
       .tag {
         margin-top: 0;
@@ -21,7 +22,7 @@
 
 .article-details {
   .subheading {
-    margin: 10px 0 0 0;
+    margin: fn.whitespace(1) 0 0 0;
     position: relative;
 
     .piece-link-list {
@@ -36,7 +37,7 @@
     }
 
     .sponsored-tag {
-      margin-top: 10px;
+      margin-top: fn.whitespace(1);
 
       @media #{ vars.$mqTablet } {
         margin-top: unset;
@@ -50,7 +51,7 @@
   .translation {
     @include ui.minorText();
     font-size: vars.$fsSmol;
-    margin: 20px 0;
+    margin: fn.whitespace(2) 0;
 
     .piece-link-list {
       display: inline-block;
@@ -69,7 +70,7 @@
   }
 
   .mention {
-    margin-top: 40px;
+    margin-top: fn.whitespace(3);
 
     .mention-notes {
       @include ui.minorText();

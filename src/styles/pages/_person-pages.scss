@@ -36,7 +36,7 @@
 
 .person-details {
   .profile-pic-container {
-    margin: 40px 0;
+    margin: fn.whitespace(3) 0;
     width: 100%;
 
     @media #{ vars.$mqTablet } {
@@ -54,18 +54,19 @@
 
 .sidebar-person-details {
   .fig-profile {
-    margin-top: 45px;
+    margin-top: fn.whitespace(3);
 
     .fig-headshot {
       @include imageDimensions();
     }
 
     .fig-credits{
+      margin: fn.whitespace(1) 0 fn.whitespace(2) 0;
+
       color: vars.$darkGrey;
       font-family: vars.$ffSerif;
       font-size: vars.$fsVerySmol;
       font-style: italic;
-      margin: 15px 0 30px 0;
       text-align: right;
     }
   }
@@ -75,7 +76,7 @@
   .sidebar-person-details {
     .image-link {
       display: block;
-      margin-top: 45px;
+      margin-top: fn.whitespace(3);
 
       img {
         @include imageDimensions();

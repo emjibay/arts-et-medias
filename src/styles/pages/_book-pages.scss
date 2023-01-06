@@ -12,7 +12,7 @@
   float: left;
   margin-bottom: fn.getGutterHalfWidth(vars.$phone);
   margin-right: fn.getGutterWidth(vars.$phone);
-  margin-top: 45px;
+  margin-top: fn.whitespace(3);
   width: fn.getColumnsSpan(3, vars.$phone);
   object-fit: contain;
 
@@ -42,13 +42,13 @@
 }
 
 
-// rules
+// styles
 .books-index {
   // TODO: create a mixin to DRY with src/styles/pages/_page-subject.scss ?
   .piece-list {
     @media #{ vars.$mqTablet } {
       .list-item:nth-child(n + 3) {
-        margin-top: 40px;
+        margin-top: fn.whitespace(3);
       }
     }
 
@@ -94,7 +94,9 @@
 
   .book-subtitle {
     @include ui.heading3();
-    margin: 10px 0;
+    display: block;
+    margin: fn.whitespace(0.5) 0;
+    line-height: 1.25;
   }
 
   .book-cover {
@@ -112,7 +114,7 @@
         [data-apos-widget="apostrophe-images"] {
           .apos-ui {
             position: relative;
-            top: 50px;
+            top: fn.whitespace(4);
           }
         }
         .image-link {
