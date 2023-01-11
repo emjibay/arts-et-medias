@@ -1,10 +1,13 @@
 # Arts & Médias
 
+Discoveries, references, critical content, and resources on Media Art.
+
 Sources for [*Arts & Médias*' website](https://arts-et-medias.net/), which references critical content and resources on Media Art.
 
 ![GitHub Tag](https://shields.io/github/v/tag/jansensan/arts-et-medias) 
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/jansensan/arts-et-medias) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jansensan/arts-et-medias)
+
 
 ## Suggesting Content and Reporting Issues
 
