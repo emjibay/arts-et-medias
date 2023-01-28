@@ -3,5 +3,14 @@
     class="title-link"
     href="{{ data.home._url }}"
   >{{ __('global|title') }}</a>
-  <p class="description-text">{{ __('global|description') }}</p>
+
+  <details class="header-details">
+    <summary class="summary">
+      <span class="summary-content">{{ __('global|description') }}</span>
+      <span class="summary-caret">
+        {% include "/svg/icon-caret-down.svg" %}
+      </span>
+    </summary>
+    <div class="details-content">{{ __('global|longDescription') }}</div>
+  </details>
 </div>

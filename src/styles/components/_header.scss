@@ -1,5 +1,6 @@
 @use '../common/variables' as vars;
 @use '../common/ui' as ui;
+@use '../mixins/functions' as fn;
 @use '../mixins/mixins' as mx;
 @use '../mixins/header-nav' as nav;
 
@@ -65,6 +66,66 @@
 
       @media #{ vars.$mqDesktop } {
         font-size: vars.$fsTextBody;
+      }
+    }
+
+    .header-details {
+      display: none;
+
+      @media #{ vars.$mqTablet } {
+        @include ui.paragraph();
+        display: block;
+        font-size: vars.$fsSmol;
+        margin: 0;
+      }
+
+      @media #{ vars.$mqDesktop } {
+        font-size: vars.$fsTextBody;
+      }
+
+      .summary {
+        cursor: pointer;
+
+        &::marker {
+          content: "";
+        }
+
+        &.focus-visible {
+          @include ui.focusOutline();
+        }
+
+        .summary-caret {
+          display: inline-block;
+          height: 10px;
+          pointer-events: none;
+          position: relative;
+          top: -2px;
+          width: 10px;
+          transition:
+            transform 125ms,
+            top 125ms;
+    
+          @media #{ vars.$mqDesktop } {
+            top: -2px;
+          }
+        }
+      }
+
+      .details-content {
+        margin-top: fn.whitespace(0.5);
+        font-size: vars.$fsSmol;
+      }
+
+      &[open] { 
+        // background-color: red;
+
+        .summary-caret {
+          top: 26px;
+          transform: scaleY(-1);
+          transition:
+            transform 250ms,
+            top 250ms;
+        }
       }
     }
   }
