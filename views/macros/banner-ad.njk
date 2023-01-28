@@ -17,47 +17,49 @@
   - hasLabel
 #}
 {% macro bannerAd(piece, options) %}
-  {%- set isCampaignActive = apos.aemDates.isTodayBetween(piece.startDate, piece.endDate) -%}
-  {%- set isDraftMode = apos.aemUtils.isDraftMode(options.data) -%}
+  {%- if apos.aemBannerAds.hasBanners() -%}
+    {%- set isCampaignActive = apos.aemDates.isTodayBetween(piece.startDate, piece.endDate) -%}
+    {%- set isDraftMode = apos.aemUtils.isDraftMode(options.data) -%}
 
-  {%- if isCampaignActive or isDraftMode -%}
-    {%- set firstImage = apos.images.first -%}
-    {%- set getImageBasicData = apos.aemUtils.getImageBasicData -%}
+    {%- if isCampaignActive or isDraftMode -%}
+      {%- set firstImage = apos.images.first -%}
+      {%- set getImageBasicData = apos.aemUtils.getImageBasicData -%}
 
-    <div class="banner-ad">
-      <a
-        class="ad-link"
-        href="{{ piece.targetUrl }}"
-        target="_blank"
-        rel="sponsored noopener"
-      >
-        {%- set aposImageData = firstImage(piece.bannerImage) -%}
-        {%- set bannerImage = getImageBasicData(aposImageData) -%}
-        <img
-          class="{{ piece.bannerType }}"
-          src="{{ bannerImage.url }}"
-          alt="{{ piece.altText }}"
-        />
-        {%- if piece.isVisibleAtMobile -%}
-          {%- set aposMobileImageData = firstImage(piece.mobileBannerImage) -%}
-          {%- set mobileBannerImage = getImageBasicData(aposMobileImageData) -%}
+      <div class="banner-ad">
+        <a
+          class="ad-link"
+          href="{{ piece.targetUrl }}"
+          target="_blank"
+          rel="sponsored noopener"
+        >
+          {%- set aposImageData = firstImage(piece.bannerImage) -%}
+          {%- set bannerImage = getImageBasicData(aposImageData) -%}
           <img
-            class="{{ piece.mobileBannerType }}"
-            src="{{ mobileBannerImage.url }}"
+            class="{{ piece.bannerType }}"
+            src="{{ bannerImage.url }}"
             alt="{{ piece.altText }}"
           />
+          {%- if piece.isVisibleAtMobile -%}
+            {%- set aposMobileImageData = firstImage(piece.mobileBannerImage) -%}
+            {%- set mobileBannerImage = getImageBasicData(aposMobileImageData) -%}
+            <img
+              class="{{ piece.mobileBannerType }}"
+              src="{{ mobileBannerImage.url }}"
+              alt="{{ piece.altText }}"
+            />
+          {%- endif -%}
+        </a>
+        {%- if options.hasLabel -%}
+          <p class="ad-label">
+            {{ __('global|advertisementHeading') }}
+          </p>
         {%- endif -%}
-      </a>
-      {%- if options.hasLabel -%}
-        <p class="ad-label">
-          {{ __('global|advertisementHeading') }}
-        </p>
-      {%- endif -%}
-    </div>
-  {%- endif -%}
+      </div>
+    {%- endif -%}
 
-  {%- if isDraftMode and not isCampaignActive -%}
-    {{ warnBannerNotOngoing(options.data.user) }}
+    {%- if isDraftMode and not isCampaignActive -%}
+      {{ warnBannerNotOngoing(options.data.user) }}
+    {%- endif -%}
   {%- endif -%}
 {% endmacro %}
 
@@ -69,7 +71,7 @@
   - isTopLeaderboard
 #}
 {% macro leaderboard(options) %}
-  {%- if apos.aemBannerAds.areVisible(options) -%}
+  {%- if apos.aemBannerAds.hasBanners() and apos.aemBannerAds.areVisible(options) -%}
     {%- set classList = 'home-leaderboard' -%}
     {%- if options.isTopLeaderboard -%}
       {%- set classList = classList + ' top' -%}
@@ -95,7 +97,7 @@
   - propName
 #}
 {% macro sidebarBannerAds(options) %}
-  {%- if apos.aemBannerAds.areVisible(options) -%}
+  {%- if apos.aemBannerAds.hasBanners() and apos.aemBannerAds.areVisible(options) -%}
     <div class="advertisement">
       {{
         apos.singleton(
@@ -116,33 +118,35 @@
   - propName
 #}
 {% macro mobileBannerAds(options) %}
-  {%- set container = options.data.global[options.propName] -%}
-  {%- set pieces = apos.aemBannerAds.getPiecesFrom(container) -%}
-  {%- set numActiveBannerAds = apos.aemBannerAds.getNumActive(pieces) -%}
+  {%- if apos.aemBannerAds.hasBanners() -%}
+    {%- set container = options.data.global[options.propName] -%}
+    {%- set pieces = apos.aemBannerAds.getPiecesFrom(container) -%}
+    {%- set numActiveBannerAds = apos.aemBannerAds.getNumActive(pieces) -%}
 
-  {%- if apos.aemBannerAds.areVisible(options) -%}
-    {%- set bannerAdOptions = { user: options.data.user, hasLabel: true } -%}
+    {%- if apos.aemBannerAds.areVisible(options) -%}
+      {%- set bannerAdOptions = { user: options.data.user, hasLabel: true } -%}
 
-    <aside class="mobile-banners">
-      {%- set banner1 = pieces[0] -%}
-      {%- set banner2 = pieces[1] -%}
+      <aside class="mobile-banners">
+        {%- set banner1 = pieces[0] -%}
+        {%- set banner2 = pieces[1] -%}
 
-      {%- if numActiveBannerAds > 0 -%}
-        {%- set banner1ClassList = 'banner-col banner-1' -%}
-        {%- if numActiveBannerAds === 1 -%}
-          {%- set banner1ClassList = banner1ClassList + ' single' -%}
-        {%- endif -%}
-        <div class="{{ banner1ClassList }}">
-          {{ bannerAd(banner1, bannerAdOptions) }}
-        </div>
-
-        {%- if numActiveBannerAds > 1 -%}
-          <div class="banner-col banner-2">
-            {{ bannerAd(banner2, bannerAdOptions) }}
+        {%- if numActiveBannerAds > 0 -%}
+          {%- set banner1ClassList = 'banner-col banner-1' -%}
+          {%- if numActiveBannerAds === 1 -%}
+            {%- set banner1ClassList = banner1ClassList + ' single' -%}
+          {%- endif -%}
+          <div class="{{ banner1ClassList }}">
+            {{ bannerAd(banner1, bannerAdOptions) }}
           </div>
+
+          {%- if numActiveBannerAds > 1 -%}
+            <div class="banner-col banner-2">
+              {{ bannerAd(banner2, bannerAdOptions) }}
+            </div>
+          {%- endif -%}
         {%- endif -%}
-      {%- endif -%}
-    </aside>
+      </aside>
+    {%- endif -%}
   {%- endif -%}
 {% endmacro %}
 
@@ -155,7 +159,7 @@
   - hasBottomSeparator
 #}
 {% macro containedSidebarBanners(options) %}
-  {%- if apos.aemBannerAds.areVisible(options) -%}
+  {%- if apos.aemBannerAds.hasBanners() and apos.aemBannerAds.areVisible(options) -%}
     {%- set classList = 'sidebar-banners' -%}
 
     <div class="{{ classList }}">
@@ -174,19 +178,21 @@
 
 
 {% macro inContextLeaderboard(leaderboardOptions, options) %}
-  {%- if options.location === 'before' -%}
-    {%- set containerClass = 'before-main' -%}
-  {%- elseif options.location === 'after' -%}
-    {%- set containerClass = 'after-main' -%}
-  {%- else -%}
-    {%- set containerClass = 'in-main' -%}
-  {%- endif -%}
+  {%- if apos.aemBannerAds.hasBanners() -%}
+    {%- if options.location === 'before' -%}
+      {%- set containerClass = 'before-main' -%}
+    {%- elseif options.location === 'after' -%}
+      {%- set containerClass = 'after-main' -%}
+    {%- else -%}
+      {%- set containerClass = 'in-main' -%}
+    {%- endif -%}
 
-  <div class="content advertisement-container {{ containerClass }}">
-    <div class="advertisement">
-      {{ leaderboard(leaderboardOptions) }}
+    <div class="content advertisement-container {{ containerClass }}">
+      <div class="advertisement">
+        {{ leaderboard(leaderboardOptions) }}
+      </div>
     </div>
-  </div>
+  {%- endif -%}
 {% endmacro %}
 
 
@@ -200,15 +206,17 @@
   - additionalOptions
 #}
 {% macro alternatingLeaderboard(options) %}
-  {%- if options.index % 2 === 0 -%}
-    {# even #}
-    {%- if options.isMainVisible -%}
-      {{ inContextLeaderboard(options.mainOptions, options.additionalOptions) }}
-    {%- endif -%}
-  {%- else -%}
-    {# odd #}
-    {%- if options.isMinorVisible -%}
-      {{ inContextLeaderboard(options.minorOptions, options.additionalOptions) }}
+  {%- if apos.aemBannerAds.hasBanners() -%}
+    {%- if options.index % 2 === 0 -%}
+      {# even #}
+      {%- if options.isMainVisible -%}
+        {{ inContextLeaderboard(options.mainOptions, options.additionalOptions) }}
+      {%- endif -%}
+    {%- else -%}
+      {# odd #}
+      {%- if options.isMinorVisible -%}
+        {{ inContextLeaderboard(options.minorOptions, options.additionalOptions) }}
+      {%- endif -%}
     {%- endif -%}
   {%- endif -%}
 {% endmacro %}

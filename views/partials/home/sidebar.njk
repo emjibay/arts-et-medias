@@ -2,30 +2,32 @@
 
 
 <aside class="sidebar home-sidebar">
-  {%- set banner1Options = { data: data, propName: 'homeSidebarBanner1' } -%}
-  {%- set banner2Options = { data: data, propName: 'homeSidebarBanner2' } -%}
-  {%- set isBanner1Visible = apos.aemBannerAds.areVisible(banner1Options) -%}
-  {%- set isBanner2Visible = apos.aemBannerAds.areVisible(banner2Options) -%}
-  {%- set hasBanners = (isBanner1Visible or isBanner2Visible) -%}
-  {%- if hasBanners -%}
-    <div class="advertisement">
-      {{
-        containedSidebarBanners({
-          data: data,
-          propName: 'homeSidebarBanner1',
-          hasTopSeparator: false,
-          hasBottomSeparator: false
-        })
-      }}
-      {{
-        containedSidebarBanners({
-          data: data,
-          propName: 'homeSidebarBanner2',
-          hasTopSeparator: false,
-          hasBottomSeparator: false
-        })
-      }}
-    </div>
+  {%- if apos.aemBannerAds.hasBanners() -%}
+    {%- set banner1Options = { data: data, propName: 'homeSidebarBanner1' } -%}
+    {%- set banner2Options = { data: data, propName: 'homeSidebarBanner2' } -%}
+    {%- set isBanner1Visible = apos.aemBannerAds.areVisible(banner1Options) -%}
+    {%- set isBanner2Visible = apos.aemBannerAds.areVisible(banner2Options) -%}
+    {%- set hasBanners = (isBanner1Visible or isBanner2Visible) -%}
+    {%- if hasBanners -%}
+      <div class="advertisement">
+        {{
+          containedSidebarBanners({
+            data: data,
+            propName: 'homeSidebarBanner1',
+            hasTopSeparator: false,
+            hasBottomSeparator: false
+          })
+        }}
+        {{
+          containedSidebarBanners({
+            data: data,
+            propName: 'homeSidebarBanner2',
+            hasTopSeparator: false,
+            hasBottomSeparator: false
+          })
+        }}
+      </div>
+    {%- endif -%}
   {%- endif -%}
 
   {%- set isAnon = data.when === 'anon' -%}
