@@ -105,6 +105,8 @@
 
     .hero-image {
       @include sidebarHeroDimensions();
+      position: relative;
+      top: -10px;
     }
 
     .figure[data-is-image-vertical="true"] {
