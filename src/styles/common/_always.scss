@@ -184,6 +184,7 @@ body {
     [data-apos-widget-wrapper="aem-link"],
     [data-apos-widget-wrapper="aem-video"],
     [data-apos-widget-wrapper="apostrophe-images"],
+    [data-apos-widget-wrapper="aem-source"],
     [data-apos-widget="apostrophe-rich-text"] > .apos-rich-text {
       @include ui.cmsOutline();
     }

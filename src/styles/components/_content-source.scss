@@ -1,0 +1,6 @@
+@use '../common/ui' as ui;
+
+
+.content-source {
+  @include ui.paragraph();
+}

@@ -579,6 +579,12 @@
       "notesWarning": "Les commanditaires peuvent voir ces notes, assurez-vous d'être professionnels et respectueux."
     }
   },
+  "source": {
+    "prefix": "— Source :",
+    "openGraph": "métadonnées OpenGraph",
+    "twitterCard": "métadonnées TwitterCard",
+    "websiteMetadata": "métadonnées du site web"
+  },
 
   "pages": {
     "home": {

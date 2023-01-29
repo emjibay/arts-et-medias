@@ -580,6 +580,12 @@
       "notesWarning": "Sponsors may view these notes, ensure to remain professional and respectful."
     }
   },
+  "source": {
+    "prefix": "— Source:",
+    "openGraph": "OpenGraph metadata",
+    "twitterCard": "TwitterCard metadata",
+    "websiteMetadata": "website metadata"
+  },
 
   "pages": {
     "home": {

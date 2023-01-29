@@ -1,0 +1,18 @@
+{%- set widget = data.widget -%}
+
+
+<p class="content-source">
+  {%- set prefix = __('source|prefix') -%}
+
+  {%- if widget.sourceType === 'openGraph' -%}
+    {%- set text = prefix + ' ' + __('source|openGraph') -%}
+  {%- elseif widget.sourceType === 'twitterCard' -%}
+    {%- set text = prefix + ' ' + __('source|twitterCard') -%}
+  {%- elseif widget.sourceType === 'websiteMetadata' -%}
+    {%- set text = prefix + ' ' + __('source|websiteMetadata') -%}
+  {%- elseif widget.sourceType === 'custom' -%}
+    {%- set text = prefix + ' ' + widget.source -%}
+  {%- endif -%}
+
+  {{ text }}{%- if widget.isTranslated -%}, {{ widget.translationMethod }}{%- endif -%}
+</p>
