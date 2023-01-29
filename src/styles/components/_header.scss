@@ -94,6 +94,12 @@
           @include ui.focusOutline();
         }
 
+        &:hover {
+          color: vars.$main;
+          text-decoration: underline;
+          text-decoration-thickness: 2px;
+        }
+
         .summary-caret {
           display: inline-block;
           height: 10px;
@@ -117,8 +123,6 @@
       }
 
       &[open] { 
-        // background-color: red;
-
         .summary-caret {
           top: 26px;
           transform: scaleY(-1);
