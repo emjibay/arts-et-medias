@@ -22,7 +22,7 @@
     "apostrophe-db-mongo-3-driver": "2.0.1",
     "apostrophe-rich-text-permalinks": "2.0.5",
     "apostrophe-workflow": "2.40.2",
-    "citation-js": "0.6.4",
+    "citation-js": "0.6.5",
     "dotenv": "8.2.0",
     "focus-visible": "5.2.0",
     "lodash": "4.17.21",
