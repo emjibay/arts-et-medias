@@ -96,7 +96,8 @@
     @include ui.inputLabel();
   }
 
-  .featured-article-widget {
+  .featured-article-widget,
+  .featured-project-widget {
     // HERO IMAGE - START
     .image-container {
       overflow: hidden;
