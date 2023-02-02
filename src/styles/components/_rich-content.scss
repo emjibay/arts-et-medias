@@ -84,7 +84,8 @@
 }
 
 [lang="en"] {
-  .rich-content {
+  .rich-content,
+  .rich-description {
     blockquote {
       &::before {
         content: '“';
@@ -111,7 +112,8 @@
 }
 
 [lang="fr"] {
-  .rich-content {
+  .rich-content,
+  .rich-description {
     blockquote {
       &::before {
         content: '«';

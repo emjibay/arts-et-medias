@@ -5,13 +5,15 @@
 {%- set siteName = __('global|title') -%}
 
 {# site description #}
-{%- set siteDescription = __('global|description') -%}
-
-{# approx tweet-size #}
-{%- set maxDescriptionLength = 250 -%}
+{%- set siteDescription = __('global|longDescription') -%}
 
 
 {# internal macros #}
+{% macro basicWebsiteMetaData(options) %}
+  <meta property="website" content="{{ options.baseUrl }}" />
+  <meta property="description" content="{{ options.description }}" />
+{% endmacro %}
+
 {%- macro openGraph(options) -%}
   <meta property="og:title" content="{{ options.title }}" />
   <meta property="og:description" content="{{ options.description }}" />
@@ -34,6 +36,8 @@
 
 {# exported macros #}
 {%- macro minimalMetaData(options) -%}
+  {{ basicWebsiteMetaData(option) }}
+
   {{
     openGraph({
       title: options.title,
@@ -44,8 +48,6 @@
       locale: options.locale
     })
   }}
-
-  <meta property="website" content="{{ options.baseUrl }}" />
 {%- endmacro -%}
 
 {%- macro descriptiveMetaData(options) -%}
@@ -60,12 +62,11 @@
     }
   -%}
 
+  {{ basicWebsiteMetaData(metadataOptions) }}
+
   {{ openGraph(metadataOptions) }}
 
   {{ twitterCard(metadataOptions) }}
-
-  {# other #}
-  <meta property="website" content="{{ options.baseUrl }}" />
 {%- endmacro -%}
 
 {%- macro articleMetaData(options) -%}
@@ -79,6 +80,8 @@
       locale: options.locale
     }
   -%}
+
+  {{ basicWebsiteMetaData(metadataOptions) }}
 
   <meta property="og:type" content="article" />
   {{ openGraph(metadataOptions) }}
@@ -105,6 +108,8 @@
       locale: options.locale
     }
   -%}
+
+  {{ basicWebsiteMetaData(metadataOptions) }}
 
   <meta property="og:type" content="book" />
   {{ openGraph(metadataOptions) }}
