@@ -1,3 +1,8 @@
+{%- set twitterColumnHeight = 420 -%}
+{%- if (apos.aemPieces.hasFeaturedArticle(data)) -%}
+  {%- set twitterColumnHeight = 920 -%}
+{%- endif -%}
+
 <div class="twitter-timeline-container">
   <a
     class="twitter-timeline"
@@ -6,7 +11,7 @@
     data-lang="en"
     data-link-color="#1276D3"
     data-chrome="noheader nofooter transparent"
-    data-height="420"
+    data-height={{ twitterColumnHeight }}
   ></a>
 
   <a
