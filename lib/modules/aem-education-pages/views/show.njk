@@ -66,14 +66,16 @@
 
   <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
   <div class="description rich-description">
-    {{
-      apos.singleton(
-        piece,
-        'description',
-        'apostrophe-rich-text',
-        fixedRichTextOptions
-      )
-    }}
+    <div class="rich-content">
+      {{
+        apos.singleton(
+          piece,
+          'description',
+          'apostrophe-rich-text',
+          fixedRichTextOptions
+        )
+      }}
+    </div>
   </div>
 
   {{ websiteCTA(piece) }}
