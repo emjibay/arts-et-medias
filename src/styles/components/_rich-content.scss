@@ -89,20 +89,12 @@
     blockquote {
       &::before {
         content: '“';
-
-        // outside
-        // margin-top: -20px;
-
         // top left corner
         margin-top: 2.5px;
         left: 10px;
       }
       &::after {
         content: '”';
-
-        // outside
-        // margin-top: 10px;
-
         // bottom right corner
         margin-top: -15px;
         right: 10px;
@@ -117,20 +109,12 @@
     blockquote {
       &::before {
         content: '«';
-
-        // outside
-        // margin-top: -35px;
-
         // top left corner
         margin-top: -10px;
         left: 5px;
       }
       &::after {
         content: '»';
-
-        // outside
-        // margin-top: -5px;
-
         // bottom right corner
         margin-top: -25px;
         right: 5px;
@@ -146,14 +130,14 @@
     .video-figure,
     .apos-video-player,
     .apos-rich-text,
-    [data-apos-widget="aem-anchor-heading"],
-    [data-apos-widget="aem-source"],
     [data-apos-widget-wrapper="apostrophe-images"] {
       margin-bottom: $draftMargin;
     }
 
     .apos-area-widget-wrapper {
-      &[data-apos-widget-wrapper="aem-link"] {
+      &[data-apos-widget-wrapper="aem-anchor-heading"],
+      &[data-apos-widget-wrapper="aem-link"],
+      &[data-apos-widget-wrapper="aem-source"] {
         margin-bottom: $draftMargin;
 
         .apos-ui {
