@@ -84,6 +84,9 @@
       }
 
       .summary {
+        display: inline-flex;
+        align-items: center;
+        height: auto;
         cursor: pointer;
 
         &::marker {
@@ -100,20 +103,20 @@
           text-decoration-thickness: 2px;
         }
 
+        .summary-content {
+          display: inline-flex;
+          margin-left: 10px;
+        }
+
         .summary-caret {
-          display: inline-block;
-          height: 10px;
-          pointer-events: none;
+          display: inline-flex;
           position: relative;
-          top: -2px;
+          height: 7px;
           width: 10px;
+          pointer-events: none;
           transition:
             transform 125ms,
             top 125ms;
-    
-          @media #{ vars.$mqDesktop } {
-            top: -2px;
-          }
         }
       }
 
@@ -124,7 +127,6 @@
 
       &[open] { 
         .summary-caret {
-          top: 26px;
           transform: scaleY(-1);
           transition:
             transform 250ms,
