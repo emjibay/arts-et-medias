@@ -22,14 +22,6 @@
 {% endblock %}
 
 {% block pageContent %}
-  {%- set allPeople = data.peopleByTitle|length -%}
-  {%- set publicPeople = data.publicPeopleByTitle|length -%}
-  <div style="color:blue; font-size:14pt; font-family:monospace; word-wrap:word-break;">
-    allPeople: {{ allPeople|json }}
-    <br>
-    publicPeople: {{ publicPeople|json }}
-  </div>
-
   {# pieces list #}
   {%-
     set filteredPieces = apos.aemPieces.getWithTags(
