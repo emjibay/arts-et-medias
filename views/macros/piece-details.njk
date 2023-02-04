@@ -41,11 +41,11 @@
   {%- endif -%}
 {%- endmacro -%}
 
-{% macro relatedPieces(label, pieces) %}
+{% macro relatedPieces(label, pieces, options) %}
   {%- if (pieces and pieces|length > 0) -%}
     <dl class="piece-props-list">
       <dt>{{ label }}</dt>
-      <dd>{{ sortedPieceLinkList(pieces) }}</dd>
+      <dd>{{ sortedPieceLinkList(pieces, options) }}</dd>
     </dl>
   {%- endif -%}
 {% endmacro %}

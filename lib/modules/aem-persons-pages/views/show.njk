@@ -9,6 +9,7 @@
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set isAdmin = apos.aemUsers.isUserAdmin(data.user) -%}
 {%- set piece = data.piece -%}
 {%- set hasProfilePic = apos.aemPieces.hasProfilePic(piece) -%}
 {%- set mainLBOptions = { data: data, propName: 'peopleLeaderboard' } -%}
@@ -51,6 +52,12 @@
 {% block pageContent %}
   <h2 class="sr-only">{{ __('pieceDetails|descriptionLabel') }}</h2>
 
+  {%- if piece.isPrivate -%}
+    <div class="private">
+      <div class="message">{{ __('people|privateLabel') }}</div>
+    </div>
+  {%- endif -%}
+
   {%- if hasProfilePic -%}
     <div class="profile-pic-container">
       {% include "partials/people/profile-pic.njk" %}
@@ -90,19 +97,22 @@
   {{
     relatedPieces(
       __('pieceDetails|articlesAuthorLabel'),
-      piece._articles
+      piece._articles,
+      { isAdmin: isAdmin }
     )
   }}
   {{
     relatedPieces(
       __('pieceDetails|articlesTranslatorLabel'),
-      piece._articlesTranslated
+      piece._articlesTranslated,
+      { isAdmin: isAdmin }
     )
   }}
   {{
     relatedPieces(
       __('articles|related'),
-      piece._articlesMentioned
+      piece._articlesMentioned,
+      { isAdmin: isAdmin }
     )
   }}
 

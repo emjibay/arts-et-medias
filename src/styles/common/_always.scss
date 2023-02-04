@@ -173,18 +173,19 @@ body {
       border: 4px dashed vars.$green;
     }
 
+    [data-apos-widget-wrapper="aem-anchor-heading"],
     [data-apos-widget-wrapper="aem-articles-featured"],
     [data-apos-widget-wrapper="aem-banner-ads"],
     [data-apos-widget-wrapper="aem-books-featured"],
     [data-apos-widget-wrapper="aem-education-featured"],
     [data-apos-widget-wrapper="aem-education-featured"],
     [data-apos-widget-wrapper="aem-events-featured"],
+    [data-apos-widget-wrapper="aem-link"],
     [data-apos-widget-wrapper="aem-organizations-featured"],
     [data-apos-widget-wrapper="aem-projects-featured"],
-    [data-apos-widget-wrapper="aem-link"],
+    [data-apos-widget-wrapper="aem-source"],
     [data-apos-widget-wrapper="aem-video"],
     [data-apos-widget-wrapper="apostrophe-images"],
-    [data-apos-widget-wrapper="aem-source"],
     [data-apos-widget="apostrophe-rich-text"] > .apos-rich-text {
       @include ui.cmsOutline();
     }

@@ -157,6 +157,7 @@
     "url": "/fr/articles",
     "singular": "article",
     "plural": "articles",
+    "privateLabel": "Cet article est privé, seules certaines personnes peuvent le voir.",
     "featured": "Article vedette",
     "sponsored": "Article commandité",
     "related": "Articles associés",
@@ -476,6 +477,7 @@
     "url": "/fr/personnes",
     "singular": "personne",
     "plural": "personnes",
+    "privateLabel": "Le profil de cette personne est privé, seules certaines personnes peuvent le voir.",
     "featured": "Personne vedette",
     "sponsored": "Personne commanditée",
     "related": "Personnes associées",
@@ -668,6 +670,7 @@
     "noResultsSuggestion": "Assurez-vous de vérifier votre orthographe ou utilisez des termes plus généraux.",
     "filterLabel": "Filtrer les résultats par type",
     "filterAllLabel": "Tous",
+    "privateTagLabel": "privé",
     "tipsHeading": "Conseils pour chercher",
     "tips": [
       "Si vous souhaitez chercher pour une expression, assurez-vous de l'écrire entre guillemets dactylographiques, ex. : <em>\"nouveaux arts médiatiques\"</em>",

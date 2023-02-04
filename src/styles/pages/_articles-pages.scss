@@ -21,6 +21,19 @@
 }
 
 .article-details {
+  .private {
+    @include ui.cmsOutline(vars.$red);
+    margin: fn.whitespace(2) 0;
+    background-color: rgba(vars.$red, 0.125);
+    padding: 20px;
+
+    .message {
+      font-family: vars.$ffTextBody;
+      font-size: vars.$fsSmol;
+      line-height: 1.25;
+    }
+  }
+
   .subheading {
     margin: fn.whitespace(1) 0 0 0;
     position: relative;

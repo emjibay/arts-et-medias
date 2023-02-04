@@ -11,6 +11,7 @@
 
 
 {%- set locale = apos.aemI18n.getSanitizedLocale(data) -%}
+{%- set isAdmin = apos.aemUsers.isUserAdmin(data.user) -%}
 {%- set piece = data.piece -%}
 {%- set authors = apos.aemAuthors.getArrayFromArticle(piece) -%}
 {%- set mainLBOptions = { data: data, propName: 'articlesLeaderboard' } -%}
@@ -81,13 +82,19 @@
       </p>
     {%- endif -%}
 
-    {{ pieceLinkList(piece._originalAuthor) }}
+    {{ pieceLinkList(piece._originalAuthor, { isAdmin: isAdmin }) }}
 
     {%- if piece.citationPublication -%}
       <p class="publication-name">{{ piece.citationPublication }}</p>
     {%- endif -%}
 
     <p class="publication-date">{{ apos.aemDates.format(piece.publicationDate, locale) }}</p>
+
+    {%- if piece.isPrivate -%}
+      <div class="private">
+        <div class="message">{{ __('articles|privateLabel') }}</div>
+      </div>
+    {%- endif -%}
 
     {%- if piece.isSponsored -%}
       <div class="sponsored-tag">
@@ -131,7 +138,7 @@
   {%- endif -%}
 
   {%- set isMention = piece.articleType === 'mention' -%}
-  {%- if isMention -%}
+  {%- if isMention or piece.externalLink -%}
     <div class="mention">
       {{
         externalCTA({
@@ -141,7 +148,9 @@
           isSponsored: piece.isSponsored
         })
       }}
-      <p class="mention-notes">{{ __('articles|notOriginallyPublishedHere') }}</p>
+      {%- if isMention -%}
+        <p class="mention-notes">{{ __('articles|notOriginallyPublishedHere') }}</p>
+      {%- endif -%}
     </div>
   {%- endif -%}
 
@@ -176,7 +185,13 @@
 
   {# articles #}
   {%- set relatedArticles = apos.aemArrays.merge(piece._relatedArticles, piece._articles) -%}
-  {{ relatedPieces(__('articles|related'), relatedArticles) }}
+  {{
+    relatedPieces(
+      __('articles|related'),
+      relatedArticles,
+      { isAdmin: isAdmin }
+    )
+  }}
 
   {# books #}
   {{ relatedPieces(__('books|related'), piece._relatedBooks) }}
@@ -188,7 +203,13 @@
   {{ relatedEvents(piece._relatedEvents) }}
 
   {# people #}
-  {{ relatedPieces(__('people|related'), piece._relatedPeople) }}
+  {{
+    relatedPieces(
+      __('people|related'),
+      piece._relatedPeople,
+      { isAdmin: isAdmin }
+    )
+  }}
 
   {# organizations #}
   {{ relatedOrganizations(piece._relatedOrganizations) }}
