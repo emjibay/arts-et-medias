@@ -28,6 +28,11 @@
       }
     }
 
+    .piece-no-link {
+      color: vars.$black;
+      font-size: vars.$fsTextBody;
+    }
+
     .piece-link {
       @include ui.anchor();
       color: vars.$black;

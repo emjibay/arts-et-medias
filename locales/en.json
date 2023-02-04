@@ -158,6 +158,7 @@
     "url": "/en/articles",
     "singular": "article",
     "plural": "articles",
+    "privateLabel": "Article is private, only certain people may see it.",
     "featured": "Featured Article",
     "sponsored": "Sponsored Article",
     "related": "Related Articles",
@@ -477,6 +478,7 @@
     "url": "/en/people",
     "singular": "person",
     "plural": "people",
+    "privateLabel": "Person profile is private, only certain people may see it.",
     "featured": "Featured Person",
     "sponsored": "Sponsored Person",
     "related": "Related People",
@@ -669,6 +671,7 @@
     "noResultsSuggestion": "Try checking your spelling or use more general terms.",
     "filterLabel": "Filter results by type",
     "filterAllLabel": "All",
+    "privateTagLabel": "private",
     "tipsHeading": "Tips for searching",
     "tips": [
       "If you wish to search for an expression, ensure to wrap it in double quotes, e.g. <em>\"new media art\"</em>",

@@ -1,4 +1,5 @@
 @use '../common/variables' as vars;
+@use '../common/ui' as ui;
 @use '../mixins/functions' as fn;
 
 
@@ -32,9 +33,22 @@
 
 
 // styles
-.people-index {}
+// .people-index {}
 
 .person-details {
+  .private {
+    @include ui.cmsOutline(vars.$red);
+    margin: fn.whitespace(2) 0;
+    background-color: rgba(vars.$red, 0.125);
+    padding: 20px;
+
+    .message {
+      font-family: vars.$ffTextBody;
+      font-size: vars.$fsSmol;
+      line-height: 1.25;
+    }
+  }
+
   .profile-pic-container {
     margin: fn.whitespace(3) 0;
     width: 100%;

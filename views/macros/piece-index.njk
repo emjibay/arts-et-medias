@@ -334,10 +334,22 @@
 
               <div class="piece-cta">{{ __('global|seeMoreCTA') }}</div>
 
-              {%- set pieceType = apos.aemPieces.getSanitizedType(piece) -%}
-              <div class="tag">
-                {{ __('pieceDetails|types|' + pieceType) }}
-              </div>
+              <ul class="tag-list">
+                {%- if (piece.isPrivate) -%}
+                  <li class="tag-list-item">
+                    <div class="tag">
+                      {{ __('search|privateTagLabel') }}
+                    </div>
+                  </li>
+                {%- endif -%}
+                <li class="tag-list-item">
+                  {%- set pieceType = apos.aemPieces.getSanitizedType(piece) -%}
+                  <div class="tag">
+                    {{ __('pieceDetails|types|' + pieceType) }}
+                  </div>
+                </li>
+              </ul>
+
             </article>
           </a>
         </li>

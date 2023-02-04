@@ -1,16 +1,44 @@
-{%- macro pieceLinkList(pieces) -%}
+{# private macros #}
+{%- macro allPiecesLinkList(pieces) -%}
   <ul class="piece-link-list">
-    {% for piece in pieces %}
+    {%- for piece in pieces -%}
       <li><a
-          class="piece-link"
-          href="{{ piece._url }}"
+        class="piece-link"
+        href="{{ piece._url }}"
       >{{ piece.title }}</a></li>
-    {% endfor %}
+    {%- endfor -%}
   </ul>
 {%- endmacro -%}
 
-{%- macro sortedPieceLinkList(pieces) -%}
-  {{ pieceLinkList(apos.aemPieces.sortByTitle(pieces)) }}
+{%- macro publicPiecesLinkList(pieces) -%}
+  <ul class="piece-link-list">
+    {%- for piece in pieces -%}
+      {%- if piece.isPrivate -%}
+        <li><span
+          class="piece-no-link"
+        >{{ piece.title }}</li>
+      {%- else -%}
+        <li><a
+          class="piece-link"
+          href="{{ piece._url }}"
+        >{{ piece.title }}</a></li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+{%- endmacro -%}
+
+
+{# public macros #}
+{%- macro pieceLinkList(pieces, options) -%}
+  {%- if options and options.isAdmin -%}
+    {{ allPiecesLinkList(pieces) }}
+  {%- else -%}
+    {{ publicPiecesLinkList(pieces) }}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro sortedPieceLinkList(pieces, options) -%}
+  {{ pieceLinkList(apos.aemPieces.sortByTitle(pieces), options) }}
 {%- endmacro -%}
 
 {%- macro authorsLinkList(authors, editors, editorLabel) -%}
