@@ -138,7 +138,7 @@
   {%- endif -%}
 
   {%- set isMention = piece.articleType === 'mention' -%}
-  {%- if isMention -%}
+  {%- if isMention or piece.externalLink -%}
     <div class="mention">
       {{
         externalCTA({
@@ -148,7 +148,9 @@
           isSponsored: piece.isSponsored
         })
       }}
-      <p class="mention-notes">{{ __('articles|notOriginallyPublishedHere') }}</p>
+      {%- if isMention -%}
+        <p class="mention-notes">{{ __('articles|notOriginallyPublishedHere') }}</p>
+      {%- endif -%}
     </div>
   {%- endif -%}
 
