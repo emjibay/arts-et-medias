@@ -3,7 +3,7 @@
   "description": "Discoveries, references, critical content, and resources on Media Art.",
   "author": "Mat Janson Blanchet <mat.jb@jansensan.net>",
   "license": "MIT",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "main": "app.js",
   "engines": {
     "node": "16"
